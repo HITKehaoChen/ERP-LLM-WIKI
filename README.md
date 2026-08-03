@@ -25,6 +25,21 @@ python scripts/run_app.py
 
 打开 http://127.0.0.1:8000 即可浏览/检索知识、向知识库提问（可配置 `OPENAI_API_KEY` 启用 LLM 回答，未配置时自动降级为本地检索）、以及补充新知识到待摄入箱。详见 [app/README.md](app/README.md)。
 
+界面包含四个页签：**检索**（搜索结果+页面阅读）、**知识图谱**（力导向图，节点=知识页、边=交叉引用，可拖拽/缩放/点击跳转）、**提问**（对话式问答）、**补充知识**（待摄入箱管理）。支持明暗主题与移动端自适应。
+
+## 测试基线
+
+每次修改后运行（UT + 进程内冒烟 + 真实启动 E2E + wiki lint）：
+
+```powershell
+python scripts/run_checks.py
+```
+
+- `scripts/unit_tests.py`：分词、检索、Markdown 渲染、路径安全、图谱、ingest dry-run 等纯逻辑测试。
+- `scripts/test_app.py`：进程内 API 冒烟测试。
+- `scripts/e2e_test.py`：以真实子进程启动应用，逐项验证首页/静态资源/检索/页面/原始章节/图谱/问答/补充知识/404。
+- `scripts/lint_wiki.py`：wiki 断链/孤儿页/frontmatter 检查。
+
 ## 目录速览
 
 - [wiki/index.md](wiki/index.md) — 内容索引

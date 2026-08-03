@@ -86,6 +86,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._raw(qs)
         if path == "/api/inbox":
             return self._inbox()
+        if path == "/api/graph":
+            return self._graph()
         self._json(404, {"error": "not found"})
 
     def do_POST(self) -> None:
@@ -214,6 +216,9 @@ class Handler(BaseHTTPRequestHandler):
 
     def _inbox(self) -> None:
         self._json(200, {"items": knowledge.list_inbox()})
+
+    def _graph(self) -> None:
+        self._json(200, knowledge.build_graph())
 
 
 class ThreadedApp(ThreadingHTTPServer):

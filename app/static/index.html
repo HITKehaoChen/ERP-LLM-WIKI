@@ -1,84 +1,109 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Oracle EBS R12.2 LLM Wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Oracle EBS R12.2 · LLM Wiki</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-  <header>
-    <h1>Oracle EBS R12.2 · LLM Wiki</h1>
-    <div id="health" class="health">…</div>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">◆</span>
+      <span class="brand-text">EBS <b>LLM Wiki</b></span>
+    </div>
+    <div class="global-search">
+      <input id="global-q" type="search" placeholder="搜索知识，如：销售订单 状态、WIP 倒冲…" autocomplete="off">
+      <button id="global-search-btn" aria-label="搜索">⌕</button>
+    </div>
+    <div class="top-actions">
+      <span id="health" class="pill">…</span>
+      <button id="theme-toggle" class="icon-btn" title="切换主题">🌙</button>
+    </div>
   </header>
 
-  <nav class="tabs">
-    <button data-tab="browse" class="active">浏览与检索</button>
-    <button data-tab="ask">提问</button>
-    <button data-tab="ingest">补充知识</button>
+  <nav class="tabs" role="tablist" aria-label="主导航">
+    <button data-tab="browse" class="active" role="tab">🔍 检索</button>
+    <button data-tab="graph" role="tab">🕸️ 知识图谱</button>
+    <button data-tab="ask" role="tab">💬 提问</button>
+    <button data-tab="ingest" role="tab">➕ 补充知识</button>
   </nav>
 
   <main>
     <!-- ============ browse ============ -->
-    <section id="tab-browse" class="tab active">
-      <div class="row">
-        <input id="search-q" type="text" placeholder="输入关键词，如：销售订单 状态 Booked">
-        <label class="chk"><input id="search-raw" type="checkbox"> 同时搜官方章节正文</label>
-        <button id="search-btn">搜索</button>
-      </div>
-      <div class="row">
-        <div class="col">
+    <section id="tab-browse" class="tab active" role="tabpanel">
+      <div class="browse-grid">
+        <aside class="panel results-panel">
+          <div class="search-row">
+            <input id="search-q" type="search" placeholder="输入关键词…" autocomplete="off">
+            <label class="chk"><input id="search-raw" type="checkbox"> 官方章节</label>
+            <button id="search-btn" class="primary">搜索</button>
+          </div>
           <h2 id="results-title">全部页面</h2>
           <div id="results" class="results"></div>
-        </div>
-        <div class="col viewer">
+        </aside>
+        <section class="panel viewer">
           <h2>页面内容</h2>
-          <div id="page-view"><p class="muted">选择左侧页面查看。</p></div>
-          <div id="page-meta" class="muted small"></div>
-        </div>
+          <div id="page-meta" class="meta-line"></div>
+          <div id="page-view" class="page-body"><p class="muted">选择左侧页面查看；也可在“知识图谱”中漫游。</p></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ============ graph ============ -->
+    <section id="tab-graph" class="tab" role="tabpanel">
+      <div class="graph-toolbar">
+        <span class="muted">拖拽节点 · 滚轮缩放 · 点击节点打开页面</span>
+        <button id="graph-reload" class="secondary">重新布局</button>
+      </div>
+      <div class="graph-wrap">
+        <canvas id="graph-canvas"></canvas>
+        <div id="graph-legend" class="graph-legend"></div>
       </div>
     </section>
 
     <!-- ============ ask ============ -->
-    <section id="tab-ask" class="tab">
-      <div class="row">
-        <textarea id="ask-q" rows="4" placeholder="向知识库提问，例如：订单行在什么情况下会进入 Awaiting Invoice Interface - On Hold？"></textarea>
+    <section id="tab-ask" class="tab" role="tabpanel">
+      <div id="chat" class="chat" aria-live="polite">
+        <div class="msg assistant">
+          <div class="avatar">🤖</div>
+          <div class="bubble">你好，我是知识库助手。可以问我 Oracle EBS 的业务流程、状态机、事务规则、账户推导等问题。</div>
+        </div>
       </div>
-      <div class="row">
-        <label class="chk"><input id="ask-raw" type="checkbox" checked> 检索时包含官方章节正文</label>
-        <button id="ask-btn">提问</button>
-        <span id="ask-mode" class="badge"></span>
-      </div>
-      <div id="answer" class="answer"></div>
-      <div id="citations" class="citations"></div>
-      <div class="row">
-        <button id="copy-prompt" style="display:none">复制给 Codex 的 Prompt</button>
+      <div class="ask-bar">
+        <textarea id="ask-q" rows="2" placeholder="输入问题，Enter 发送，Shift+Enter 换行"></textarea>
+        <label class="chk"><input id="ask-raw" type="checkbox" checked> 含官方章节</label>
+        <button id="ask-btn" class="primary">发送</button>
       </div>
     </section>
 
     <!-- ============ ingest ============ -->
-    <section id="tab-ingest" class="tab">
-      <div class="row">
-        <input id="in-title" type="text" placeholder="标题（必填）">
+    <section id="tab-ingest" class="tab" role="tabpanel">
+      <div class="ingest-grid">
+        <form id="ingest-form" class="panel">
+          <h2>补充知识</h2>
+          <label>标题（必填）<input id="in-title" type="text" placeholder="如：XX 模块配置要点"></label>
+          <label>来源 URL（选填）<input id="in-url" type="text" placeholder="https://…"></label>
+          <label>内容（必填，建议附原文/章节证据）
+            <textarea id="in-content" rows="10" placeholder="粘贴知识内容…"></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="primary">保存到待摄入箱</button>
+            <span id="in-result" class="muted"></span>
+          </div>
+          <p class="muted small">保存后写入 <code>sources/inbox/</code> 并追加到 wiki/log.md，之后可让 Codex 正式摄入。</p>
+        </form>
+        <aside class="panel">
+          <h2>待摄入箱</h2>
+          <div id="inbox-list" class="results"></div>
+        </aside>
       </div>
-      <div class="row">
-        <input id="in-url" type="text" placeholder="来源 URL（选填）">
-      </div>
-      <div class="row">
-        <textarea id="in-content" rows="12" placeholder="知识内容（必填）。建议附上原文/章节/页码等证据信息。"></textarea>
-      </div>
-      <div class="row">
-        <button id="in-btn">保存到待摄入箱</button>
-        <span id="in-result" class="muted"></span>
-      </div>
-      <p class="muted small">保存后写入 <code>sources/inbox/</code> 并追加到 wiki/log.md；之后可让 Codex 正式摄入成 T1/T2 知识页。</p>
-      <h2>待摄入箱</h2>
-      <div id="inbox-list" class="results"></div>
     </section>
   </main>
 
   <footer class="muted small">
-    本地知识库 · 数据来源：Oracle EBS R12.2 官方公开文档（docs.oracle.com）· 未经实例验证的内容均标注留白
+    Oracle EBS R12.2 标品文档知识库 · 本地服务 · 未经实例验证的内容均已标注留白
   </footer>
   <script src="/static/app.js"></script>
 </body>

@@ -80,6 +80,46 @@ Authorized to Ship - Line、Buy ATO Item Flow、Calculate Lead Time - Line、Clo
 
 行级各变体（ATO Item/ATO Model/Configuration/RLM/Export Compliance/Bill Only/Ship Only/Repricing/Return 系列/Standard Service）的活动表均在本章正文。
 
+## 9. 各工作流变体活动（T1，官方活动表）
+
+来源：e48844 “Seeded Workflow Definitions” 章（[T393423T393429.htm](../../sources/docs/e48844/chapters/T393423T393429.htm)）。
+
+### 头级流程
+
+| 流程 | 活动（函数） |
+| --- | --- |
+| Order Flow - Generic | Enter（NOOP）→ End（NOOP） |
+| Order Flow - Generic with Header Level Invoice | Enter（NOOP）→ End（NOOP）（Book/Invoice/Close 为子流程） |
+| Order Flow - Return with Approval | Enter（NOOP）→ End（NOOP）（Approve Return 为子流程） |
+
+### 行级主流程
+
+| 流程 | 活动（函数） |
+| --- | --- |
+| Line Flow - ATO Item | Fulfill - Deferred（DEFER）→ Fulfill（OE_FULFILL_WF.START_FULFILLMENT）→ End |
+| Line Flow - ATO Model | Fulfill - Deferred → Fulfill → End（子流程：Enter/Schedule/Create Configuration/Invoice Interface Deferred/Close） |
+| Line Flow - Configuration | Start（NOOP）→ Fulfill - Deferred → Fulfill → End |
+| Line Flow - Configuration with Authorize to Ship (RLM) | Start → Configuration - Check Status（CTO_WORKFLOW.CHECK_RESERVATION_STATUS_WF，结果 Config Data Results）→ Fulfill - Deferred → Fulfill → End |
+| Line Flow - Generic | Fulfill - Deferred → Fulfill → End |
+| Line Flow - Generic with Authorize to Ship (RLM) | Fulfill - Deferred → Fulfill → End |
+| Line Flow - Generic with Export Compliance | Fulfill - Deferred → Fulfill → End |
+| Line Flow - Generic, Bill Only / Bill Only with Inventory Interface | Fulfill → End |
+| Line Flow - Generic, Ship Only / with Repricing at Fulfillment | Fulfill - Deferred → Fulfill → End |
+| Line Flow - Standard Service | Fulfill - Deferred → Fulfill → End |
+
+### 退货/信贷行流程
+
+| 流程 | 活动（函数） |
+| --- | --- |
+| Return for Credit Only | End（其余为子流程） |
+| Return for Credit Only with Approval | Wait for Approval（WAITFORFLOW）→ End |
+| Return for Credit Only with Approval and Hdr Inv | Enter – Line → Wait for Approval → Fulfill - Deferred → Fulfill → Header Level Invoice Interface for Return Line w/o Receipt → Close - Line → End |
+| Return for Credit with Receipt | Fulfill - Deferred → Fulfill → End |
+| Return for Credit with Receipt and Approval | Wait for Approval → Fulfill - Deferred → Fulfill → End |
+| Return with Receipt Only, No Credit | Fulfill - Deferred → Fulfill → End |
+
+> 说明：部分表格在主流程层只列 Fulfill/End，其余动作（Schedule/Ship/Invoice/Close）由子流程承载；个别表解析仅得 End 行的以原文为准。
+
 ## 证据
 
 - e48844：https://docs.oracle.com/cd/E26401_01/doc.122/e48844/T393423T393429.htm（流程）、T393423T393430.htm（子流程）

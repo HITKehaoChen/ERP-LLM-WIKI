@@ -70,13 +70,17 @@ def parse_booklist(html: str) -> list[dict]:
         pdf_m = re.search(r'<a href="([^"]+\.pdf)"', raw, re.I)
         part_m = re.search(r"doc\.122/([a-z0-9]+)", toc_url, re.I)
         legacy_broken = "/h/uaework/tmp/archive/" in toc_url
+        pdf_url = urljoin(BASE, pdf_m.group(1)) if pdf_m else ""
+        if not pdf_url and part_m:
+            # Legacy booklist entries omit the PDF link; the standard path works.
+            pdf_url = urljoin(BASE, f"doc.122/{part_m.group(1).lower()}.pdf")
         books.append(
             {
                 "title": title,
                 "part_number": part_m.group(1).lower() if part_m else "",
                 "toc_url": toc_url,
                 "toc_url_status": "legacy_broken" if legacy_broken else "ok",
-                "pdf_url": urljoin(BASE, pdf_m.group(1)) if pdf_m else "",
+                "pdf_url": pdf_url,
                 "description": clean(info_m.group(1)) if info_m else "",
             }
         )

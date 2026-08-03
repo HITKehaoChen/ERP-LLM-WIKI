@@ -122,6 +122,48 @@ updated: 2026-08-04
 - 发票匹配收货：用发票价；无发票用 PO 价；汇率按发票时点 / Match to PO / Match to Receipt 决定。
 - 部分期间运行必须从期间首日开始；全部成本组处理完整才能关账；期间开放时可重跑取得成本处理器（会清除旧结果），关闭后用 Periodic Cost Update 手工调整。
 
+## 3.4 标准成本 · 制造事务分录（逐项，T1）
+
+来源：[T372621T373688.htm](../../sources/docs/e48829/chapters/T372621T373688.htm)（以下均为标准成本默认账户；SLA 自定义后不适用）。
+
+### 资源事务（Resource Charges）
+
+- 四种自动计费方式：Manual、WIP Move、PO Move、PO Receipt；可按实际费率计费。
+- 分录：WIP accounting class resource valuation 借、Resource absorption 贷；反向（负工时/回退移动）借贷互换。
+- WIP Move 自动计费按标准费率，无资源费率/效率差异；按实际费率且关闭 “charge standard rate” 时产生差异。
+
+### 外协（Outside Processing）
+
+- PO Receipt/PO Move 收货时按标准或实际 PO 价计资源；启用 Standard Rates 时按标准价计 WIP、差额进 PPV。
+- 分录：WIP accounting class OSP valuation 借、PPV（实际>标准借方/实际<标准贷方）、Organization Receiving 贷；退供应商反向。
+- 禁用 Standard Rates 时按 PO 价计：WIP valuation 借、Organization Receiving 贷（无 PPV）；数量/用量差异在期间关闭时作为外协效率差异。
+
+### 间接费（Overhead）
+
+- 分录：WIP accounting class overhead 借、Overhead absorption 贷；反向互置。
+
+### 报废（Assembly Scrap）
+
+- 移入 scrap 步骤视为操作完成（倒冲+计资源/间接费）；WIP 参数可要求 scrap 账户。
+- 分录：Scrap account 借、WIP valuation @计算报废价值 贷；恢复报废反向。
+- 未输 scrap 账户时，报废成本留在任务中直到任务/期间关闭。
+
+### 完工（Assembly Completion）
+
+- 分录：Subinventory elemental accounts 借、WIP accounting class valuation 贷（按标准成本）。
+- 完工赚取物料间接费（标准任务/重复性计划）：Subinventory material overhead 借、Inventory material overhead absorption 贷；非标准资产/费用任务：Subinventory material overhead 借、WIP accounting class material overhead 贷（冲销已含间接费，不重复赚取）。
+
+### 任务关闭（Job Close）
+
+- 计算最终成本与差异；实际关闭日期决定确认差异的会计期间（可回溯到开放期间）。
+- 正余额：WIP accounting class variance 借、WIP accounting class valuation 贷（关闭后任务余额归零）。
+
+### 期间关闭（Period Close）
+
+- 非标准费用任务与重复性计划在期间关闭时确认差异（新期间期初 WIP 余额为零）。
+- 重复性计划可配置为“全部计划”或“仅 Complete-No Charges / Cancelled”确认差异。
+- 分录（正余额）：WIP accounting class variance 借、valuation 贷。
+
 ## 4. 相关页面
 
 - [Inventory 账户设置与科目推导（T1）](inventory-accounting.md)
@@ -130,5 +172,5 @@ updated: 2026-08-04
 
 ## Open Questions
 
-- 资源/外协/间接费/报废/完工/关闭/期间关闭/成本更新事务的分录逐条摘录（e48829 本章正文，待整理）。
+- WIP Cost Update Transactions 的分录正文待摘录（本章）。
 - 层成本/项目成本/周期成本的**制造事务**（完工、差异）分录逐条摘录。

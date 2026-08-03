@@ -32,7 +32,14 @@ python scripts/run_app.py --port 9000
 ## 测试
 
 ```powershell
-python scripts/test_app.py
+python scripts/run_checks.py
 ```
 
-测试覆盖：health、检索、页面渲染、本地问答、补充知识（dry-run + 真实写入后清理）、Markdown 渲染。
+覆盖：单元测试（分词/渲染/路径安全/图谱）、进程内冒烟、真实启动进程的 E2E（每个功能逐项验证）、wiki lint。
+
+## 界面
+
+- **检索**：支持中文（CJK 二元组分词）；左侧结果、右侧页面阅读；可含官方章节原文检索。
+- **知识图谱**：`GET /api/graph` 返回节点与交叉引用边；前端 Canvas 力导向图（拖拽/缩放/点击打开）。
+- **提问**：对话式；回答带引用，可复制 Prompt 给 Codex。
+- **补充知识**：写入待摄入箱并列出。

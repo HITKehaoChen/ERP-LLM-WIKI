@@ -185,3 +185,48 @@ def _split_fm(md: str) -> tuple[dict, str]:
             k, v = line.split(":", 1)
             fm[k.strip()] = v.strip().strip('"').strip("[]")
     return fm, md[end + 4 :]
+
+
+def build_graph() -> dict:
+    """Build a knowledge graph: wiki pages as nodes, markdown links as edges."""
+    pages = load_wiki_index()
+    by_path = {p["path"]: p for p in pages}
+    nodes = []
+    for p in pages:
+        nodes.append(
+            {
+                "id": p["path"],
+                "title": p.get("title", ""),
+                "type": p.get("type", ""),
+            }
+        )
+    id_set = {n["id"] for n in nodes}
+    links = []
+    seen = set()
+    for p in pages:
+        md = page_markdown(p["path"]) or ""
+        _, body = _split_fm(md)
+        page_dir = (ROOT / p["path"]).parent
+        for m in re.finditer(r"\[[^\]]*\]\(([^)]+)\)", body):
+            target = m.group(1).split("#", 1)[0].strip()
+            if target.startswith(("http://", "https://", "mailto:")):
+                continue
+            resolved_path = (page_dir / target).resolve()
+            try:
+                resolved = str(resolved_path.relative_to(ROOT)).replace("\\", "/")
+            except ValueError:
+                continue
+            if resolved not in id_set or resolved == p["path"]:
+                continue
+            key = tuple(sorted((p["path"], resolved)))
+            if key in seen:
+                continue
+            seen.add(key)
+            links.append({"source": p["path"], "target": resolved})
+    # node size by inbound degree
+    degree = {n["id"]: 0 for n in nodes}
+    for l in links:
+        degree[l["target"]] += 1
+    for n in nodes:
+        n["size"] = 3 + min(degree[n["id"]], 15)
+    return {"nodes": nodes, "links": links}

@@ -91,6 +91,36 @@ OE_HEADERS_EXT_IFACE_ALL, OE_LINES_EXT_IFACE_ALL, OE_ORDER_HEADERS_ALL_EXT_B,
 OE_ORDER_LINES_ALL_EXT_B
 ```
 
+## 附录 2：默认值与必填（官方表）
+
+e48842 “Profile Options” 官方表共 154 行（OM 及跨应用 Profile），已导出为机器可读 CSV：[sources/catalog/om_profile_defaults.csv](../../sources/catalog/om_profile_defaults.csv)（列：profile / required / default_value / category）。
+
+关键默认值摘录（T1）：
+
+| Profile | 必填 | 默认值 |
+| --- | --- | --- |
+| OM: Administer Public Queries | Req | No |
+| OM: Allow Model Fulfillment Without Configuration | Opt | No |
+| OM: Apply Automatic Attachments | Opt | Yes |
+| OM: Automatically Interface Lines to IB on Fulfillment | Opt | Yes |
+| OM: Cascade Service | Opt | Null ≈ Yes |
+| OM: Commitment Sequencing | Opt | No |
+| OM: Configuration Quick Save | Opt | No |
+| OM: Debug Level | Opt | 0 |
+| OM: Default Line Type from Model | Req | Yes |
+| OM: Display Actions Button vs. Pop list | Req | Button |
+| OM: Enforce Check For Duplicate Purchase Order | Req | Yes |
+| OM: Invoice Numbering Method | Req | Automatic |
+| OM: Orders Archival / Purge Per Commit | Opt | 100 / 100 |
+| OM: Over / Under Shipment Tolerance、Over / Under Return Tolerance | Req | 0 |
+| OM: Party Totals Currency | Req | US Dollars |
+| OM: Preserve External Credit Balances | Req | Yes |
+| OM: Price Included Items | Opt | Yes |
+| OM: Send Changed Lines to Pricing | Opt | Yes |
+| OM: Source Code | Req | ORDER ENTRY |
+| OM: Use Configurator | Opt | Yes |
+| OM: View Cancel Lines / View Closed Lines | Opt | Yes / Yes |
+
 ## Open Questions
 
 - 全部 Profile 的完整清单与默认值（e48842 章节正文）。

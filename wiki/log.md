@@ -150,6 +150,23 @@
 - O2C PDF 结构化：新增 [Order-to-Cash 表级流程（T2 社区资料）](concepts/order-to-cash-with-tables.md)，sales-order-to-cash 页挂接。
 - YouTube 字幕：新增 `scripts/fetch_youtube_transcript.py`，成功抓取 2mMtLycHK-4 英文字幕（191 段）到 `sources/docs/community/youtube/`，摘要并入 O2C 页。
 
+## [2026-08-05] ingest | 补充 report.md 缺口
+
+- 各工作流变体活动表（OM Workflow 页第 9 节）、制造事务分录（资源/外协/间接费/报废/完工/关闭/期间关闭，成本页 3.4）、e48842 Profile 默认值（154 行 CSV + 页面附录 2）。
+- 13 本 legacy 文档 PDF 全部核验可用并下载归档；catalog 脚本补 PDF 兜底链接；report.md 同步状态。
+
+## [2026-08-05] frontend | 现代化重构 + 知识图谱
+
+- 重写前端：响应式布局、明暗主题、全局搜索、对话式问答、待摄入箱表单。
+- 新增 `GET /api/graph` 与 Canvas 力导向知识图谱（拖拽/缩放/点击跳转）。
+
+## [2026-08-05] testing | 测试基线
+
+- 新增 `scripts/unit_tests.py`、`scripts/e2e_test.py`、`scripts/run_checks.py`；一键运行 UT + 冒烟 + 真实启动 E2E + lint，全部通过。
+
+
+
+
 
 
 

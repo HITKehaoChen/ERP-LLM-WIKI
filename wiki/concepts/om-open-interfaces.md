@@ -4,7 +4,7 @@ type: concept
 status: draft
 verified: needs-verification
 sources: [community-oracleebs4u]
-updated: 2026-08-05
+updated: 2026-08-04
 ---
 
 # OM Open Interfaces 与 API（T2 社区转印）

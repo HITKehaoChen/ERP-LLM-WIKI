@@ -2,7 +2,7 @@
 title: 文档覆盖率与缺口报告
 type: coverage
 status: stable
-updated: 2026-08-05
+updated: 2026-08-04
 ---
 
 # Oracle EBS R12.2 文档覆盖率报告
@@ -83,9 +83,9 @@ updated: 2026-08-05
 2026-08-04 再补：OM 主流程活动表（Generic/Booking Approval/Header Invoice/Performance）、层成本/项目成本/周期成本处理与分录、e48842 Profile 代码清单（103 个）。剩余仅：各工作流变体逐条活动明细、制造事务分录逐条摘录、Profile 默认值表、以及需要权限的 eTRM/MOS/实例验证。
 
 **可选增强（见 2.2）**：
-1. ✅ 各工作流变体的逐条活动明细（[OM 工作流与种子流程](../concepts/om-workflow-t1.md) 第 9 节，2026-08-05）。
-2. ✅ 制造事务（资源/外协/间接费/报废/完工/任务关闭/期间关闭）分录（[成本管理事务会计分录](../concepts/cost-management-transactions-t1.md) 3.4，2026-08-05）。
-3. ✅ e48842 Profile 默认值表（154 行 CSV：`sources/catalog/om_profile_defaults.csv`；页面见 [OM 关键 Profile 选项](../concepts/om-profile-options-t1.md) 附录 2，2026-08-05）。
+1. ✅ 各工作流变体的逐条活动明细（[OM 工作流与种子流程](../concepts/om-workflow-t1.md) 第 9 节，2026-08-04）。
+2. ✅ 制造事务（资源/外协/间接费/报废/完工/任务关闭/期间关闭）分录（[成本管理事务会计分录](../concepts/cost-management-transactions-t1.md) 3.4，2026-08-04）。
+3. ✅ e48842 Profile 默认值表（154 行 CSV：`sources/catalog/om_profile_defaults.csv`；页面见 [OM 关键 Profile 选项](../concepts/om-profile-options-t1.md) 附录 2，2026-08-04）。
 4. 待获得权限后：eTRM 表字段、MOS 补丁差异、实例验证。
 
 ## 3. 失效链接清单（13 本，书单仍收录）
@@ -101,13 +101,13 @@ updated: 2026-08-05
 - Incentive Compensation Analytics for Oracle DI（e49152）
 - Payables Reference Guide（e48763，PDF 可用）
 
-> 2026-08-05 核验：13 本的 **PDF 在标准路径均可用（HTTP 200）**，已全部下载归档到 `sources/docs/<part>/<part>.pdf`；仅 HTML 目录链接失效。catalog 已补标准 PDF 链接（`scripts/fetch_ebs_catalog.py` 带兜底逻辑）。
+> 2026-08-04 核验：13 本的 **PDF 在标准路径均可用（HTTP 200）**，已全部下载归档到 `sources/docs/<part>/<part>.pdf`；仅 HTML 目录链接失效。catalog 已补标准 PDF 链接（`scripts/fetch_ebs_catalog.py` 带兜底逻辑）。
 
 ## 4. 未下载内容
 
 - 全集 393 本的 PDF/HTML 正文尚未批量下载（量大，且大部分域不在当前重点）。
 - 建议后续按业务域分批：先 SCM/VCE/Financials 的 User/Implementation Guide 正文，再技术底座。
-- 2026-08-05 已下载：13 本 legacy 文档 PDF（约 17MB）。
+- 2026-08-04 已下载：13 本 legacy 文档 PDF（约 17MB）。
 
 ## 5. 权限缺口（无法仅靠公开文档补足）
 

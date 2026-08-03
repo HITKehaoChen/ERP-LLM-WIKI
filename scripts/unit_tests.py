@@ -6,6 +6,7 @@ Run: python scripts/unit_tests.py
 from __future__ import annotations
 
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -73,6 +74,21 @@ class TestKnowledge(unittest.TestCase):
         self.assertIsNone(knowledge.page_markdown("../../Windows/win.ini"))
         self.assertIsNone(knowledge.page_markdown("wiki/../secret.md"))
 
+    def test_page_path_traversal_real_sibling(self):
+        # A sibling directory whose name starts with the repo name used to pass
+        # the old string-prefix check; must be rejected now.
+        tmp = tempfile.mkdtemp(prefix="ERP", dir=Path.home() / "Documents")
+        evil = None
+        try:
+            evil = Path(tmp) / "evil.md"
+            evil.write_text("secret", encoding="utf-8")
+            rel = "../" + tmp.split("\\")[-1] + "/evil.md"
+            self.assertIsNone(knowledge.page_markdown(rel))
+        finally:
+            if evil is not None:
+                evil.unlink(missing_ok=True)
+            Path(tmp).rmdir()
+
     def test_page_load(self):
         md = knowledge.page_markdown("wiki/concepts/order-lifecycle-and-status.md")
         self.assertIsNotNone(md)
@@ -96,6 +112,12 @@ class TestKnowledge(unittest.TestCase):
     def test_ingest_too_large(self):
         with self.assertRaises(ValueError):
             knowledge.ingest("UT-大", "x" * 200_001, dry_run=True)
+
+    def test_next_available_path(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "a.md"
+            p.write_text("x", encoding="utf-8")
+            self.assertEqual(knowledge._next_available_path(p).name, "a-2.md")
 
 
 if __name__ == "__main__":

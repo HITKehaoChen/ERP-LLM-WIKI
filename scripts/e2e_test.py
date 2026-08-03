@@ -29,6 +29,8 @@ def main() -> int:
     port = free_port()
     base = f"http://127.0.0.1:{port}"
     env = dict(os.environ)
+    log_path = ROOT / "wiki" / "log.md"
+    original_log = log_path.read_bytes()
     proc = subprocess.Popen(
         [sys.executable, "scripts/run_app.py", "--port", str(port)],
         cwd=ROOT,
@@ -113,6 +115,10 @@ def main() -> int:
 
         st, a = call("POST", "/api/ask", {"question": "订单行何时进入 Awaiting Invoice Interface - On Hold？", "raw": True}, timeout=180)
         check("ask", a.get("mode") in ("llm", "local") and bool(a.get("answer")))
+        wiki_cites = [c for c in a.get("citations", []) if c.get("kind") == "wiki"]
+        if wiki_cites:
+            st, wp = call("GET", "/api/page?path=" + urllib.parse.quote(wiki_cites[0]["path"]))
+            check("ask-citation-page", st == 200)
 
         st, d = call("POST", "/api/ingest?dry_run=1", {"title": "E2E", "content": "x"})
         check("ingest-dry", d.get("dry_run") is True)
@@ -125,25 +131,11 @@ def main() -> int:
         check("ingest-real", path.exists())
         if path.exists():
             path.unlink()
-        log = ROOT / "wiki" / "log.md"
-        lines = log.read_text(encoding="utf-8").splitlines(keepends=True)
-        kept, skip = [], False
-        for line in lines:
-            if line.startswith("## [") and "E2E-SMOKE" in line:
-                skip = True
-                continue
-            if skip:
-                if line.startswith("## ["):
-                    skip = False
-                else:
-                    continue
-            kept.append(line)
-        log.write_text("".join(kept), encoding="utf-8")
-
         st, _ = call("GET", "/api/not-exist")
         check("404", st == 404)
 
     finally:
+        log_path.write_bytes(original_log)
         proc.terminate()
         try:
             proc.wait(timeout=10)

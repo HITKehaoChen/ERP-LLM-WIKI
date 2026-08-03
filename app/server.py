@@ -106,7 +106,7 @@ class Handler(BaseHTTPRequestHandler):
     # ---------- static ----------
     def _serve_static(self, name: str) -> None:
         target = (STATIC / name).resolve()
-        if not str(target).startswith(str(STATIC.resolve())) or not target.is_file():
+        if not target.is_relative_to(STATIC.resolve()) or not target.is_file():
             return self._json(404, {"error": "not found"})
         ctype = {
             ".html": "text/html; charset=utf-8",
@@ -133,7 +133,10 @@ class Handler(BaseHTTPRequestHandler):
     def _search(self, qs) -> None:
         query = (qs.get("q", [""])[0]).strip()
         raw = qs.get("raw", ["0"])[0] in ("1", "true", "yes")
-        top = min(int(qs.get("top", ["8"])[0] or 8), 50)
+        try:
+            top = min(int(qs.get("top", ["8"])[0] or 8), 50)
+        except ValueError:
+            top = 8
         if not query:
             return self._json(400, {"error": "q 不能为空"})
         results = knowledge.search(query, raw=raw, top=top)
@@ -166,7 +169,7 @@ class Handler(BaseHTTPRequestHandler):
         path = qs.get("path", [""])[0]
         target = (ROOT / path).resolve()
         if (
-            not str(target).startswith(str(ROOT.resolve()))
+            not target.is_relative_to(ROOT.resolve())
             or not target.is_file()
             or target.suffix not in (".htm", ".html")
         ):

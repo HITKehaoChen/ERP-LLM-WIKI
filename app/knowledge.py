@@ -113,7 +113,7 @@ def search(query: str, raw: bool = False, top: int = 8) -> list[dict]:
 def page_markdown(path: str) -> str | None:
     """Return markdown for a repo-relative .md path (wiki or inbox or sources)."""
     target = (ROOT / path).resolve()
-    if not str(target).startswith(str(ROOT.resolve())) or target.suffix != ".md":
+    if not target.is_relative_to(ROOT.resolve()) or target.suffix != ".md":
         return None
     if not target.exists():
         return None
@@ -121,20 +121,22 @@ def page_markdown(path: str) -> str | None:
 
 
 def ingest(title: str, content: str, source_url: str = "", dry_run: bool = False) -> dict:
-    if not title.strip() or not content.strip():
+    title = _clean_fm(title)
+    source_url = _clean_fm(source_url)
+    if not title or not content.strip():
         raise ValueError("标题与内容不能为空")
     if len(content) > 200_000:
         raise ValueError("内容过长（上限 200KB）")
     INBOX.mkdir(parents=True, exist_ok=True)
-    slug = re.sub(r"[^\w\u4e00-\u9fff]+", "-", title.strip()).strip("-").lower() or "untitled"
+    slug = re.sub(r"[^\w\u4e00-\u9fff]+", "-", title).strip("-").lower() or "untitled"
     fname = f"{date.today().isoformat()}-{slug[:60]}.md"
-    path = INBOX / fname
+    path = _next_available_path(INBOX / fname)
     fm = [
         "---",
-        f"title: \"{title.strip()}\"",
+        f"title: {_yaml(title)}",
         "type: inbox",
         "status: pending-ingest",
-        f"source_url: \"{source_url.strip()}\"",
+        f"source_url: {_yaml(source_url)}",
         f"created: {date.today().isoformat()}",
         "---",
         "",
@@ -154,6 +156,26 @@ def ingest(title: str, content: str, source_url: str = "", dry_run: bool = False
     with log.open("a", encoding="utf-8") as fh:
         fh.write("\n" + log_line)
     return {"path": path.relative_to(ROOT).as_posix(), "log_line": log_line, "dry_run": False}
+
+
+def _clean_fm(value: str) -> str:
+    return re.sub(r"[\r\n\t\x00-\x1f]", " ", value or "").strip()
+
+
+def _yaml(value: str) -> str:
+    """Quote frontmatter values as JSON strings (valid YAML, safely escaped)."""
+    return json.dumps(value, ensure_ascii=False)
+
+
+def _next_available_path(path: Path) -> Path:
+    if not path.exists():
+        return path
+    stem, suffix = path.stem, path.suffix
+    for i in range(2, 1000):
+        candidate = path.with_name(f"{stem}-{i}{suffix}")
+        if not candidate.exists():
+            return candidate
+    raise ValueError("无法生成不重复的文件名")
 
 
 def list_inbox() -> list[dict]:

@@ -90,11 +90,33 @@ async function doSearch() {
 async function openPage(path) {
   const p = await api("/api/page?path=" + encodeURIComponent(path));
   $("page-view").innerHTML = p.html;
+  currentPagePath = path;
   const fm = p.frontmatter || {};
   $("page-meta").textContent =
     `verified=${fm.verified || "-"} · status=${fm.status || "-"} · sources=${fm.sources || "-"} · ${path}`;
   document.querySelector('.tabs button[data-tab="browse"]').click();
 }
+
+let currentPagePath = "";
+
+$("page-view").addEventListener("click", (e) => {
+  const a = e.target.closest("a");
+  if (!a) return;
+  const href = a.getAttribute("href") || "";
+  if (/^(https?:|mailto:|#)/i.test(href)) return;
+  e.preventDefault();
+  const base = "http://wiki.local/" + (currentPagePath.split("/").slice(0, -1).join("/"));
+  let target = "";
+  try {
+    target = decodeURIComponent(new URL(href, base + "/").pathname).replace(/^\/+/, "");
+  } catch {
+    return;
+  }
+  if (target.endsWith(".md")) openPage(target).catch(() => {});
+  else if (target.endsWith(".htm") || target.endsWith(".html")) {
+    window.open("/api/raw?path=" + encodeURIComponent(target), "_blank");
+  }
+});
 
 $("search-btn").addEventListener("click", doSearch);
 $("global-search-btn").addEventListener("click", doSearch);
@@ -295,13 +317,15 @@ async function doAsk() {
       body: JSON.stringify({ question, raw: $("ask-raw").checked }),
     });
     const html = await renderMarkdown(r.answer);
+    const bubble = waiting.querySelector(".bubble");
+    if (!bubble) throw new Error("消息容器缺失");
     const cites = r.citations.length
       ? `<div class="cites"><b>引用（${r.citations.length}）</b>` +
         r.citations.slice(0, 8).map((c) =>
-          `<div class="cit"><a href="/api/raw?path=${encodeURIComponent(c.path)}" target="_blank">${esc(c.title)}</a> · <span class="muted">${esc(c.path)}</span></div>`).join("") +
+          `<div class="cit"><a class="cite-link" href="#" data-kind="${esc(c.kind || "wiki")}" data-path="${esc(c.path)}">${esc(c.title)}</a> · <span class="muted">${esc(c.path)}</span></div>`).join("") +
         `</div>`
       : "";
-    waiting.innerHTML = html + cites;
+    bubble.innerHTML = html + cites;
     const copyBtn = document.createElement("button");
     copyBtn.className = "secondary small";
     copyBtn.textContent = "复制 Prompt 给 Codex";
@@ -309,16 +333,27 @@ async function doAsk() {
     copyBtn.addEventListener("click", () => {
       navigator.clipboard.writeText(r.prompt).then(() => { copyBtn.textContent = "已复制"; });
     });
-    waiting.querySelector(".bubble").appendChild(copyBtn);
+    bubble.appendChild(copyBtn);
     lastPrompt = r.prompt;
   } catch (e) {
-    waiting.innerHTML = `<p class="muted">提问失败：${esc(e.message)}</p>`;
+    const bubble = waiting.querySelector(".bubble") || waiting;
+    bubble.innerHTML = `<p class="muted">提问失败：${esc(e.message)}</p>`;
   }
 }
 
 $("ask-btn").addEventListener("click", doAsk);
 $("ask-q").addEventListener("keydown", (e) => {
   if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); doAsk(); }
+});
+
+$("chat").addEventListener("click", (e) => {
+  const a = e.target.closest("a.cite-link");
+  if (!a) return;
+  e.preventDefault();
+  const kind = a.dataset.kind;
+  const path = a.dataset.path;
+  if (kind === "wiki") openPage(path).catch(() => {});
+  else window.open("/api/raw?path=" + encodeURIComponent(path), "_blank");
 });
 
 /* ---------- ingest ---------- */

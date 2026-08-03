@@ -4,7 +4,7 @@ type: concept
 status: stable
 verified: doc-only
 sources: [e48842]
-updated: 2026-08-05
+updated: 2026-08-04
 ---
 
 # OM 数据模型概览（T1）

@@ -4,7 +4,7 @@ type: process
 status: draft
 verified: needs-verification
 sources: [community-o2c-pdf]
-updated: 2026-08-05
+updated: 2026-08-04
 ---
 
 # Order-to-Cash 表级流程（T2 社区资料）

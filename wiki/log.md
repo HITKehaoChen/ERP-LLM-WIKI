@@ -129,20 +129,20 @@
 - 成本页补：FIFO/LIFO 层成本事务（含层建立规则）、项目制造成本（成本组/Project Cost Collector/分录）、周期成本处理顺序与规则。
 - OM Profile 页补 103 个 Profile 代码清单（e48842 正文）。
 
-## [2026-08-05] config | 接入 DeepSeek LLM
+## [2026-08-04] config | 接入 DeepSeek LLM
 
 - `app/llm_config.json`（gitignored）配置 DeepSeek（base_url=https://api.deepseek.com，model=deepseek-v4-flash）。
 - `llm.py` 支持本地配置文件 + 环境变量覆盖；`/api/health` 显示实际模型。
 - 实测 `/api/ask` 返回 `mode=llm`，DeepSeek 正确区分 T1 原文与未验证推断。
 
-## [2026-08-05] fix | 中文检索与问答上下文
+## [2026-08-04] fix | 中文检索与问答上下文
 
 - 问题“OM模块的业务流程是什么样子的”此前“可参考资料”为空：原因是中国查询被当成一个 token，全文检索零命中。
 - 修复：CJK 按字符二元组+单字分词（`app/knowledge.py`、`scripts/search_wiki.py`），同一问题现命中 95 条，OM 工作流页排第一。
 - 问答增强：`/api/ask` 把 top 命中页面的正文摘录（按查询词定位 ±上下文）并入 Prompt，模型可基于 T1 知识回答并引用来源。
 - 新增中文检索回归测试 `search-cjk`。
 
-## [2026-08-05] ingest | 用户补充资料
+## [2026-08-04] ingest | 用户补充资料
 
 - O2C 培训 PDF（19 页，含 OE/WSH/RA/AR/GL 表字段与示例 SQL）：归档到 `sources/docs/o2c/`，知识页整理中。
 - Oracle R12.1 数据模型附录链接 → 确认本地已有 R12.2 等价章节，新增 [OM 数据模型概览（T1）](concepts/om-data-model-t1.md)。
@@ -150,25 +150,30 @@
 - O2C PDF 结构化：新增 [Order-to-Cash 表级流程（T2 社区资料）](concepts/order-to-cash-with-tables.md)，sales-order-to-cash 页挂接。
 - YouTube 字幕：新增 `scripts/fetch_youtube_transcript.py`，成功抓取 2mMtLycHK-4 英文字幕（191 段）到 `sources/docs/community/youtube/`，摘要并入 O2C 页。
 
-## [2026-08-05] ingest | 补充 report.md 缺口
+## [2026-08-04] ingest | 补充 report.md 缺口
 
 - 各工作流变体活动表（OM Workflow 页第 9 节）、制造事务分录（资源/外协/间接费/报废/完工/关闭/期间关闭，成本页 3.4）、e48842 Profile 默认值（154 行 CSV + 页面附录 2）。
 - 13 本 legacy 文档 PDF 全部核验可用并下载归档；catalog 脚本补 PDF 兜底链接；report.md 同步状态。
 
-## [2026-08-05] frontend | 现代化重构 + 知识图谱
+## [2026-08-04] frontend | 现代化重构 + 知识图谱
 
 - 重写前端：响应式布局、明暗主题、全局搜索、对话式问答、待摄入箱表单。
 - 新增 `GET /api/graph` 与 Canvas 力导向知识图谱（拖拽/缩放/点击跳转）。
 
-## [2026-08-05] testing | 测试基线
+## [2026-08-04] testing | 测试基线
 
 - 新增 `scripts/unit_tests.py`、`scripts/e2e_test.py`、`scripts/run_checks.py`；一键运行 UT + 冒烟 + 真实启动 E2E + lint，全部通过。
 
-## [2026-08-05] review | 独立视角审查与修复
+## [2026-08-04] review | 独立视角审查与修复
 
 - 子代理消息投递在本环境不可用（创建/跟进消息均未进入子代理上下文），改为独立视角结构化自审。
 - 修复：Markdown 链接 scheme 白名单（拦截 javascript:/data:）、Canvas 图谱标签颜色改用计算样式、全局搜索自动切页签、ingest 内容 200KB 上限。
 - 新增对应 UT/E2E 用例；`run_checks.py` 全部通过（UT 14 项）。
+
+
+
+
+
 
 
 

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -22,6 +23,14 @@ def main() -> int:
         r = subprocess.run(cmd.split(), cwd=ROOT)
         if r.returncode != 0:
             failed.append(name)
+    print("\n===== app.js syntax =====")
+    node = shutil.which("node") or shutil.which("node.exe")
+    if not node:
+        print("SKIP: node not found")
+    else:
+        r = subprocess.run([node, "--check", "app/static/app.js"], cwd=ROOT)
+        if r.returncode != 0:
+            failed.append("app.js syntax")
     if failed:
         print("\nFAILED:", ", ".join(failed))
         return 1

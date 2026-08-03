@@ -4,7 +4,7 @@ type: process
 status: draft
 verified: doc-only
 sources: [e48843, e48847, f10570]
-updated: 2026-08-05
+updated: 2026-08-04
 ---
 
 # 销售订单到收款（规划中）

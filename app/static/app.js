@@ -290,8 +290,11 @@ function addMsg(role, html) {
   const wrap = document.createElement("div");
   wrap.className = "msg " + role;
   wrap.innerHTML = `<div class="avatar">${role === "user" ? "🙋" : "🤖"}</div><div class="bubble">${html}</div>`;
-  $("chat").appendChild(wrap);
-  $("chat").scrollTop = $("chat").scrollHeight;
+  const chat = $("chat");
+  if (chat) {
+    chat.appendChild(wrap);
+    chat.scrollTop = chat.scrollHeight;
+  }
   return wrap;
 }
 
@@ -317,8 +320,12 @@ async function doAsk() {
       body: JSON.stringify({ question, raw: $("ask-raw").checked }),
     });
     const html = await renderMarkdown(r.answer);
-    const bubble = waiting.querySelector(".bubble");
-    if (!bubble) throw new Error("消息容器缺失");
+    let bubble = waiting.querySelector(".bubble");
+    if (!bubble) {
+      bubble = document.createElement("div");
+      bubble.className = "bubble";
+      waiting.appendChild(bubble);
+    }
     const cites = r.citations.length
       ? `<div class="cites"><b>引用（${r.citations.length}）</b>` +
         r.citations.slice(0, 8).map((c) =>
@@ -336,7 +343,10 @@ async function doAsk() {
     bubble.appendChild(copyBtn);
     lastPrompt = r.prompt;
   } catch (e) {
-    const bubble = waiting.querySelector(".bubble") || waiting;
+    let bubble = waiting.querySelector(".bubble");
+    if (!bubble) {
+      bubble = waiting;
+    }
     bubble.innerHTML = `<p class="muted">提问失败：${esc(e.message)}</p>`;
   }
 }

@@ -30,8 +30,25 @@ STOP = {
 }
 
 
+_LATIN = re.compile(r"[a-z0-9_]+")
+_CJK = re.compile(r"[\u4e00-\u9fff]")
+
+
 def tokens(text: str) -> list[str]:
-    return [t for t in re.findall(r"[\w\u4e00-\u9fff]+", text.lower()) if t not in STOP]
+    """Latin words whole; CJK as character bigrams + unigrams."""
+    low = text.lower()
+    out: list[str] = []
+    for m in _LATIN.finditer(low):
+        t = m.group(0)
+        if t not in STOP:
+            out.append(t)
+    chars = _CJK.findall(low)
+    for i in range(len(chars)):
+        if i + 1 < len(chars):
+            out.append(chars[i] + chars[i + 1])
+        out.append(chars[i])
+    seen: set[str] = set()
+    return [t for t in out if not (t in seen or seen.add(t))]
 
 
 def load_frontmatter(text: str) -> tuple[dict, str]:

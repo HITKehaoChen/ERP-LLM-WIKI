@@ -13,6 +13,9 @@ python scripts/run_app.py --port 9000
 
 - **浏览与检索**：全文检索 wiki 页面；勾选“同时搜官方章节正文”可检索 `sources/docs/*/chapters/` 的原始 HTML 文本。
 - **提问**：本地检索 top-k 片段后组装上下文；配置了 `OPENAI_API_KEY`（可用 `OPENAI_BASE_URL` 指向公司 OpenAI 兼容 endpoint、`OPENAI_MODEL` 指定模型）时由 LLM 生成带引用的答案；未配置时自动降级为本地检索结果。可一键复制“交给 Codex 的 Prompt”。
+- **LLM 配置**：也可以直接编辑 `app/llm_config.json`（已加入 .gitignore，不会提交密钥）：
+  `{"base_url": "https://api.deepseek.com", "api_key": "sk-...", "model": "deepseek-v4-flash"}`。
+  环境变量 `OPENAI_API_KEY` / `OPENAI_BASE_URL` / `OPENAI_MODEL` 优先级更高；修改后重启服务生效。
 - **补充知识**：表单写入 `sources/inbox/`（frontmatter 标记 `type: inbox`、`status: pending-ingest`），并追加 `wiki/log.md`，等待 Codex 正式摄入。
 
 ## API

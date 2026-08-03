@@ -129,6 +129,22 @@
 - 成本页补：FIFO/LIFO 层成本事务（含层建立规则）、项目制造成本（成本组/Project Cost Collector/分录）、周期成本处理顺序与规则。
 - OM Profile 页补 103 个 Profile 代码清单（e48842 正文）。
 
+## [2026-08-05] config | 接入 DeepSeek LLM
+
+- `app/llm_config.json`（gitignored）配置 DeepSeek（base_url=https://api.deepseek.com，model=deepseek-v4-flash）。
+- `llm.py` 支持本地配置文件 + 环境变量覆盖；`/api/health` 显示实际模型。
+- 实测 `/api/ask` 返回 `mode=llm`，DeepSeek 正确区分 T1 原文与未验证推断。
+
+## [2026-08-05] fix | 中文检索与问答上下文
+
+- 问题“OM模块的业务流程是什么样子的”此前“可参考资料”为空：原因是中国查询被当成一个 token，全文检索零命中。
+- 修复：CJK 按字符二元组+单字分词（`app/knowledge.py`、`scripts/search_wiki.py`），同一问题现命中 95 条，OM 工作流页排第一。
+- 问答增强：`/api/ask` 把 top 命中页面的正文摘录（按查询词定位 ±上下文）并入 Prompt，模型可基于 T1 知识回答并引用来源。
+- 新增中文检索回归测试 `search-cjk`。
+
+
+
+
 
 
 

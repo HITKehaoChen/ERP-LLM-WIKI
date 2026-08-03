@@ -52,11 +52,18 @@ def main() -> int:
         s = call("GET", "/api/search?q=Booked&raw=1&top=5")
         check("search", len(s.get("results", [])) > 0, f"{len(s.get('results', []))} hits")
 
+        s2 = call("GET", "/api/search?q=" + urllib.parse.quote("OM模块的业务流程是什么样子的"))
+        check("search-cjk", len(s2.get("results", [])) > 0, f"{len(s2.get('results', []))} hits")
+
         p = call("GET", "/api/page?path=" + urllib.parse.quote("wiki/concepts/order-lifecycle-and-status.md"))
         check("page", "Booked" in p.get("markdown", "") and "<table>" in p.get("html", ""))
 
         a = call("POST", "/api/ask", {"question": "订单行什么时候进入 Awaiting Invoice Interface - On Hold？", "raw": True})
-        check("ask-local", a.get("mode") == "local" and a.get("answer"), a.get("mode", ""))
+        check(
+            "ask",
+            a.get("mode") in ("llm", "local") and bool(a.get("answer")),
+            a.get("mode", ""),
+        )
 
         d = call("POST", "/api/ingest?dry_run=1", {"title": "测试", "content": "内容", "source_url": "http://x"})
         check("ingest-dryrun", d.get("dry_run") is True and d.get("path", "").endswith(".md"))

@@ -6,23 +6,50 @@ import json
 import os
 import urllib.error
 import urllib.request
+from pathlib import Path
 
 DEFAULT_BASE = "https://api.openai.com/v1"
 DEFAULT_MODEL = "gpt-4o-mini"
+CONFIG_PATH = Path(__file__).resolve().parent / "llm_config.json"
+
+
+def _config() -> dict:
+    """Merge optional local config file with environment overrides.
+
+    Local file: app/llm_config.json  (gitignored, keeps API keys out of git)
+      {"base_url": "...", "api_key": "...", "model": "..."}
+    Env overrides: OPENAI_API_KEY / OPENAI_BASE_URL / OPENAI_MODEL
+    """
+    cfg: dict = {}
+    if CONFIG_PATH.exists():
+        try:
+            cfg = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            cfg = {}
+    return {
+        "api_key": os.environ.get("OPENAI_API_KEY", "").strip() or str(cfg.get("api_key", "")).strip(),
+        "base_url": os.environ.get("OPENAI_BASE_URL", "").strip()
+        or str(cfg.get("base_url", "")).strip()
+        or DEFAULT_BASE,
+        "model": os.environ.get("OPENAI_MODEL", "").strip()
+        or str(cfg.get("model", "")).strip()
+        or DEFAULT_MODEL,
+    }
 
 
 def configured() -> bool:
-    return bool(os.environ.get("OPENAI_API_KEY", "").strip())
+    return bool(_config()["api_key"])
 
 
 def ask(system: str, user: str, timeout: int = 90) -> str | None:
     """Call an OpenAI-compatible /chat/completions endpoint. Returns None on
     any failure so the caller can degrade to local retrieval answers."""
-    key = os.environ.get("OPENAI_API_KEY", "").strip()
+    cfg = _config()
+    key = cfg["api_key"]
     if not key:
         return None
-    base = os.environ.get("OPENAI_BASE_URL", DEFAULT_BASE).rstrip("/")
-    model = os.environ.get("OPENAI_MODEL", DEFAULT_MODEL).strip() or DEFAULT_MODEL
+    base = cfg["base_url"].rstrip("/")
+    model = cfg["model"]
     url = f"{base}/chat/completions"
     payload = {
         "model": model,

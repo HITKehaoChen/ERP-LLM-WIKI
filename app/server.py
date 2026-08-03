@@ -124,7 +124,7 @@ class Handler(BaseHTTPRequestHandler):
                 "wiki_pages": len(knowledge.load_wiki_index()),
                 "raw_chapters": len(knowledge.load_raw_index()),
                 "llm_configured": llm.configured(),
-                "model": __import__("os").environ.get("OPENAI_MODEL", "未配置"),
+                "model": llm._config()["model"] if llm.configured() else "未配置",
             },
         )
 
@@ -182,7 +182,8 @@ class Handler(BaseHTTPRequestHandler):
         wiki_hits = knowledge.search(question, raw=False, top=8)
         raw_hits = knowledge.search(question, raw=True, top=5) if raw else []
         citations = wiki_hits + raw_hits
-        prompt = _build_prompt(question, citations)
+        contexts = _build_contexts(question, wiki_hits, raw_hits)
+        prompt = _build_prompt(question, citations, contexts)
         system = (
             "你是 Oracle EBS R12.2 知识库助手。只依据提供的资料回答，"
             "区分 T1（官方文档原文）与未验证推断；引用格式：[来源：<路径>]。"
@@ -233,13 +234,68 @@ def _split_frontmatter(md: str) -> tuple[dict, str]:
     return fm, md[end + 4 :]
 
 
-def _build_prompt(question: str, citations: list[dict]) -> str:
+def _build_contexts(question: str, wiki_hits: list[dict], raw_hits: list[dict]) -> list[dict]:
+    """Attach longer body excerpts around the first query-token hit so the LLM
+    can actually answer from the wiki instead of only 240-char snippets."""
+    q_tokens = knowledge.tokens(question)
+    contexts: list[dict] = []
+
+    for hit in wiki_hits[:3]:
+        path = hit.get("path", "")
+        md = knowledge.page_markdown(path)
+        if not md:
+            continue
+        _, body = _split_frontmatter(md)
+        low = body.lower()
+        first = min((low.find(t) for t in q_tokens if low.find(t) >= 0), default=-1)
+        if first < 0:
+            excerpt = body[:3000]
+        else:
+            excerpt = body[max(0, first - 900) : first + 2600]
+        contexts.append(
+            {
+                "kind": "wiki",
+                "path": path,
+                "title": hit.get("title", ""),
+                "text": excerpt,
+            }
+        )
+
+    if raw_hits:
+        raw_index = {e["path"]: e for e in knowledge.load_raw_index()}
+        for hit in raw_hits[:2]:
+            entry = raw_index.get(hit.get("path", ""))
+            if not entry:
+                continue
+            low = entry.get("body", "").lower()
+            first = min((low.find(t) for t in q_tokens if low.find(t) >= 0), default=-1)
+            excerpt = entry.get("body", "")[
+                max(0, first - 700) : first + 2000
+            ] if first >= 0 else entry.get("body", "")[:2500]
+            contexts.append(
+                {
+                    "kind": "raw",
+                    "path": hit.get("path", ""),
+                    "title": hit.get("title", ""),
+                    "text": excerpt,
+                }
+            )
+    return contexts
+
+
+def _build_prompt(question: str, citations: list[dict], contexts: list[dict]) -> str:
     ctx = []
     for i, c in enumerate(citations, 1):
         ctx.append(f"[{i}] {c.get('title','')} ({c.get('path','')})\n{c.get('snippet','')}")
+    details = []
+    for c in contexts:
+        details.append(
+            f"### 页面摘录：{c.get('title','')}（{c.get('path','')}）\n{c.get('text','')}"
+        )
     return (
         f"问题：{question}\n\n"
         "可参考资料：\n" + "\n\n".join(ctx) + "\n\n"
+        "以下为关键页面的正文摘录（优先使用）：\n\n" + "\n\n".join(details) + "\n\n"
         "请基于资料回答；引用格式 [来源：<路径>]。资料不足请明说。"
     )
 

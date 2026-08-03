@@ -20,8 +20,30 @@ STOP = {
 }
 
 
+_LATIN = re.compile(r"[a-z0-9_]+")
+_CJK = re.compile(r"[\u4e00-\u9fff]")
+
+
 def tokens(text: str) -> list[str]:
-    return [t for t in re.findall(r"[\w\u4e00-\u9fff]+", text.lower()) if t not in STOP]
+    """Tokenize for Chinese-friendly search.
+
+    Latin words are kept whole; CJK text is split into character bigrams
+    (plus single characters) so natural-language questions like
+    "OM模块的业务流程是什么样子的" match pages containing "业务流程".
+    """
+    low = text.lower()
+    out: list[str] = []
+    for m in _LATIN.finditer(low):
+        t = m.group(0)
+        if t not in STOP:
+            out.append(t)
+    chars = _CJK.findall(low)
+    for i in range(len(chars)):
+        if i + 1 < len(chars):
+            out.append(chars[i] + chars[i + 1])
+        out.append(chars[i])
+    seen: set[str] = set()
+    return [t for t in out if not (t in seen or seen.add(t))]
 
 
 def load_wiki_index() -> list[dict]:

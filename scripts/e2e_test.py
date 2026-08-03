@@ -86,6 +86,12 @@ def main() -> int:
         for f in ("app.js", "styles.css"):
             st, body = call("GET", f"/static/{f}")
             check(f"static-{f}", st == 200 and len(body) > 1000)
+        st, js = call("GET", "/static/app.js")
+        check(
+            "ask-bubble-fix",
+            "bubble.innerHTML" in js
+            and "waiting.innerHTML = html + cites;" not in js,
+        )
 
         st, h = call("GET", "/api/health")
         check("health", h.get("ok") is True and h.get("wiki_pages", 0) > 80)

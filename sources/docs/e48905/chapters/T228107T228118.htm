@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T228117.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107T228119.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">17/31</span> <!-- End Header -->
+<h1>Outside Processing</h1>
+<p>This chapter explains how you can manage your outside processed resources in Work in Process.</p>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#I_ex2Dosp">Overview of Outside Processing</a></li>
+<li><a href="#I_ospsetup">Outside Processing Setup and Planning</a></li>
+<li><a href="#I_ospweb">Supplier Access to Outside Processing Purchase Orders</a></li>
+<li><a href="#procedure_wfsetup">Outside Processing Workflows</a></li>
+<li><a href="#procedure_need">Changing the Need By Date</a></li>
+<li><a href="#T684589">Printing Documents for OSP Shipment Lines</a></li>
+</ul>
+<h2><a name="1034955"></a><a id="I_ex2Dosp"></a><b>Overview of Outside Processing</b></h2>
+<p><a name="d0e41594" id="d0e41594"></a>Oracle Manufacturing enables you to include supplier-sourced components and resources in your manufacturing processes. You can use specialized supplier skills in your manufacturing process to help lower engineering and manufacturing costs and increase production quality; and supplier capacity to increase your overall production capacity.</p>
+<p>Outside processing items are defined for supplier-sourced items, resources, and services included in your build process. These items can be non-stocked items which represent the actual supplier contribution in your build process or you can define the assembly itself as an outside processing item. The outside processing item is the item on your requisition or purchase order and the item you receive in your purchase order receipts. Features of outside processing include the following:</p>
+<h3><b>Multiple Outside Resources per Operation</b></h3>
+<p>Multiple outside resources can be assigned to each operation on the routings of your outside processed assemblies.</p>
+<h3><b>Supplier-Sourced Components</b></h3>
+<p>You can define supplier-sourced components by selecting the Supplier supply type on your bills of material to identify components that are provided by suppliers. Supplier components provide information on the component materials that your suppliers provide, but the supplier components need not be transacted. Supplier components are not backflushed.</p>
+<h3><b>Automatic Requisition Generation</b></h3>
+<p>An outside processing operation is an operation that contains an outside resource for a required item. Work in Process can be automatically set to generate purchase requisitions for outside processing operations. The Autocreate feature in Oracle Purchasing is used to convert these requisitions to purchase orders.</p>
+<p><strong><span>Note:</span></strong> The Requisition Import process automatically runs when using PO Move and PO Receipt resource types. However, only PO Move initiates the Intermediate Shipment workflow.</p>
+<p>See: <a href="T228107T228118.htm#I_ospreqs">Requisitioning Outside Processing Items</a></p>
+<h3><b>Automatic Resource Charging</b></h3>
+<p>Purchasing automatically charges jobs or repetitive schedules for outside resources when you receive the outside processing items linked to outside resources on those jobs or repetitive schedules.</p>
+<h3><b>Automatic Move Transactions</b></h3>
+<p>When you receive outside processing items linked to PO Move resources, Purchasing automatically moves the assemblies to Queue of the next operation or to To Move of the final operation (if you are at the final operation).</p>
+<p>If you receive more assemblies than the quantity in the Queue of the outside processing operation, WIP automatically moves a quantity up to the over-completion tolerance limit on the assembly being built. If the quantity received is greater than the acceptable over-move quantity for the job, then the transaction will error and quantity will be included on the Pending Move Transaction window.</p>
+<p><strong><span>Note:</span></strong> If Oracle Shop Floor Management is installed, and you are using lot based jobs with network routings, the PO Receipt transaction moves the items to the last operation-not the next operation. See:</p>
+<p>Creating a Network Routing in the Shop Floor Management.</p>
+<h3><b>Automatic Assembly and Work Order Completion</b></h3>
+<p>If the outside processing operation is the last operation on the routing, and the resource has a charge type of PO Move, Work in Process automatically completes both full and partial outside processing assembly quantities into Inventory when they are received back from the supplier. When quantities that account for the remaining uncompleted quantity of a work order are received, the status of the work order is updated to &ldquo;complete-charges allowed."</p>
+<h2><a name="1034980"></a><a id="T228287"></a><b>Outside Processing Business Examples</b></h2>
+<p><a name="d0e41653" id="d0e41653"></a><a name="d0e41659" id="d0e41659"></a><a name="I_ospex78am" id="I_ospex78am"></a>In general, you use outside processing to facilitate the purchase and costing of supplier services included in your production activities. The following are three examples of how you can use outside processing in Oracle Manufacturing.</p>
+<h3><a id="T228400"></a><b>Plating Service Example</b></h3>
+<p>A computer manufacturer sends frame assemblies to a supplier for plating. A primary routing is defined for assemblies that includes a supplier plating operation. There is a contract and blanket purchase agreements created based on your production capabilities and capacity planning.</p>
+<p>To support the purchase and costing of the supplier plating service, you define an outside resource called "Plating" with a charge type of PO Move, a UOM of EA for each, and a standard cost. Then you link this resource to an outside processing item called "Plating." This is the item that you purchase and receive from your supplier.</p>
+<p>You set the WIP parameter Requisition Creation Time to At Job/Schedule Release. When you release the job, the requisition is created. You use AutoCreate to convert the requisition to a purchase release against the blanket order for the "Plating" outside processing item and send the release to the supplier.</p>
+<p>When your assemblies are ready for plating, you ship them to your supplier and enter a move transaction recording the move to the supplier plating operation.</p>
+<p>You receive the plated assemblies back from the supplier. The job you use to control your production is automatically charged for the "Plating" outside resource when you receive the assemblies. The assemblies are automatically moved to the next operation for inspection to match your physical flow.</p>
+<p>You perform inspection of the assemblies at the following operation and either move them on or return them to the supplier for rework. If you return them for rework, Oracle Manufacturing automatically reverses the charges and performs a reversing move transaction to accurately track the physical flow of your assemblies.</p>
+<h3><a id="T228401"></a><b>Plating Service Setup Charge Example</b></h3>
+<p>As part of your contract, your supplier charges the same setup fee for each job or repetitive schedule, regardless of the number of assemblies on the job or repetitive schedule. You have defined a primary routing for your assemblies that includes a supplier plating operation with a Lot based outside resource for plating setup.</p>
+<p>To support the purchase and costing of this setup charge, you define an outside resource called "Plating SU" with a charge type of PO Receipt, a UOM of EA for each, and a standard cost. Then you link this resource to an outside processing item called "Plating SU." The purchase quantity is always 1 on a job or repetitive schedule, unlike the "Plating" outside processing item, which was based on the number of assemblies you shipped. You set the WIP parameter Requisition Creation Time to At Operation.</p>
+<p>When your assemblies are ready for plating, you ship them to your supplier and enter a move transaction recording the move to the supplier plating operation. The move automatically initiates a purchase requisition for a single "Plating SU" outside processing item associated with the "Plating SU" outside resource. You use AutoCreate to convert the requisition to a purchase order and send the purchase order to the supplier.</p>
+<p>When you receive the assemblies back from the supplier, there is a separate line item for "Plating SU." The job or repetitive schedule you use to control your production is automatically charged for the setup charge when you receive that item. The assemblies are not moved after this receipt; rather they are moved when you receive the "Plating" item since the "Plating" resource's charge type is PO Move.</p>
+<h3><a id="T228402"></a><b>Plating Service Labor Charge Example</b></h3>
+<p>Your supplier charges a setup fee for each job or repetitive schedule and a plating service charge for each assembly he services. In addition, the supplier has a resource at his plant to perform periodic chemical analysis relating to the assembly plating process. Although this service is not a standard part of the plating process, you still include this outside resource on your routing so you can charge it as needed.</p>
+<p>To support the purchase and costing of this chemical analysis resource, you define an outside resource called "Analysis" with a charge type of PO Receipt, a UOM of EA for each, and a standard cost of $1. However, you do not link this resource to the "Analysis" outside processing item.</p>
+<p>Since the "Analysis" resource is not linked to the "Analysis" outside processing item, this resource is never automatically requisitioned. However, your buyer includes this item on purchase orders as necessary to authorize this periodic chemical analysis service. The buyer includes the amount he authorizes (such as 100 EA @ $1 = $100) and the job or repetitive schedule to charge.</p>
+<p>When you receive assemblies back from the supplier, there is a separate line item for "Analysis" charges. The job or repetitive schedule the buyer referenced on the purchase order line is automatically charged for the chemical analysis service charges when you receive that item. The assemblies are not moved after this receipt.</p>
+<h2><a name="1034984"></a><a id="T228288"></a><b>Outside Processing Assembly Flow</b></h2>
+<p><a name="d0e41713" id="d0e41713"></a><a name="d0e41719" id="d0e41719"></a><a name="I_ospflow" id="I_ospflow"></a>Oracle Manufacturing provides the flexibility you need to control your outside processing flows. This includes areas such as consuming material requirements, shipping assemblies to suppliers, tracking assemblies at suppliers, and inspecting outside processed assemblies.</p>
+<p><img width="614" height="502" src="./img/wip_po_05.gif" alt="the picture is described in the document text"></p>
+<h3><a id="T228403"></a><b>Kitting Options<a name="d0e41734" id="d0e41734"></a></b></h3>
+<p>An outside operation may have material requirements in addition to labor or machine requirements. For example, you may kit and ship components to your supplier for assembly. Or, you may let your supplier provide the components.</p>
+<p>Use the supply type on your bill to indicate who supplies components. For example, if your supplier provides components in addition to labor, you can include the components on your bill with a Supplier supply type. You can charge a job or repetitive schedule for these components by including their cost in the standard cost of the outside resource on your routing. Or, if your supplier charges you separately for these components, you can add another outside resource specifically for these costs.</p>
+<p>If you kit components to send to a supplier for assembly, you can include these components on your bill with a Push supply type.</p>
+<p>If you want to backflush the components at an outside operation, you can identify the components on your bill with either an Operation Pull or Assembly Pull supply type.</p>
+<h3><a id="T228404"></a><b>Shipping Options<a name="d0e41758" id="d0e41758"></a></b></h3>
+<p>You can use move transactions in Work in Process to record outside processing shipments to your supplier. You can include the specific costs of shipping as separate resources on your routing.</p>
+<p>If you have sequential outside processing operations and you have worked out the physical flows between your suppliers, you can use PO Move resources to automatically move outside processed assemblies from one outside operation to the next one on your routing.</p>
+<h3><a id="T228405"></a><b>Inspection Options<a name="d0e41772" id="d0e41772"></a></b></h3>
+<p>Oracle Manufacturing provides you with several options for inspecting your supplier work. In general, either you or your supplier can perform inspections.</p>
+<p>If your suppliers perform inspections, they can then ship the assemblies directly to the next operation on your routing.</p>
+<p><img width="434" height="630" src="./img/wip_po_06.gif" alt="the picture is described in the document text"></p>
+<p>If you perform the inspection internally, you can define an internal inspection resource either at the outside operation or at a separate inspection operation with an inspection resource.</p>
+<p><img width="434" height="629" src="./img/wip_po_07.gif" alt="the picture is described in the document text"></p>
+<p>You can also receive the outside processed assemblies into a receiving inspection location in Purchasing and perform your inspection activities in receiving inspection. Then, you can deliver the assemblies to the shop floor and charge the job or repetitive schedule for the outside processing services.</p>
+<p><img width="433" height="628" src="./img/wip_po_08.gif" alt="the picture is described in the document text"></p>
+<h2><a name="1034988"></a><a id="I_ospsetup"></a><b>Outside Processing Setup and Planning</b></h2>
+<p><a name="d0e41803" id="d0e41803"></a>Required setup steps are completed in Oracle Applications, Inventory, Bills of material, Cost Management, and Purchasing. The following table lists the setup steps to be completed in each of these applications.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Product</b></th>
+<th scope="col"><b>Setup Functions</b></th>
+</tr>
+<tr valign="top">
+<td>Oracle Applications (see: Oracle E-Business Suite Setup Guide)</td>
+<td>Set up site level profile that enables outside processing workflows.</td>
+</tr>
+<tr valign="top">
+<td>Inventory (see: <a href="T228107T228118.htm#I_ospinset">Setting Up Inventory</a>)</td>
+<td>Define outside processing items, item list prices and lead times, and units of measure.</td>
+</tr>
+<tr valign="top">
+<td>Bills of Material (see: <a href="T228107T228118.htm#I_ospbmset">Setting Up Bills of Material and Cost Management</a>)</td>
+<td>Define departments and routings. Link outside resources to operations. Include supplier-sourced components on bills of material.</td>
+</tr>
+<tr valign="top">
+<td>Cost Management (see: <a href="T228107T228118.htm#I_ospbmset">Setting Up Bills of Material and Cost Management</a>)</td>
+<td>Define outside resources, perform cost rollup</td>
+</tr>
+<tr valign="top">
+<td>Purchasing (see: <a href="T228107T228118.htm#I_ospposet">Setting Up Purchasing</a>)</td>
+<td>Define supplier sourcing rules, outside processing line types, quantity received tolerances, receiving routing controls, ship to, deliver to locations, and receiving, PPV, IPV, and AP accrual accounts. Link employees to application users. Assign supplier sourcing rules.</td>
+</tr>
+<tr valign="top">
+<td>Work in Process (see: <a href="T228107T228118.htm#I_ospopset">Setting Up Work in Process</a>)</td>
+<td>Define WIP accounting classes, WIP parameters. Set up shop floor statuses.</td>
+</tr>
+</table>
+<h2><a name="1034989"></a><a id="T228289"></a><b>Setting Up Inventory</b></h2>
+<p><a name="d0e41886" id="d0e41886"></a><a name="d0e41892" id="d0e41892"></a><a name="I_ospinset" id="I_ospinset"></a>Use the Items window to define and maintain outside processing items. These items can be non-stocked items which represent the actual supplier contribution in your build process, or you can define the assembly itself as an outside processing item. See: Defining Items, <i>Oracle Inventory User's Guide</i>.</p>
+<h3><b>Define Outside Processing Items<a name="d0e41908" id="d0e41908"></a><a name="d0e41914" id="d0e41914"></a></b></h3>
+<p>When you define outside processing items,, you must define certain item attributes in the Items window. See: Purchasing Attribute Group, <i>Oracle Inventory User's Guide</i> These attributes enable you to link outside resources to the outside processing items, and then include the items on outside processing requisition and purchase order lines. This includes:</p>
+<ul>
+<li>
+<p><i>Outside Processing Item</i></p>
+<p>Set this attribute to Yes to link an outside processing item with an outside resource, and to include an item on an outside processing purchase order line.</p>
+</li>
+<li>
+<p><i>Purchasable</i></p>
+<p>Set this attribute to Yes to include an item on a purchase order line.</p>
+</li>
+<li>
+<p><i>Outside Processing Unit Type</i></p>
+<p>If you want to requisition one outside processing item for each assembly you ship to a supplier, set the Outside Processing Unit Type to Assembly.</p>
+<p>If you want to requisition the usage rate or amount of the outside resource, you should set the Outside Processing Unit Type to Resource.</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Outside Processing UOM Type = Assembly</b></th>
+<th scope="col"><b>Outside Processing UOM Type = Resource</b></th>
+</tr>
+<tr valign="top">
+<td>Equals the job or repetitive schedule assembly UOM.</td>
+<td>Equals the outside resource UOM.</td>
+</tr>
+<tr valign="top">
+<td>Equals the assembly move quantity using the outside processing item UOM.</td>
+<td>Equals the assembly move quantity times the outside resource usage rate or amount using the outside processing item UOM.</td>
+</tr>
+<tr valign="top">
+<td>Charge the receipt quantity times the outside resource usage rate or amount using the outside resource UOM.</td>
+<td>Charge the receipt quantity using the outside resource UOM.</td>
+</tr>
+</table>
+<h3><b>Maintain Outside Processing Items in Multiple Organizations<a name="d0e41983" id="d0e41983"></a><a name="d0e41989" id="d0e41989"></a></b></h3>
+<p>You must maintain each outside processing item you define across all organizations that use the item in outside processing. This includes the Purchasing inventory organization that you establish in the Financials Options window, and each work in process organization you use for building your assemblies. See: About Financials Options, <i>Oracle Payables User's Guide</i></p>
+<h3><b>Processing Lead Time Attributes<a name="d0e42002" id="d0e42002"></a></b></h3>
+<p>When Work in Process requisitions an outside processing item, the start date of the operation, following the outside processing operation determines the Need By Date. If the outside processing operation is the last operation, then the Need By Date is the last unit complete date of that operation. Processing lead times are defined in Oracle Inventory Item Attributes and include:</p>
+<ul>
+<li>
+<p>Preprocessing lead time specifies the number of days you must add to purchasing or manufacturing lead time to place an order.</p>
+</li>
+<li>
+<p>Processing is the days required to procure or manufacture an item. For manufactured assemblies, processing days equals manufacturing lead time.</p>
+</li>
+<li>
+<p>Post processing is the days required to receive a purchased item into inventory from the initial supplier receipt.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> For lot based jobs, a different logic is used to derive the need by date because network routings have changing first and last operations.</p>
+<p><strong><span>Note:</span></strong> For Enterprise Asset Management work orders, the need by date is the last unit completion date of the outside processing operation.</p>
+<p>See: Lead Times Attribute Group, <i>Oracle Inventory User's Guide</i>.</p>
+<h2><a name="1034994"></a><a id="T228290"></a><b>Setting Up Bills of Material and Cost Management</b></h2>
+<p><a name="d0e42035" id="d0e42035"></a><a name="d0e42041" id="d0e42041"></a><a name="d0e42047" id="d0e42047"></a><a name="d0e42053" id="d0e42053"></a><a name="I_ospbmset" id="I_ospbmset"></a>Define outside resources in Cost Management and Bills of Material. You assign the outside resources to departments and shifts - and define routings that include operations with outside resources. You can also include supplier-sourced components on your bills of material.</p>
+<h3><b>Define Outside Resources<a name="d0e42066" id="d0e42066"></a><a name="d0e42072" id="d0e42072"></a></b></h3>
+<p>Define outside resources and link them to outside processing items in order to automatically generate purchase requisitions. When you assign outside resources to a routing, you also specify a usage rate or amount that determines the quantity you are requisitioning and charging to work in process jobs or schedules. See: Defining a Routing, <i>Oracle Bills of Material User's Guide</i>, Defining a Standard Operation, <i>Oracle Bills of Material User's Guide</i>, and Count Point and Autocharge Fields, <i>Oracle Bills of Material User's Guide</i></p>
+<h3><b>Define Departments with Delivery Locations<a name="d0e42089" id="d0e42089"></a></b></h3>
+<p>Define departments with outside resources and valid delivery locations You cannot associate an outside resource with an operation on a routing unless the resource is assigned to the operation's department and the department has a location associated with it. See: Defining a Department, <i>Oracle Bills of Material User's Guide</i></p>
+<p>Work in Process passes the department location to Purchasing as the Deliver-To location when requisitioning outside processing items. Purchasing requires a Deliver-To location when you receive outside processing items and deliver them to the shop floor.</p>
+<h3><b>Define Routings<a name="d0e42104" id="d0e42104"></a></b></h3>
+<p>Use the Routing window in Bills of Material to associate outside resources with assemblies requiring outside processing. See: Creating a Routing, <i>Oracle Bills of Material User's Guide</i>.</p>
+<h3><b>Define Supplier-Sourced Components<a name="d0e42118" id="d0e42118"></a></b></h3>
+<p>You can define supplier-sourced components on bills of material by choosing a supply type of Supplier. See: Creating a Bill of Material, <i>Oracle Bills of Material User's Guide</i></p>
+<h3><b>Cost Rollup<a name="d0e42131" id="d0e42131"></a><a name="d0e42137" id="d0e42137"></a></b></h3>
+<p>The cost rollup uses the outside resource's usage rate or amount, unit cost, and basis to calculate the outside processing costs for the primary routing of each assembly. Lot based resources are allocated across the assembly's standard lot size in calculating the assembly's standard cost. See: Rolling Up Assembly Costs, <i>Oracle Bills of Material User's Guide</i>.</p>
+<h2><a name="1035000"></a><a id="T228291"></a><b>Setting Up Purchasing</b></h2>
+<p><a name="d0e42152" id="d0e42152"></a><a name="d0e42158" id="d0e42158"></a><a name="I_ospposet" id="I_ospposet"></a>In conjunction with the Work in Process setup, the Purchasing setup enables you to create requisitions, send these documents through the approval process, and create purchase orders for outside processing items and resources. There are several setup steps for outside processing that you must perform in Purchasing.</p>
+<h3><b>Define Outside Processing Line Types<a name="d0e42171" id="d0e42171"></a></b></h3>
+<p>Purchasing requires you to enter a line type when you enter a requisition or purchase order line. Purchasing is installed with a predefined line type called Outside Processing, and Work in Process uses this line type when it creates pending requisitions. You can define additional line types for outside processing. See: Defining Line Types, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><b>Define Sourcing Rules<a name="d0e42185" id="d0e42185"></a></b></h3>
+<p>You can define rules for each outside processing item to help you determine from which supplier to source the item. When Work in Process requisitions an outside processing item, it checks for sourcing rules. See: Automatic Sourcing, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><b>Define Outside Processing Item Lead Times<a name="d0e42199" id="d0e42199"></a><a name="d0e42205" id="d0e42205"></a></b></h3>
+<p>When Work in Process requisitions an outside processing item, the start date of the operation following the outside processing operation determines the Need By Date. If the outside processing operation is the last operation, then the Need By Date is the last unit complete date of that operation. Lot based jobs use a different logic to derive the need by date because network routings have changing first and last operations. Enterprise Asset Manufacturing work orders calculate the need by date as the last unit completion date of the outside processing operation,</p>
+<h3><b>Define Over-receipt Tolerance and Control<a name="d0e42216" id="d0e42216"></a></b></h3>
+<p>You can specify a quantity received tolerance percent to limit the quantity you can over receive on a purchase order shipment.</p>
+<p>You can define your receiving tolerance in the Receiving Options window in Purchasing and override it at the supplier, item, and purchase order shipment levels. See: Defining Receiving Options, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><b>Control Your Receipt Routing<a name="d0e42232" id="d0e42232"></a></b></h3>
+<p>You can control your receiving routing by specifying one of three options. The first option lets you receive an outside processing item directly into work in process. The second option requires you to receive to the Ship-To Location before you can deliver to work in process. The third option requires you to deliver to the Ship-To Location, inspect the outside processing items, and then deliver to work in process. See: Defining Receiving Options, <i>Oracle Purchasing User's Guide</i> and Profile Options in Purchasing, <i>Oracle Purchasing User's Guide</i></p>
+<h3><b>Define Ship To and Deliver-To Locations<a name="d0e42248" id="d0e42248"></a><a name="d0e42254" id="d0e42254"></a></b></h3>
+<p>You must define Ship To and Deliver-To Locations to include on your requisitions and purchase orders. See: Site Locations, <i>Oracle Human Resource Management Systems User's Guide</i>.</p>
+<ul>
+<li>
+<p>The Ship-To Location represents the delivery dock or inspection location. .</p>
+</li>
+<li>
+<p>The Deliver-To Location represents the destination location.</p>
+</li>
+</ul>
+<h2><a name="1035010"></a><a id="T228292"></a><b>Setting Up Work in Process for Outside Processing</b></h2>
+<p><a name="d0e42276" id="d0e42276"></a><a name="I_ospopset" id="I_ospopset"></a>Set up the Work in Process parameters and profile options to enable the automatic creation of purchasing requisitions.</p>
+<ul>
+<li>
+<p>Profile option WIP:Enable Outside Processing Workflows determines whether or not outside processing workflows are enabled and also automatically runs the Requisition Import program for purchase order move resource transactions.</p>
+</li>
+<li>
+<p>Profile option WIP:Launch Requisition Import for PO Move determines the automatic trigger of the Requisition Import program for purchase order move resource transactions and stops the workflow notifications if the WIP:Enable Outside Processing Workflows is set to No.</p>
+</li>
+<li>
+<p>Profile option WIP:Launch Requisition Import for PO Receipt determines the automatic trigger of the Requisition Import program for purchase order receipt resource transactions .</p>
+</li>
+<li>
+<p>Profile option WIP:Initiate Approval Process after Requisition Import controls whether the Requisition Import program triggers the approval process after requisition creation; or the approval process is not automatically triggered..</p>
+</li>
+<li>
+<p>Profile option WIP:Allow Cancel Jobs with Pending OSP Requisitions gives you the choice of deleting a job even when there are existing purchasing requisitions.</p>
+</li>
+<li>
+<p>Shop Floor Status for PO Move Resources parameter determines which shop floor status is assigned to the Queue intraoperation step. This enables you to assign the status to operations that have PO Move resources assigned to them. This status ensures that assembly moves from an outside processing resource operation can only be launched by the receipt of a purchase order in Oracle Purchasing.</p>
+</li>
+<li>
+<p>Requisition Creation Time parameter determines whether or not requisitions are created, and when they will be created: You can set it for:</p>
+<ul>
+<li>
+<p>At Job/Schedule Release, a purchase requisition is created when you release the job or schedule.</p>
+</li>
+<li>
+<p>At Operation, a purchase requisition is created when you move into the Queue intraoperation step of an outside processing operation.</p>
+</li>
+<li>
+<p>Manual: This option requires you to manually create purchase requisitions in Oracle Purchasing.</p>
+<p><strong><span>Note:</span></strong> For lot based jobs in Oracle Shop Floor Management, set this is parameter to At OSP Operation. Multiple paths are available in a network routing, and the outside processing operation can change for each manufacturing run. At Job/Schedule Release At OSP Operation Manual</p>
+<p><strong><span>Note:</span></strong> If you set the parameter to At Operation, and the move transaction is for a partial quantity, the requisition is created for each quantity moved. If you set the parameter to At Job/Schedule Release, the requisition is created for the entire job quantity - independent of the move transaction quantity.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The Requisition Status at Creation sets the status for requisitions created in the outside processing step:</p>
+<ul>
+<li>
+<p>Approved: Requisitions created are set as approved, and depending on other settings, the approval process can automatically be initiated.</p>
+</li>
+<li>
+<p>Incomplete: Requisitions are set as incomplete until approval is granted.</p>
+</li>
+</ul>
+<p>This profile works in combination with the Requisition Creation Time parameter. Regardless of the value selected for this profile, if the parameter is not set to Manual, records are picked up from the Requisition Import interface. Some of the examples are as follows:</p>
+<ul>
+<li>
+<p><b>Example 1</b></p>
+<p>Requisition Status at Creation = Approved</p>
+<p>WIP:Initiate Approval Process after Requisition Import = Null or Yes</p>
+<p>Requisition is Approved</p>
+</li>
+<li>
+<p><b>Example 2</b></p>
+<p>Requisition Status at Creation = Approved</p>
+<p>WIP:Initiate Approval Process after Requisition Import = No</p>
+<p>Requisition is Approved.</p>
+</li>
+<li>
+<p><b>Example 3</b></p>
+<p>Requisition Status at Creation = Incomplete</p>
+<p>WIP:Initiate Approval Process after Requisition Import = Null or Yes</p>
+<p>The Requisition is In Process, Pre-approved, or Approved depending on the setup in Purchasing.</p>
+</li>
+<li>
+<p><b>Example 4</b></p>
+<p>Requisition Status at Creation = Incomplete</p>
+<p>WIP:Initiate Approval Process after Requisition Import = No</p>
+<p>Requisition is Incomplete.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Production Scheduler parameter defines the employee receiving outside processing workflow notifications. The production scheduler receives notifications when there are no purchase orders for outside processing items, for shipping information. See: <a href="T228107T228118.htm#I_ospwkflw">Outside Processing Workflows</a>.</p>
+</li>
+<li>
+<p>Shipping Manager parameter associates an employee with outside processing workflow notifications. The shipping manager receives a notification when intermediate assemblies are ready to be shipped to a supplier for outside services. See: <a href="T228107T228118.htm#I_ospwkflw">Outside Processing Workflows</a></p>
+</li>
+<li>
+<p>Propagate Job Change to Purchasing controls how status and quantity changes are forwarded to purchasing documents, and whether these documents are cancelled. You can pass changes automatically through the workflow, or manually update changes directly in the purchasing documents.</p>
+</li>
+<li>
+<p>Need-By Date Tolerance values are used to initiate the workflow for automatic job date changes. These values are used by the Update OSP Need-by Date concurrent program. If the concurrent program is not submitted, these values are ignored. The concurrent program initiates the workflow for automatic job date changes when the number of days set in the Days Early field and Days Late field is exceeded.</p>
+</li>
+</ul>
+<p>When the purchase requisition is created, the revision of the outside processing item is determined and put on the requisition. If the outside processing item is an assembly component, the current revision of the item is used. If the outside processing item is the assembly being built, the bill of material revision on the job or schedule is used.</p>
+<p><strong><span>Note:</span></strong> For lot based jobs in Oracle Shop Floor Management, set this is parameter to At Operation. Multiple paths are available in a network routing, and the outside processing operation can change for each manufacturing run.</p>
+<p>You can manually requisition and purchase outside resources that are not linked to outside processing items.</p>
+<p>You can define a purchase order with several lines; each line can be for a different outside processing item, and each outside processing item can refer to several discrete jobs or repetitive schedules.</p>
+<p>Job date, status, and quantity changes are passed to related purchasing documents. You can choose to have these changes fully automatic, automatic subject to approval, or manually created. This feature is applicable to discrete jobs, repetitive schedules, and maintenance work orders.</p>
+<p><strong><span>Note:</span></strong> Enterprise Asset Management work orders only support date changes.</p>
+<p>See:</p>
+<ul>
+<li>
+<p><a href="T228107T228118.htm#I_ospreqs">Requisitioning Outside Processing Items</a></p>
+</li>
+<li>
+<p><a href="T228107T228110.htm#I_cx2Dwipparams">WIP Parameters</a></p>
+</li>
+<li>
+<p><a href="T228107T228110.htm#c_profdesc">Profile Option Descriptions</a></p>
+</li>
+</ul>
+<h3><a id="T228412"></a><b>Calculating Requisition Quantities for Unit Types</b></h3>
+<p><b>Calculating Requisition Quantities for Outside Processing Unit Type of Resource</b></p>
+<p>When an outside processing item is requisitioned with a Outside Processing Unit Type of Resource, it uses the outside resource's usage rate or amount and basis to calculate the requisition quantity.</p>
+<p>If the basis is Item, the usage rate or amount times the move quantity is used, or the usage rate or amount times the job quantity - depending on the WIP parameter Requisition Creation Time. For example, if you have an outside resource with a UOM of HR and a usage rate or amount of 10, and you move five assemblies into the outside operation, Work in Process requisitions 50 HR of the outside processing item linked to the outside resource.</p>
+<p>For outside resources with a basis of Lot, Work in Process requisitions the usage rate or amount of the resource when you move the first assembly on the job or repetitive schedule into Queue of the outside operation or when you release the job, depending on your Work in Process setup.</p>
+<p><b>Calculating Requisition Quantities for Outside Processing Unit Type of Assembly</b></p>
+<p>When requisitioning items with an Outside Processing Unit Type of Assembly, Work in Process does not extend the assembly move quantity by the usage rate or amount.</p>
+<p>If you set the parameter to At Operation, and the move transaction is for a partial quantity, the requisition is created for each quantity moved. If you set the parameter to At Job/Schedule Release, the requisition is created for the entire job quantity - independent of the move transaction quantity.</p>
+<p>For outside resources with a basis of Item, when the WIP parameter Requisition Creation Time is set to At Operation, Work in Process requisitions the move quantity each time you move into Queue of the outside operation.</p>
+<p>For outside resources with a basis of Lot, Work in Process requisitions a quantity of 1 when you move the first assembly on the job or repetitive schedule into Queue of the outside operation or when you release the job or schedule, depending on your Work in Process setup.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Move Qty.</b></th>
+<th scope="col"><b>Item Price and Unit</b></th>
+<th scope="col"><b>Required?</b></th>
+<th scope="col"><b>Transaction Quantities and Charges</b></th>
+</tr>
+<tr valign="top">
+<td>50</td>
+<td>Assembly: $1 each</td>
+<td>Item: 10 at $1 each</td>
+<td>50 at (50 x 10) @ $1 = $500</td>
+</tr>
+<tr valign="top">
+<td>50</td>
+<td>Assembly: $1 each</td>
+<td>Lot: 10 at $1 each</td>
+<td>1 at (1 x 10) @ $1 = $10</td>
+</tr>
+<tr valign="top">
+<td>50</td>
+<td>Resource: $1 per hour</td>
+<td>Item: 10 at $1 per hour</td>
+<td>500 hrs. at (500 HR @ $1) = $500</td>
+</tr>
+<tr valign="top">
+<td>50</td>
+<td>Resource: $1 per hour</td>
+<td>Lot 10 at $1 per hour</td>
+<td>10 hrs. at (10 HR @ $1) = $10</td>
+</tr>
+</table>
+<h4><a id="T274031"></a><b>Work in Process Scheduling</b></h4>
+<p>Work in Process schedules all resources in a routing with Scheduling set to Yes and with a time based unit of measure. If you are requisitioning outside processing items for outside operations with units of measure that are not time based, you may want to add resources with time based units of measure to the routing to accurately schedule the outside processing work. You can also include time based outside resources in capacity planning. See: <a href="T228107T228121.htm#I_cx2Dwipschov">Overview of Work in Process Scheduling</a> and Creating a Routing, <i>Oracle Bills of Material User's Guide</i>.</p>
+<h2><a name="1035013"></a><a id="T228293"></a><b>Planning Outside Resource Load</b></h2>
+<p><a name="d0e42536" id="d0e42536"></a><a name="d0e42542" id="d0e42542"></a><a name="I_ospresld" id="I_ospresld"></a>Capacity does not include resources with non-time based units of measure in its capacity plans. All capacity plans are displayed in hours. So, even resources which have time based units of measure other than hours must have unit of measure conversions defined for hours. For outside resources in units of measure such as EA for each, you can define another resource on your routing to use for scheduling purposes and to include in your capacity plans.</p>
+<h2><a name="1035014"></a><a id="T228294"></a><b>Requisitioning Outside Processing Items</b></h2>
+<p><a name="d0e42556" id="d0e42556"></a><a name="d0e42562" id="d0e42562"></a><a name="I_ospreqs" id="I_ospreqs"></a>You can create purchasing requisitions for outside processing items automatically or manually depending on how you set the WIP parameter Requisition Creation Time.</p>
+<p>If you set the parameter to <i>At Job/Schedule Release</i>, a purchase requisition is created for all outside processing operations on a job or schedule when you release the job or schedule. If you set the parameter to <i>At Operation</i>, a purchase requisition is created when you move into Queue of an outside processing operation. If you set the parameter to <i>Manual</i>, you must create purchase requisitions manually. You also must manually create purchase requisitions for work orders with a resource charge type of PO Move or PO Receipt that are added to the work order after it is released.</p>
+<p>The Requisition Import process automatically runs when using PO Move and PO Receipt resource types. However, only PO Move initiates the Intermediate Shipment workflow.</p>
+<p>If Oracle Shop Floor Management is installed, and you are using lot based jobs with network routings, the PO Receipt transaction moves the items to the last operation-not the next operation. Network routings define different paths for the next operation according to the results of the last operation. The next operation cannot be determined before receiving because the routing is dynamic.</p>
+<h3><b>Work in Process Move Transactions<a name="d0e42588" id="d0e42588"></a></b></h3>
+<p>When a requisition is automatically triggered by a move transaction into an outside processing operation, Work in Process creates a pending requisition in the PO_REQUISITIONS_INTERFACE table for the outside processing item linked to the outside resource. If you define several outside resources in an operation, Work in Process creates a separate pending requisition for each outside processing item linked to each resource.</p>
+<p>If you move into any intraoperation step other than Queue, Work in Process does not create a pending requisition. Also, if you move backwards into Queue, Work in Process does not create a pending requisition.</p>
+<h3><b>Submitting Requisition Import<a name="d0e42601" id="d0e42601"></a></b></h3>
+<p>You can submit the Requisition Import process through the Submit Requests window in Purchasing to generate approved requisitions created by Work in Process. You must specify WIP as the Import Source when you submit the process. You have several choices for grouping your requisitions including All, Buyer, Category, Item, Location, and Supplier. For example, you can group your requisitions by Item to create a separate requisition for each item. Or, you can group your requisitions by All to include multiple items on a single requisition. Purchasing creates a separate requisition line for each line in the interface table. See: Requisition Import Process, <i>Oracle Purchasing User's Guide</i>.</p>
+<p>You can specify a default Group By option for Requisition Import in the Purchasing Options window. You can also automate the approval of pending requisitions by using the resubmit functionality of the Submit Requests window to automatically submit the Requisition Import process at pre-specified intervals. See: Defining Default Options, <i>Oracle Purchasing User's Guide</i> and Submitting a Request, <i>Oracle E-Business Suite Setup Guide</i>.</p>
+<h3><b>Creating Purchasing Requisitions<a name="d0e42623" id="d0e42623"></a></b></h3>
+<p>When creating approved requisitions, Purchasing automatically checks for supplier sourcing rules when it creates a requisition line for an outside processing item. If you defined a supplier sourcing rule, Purchasing defaults the primary supplier you specified. If you have a blanket purchase agreement active for the item/supplier combination in the Approved Supplier List, then Purchasing also defaults the price associated with the outside processing item on the blanket. If no price exists, then Purchasing defaults the List Price from the item master.</p>
+<p>You can manually define a purchase requisition that includes one or more outside processing items. For each requisition line, you must specify a job or repetitive schedule to charge. You can charge any resource on a job or repetitive schedule that has a charge type of PO Move or PO Receipt. See: Entering Outside Processing Information, <i>Oracle Purchasing User's Guide</i>.</p>
+<h2><a name="1035020"></a><a id="T228295"></a><b>Creating Outside Processing Purchase Orders</b></h2>
+<p><a name="d0e42640" id="d0e42640"></a><a name="d0e42646" id="d0e42646"></a><a name="d0e42650" id="d0e42650"></a><a name="I_osppos" id="I_osppos"></a>You must create a purchase order line for each of the outside processing items you are buying. You can modify purchase order lines to reference jobs or schedules other than those referenced in the requisition.</p>
+<h3><b>Automatically Generating Purchase Orders from Requisitions<a name="d0e42663" id="d0e42663"></a></b></h3>
+<p>Use the AutoCreate Documents window in Purchasing to generate purchase orders from approved requisitions. See: Autocreate Purchase Order Options, <i>Oracle Purchasing User's Guide</i></p>
+<h3><b>Manually Creating Purchase Orders and Lines<a name="d0e42676" id="d0e42676"></a></b></h3>
+<p>You can manually define a purchase order which includes one or more outside processing items. You can charge any resource on a job or repetitive schedule which has a charge type of PO Move or PO Receipt. You can even charge multiple jobs or repetitive schedules by including several distributions for a purchase order line. See: Entering Purchase Order Distributions, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><b>Job Changes Generated to Related Purchasing Documents</b></h3>
+<p>Job date, status, and quantity changes can be passed to related purchasing documents. You can choose to have these changes fully automatic, automatic subject to approval, or manually created. The Purchase Order Approval and Requisition workflows are launched to initiate these changes to Purchasing. To support quantity increase or decrease changes, the purchase order or requisition quantity is updated&mdash;instead of creating a new requisition. The purchasing documents are automatically canceled when job status changes to Complete-No-Charges, Cancelled, or Closed.</p>
+<p>For date changes to jobs, these workflows are only initiated if preset tolerance value set in the Work in Process Parameters window, are exceeded. This feature is applicable to discrete jobs, repetitive schedules, and maintenance work orders.</p>
+<p>Need-By Date Tolerance values are used to initiate the workflow for automatic job date changes. These values are used by the Update OSP Need-by Date concurrent program. If the concurrent program is not submitted, these values are ignored. The concurrent program initiates the workflow for automatic job date changes when the number of days set in the Days Early field and Days Late field is exceeded.</p>
+<p><strong><span>Note:</span></strong> Enterprise Asset Management work orders only support date changes.</p>
+<h3><b>Viewing Purchase Orders</b></h3>
+<p>You can view purchase order information including which jobs and/or repetitive schedules you are charging in the Purchase Orders window. You can view all purchase orders linked to a job or repetitive schedule by submitting the WIP Outside Processing report. See: <a href="T228107T228123.htm#I_rx2Dwiplbosp">WIP Outside Processing Report</a>.</p>
+<h2><a name="1035026"></a><a id="T228296"></a><b>Receiving Outside Processing Items</b></h2>
+<p><a name="d0e42711" id="d0e42711"></a><a name="d0e42717" id="d0e42717"></a><a name="I_osprcv" id="I_osprcv"></a>You receive outside processing items using the receiving functions in Purchasing. From a physical flow point of view, you receive the outside processed assemblies and move them to the next manufacturing operation or into inventory. From a transaction point of view, you actually receive the outside processing items against purchase order lines. The receipt transaction relieves the purchase order, creates the appropriate Payables accrual, charges the job or repetitive schedule for the outside resource, and optionally moves the outside processed assembly to the next operation. See: Receiving Transactions, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><b>Direct vs Standard Receipts<a name="d0e42731" id="d0e42731"></a></b></h3>
+<p>When you receive outside processing items from suppliers, you can optionally receive them directly into work in process or into a receiving/inspection location before delivering them to work in process. A direct receipt also moves the assemblies to the next operation in work in process if the outside processing item you are receiving is linked to a PO Move resource.</p>
+<p><strong><span>Note:</span></strong> The move transactions are processed only if the Move Transaction Manager is running. .</p>
+<p>If you enter a standard receipt, you must specify a Ship-To Location. You then use the Receiving Transactions window to deliver the outside processing items to work in process. In this case, you do not charge and move assemblies in work in process until you enter the delivery transaction in the Receiving Transactions window. See: Receiving Transactions, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><b>Receiving Partial vs. Full Quantities<a name="d0e42750" id="d0e42750"></a></b></h3>
+<p>When you receive outside processing items you can receive full or partial quantities against a particular purchase order shipment. For items linked to PO Move resources, the quantity of assemblies moved equals the quantity you receive.</p>
+<p>For partial receipts of purchase order shipments linked to multiple jobs or schedules, you must specify the quantity to receive against each job or schedule. Purchasing does not automatically allocate receipt quantities for you.</p>
+<h3><b>Receiving Assembly vs. Resource Outside Processing Unit Type Items<a name="d0e42763" id="d0e42763"></a></b></h3>
+<p>The quantity of outside processing items you receive can relate to the assembly quantity on the job or repetitive schedule in several ways depending on the outside processing item's Outside Processing Unit Type and the outside resource's basis.</p>
+<p>If the outside processing item has an Outside Processing Unit Type of Assembly and the outside resource has a basis of Item<b>,</b> you receive one outside processing item for each assembly you receive. If the outside resource has a basis of Lot, you receive one outside processing item for each job or repetitive schedule.</p>
+<p>If the outside processing item has an Outside Processing Unit Type of Resource and the outside resource has a basis of Item<b>,</b> you receive the extended quantity (using the outside resource usage rate or amount) of the outside processing item for each assembly you receive.</p>
+<h3><b>Resource and Move Transactions</b></h3>
+<p>When you receive an outside processing item linked to a resource with a charge type of PO Move, Purchasing enters a move transaction for the assembly on the job or repetitive schedule you charge. You should use outside processing items with Assembly unit types and PO move resources with a basis of Item. Assemblies are moved to Queue of the next operation, or To Move if the resource is in the final operation. You can have only one PO Move resource per operation on a routing.</p>
+<p>When assemblies move, the outside operation is being completed for the quantity that moves. These operation completions automatically backflush any material associated with the outside operation that has an Operation Pull supply type, and charge any WIP Move resources associated with the outside operation.</p>
+<p>You can use outside processing operations with a serialized job only if the resource charge type is PO Receipt. This is because the serial number must be known. You cannot backflush any serial controlled components at an outside operation with a PO Move resource since the Receipts window does not enable entry of component serial numbers. You can use outside processing operations with a serialized job only if the resource charge type is PO Receipt because the serial number must be defined before moving the assembly. For lot controlled components, they can be backflushed if you set your Backflush Lot Entry setup option to one of the automatic FIFO options in the Parameters window in Work in Process. You must enter move transactions online using the Move Transactions window in Work in Process, if you want to manually record serial and lot numbers for components you backflush.</p>
+<p>If you receive outside processing items linked to a job or repetitive schedule with an non-transactable status, such as On Hold or Cancelled, Work in Process gives these transactions an error status. You can use the Pending Move Transactions window in Work in Process to view the errors and resubmit the transactions. <a href="T228107T228116.htm#I_tx2Dmovpndg">Processing Pending Move Transactions</a>.</p>
+<p>If Oracle Shop Floor Management is installed, and you are using lot based jobs with network routings, the PO Receipt transaction moves the items to the last operation-not the next operation. Network routings define different paths for the next operation according to the results of the last operation. The next operation cannot be determined before receiving because the routing is dynamic. See:</p>
+<p>Creating a Network Routing in the Oracle Engineering User's Guide.</p>
+<h2><a name="1035031"></a><a id="T228297"></a><b>Autocompleting Assemblies and Work Orders</b></h2>
+<p><a name="d0e42803" id="d0e42803"></a><a name="d0e42807" id="d0e42807"></a><a name="I_ospauto" id="I_ospauto"></a>If the outside processing operation is the last operation on the routing, and the resource has a charge type of PO Move, Work in Process automatically completes both full and partial outside processing assembly quantities into Inventory when they are received back from the supplier. When quantities that account for the remaining uncompleted quantity of a work order are received, the status of the work order is updated to &ldquo;complete-charges allowed."</p>
+<p><strong><span>Note:</span></strong> When a job or schedule with outside processing operations is changed to complete, closed, or canceled status - an informational warning message displays if open purchase orders or requisitions exist for any of the operations.</p>
+<p>Assemblies cannot be completed from discrete jobs or repetitive schedules if the To Move intraoperation step of the outside processing operation has a status that disallows a move. If you want to disable autocomplete, however, you can assign a No Move status to the To Move intraoperation step of the outside processing operation, if it is the last operation on the routing.</p>
+<h3><b>Autocompletion Validation</b></h3>
+<p>When outside processing items are received back from the supplier, Work in Process validates the items before completing them into Inventory. If the assemblies fail validation, the quantities in Queue are moved to the To Move intraoperation step of the outside processing operation, rather than being completed into Inventory. For autocomplete to succeed, the validation process includes:</p>
+<ul>
+<li>
+<p>Default subinventories and locators must be specified, if they are required by the subinventory.</p>
+</li>
+<li>
+<p>For ot number controlled assemblies. a lot number must be specified on the discrete job subinventory.</p>
+</li>
+<li>
+<p>Assemblies under serial number control must have their Serial Generation attribute in Oracle Inventory set to <i>dynamic entry at sales order issue.</i></p>
+</li>
+<li>
+<p>The To Move intraoperation step of the outside processing operation cannot have any status that disallows a move, such as No Move status.</p>
+</li>
+<li>
+<p>The item revision number must be the BOM revision number.</p>
+</li>
+<li>
+<p>Quantities received must be less than or equal to the quantity in the Queue of the outside processing operation plus the user-defined over-completion allowance of the assembly being built on the job.</p>
+</li>
+</ul>
+<h2><a name="1035036"></a><a id="T228299"></a><b>Consecutive Outside Processing Operations</b></h2>
+<p><a name="d0e42852" id="d0e42852"></a><a name="I_conosp" id="I_conosp"></a>If you have set up consecutive outside processing operations in your routing, using two different suppliers - after the first supplier has completed work, the assembly is shipped directly to the second supplier. There are two ways you can set up your routing. One method is to create a PO Move resource and a PO Receipt resource, and associate them with the same operation. In the second method, you associate outside processing resources to two consecutive operations. The method launches the workflow to notify the second supplier. When setting up the method, the following model is recommended:</p>
+<ul>
+<li>
+<p>Use the Ship-To Location to specify that the supplier for the first outside processing operation, ships the completed assemblies directly to the supplier for the second outside processing operation.</p>
+</li>
+<li>
+<p>Perform a PO Move resource rather than a PO Receipt from the first outside processing operation to the second outside processing operation.</p>
+<p>This eliminates an unnecessary transaction since material is not actually received at your site.</p>
+<p>The Oracle Internet Supplier Portal application provides the framework to enable buyers and suppliers to communicate business transactions used for outside processing operations. This includes acknowledging purchase orders, rescheduling purchase orders, submitting advanced shipment notices, and notifying buyers and suppliers of shipments. See: Oracle Internet Supplier Portal Implementation Guide.</p>
+<p>The Notify Second Buyer and Supplier workflow is used to notify the buyer, and the next supplier, when the supplier for the first outside processing operation has completed the assemblies. See: <a href="T228107T228118.htm#I_ospwkflw">Outside Processing Workflows</a></p>
+</li>
+<li>
+<p>When creating consecutive outside processing operations, define only one outside processing resource for each consecutive operation.</p>
+<p>When the supplier completes and submits the Advance Shipment Notice, Oracle Purchasing automatically creates a shipment in the system and sends a notification to the buyer. The Notify Second Buyer and Supplier workflow notifies the buyer and production scheduler that assemblies have been shipped to the second supplier. When the second supplier receives the assemblies from the first supplier, and responds to the workflow - this response triggers a logical receipt in the manufacturer's system. This action causes the assemblies to move into Queue of the second outside processing operation, if the first outside processing resource is PO Move.</p>
+</li>
+</ul>
+<h2><a name="1035037"></a><a id="I_ospweb"></a><b>Supplier Access to Outside Processing Purchase Orders</b></h2>
+<p><a name="d0e42886" id="d0e42886"></a>Oracle <i>i</i>Supplier Portal provides your outside processing suppliers with access to all of their current purchase orders. They can obtain detailed information on all of their purchase orders, including components, component attachments, associated operations, and operating instructions.</p>
+<p>Oracle <i>i</i>Supplier Portal's Supplier Services opens a menu linking to the Orders tabbed window. From here you can query outside processing order information through the Manufacturing Orders tab. Shipment and distribution information is also displayed.</p>
+<h3><b>Viewing Outside Processing Orders</b></h3>
+<p>The information for outside processing orders displays standard and blanket outside processing purchase orders listed by purchase order number. Suppliers can view:</p>
+<ul>
+<li>
+<p>Purchase order approval status</p>
+</li>
+<li>
+<p>Item number and description</p>
+</li>
+<li>
+<p>Job or schedule number</p>
+</li>
+<li>
+<p>Quantity ordered and delivered</p>
+</li>
+<li>
+<p>Date information</p>
+</li>
+</ul>
+<h3><b>Access to purchase order details</b></h3>
+<p>Each purchase number is linked to Purchasing's <i>Purchase Order Detail</i> page displaying purchase order revision number, purchase order type (standard or blanket), order date, order total amount, ship-to location, carrier, currency, bill-to location, payment terms, freight terms, and status.</p>
+<p>In addition, you can select the Invoice and Receipt buttons on the Purchase Order Detail page to see related invoices and receipt transactions.</p>
+<h3><b>Download Component and Operation Attachments and Instructions</b></h3>
+<p>If components have attachments, and if operating instructions are available, you can link to download the attachments and instructions, view them online, and print them.</p>
+<h3><b>Update the Promised Date</b></h3>
+<p>Suppliers can change the promise date through the Update Promise Date link. This automatically changes the promise date on the purchase order and notifies the buyer and production scheduler.</p>
+<h3><b>Download Quality Collection Plans and Collect and Submit Quality Results</b></h3>
+<p>You can provide your supplier with access to Quality collection plans. You must first create the collection plan in Oracle Quality and associate it with the Self-Service Quality for Outside Processing transaction. A link then is displayed in the QA Plans column. Selecting this link displays a list of the collection plans that are associated with that purchase order. You can choose to enter Quality results, to view Quality results that have been submitted, or to view attachments for any purchase order listed.</p>
+<h2><a name="1035043"></a><a id="procedure_wfsetup"></a><b>Outside Processing Workflows</b></h2>
+<p><a name="WIPWKFLW_W_WORKFLOW" id="WIPWKFLW_W_WORKFLOW"></a><a name="I_ospwkflw" id="I_ospwkflw"></a>To enable you to track your outside processing assemblies from the shop floor to the supplier, Work in Process provides the following four workflows, which automatically send notifications and activate processes during specific points in the outside processing process:</p>
+<ul>
+<li>
+<p>Intermediate Shipment workflow tracks outside processing assemblies from the shop floor to the supplier.</p>
+</li>
+<li>
+<p>Ship and Receive Intermediates workflow notifies the shipping manager and the supplier that outside processing assemblies are ready to ship.</p>
+</li>
+<li>
+<p>Notify Second Buyer and Supplier workflow is used when you have two consecutive outside processing operations.</p>
+</li>
+<li>
+<p>Change Order Approval Workflow in Oracle Purchasing is used to change date, quantity, or status on the purchase order. If the supplier approves the change, the need by date is updated on the requisition and the purchase order&mdash;and a notification is sent to the buyer and supplier.</p>
+</li>
+</ul>
+<h3><b><a name="I_ospwksu" id="I_ospwksu"></a>Outside Processing Workflow Setup</b></h3>
+<p>In order to use workflow functionality, you must have Oracle Workflow installed. To enable outside processing workflows, your system administrator must set up the profile option WIP:Enable Outside Processing Workflow. You also must set up the Production Scheduler and Shipping Manager parameters. See: <a href="T228107T228110.htm#I_cx2Dwipparams">WIP Parameters</a> and <a href="T228107T228110.htm#c_profsum">Profile Option Summary</a></p>
+<p><strong><span>Note:</span></strong> To stop the outside processing workflow notifications and but ensure that the automatic trigger of the Requisition Import program for purchase order move transactions runs automatically, ensure the following:</p>
+<ul>
+<li>
+<p>Set the WIP:Enable Outside Processing Workflows to No.</p>
+</li>
+<li>
+<p>Set the WIP:Launch Requisition Import for PO Move profile option to Yes.</p>
+</li>
+</ul>
+<h3><b>Intermediate Shipment Workflow</b></h3>
+<p>The purpose of this workflow is to track outside processing assemblies from the shop floor to the shipping dock, and then to the supplier. The workflow is activated when you move assemblies into the Queue intraoperation step of an outside processing operation that has a PO Move resource charge type. It first imports pending requisitions, checks to see how many approved (non-cancelled) purchase orders exist for the outside processing supplier, then notifies the buyer.</p>
+<p><strong><span>Note:</span></strong> Only PO Move initiates the workflow.</p>
+<p>If there are from one to three approved purchase orders for that supplier and the buyer wants to proceed with the order(s), the quantities are validated, and a second workflow, the Ship and Receive Intermediates workflow, is initiated. The second workflow notifies the shipping manager and the supplier that the outside processing items are ready to ship.</p>
+<p>The workflow initiates the following actions, based on the number of approved purchase orders that it finds:</p>
+<ul>
+<li>
+<p>If there are no approved purchase orders, the default buyer (or alternatively, the production scheduler) is notified, and the search for approved purchase orders continues. If no default buyer or production scheduler has been defined, the workflow ends.</p>
+</li>
+<li>
+<p>If there is only one approved purchase order, a notification is sent to the buyer. If the buyer decides to proceed with the order, the Ship and Receive Intermediates workflow is activated, and the first workflow ends.</p>
+</li>
+<li>
+<p>If there are one to three approved purchase orders, a notification is sent to the buyer so that the buyer can decide the quantity to be shipped to each supplier. The total allocated quantity, which must equal the move quantity, is then validated. If the quantity is valid, the Ship and Receive Intermediates workflow is activated for each purchase order.</p>
+</li>
+<li>
+<p>If there are more than three approved purchase orders for that supplier, the buyer is notified that there are multiple purchase orders, and the workflow ends.</p>
+</li>
+</ul>
+<h3><b>Ship and Receive Intermediates Workflow</b></h3>
+<p>The purpose of this workflow is to notify the shipping manager and the supplier that assemblies are ready to ship to outside processing suppliers for further processing. The workflow is activated during the Intermediate Shipment workflow when the buyer decides to proceed with the order and selects the Proceed button on the notification window.</p>
+<p>To enable this workflow, you must first define the Shipping Manager parameter in the WIP Parameters window, and the employee assigned to this role must have a valid user ID (this is set up by the system administrator). The workflow first searches for the shipping manager, and if found, then searches for the supplier's shipping address. It then notifies the shipping manager that the assemblies are ready to ship and relays the shipping address. If the shipping manager decides to proceed with the shipment, the system searches for the supplier contact. If a contact is found, he or she is notified that the assemblies have been shipped (if the supplier contact is not found, the buyer is then notified). The system also searches for the purchase order's Internet address or URL and includes it as a link on the notification so that the supplier has immediate access to the purchase order information. The supplier can use the same notification to send a reply stating how many assemblies were received and whether or not any assemblies were damaged.</p>
+<p>If the shipping manager decides not to ship the assemblies, a search is conducted for the production scheduler, and if found, the production scheduler is notified that the assemblies were not shipped. The same notification is also sent to the buyer.</p>
+<h3><b>Notify Second Buyer and Supplier Workflow</b></h3>
+<p>When suppliers complete outside processing assemblies, they can notify you through Purchasing's Advance Shipment Notice. The Advance Shipment Notice is available through a link on the Supplier Management Portal Supplier Service menu. When the supplier completes the Advance Shipment Notice and submits it, Oracle Purchasing automatically creates a shipment in the system and sends a notification to the buyer.</p>
+<p>To enable the workflow notification for this functionality, you must set up the Production Scheduler parameter, which associates an employee with the production scheduler role. The employee must have a valid user ID, which is set up by the system administrator. In addition, if you have two consecutive outside processing operations on a routing, and you want the supplier for the first operation to ship the completed assemblies directly to the supplier for the second operation, you must specify the second supplier's address in the Ship-To Location field on the purchase order.</p>
+<p><strong><span>Note:</span></strong> In order for the supplier's address to be available on the list of values for Purchasing's Ship-To Location field, you must first set up the supplier's address in the Shipping Network Location field on Oracle Payables' Supplier Sites Window. See: Supplier Sites window, <i>Oracle Payables User's Guide</i>.</p>
+<p>When the supplier completes the Advance Shipment Notice, a receipt is automatically created and sent to the first supplier, and the <i>Notify Second Buyer and Supplier</i> workflow is activated to notify the second supplier that the assemblies have been shipped.</p>
+<p>The system searches for an approved purchase order for the second outside processing supplier, and if it finds the purchase order, it then searches for the production scheduler. If the production scheduler is found, it sends the production scheduler a notification that the assemblies have been shipped from the first supplier. The same notification is also sent to the buyer, and if the buyer decides to proceed with the order, the <i>Ship and Receive Intermediates</i> workflow is activated to notify the shipping manager and the supplier that the assemblies have been shipped.</p>
+<h3><b>Change Order Approval Workflow</b></h3>
+<p>The Change Order Approval Workflow in Oracle Purchasing is launched for changes on purchasing documents. Changes are updated on the purchase order and then the supplier and buyer are notified.</p>
+<p>The workflow first searches for the buyer. If the buyer decides to proceed with changes, the workflow searches for the supplier contact. If the supplier contact is found, it sends a notification. If the supplier contact accepts changes, a notification is then sent to the buyer that the changes were approved. If the new need by date is not approved, you can manually change it. See: Change Order Approval Workflow, <i>Oracle Purchasing User's Guide</i></p>
+<p><b>To view outside processing workflows</b></p>
+<ol>
+<li>
+<p>Navigate to one of the windows where you can access outside processing workflows.</p>
+<p>You can view the progression and status of the workflows from the Discrete Jobs, View Discrete Jobs, Repetitive Schedules, and View Repetitive schedules windows.</p>
+</li>
+<li>
+<p>From the Tools menu, select View Workflows.</p>
+<p>The View Workflows window displays.</p>
+<p><img width="555" height="264" src="./img/wip__viewwork.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select one of the workflows listed on this window and choose View Diagram.</p>
+<p>This action launches your browser and the View Diagram appears.</p>
+<p>This window enables you to select a view of the workflow including Active History, Status Diagram, Participant Responses, and Workflow Details.</p>
+<p><img width="754" height="438" src="./img/wip_viewwork3.gif" alt="the picture is described in the document text"></p>
+<p><img width="947" height="258" src="./img/wip_viewwork2.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Caution:</span></strong> The Monitor Diagram may not accurately reflect the workflow status correctly if the concurrent program is processing. The workflow may display no document found when using blanket releases and the following conditions exist:</p>
+<ul>
+<li>
+<p>PO creation time is set to At Operation.</p>
+</li>
+<li>
+<p>PO creation time is set to At Job Release and OSP is the first operation.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2><a name="1035049"></a><a id="procedure_need"></a><b>Changing the Need By Date</b></h2>
+<p><a name="l_ospneed" id="l_ospneed"></a><a name="WIPOPMDF_WIPOPMDF_UPDATE_DATE" id="WIPOPMDF_WIPOPMDF_UPDATE_DATE"></a><a name="changeneed" id="changeneed"></a>The need by date is the date on the purchase order when you expect the completed assemblies to be delivered.</p>
+<ul>
+<li>
+<p>For discrete and repetitive jobs, the need by date is the first unit start date of the operation, following the outside processing operation. If the outside processing operation is the last operation, then the need by date is the last unit complete date of that operation.</p>
+</li>
+<li>
+<p>For lot based jobs, a different logic is used to derive the need by date because network routings have changing first and last operations.</p>
+</li>
+<li>
+<p>For Enterprise Asset Manufacturing work orders, the need by date is the last unit completion date of the outside processing operation.</p>
+</li>
+</ul>
+<p>There are several ways to update the need by date. All methods launch the Purchase Order Approval and Requisition workflows to create these changes to purchasing documents. These methods include:</p>
+<ul>
+<li>
+<p>Defining Need by Date Tolerance parameters in the Work in Process Parameters window. The concurrent program uses these values for updating need by dates.</p>
+</li>
+<li>
+<p>Manually changing the date for a specific job by navigating to the Update Need By Date window to launch the workflow.</p>
+</li>
+<li>
+<p>Manually accessing the concurrent program to automatically update appropriate records when rescheduling.</p>
+</li>
+</ul>
+<h3><b>Automatic Settings for Need By Date Updates</b></h3>
+<p>Need by Date Tolerance parameters, in the Work in Process Parameters window, are used by the concurrent program. See: <a href="T228107T228110.htm#I_tx2Dparamg">Defining WIP Parameters</a> If you have values in these Work in Process parameters, the following actions are performed:</p>
+<ul>
+<li>
+<p><b>Early Need By Date Tolerance:</b> The number of days prior to the Need By Date. The workflow is launched if:</p>
+<p>New Need By Date value, added to the Early Need By Date Tolerance value, is less than the previous Need by Date</p>
+</li>
+<li>
+<p><b>Late Need by Date Tolerance:</b> The number of days after the Need By Date. The workflow is launched if:</p>
+<p>New Need By Date value, subtracted from the Late Need by Date Tolerance value, is greater than the previous Need By Date</p>
+</li>
+<li>
+<p><b>Early Need By Date Tolerance and Late Need by Date Tolerance:</b> When you fall outside of the tolerance values, the concurrent program initiates the workflow, and the Need By Date is updated on the purchasing documents. The value in the Propagate Job Change to Purchasing is ignored.</p>
+</li>
+</ul>
+<h3><b>Using the Update Need by Date Window</b></h3>
+<p>When the Update Need By Date window opens, it displays the Need by Date in the Current Date field for all requisitions and purchase orders associated with that operation. The check box for each operation sequence is enabled if there are existing requisitions and purchase orders with at least one day's difference between the values in the Current Date and New Date fields.</p>
+<p><b>To change Need By Dates for a specific job or schedule</b></p>
+<ol>
+<li>
+<p>Navigate to the Update Need by Date window by selecting Update PO Need By Date in the Operations window.</p>
+<p><img width="817" height="299" src="./img/wip_wip_chngdate.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>To change the Need By Date, enter a value in the New Date column for all appropriate records.</p>
+</li>
+<li>
+<p>Select the check box for the row you want to update, then choose OK.</p>
+</li>
+</ol>
+<h3><b>Using the Update OSP Need-by Dates Concurrent Program</b></h3>
+<p>In the automatic method, you can initiate the Update OSP Need-by Dates concurrent program. If you have numerous jobs, updating the need by date manually is time consuming. The concurrent program automatically launches the workflow for Need By Date changes, associated with all appropriate work orders that are rescheduled. The concurrent program considers the tolerances set in the Work in Process Parameters window, see: <a href="T228107T228110.htm#I_tx2Dparamg">Defining WIP Parameters.</a></p>
+<p><b>To initiate the Update OSP Need-by Dates concurrent program:</b></p>
+<ol>
+<li>
+<p>Navigate to the Update OSP Need-by Dates concurrent program from the Discrete or Repetitive menus.</p>
+<p>The Parameter window displays.</p>
+</li>
+<li>
+<p>For discrete jobs, if you are using Oracle Projects or Project Manufacturing&mdash;you can search by Project Number and appropriate Task Number.</p>
+<p><img width="769" height="235" src="./img/wip_dneedby.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Days Forward From and To fields, , enter the range of days in the future to consider changes.</p>
+<p>For example, if these values equal 2 days, and your program is scheduled to run daily&ndash;it will pick up requirements for jobs and schedules up to 2 days forward. Changes after two days are picked up by the concurrent program when it is scheduled to run next.</p>
+</li>
+<li>
+<p>Choose OK to save your work and display the Request window.</p>
+</li>
+<li>
+<p>Choose Submit to initiate the program.</p>
+</li>
+</ol>
+<h2><a name="8771944"></a><a id="T684589"></a><b>Printing Documents for OSP Shipment Lines</b></h2>
+<p><a name="SRS.WIP_OSP_SHIP_DOC" id="SRS.WIP_OSP_SHIP_DOC"></a><a name="wip_printospdocs" id="wip_printospdocs"></a>You can create shipment lines for outside processing (OSP) work orders by running the <i>Manage OSP Shipment Lines</i> concurrent program. Then, when you send components to the outside processing supplier, you can print shipping documents for the shipment lines. The shipping documents help you to track the material at the supplier site.</p>
+<p><b>Using the Manage OSP Shipment Lines Concurrent Program</b></p>
+<p>You can use this concurrent program to generate and cancel the shipment lines for partially finished assembly material and related components for outside processing operations. You can schedule or manually run the program for outside processing operations of multiple production work orders. The program automatically considers the moved quantities and generates shipment lines for the OSP item and the components associated with the OSP operation.</p>
+<p>Before you run the concurrent program:</p>
+<ul>
+<li>
+<p>Set up the OSP item and the component items as shippable.</p>
+</li>
+<li>
+<p>Associate components with the OSP step in the routing definition.</p>
+</li>
+<li>
+<p>Perform move transactions for the OSP item to generate shipment lines.</p>
+</li>
+<li>
+<p>Perform WIP issue transactions or reservations or move order allocations for OSP operation components to generate shipment lines for lots and serial numbers.</p>
+</li>
+</ul>
+<p>The concurrent program creates shipment delivery lines for released and on-hold discrete work orders, which must meet the following requirements:</p>
+<ul>
+<li>
+<p>Have OSP operations with a shippable OSP item</p>
+</li>
+<li>
+<p>Have the resource charge type set to PO Move and PO Receipt</p>
+</li>
+</ul>
+<p>To successfully generate shipment delivery lines using the concurrent program, verify that the following conditions are met:</p>
+<ul>
+<li>
+<p>The partially finished assembly (PFA) is not lot, serial, or lot and serial controlled.</p>
+</li>
+<li>
+<p>Purchase orders are approved and open.</p>
+</li>
+<li>
+<p>The purchase order line is not expired.</p>
+</li>
+<li>
+<p>The purchase order line is open. The PO line must not be closed or canceled, and should have an existing open quantity.</p>
+</li>
+</ul>
+<p><b>Calculating OSP Shipment Line Quantity</b></p>
+<p>To derive the quantity for the shipment lines that it will create, the <i>Manage OSP Shipment Lines</i> concurrent program calculates the quantity needed to create shipment lines or the quantity to be canceled for excess shipment lines, both for the partially finished assembly and for its components, and uses the Shipping API to create and cancel shipment lines.</p>
+<p>Note the following:</p>
+<ul>
+<li>
+<p>If a shipment line is not created for the partially finished assembly, then shipment lines are not created for the components.</p>
+</li>
+<li>
+<p>If a shipment line is created for the partially finished assembly, but shipment lines are not created for the components per the bill, then the transactions are rolled back and the shipment line is removed for the partially finished assembly.</p>
+</li>
+<li>
+<p>If you cancel a shipment line for a partially finished assembly, then the shipment lines for the components are also canceled.</p>
+</li>
+<li>
+<p>Even if you cannot cancel a shipment line for a partially finished assembly, you can still cancel shipment lines for the components.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> Ensure that you cancel the shipment lines of a partially finished assembly and its components together. In some scenarios a shipment of a partially finished assembly alone is canceled but the components are shipped. In the case where a shipment is created for the remaining partially finished assembly, the application does not support recalculation of required components based on the already shipped quantities.</p>
+<p><b>Using Shipping Reports</b></p>
+<p>You can create and use Oracle Shipping reports as a shipping document set and print them when you ship confirm and deliver the OSP material. These shipping documents, printed with the OSP material item code, quantity, job number, operation number, and OSP purchase order (PO) details, help you when you transport the OSP material and help the OSP vendors identify the material when they receive it.</p>
+<p>Print the following Oracle Shipping reports that include OSP shipment line information details:</p>
+<ul>
+<li>
+<p><b>Packing Slip Report</b> - This report displays the OSP item, OSP PO, job number, and operation number from each shipment line.</p>
+</li>
+<li>
+<p><b>Bill of Lading Report</b> - This report displays the OSP PO shipment line location as the shipping location and the OSP PO contact location as the delivery location.</p>
+</li>
+<li>
+<p><b>Commercial Invoice Report</b> - This report lists details related to the OSP item, requested quantity, job number, ship-to contact, and ship-from and ship-to locations from each of the shipment lines.</p>
+</li>
+<li>
+<p><b>Vehicle Load Sheet Details Report</b> - This report lists details related to the OSP item, item descriptions, and the ingredient items grouped for that delivery.</p>
+</li>
+</ul>
+<p>You can customize the report layouts according to your business need using the XML publisher. For more information on these reports, see Reports and Processes, <i>Oracle Shipping Execution User's Guide</i>.</p>
+<p><b>To run the Manage OSP Shipment Lines concurrent program</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Submit Request</b> window.</p>
+</li>
+<li>
+<p>In the <b>Name</b> field, select <b>Manage OSP Shipment Lines</b>.</p>
+</li>
+<li>
+<p>Use the <b>Parameters</b> window to define the request.</p>
+<p><img width="799" height="669" src="./img/wip_manageospcp.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the organization.</p>
+</li>
+<li>
+<p>(Optional) Enter other parameters to filter your request. Note the descriptions for the following parameters:</p>
+<ul>
+<li>
+<p>Work Order From - Enter the first work order in the range that you want to search.</p>
+</li>
+<li>
+<p>Work Order To - Enter the last work order in the range that you want to search.</p>
+</li>
+<li>
+<p>Assembly From - Enter the first assembly in the range that you want to search.</p>
+</li>
+<li>
+<p>Assembly To - Enter the last assembly in the range that you want to search.</p>
+</li>
+<li>
+<p>Lines From - Enter the first shipment line in the range that you want to search.</p>
+</li>
+<li>
+<p>Lines To - Enter the last shipment line in the range that you want to search.</p>
+</li>
+<li>
+<p>OSP Item From - Enter the first OSP item in the range that you want to search.</p>
+</li>
+<li>
+<p>OSP Item To - Enter the last OSP item in the range that you want to search.</p>
+</li>
+<li>
+<p>OSP Item Category From - Enter the first OSP item category set in the range that you want to search.</p>
+</li>
+<li>
+<p>OSP Item Category To - Enter the last OSP item category set in the range that you want to search.</p>
+</li>
+<li>
+<p>OSP Operation Start Date From - Enter the earliest OSP operation start date in the range that you want to search.</p>
+</li>
+<li>
+<p>OSP Operation Start Date To - Enter the latest OSP operation start date in the range that you want to search.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Cancel OSP Shipment Lines</b> field, select one of the following options.</p>
+<ul>
+<li>
+<p>No - Ensures that OSP shipment lines are not canceled.</p>
+</li>
+<li>
+<p>Yes - Cancels OSP shipment lines.</p>
+<p>The default value is No.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+</li>
+<li>
+<p>In the <b>Submit Request</b> window. click <b>Submit</b></p>
+</li>
+<li>
+<p>Use the <b>Requests</b> window to confirm that the program runs successfully.</p>
+</li>
+<li>
+<p>Click <b>View Output</b> to view the details of the OSP shipment lines that were created for the assembly and components.</p>
+<p><img width="1726" height="217" src="./img/wip_osp_printdoc_03.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To print documents for OSP Shipment Lines</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Shipping Transactions</b> window to query the shipment lines.</p>
+<p>(N) Order Management &gt; Shipping &gt; Transactions</p>
+</li>
+<li>
+<p>In the <b>Query Manager</b> window, on the <b>Lines</b> tab, in the <b>Source System</b> field, select <b>Outside Processing</b>.</p>
+<p><img width="800" height="411" src="./img/wip_osp_printdoc_04.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>(Optional) Use the other available criteria in this window to filter your search. For more information about using the Query Manager, see Finding Delivery Lines, <i>Oracle Shipping Execution User's Guide</i>.</p>
+</li>
+<li>
+<p>Click <b>Find</b>.</p>
+</li>
+<li>
+<p>In the <b>Shipping Transactions</b> window, on the <b>Lines/LPNs</b> tab, view the details for the shipment lines that were created using the <i>Manage OSP Shipment Lines</i> concurrent program.</p>
+<p><img width="800" height="426" src="./img/wip_osp_printdoc_05.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> For more information about the <b>Shipping Transactions</b> window, see the following topics in the <i>Oracle Shipping Execution User's Guide</i>:</p>
+<ul>
+<li>
+<p>Shipping Transactions Window</p>
+</li>
+<li>
+<p>Overview of Delivery Lines</p>
+</li>
+</ul>
+</li>
+<li>
+<p>To automatically create deliveries, select one or more lines, right-click, and then select <b>Auto-create Deliveries</b> from the list of options.</p>
+<p><img width="600" height="318" src="./img/wip_osp_printdoc_06.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>The <b>Delivery</b> column shows the created delivery IDs.</p>
+<p><img width="800" height="426" src="./img/wip_osp_printdoc_07.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the <b>Delivery</b> tab. Select the line you want to ship confirm.</p>
+<p><strong><span>Note:</span></strong> For more information, see the following topics in the <i>Oracle Shipping Execution User's Guide</i>:</p>
+<ul>
+<li>
+<p>Overview of Ship Confirm</p>
+</li>
+<li>
+<p>Auto Ship Confirm from the Shipping Transactions Window</p>
+</li>
+</ul>
+<p><img width="800" height="429" src="./img/wip_osp_printdoc_08.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click <b>Ship Confirm.</b></p>
+<p>The <b>Confirm Delivery</b> window appears. The <b>Document Set</b> field shows Ship Confirm Documents as the documents to be printed for the OSP shipment lines.</p>
+<p><img width="644" height="600" src="./img/wip_osp_printdoc_09.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+</li>
+<li>
+<p>The <b>Messages</b> dialog box shows that the delivery is successful. Click <b>OK</b>.</p>
+</li>
+<li>
+<p>Navigate to the <b>Requests</b> window to view the documents.</p>
+<p><img width="800" height="586" src="./img/wip_osp_printdoc_10.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the request ID for the document you want to view and click <b>Diagnostics</b>.</p>
+<p><img width="790" height="541" src="./img/wip_osp_printdoc_11.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the <b>Request Diagnostics</b> window, click <b>View XML</b> to review the report information.</p>
+<p><img width="796" height="709" src="./img/wip_osp_printdoc_12.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

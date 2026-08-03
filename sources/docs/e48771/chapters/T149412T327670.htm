@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Diagnostic Framework</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Subledger Accounting Implementation Guide">
+<meta name="dcterms.identifier" content="E48771-04">
+<meta name="dcterms.isVersionOf" content="XLAIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T149412T521412.htm" title="Previous" type="text/html">
+<link rel="Next" href="T149412T282264.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Diagnostic Framework","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">9/19</span> <!-- End Header -->
+<h1>Diagnostic Framework</h1>
+<h2><a name="2358675"></a><a id="T327671"></a><b>Diagnostic Framework Overview</b></h2>
+<p><a name="d0e10539" id="d0e10539"></a><a name="sddiagint" id="sddiagint"></a>The diagnostic framework provides features to review the journal entries created by the Subledger Accounting program. It provides the input data used for each transaction, such as the following:</p>
+<ul>
+<li>
+<p>Transaction objects</p>
+</li>
+<li>
+<p>Ledger information</p>
+</li>
+<li>
+<p>System sources</p>
+</li>
+<li>
+<p>Source values</p>
+</li>
+</ul>
+<p>The following examples describe typical uses of the diagnostic framework features.</p>
+<ul>
+<li>
+<p>In the implementation phase, users can launch the Transaction Objects Diagnostic report to review the source values available in the transaction objects.</p>
+</li>
+<li>
+<p>On a daily basis, users can use the Transaction Objects Diagnostic report to analyze issues related to the generation of subledger journal entries.</p>
+</li>
+</ul>
+<h2><a name="2358676"></a><a id="T327672"></a><b>Diagnostic Framework Business Process Flow Diagram</b></h2>
+<p><a name="d0e10574" id="d0e10574"></a><a name="d0e10579" id="d0e10579"></a><a name="sddiagflw" id="sddiagflw"></a>The figure below illustrates the business process for the generation and the report of the diagnostic framework output data and is described in the succeeding text.</p>
+<p><b>Diagnostic Framework Business Process Flow</b></p>
+<p><img width="418" height="488" src="./img/sladdiagpcs.gif" alt="the picture is described in the document text"></p>
+<p>The following steps describe the diagnostic framework business process flow:</p>
+<ol>
+<li>
+<p>The administrator sets the SLA: Enable Diagnostics profile option to Yes for the user or responsibility.</p>
+<p>See: <a href="T149412T282708.htm#sipoptdiag">SLA: Enable Diagnostics</a></p>
+</li>
+<li>
+<p>Users submit the Create Accounting program which automatically executes the diagnostic framework to populate the diagnostic tables.</p>
+</li>
+<li>
+<p>The diagnostic framework gathers source values and other information from the transaction objects.</p>
+</li>
+<li>
+<p>Users submit the Transaction Objects Diagnostics concurrent request to view the diagnostic report.</p>
+</li>
+<li>
+<p>The administrator submits the Purge Transaction Objects Diagnostics concurrent request to purge the results of the diagnostic framework.</p>
+</li>
+</ol>
+<h2><a name="2358678"></a><a id="T327673"></a><b>Diagnostic Framework Features</b></h2>
+<p><a name="d0e10620" id="d0e10620"></a><a name="sddiagfeat" id="sddiagfeat"></a>The diagnostic framework features are as follows:</p>
+<ul>
+<li>
+<p><a href="T149412T327670.htm#sddiagpopt">SLA: Enable Diagnostics Profile Option</a></p>
+</li>
+<li>
+<p><a href="T149412T327670.htm#sddiagexe">Diagnostic Framework Execution</a></p>
+</li>
+<li>
+<p><a href="T149412T327670.htm#sddiagrpt">Transaction Objects Diagnostics Report</a></p>
+</li>
+<li>
+<p><a href="T149412T327670.htm#sddiagprge">Purge Transaction Objects Diagnostics</a></p>
+</li>
+</ul>
+<h2><a name="2358679"></a><a id="T327674"></a><b>SLA: Enable Diagnostics Profile Option</b></h2>
+<p><a name="d0e10650" id="d0e10650"></a><a name="sddiagpopt" id="sddiagpopt"></a>The SLA: Enable Diagnostics profile option controls whether diagnostic information is gathered by the Create Accounting program.</p>
+<p>See: <a href="T149412T282708.htm#sipoptdiag">SLA: Enable Diagnostics</a></p>
+<h2><a name="2358680"></a><a id="T327675"></a><b>Diagnostic Framework Execution</b></h2>
+<p><a name="d0e10669" id="d0e10669"></a><a name="sddiagexe" id="sddiagexe"></a>If the SLA: Enable Diagnostics profile option is set to Yes, the diagnostic framework is executed simultaneously with the Create Accounting program. The diagnostic framework data is stored in the diagnostic tables.</p>
+<h2><a name="2358681"></a><a id="T327676"></a><b>Transaction Objects Diagnostics Report</b></h2>
+<p><a name="d0e10684" id="d0e10684"></a><a name="d0e10689" id="d0e10689"></a><a name="d0e10694" id="d0e10694"></a><a name="sddiagrpt" id="sddiagrpt"></a>To view the diagnostic framework report, users submit the Transaction Objects Diagnostics program with the parameters described in the table below.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Transaction Objects Diagnostics Report Parameters</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Ledger</td>
+<td>Optional; limits the diagnostic data selected to those of a particular ledger<br>
+If the SLA: Enable Data Access Security in Subledgers profile option is set to Yes, only those ledgers that are included in the General Ledger Access Sets assigned to the responsibility appear in the list of values. If this profile option is set to No, all ledgers are included.<br>
+List of values includes primary and secondary ledgers with subledger accounting methods assigned to them.</td>
+</tr>
+<tr valign="top">
+<td>Event Class Name</td>
+<td>Optional; limits the diagnostic data to the specified event class within the application<br>
+List of values includes the event classes for the corresponding application.</td>
+</tr>
+<tr valign="top">
+<td>Event Type Name</td>
+<td>Optional; limits the diagnostic data to the specified event type within the event class. To enable this event, users enter a transaction number.<br>
+List of values includes the event types matched with the current application, entity, and event class.<br>
+If no event class is selected, users cannot enter a value. If an event class is entered, the value from the list of values is dependent on the value of the event class. If the event type field is blank, all the event types are selected.</td>
+</tr>
+<tr valign="top">
+<td>Transaction Number</td>
+<td>Optional; limits the diagnostic data retrieved to the specified transaction. To enable this field, users must enter a transaction number.</td>
+</tr>
+<tr valign="top">
+<td>Event Number</td>
+<td>Optional; limits the diagnostic data retrieved to the specified event</td>
+</tr>
+<tr valign="top">
+<td>From Extract Line Number</td>
+<td>Optional; displays the data for the transaction object lines that are equal to or higher than the number specified<br>
+To enable this field, users must enter a transaction number and an event number.<br>
+List of values includes all transaction object line numbers for the given event.</td>
+</tr>
+<tr valign="top">
+<td>To Extract Line Number</td>
+<td>Optional; displays the data for the transaction object lines that are equal to or lower than the number specified<br>
+To enable this field, users must enter a transaction number and an event number.<br>
+List of values includes all transaction object line numbers for the given event.</td>
+</tr>
+<tr valign="top">
+<td>Accounting Program Request ID</td>
+<td>Optional; restricts the diagnostic data to the specified request ID<br>
+List of values retrieves the request IDs stored in the diagnostic framework tables.</td>
+</tr>
+<tr valign="top">
+<td>Errors Only</td>
+<td>Required<br>
+If Yes is selected, displays the diagnostic framework data only for the events that meet the selection criteria and whose status is Error. Default is No.</td>
+</tr>
+<tr valign="top">
+<td>Display Source Name</td>
+<td>Required<br>
+If Yes is selected, the source name is displayed. If No is selected, the source code is displayed. Default is No.</td>
+</tr>
+<tr valign="top">
+<td>Display Accounting Attributes</td>
+<td>Required<br>
+If Yes is selected, the accounting attributes are displayed. Default is No.</td>
+</tr>
+</table>
+<h2><a name="2358683"></a><a id="T327677"></a><b>Purge Transaction Objects Diagnostics</b></h2>
+<p><a name="d0e10823" id="d0e10823"></a><a name="sddiagprge" id="sddiagprge"></a>Diagnostic framework data can be purged:</p>
+<ul>
+<li>
+<p>When a transaction previously accounted in draft mode is again eligible for accounting</p>
+<p>This occurs at the same time that all event data is purged as part of the Create Accounting program cycle.</p>
+</li>
+<li>
+<p>When the administrator launches the Purge Transaction Objects Diagnostics program</p>
+</li>
+</ul>
+<p>The table below describes the parameters for the Purge Transaction Objects Diagnostics program.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Purge Transaction Objects Diagnostics Program Parameters</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Parameter</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Application</td>
+<td>Restricts the purge of diagnostic data to a particular application; value defaulted to the application owning the responsibility from which the program is launched</td>
+</tr>
+<tr valign="top">
+<td>End Date</td>
+<td>Purges the diagnostic data up to the given date</td>
+</tr>
+<tr valign="top">
+<td>Accounting Program Request ID</td>
+<td>Purges the diagnostic data for a given request ID, which corresponds to an execution of the Create Accounting program<br>
+The list of values includes all request IDs for previous executions of the Create Accounting program with diagnostics enabled.</td>
+</tr>
+</table>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

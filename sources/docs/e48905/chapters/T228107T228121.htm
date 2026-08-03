@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T228120.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107T683170.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">20/31</span> <!-- End Header -->
+<h1>Work in Process Scheduling</h1>
+<p>This chapter describes how discrete jobs and repetitive schedules are scheduled.</p>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#I_cx2Dwipschov">Overview of Work in Process Scheduling</a></li>
+<li><a href="#I_cx2Ddiscsch">Discrete Scheduling</a></li>
+<li><a href="#I_cx2Ddtldsch">Detailed Scheduling</a></li>
+<li><a href="#I_cx2Ddiscrsch">Discrete Rescheduling</a></li>
+<li><a href="#I_cx2Dreplsch">Repetitive Line Scheduling</a></li>
+<li><a href="#I_cx2Dreplresch">Repetitive Line Rescheduling</a></li>
+<li><a href="#I_cx2Dmodrlcap">Repetitive Line Capacity Changes</a></li>
+</ul>
+<h2><a name="1035152"></a><a id="I_cx2Dwipschov"></a><b>Overview of Work in Process Scheduling</b></h2>
+<p><a name="d0e47577" id="d0e47577"></a><a name="d0e47583" id="d0e47583"></a>You can use Oracle Work in Process to schedule production resources and materials, customer delivery requirements, and maintain a smooth production flow. Scheduling establishes expected dates and times for material and resource requirements. Scheduling also establishes expected dates and time for the supply availability of assemblies built on the jobs and repetitive schedules.</p>
+<p>Oracle Work in Process uses two scheduling modes&mdash;infinite and constraint-based:</p>
+<ul>
+<li>
+<p>The infinite scheduling engine assumes infinite capacity.</p>
+</li>
+<li>
+<p>Oracle Production Scheduling considers resource and material constraints using sophisticated scheduling algorithms and enforcing minimum run length constraints, and minimizing changeover times on your resources. See: <i>Oracle Production Scheduling Implementation Guide</i></p>
+</li>
+</ul>
+<p>Scheduling for both the infinite and constraint-based scheduler consider resource usage features such as simultaneous resources, 24 hour resources, and utilization and efficiency factors.</p>
+<p>You can choose to include either or both resource efficiency and resource utilization in scheduler calculations. Efficiency effects your production load, and utilization effects capacity. These resource factors are always considered in lead time calculations, and influence resource elapsed time calculated during scheduling. Both the infinite scheduler and the constraint based scheduler use the efficiency and utilization settings in the Work in Process Parameter window when scheduling jobs. See: <a href="T228107T228110.htm#I_tx2Dparamg">Defining WIP Parameters</a></p>
+<p>For scheduling calculations, extended resource usages are rounded to the next minute. See: <a href="T228107T228117.htm#I_resleadtime">Resource Factors in Lead Time Calculation</a></p>
+<h3><a id="T228508"></a><b>Date and Time Scheduling</b></h3>
+<p>You can define the start and completion dates and times for jobs and repetitive schedules. Start and completion dates and times for the operations within these jobs and schedules are scheduled automatically.</p>
+<h3><a id="T228520"></a><b>Dispatch Reporting</b></h3>
+<p>You can monitor and prioritize your shop floor activity to meet customer demands using a variety of standard Work in Process reports.</p>
+<h3><a id="T228509"></a><b>Forward and Backward Scheduling Options</b></h3>
+<p>If you enter a job or repetitive schedule start date and time, the completion date and time is automatically determined using forward scheduling. Conversely, if you enter a job or repetitive schedule completion date and time, the start date and time is determined using backward scheduling.</p>
+<h3><a id="T228516"></a><b>Fixed and Variable Resource Scheduling</b></h3>
+<p>You can define resource usage based on job and repetitive schedule quantity for variable resources or for a fixed amount for fixed resources such as setup and teardown. Scheduling is based on resource usage.</p>
+<h3><a id="T228510"></a><b>Fixed and Variable Rate Production Lines</b></h3>
+<p>You can specify all the assemblies on a repetitive production line to run at the same production rate on your fixed rate lines. You can specify the production rate by assembly for your variable rate lines.</p>
+<h3><a id="T228511"></a><b>Fixed and Routing Based Line Lead Time Options</b></h3>
+<p>You can schedule your repetitive production lead time based on routing or line attributes to best simulate your repetitive production process.</p>
+<h3><a id="T228513"></a><b>Midpoint Scheduling</b></h3>
+<p>You can schedule discrete jobs around bottleneck operations using midpoint scheduling. By setting the midpoint operation start or completion date and time you can automatically forward and backward schedule from that midpoint.</p>
+<h3><a id="T228514"></a><b>Multiple Resources per Operation Scheduling</b></h3>
+<p>You can define multiple resources at an operation to account for labor, machine, and other activities. Resources are automatically scheduled based on their sequence.</p>
+<h3><a id="T228518"></a><b>Operation Resource Overlap Scheduling</b></h3>
+<p>You can schedule resource operations to overlap to account for simultaneous processing of the same job or repetitive schedule in concurrent operations. For example, you can schedule external setup on the next operation to take place while you complete processing at the prior operation.</p>
+<h3><a id="T228512"></a><b>Planning Based Rescheduling</b></h3>
+<p>You can automatically implement discrete reschedule recommendations from Oracle planning products or import them from other sources through the Open Job and Schedule Interface.</p>
+<h3><a id="T228517"></a><b>Resource Availability Scheduling</b></h3>
+<p>You can assign as many resources to an operation as are available. Further, you can make any resource available by shift or around the clock. Scheduling is based on resource availability.</p>
+<h3><a id="T228515"></a><b>Simultaneous Resources</b></h3>
+<p>When a group of multiple resources are defined as simultaneous resources, the scheduler uses the one resource having the longest duration to calculate start and end dates for the group. See: <a href="T228107T228117.htm#I_resleadtime">Resource Factors in Lead Time Calculation</a></p>
+<p>If these resources are scheduled as Yes, that is, the resource start and completion dates are used to schedule the operation. For example, if you have two operations, and the first operation has simultaneous resources assigned, both resources are scheduled with a value of Yes. The resources in the operation following this resource are scheduled as Prior or Next.</p>
+<p>For simultaneous resource sets with at least one Prior or Next resource&mdash;the set can only contain resources of the same scheduled type, or scheduled type equal to No.</p>
+<p><strong>Related Topics</strong></p>
+<p>Overview of Oracle Bills of Material, <i>Oracle Bills of Material User's Guide</i></p>
+<p><i>Oracle Production Scheduling Implementation Guide</i></p>
+<h2><a name="1035166"></a><a id="I_cx2Ddiscsch"></a><b>Discrete Scheduling</b></h2>
+<p><a name="d0e47704" id="d0e47704"></a><a name="d0e47710" id="d0e47710"></a>When you define a job, you must enter either a start or completion date and time. If the job assembly has a routing, dates and times are automatically scheduled for the operations, resources, and material requirements for the job using detailed scheduling.</p>
+<p>If the job assembly does not have a routing, it can be scheduled in one of two ways. You can manually schedule the jobs by entering both the start and completion dates. You can also enter either a start or completion date and allow the system to calculate the missing date based on the item lead time.</p>
+<h3><a id="T228521"></a><b>Start Date<a name="d0e47724" id="d0e47724"></a><a name="d0e47730" id="d0e47730"></a></b></h3>
+<p>This is the date and time that you plan to start the job. You can choose start dates and times earlier than the current date to maintain relative date priorities for department schedules and material requirements. You can choose start dates that are not on the manufacturing calendar. In this case, the system plans for work to start on the next valid date.</p>
+<p>When you specify the start date and time, the system forward schedules the job and automatically calculates the job completion date and time using detailed scheduling based on the assembly's routing. If no routing exists, the system forward schedules using the fixed and variable lead times for the assembly from the item master. If no routing and no lead time exist, you must enter both the start and completion dates.</p>
+<h3><a id="T228522"></a><b>Completion Date<a name="d0e47744" id="d0e47744"></a><a name="d0e47750" id="d0e47750"></a></b></h3>
+<p>This is the date and time on which you plan to complete the job. You can choose completion dates and times earlier than the current date to maintain relative date priorities for department schedules and material requirements. If you choose completion dates that are not on the manufacturing calendar, the system plans for work to complete on the next valid date.</p>
+<p>When you specify the job completion date and time, the system backward schedules the job and automatically calculates the job start date and time using detailed scheduling based on the assembly's routing. If no routing exists, the system backward schedules using the fixed and variable lead times for the assembly from the item master. If no routing and no lead time exist, you must enter both the start and completion dates.</p>
+<p>When you import jobs and schedules or automatically create discrete jobs from planned orders, the system uses the due date from the planned order as the scheduled completion date and uses backward scheduling to determine the start date. When the system automatically creates final assembly orders, it also uses backward scheduling from the order due date to determine the job start date.</p>
+<p><strong><span>Note:</span></strong> The start date that Oracle planning products recommend may not exactly match with the start date of the actual job. Differences between the planning and work in process lead times can arise due to more precise scheduling of shifts and resources by Work in Process.</p>
+<h3><a id="T228523"></a><b>Operations Dates<a name="d0e47769" id="d0e47769"></a><a name="d0e47775" id="d0e47775"></a></b></h3>
+<p>Each operation in the routing is scheduled using detailed scheduling. The start date and time of the first operation generally equals the start date and time for the job. The scheduled completion date and time for the job generally equals the scheduled completion date and time of the last operation in the routing. If the resource is not active on a shift at the start or completion dates and times of the job, the first and last operation dates and times do not match the start and completion dates of the job. In addition, you can manually schedule the first and last operation dates and times to differ from the job start and completion dates and times.</p>
+<h3><a id="T228524"></a><b>Material Requirements Dates<a name="d0e47787" id="d0e47787"></a><a name="d0e47793" id="d0e47793"></a></b></h3>
+<p>The system schedules material requirements so that they are required on the start date and time of the operation where they are consumed. For example, if you use component A in operation sequence 30 and operation sequence 30 is scheduled to start on 01-JAN at 12:15, then the component is required on 01-JAN at 12:15 regardless of the start and completion dates and times of the job. If there is no routing, all material requirements are required on the job start date and time.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228121.htm#I_cx2Ddtldsch">Detailed Scheduling</a></p>
+<p><a href="T228107T228121.htm#I_cx2Ddiscrsch">Discrete Rescheduling</a></p>
+<p><a href="T228107T228111.htm#I_tx2Drsdj">Rescheduling Discrete Jobs</a></p>
+<p><a href="T228107T228123.htm#I_tx2Djsimprt">Importing Jobs and Schedules</a></p>
+<p><a href="T228107T228111.htm#I_cx2Ddmfas">Final Assembly Orders</a></p>
+<p><a href="T228107T228111.htm#I_cx2Ddmplo">Planned Discrete Jobs</a></p>
+<h2><a name="1035171"></a><a id="I_cx2Ddtldsch"></a><b>Detailed Scheduling</b></h2>
+<p><a name="d0e47831" id="d0e47831"></a><a name="d0e47837" id="d0e47837"></a><a name="d0e47841" id="d0e47841"></a>The system uses detailed scheduling to schedule discrete production. The lead time rollup process in Oracle Bills of Material also uses detailed scheduling to calculate lead times used by Oracle planning products.</p>
+<p>Detailed scheduling applies resource usage defined by:</p>
+<ul>
+<li>
+<p>Routings and resources to resource availability</p>
+</li>
+<li>
+<p>The calendar shifts and exceptions on a minute by minute basis</p>
+</li>
+</ul>
+<p>This determines job start and end times (calculated to the minute) and operation start and end times. You provide resource usage information used by detailed scheduling when you assign resources to a routing in Oracle Bills of Material. For example, assume you have defined the following routing and you want to use it to schedule a discrete job for a quantity of 1000 assemblies:</p>
+<h3><a id="T228525"></a><b>Routing to Schedule Discrete Job</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Op Seq</b></th>
+<th scope="col"><b>Res Seq</b></th>
+<th scope="col"><b>Resource</b></th>
+<th scope="col"><b>Basis</b></th>
+<th scope="col"><b>Usage Rate or Amount</b></th>
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Scheduled</b></th>
+<th scope="col"><b>Assigned Units</b></th>
+<th scope="col"><b>Scheduled Units</b></th>
+</tr>
+<tr valign="top">
+<td>10</td>
+<td>1</td>
+<td>Punch press</td>
+<td>Item</td>
+<td>0.1</td>
+<td>Run</td>
+<td>Yes</td>
+<td>1</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>10</td>
+<td>2</td>
+<td>Punch press</td>
+<td>Lot</td>
+<td>1</td>
+<td>Teardown</td>
+<td>Next</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>20</td>
+<td>1</td>
+<td>Queue</td>
+<td>Lot</td>
+<td>4</td>
+<td>Queue</td>
+<td>Yes</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr valign="top">
+<td>20</td>
+<td>2</td>
+<td>Machinist</td>
+<td>Item</td>
+<td>0.05</td>
+<td>Labor</td>
+<td>No</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr valign="top">
+<td>20</td>
+<td>3</td>
+<td>Drill press</td>
+<td>Item</td>
+<td>0.05</td>
+<td>Run</td>
+<td>Yes</td>
+<td>3</td>
+<td>50</td>
+</tr>
+<tr valign="top">
+<td>20</td>
+<td>4</td>
+<td>Inspector</td>
+<td>Item</td>
+<td>0.01</td>
+<td>Quality</td>
+<td>Yes</td>
+<td>1</td>
+<td>10</td>
+</tr>
+<tr valign="top">
+<td>30</td>
+<td>1</td>
+<td>Plating preparation</td>
+<td>Lot</td>
+<td>1</td>
+<td>Setup</td>
+<td>Prior</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>30</td>
+<td>2</td>
+<td>Plating</td>
+<td>Item</td>
+<td>0.01</td>
+<td>Run</td>
+<td>Yes</td>
+<td>1</td>
+<td>10</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> All units of measure are in hours.</p>
+<h3><a id="T228526"></a><b>Multiple Resources<a name="d0e48136" id="d0e48136"></a></b></h3>
+<p>You can assign multiple resources per operation to schedule labor, machine, and other activities you perform within an operation. Detailed scheduling schedules multiple resources sequentially based on their resource sequence number.</p>
+<p>In the Routing to Schedule Discrete Job table, operation sequence 30 has two resources: Plating and Plating preparation. Detailed scheduling schedules these resources sequentially based on their resource sequence number.</p>
+<h3><a id="T228527"></a><b>Constraint-based Scheduling of Resources<a name="d0e48150" id="d0e48150"></a><a name="d0e48156" id="d0e48156"></a></b></h3>
+<p>Oracle provides Production Scheduling: a constraint-based automated scheduling tool using sophisticated scheduling algorithms enforcing minimum run length constraints, and minimizing changeover times on your resources.</p>
+<p>See: <i>Oracle Production Scheduling Implementation Guide</i></p>
+<h3><a id="T228528"></a><b>Lot or Item Basis<a name="d0e48172" id="d0e48172"></a><a name="d0e48178" id="d0e48178"></a></b></h3>
+<p>You can use a resource basis of Lot to schedule fixed resource requirements such as setup or teardown. You can use a resource basis of Item to schedule resources whose requirements change in proportion to the number of assemblies being built.</p>
+<p>In the Routing to Schedule Discrete Job table, operation sequence 10 has resource sequence 2, Punch press, with a basis of Lot to schedule one hour of teardown activity for each job.</p>
+<p>Operation sequence 10, resource sequence 1 has 1 hours of runtime activity for each assembly unit on the job. Therefore, a job for an assembly quantity of 1000 requires 100 hours of runtime activity.</p>
+<h3><a id="T228529"></a><b>Assigned Units<a name="d0e48194" id="d0e48194"></a></b></h3>
+<p>You can assign multiple units of a resource to work concurrently at an operation. In the Routing to Schedule Discrete Job table, for operation sequence 20, resource sequence 3, you have three drill press resources in your plant that you have assigned to the routing. Detailed scheduling schedules assuming all three are applied to the job. In other words, if your job has 50 hours of drill press resource required, detailed scheduling would schedule 16.67 elapsed hours (50 resource hours required/3 resources available).</p>
+<h3><a id="T228530"></a><b>Scheduled Options<a name="d0e48206" id="d0e48206"></a></b></h3>
+<p>You can assign resources to an operation, but not have them scheduled. In the Routing to Schedule Discrete Job table, you might have a machinist resource who periodically checks the progress of the drill press resource. Since the machinist resource is not on the critical path you would not schedule, but you would likely want to cost, the machinist resource.</p>
+<p>You can assign resources used solely for scheduling, even though these resources do not actually provide value added work. In the Routing to Schedule Discrete Job table, at operation sequence 20, resource sequence 1, you can simulate 4 hours of queue time to schedule the time assemblies wait before the drill press resource frees up from other scheduled work.</p>
+<p><strong><span>Note:</span></strong> Detailed scheduling is not a finite scheduling algorithm. However, you schedule resources to simulate load that other jobs place on a department and resource and thus achieve scheduling results similar to those created by finite scheduling algorithms.</p>
+<p>You can schedule operations to overlap to account for simultaneous processing of the same job in concurrent operations. For example, you can schedule setup resources of the next operation to overlap with processing resources of the current operation. Or, you can schedule teardown resources at the prior operation to overlap with processing resources at the current operation.</p>
+<p>In the Routing to Schedule Discrete Job table, operation sequence 10, resource sequence 2 has one hour of teardown that can be performed after the assemblies have moved to the next operation. As such, the Scheduled field is set to Next.</p>
+<p>Operation sequence 30, resource sequence 1 has one hour of setup activity that can begin before the assemblies arriving at operation sequence. As such, the Scheduled field is set to Prior.</p>
+<h3><a id="T228531"></a><b>Shift Calendar<a name="d0e48229" id="d0e48229"></a></b></h3>
+<p>Detailed scheduling uses the shift calendar to determine resource availability. Therefore, resources can only be scheduled when they are available. If you assume round the clock resource availability, the job for 1000 assemblies, using the routing in the Routing to Schedule Discrete Job table, would require 141.67 processing hours or approximately 5.6 workdays.</p>
+<p>On the other hand, if you assume a single 8 hour day, single shift calendar for all resources, the processing hours would remain 141.67 hours, but the workdays would stretch to approximately 17.7.</p>
+<h3><a id="T228532"></a><b>Forward and Backward Scheduling<a name="d0e48243" id="d0e48243"></a><a name="d0e48249" id="d0e48249"></a></b></h3>
+<p>When you forward schedule, detailed scheduling starts at the job start date and time and computes the job completion date and time. When you backward schedule, detailed scheduling ends at the job completion date and time and computes the job start date and time.</p>
+<p>If the job start date and time is before the first scheduled resource in the first operation becomes available, no work can take place until that resource becomes available. Likewise for backward scheduling, if the completion date and time for the job conflict with the availability of the last scheduled resource in the last operation, the job cannot be completed until the last operation is complete. Resources may or may not be available depending on their shift availability.</p>
+<p>The following diagram <a name="d0e48262" id="d0e48262"></a><a name="d0e48268" id="d0e48268"></a><a name="d0e48274" id="d0e48274"></a>depicts how the detailed scheduler would schedule the routing from the Routing to Schedule Discrete Job table, assuming round the clock resource availability:</p>
+<p><img width="596" height="395" src="./img/wip_wip_09.gif" alt="the picture is described in the document text"></p>
+<p><strong>Related Topics</strong></p>
+<p>Overview of Routings, <i>Oracle Bills of Material User's Guide</i></p>
+<p>Creating a Routing, <i>Oracle Bills of Material User's Guide</i></p>
+<p>Creating and Implementing Firm Planned Orders, <i>Oracle Advanced Supply Implementation and User's Guide</i></p>
+<p>Releasing Recommendations, <i>Oracle Advanced Supply Implementation and User's Guide</i></p>
+<h2><a name="1035180"></a><a id="I_cx2Ddiscrsch"></a><b>Discrete Rescheduling</b></h2>
+<p><a name="d0e48309" id="d0e48309"></a><a name="d0e48315" id="d0e48315"></a>You can reschedule discrete jobs by modifying discrete job operations, by importing modified jobs and schedules, and by replanning planned orders using Oracle planning products.</p>
+<h3><a id="T228537"></a><b>Capacity Modifications<a name="d0e48327" id="d0e48327"></a><a name="d0e48333" id="d0e48333"></a></b></h3>
+<p>For each resource on a shift, you can override the number of resource units available (such as number of machines) and specify additions or reductions to the amount of time the resource is available on that shift. And, you can group capacity modifications into sets that you can use when you generate a capacity plan to simulate capacity changes. In Work in Process, these capacity modifications are considered when you define new jobs and/or reschedule existing jobs.</p>
+<h3><a id="T228534"></a><b>Discrete Job Changes<a name="d0e48345" id="d0e48345"></a><a name="d0e48351" id="d0e48351"></a></b></h3>
+<p>You can change start and completion dates and times of discrete jobs. The operations and material requirements of the job are automatically forward or backward scheduled depending on the date you changed. This rescheduling is based on the operation and requirements of the job, not the bill and routing you define in Oracle Bills of Material.</p>
+<p>If you increase or decrease the job quantity, the job is automatically rescheduled based on the revised quantity. If you change the alternate routing, the routing revision, or revision date and time or routing reference (for non-standard jobs only) of a job with a status of Unreleased, the job is rescheduled based on the new routing.</p>
+<h3><a id="T228536"></a><b>Job Import<a name="d0e48365" id="d0e48365"></a><a name="d0e48371" id="d0e48371"></a></b></h3>
+<p>You can import suggested repetitive schedules from other planning system into Work in Process. You can choose the specific jobs you want to reschedule based on the criteria you enter in the planning system. Job operation and material requirement start and completion dates and times are automatically rescheduled. See: <a href="T228107T228111.htm#I_cx2Dopen">Work Order Interface</a> and <a href="T228107T228123.htm#I_tx2Djsimprt">Importing Jobs and Schedules</a>.</p>
+<h3><a id="T228533"></a><b>Operation Dates<a name="d0e48389" id="d0e48389"></a><a name="d0e48395" id="d0e48395"></a></b></h3>
+<p>You can reschedule any existing job. You can reschedule around the start or completion date of any discrete job operation. For example, you can do midpoint rescheduling to schedule both forward and backward from any operation within the routing. You can also manually reschedule operation start and completion dates. See: <a href="T228107T228116.htm#I_tx2Dupops">Adding and Updating Operations</a>.</p>
+<h3><a id="T228535"></a><b>Planned Orders<a name="d0e48410" id="d0e48410"></a><a name="d0e48416" id="d0e48416"></a></b></h3>
+<p>You can automatically implement reschedule recommendations from Oracle planning products. You can choose the specific jobs you want to reschedule based on the criteria you enter in the Planner Workbench. The system then automatically reschedules job operation and material requirement start and completion dates and times.</p>
+<h3><a id="T228538"></a><b>Workday Calendar and Shifts<a name="d0e48428" id="d0e48428"></a><a name="d0e48434" id="d0e48434"></a></b></h3>
+<p>You can change the workday calendar and modify shifts at any time. The system takes these changes into account when you define new jobs and/or reschedule existing jobs. You can transact on non-workdays as long as they occur in a valid period. See: Overview of Workday Calendar, <i>Oracle Bills of Material user's Guide</i>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_tx2Drsdj">Rescheduling Discrete Jobs</a></p>
+<h2><a name="1035188"></a><a id="I_cx2Dreplsch"></a><b>Repetitive Line Scheduling</b></h2>
+<p><a name="d0e48455" id="d0e48455"></a><a name="d0e48461" id="d0e48461"></a>Repetitive line scheduling is used to schedule repetitive production. When you define repetitive schedules you must specify the line on which you plan to produce the repetitive assembly and the quantity you plan to build. Then, repetitive line scheduling uses the line start and stop times, production rate, and lead time, along with the workday calendar to schedule your repetitive schedules.</p>
+<h3><a id="T228540"></a><b>Production Lines<a name="d0e48473" id="d0e48473"></a><a name="d0e48479" id="d0e48479"></a><a name="d0e48485" id="d0e48485"></a></b></h3>
+<p>When you define lines you must specify the start and stop times of the line. You must also specify the minimum and maximum hourly rate on the line.</p>
+<p>The repetitive line scheduling method uses line start and stop times to calculate how long the line runs each day. For example, if you run the line from 8:00 am to 5:00 pm, you would enter a start time of 08:00 and a stop time of 17:00. The repetitive line scheduling method does not use the shift calendar dates and times you defined in Oracle Bills of Material. The repetitive line scheduling method does use the days on and days off from the workday calendar.</p>
+<h3><a id="T228541"></a><b>Production Rate<a name="d0e48499" id="d0e48499"></a><a name="d0e48505" id="d0e48505"></a><a name="d0e48511" id="d0e48511"></a></b></h3>
+<p>When you associate a line and assembly you must set the hourly production rate. In other words, you define the hourly production run rate used to schedule that assembly on that line. For line/assembly associations with a fixed lead time rate line, all assemblies should use the same production rate. For variable rate lines, you need to specify different rates for each assembly. The production rate cannot be greater than the maximum rate on the line.</p>
+<ul>
+<li>
+<p>Daily Quantity<a name="d0e48524" id="d0e48524"></a></p>
+<p>The daily quantity is the number of completed assemblies you plan to produce on the schedule each day. The daily quantity can only be a positive number including decimals, such as 1.25. A warning message displays if you define a daily quantity for a schedule that is greater than the line's maximum hourly rate times the production hours.</p>
+<p>You can choose a daily quantity that is less than or equal to the daily line capacity<a name="d0e48534" id="d0e48534"></a>:</p>
+<p>production rate X (line stop time - line start time)</p>
+<p>In that case, you build the entire daily quantity for that schedule in less than a full day. For example, if the production rate is 100 per hour for 10 hours and the daily quantity for a schedule is 500 per day, you can build the 500 in half a day. The remaining line capacity of 500 is then free for other production.</p>
+</li>
+<li>
+<p>First Unit/Last Unit Start and First Unit/Last Unit Completion Dates<a name="d0e48546" id="d0e48546"></a></p>
+<p>The first unit start date (FUSD) is the date and time you plan to begin production on the first assembly on a repetitive schedule. You can enter a start date and time earlier than the current date to maintain relative priorities.</p>
+<p>The LUSD (last unit start date) is the date and time you plan to begin production of the last assembly on a repetitive schedule.</p>
+<p>The FUCD (first unit completion date) is the date and time you plan to complete production of the first assembly on a repetitive schedule. This date equals the FUSD plus the lead time.</p>
+<p>The LUCD (last unit completion date) is the date and time you plan to complete production of the last assembly on a repetitive schedule.</p>
+</li>
+<li>
+<p>Lead Times<a name="d0e48563" id="d0e48563"></a><a name="d0e48569" id="d0e48569"></a><a name="d0e48575" id="d0e48575"></a></p>
+<p>For lines with a lead time basis of Fixed, you must enter a fixed lead time for the line. For lines with a lead time basis of Routing-based, the lead time is calculated by applying the detailed scheduling algorithm to the routing of the assembly. The lead time for a repetitive schedule is the amount of time it takes to complete the first unit.</p>
+</li>
+<li>
+<p>Over-schedule Line By Daily Quantity</p>
+<p>You can temporarily over-schedule a production line to simulate overtime or a production rate increase. You can choose a daily quantity greater than the daily line capacity. For example, if the production rate is 100 units per hour for 10 hours, the daily line capacity is 1000 units. You can define a schedule for 1200 units, thereby over-scheduling the line. The system warns you that you are over-scheduling the line and interprets this over-schedule as an increase in the production rate, not a change in start and stop times. In this example, the system would assume a production rate of 120 units per hour for 10 hours to get 1200 units per day.</p>
+</li>
+<li>
+<p>Processing Days<a name="d0e48591" id="d0e48591"></a><a name="d0e48597" id="d0e48597"></a></p>
+<p>Processing days are the number of days you plan to work on the repetitive schedule. Processing days can be any positive number including decimal (partial) days. A full processing day for the schedule on a line may not require the entire capacity of the line if the daily quantity is less than the daily line capacity. For example, a full processing day on a schedule at a daily quantity of 500 on a line with a production rate of 100 per hour and 10 available hours can be built with a half day of line capacity.</p>
+<p>The total quantity is the number of completed assemblies you plan to produce on the repetitive schedule. The total quantity equals the daily quantity multiplied by the processing days. The total quantity can only be a positive number including decimal quantities.</p>
+<p>When you manually define a repetitive schedule, you can enter either the daily quantity or the total quantity. You can enter both if you choose. If you enter either quantity and processing days information, the system automatically calculates the other quantity for you.</p>
+</li>
+<li>
+<p>Repetitive Schedule Quantities<a name="d0e48612" id="d0e48612"></a></p>
+<p>You define the daily production quantity, processing days, and total production quantity when you manually define a schedule.</p>
+</li>
+<li>
+<p>Repetitive Schedule Dates and Days<a name="d0e48623" id="d0e48623"></a></p>
+<p>You enter dates First Unit/Last Unit Start and First Unit/Last Unit Completion Dates and times, and processing days when you manually define a repetitive schedule.</p>
+</li>
+</ul>
+<h3><a id="T228550"></a><b>Forward Scheduling<a name="d0e48634" id="d0e48634"></a><a name="d0e48640" id="d0e48640"></a></b></h3>
+<p>For repetitive schedules with routings, if you enter FUSD or FUCD and times, the system uses forward scheduling to calculate the other dates. If you enter FUCD or LUCD and time, the system uses backward scheduling to calculate the other dates. If you do not have a routing for an assembly on a line with a lead time basis of Routing based, you must manually schedule the lead time. In other words, if you enter the FUSD and time, you must enter the FUCD and time to set the lead time for the schedule.</p>
+<p>If you do not have a routing for an assembly on a line with a lead time basis of Routing based, you must manually schedule the lead time. In other words, if you enter the FUSD and time, you must enter the FUCD and time to set the lead time for the schedule.</p>
+<p>You can also forward or backward schedule a schedule if its assembly has either a fixed or variable lead time or both. If the assembly has both a fixed and variable lead time, the lead time for the repetitive schedule is calculated as follows<a name="d0e48653" id="d0e48653"></a>:</p>
+<p>(job or schedule quantity x variable lead time) + fixed lead time</p>
+<p>The following diagram <a name="d0e48662" id="d0e48662"></a><a name="d0e48666" id="d0e48666"></a><a name="d0e48672" id="d0e48672"></a>illustrates repetitive schedule dates.</p>
+<p><img width="589" height="415" src="./img/wip_wip_10.gif" alt="the picture is described in the document text"></p>
+<p>You cannot overlap repetitive schedules for the same assembly on the same line. In other words, you cannot have the FUSD of one schedule fall between the FUSD and LUSD of a prior schedule. For example, if the LUSD on the prior schedule is 24-MAY at 12:00, then the FUSD of the next schedule for that assembly on that line must be at least 24-MAY at 12:01.</p>
+<p>If you do not have a routing for an assembly on a line with a lead time basis of Routing based, you must manually schedule the lead time. In other words, if you enter the FUSD and time, you must enter the FUCD and time to set the lead time for the schedule.</p>
+<h3><a id="T228551"></a><b>Sequencing Repetitive Assemblies on a Line<a name="d0e48690" id="d0e48690"></a><a name="d0e48696" id="d0e48696"></a></b></h3>
+<p>If you build multiple repetitive assemblies on a single production line, you can sequence production to maximize efficiency and customer service. You can then query all schedules defined for an assembly on the line and check the sequencing based on the schedule dates. You can then reschedule the schedules.</p>
+<p>To further assist you with sequencing, the system provides several additional features. For example, you can define all schedules for an assembly on a single line.</p>
+<p>Furthermore, because the system uses both dates and times to schedule repetitive production, you can decide the proper scheduling sequence then schedule production to the minute to match your sequence.</p>
+<p>Lastly, you can use the Open Job and Schedule Interface to import sequence optimized repetitive planning suggestions. For example, if you have an automated sequencing program, you can insert output records from this program into the Open Job and Schedule Interface table. These records can then be imported into Work in Process.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Dopen">Open Job and Schedule Interface</a></p>
+<p><a href="T228107T228114.htm#I_tx2Dlaassoc">Associating Lines and Assemblies</a></p>
+<p><a href="T228107T228123.htm#I_rx2Dwipsulin">Production Line Report</a></p>
+<p><a href="T228107T228123.htm#I_rx2Dwiprelin">Repetitive Line Report</a></p>
+<h2><a name="1035201"></a><a id="I_cx2Dreplresch"></a><b>Repetitive Line Rescheduling</b></h2>
+<p><a name="d0e48732" id="d0e48732"></a><a name="d0e48736" id="d0e48736"></a><a name="d0e48742" id="d0e48742"></a><a name="d0e48748" id="d0e48748"></a>You can reschedule repetitive schedules by changing quantities, dates, and routing revisions.</p>
+<h3><a id="T228552"></a><b>Repetitive Schedule Changes<a name="d0e48760" id="d0e48760"></a><a name="d0e48766" id="d0e48766"></a></b></h3>
+<p>You can change the daily production quantity, processing days, and total quantity of a repetitive schedule. You can change any quantity and the system reschedules all other dates and quantities on that schedule accordingly. For example:</p>
+<ul>
+<li>
+<p>Changing the daily production rate on a repetitive schedule causes the total quantity to change accordingly based on the processing days.</p>
+</li>
+<li>
+<p>Changing the processing days causes the total quantity to change according to the daily quantity.</p>
+</li>
+<li>
+<p>Changing the total quantity on a schedule does not impact the daily quantity. Instead increasing the total quantity causes the processing days to increase. Conversely, reducing the total quantity decreases the processing days.</p>
+</li>
+</ul>
+<p>If you change repetitive schedule quantities, you must select a date around which to reschedule. The system then keeps this date constant while automatically changing the other dates accordingly. For instance, if you increase the processing days on a repetitive schedule and choose to keep the first unit start and completion dates constant, the system pushes out the last unit start date and last unit completion date and increases the total quantity.</p>
+<h3><a id="T228553"></a><b>Repetitive Schedule Dates<a name="d0e48790" id="d0e48790"></a><a name="d0e48796" id="d0e48796"></a></b></h3>
+<p>You can change the dates and times on a repetitive schedule. When you change dates and times, the system reschedules unreleased and released schedules the same way. If you change the first unit start date, first unit completion date, last unit start date, or last unit completion date, the system reschedules the repetitive schedule to adjust the remaining start and completion dates. Changing any of the four start and completion dates does not impact the processing days, total quantity, daily quantity, or lead time. You cannot change dates and times so that schedules for the same assembly on the same line overlap.</p>
+<p>You cannot change the lead time on a schedule. For fixed rate lines, the line determines the lead time. For routing-based lines, the routing determines the lead time. When you change dates on a repetitive schedule, all the other attributes of that schedule, such as bill revision, remain the same.</p>
+<h3><a id="T228554"></a><b>Bill Revisions and Dates<a name="d0e48810" id="d0e48810"></a><a name="d0e48816" id="d0e48816"></a></b></h3>
+<p>You can change the bill revision and dates for any unreleased or pending repetitive schedule.</p>
+<h3><a id="T228555"></a><b>Routing Revisions and Dates<a name="d0e48828" id="d0e48828"></a><a name="d0e48834" id="d0e48834"></a></b></h3>
+<p>If you change the routing revision or revision date for any repetitive schedule with a status of Unreleased or Pending - Mass loaded, the system automatically reschedules based on the new routing. For routing-based lines this may impact the dates. For fixed rate lines, changing the routing does not impact the dates.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228123.htm#I_rx2Dwipsulin">Production Line Report</a></p>
+<p><a href="T228107T228123.htm#I_rx2Dwiprelin">Repetitive Line Report</a></p>
+<h2><a name="1035206"></a><a id="I_cx2Dmodrlcap"></a><b>Repetitive Line Capacity Changes</b></h2>
+<p><a name="d0e48856" id="d0e48856"></a><a name="d0e48862" id="d0e48862"></a>You can make repetitive schedule adjustments to your repetitive production capacity to reflect short term issues in matching your repetitive production supply and demand. You can also change line attributes such as start and stop time, and production rate to reflect ongoing changes in your repetitive line capabilities.</p>
+<h3><a id="T228556"></a><b>Temporary Increase and Decrease in Capacity<a name="d0e48872" id="d0e48872"></a><a name="d0e48878" id="d0e48878"></a></b></h3>
+<p>You have several options for temporarily increasing repetitive production output. You can increase the production hours on a line by working overtime. You can also increase the production rate by adding workers to a line, or you can increase the load on an under utilized line.</p>
+<p>The system lets you temporarily over-schedule a production to simulate overtime or production rate increase. You can choose a daily quantity greater than the daily line capacity when you define a repetitive schedule. Over-scheduling is interpreted as an increase in the production rate between the defined line start and stop times, not as an increase in the line's production hours.</p>
+<p>You can also increase the load on an under utilized line by simply associating the line with the assembly then manually defining a repetitive schedule for the assembly on that line.</p>
+<p>You have several options for temporarily decreasing repetitive production output. You can decrease production hours on a line temporarily by shutting down the line earlier than usual. You can also temporarily decrease the production rate by reassigning workers to other lines or by temporarily shutting down the under utilized line.</p>
+<p>The system lets you under-schedule a line any time you define a repetitive schedule. You can choose a daily quantity less than the daily line capacity. Under-scheduling is interpreted as running for a shorter interval at the defined production rate and within the line start and stop time.</p>
+<p>You can choose not to define schedules on a line if you do not need the supply. As such, the line would likely be under utilized.</p>
+<h3><a id="T228558"></a><b>Permanent Increase and Decrease in Capacity<a name="d0e48900" id="d0e48900"></a><a name="d0e48906" id="d0e48906"></a></b></h3>
+<p>You have several options for permanently increasing your repetitive production outputs. In real life, you can run existing lines longer, you can speed up production on the line, or you can add lines.</p>
+<p>To run lines longer or faster, you can change the start and stop times on a line, add days to the workday calendar, or increase the production rate. All new schedules planned and defined after this change reflect these new attributes. Existing repetitive schedules are not impacted.</p>
+<p>You can define new lines and associate them with existing repetitive assemblies to increase your repetitive capacity as well.</p>
+<p>To permanently decrease your repetitive production capacity, you can shorten your production hours, decrease your production rate, or shut down under utilized lines.</p>
+<p>The system lets you shorten your production hours by changing line start and stop times or by removing days from the workday calendar. You can also decrease the production rate for a line and all the repetitive assemblies that use the line. All new repetitive schedules planned and defined after this change reflect this new rate. Finally, you can remove a line from production by removing its association to any repetitive assemblies.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228123.htm#I_rx2Dwipsulin">Production Line Report</a></p>
+<p><a href="T228107T228123.htm#I_rx2Dwiprelin">Repetitive Line Report</a></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

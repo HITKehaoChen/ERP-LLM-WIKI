@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management User's Guide">
+<meta name="dcterms.identifier" content="E48843-30">
+<meta name="dcterms.isVersionOf" content="ONTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T335476T481348.htm" title="Previous" type="text/html">
+<link rel="Next" href="T335476T429680.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">13/28</span> <!-- End Header -->
+<h1>Customer Related Actions</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T337627">Add Customers</a></li>
+<li><a href="#T337628">Add Customer Window Overview</a></li>
+<li><a href="#T337629">Adding Customers Using the Add Customer Window</a></li>
+<li><a href="#T610615">Add Customers Using the Process Order Public API</a></li>
+<li><a href="#T337630">Customer Location Overview</a></li>
+<li><a href="#T337631">User Procedures</a></li>
+<li><a href="#T337632">Add Customer Sample Business Flows</a></li>
+</ul>
+<h2><a name="2476270"></a><a id="T337627"></a><b>Add Customers</b></h2>
+<p><a name="d0e44352" id="d0e44352"></a><a name="pre_addcus" id="pre_addcus"></a><a name="OEXOIADC_CUST_CONTENT" id="OEXOIADC_CUST_CONTENT"></a><a name="add" id="add"></a>Review the following prerequisite information before you attempt to add customer information using the Add Customer window:</p>
+<ol>
+<li>
+<p>An understanding of how Oracle Trading Community has been integrated within Oracle Applications.</p>
+</li>
+<li>
+<p>The profile option<a name="d0e44378" id="d0e44378"></a> OM: Add Customer must be set to a value other than None for at least one level within the system profile option hierarchy; user, responsibility, application, or site.</p>
+</li>
+<li>
+<p>The Order Management system parameter Customer Relationships must be enabled if you wish to add Ship To addresses for customers other than the sold-to on the order.</p>
+</li>
+<li>
+<p>The Receivables system parameters Automatic Customer Numbering and Automatic Site numbering determine if the customer number and customer address location is system generated or can be manually entered when adding a new customer and customer address within the Add Customer window.</p>
+<p><strong><span>Note:</span></strong> When the Receivables option Automatic Customer numbering is set to NO you need to enter the New Customer Number.</p>
+<p>The Receivables system parameter Address Validation determines how address information within the Add Customer window is entered, displayed, and validated.</p>
+</li>
+<li>
+<p>The following profile options affect the functionality of adding customers from the Sales Order window.</p>
+<ul>
+<li>
+<p><a name="d0e44411" id="d0e44411"></a>OM: E-Mail Required On New Customers. The value of this profile option determines whether you must define an mail address for both the customer and any contacts defined when adding a new customer.</p>
+</li>
+<li>
+<p>ICX: Territory, HZ: Reference Territory, ICX: Territory, HZ: Reference Territory: These determine the default country and should be set to expedite address entry.</p>
+</li>
+<li>
+<p>Flexfields: Open Descr Window. The value of this profile option determines whether to automatically display descriptive flexfields when navigating to the descriptive flexfield display field.</p>
+</li>
+<li>
+<p>AR: Change Customer Name. The value of this profile option determines whether you can change a customer name after saving their information. This profile option is set to Yes by default.</p>
+<p><strong><span>Note:</span></strong> You cannot update a customer Name within the Add Customer window. If you wish to update a customer Name, use the Receivables Standard Customer window.</p>
+</li>
+<li>
+<p>HZ: Generate Party Number. The value of this profile option determines if the party number is system generated or manually entered when adding a new customer.</p>
+</li>
+<li>
+<p>HZ: Generate Party Site Number. The value of this profile option determines if the site number is system generated or manually entered when adding a new customer address. The site number is unique.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><a href="T335476T480619.htm#o_addcus">Add Customer Window Overview</a></p>
+<p><a href="T335476T480619.htm#c_addcus">Adding Customers using the Add Customer window</a></p>
+<p><a href="T335476T480619.htm#addcuapi">Add Customers using the Process Order Public API</a></p>
+<p><a href="T335476T480619.htm#flows_addcus">Add Customer Sample Business Flows</a></p>
+<h2><a name="2476271"></a><a id="T337628"></a><b>Add Customer Window Overview</b></h2>
+<p><a name="d0e44472" id="d0e44472"></a><a name="d0e44477" id="d0e44477"></a><a name="o_addcus" id="o_addcus"></a>The Add Customer window, accessible from the Sales Order Header window is a versatile user interface from Order Management to Oracle Receivables enabling you to define new entities (customers) and related entity details (customer details) within the Oracle Trading Community model. For more information on the Trading Community customer model, see:</p>
+<ul>
+<li>
+<p>Trading Community usage within Order Management</p>
+</li>
+<li>
+<p><i>Oracle Receivables User Guide</i>, Customers</p>
+<p><strong><span>Note:</span></strong> All account site (customer location) contacts created within the Add Customer window are created at the customer level only; you cannot create site level contacts using the Add Customer window. Please note, however, that customer level contacts can be used as site level contacts for orders or returns.</p>
+</li>
+</ul>
+<p>You can create the following:</p>
+<ul>
+<li>
+<p>New customer & Party</p>
+</li>
+<li>
+<p>New address for a new customer</p>
+</li>
+<li>
+<p>New customer and associate the customer with an existing Party</p>
+</li>
+<li>
+<p>New Bill To, Ship To and Deliver To Locations (addresses) for an existing customer</p>
+</li>
+<li>
+<p>New Ship To (drop ship) customers and associated addresses</p>
+</li>
+<li>
+<p>New contacts for new or existing customers</p>
+</li>
+<li>
+<p>New customer account sites from previously defined party sites.</p>
+</li>
+<li>
+<p>New account contacts from existing party level contacts</p>
+</li>
+<li>
+<p>E-mail addresses for new and existing customers and customer contacts</p>
+<p><strong><span>Note:</span></strong> You can not update existing values for customer Name or E-mail addresses for both customers and customer contacts currently defined within the system while working within the Add Customer window.</p>
+<p><strong><span>Note:</span></strong> If an e-mail address is undefined for either a existing customer or customer contact, you can add a new email address, irrespective of the value the for the profile option <a name="d0e44534" id="d0e44534"></a>OM: E-Mail Required On New Customers.</p>
+</li>
+</ul>
+<p>Oracle Application Folder functionality has not been enabled for any region within the Add Customer window. However, the Eraser icon (from the Toolbar) has been added to all regions, enabling you to clear individual regions. within the window, while retaining information within other regions. The Eraser icon does not perform a commit to the database.</p>
+<p><b>Security</b></p>
+<p>The profile <a name="d0e44547" id="d0e44547"></a>OM: Add Customer limits both accessibility and functionality to the Add Customer window. Choose to allow all users or no users access to the window or choose to only allow users to add new address or contact information.</p>
+<p><a href="T335476T480619.htm#c_addcus">Adding Customers using the Add Customer window</a></p>
+<p><a href="T335476T480619.htm#flows_addcus">Add Customer Sample Business Flows</a></p>
+<p><i>Order Management Implementation Manual</i>, Profile Options.</p>
+<h2><a name="2476272"></a><a id="T337629"></a><b>Adding Customers Using the Add Customer Window</b></h2>
+<p><a name="d0e44572" id="d0e44572"></a><a name="c_addcus" id="c_addcus"></a><a name="OEXOEINL_INLINE_CUSTOMER" id="OEXOEINL_INLINE_CUSTOMER"></a>The Add Customer window contains the following three regions:</p>
+<ol>
+<li>
+<p>Organization or Person</p>
+</li>
+<li>
+<p>Customer Address</p>
+</li>
+<li>
+<p>Customer Contact</p>
+</li>
+</ol>
+<p>To display the Add Customer window, select one of the following options available within the Sales Order Header Window:</p>
+<ul>
+<li>
+<p>With your cursor in any field, use the mouse right click functionality and select Add Customer from the menu list displayed</p>
+</li>
+<li>
+<p>Click Actions and then select Add Customer from the menu list displayed</p>
+</li>
+<li>
+<p>Click Yes within a decision dialog box, when displayed</p>
+<ul>
+<li>
+<p>The decision dialog box is displayed when entering a unique, case in-sensitive value within any of the following fields on the Sales Order Window, Main tab:</p>
+</li>
+<li>
+<p>Customer: If you use the Add Customer window from this field, the address created will be a Sold To address. Additionally, if you have selected the Ship To and Bill To boxes, the address will be used as a Ship To and Bill To address.</p>
+</li>
+<li>
+<p>Customer Contact</p>
+</li>
+<li>
+<p>Ship To Location: If you use the Add Customer window from this field, the address created is a Ship To address and will display on the sales orders window in the Ship To fields.</p>
+</li>
+<li>
+<p>Bill To Location: If you use the Add Customer window from this field, the address created is a Bill To address and will display on the sales orders window in the Bill To fields.</p>
+<p><strong><span>Note:</span></strong> The decision dialog box can also be displayed if entering a unique, case in-sensitive value for the following fields within a user defined folder for the Sales Order Header window:</p>
+<ul>
+<li>
+<p>E-Mail</p>
+</li>
+<li>
+<p>Ship To, Ship To Contact, Ship To Customer</p>
+</li>
+<li>
+<p>End Customer, End Customer location, End Customer Contact, Customer Location</p>
+</li>
+<li>
+<p>Bill To Contact, Bill To Customer, Bill To</p>
+</li>
+<li>
+<p>Deliver To, Deliver To Location, Deliver To Contact</p>
+<p>Within the decision dialog box, you must either click Create to define new customer information or click Cancel to return to the Sales Order Window before you can proceed.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> If the value for the profile option <a name="d0e44683" id="d0e44683"></a>OM: Add Customers is set to Address and Contact only, you will not be presented with the decision dialog box when entering a new, case in-sensitive value in either the customer or E-Mail fields. Instead, a FRM error will be displayed within the status bar.</p>
+<p><strong><span>Note:</span></strong> If you choose to display the Add Customer window from the Actions button menu, ensure you have either entered or defaulted all or none of the required order header fields, or you will receive an error.</p>
+<p><strong><span>Note:</span></strong> Choosing an action from the Actions button menu after entering a required order header field invokes a commit to the database, and all required order header fields must be present for the commit to be successful.</p>
+<p>All customers and customer contacts defined within the Add customer window are defined as active, and when defining a customer, the customer is automatically assigned the DEFAULT customer profile class.</p>
+<p>You can update the customer profile at either the customer or site (address) within the Receivables Standard Customer, Profile Classes tab page and Customer Address, Profile - Transactions tab page, respectively.</p>
+<p>Once a request is made to display the Add Customer window, depending on your cursor location, customer data previously entered or defaulted within the Sales Order Header window can be passed to the Add Customer window.</p>
+<p>If your cursor is within an address field that contains data, when you invoke the Add Customer window, the customer and address information is passed.If your cursor is within the Customer Name or Customer Number field and the field(s) contains data, when you invoke the Add Customer window, customer name and customer number are passed.</p>
+<p><strong><span>Note:</span></strong> Contact Name is never passed from the Sales Order Header window to the Add Customer window. However, Contact Name can be passed from the Add Customer window to the Sales Order Header window provided data is present when clicking Create.</p>
+<p>If no customer data has been entered within the Sales Order Header window, and you choose to open the Add Customer window, you can then either:</p>
+<p>Select existing customers and create new customer addresses or contacts for the customer.</p>
+<p>Enter a new customer details</p>
+<p>Data entered via the Add Customer window is only committed to the database when you click Create. Relevant data committed is automatically passed back to associated fields within the Sales Order Header window, effectively reducing the time taken to capture both new customer and order details.</p>
+<p><b>Add Customer Window</b></p>
+<p><img width="756" height="505" src="./img/ont_addcust.gif" alt="the picture is described in the document text"></p>
+<p><a name="d0e44746" id="d0e44746"></a><b>Customer Region</b></p>
+<p>Creating Party Information</p>
+<p><a name="d0e44762" id="d0e44762"></a>Utilizing the Oracle Trading Community model, the Add Customer window enables you to create the relationships with your customers. Customer Type enables you to indicate if you are working with a organizational customer or a individual customer.</p>
+<p>Whenever you create a new customer within the Add Customer window, an address is required. Both a new Party and Party Site are always created.</p>
+<p>If a new customer is defined, the associated Party Name will have the same value as the customer Name.</p>
+<ul>
+<li>
+<p>The value of the profile option HZ: Generate Party Number determines whether the Party Number is system generated or manually entered. If set to Null (or system generated), then a value should not be entered by the user, as the Party Number will be system generated.</p>
+</li>
+<li>
+<p>The value of the profile option HZ: Generate Party Site Number determines whether the Party Site Number is system generated or manually entered. If set to Null, then a value should not be entered by the user, as the Party Site Number will be system generated.</p>
+<p><strong><span>Note:</span></strong> If you select a Party Name within the Person or Organization Number fields, the value within the customer name field is automatically updated to the value chosen with either field selected.</p>
+<p><strong><span>Note:</span></strong> You can choose to update the Party number for a customer or site within the Receivables Standard Customer window.</p>
+</li>
+</ul>
+<p><b>Operating Unit</b></p>
+<p>This field defaults the Operating Unit from the main transaction window it was launched from (like the Sales Order window or Pricing and Availability window) and you can create Customer information in that Operating Unit.</p>
+<p>If there is no Operating Unit specified in the calling window then the field will display your default Operating Unit. You can change the Operating Unit by selecting another Operating Unit accessible to you from the LOV. An Operating Unit is required before you can specify other information for creating the Customer.</p>
+<p>Customer Type:</p>
+<p>The value you choose within this field will determine the available fields within the Customer region. The default value for this field is set to Organization, which initially determines the fields available.</p>
+<ul>
+<li>
+<p>If Customer Type is set to Organization, the following fields are displayed.</p>
+<ul>
+<li>
+<p>Customer Name</p>
+</li>
+<li>
+<p>Customer Number</p>
+</li>
+<li>
+<p>Organization Number</p>
+</li>
+<li>
+<p>Email address</p>
+</li>
+<li>
+<p>Telephone number</p>
+</li>
+<li>
+<p>Receivables Customer Information Descriptive Flexfield</p>
+<p><strong><span>Note:</span></strong> If Customer Type is set to Organization, the value within the Organization Number field equates to Account Party Number.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If Customer Type is set to Person, the following fields are displayed:</p>
+<ul>
+<li>
+<p>Prefix, First Name, Middle Name, Last Name, Suffix</p>
+</li>
+<li>
+<p>Person Number</p>
+</li>
+<li>
+<p>Person Number</p>
+</li>
+<li>
+<p>Email address</p>
+</li>
+<li>
+<p>Telephone number</p>
+</li>
+<li>
+<p>Receivables Customer Information Descriptive Flexfield</p>
+<p><strong><span>Note:</span></strong> If Customer Type is set to Person, the value within the Person Number field equates to Accounts' Party Number.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Customer Type:</p>
+<p>The List of Values pop up window for the Person Number or Organization Number fields will display existing Party names based upon the value of the Customer Type field.</p>
+<p>Customer Address Region:</p>
+<p><a name="d0e44905" id="d0e44905"></a>Refer to the <i>Oracle Receivables User's Guide</i> for additional details regarding defaulting address information, flexible address mapping, and address validation.</p>
+<p>Customer Address Region Layout</p>
+<p>The address regions layout is dependent on the value entered or defaulted in the Country field. If the Country defaulted or entered has an address style associated with it, then the Address Descriptive Flexfield pop up window will display the associated address format (when navigating to any field other than the Country, Site, or Location fields within the Customer Address region).</p>
+<p>For more information on the setting up the Address Descriptive flexfield, see <i>Oracle Receivables User's Guide</i>, Setting Up Flexible Addresses.</p>
+<p>Country: This defaults from the profile ICX: Territory, and if that is not set, the value defaults from the profile HZ: Reference Territory.</p>
+<p>Address: Enter the address location for the customer information you are creating.</p>
+<p>Postal Code: Enter the postal code of the address location for the customer information you are creating.</p>
+<p>City: Enter the City of the address location for the customer information you are creating.</p>
+<p>State: Enter the State of the address location for the customer information you are creating.</p>
+<p>Province: Enter the Province of the address location for the customer information you are creating if necessary.</p>
+<p>Country: Enter the Country of the address location for the customer information you are creating.</p>
+<p>Location: Enter the address location Name for the customer information you are creating.</p>
+<p>Ship To: Select the Ship To check box if you want the address location defining to also be a Ship To customer location.</p>
+<p>The default value for this field when entering either person or organization customer details is Enabled (check box is checked).</p>
+<p>Bill To: Select the Bill To check box if you want the address location defining to also be a Bill To customer location.</p>
+<p>The default value for this field when entering either person or organization customer details is Enabled (check box is checked).</p>
+<p>Deliver To: If the Deliver To box is selected, the Deliver To Address in the Sales Orders window comes from the address that you enter in the Add Customers window. If the Deliver To box is unselected, the Deliver To Address in the Sales Orders window comes from the defaulting framework.</p>
+<p>Receivables Address Information Descriptive Flexfield: Enter the Receivables Address Information Descriptive Flexfield information if enabled and required.</p>
+<p>Receivables Site Use Descriptive Flexfield: Enter the Receivables Site Use Descriptive Flexfield information if enabled and required.</p>
+<p><a name="d0e44977" id="d0e44977"></a><b>Customer Contact Region</b></p>
+<p>Last Name: Enter the Last Name for the customer contact you are defining.</p>
+<p>First Name: Enter the First Name for the customer contact you are defining.</p>
+<p>Title: Select the Title for the customer contact you are defining.</p>
+<p>E-Mail: Enter the E-Mail address for the customer contact you are defining or updating.</p>
+<p>Telephone: Enter the telephone number for the customer contact you are defining.</p>
+<p>Select the Create or Cancel button.</p>
+<p>Select the Create button to commit new customer information or the Cancel button to return to the Sales Order Window before you can proceed.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T335476T480619.htm#o_addcus">Add Customer Window Overview</a></p>
+<p><a href="T335476T480619.htm#flows_addcus">Add Customer Sample Business Flows</a></p>
+<p><a href="T335476T480619.htm#c_addcus">Adding Customers using the Add Customer window</a></p>
+<h2><a name="6858892"></a><a id="T610615"></a><b>Add Customers Using the Process Order Public API</b></h2>
+<p><a name="d0e45034" id="d0e45034"></a><a name="addcuapi" id="addcuapi"></a>You can create customer accounts, sites, and contacts on the fly using the Process Order public API if the details sent, don't exist in the system. You can create different Sold To , Ship To, Bill To, Deliver To customers at the same time and create relationship between customer accounts on the fly if the relationship does not exist. Additionally, you can update the new and existing customer, site, and contact information using this API.</p>
+<p>You can send customer related information like customer, site, and contact details to header and line records through separate pl/sql input tables. These new tables for customer information can accept both Ids and values. If you wish to use this new structure to send customer information, then you need not send the customer information in header/line record. If you do not want to use this feature, then you can choose not to pass these two parameters and continue to pass customer information in header and line records. The value of the existing profile, OM: Add Customers, impacts the ability to create and update customer, site, and contact information. If you set the profile value as 'None', then you cannot create customer, site, and contact information on the fly. If set to 'Address and contact only', then you can add address and contact to existing customers but you cannot create new customers. If set to 'ALL', then there is no restriction and you can create customer, site, and contacts on the fly.</p>
+<p>For further information, see the Oracle Integration Repository (iRepository).</p>
+<h2><a name="2476276"></a><a id="T337630"></a><b>Customer Location Overview</b></h2>
+<p><a name="t_cloc_ov" id="t_cloc_ov"></a><a name="d0e45054" id="d0e45054"></a>Customer Location can be used both during the Negotiation phase (for both quotes and Sales Agreementss) or Fulfillment phase. In Negotiation phase, it should be used as a mailing address where the quote can be sent.</p>
+<p>Customer Location will be a header level value that can be defaulted if it represents the primary sold to site and used as a data source for defaulting attributes.</p>
+<p>Currently, the Business Purpose of Sold To is used by EDI and the Quoting Application (at the Party Site level).</p>
+<p>Customer Location (an account site with a business purpose of 'SOLD_TO) on a Quote/Order can be different from Ship To and Bill To Address.</p>
+<p><a name="d0e45065" id="d0e45065"></a><b>Display Sold To Site Usage</b></p>
+<p>Customer Location (Sold-To Site) is used as an address where the quote is mailed. Customer Location displays during any transaction at the header level.</p>
+<p><b>Identify Sold To Site Usage through Add Customer /Standard Customer Window</b></p>
+<p>When creating a new customer or new address you might require to assign a sold to usage to the customer record either through the Add Customer function from the sales order or through the Standard Set-Up Customer window.</p>
+<ul>
+<li>
+<p>Add Customer &ndash; indicates the business purpose of Sold to apply by selection of a check box.</p>
+</li>
+<li>
+<p>Standard Customer &ndash; Assign a Sold To Usage</p>
+</li>
+</ul>
+<p>Defaulting Values to the Sales Transaction Via Customer Location</p>
+<p>Customer Location is used as a data source in defaulting rules if required. Example: Price List, order type, or payment terms.</p>
+<p><b>Find Sales Transactions by Customer Location</b></p>
+<p>Provides the Customer Location attribute in the Find Orders window to be used as search criteria either in conjunction with other attributes or as a single attribute.</p>
+<p><a name="d0e45094" id="d0e45094"></a><b>Customer Location</b></p>
+<p>Customer Location can be used both at the Negotiation phase (For both quotes and Sales Agreementss) and the Fulfillment phase. In the Negotiation phase, it is used as a mailing address where the quote can be sent.</p>
+<p>The Customer Location is a header level value that can be defaulted if it represents the primary Sold To site and is used as a data source for defaulting attributes. Currently, the Business Purpose of 'Sold to' is used by EDI and the Quoting Application (at the Party Site level). Customer Location (an account site with a business purpose of Sold To) on a Quote/Order can be different from the Ship To and Bill To Address.</p>
+<p>Customer Location is defaultable and constrainable. There is a seeded constraint that will not allow you to update the Customer Location if the order is an internal order, ship confirmed or invoice interfaced, or RMA Received. The conditions that are used for the Customer (Sold To) will also be used for Customer Location.</p>
+<h2><a name="2476277"></a><a id="T337631"></a><b>User Procedures</b></h2>
+<a name="t_cloc_up" id="t_cloc_up"></a>
+<h3><b>To create the customer location:</b></h3>
+<ol>
+<li>
+<p>Navigate to the AR Customer Standard page.</p>
+</li>
+<li>
+<p>Query the customer whose address you want to enter.</p>
+</li>
+<li>
+<p>Click the Sites tab and enter the address/location information in the fields displayed.</p>
+<p><b>Add Customer Addresses</b></p>
+<p><img width="974" height="584" src="./img/ont_cust_location.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Save your work.</p>
+<p>Please refer to the <i>Oracle Receivables User Guide</i> for more information on setting up customer locations.</p>
+</li>
+</ol>
+<h3><b>To Enter a Customer Location on a Quote/Order</b></h3>
+<p>Customer Location is optional and can be used for mailing purposes.</p>
+<ol>
+<li>
+<p>Navigate to the Sales Orders window.</p>
+<p><strong><span>Note:</span></strong> Customer Location is defaultable and constrainable. There will be seeded constraint which will not allow to update Customer Location if the order is an internal order or ship confirmed or invoice interfaced or RMA Received. The conditions which are used for Customer (Sold To) will also be used for Customer Location.</p>
+</li>
+<li>
+<p>Enter the Customer Number or Customer Name.</p>
+</li>
+<li>
+<p>Click the Customer Location LOV on the Others tab, this LOV will show the list of customer addresses for the entered Customer.</p>
+<p><b>Sales Orders Window - Customer Locations List of Values</b></p>
+<p><img width="755" height="505" src="./img/ont_endcust.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Choose any site from the LOV or enter any partial site location, it will populate the other details like Customer Address1 Customer Address2, Customer Address3, Customer Address4, or Customer Address5 (which is the combination of City, State, Zip, and Country) on the Sales Orders window.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h3><b>To set up defaulting rules for defaulting customer location:</b></h3>
+<p>Once the customer is entered, the primary Customer Location will be defaulted by setting up the defaulting rules. Optionally, you can change the defaulted Customer Location, if any, or can select from the LOV that will show the list of Customer Locations.</p>
+<p><b>Defaulting Shipping & Billing Address from Customer Location</b></p>
+<p>Based on the defaulting rule setup on the header level, the Customer Location can be defaulted into Ship To and Bill To Sites.</p>
+<h3><b>To query orders using the Customer Location on the Find window:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Find Orders window from the Order Organizer.</p>
+</li>
+<li>
+<p>In the Order Information tabbed region, enter the Customer Location. Click Find.</p>
+</li>
+<li>
+<p>The resulting list contains all the orders with matching Customer Locations.</p>
+</li>
+</ol>
+<h3><b>To apply a mass change on Customer Location at the order header level:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Order Organizer and query the orders to apply a mass change to.</p>
+</li>
+<li>
+<p>Multi-select the orders to apply the mass change in Order Organizer Summary Information View.</p>
+</li>
+<li>
+<p>Select Mass Change from the Tools menu.</p>
+</li>
+<li>
+<p>Select the Customer Location from the LOV under the Main Tab.</p>
+</li>
+<li>
+<p>Click OK.</p>
+</li>
+</ol>
+<p><b>Defaulting Order Type, Price List, Payment Terms etc. from Customer Location</b></p>
+<p>You can default Order Type, Price List, Warehouse, and Payment Terms etc. from Customer Location on Sales Orders window based on the defaulting rule setup.</p>
+<h3><b>To create a new customer location using the Add Customer window:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Sales Orders window and invoke the Add Customer window. Alternatively, choose to pass existing customer details to the Add Customer window by providing appropriate values within respective fields on the Sales Orders window prior to invoking the Add Customer feature.</p>
+</li>
+<li>
+<p>When the Add Customer window displays, enter the required customer address information and check the Sold To check box.</p>
+</li>
+<li>
+<p>Click Create, the Customer Location will be populated on the Sales Orders window with the address details.</p>
+</li>
+</ol>
+<h3><b>To search for a customer location using the Find Customer window:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Quick Order Entry or Sales Orders window.</p>
+</li>
+<li>
+<p>Choose the Find Customer icon located in the toolbar or through the right mouse menu Customer-&gt;Find Customer.</p>
+</li>
+<li>
+<p>Select the Address Usage as Sold To and click Find.</p>
+</li>
+<li>
+<p>The Address/Customer Information LOV displays Customer Name, Number, Address, and identifies if it is a Customer Location. It also shows the Sold To Location Name.</p>
+</li>
+<li>
+<p>Once you make the selection in the LOV, the Order Usage window appears with different check boxes for different usages. Check Sold To to populate the Customer Location in the Sales Orders window.</p>
+</li>
+</ol>
+<h2><a name="2476288"></a><a id="T337632"></a><b>Add Customer Sample Business Flows</b></h2>
+<a name="d0e45281" id="d0e45281"></a><a name="flows_addcus" id="flows_addcus"></a>
+<h3><b>To create new Contacts for a new or existing Customer or Update Contact email address only:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Sales Order Header window and invoke the Add Customer window.</p>
+<p>Alternatively, choose to pass existing customer details to the Add Customer window by providing appropriate values within respective fields the Sales Order Header window prior to invoking the Add Customer feature. For example, select an existing contact to an a new address location for the contact.</p>
+</li>
+<li>
+<p>When the Add Customer window displays, enter new customer, address, and contact information or select an existing customer and update contact email address.</p>
+</li>
+</ol>
+<h3><b>To Create new Ship To (drop ship) customers and associated addresses:</b></h3>
+<p>There are business scenarios when your customer asks you to ship directly to his customer. To be able do so you need to create a new customer or customer address.</p>
+<p>The Add Customer window supports the creation of new Ship To customers and addresses.</p>
+<p>Two different scenarios for creating new customer details for drop ship sales orders are provided below.</p>
+<ul>
+<li>
+<p>You must enter the Sold To customer name in the Customer Name field.</p>
+</li>
+<li>
+<p>Your cursor must be in one of the Ship To address fields within the Sales Order Header window prior to invoking the Add Customer window in order to properly create Drop Ship customer details.</p>
+</li>
+</ul>
+<p><b>Scenario 1</b></p>
+<ol>
+<li>
+<p>The Ship To customer and customer address do not exist for a alternate drop ship location.</p>
+</li>
+<li>
+<p>Navigate to the Sales Order Header window and invoke the Add Customer window. Ensure you have entered the Ship To Customer name and then place the cursor in one of the Ship To address fields within the Sales Order Header window.</p>
+</li>
+<li>
+<p>When the Add Customer window displays, you may choose to clear customer details, as Ship To or Sold To customer details are passed by default. Enter the appropriate customer details (enabling the Ship To check box) for defining a new customer and click Create.</p>
+</li>
+<li>
+<p>Create a new address for the customer, ensuring you select the Ship To check box, and then click Create.</p>
+</li>
+<li>
+<p>Validate the correct customer details were passed from the Add Customer window, and then save your sale order header details.</p>
+</li>
+</ol>
+<p><b>Scenario 2</b></p>
+<ol>
+<li>
+<p>Navigate to the Sales Order Header window with the cursor in one of the Ship To address fields, invoke the Add Customer window. Alternatively, choose to pass existing customer details to the Add Customer window by providing appropriate values within respective fields the Sales Order Header window prior to invoking the Add Customer feature. Additionally, you may choose to select alternate values for customer fields once the Add customers window has displayed. The Ship To customer may exist, but the Ship To address does not exist.</p>
+</li>
+<li>
+<p>When the Add Customer window displays, ensure the appropriate customer name has been passed. If you choose not to pass the customer name from the Sales Order Header window, you can select the value in the customer name field.</p>
+</li>
+<li>
+<p>Enter the new address information that the order will be shipped to, ensuring you select the Ship To check box, and then click Create.</p>
+<p><a href="T335476T480619.htm#o_addcus">Add Customer Window Overview</a></p>
+<p><a href="T335476T480619.htm#flows_addcus">Add Customer Sample Business Flows</a></p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

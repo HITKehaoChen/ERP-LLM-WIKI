@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T376580.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T2011557.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">26/36</span> <!-- End Header -->
+<h1>Order Management Integration</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T376762">Integration</a></li>
+<li><a href="#T376763">Applications Core Technology Family</a></li>
+<li><a href="#T376764">Order Fulfillment Family</a></li>
+<li><a href="#T376765">Business Intelligence Products</a></li>
+<li><a href="#T376766">Financials Product Family</a></li>
+<li><a href="#T376767">Human Resources Product Family</a></li>
+<li><a href="#T376768">Logistics Product Family</a></li>
+<li><a href="#T376769">Product Lifecycle Management Family</a></li>
+<li><a href="#T376770">Procurement Family</a></li>
+<li><a href="#T376771">Supply Chain Planning Family</a></li>
+<li><a href="#T376772">Manufacturing Product Family</a></li>
+<li><a href="#T376773">Marketing and Sales Family</a></li>
+<li><a href="#T376774">Service Family</a></li>
+<li><a href="#T376775">Authoring and Negotiating Contract Terms</a></li>
+<li><a href="#T376776">Overview</a></li>
+<li><a href="#T376777">Profiles</a></li>
+<li><a href="#T376789">Setup</a></li>
+<li><a href="#T422895">Sales Contracts Workbench</a></li>
+<li><a href="#T544160">Siebel Order Capture</a></li>
+</ul>
+<h2><a name="2998813"></a><a id="T376762"></a><b><a name="integration" id="integration"></a>Integration</b></h2>
+<p><a name="d0e71336" id="d0e71336"></a><a name="t_integra" id="t_integra"></a>Processing an Order requires integration with many other business areas. Most integration points with other Oracle products are implemented via PL/SQL-based APIs. The following summarizes the integration points between OM and other products, organized by Product Family:</p>
+<h2><a name="2998814"></a><a id="T376763"></a><b>Applications Core Technology Family</b></h2>
+<a name="t_coapptech" id="t_coapptech"></a>
+<h3><b>AK - Common Modules</b></h3>
+<p>AK serves as a common runtime dictionary for both the Defaulting and Processing Constraints Frameworks. These modules use AK for object and attribute information. AK replaces the functionality provided by SO_OBJECTS and SO_ ATTRIBUTES in R11 Order Entry.</p>
+<p>Additionally Order Management uses the following tables to extend the AK data model to support Usage functionality:</p>
+<p>OE_AK_OBJECT_EXT</p>
+<p>OE_AK_OBJ_ATTR_EXT</p>
+<h3><b>AOL</b></h3>
+<p>Order Management uses the following AOL features:</p>
+<p>Document Sequences</p>
+<p>AOL Document Sequences feature meets Order Numbering requirements. This lets you number Order and Returns using Manual, Automatic or Gapless sequences.</p>
+<p>You can define Document Sequences using the AOL Define Document Sequences form. When you define an Order Transaction Type, the application automatically creates a Document Sequence Category of the same name. You can assign a pre-defined sequence to one or more Document Sequence Categories, using the AOL Sequence Assignments form. When an Order is created, Order Management calls AOL Document Sequence APIs to number the Order.</p>
+<p>Attachments</p>
+<p>Order Management drives off the AOL Attachment functionality enabling you to attach images and web pages as well as short or long text. It also offers multi-lingual document capability. Attachment definition and usage data is stored only in AOL.</p>
+<p>Automatic Addition rule definitions are stored in Order Management (OE_ ATTACHMENT_RULES, OE_ATTACHMENT_RULE_ELEMENTS). In addition to the attributes (Customer, Ship-to, Invoice-to, Order Type, Item, PO #) that were previously available, you can now define rules based on the Order Category, Line Category and Line Type.</p>
+<p>The Profile Option OM: Apply Automatic Attachments determines whether rule based attachments are automatically applied (without User intervention).</p>
+<h3><b>eCommerce Gateway</b></h3>
+<p>The eCommerce Gateway has the ability to load orders and order changes into Order Management via Order Import. Order Management pushes Order Acknowledgment and Change Order Acknowledgment data back to the eCommerce Gateway.</p>
+<h3><b>iSetup</b></h3>
+<p>iSetup pushes setup information into the Order Management schema after an implementer has answered questions regarding their business setup.</p>
+<h3><b>Workflow</b></h3>
+<p>Order Management uses Oracle Workflow to manage Order and Line processing. PL/SQL based Workflow is a natural replacement for Order Cycles functionality. It provides a Graphical User Interfaces for defining activities, notifications, flows and viewing flow status. There are no limits on the number of custom functions or notifications you can define.</p>
+<p>Additionally, it provides the following features:</p>
+<ul>
+<li>
+<p>In-built flexibility: You can easily extend functions or flows using the Workflow Builder.</p>
+</li>
+<li>
+<p>Support for notifications: Approval functionality is supported via Notification activities. You can easily define notifications via the Workflow builder and use them in flows. Notifications can be accessed via any electronic mail application or the Notifications web page.</p>
+</li>
+<li>
+<p>Coordination between parent-child flows: This aids in synchronizing Header and Line flows. Thus you can have lines wait for the Order header to complete a certain header activity or have the Header wait for all lines to complete a certain line activity.</p>
+</li>
+<li>
+<p>A built-in on-line/background mode with a user-definable threshold: This enables you to run certain activities such as Credit Checking off-line.</p>
+</li>
+</ul>
+<p>Every Order Header and Line entered into the system starts a workflow. Order Headers follow Header flows and Order Lines follow Line flows. The product comes seeded with several Order and Line flows. Every business function is workflow enabled and the product comes seeded with functional workflow sub-processes.</p>
+<p>Order Headers are mapped to the OM Order Header workflow item type (OEOH). Order Lines are mapped to the OM Order Line workflow item type (OEOL). The Workflow Engine APIs are used to create, start and manage flows. The Order Type tied to an Order determines the Header flow it starts. The Order Type, Line Type, and Item type determines the Line flow a Line starts.</p>
+<p>The FLOW_STATUS column on Order headers and Lines provides summary information about the flow. Its value changes as the Order or Line progresses in its respective flow. You can also use the Public query APIs (OE_HEADER_STATUS_ PUB, OE_LINE_STATUS_PUB) to get information regarding various functional statuses and when an Order or Line activity was completed.</p>
+<p>The Workflow builder is available on the Windows (NT, 98 and 2000) platform. You can use this graphical tool to define flows. The Workflow monitor is a Java based tool that can be launched from the Sales Orders form. It lets you graphically monitor a workflow's progress as well and view its transaction history.</p>
+<h3><b>XML Gateway</b></h3>
+<p>The XML Gateway has the ability to load orders and order changes into Order Management via Order Import. Order Management pushes Order Acknowledgment and Change Order Acknowledgment data back to the XML Gateway.</p>
+<h2><a name="2998821"></a><a id="T376764"></a><b>Order Fulfillment Family</b></h2>
+<a name="t_orfulfam" id="t_orfulfam"></a>
+<h3><b>Advanced Pricing</b></h3>
+<p>Order Management leverages many business objects belonging to Advance Pricing, including price lists, modifiers, and agreements. Order Management, through its Sales Agreement functionality, creates price lists and pushes them into the Advanced Pricing tables. Order Management calls the Pricing Engine to make pricing requests during the processing of orders, and receives pricing information back from Advanced Pricing.</p>
+<h3><b>Configurator</b></h3>
+<p>Order Management integrates with Oracle Configurator to support ordering and validation of configurations. The Configurator window is a Java Applet that can be launched from the Sales Order form. Order Management communicates with Oracle Configurator through XML messaging. See: <i>Oracle Configurator Developer User's Guide</i></p>
+<h3><b>iStore</b></h3>
+<p>iStore generates quote header and lines which are then sent to Order Management using the Order Capture API. RMAs are generated using Order Management's Process Orders API.</p>
+<h3><b>Release Management</b></h3>
+<p>Oracle Release Management pushes orders, lines and Sales Agreement releases into Order Management via the Process Order API. Order changes arising from changes to schedules in Release Management are also communicated to Order Management via Process Order. Order Management sends order status information back to Release Management, so that its schedules can be kept in sync with the orders.</p>
+<h3><b>Shipping Execution</b></h3>
+<p>Order Management provides APIs to Shipping to view lines that are eligible for delivery planning, picking and shipping. The view OE_DELIVERY_LINES_V returns all open, booked, shippable lines that are not interfaced to Shipping. When an Order Line reaches the Ship Line workflow activity, Order Management calls Shipping APIs to indicate that a line is pick eligible and communicate changes to the line once it is interfaced to Shipping. When a delivery is ship-confirmed, Shipping calls OM APIs to communicate the event, triggering the line flow to move forward. If Freight Costs were input during ship confirmation, that information is communicated back to Order Management when the delivery line is interfaced back from Shipping.</p>
+<p>Oracle Order Management/Shipping Execution, provides an XML-based adapter to integrate to International Trade Management (ITM) Applications. The Oracle International Trade Management Adapter serves as the interface point to third party international trade management partners. With this adapter, Oracle E-Business Suite applications can embed global trade functionality into core business transactions.Oracle Order Management has expanded the ITM features that are available when using Oracle Order Management and the Oracle ITM Adapter in conjunction with a third party ITM partner. Features include:</p>
+<ul>
+<li>
+<p>Export Compliance Workbench: Process screening failures without having to navigate to multiple forms</p>
+</li>
+<li>
+<p>Export Compliance Screening Concurrent Program: Progress multiple lines that have failed earlier due to data errors</p>
+</li>
+<li>
+<p>Export Compliance Screening Failure Report: Manage screening failures</p>
+</li>
+<li>
+<p>Export Compliance Report to Government: Provide the US Government with a list of exported lines</p>
+</li>
+</ul>
+<h2><a name="2998827"></a><a id="T376765"></a><b>Business Intelligence Products</b></h2>
+<a name="t_bip" id="t_bip"></a>
+<h3><b>Business Intelligence</b></h3>
+<p>Booked and fulfilled order lines from Order Management are pulled into the Applications Data Warehouse, where they become input to the various sales Business Intelligence reports.</p>
+<h2><a name="2998830"></a><a id="T376766"></a><b>Financials Product Family</b></h2>
+<a name="t_fpf" id="t_fpf"></a>
+<h3><b>Oracle Payment</b></h3>
+<p>Order Management accepts Credit Card information when entered on orders. It integrates with Oracle Payment to validate this information and get Credit Card authorizations. This information is then interfaced to Receivables.</p>
+<h3><b>iReceivables</b></h3>
+<p>Order Management integrates with iReceivables through the <a href="T373258T377074.htm#t_oioi">Order Information Portal</a>. This integration allows users of the Order Information Portal to view invoices and credits related to the order they are viewing.</p>
+<h3><b>Payables</b></h3>
+<p>Order Management accesses the AP Bank Accounts table to populate the Credit Card LOV when an order is being entered with a payment type of Credit Card. Additionally, if a new credit card number is entered and the authorization of that card through iPayment is successful, Order Management calls an AR API to create a new bank account record for the customer in the Bank Accounts table.</p>
+<h3><b>Receivables</b></h3>
+<p>Order Management integrates with Oracle Receivables in the following function areas:</p>
+<ul>
+<li>
+<p>Invoice Interface: Order Management sends invoices and credit memos to Receivables via the Invoice Interface workflow activity. The seeded Invoice Interface - Line workflow sub-process populates the Receivables interface table. You run AutoInvoice to create invoices.</p>
+<p>Order Management also supports Header level invoicing via the seeded Invoice Interface - Order.</p>
+</li>
+<li>
+<p>Receipts: Order Management calls Receivables' Receipt API to create receipts for prepaid credit card orders. Order Management receives a payment-set id from AR when the receipt is created, and then passes that id back to AR in the autoinvoice tables at invoicing time so that the invoice can be matched to the receipt.</p>
+</li>
+<li>
+<p>Tax: Order Management calls the Global Tax Engine APIs to default the Tax Code (ARP_</p>
+<p>TAX.GET_DEFAULT_TAX_CODE) and to calculate estimated tax (ARP_PROCESS_TAX.SUMMARY) for the order Line. The estimated tax value is now stored on the line and re-calculated only when any of the attributes affecting tax change. Information about the tax value is also stored as Line Price Adjustments.</p>
+<p>The Tax Engine looks at the view OE_TAX_LINES_SUMMARY_V to calculate the estimated tax value for an Order Line.</p>
+</li>
+<li>
+<p>Credit Management: If the Credit Management product is installed, and when an order or line goes on credit hold, then Order Management sends the notifications to Credit Management for initiating a credit review if overall credit limit is exceeded If the credit review results in a decision to approve the order, then a business event is posted which Order Management subscribes to and thereafter releases the credit hold.</p>
+</li>
+</ul>
+<h3><b>Trading Community Architecture</b></h3>
+<p>Order Management integrates with Oracle Trading Community Architecture to access customer setup information, including party data, account information, account sites, relationships and contacts. Many attributes of importance to Order Management, such as preferred warehouse, preferred order type, set preferences, price list and many others, are stored in the TCA data model at the account and account site level and are used by Order Management as defaulting sources.</p>
+<p>In addition, Order Management, through the 'Add Customer' functionality, allows users to input new customer accounts, addresses and contacts. This data is pushed to the TCA schema, using TCA APIs. 'Add Customer' functions can also be performed through Order Management's Order Import program.</p>
+<h2><a name="2998836"></a><a id="T376767"></a><b>Human Resources Product Family</b></h2>
+<p><a name="t_hrprod" id="t_hrprod"></a>This section discusses the integration between Oracle Order Management and the Oracle Human Resources product family.</p>
+<h3><a id="T617298"></a><b>Training Administration</b></h3>
+<p>Order Management integrates with Oracle Training Administration to link classes and enrollments with orders for the purpose of billing. When classes or enrollments are marked as having been attended, the associated order lines are updated as fulfilled, and their line flows advance to the invoicing step.</p>
+<h3><a id="T617300"></a><b>Approvals Management</b></h3>
+<p>Order Management is integrated with Oracle Approval Management for the workflows "Negotiation Flow - Generic with Approval" and "Order Flow - Mixed or Return with Approval" to provide an additional option to use Approvals Management Engine (AME) for the approval mechanism of return orders, quotes, and BSA quotes with the above work flows. For the AME enabled transactions, Order Management utilizes the AME capabilities of a central business rules repository and a common execution engine, to manage approvals for its business processes. Despite this integration, Order Management enables you to specify the approvers in Order Management using the OM Approvals window or use AME to generate the approver list based on your business requirements.</p>
+<p>To integrate AME and Order Management, set up the following:</p>
+<ol>
+<li>
+<p>Create Rules in AME - Use the 'Order Management Negotiation Approval ', 'Order Management Return Approval ', and 'Order Management Sales Agreement Approval 'predefined transaction types and the following predefined attributes to create your set of rules with actions, conditions, and approver groups that you require for sales orders, RMA, quotes, and BSA quotes:</p>
+<ul>
+<li>
+<p>Header Level - Customer (Sold To Customer), Customer Category (of Sold To Customer), Order Type, Order Category, Booked, and Ordered Amount</p>
+</li>
+<li>
+<p>Line level - Line Type, Item, Quantity, Line Amount and Line Discount Percent</p>
+</li>
+</ul>
+<p>Ensure that you use the values as specified in the base installed language. You can define your list of attributes as well and use them in defining conditions as you are not restricted to using the pre defined attributes alone.</p>
+<p>See: Creating a Rule, <i>Oracle Approvals Management Implementation Guide</i></p>
+</li>
+<li>
+<p>Select the Use Approvals Management Engine check box in the Transaction Types window. See: Defining Order Management Transaction Types, and to set up a transaction type/Phase section in User Procedures, <i>Oracle Order Management User's Guide</i></p>
+</li>
+<li>
+<p>Set up the Treat AME Exception As system parameter. See: System Parameters.</p>
+</li>
+</ol>
+<p>After you complete the setup for approval hierarchy and its assignment with the predefined Order Management transaction types in AME, Order Management derives the list of approvers. Order Management calls AME interfaces to derive the list of approvers for a particular transaction from negotiations and RMA transactions. It sends out notifications using the Negotiation Flow - Generic with Approval and Order Flow - Mixed or Return with Approval workflows.</p>
+<h2><a name="2998838"></a><a id="T376768"></a><b>Logistics Product Family</b></h2>
+<a name="t_logprod" id="t_logprod"></a>
+<h3><b>Inventory Management</b></h3>
+<p>Order Management integrates with Oracle Inventory Management through Managing Reservations. Order Management calls Inventory's reservation APIs to manage reservations. You can create reservations to on-hand quantities from the Sales Orders form. You can also go to Inventory's reservation form from the Sales Orders form and create a reservation to any level of inventory such as sub-inventory, locator, or lot if supply is available.</p>
+<p>When supply is created for a ATO configuration (for a configuration item), it is reserved to a Work Order. This reservation gets transferred to on-hand when the work order is completed, thus reserving the Order line to on-hand. For every Order created, Order Management creates a record in MTL_SALES_ORDERS, an entity that Inventory uses to manage demand from various sources.</p>
+<p>Reservation information is stored in MTL_RESERVATIONS. Reservation records for order Lines point to both MTL_SALES_ORDERS and OE_ORDER_LINES_ALL.</p>
+<h2><a name="2998841"></a><a id="T376769"></a><b>Product Lifecycle Management Family</b></h2>
+<a name="t_prodlife" id="t_prodlife"></a>
+<h3><b>Bills of Material</b></h3>
+<p>Order Management integrates with Oracle Bill of Material when models and kits are entered on sales orders. Order Management uses the Bill of Material defined for the model or kit or explode the model into its components, for the purpose of the user selecting options and for shipping purposes.</p>
+<h3><b>PLM</b></h3>
+<p>Order Management integrates with Oracle Product Lifecycle Management in the following areas:</p>
+<ul>
+<li>
+<p>Items: Order Management integrates with Oracle Product Lifecycle Management to access item setup information, including items, cross references and item relationships. Many attributes of importance to Order Management, such as preferred warehouse, processing flags, item type, price list, catchweight-enabled and many others, are stored in the item database and are used by Order Management as defaulting sources.</p>
+</li>
+<li>
+<p>Customer-Item Cross reference: You can use Oracle PLM to set-up Customer Items and Customer Item Cross reference information. You can then place orders using those pre-defined customer item identifiers. Order Management calls the Inventory API INV_CUSTOMER_ITEM_GRP to derive the internal item based on the specified customer item, ship-to site and the warehouse on the Order Line. The Item Identifier Type on the Order Line indicates the Cross-reference Type that was used for placing the order. The Ordered Item tracks identifier that was used to place the order.</p>
+</li>
+<li>
+<p>Related Items: Item Relationships set up in PLM are used in Order Management to display the 'Related Items' window on the Sales Order form, to give users visibility to, for example, upsell and cross-sell items, substitute items, item supercessions, and so on.</p>
+</li>
+<li>
+<p>Advanced Item Search: Order Management integrates with PLM's advanced item catalog to enable parametric searches of the item catalog.</p>
+</li>
+</ul>
+<h2><a name="2998844"></a><a id="T376770"></a><b>Procurement Family</b></h2>
+<a name="t_procfam" id="t_procfam"></a>
+<h3><b>Purchasing</b></h3>
+<p>Order Management integrates with Oracle Purchasing in the following functional areas:</p>
+<ul>
+<li>
+<p>Return Receipts: Order Management uses the Oracle Purchasing Receipt functionality to handle Return receipts. When an item is received, Purchasing calls Order Management to indicate delivery and to get COGS information. When an item is accepted and delivered to Inventory, Purchasing calls Order Management (OE_RMA_RECEIVING) to indicate acceptance. Fulfillment of the Return line is driven off the acceptance event.</p>
+<p>Purchasing looks at the view OE_PO_ENTER_RECEIPTS_VIEW to determine the Order Lines to expect Return receipts against. This view returns lines that are booked, receivable and are waiting at the Wait for Receiving block activity.</p>
+</li>
+<li>
+<p>Internal Orders: Oracle Purchasing uses Order Import to create internal orders. Purchasing calls the Process Order API to communicate changes in the requisition to Order Management. Order Management calls a Purchasing API (PO_SUPPLY) to communicate changes in the internal order to Purchasing.</p>
+</li>
+<li>
+<p>Drop-Ship Orders: Order Management integrates with Purchasing to fulfill drop-ship orders. It populates the PO requisitions interface table with information for order lines that need to be fulfilled via an external source. Purchasing calls Order Management APIs (OE_DROP_SHIP_GRP) to communicate information about the requisition, purchase order and receipts. Order Management provides a link to the Drop Ship information from the Additional Line and Additional Order Information windows of the Sales Order form.</p>
+</li>
+</ul>
+<h3><b>Yard Management System</b></h3>
+<p>Yard Management System (YMS) uses the Return Materials authorization feature of Order Management to process return of materials in YMS-enabled organizations. Order Management provides the following to integrate with YMS:</p>
+<ul>
+<li>
+<p>Equipment Number, SCAC, and Container Number fields in the Returns tab of the Sales Order and Quick Sales Order windows, Order Organizer, and Quick Order Organizer to store trailer details. These are folder enabled fields and you can display them using Folder &gt; Show Fields option. The application enables these fields only when the line category is Return; otherwise these fields are disabled. You cannot update Equipment Number and SCAC fields once the return line is received. Note: However, these fields are not available in the FIND window of Order Organizer and Quick Order organizer.</p>
+</li>
+<li>
+<p>Entry and update of trailer details using the Process Order API and Order Import feature</p>
+</li>
+<li>
+<p>Equipment Id , Equipment Number, Container Number, and SCAC fields in the Order Import Corrections window</p>
+</li>
+<li>
+<p>APIs to perform the following:</p>
+<ul>
+<li>
+<p>Order Management private API 'OE_YMS_INTEGRATION_GRP.update_equipment_id' to update return lines whose receiving organization belongs to the yard. YMS uses this API to notify Order Management in case there is a change in equipment_id at the time of yard check-in.</p>
+</li>
+<li>
+<p>YMS private API 'WMS_YMS_INTEGRATION_PVT.update_yms_content_docs' to update YMS contents in case of split of RMA line from one trailer to another (or a change of trailer).</p>
+</li>
+<li>
+<p>Order Management private API 'OE_YMS_INTEGRATION_GRP.get_equip_cost_qty' to provide cost of RMA for a particular trailer/equipment. This API returns the total cost of all the items left in the equipment for RMA involved. Order Management uses WMS_YMS_INTEGRATION_PVT.get_item_cost private API to calculate the cost of a particular item.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>For information regarding Oracle Yard Management System, see: Oracle Yard Management System Process Guide and My Oracle Support Note 1672890.1 - Oracle Yard Management, A White Paper.</p>
+<h2><a name="2998846"></a><a id="T376771"></a><b>Supply Chain Planning Family</b></h2>
+<a name="t_scpfam" id="t_scpfam"></a>
+<h3><b>Advanced Planning System/Global Order Promising/ Advanced Supply Chain Planning</b></h3>
+<p>Order Management uses Advanced Supply Chain Planning's Global Order Promising functionality to check the availability of ordered items and to schedule order lines. Scheduled Order Lines are viewed as demand by the Advanced Planning System.</p>
+<p>To check availability or schedule an order line (scheduling checks availability and consumes supply if there is any available), Order Management calls an MRP API (MRP_ATP_PUB.CALL_ATP). MRP checks for item availability (or group availability if a group of lines is passed) and returns back the results. The API also sources the line (find a ship from location) when a ship from location is not specified. A source will only be returned if there are sourcing rules set up in MRP. To ascertain open demand Planning looks at the view MTL_DEMAND_OM_VIEW, based off OE_ORDER_LINES. This returns open (un-shipped) lines whose visible to MRP flag is set to Y. The visible to MRP flag is set to Y, when a line is scheduled.</p>
+<p>Before booking, Advanced Supply Chain Planning also performs item substitution during scheduling for order lines, when the ordered item is not available at the sourcing location and a substitute is available for the total line amount.</p>
+<p>Sourcing rules can be used in scheduling for ATO models to select a warehouse for an ATO model. You do not need to specify a warehouse for the ATO model. To supply the warehouse for an ATO model, there is interaction with GOP and ASCP. Licensing these applications for autosourcing of the warehouse is not necessary, but you cannot use the Match feature without licensing both GOP and ASCP, and using PDS.</p>
+<h2><a name="2998848"></a><a id="T376772"></a><b>Manufacturing Product Family</b></h2>
+<a name="t_mfgfam" id="t_mfgfam"></a>
+<h3><b>Cost Management</b></h3>
+<p>Order Management calls the Cost Management CST_COST_API to obtain cost from cst_item_costs or cst_quantity_layers when the Gross Margin feature of OM is enabled. Item cost is stored on the order line, for ease of calculating the margin.</p>
+<h3><b>CTO</b></h3>
+<p>Order Management integrates with Configure-to-Order processes to fulfill orders for Replenish to Order models and items. These business functions are Workflow enabled. If the item is a 'buy' item, the process routes the items to Purchasing by creating a requisition. This process is called back-to-back orders. If the item is a 'make' item, the process flow creates the Configuration Item, BOM, Routings, Work Orders, and Flow Schedules. When the item is replenished (either by making it or buying it), the item is received into inventory and the reservation is transferred to the OM order line, so it can be shipped.</p>
+<p>Order Management's Sales Order UI provides a link to the Supply to Order Workbench where the user can see the supply details and status for documents (purchase order or work order) that are reserved or referenced to the ATO sales order line. This enables customer service representatives to give customers an order status without having to navigate to the PO, WIP or flow forms.</p>
+<h3><b>Process Manufacturing</b></h3>
+<p>Order Management is able to process orders for items whose inventory is tracked in the Oracle Inventory application.</p>
+<p>When processing orders for items in inventory organizations, Order Management enables additional attributes at the order line level to allow dual unit-of-measure (catchweight) and grade support. The secondary unit-of-measure and pricing unit-of-measure are interfaced to Advanced Pricing for catchweight items to enable accurate pricing at time of shipment.</p>
+<h3><b>Project Manufacturing</b></h3>
+<p>If a line is sold for a project tracked in PJM, you can record in Order Management the project and task number. Order lines that are identified as belonging to a project and task are pulled into PJM after fulfillment to update status in PJM.</p>
+<h3><b>Quality</b></h3>
+<p>Oracle Order Management provides visibility to Quality Plans for items displayed via the Order Information Portal through integration with Quality.</p>
+<h3><b>Work in Process</b></h3>
+<p>Order Management integrates with Oracle Work in Process to fulfill orders for Assemble to Order models and items. These business functions are Workflow enabled. The ATO process flow creates the Configuration Item, BOM, Routings, Work Orders, and Flow Schedules as required. The Work Order carries a link back to the OM order line, and the OM user can see the WIP job number and status by viewing the Inventory Reservation associated with the order line. Once the WIP job is complete or partially complete, the reservation is transferred to the OM line, and the line continues on its process flow.</p>
+<h2><a name="2998855"></a><a id="T376773"></a><b>Marketing and Sales Family</b></h2>
+<a name="t_markfam" id="t_markfam"></a>
+<h3><b>Oracle Sales Contracts</b></h3>
+<p>Oracle Order Management together with Oracle Sales Contracts can create long term agreements or a one-time sale, including terms and conditions for use by Sales Managers, Sales Representatives, Contract Negotiators, Contract Administrators as well as Legal Representatives. This functionality enables Oracle Sales Contracts and includes formal negotiation complete with internal approval and customer acceptance. Fundamental capabilities required for sales negotiation are supported, as well as additional contractual capabilities such as terms and conditions, price holds and the capability to enforce the agreed upon terms for future customer purchases. All Oracle Order Management transactions support the formal sales contract flows.</p>
+<h3><b>Incentive Compensation</b></h3>
+<p>Incentive Compensation (previously called Sales Compensation) pulls order lines from Order Management using a transaction collection API to calculate commissions and effectively align compensation with business objectives.</p>
+<h3><b>Order Capture</b></h3>
+<p><a name="t_ordcap" id="t_ordcap"></a>Order Management integrates with a few CRM products such as iStore, Quoting, and Depot Repair through Order Capture. The external teams can use the Order Management Process Order Group APIs to convert a quote to an order. Any changes to the Order Management Objects are communicated on-line to Order Capture via the Order Capture feedback queue. CRM products which are interested in the Order related information need to subscribe to the Order Capture queue to poll the messages.</p>
+<h3><b>Partners Online</b></h3>
+<p>Partners Online sends orders and lines entered through its user interface to Order Management by way of the Process Order API.</p>
+<h3><b>Telesales</b></h3>
+<p>Telesales' eBusiness Center has several integrations with Order Management. There is an Order tab to view order history and create new orders. The New button on the Order tab launches the Sales Order window. The Party, Account, Address and Contact information entered in the eBusiness Center are carried over and populated in the Sales Orders window. Order Management automatically creates an account, if an Account does not yet exist for the Party provided in TeleSales. The user can then enter the other details and process the Order.</p>
+<h3><b>Trade Management</b></h3>
+<p>Order Management can receive RMA orders and lines from Oracle Trade Management as part of its dispute handling functionality. In addition, Order Management leverages the Promotion Limits feature of Trade Management through Advanced Pricing calls.</p>
+<h2><a name="2998862"></a><a id="T376774"></a><b>Service Family</b></h2>
+<a name="t_servfam" id="t_servfam"></a>
+<h3><b>Depot Repair</b></h3>
+<p>Order Management is the ERP module used by Depot Repair to create RMA and Sales Orders, validate customer accounts, and invoice customers for repairs.</p>
+<p>See: <a href="T373258T376735.htm#t_ordcap">Order Capture</a></p>
+<h3><b>Field Service</b></h3>
+<p>Field Service Report requires specifically that you setup Price Lists, Units of Measure (UOM), and two Inventory Item Attributes in Order Management. Price Lists contain the list price for an item. Items could be material, but also labor and expenses like units of driving distance. Once material, expense and labor transactions for a task have been taken down on the Field Service Debrief, this information is updated to Charges. In Charges the list price for the item is received from Order Management and is used to generate an invoice for a customer.</p>
+<h3><b>Install Base</b></h3>
+<p>Information about Install Base trackable items is interfaced to Install Base in the following ways:</p>
+<ul>
+<li>
+<p>Shippable Items: For both orders and returns, information is interfaced to Install Base via Inventory Interface.</p>
+</li>
+<li>
+<p>Non-Shippable Items: For both order and returns, information is interfaced to Install Base via the Order Management Fulfillment workflow activity</p>
+</li>
+</ul>
+<p>Install Base also supports Internal Sales Order transactions by appropriately creating / updating item instances as a result of transactions between internal organizations such as pick transactions, shipments, and receipts.</p>
+<h3><b>Service Contracts</b></h3>
+<p>Service Contracts has an API which pulls information from the Install Base newly created customer records and creates an ownership record.</p>
+<ul>
+<li>
+<p>Warranty: A Warranty contract is created when a Serviceable product is shipped. A Warranty contract is created when serviceable product with bill of material contains a warranty. Whenever possible, where multiple products are sold on one order, one warranty is created for all the products. Each different warranty item creates a separate warranty line on the contract.</p>
+</li>
+<li>
+<p>Extended Warranty: An Extended Warranty contract is created when an Extended Warranty is sold on a sales order. Extended Warranty contracts can also be consolidated. Order Management interfaces to Service Contracts via the Fulfillment workflow activity (Fulfill Line). This activity populates the Service Contracts interface table. You need to run the Service Contracts Order Processing concurrent program to process the interface records.</p>
+<p>When a serviceable item is returned for credit, whether the customer is credited for the extended warranty depends on the setting for the profile OKS: Raise Credit Memo for IB Instance Termination. Additionally the amount of credit issued is determined by the Global Contracts default setting. This can be overridden at the serviceable item return line level via the workflow activity Set Order Line- Service Credit. You can use this activity to set the service_credit_eligible_code to a value of Full, Pro-rated or None.</p>
+</li>
+<li>
+<p>Subscription: Fulfillment starts after the contract approval process. Driven by each subscription line's instantiated fulfillment template, a concurrent program creates a sales order in Oracle Order Management for each delivery. The order details are populated with information from the subscription agreement. Once the order is created in Order Management, you can release and ship them. The integration to Oracle Service Contracts is bidirectional. Service Contracts sends Item and fulfillment details to create a sales order. Delivery and status details are sent to Service Contracts, when the order is ship confirmed, to be stored in the Subscription contract.</p>
+</li>
+<li>
+<p>RMA: Service Contracts sends Order Management RMA information via the Process Order API.</p>
+</li>
+</ul>
+<p>In previous releases, Service Contracts used Order Capture as an integration point to create service contracts initiated by Order Management. In release 12, direct API calls from Order Management to Service Contracts replace Order Capture.</p>
+<p>The Service Contracts (OKS) API processes one order line at a time, however it is also used for High Volume Order Processing for multiple lines.</p>
+<p>This OKS API processes extended warranty/service (immediate or delayed) order lines.</p>
+<p>The OKS Service Contracts Order Processing Concurrent program takes the data from the interface tables that have been populated by the API call and creates service contracts. You can run this concurrent program in multiple instances to create service contracts.</p>
+<p>The Service Contracts Order Processing Concurrent program verifies that the instances are interfaced to Install Base before processing the interfaced service order lines.</p>
+<h3><b>Service Fulfillment Manager</b></h3>
+<p>Order Management integrates with SFM via workflow activities that can be inserted into the Order Management header and line flows. Order lines holding items that are marked as provisionable will be sent to SFM instead of through the Shipping Execution process for fulfillment.</p>
+<h3><b>Spares Management</b></h3>
+<p>As part of the Oracle Service suite of products, Spares Management is classified as an installable module provided with the Field Service solution. Oracle Inventory and Oracle Order Management are the only prerequisite products specifically required for a Spares Management implementation.</p>
+<p>Integration with Oracle Order Management provides the ability to move parts among multiple inventory organizations and includes several sophisticated warehouse management features.</p>
+<p>Oracle Spares Management supports the business processes involved in the management of spares parts in a field service organization. It is integrated with a number of Oracle's ERP and CRM applications. This integration provides extensive functionality to manage the business activities involved in the spares management process.</p>
+<p>Oracle Order Management provides the functionality for the processing of an internal order to deliver parts to a field engineer for a specific task. An internal order is initiated in Spares Management in the Parts Requirement window. Within Order Management, the internal order is processed almost exactly like an order that is to be shipped to an external customer. This processing includes the picking, packing, shipping and receiving of the order.</p>
+<p>Key integration features with Oracle Order Management include:</p>
+<ul>
+<li>
+<p>Ability to create Internal Orders to transfer parts across inventory organizations</p>
+</li>
+<li>
+<p>Ability to use mobile applications in the warehouse</p>
+</li>
+<li>
+<p>Ability to use barcode and scanning functionality</p>
+</li>
+<li>
+<p>Ability to use pick, pack and ship functionality</p>
+</li>
+</ul>
+<h2><a name="2998869"></a><a id="T376775"></a><b>Authoring and Negotiating Contract Terms</b></h2>
+<a name="t_authnego" id="t_authnego"></a>
+<h2><a name="2998870"></a><a id="T376776"></a><b>Overview</b></h2>
+<p>Oracle Order Management users can create long-term agreements or contracts for a one-time sale, including contract terms and conditions based on a library of pre-approved clauses and contract templates, using Oracle Sales Contracts functionality. This functionality includes formal contract terms negotiation complete with internal approval and customer acceptance. All Oracle Order Management documents provide access to the contract terms library, and to the contract terms negotiation features provided by Sales Contracts:</p>
+<ul>
+<li>
+<p>Quotes: Sales Orders beginning with a Negotiation workflow</p>
+</li>
+<li>
+<p>Sales Orders: Sales Orders beginning with a Fulfillment workflow</p>
+</li>
+<li>
+<p>Release Orders: Sales Orders with a Sales Agreement reference governing items, price, and terms</p>
+</li>
+<li>
+<p>Sales Agreements: Long-term agreements which can be referenced on a single transaction to leverage volume pricing, terms and conditions</p>
+</li>
+</ul>
+<h2><a name="2998871"></a><a id="T376777"></a><b>Profiles</b></h2>
+<h3><b>OKC: Enable Sales Contracts</b></h3>
+<p>This profile determines if an installation is authorized to use the contractual option provided in Order Management, and is set at the site level to enable terms and conditions integration in Order Management. If the profile option is set to Yes, you can author, negotiate and manage sales contracts including Agreements and Sales Orders and leverage Sales Contracts functionality such as Microsoft Word Integration and Collaboration, and Contract Expert to assemble your contract rapidly and efficiently.</p>
+<h2><a name="2998873"></a><a id="T376789"></a><b>Setup</b></h2>
+<p><b>To set up Oracle Sales Contracts for Authoring and Negotiating Contract Terms</b></p>
+<ol>
+<li>
+<p>Set up the Contract Terms Library. Create any necessary:</p>
+<ul>
+<li>
+<p>Clauses</p>
+</li>
+<li>
+<p>Contract Templates</p>
+</li>
+<li>
+<p>Contract Expert Rules</p>
+</li>
+</ul>
+<p>See <i>Oracle Sales Contracts Implementation and Administration Guide</i></p>
+</li>
+<li>
+<p>You may create a Contract Template or you could add terms using the MS Word Integration functionality. Terms in the form of an MS Word document, pdf, or any format can be attached as well. If it is an Oracle generated document, terms are merged during preview of Sales Agreements / Sales Orders. Also terms are attached to notification for approval. Contract Templates can be enabled for different document types. You can have one or more Contract Templates per Document Type, such as for Sales Orders or Sales Agreements. It is not mandatory to define a default Contract Template on the Transaction Type. See <i>Oracle Sales Contracts Implementation and Administration Guide.</i></p>
+</li>
+<li>
+<p>Create at least one Layout Template. The Layout Template is part of Oracle Applications Technology Group (ATG) functionality. If you are using Preview and Print, a template must be available. The layout template is not mandatory to define on the transaction type. A layout template can also be chosen from Oracle Sales Contracts or defined as a default. The transaction type default will override Oracle Sales Contract default.</p>
+<p>NOTE: During Layout Template setup, it is recommended to leave the end date blank. Without an end date, Layout Templates will not become inactive thus preventing use of an inactive Layout Template with an open sales document.</p>
+<p>See:<a href="T373258T374818.htm#t_pprsd">Preview and Print Sales Documents</a></p>
+</li>
+<li>
+<p>Set the profile option OKC: Enable Sales Contracts to Yes. See Setup Profile Options for more information.</p>
+<p><i>Oracle Sales Contracts Implementation and Administration Guide</i></p>
+</li>
+</ol>
+<p><b>To set up Authoring and Negotiating Contract Terms</b></p>
+<ol>
+<li>
+<p>Set up workflow extensions. Add the Sales Agreement/Sales Order Generation activity to the Negotiation with Approval workflow between Submit Draft and Internal Approval. This enables automatic attachment on the workflow notification to allow approvers to easily view the document and on the transaction itself as a reference in Contract Documents.</p>
+<p>If your business process includes an additional approval layer for non-standard clauses, extend workflow to check the sales document for the existence of non-standard clauses, and if they exist, route the sales document to additional approvers. As an example, the workflow activity, "Non Standard Clause Exists?" can be inserted between "Get Next Approver" and "Approved" to route to additional legal approvers while the Quote or Sales Agreement is in the "Pending Internal Approval" status.</p>
+</li>
+<li>
+<p>If needed, set the profile option OM: Printed Document Extension Class Name. Use this profile with a custom java code class path to enable printing from customized tables. See Preview and Print.</p>
+</li>
+<li>
+<p>Set up the transaction type. This can include:</p>
+<ul>
+<li>
+<p>Contract Templates</p>
+</li>
+<li>
+<p>Layout Templates</p>
+</li>
+<li>
+<p>A setup list of approvers</p>
+</li>
+</ul>
+<p>Assigning default templates for Contract and Layout are not mandatory. If your workflow supports Approvals, set up an Approval list for each transaction type. See Approvals.</p>
+<p><strong><span>Note:</span></strong> Contract Templates and Layout Templates can be attached to any OM transaction type.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>See:<i>Oracle Sales Contracts Implementation and Administration Guide</i> for more details on authoring and negotiating Contract terms.</p>
+<h2><a name="3710073"></a><a id="T422895"></a><b>Sales Contracts Workbench</b></h2>
+<p><a name="d0e72031" id="d0e72031"></a>There are two ways to use the Sales Contracts Workbench: Sales Contracts Workbench Administrator and Sales Contracts Workbench User. Sales Contracts Workbench Administrator has additional ability to update Contracts Admin via Assign Contract Administrator functionality. Contract Administrators now can use the Contracts Workbench to carry out tasks like viewing and accessing contracts, and notifications. The Contracts Workbench is an HTML page that can be personalized by administrators. Bins or personalizable views are used in the Workbench page to enable administrators to displaying contract information, and additional seeded bins will display a user's notifications, and commonly used shortcuts to additional contract functions. Administrators can take actions on the contracts directly from the bins, depending on their access rights and the contract status. They can also bookmark contracts for frequent use.</p>
+<p>The available functionalities for Workbench are listed below:</p>
+<ul>
+<li>
+<p>Search Capabilities &ndash; you can perform simple and/or advanced searching in the Workbench. You can open and update documents from the search results.</p>
+</li>
+<li>
+<p>Contract bins - defines the contract bins shown on the Workbench, and how users can personalize each bin to determine bin content (results) based on different bin views.</p>
+</li>
+<li>
+<p>Notifications bins.</p>
+</li>
+<li>
+<p>Shortcuts &ndash; links to frequently used actions and reports like Creating Sales Agreements and Sales Orders, Clause Analysis and Assign Contract Administrator.</p>
+</li>
+</ul>
+<p>Please see the <i>Oracle Sales Contracts Implementation and Administration Guide</i>for more details.</p>
+<h2><a name="5485890"></a><a id="T544160"></a><b>Siebel Order Capture</b></h2>
+<p><a name="d0e72066" id="d0e72066"></a><a name="siebelintg" id="siebelintg"></a>The integration between Siebel Order Capture and Oracle E-Business Suite (EBS) Order Management modules enables two way movement of data at user defined business events between these products. This feature supports inbound integration for create, update, and cancel of sales order or line using web service and outbound integration to notify selective sales order changes (like hold application, release, close) by raising work flow business events.</p>
+<p>Using this integration, you can:</p>
+<ul>
+<li>
+<p>Import an order created using Siebel Order Capture into Oracle EBS Order Management for the first time.</p>
+</li>
+<li>
+<p>Communicate the changes back to EBS Order Management whenever the specific order is updated in Siebel Order Capture.</p>
+</li>
+<li>
+<p>Communicate process flow changes from Oracle EBS Order Management to Siebel Order Capture functionality.</p>
+</li>
+</ul>
+<h3><a id="T544161"></a><b>Integrating Siebel Order Capture and Oracle EBS Order Management</b></h3>
+<p>To integrate Siebel Order Capture and Oracle EBS Order Management, you must set up the following:</p>
+<ul>
+<li>
+<p>Implement the Order to Cash: Siebel CRM - EBS Process Integration Pack. See: Siebel CRM Integration Pack for Oracle Order Management: Order to Cash 2.5 - Implementation Guide</p>
+</li>
+<li>
+<p>Set up the following profiles to address the way Order Management returns freight charges and tax amounts to the Seibel Order Capture application:</p>
+<ul>
+<li>
+<p>OM: Roll Up Charges on Line Level for AIA Synch</p>
+</li>
+<li>
+<p>OM: Roll Up Charges on Header Level for AIA Synch</p>
+</li>
+<li>
+<p>OM: Roll Up Tax on Header Level for AIA Synch</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If required, then administrators can extend the flow status synchronization capability.</p>
+</li>
+</ul>
+<h3><a id="T544162"></a><b>Setting up Profile Options</b></h3>
+<p>You must set the following profiles at Site level, to a value of Yes or No. If you do not set any value, then the application considers the default value of No, and implements appropriate behavior. The application treats an SQL NULL value for these profile option values as a No, for the purpose of computation of the freight charges and tax amounts.</p>
+<ul>
+<li>
+<p>OM: Roll Up Charges on Line Level for AIA Synch</p>
+<p>If the profile value is Yes, then Oracle EBS Order Management includes the freight charges total (rolled up to the order line level) in its response messages to Siebel. If the profile value is No, then the response messages will not contain the freight charges rolled up to the order line level. Seeking a line-level roll up for charges can prove to be performance critical at times (specially in case of orders with many order lines). To this extent, you must take additional care in setting this profile option to a value of Yes.</p>
+</li>
+<li>
+<p>OM: Roll Up Charges on Header Level for AIA Synch</p>
+<p>If the profile value is Yes, then Oracle EBS Order Management includes the freight charges total (rolled up to the order header) in its response messages to Siebel. If the profile value is No, then the response messages will not contain the freight charges rolled up to the header level.</p>
+</li>
+<li>
+<p>OM: Roll Up Tax on Header Level for AIA Synch</p>
+<p>If the profile value is Yes, then Oracle EBS Order Management includes the tax amount total in its response messages to Siebel. If the profile value is No, then the response messages will not contain the tax amount total rolled up to the header level.</p>
+<p><strong><span>Note:</span></strong> Regardless of this profile option, the response messages will always include line-level tax amounts.</p>
+</li>
+</ul>
+<h3><a id="T544163"></a><b>Extending the Flow Status Synchronization Capability<a name="OEXFSAIA.fmb" id="OEXFSAIA.fmb"></a></b></h3>
+<p>The integration between Siebel Order Capture and Oracle E-Business Suite (EBS) Order Management modules use the predefined flow status codes where the Oracle EBS Order Management application raises an event on a change in the flow status code. As an Order Management administrator, you can enable or disable specific flow status code change to raise an outbound communication event using the AIA - Sales Order Status Synchronization window. Using this window, you can update the data defined in the OE_FLOW_STATUS_AIA_SYNC table. This table stores the information about the order/line flow status codes, and whether a specific change to a given flow status code needs to initiate a communication to the AIA layer (by raising business event). Based on the configurations, EBS Order Management sends applicable information to Siebel Order Capture.</p>
+<p>You can configure the following flow status codes to raise a business event to communicate status change with Siebel Order Capture application:</p>
+<ol>
+<li>
+<p>Awaiting Fulfillment</p>
+</li>
+<li>
+<p>Awaiting Receipt</p>
+</li>
+<li>
+<p>Cancelled</p>
+</li>
+<li>
+<p>Inventory Interfaced</p>
+</li>
+<li>
+<p>Interfaced to Receivables</p>
+</li>
+<li>
+<p>Partially interfaced to Receivables</p>
+</li>
+<li>
+<p>Awaiting Invoice Interface &ndash; Pending Complete Delivery</p>
+</li>
+<li>
+<p>Awaiting Invoice Interface &ndash; On Hold</p>
+</li>
+<li>
+<p>Awaiting Invoice Interface &ndash; Incomplete Data</p>
+</li>
+<li>
+<p>In Receiving</p>
+</li>
+<li>
+<p>In Receiving Partial</p>
+</li>
+<li>
+<p>Returned</p>
+</li>
+<li>
+<p>External Req Open</p>
+</li>
+<li>
+<p>External Req Partial</p>
+</li>
+<li>
+<p>External Req Requested</p>
+</li>
+<li>
+<p>Internal Req Open</p>
+</li>
+<li>
+<p>Internal Req Partial</p>
+</li>
+<li>
+<p>Internal Req Requested</p>
+</li>
+<li>
+<p>BOM and Routing Created</p>
+</li>
+<li>
+<p>Config Item Created</p>
+</li>
+<li>
+<p>Supply Eligible</p>
+</li>
+<li>
+<p>Booked</p>
+</li>
+<li>
+<p>Awaiting Shipping</p>
+</li>
+<li>
+<p>Shipped</p>
+</li>
+<li>
+<p>Fulfilled</p>
+</li>
+<li>
+<p>Closed</p>
+</li>
+<li>
+<p>Awaiting Invoice Interface - RFR Item</p>
+</li>
+<li>
+<p>Invoice Interface &ndash; Not Applicable</p>
+</li>
+<li>
+<p>Pending pre-billing acceptance</p>
+</li>
+<li>
+<p>Awaiting Return</p>
+</li>
+<li>
+<p>Awaiting Return Disposition</p>
+</li>
+</ol>
+<p>Of these, statuses 3, 23, 24, 25, 26 are enabled by default for synchronization while the others are disabled by default for synchronization. You can edit the synchronization preferences for all these status using the AIA &ndash; Sales Order Status Synchronization window.</p>
+<p>To extend the flow status synchronization capability:</p>
+<ol>
+<li>
+<p>Navigate to the AIA &ndash; Sales Order Status Synchronization window.</p>
+</li>
+<li>
+<p>Indicate synchronization for the applicable flow statuses to raise a business event to communicate status change with Siebel Order Capture application.</p>
+</li>
+<li>
+<p>Save and close the window.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

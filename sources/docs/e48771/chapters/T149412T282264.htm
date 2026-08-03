@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Subledger Journal Entries</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Subledger Accounting Implementation Guide">
+<meta name="dcterms.identifier" content="E48771-04">
+<meta name="dcterms.isVersionOf" content="XLAIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T149412T327670.htm" title="Previous" type="text/html">
+<link rel="Next" href="T149412T285832.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Subledger Journal Entries","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">10/19</span> <!-- End Header -->
+<h1>Subledger Journal Entries</h1>
+<h2><a name="2871328"></a><a id="T282265"></a><b>Subledger Journal Entries Overview</b></h2>
+<p><a name="d0e10891" id="d0e10891"></a><a name="sisjeov" id="sisjeov"></a>Create subledger journal entries as follows:</p>
+<ul>
+<li>
+<p>Manually create subledger journal entries and assign supporting references at the header and line level in the Create Subledger Journal Entry page.</p>
+<p>See: <a href="T149412T282264.htm#sisjecjep">Creating Manual Subledger Journal Entries</a></p>
+</li>
+<li>
+<p>Use the Create Accounting program to process eligible accounting events to create subledger journal entries.</p>
+<p>See: <a href="T149412T283033.htm#siaccov">Overview of Create Accounting and Transfer Journal Entries to GL Programs</a></p>
+</li>
+<li>
+<p>Use the Manual Subledger Journal Entries API to create, update, delete, complete, and reverse subledger journal entries.</p>
+</li>
+</ul>
+<p>A manual subledger journal entry is not associated with a subledger transaction. When the manual subledger journal entry is complete, Subledger Accounting assigns the appropriate sequence names, sequence numbers, and creates the reporting currency journal entries if appropriate.</p>
+<p>Enter manual subledger journal entries only against a primary or secondary ledger. Manual journal entries created for the primary ledgers are automatically posted to the reporting currency and not to the secondary ledger.</p>
+<p>See:</p>
+<ul>
+<li>
+<p><a href="T149412T285832.htm#siinqjeh">Subledger Journal Entries Inquiry</a></p>
+</li>
+<li>
+<p><a href="T149412T285832.htm#siinqjel">Subledger Journal Entry Lines Inquiry</a></p>
+</li>
+</ul>
+<h2><a name="2872257"></a><a id="T282275"></a><b>Creating Manual Subledger Journal Entries</b></h2>
+<p><a name="d0e10938" id="d0e10938"></a><a name="d0e10943" id="d0e10943"></a><a name="sisjecjep" id="sisjecjep"></a><a name="XLA_journalentries_JeCreatePG" id="XLA_journalentries_JeCreatePG"></a><a name="XLA_journalentries_JeACAssignPG" id="XLA_journalentries_JeACAssignPG"></a><a name="XLA_journalentries_JeACReviewPG" id="XLA_journalentries_JeACReviewPG"></a><a name="XLA_journalentries_JeComparePG" id="XLA_journalentries_JeComparePG"></a><a name="XLA_journalentries_JeDefaultCurrPG" id="XLA_journalentries_JeDefaultCurrPG"></a><a name="XLA_journalentries_JeErrorsPG" id="XLA_journalentries_JeErrorsPG"></a><a name="XLA_journalentries_JeReviewPG" id="XLA_journalentries_JeReviewPG"></a><a name="XLA_journalentries_JeSearchPG" id="XLA_journalentries_JeSearchPG"></a>Use the Subledger Journal Entries - Search page to search for all types of subledger journal entries, not just manual entries. In the search results region:</p>
+<ul>
+<li>
+<p>Drill down to view subledger journal entry details</p>
+</li>
+<li>
+<p>View, assign, and unassign supporting references</p>
+</li>
+<li>
+<p>Update, duplicate, complete, and reverse manual journal entries</p>
+</li>
+</ul>
+<p><img width="767" height="683" src="./img/sla_csje.gif" alt="the picture is described in the document text"></p>
+<h3><a id="T282276"></a><b>To Create Subledger Journal Entries<a name="sisjecjeh" id="sisjecjeh"></a></b></h3>
+<p>In the Subledger Journal Entries page, click <b>Create Journal Entry</b>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Selected Fields in the Create Journal Entry Page</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Ledger</td>
+<td>The primary and secondary ledgers displayed in the ledger list of values are determined by the system profile option SLA: Enable Data Access Security in Subledgers. If this profile option is set to Yes, the list of values displays only the primary and secondary ledgers defined in the GL: Data Access Set and the SLA: Additional Data Access Set profile options. If the profile option is set to No, the list of values displays all primary and secondary ledgers.<br>
+See:
+<ul>
+<li>
+<p><a href="T149412T282708.htm#ambsecur">SLA: Enable Data Access Security in Subledgers</a></p>
+</li>
+<li>
+<p>GL Profile Options, <i>Oracle General Ledger User Guide</i></p>
+</li>
+</ul>
+<br>
+If Encumbrance is selected in the Balance Type field, the list of values only displays ledgers that are enabled for budgetary control.</td>
+</tr>
+<tr valign="top">
+<td>Category</td>
+<td>Journal category</td>
+</tr>
+<tr valign="top">
+<td>GL Date</td>
+<td>GL date for posting the subledger journal entry.</td>
+</tr>
+<tr valign="top">
+<td>Reference Date</td>
+<td>Reference date to be stored at the subledger journal entry header level. Used in reporting sequence for Actual journal entries.</td>
+</tr>
+<tr valign="top">
+<td>Assign Supporting References</td>
+<td>Opens the Assign Supporting References - Lines page where you can assign and unassign supporting references.</td>
+</tr>
+</table>
+<h4><a id="T504509"></a><b>To Assign Supporting References at the Header or Line Level</b></h4>
+<p>Use the Assign Supporting References page to view or modify current supporting reference values and to assign new supporting references to the journal entry or line. This page is available in view-only mode if you navigate from a final journal entry and the page title will be displayed as View Supporting References.</p>
+<p>To assign supporting references to the journal entry in the Header region of the Create Subledger Journal Entry page:</p>
+<ul>
+<li>
+<p>Click Assign Supporting References.</p>
+</li>
+<li>
+<p>Click Add 5 Lines.</p>
+</li>
+<li>
+<p>Select the supporting reference in the Name field and enter details as required.</p>
+</li>
+<li>
+<p>Click Apply to save the changes.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> Supporting references with line level source assignments on the details may not be assigned on the journal entry header.</p>
+<p>To assign supporting references to the lines of a journal entry in the Lines region of the Create Subledger Journal Entry page:</p>
+<ul>
+<li>
+<p>Click the Assign Supporting References icon on the appropriate line</p>
+</li>
+<li>
+<p>Click Add 5 Lines.</p>
+</li>
+<li>
+<p>Select the supporting reference in the Name field and enter details as required.</p>
+</li>
+<li>
+<p>Click Apply to save the changes.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> Supporting references maintaining balances can only be assigned on journal entry lines.</p>
+<h3><a id="T420908"></a><b>To Create Subledger Journal Lines<a name="sisjecjld" id="sisjecjld"></a></b></h3>
+<p>In the Lines region of the Create Subledger Journal Entry page:</p>
+<ul>
+<li>
+<p>Enter account, debit and credit amounts, and accounting class.</p>
+</li>
+<li>
+<p>Optionally enter third party information, description, and currency details for each line of the subledger journal entry.</p>
+<p>If third party control accounts are enabled for the application and the account entered is a third party control account, third party information must be entered. For example, if Payables is set up to support only Supplier, you cannot select third party control accounts that have been set up to support only Customer.</p>
+<p>See: <a href="T149412T377484.htm#sirep3pty">Third Party Balances Report</a></p>
+</li>
+<li>
+<p>View the total accounted amounts of all subledger journal entry lines in the ledger currency.</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Selected Fields and Buttons in the Create Subledger Journal Entry Page, Lines Region</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field and Button</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Default Currency Options</td>
+<td>Opens the Default Currency Options page to default an entered currency, conversion type, conversion date, and conversion rate information for each new subledger journal entry line. Use the currency controls available in the Details region of each journal entry line to override the default set.</td>
+</tr>
+<tr valign="top">
+<td>Third Party Type</td>
+<td>Defaults from the application associated with the responsibility used to access the manual subledger journal entry pages. The values for name, site, number, and taxpayer ID must match the third party type. These values are required if the account on the line is a third party control account. If the account is not a third party control account, but party type is selected, party information should be provided.</td>
+</tr>
+<tr valign="top">
+<td>Conversion Rate</td>
+<td>If the conversion type is User, you must enter a conversion rate.</td>
+</tr>
+<tr valign="top">
+<td>Calculate Totals</td>
+<td>Updates the display in the Accounted Amounts region</td>
+</tr>
+<tr valign="top">
+<td>Continue</td>
+<td>Select to review the manual subledger journal entry and complete it.</td>
+</tr>
+</table>
+<h3><a id="T564739"></a><b>Enhanced Third Party Control Account Validations</b></h3>
+<p>The Third Party Control Account feature in the Oracle E-Business Suite enables organizations to maintain detailed balances by third party for an account code combination. Subledger Accounting checks that valid third party information is associated with the journal line if the account code combination is a Third Party Control Account. If it is not, then Subledger Accounting rejects the journal line. General Ledger prevents manual journal entries from posting to the third party control accounts. This ensures that journal lines that post to the control account codes such as Supplier Liability Account, Customer Receivables Account, are associated with the valid third party information in the respective subledger modules.</p>
+<p><b>Restricting Natural Account Values in the General Ledger Manual Journal Entries</b></p>
+<p>You might sometimes define an account code as a third party control account to prevent the GL manual journal entries from posting to these accounts. When such accounts are used in the subledger transaction without the third party information, Subledger Accounting prevents the accounting for such transaction with an error that the third party information is missing.</p>
+<p>For example, when the unidentified receipts account code in the Oracle Receivables is defined as a third party control account, accounting for the unidentified receipts fails because no third party information is available for such receipts. Similar issues are observed with the rounding account and intercompany accounts.</p>
+<p>The following solution helps overcome these issues. A new third party control account validation is provided that allows accounting to complete successfully without the third party information in the subledgers but to restrict that account code while entering in the GL manual journal entries.</p>
+<p>A new value, Restrict Manual Journals, is added to the List of values of the Third Party Control Account segment qualifier.</p>
+<p>You can assign Restrict Manual Journals value in the list of values of the Third Party Control Account segment qualifier to natural account segment values and prevent the GL manual journal entries from posting to these account code combinations containing the respective natural account segment values.</p>
+<p>When you define the Unidentified Receipt account code as third party control account to prevent the GL manual journal entries from using this account code, you define the Unidentified Receipt account code as Restrict Manual Journals third party control account. When you use this account code for the unidentified receipt in the Oracle Receivables, Subledger Accounting creates the accounting successfully for this unidentified receipt without the party information. Hence, you cannot enter manual journal entries using this account code in General Ledger.</p>
+<p>After you set up an account code as Restrict Manual Journals third party control account, you must run the concurrent program, Program - Inherit Segment Value Attributes to reflect the Third Party Control Account qualifier changes in the account code combinations.</p>
+<p>After this, you cannot select this account code while creating a manual journal entry in General Ledger. Though, you can select these account codes without the third party information in the respective subledgers as the application treats this third party control account for the purpose of restricting the usage in General Ledger manual journal entries only.</p>
+<p>In General Ledger the validation performed on entering manual journals in journal entry window has been modified to restrict users from using the third party control accounts defined as Restrict Manual Journals.</p>
+<p>Subledger Accounting is modified to treat the third party control accounts defined as Restrict Manual Journals the same way as the third party control accounts defined as No.</p>
+<p>If an account or a control account is updated as Restrict Manual Journals or No from either the Supplier, Customer, or Both, then the balances for the Third Party Balances Report is not maintained for such account code with the prospective effect. The balances prior to the modification will only be shown in the report output and thus the balance in the report output may not match with the General Ledger balance for such account or control code.</p>
+<h3><a id="T577857"></a><b>Supporting Control Balance Initialization</b></h3>
+<p>You can upload initial balance value for the prior period activities and synchronize them. The initial balance of a Third Party Control Account is defined in context of ledger and is the starting balance for which there is no journal entry in Subledger Accounting to support that balance.</p>
+<p>The Third Party Control Account feature of the Oracle Subledger Accounting (SLA) enables organizations to maintain the breakdown of an account balance by third party for asset and liability accounts.</p>
+<p>When a new third party control account is created, the account does not have an opening balance and all the transactions posted to the account contain the third party information. SLA updates the third party balances for every transaction posted to the account. This ensures that user can generate the third party balances report and successfully reconcile the closing balance of the account with the sum of the third party balances for that account. When an existing account having balance is converted into a control account there will not be any third party balances in the Subledger Accounting and the third party balances report cannot be generated for that account.</p>
+<p>This new feature lets you upload the initial third party balances for a control account and synchronize the account and third party balances for accurate reporting and reconciliation. A new open interface table (xla_ctrl_balances_int) and an import program are provided to initialize the control account balances.</p>
+<p><b>Initialize Control Account Balances</b></p>
+<p>You can upload initial balance for a third party control account for a combination of ledger, application, party and party-site combination. An initial balance is in the ledger currency for a particular period. This initial balance is carried forward to the subsequent periods.</p>
+<p>You define initial balances as Net of Debit (Dr) and Credit (Cr) balance. You cannot define initial balance as separate balances for Debit and Credit.</p>
+<p>You can define an initial balance for a closed period only. You can also define initial balance even after the SLA has created balances and entries for third party control accounts.</p>
+<p><b>Update or Delete Initial Balances</b></p>
+<p>Once the initial balance has been entered, you can still modify the initial balance. Modifying the initial balance impacts the subsequent period balances. The following validations are performed:</p>
+<ul>
+<li>
+<p>The periods prior to the date of initial balance must not have any period activity for the combination of third party control account, application, ledger, third party and third party site for which the initial balance is uploaded</p>
+</li>
+<li>
+<p>Initial balance is uploaded only for the third party control accounts.</p>
+</li>
+<li>
+<p>The period closing status of the periods for which the initial balance is being uploaded must be &ldquo;Closed&rdquo;.</p>
+</li>
+</ul>
+<p><b>Submit Concurrent Program to Import Data from Interface table into the Base table</b></p>
+<ul>
+<li>
+<p>Insert the data into the interface table (xla_ctrl_balances_int)</p>
+</li>
+<li>
+<p>Run the concurrent program, Import Initial Balance for Third Party Control Account, from the responsibility where the data is defined and the application where the control balance data is intended. For example, submit the concurrent program from Payables responsibility</p>
+</li>
+</ul>
+<p>The only parameter for this concurrent program is the Purge Option. The valid values are Purge successfully processed rows, Purge all rows and Do not purge.</p>
+<ul>
+<li>
+<p>If you specify Purge successfully processed rows, then only the successfully imported data in the interface table is deleted after processing.</p>
+</li>
+<li>
+<p>If you specify Purge all rows, then all data in the interface table is deleted after processing.</p>
+</li>
+<li>
+<p>If you specify Do not purge, then all the data in the interface table will be retained after processing.</p>
+</li>
+</ul>
+<p>The concurrent program once completed successfully generates a report.</p>
+<p>The report is divided into the following sections:</p>
+<ul>
+<li>
+<p>Successfully Initialized Rows</p>
+</li>
+<li>
+<p>Warnings - GL Balance does not match SLA Balance after initialization</p>
+</li>
+<li>
+<p>Failed Initialization Rows</p>
+</li>
+<li>
+<p>Error Code Details</p>
+</li>
+</ul>
+<h3><a id="T412323"></a><b><a name="sisjerev" id="sisjerev"></a>To Review and Complete Subledger Journal Entries</b></h3>
+<p>In the Review Subledger Journal Entry page:</p>
+<ul>
+<li>
+<p>Review all subledger journal entry header and line information</p>
+</li>
+<li>
+<p>View supporting references.</p>
+</li>
+<li>
+<p>If budgetary control is enabled for the primary ledger and the subledger journal entry fund status is Required and Failed, initiate funds check to reserve funds to complete the subledger journal entry. Subledger Accounting returns a status of Passed or Failed.</p>
+<p>There is no manual reservation of funds and funds checking cannot be initiated for a budget journal entry that has a status of Final.</p>
+<p>View the budgetary control validation results if the fund status is Failed by clicking the Funds Validation Results button.</p>
+</li>
+<li>
+<p>Complete the journal entry</p>
+<p>The Complete button is enabled if the journal entry:</p>
+<ul>
+<li>
+<p>Is a manual journal entry with a status of Draft, Error, or Incomplete</p>
+</li>
+<li>
+<p>Is an accrual reversal or multiperiod accounting recognition entry with an Incomplete status</p>
+</li>
+<li>
+<p>Does not belong to a reporting currency</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Selected Subledger Journal Entry Completion Options</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Option</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Draft</td>
+<td>Results cannot be transferred or posted to General Ledger; appears on Subledger Accounting reports or inquiries that are based upon draft entries; entries can be updated and deleted; and cannot perform funds reservation.</td>
+</tr>
+<tr valign="top">
+<td>Final</td>
+<td>Subledger journal entry is completed; can be transferred and posted to General Ledger; appears on Subledger Accounting reports and inquiries that are based upon final entries; and funds reservation is performed.</td>
+</tr>
+<tr valign="top">
+<td>Final and Post</td>
+<td>Completes the subledger journal entry with the status Final; transfers it to General Ledger and posts it; entry appears on Subledger Accounting reports or inquiries that are based upon final entries. If the entry is successfully completed and transferred, the status is Transferred.</td>
+</tr>
+</table>
+</li>
+</ul>
+<p>Subledger Accounting completes the subledger journal entry as follows:</p>
+<ul>
+<li>
+<p>Validates the accounts; same validation as that performed by the Create Accounting program</p>
+<p>See: <a href="T149412T204494.htm#sdjedint">Subledger Journal Entry Definition Overview</a></p>
+</li>
+<li>
+<p>Assigns the corresponding sequence to the subledger journal entry if completed with Final status</p>
+</li>
+<li>
+<p>Updates the status of the subledger journal entry</p>
+</li>
+<li>
+<p>Updates the pending subledger journal entry with the corresponding error message if the subledger journal entry is not successfully created</p>
+</li>
+<li>
+<p>Invokes the balance update program</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> If the subledger journal entry is for a ledger with reporting currencies, Subledger Accounting creates subledger journal entries for these representations.</p>
+<h3><a id="T412324"></a><b>To Duplicate Subledger Journal Entries<a name="sisjedup" id="sisjedup"></a></b></h3>
+<p>In the Duplicate Subledger Journal Entries page, create a new subledger journal entry from an existing subledger journal entry of any status except Error. When a journal entry is duplicated, you can update all fields except Balance Type.</p>
+<p><strong><span>Note:</span></strong> If changing the ledger in a duplicated journal entry and the new ledger has a different chart of accounts, all lines are cleared because the Accounting Flexfield structure is dependent on the new ledger.</p>
+<h3><a id="T412325"></a><b><a name="sisjervrs" id="sisjervrs"></a>To Reverse Subledger Journal Entries</b></h3>
+<p>In the Reverse Subledger Journal Entry page, reverse an existing manual subledger journal entry in Final status. Reversal options are:</p>
+<ul>
+<li>
+<p>Switch DR/CR</p>
+</li>
+<li>
+<p>Change Sign</p>
+</li>
+</ul>
+<h3><a id="T420690"></a><b>To Update Subledger Journal Entries<a name="sisjeupdte" id="sisjeupdte"></a></b></h3>
+<p>In the Update Subledger Journal Entries page, update:</p>
+<ul>
+<li>
+<p>A manual subledger journal entry of status Draft, Incomplete, or Error</p>
+</li>
+<li>
+<p>Supporting references for manual subledger journal entries with a status of Final</p>
+</li>
+<li>
+<p>A multiperiod recognition or accrual reversal journal entry of status Incomplete</p>
+</li>
+</ul>
+<p>When a manual journal entry is updated, you can update all fields except Balance Type and Ledger.</p>
+<h3><a id="T420691"></a><b>To Delete Subledger Journal Entries<a name="sisjedelte" id="sisjedelte"></a></b></h3>
+<p>In the Delete Subledger Journal Entries page, delete a manual subledger journal entry for a primary or secondary ledger in Draft or Incomplete status.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T292407.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T292528.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">23/31</span> <!-- End Header -->
+<h1>Cycle Counting</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T292439">Overview of Cycle Counting</a></li>
+<li><a href="#T292479">Defining and Maintaining a Cycle Count</a></li>
+<li><a href="#T292480">Defining Cycle Count Classes</a></li>
+<li><a href="#T292444">Cycle Count Items</a></li>
+<li><a href="#T292481">Defining Cycle Count Items</a></li>
+<li><a href="#T292445">Cycle Count Scheduling</a></li>
+<li><a href="#T292482">Generating Automatic Schedules</a></li>
+<li><a href="#T292483">Entering Manual Schedule Requests</a></li>
+<li><a href="#T292446">Count Requests</a></li>
+<li><a href="#T292484">Generating Count Requests</a></li>
+<li><a href="#T292485">Requesting the Cycle Count List</a></li>
+<li><a href="#T292486">Entering Cycle Counts</a></li>
+<li><a href="#T292447">Approval Options and Tolerances</a></li>
+<li><a href="#T292448">Count Adjustments and Approvals</a></li>
+<li><a href="#T292487">Approving Cycle Count Adjustments</a></li>
+<li><a href="#T649080">Approval Actions and Adjustments</a></li>
+<li><a href="#T292440">Serialized Cycle Counting</a></li>
+<li><a href="#T2011014">Prioritize Cycle Counts to Analyze Inventory Discrepancies Using Machine Learning</a></li>
+<li><a href="#T292488">Purging Cycle Count Information</a></li>
+<li><a href="#T292489">Cycle Count Open Interface</a></li>
+<li><a href="#T410807">Cycle Counting Reports</a></li>
+</ul>
+<h2><a name="1760093"></a><a id="T292439"></a><b>Overview of Cycle Counting</b></h2>
+<p><a name="d0e96809" id="d0e96809"></a><a name="I_c_ccov" id="I_c_ccov"></a>Cycle counting is the periodic counting of individual items throughout the course of the year to ensure the accuracy of inventory quantities and values. Accurate system on-hand quantities are essential for managing supply and demand, maintaining high service levels, and planning production.</p>
+<p>You can perform cycle counting instead of taking complete physical inventories, or you can use both techniques side-by-side to verify inventory quantities and values.</p>
+<p>Inventory supports serialized cycle counting, and the following modules discuss the steps involved. See also: <a href="T291651T292438.htm#I_sercount">Serialized Cycle Counting</a>.<a name="d0e96834" id="d0e96834"></a><a name="d0e96839" id="d0e96839"></a></p>
+<h3><a id="T292450"></a><b>Tasks Involved</b></h3>
+<ul>
+<li>
+<p>Define a cycle count for the organization or subinventory level. See: <a href="T291651T292438.htm#I_t_defcc">Defining and Maintaining a Cycle Count</a>.</p>
+</li>
+<li>
+<p>Define cycle count classes. See: <a href="T291651T292438.htm#I_t_dccclass">Defining Cycle Count Classes</a>.</p>
+</li>
+<li>
+<p>Define cycle count items. See: <a href="T291651T292438.htm#I_t_dccitems">Defining Cycle Count Items</a>.</p>
+</li>
+<li>
+<p>Automatically schedule item counts using ABC count frequencies. See: <a href="T291651T292438.htm#I_t_ccautosc">Generating Automatic Schedules</a>.</p>
+</li>
+<li>
+<p>Manually schedule counts for the following inventory control details:</p>
+<ul>
+<li>
+<p>items, or specific revisions, lots</p>
+</li>
+<li>
+<p>subinventories or specific locators</p>
+<p>See: <a href="T291651T292438.htm#I_t_ccmansc">Entering Manual Schedule Requests</a>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Generate daily, weekly, or period count requests and lists based on your schedule. See: <a href="T291651T292438.htm#I_t_genccreq">Generating Cycle Count Requests</a>.</p>
+</li>
+<li>
+<p>Enter counts. See: <a href="T291651T292438.htm#I_t_entercc">Entering Cycle Counts</a>.</p>
+</li>
+<li>
+<p>Approve, reject, or request recounts for cycle count adjustments based on approval tolerances. See: <a href="T291651T292438.htm#I_t_apprvadj">Approving Cycle Count Adjustments</a>.</p>
+</li>
+<li>
+<p>Purge cycle count information. See: <a href="T291651T292438.htm#I_t_purgecc">Purging Cycle Count Information</a>.</p>
+</li>
+<li>
+<p>Import cycle count entries from external systems. See: <a href="T291651T292438.htm#I_cciface">Cycle Count Open Interface</a>.</p>
+</li>
+<li>
+<p>Export cycle count entries to external systems. See: <a href="T291651T292438.htm#I_cciface">Cycle Count Open Interface</a>.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292407.htm#c_abcov">Overview of ABC Analysis</a></p>
+<h2><a name="1760104"></a><a id="T292479"></a><b>Defining and Maintaining a Cycle Count</b></h2>
+<p><a name="d0e96993" id="d0e96993"></a><a name="INVAMCAP.CC_SERIAL_ENTRIES" id="INVAMCAP.CC_SERIAL_ENTRIES"></a><a name="I_t_defcc" id="I_t_defcc"></a><a name="INVADCYC_CC_HEADERS" id="INVADCYC_CC_HEADERS"></a><a name="INVADCYC.cc_headers" id="INVADCYC.cc_headers"></a><a name="INVADCYC.BLOCKNAME" id="INVADCYC.BLOCKNAME"></a><a name="INVADCYC.FOLDER" id="INVADCYC.FOLDER"></a><a name="INVATCEN.CC_SERIAL_ENTRY" id="INVATCEN.CC_SERIAL_ENTRY"></a>A combination of parameters constitutes a <a name="d0e97021" id="d0e97021"></a>cycle count header, identified by the cycle count name. You use this name to identify any activity pertaining to this cycle count.</p>
+<p>You can define and maintain an unlimited number of cycle counts in Oracle Inventory. For example, you can define separate cycle counts representing different sets of subinventories in your warehouse.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define ABC Classes. See: <a href="T291651T292407.htm#I_t_abcclass">Defining ABC Classes</a>.</li>
+<li>Define your workday calendar. See: Creating a Workday Calendar, <i>Oracle Bills of Material User's Guide</i>.</li>
+<li>When determining cycle count classes based on ABC analysis, you must compile an ABC analysis and assign your compiled items to ABC classes. See: <a href="T291651T292407.htm#c_abcov">Overview of ABC Analysis</a>.</li>
+</ul>
+<p><b>To define a new cycle count</b></p>
+<ol>
+<li>
+<p>Navigate to the Cycle Count Summary folder window by selecting Cycle Counts on the menu and choose New to open the Cycle Counts window.</p>
+<p><img width="697" height="506" src="./img/invug_cctsmm.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique name for the cycle count.</p>
+</li>
+<li>
+<p>Enter the workday calendar to use for this cycle count.</p>
+<p>Inventory uses this calendar to determine the days on which to automatically schedule cycle counts.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e97120" id="d0e97120"></a>general ledger account to charge for cycle count adjustments.</p>
+</li>
+</ol>
+<p><b>To enter control and scope information for your cycle count</b></p>
+<ol>
+<li>
+<p>Select the Control, Scope tabbed region.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e97150" id="d0e97150"></a>Count Controls:</p>
+<ul>
+<li>
+<p>Optionally, enter the date on which the cycle count becomes inactive. As of this date, you cannot generate schedules or perform any counting activities for this cycle count.</p>
+</li>
+<li>
+<p>Enter the number of workdays that can pass after the date the count request was generated, before a scheduled count becomes a late count.</p>
+</li>
+<li>
+<p>Enter the sequence number to use as the starting number in the next count request generator. The count sequence number uniquely identifies a particular count and is used in ordering the cycle count listing.</p>
+</li>
+<li>
+<p>Determine whether you can enter counts for items not scheduled to be counted (Unscheduled Entries).</p>
+</li>
+<li>
+<p>Determine whether to display system on-hand quantities during count entry.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Determine whether Inventory automatically assigns a status of <a name="d0e97198" id="d0e97198"></a><i>Recount</i> to out-of-tolerance counts and includes them in the next cycle count listing.</p>
+<p>If you turn this option on, navigate to the <i>Maximum</i> field and enter the maximum number of times Inventory can generate an automatic recount request. Once this number is reached the adjustment must be approved or rejected.</p>
+</li>
+<li>
+<p>Determine the subinventories to include in the cycle count.</p>
+<p>If you choose <i>Specific</i> subinventories, you can navigate to the Subinventory region and select the subinventories to include in the cycle count.</p>
+</li>
+</ol>
+<p><b>To enter serial number control and autoschedule information</b></p>
+<ol>
+<li>
+<p>Navigate to the Serial Control<a name="d0e97248" id="d0e97248"></a><a name="d0e97253" id="d0e97253"></a>, Schedule tabbed region.</p>
+</li>
+<li>
+<p>Select the count option to determine whether to exclude serialized items from the cycle count (Not Allowed), create one count request for each serial number (One Per Request), or create multiple serial details in a count request (Multiple Per Request).</p>
+</li>
+<li>
+<p>Select the detail option:</p>
+<p><i>Quantity and Serial Numbers:</i> Serial number and quantity are required and are validated when entering adjustments.</p>
+<p><i>Quantity Only:</i> Serial number entry is optional if the count quantity matches the system quantity, regardless of whether the serial numbers match. If you do not enter serial numbers, the count is marked as completed, and no adjustments are performed. If you do enter serial numbers, both quantity and serial numbers are validated when determining whether adjustments are required.</p>
+</li>
+<li>
+<p>Select the adjustment option:</p>
+<p><i>Adjust if Possible:</i> If a discrepancy exists between the count quantity and system quantity or if the entered serial numbers do not correspond to the serial numbers already in the specified location, then the system will attempt to make adjustments if the adjustment variance and value are within tolerances. These adjustments consist of receipts and issues of the appropriate serial numbers to and from the specified location and are applicable only to instances in which new serial numbers or shipped serial numbers are counted.</p>
+<p><i>Review All Adjustments:</i> No automatic adjustments are attempted.</p>
+</li>
+<li>
+<p>Select the Container option to count the inventory by container.</p>
+<p><strong><span>Important:</span></strong> This option displays only in a Oracle Warehouse Management enabled organization. For more information, see <i>Oracle Warehouse Management Implementation Guide</i>, LPN Related Counts.</p>
+</li>
+<li>
+<p>Select the discrepancy option to indicate whether an adjustment is attempted when a count includes a serial number already assigned to the same item elsewhere in the system.</p>
+</li>
+<li>
+<p>Determine whether to <a name="d0e97352" id="d0e97352"></a>automatically schedule this cycle count. See: <a href="T291651T292438.htm#c_ccschedl">Cycle Count Scheduling</a>.</p>
+<p>If you turn automatic scheduling on, enter the following information:</p>
+<p><i>Frequency</i>: Indicate whether to schedule cycle counts <i>Daily</i>, <i>Weekly</i>, or <i>By period</i>. Inventory uses this information, along with the count frequency of each cycle count class, when performing automatic cycle count scheduling. The value you enter here dictates the window of time within which you can enter counts against a schedule bucket.</p>
+<p><b>Schedule Interval Example</b></p>
+<p>If you choose weeks as your schedule interval, Inventory schedules a week's worth of counts each time the automatic scheduler runs. You then have that week to complete all these counts. On the other hand, if you choose days, Inventory schedules only that one day's counts, and you need to complete those counts on that given day.</p>
+<p><i>Last Date</i>: Inventory displays the last date this cycle count was automatically scheduled.</p>
+<p><i>Next Date</i>: Inventory displays the first workday for the next schedule interval when this cycle count is scheduled. You can enter a later date in this field if you want to override the automatic schedule and skip one or more intervals. If your schedule interval is <i>Weekly</i> or <i>By period</i>, the date you enter must be the first workday of the period for which you want to generate schedule requests.</p>
+<p><b>Next Schedule Date Example</b></p>
+<p>Assume your schedule interval is <i>Weekly</i> and you last ran your schedule on Monday, March 20. Your calendar workdays were specified as Monday through Friday. When you ran your schedule on March 20 the Next Scheduled Date was set to March 27. You know that during the week of March 27 you are doing a physical inventory so you do not wish to do cycle counting. You can set Next Scheduled Date to April 3, the first weekday of the following next week. Inventory does not generate any cycle count requests for the week of March 27-31, and when you schedule counts on April 3, Inventory generates requests only for the week of April 3-7.</p>
+</li>
+<li>
+<p>Optionally, determine whether to automatically generate requests to count items with an on-hand quantity of zero.</p>
+</li>
+</ol>
+<p><b>To define adjustments and ABC information:<a name="d0e97436" id="d0e97436"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Adjustments, ABC tabbed region.</p>
+</li>
+<li>
+<p>Determine when approval is required for adjustments:</p>
+<p><i>Never</i>: Inventory automatically posts adjustment transactions where entered counts differ from system balances.</p>
+<p><i>If out of tolerance</i>: Inventory does not automatically post adjustment transactions for counts outside a specified approval tolerance. You must approve such adjustments before posting.</p>
+<p><i>Always</i>: You must approve all cycle count adjustments, regardless of tolerance levels, before Inventory can post any of them.</p>
+<p><strong><span>Note:</span></strong> If you select Always, then the system waits for an approval whenever a quantity mismatch exists. If the quantity matches, then the system automatically approves the adjustment.</p>
+</li>
+<li>
+<p>If you choose to require approval for adjustments <i>If out of tolerance</i>, enter positive and negative tolerances.</p>
+<p><i>Qty Variance</i>: Enter the percentage variances of count quantity to on-hand quantity beyond which adjustments are held for approval.</p>
+<p><i>Adjustment Value</i>: Enter the adjustment values beyond which adjustments are held for approval.</p>
+<p><i>Hit/Miss Analysis</i>: Enter the percentage variances of count quantity to on-hand quantity beyond which Inventory considers a count entry a miss for hit/miss reporting.</p>
+</li>
+<li>
+<p>Optionally, enter <a name="d0e97528" id="d0e97528"></a><a name="d0e97533" id="d0e97533"></a>ABC initialization or update information:</p>
+<ul>
+<li>
+<p><i>Group</i>: Enter the ABC group name on which to base the cycle count item initialization or update.</p>
+</li>
+<li>
+<p><i>Option</i>: Choose one of the following options:</p>
+<ul>
+<li>
+<p><i>None</i>: Do not change to the list of cycle count items.</p>
+</li>
+<li>
+<p><i>(Re)initialize</i>: Use the ABC group you specified to load all items and their ABC assignments into the list of items to include in your cycle count. If you already had items defined for your cycle count, this action deletes existing information and reloads the items from the ABC group.</p>
+</li>
+<li>
+<p><i>Update</i>: Use the ABC group you specified to insert new cycle count items.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you chose the update option:</p>
+<ul>
+<li>
+<p>Indicate whether to update classes. If an item's ABC class assignment in the ABC group you specified is different from the cycle count class this item is assigned, Inventory updates the cycle count class for the item with the ABC assignment in the specified ABC group.</p>
+</li>
+<li>
+<p>Indicate whether to delete unused item assignments that are no longer referenced in the specified ABC group.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To enter ABC classes to include in your cycle count</b></p>
+<ol>
+<li>
+<p>Choose the Classes button. See: <a href="T291651T292438.htm#I_t_dccclass">Defining Cycle Count Classes</a>.</p>
+</li>
+</ol>
+<p><b>To define cycle count items</b></p>
+<ol>
+<li>
+<p>Choose the Items button. See: <a href="T291651T292438.htm#I_t_dccitems">Defiling Cycle Count Items</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#I_t_ccautosc">Generating Automatic Schedules</a></p>
+<p><a href="T291651T292438.htm#I_t_purgecc">Purging Cycle Count Information</a>.</p>
+<p><a href="T291651T292438.htm#I_c_apprvops">Approval Options and Tolerances</a></p>
+<p><a href="T291651T428143.htm#pckwvow">Overview of Material Pickwaves</a></p>
+<p>Customizing the Presentation of Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1760111"></a><a id="T292480"></a><b>Defining Cycle Count Classes</b></h2>
+<p><a name="d0e97702" id="d0e97702"></a><a name="I_t_dccclass" id="I_t_dccclass"></a><a name="INVADCYC.cc_classes" id="INVADCYC.cc_classes"></a>You can enter ABC classes to include in your cycle count. You can also enter approval and hit/miss tolerances for your cycle count classes.</p>
+<p><b>To define cycle count classes</b></p>
+<ol>
+<li>
+<p>Navigate to the Cycle Count Summary folder window.</p>
+</li>
+<li>
+<p>Select a cycle count and choose Open.</p>
+</li>
+<li>
+<p>In the Cycle Counts window choose Classes. The Cycle Count Classes window appears.</p>
+<p><img width="755" height="459" src="./img/invug_cyccntcls.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the name of the ABC class to use to define your cycle count classes.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e97786" id="d0e97786"></a>number of times per year you want to count each item in this class.</p>
+</li>
+<li>
+<p>Optionally, enter positive and negative tolerances. If you do not enter tolerances, Inventory uses the values you entered in the Cycle Counts window.</p>
+<p><i>Quantity %</i>: Enter the percentage variances of count quantity to on-hand quantity beyond which adjustments are held for approval.</p>
+<p><i>Adjustment Value</i>: Enter the adjustment values beyond which adjustments are held for approval.</p>
+<p><i>Hit/Miss %</i>: Enter the percentage variances of count quantity to on-hand quantity beyond which Inventory considers a count entry a miss for hit/miss reporting. Note that the hit/miss percentage is based on the first count of an item, not recounts.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#I_t_dccitems">Defining Cycle Count Items</a></p>
+<h2><a name="1760113"></a><a id="T292444"></a><b>Cycle Count Items</b></h2>
+<p><a name="d0e97853" id="d0e97853"></a><a name="c_ccitems" id="c_ccitems"></a>You need to load items into your cycle count before you can schedule or count them. There are two methods you can use to do this. The first is to specify an existing ABC group from which to load your items. Oracle Inventory automatically includes all items in the ABC group you choose in your cycle count. Inventory also copies the ABC classes for that ABC group into the current cycle count classes and maintains the same classifications for the included items. You can then change the classifications of your items for your cycle count independent of the ABC classes.</p>
+<p>Once you have generated your list of items to count from an ABC group, you can periodically refresh the item list with new or reclassified items from a regenerated ABC group. Using the Cycle Counts window, you can choose whether to automatically update class information for existing items in the cycle count based on the new ABC assignments. You can also choose to have any items that are no longer in the ABC group automatically deleted from the cycle count list. Any new items are added.</p>
+<p>The second method of maintaining the cycle count item list is to manually enter, delete, or update the items you want included/excluded using the Cycle Count Items window. You may want to use this form to load all your items for a cycle count, or to simply add items as they are defined in the system rather than recompiling your ABC group and doing a complete reinitialization of your cycle count items.</p>
+<h3><a id="T292456"></a><b>Defining Control Group Items<a name="d0e97881" id="d0e97881"></a></b></h3>
+<p>When you choose the items to include in your cycle count, you can specify which items make up your control group. When you generate automatic schedules, you can indicate whether to include items in your control group as a control measure.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#I_t_dccitems">Defining Cycle Count Items</a></p>
+<h2><a name="1760115"></a><a id="T292481"></a><b>Defining Cycle Count Items</b></h2>
+<p><a name="d0e97912" id="d0e97912"></a><a name="d0e97924" id="d0e97924"></a><a name="I_t_dccitems" id="I_t_dccitems"></a><a name="INVADCYC.cc_items" id="INVADCYC.cc_items"></a>Use the Cycle Count Items window to add items to your cycle count or to update certain attributes for existing cycle count items. You can schedule, generate count requests for, and count only those items that are included in this list.</p>
+<p>You can also view all items included in a cycle count as a result of initializing from an ABC analysis.</p>
+<p><b>To enter or update cycle count items</b></p>
+<ol>
+<li>
+<p>Navigate to the Cycle Count Summary folder window.</p>
+</li>
+<li>
+<p>Select a cycle count and choose Open.</p>
+</li>
+<li>
+<p>In the Cycle Counts window choose Items. The Cycle Count Items window appears.</p>
+<p><img width="676" height="468" src="./img/invug_cycontitm.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the <a name="d0e97999" id="d0e97999"></a><a name="d0e98004" id="d0e98004"></a>ABC class to which this item belongs. You can only choose from those classes you assigned to your cycle count in the Cycle Count Classes window.</p>
+</li>
+<li>
+<p>Enter the item to assign to your cycle count.</p>
+</li>
+<li>
+<p>If you are using automatic scheduling, indicate whether this is a control group item. When you generate schedules, you can indicate whether to include control group items.</p>
+</li>
+<li>
+<p>Optionally, enter positive and negative quantity variances of count quantity to on-hand quantity beyond which adjustments may be held for approval.</p>
+<p>If you enter a value in this field, Inventory uses it instead of the tolerance specified (if any) for the class to which the item belongs, or instead of the tolerance specified (if any) for the cycle count header.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#c_ccitems">Cycle Count Items</a></p>
+<h2><a name="1760117"></a><a id="T292445"></a><b>Cycle Count Scheduling</b></h2>
+<a name="d0e98074" id="d0e98074"></a> <a name="c_ccschedl" id="c_ccschedl"></a>
+<h3><a id="T292457"></a><b>Automatic Scheduling</b></h3>
+<p>Oracle Inventory uses the number of items in each cycle count class, the count frequency of each class, and the workday calendar of your organization to determine how many and which items you need to count during the scheduling frequency.</p>
+<p>In order for Inventory to perform automatic scheduling you must:</p>
+<ul>
+<li>
+<p>Set the Cycle Count Enabled item attribute to Yes for the items you want to include in the cycle count.</p>
+</li>
+<li>
+<p>Enable automatic scheduling when you define your cycle count.</p>
+</li>
+<li>
+<p>Request the schedule using the Generate Automatic Schedule Requests window.</p>
+</li>
+</ul>
+<p>Each time the auto scheduler runs, it schedules counts only for the schedule interval you defined for the cycle count header. So, if your schedule interval is weeks, Inventory schedules all items that need to be counted on all of the workdays in the current week. If your schedule interval is days, then Inventory only schedules those items that are due for counting on the current date.</p>
+<h3><a id="T292458"></a><b>Manual Scheduling</b></h3>
+<p>You can manually schedule counts in addition to, or instead of those generated with automatic scheduling. You can request counts for specific subinventories, locators, and items, and set the count for any inventory date. For example, you could enter a request to count item A wherever it can be found in subinventory X. Or you could request to count all item quantities in subinventory Y, locator B-100.</p>
+<p>Since manually scheduled counts have no impact on automatically scheduled counts, you can potentially count some items more frequently than you had initially planned.</p>
+<h3><a id="T292459"></a> <b><a name="d0e98144" id="d0e98144"></a>Physical Location Scheduling</b></h3>
+<p>You can use this feature to process location-based cycle counting. You first need to generate a schedule for counting each subinventory and locator. You then need to enter the schedule requests for each locator, specifying the schedule date.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#I_t_ccautosc">Generating Automatic Schedules</a></p>
+<p><a href="T291651T292438.htm#I_t_ccmansc">Entering Manual Schedule Requests</a></p>
+<h2><a name="1760121"></a><a id="T292482"></a><b>Generating Automatic Schedules</b></h2>
+<p><a name="d0e98185" id="d0e98185"></a><a name="d0e98197" id="d0e98197"></a><a name="I_t_ccautosc" id="I_t_ccautosc"></a><a name="INVADCYC.INCACS_PARAMS" id="INVADCYC.INCACS_PARAMS"></a>You can submit a program for automatic generation of schedule requests.</p>
+<p><b>To generate automatic schedules</b></p>
+<ol>
+<li>
+<p>Navigate to Cycle Counts Summary folder window or the Cycle Counts window.</p>
+</li>
+<li>
+<p>Select a cycle count and choose Cycle Count Scheduler from the Tools menu. The Cycle Count Scheduler Parameters window appears.</p>
+</li>
+<li>
+<p>Indicate whether to include items belonging to the control group in the list of items for which to generate schedule requests.</p>
+</li>
+<li>
+<p>Choose OK to submit the request to the concurrent manager.</p>
+<p>You can schedule an item or location for cycle counting at any time. You may manually schedule cycle counts to supplement your automatic schedules. You use this feature to achieve item-based or location-based cycle counting.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#c_ccschedl">Cycle Count Scheduling</a></p>
+<p><a href="T291651T292438.htm#I_t_genccreq">Generating Cycle Count Requests</a></p>
+<h2><a name="1760123"></a><a id="T292483"></a><b>Entering Manual Schedule Requests</b></h2>
+<p><a name="I_t_ccmansc" id="I_t_ccmansc"></a><a name="INVADCSC.cc_manual_schedules" id="INVADCSC.cc_manual_schedules"></a><a name="INVADCYC.cc_manual_schedules" id="INVADCYC.cc_manual_schedules"></a><b>To manually schedule cycle count requests</b></p>
+<ol>
+<li>
+<p>Navigate to the Manual Schedule Requests window or choose the Schedule button on the Cycle Counts Summary folder window.</p>
+<p><img width="765" height="503" src="./img/invug_manschrq.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the cycle count name you are scheduling.</p>
+</li>
+<li>
+<p>Select the item or location (subinventory) for counting.</p>
+<p>You can manually schedule specific items by entering values in different combinations of the item, revision, lot, serial number, subinventory, and locator fields.</p>
+<p>If you do not enter an item, you must enter a subinventory. Inventory schedules a count of all items stocked in this subinventory. If you enter an item and a subinventory, Inventory schedules the item to be counted only in this subinventory.</p>
+</li>
+<li>
+<p>Enter the date on which Inventory is to schedule the count you have specified. The date you enter cannot be before today's date and must be a valid workday as defined by the workday calendar for your cycle count.</p>
+</li>
+<li>
+<p>Indicate whether to generate count requests for this item, revision, lot, serial number, subinventory, or locator combination even if the system on-hand quantity is zero. This may be useful in performing exception-based counting to verify that the actual on-hand quantity is indeed zero.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#c_ccschedl">Cycle Count Scheduling</a></p>
+<p><a href="T291651T292438.htm#I_t_genccreq">Generating Cycle Count Requests</a></p>
+<h2><a name="1760125"></a><a id="T292446"></a><b>Count Requests</b></h2>
+<p><a name="d0e98405" id="d0e98405"></a><a name="c_cntreq" id="c_cntreq"></a>After you have successfully scheduled your counts, you can submit the process to generate count requests. This process takes the output of the automatic scheduler and your manual schedule entries, and generates a count request for each item number, revision, lot number, subinventory, and locator combination for which on-hand quantities exist. These count requests are ordered first by subinventory and locator, then by item, revision, and lot. Oracle Inventory assigns a unique sequence number to each count request that can be used for reporting, querying, and rapid count entry.</p>
+<p>Because the count requests are derived from the state of on-hand balances at the time the Generate Cycle Count Requests process is run, you should wait to run it until you are ready to count. See: <a href="T291651T292438.htm#I_t_genccreq">Generating Cycle Count Requests</a>.</p>
+<p><strong><span>Note:</span></strong> When you schedule an item to be counted using manual scheduling, some schedule requests may have overlapping count requirements. The count request generator does not create duplicate count requests, but instead cross-references one count request back to each associated schedule request.</p>
+<h3><a id="T649079"></a><b>Count Request for Items with Zero Count</b></h3>
+<p><a name="d0e98442" id="d0e98442"></a><a name="c_zerocnt" id="c_zerocnt"></a>By default Inventory does not automatically generate requests to count items with an on-hand quantity of zero. To include such items:</p>
+<ul>
+<li>
+<p>Define all sourcing details and inventory controls for the item. For example, if an item is under predefined locator control, be sure it is assigned to a subinventory and locator. See: <a href="T291651T298833.htm#t_itm_sub">Assigning Items to a Subinventory</a> or <a href="T291651T298833.htm#t_sub_itm">Assigning Subinventories to an Item</a>.</p>
+</li>
+<li>
+<p>Select the <i>Generate Zero Counts</i> option when you define your cycle count.</p>
+</li>
+</ul>
+<p>The count request generation process then automatically creates a count request. If a quantity is found and counted, an adjustment is made.</p>
+<p>At count entry, you may receive a warning message stating, "Zero count, no adjustment performed." Inventory generates this warning if it cannot find all levels of inventory control defined for the item. In this situation, enter the count, but no adjustment is performed. To make an adjustment and update the missing information, enter an unscheduled count using either the Cycle Count Entries or Approve Adjustments window.</p>
+<h2><a name="1760127"></a><a id="T292484"></a><b>Generating Count Requests</b></h2>
+<p><a name="d0e98499" id="d0e98499"></a><a name="INVADCYC.INVARORE_PARAMS" id="INVADCYC.INVARORE_PARAMS"></a><a name="INVADCYC.INVARRTA_PARAMS" id="INVADCYC.INVARRTA_PARAMS"></a><a name="I_t_genccreq" id="I_t_genccreq"></a><b>To submit a request set to perform a full cycle count</b></p>
+<ol>
+<li>
+<p>Navigate to Cycle Counts Summary folder window or the Cycle Counts window.</p>
+</li>
+<li>
+<p>Choose Perform Full Cycle Count from the Tools menu. The set includes the following processes and report:</p>
+<p><img width="796" height="618" src="./img/invug_perform_cycle.gif" alt="the picture is described in the document text"></p>
+<ul>
+<li>
+<p><i>Generate automatic schedule requests</i>: Enter parameters for cycle count to use and indicate whether to include control items.</p>
+</li>
+<li>
+<p><i>Generate cycle count requests</i>: Enter parameters for cycle count to use.</p>
+</li>
+<li>
+<p><i>Cycle count listing</i>: Enter parameters for cycle count to use, start and end dates, recounts, and subinventory to count.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose Submit.</p>
+</li>
+</ol>
+<p><b>To submit the program to generate cycle count requests</b></p>
+<ol>
+<li>
+<p>Navigate to Cycle Counts Summary window or the Cycle Counts window.</p>
+</li>
+<li>
+<p>Choose Generate Count Requests from the Tools menu to submit the process to the concurrent manager.</p>
+<p><strong><span>Note:</span></strong> If you generate a count request for an item using one cycle count header, you can still generate a count request against a different cycle count header. So, if a count has already been performed in the subinventory/locator, the count can be regenerated (on the same day) for the subinventory where the count has already been performed.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#c_cntreq">Count Requests</a></p>
+<p><a href="T291651T292438.htm#I_t_reqcclist">Requesting the Cycle Count List</a></p>
+<h2><a name="1760130"></a><a id="T292485"></a><b>Requesting the Cycle Count List</b></h2>
+<p><a name="I_t_reqcclist" id="I_t_reqcclist"></a><a name="INVADCYC.INVARCLI_PARAMS" id="INVADCYC.INVARCLI_PARAMS"></a>After you generate count requests you can submit the request for the Cycle Count Listing report. This report lists all counts that you need to perform within a given date range.</p>
+<p><b>To request a cycle count list</b></p>
+<ol>
+<li>
+<p>Navigate to Cycle Counts Summary folder window or the Cycle Counts window.</p>
+<p>You can also navigate to the ABC and Counting Reports window to submit the listing. See: <a href="T291651T295121.htm#I_rx2Dinvarcli">Cycle Count Listing</a>.</p>
+</li>
+<li>
+<p>Choose Cycle Count Listing Report from the Tools menu.</p>
+</li>
+<li>
+<p>Enter start and end dates for the list. Inventory reports counts falling on the start date through the end date.</p>
+</li>
+<li>
+<p>Enter the specific subinventory for which to report scheduled counts.</p>
+</li>
+<li>
+<p>Indicate whether the cycle count list includes only recounts or scheduled counts and recounts.</p>
+</li>
+<li>
+<p>Choose OK to submit the request to the concurrent manager.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#I_t_genccreq">Generating Cycle Count Requests</a></p>
+<h2><a name="1760132"></a><a id="T292486"></a><b>Entering Cycle Counts</b></h2>
+<p><a name="d0e98747" id="d0e98747"></a><a name="I_t_entercc" id="I_t_entercc"></a><a name="INVATCEN.cc_entries" id="INVATCEN.cc_entries"></a><a name="INVATCEN.cc_entries_find" id="INVATCEN.cc_entries_find"></a><a name="INVADCYC.cc_entries" id="INVADCYC.cc_entries"></a><a name="INVADCYC.cc_entries_find" id="INVADCYC.cc_entries_find"></a><a name="INVDVDSD.sd_days" id="INVDVDSD.sd_days"></a><a name="INVDVDSD.sd_detail_qa_window" id="INVDVDSD.sd_detail_qa_window"></a><a name="INVATCEN_CC_ENTRIES" id="INVATCEN_CC_ENTRIES"></a>You can use the same window to enter counts of items requested via automatic or manual cycle count scheduling. If unscheduled count entries are allowed for your cycle counts, you can enter those also.</p>
+<p>Oracle Inventory automatically queries up all count requests for which you have not yet entered a count. You can use flexible search criteria to specify the group of count requests for which you want counts entered to speed up the count entry process. For example, you can specify a range of count request sequences assigned to one person so they can be entered in the same order they were printed on the count sheet.</p>
+<p><b>To select the cycle count to use</b></p>
+<ol>
+<li>
+<p>Navigate to the Cycle Count Entries window from the menu or choose Counts from the Cycle Counts Summary folder window.</p>
+<p><img width="755" height="507" src="./img/invug_Cycle_Count_Entries.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the name of the cycle count for which to enter counts.</p>
+<p>This information is provided if you navigate from the Cycle Counts Summary folder window, and the Find button is not available</p>
+</li>
+<li>
+<p>Enter the date the cycle count was performed. This field automatically defaults to the current date, you can modify it if necessary.</p>
+</li>
+<li>
+<p>Enter the name of the employee who performed the cycle count. This field automatically defaults to the current user, you can modify it if necessary.</p>
+</li>
+<li>
+<p>Enter the general ledger account to which to charge adjustments from this cycle count. The default is the adjustment account you entered while defining your cycle count.</p>
+<p>Inventory performs a <a name="d0e98855" id="d0e98855"></a>cycle count adjustment by creating a material transaction for the quantity and sign (plus or minus) of the adjustment. The transaction debits or credits the adjustment account depending on the direction of the transaction.</p>
+</li>
+<li>
+<p>Display the count requests you want to enter.</p>
+<p>You can choose the Find button to query all open count requests. If you choose not to query all open requests, you can either:</p>
+<ul>
+<li>
+<p>Enter counts individually by entering existing sequence numbers. When you enter an existing sequence number the details for that request display. You only need to enter the quantity counted.</p>
+</li>
+<li>
+<p>Use the find feature on the Query menu to query a subset of count requests matching the search criteria you enter. You can search by any combination of count sequences, item, revision, subinventory, locator, or lot. You can also indicate whether to include recounts.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b><a name="d0e98898" id="d0e98898"></a>To enter scheduled counts</b></p>
+<ol>
+<li>
+<p>Select the Count tabbed region.</p>
+</li>
+<li>
+<p>Enter the count quantity for the item. Inventory uses this quantity with the specified unit of measure to determine the value of the cycle count adjustment. If the item is under dual unit of measure control, then the secondary UOM and quantity are supplied automatically when you enter the primary quantity.</p>
+<p><strong><span>Note:</span></strong> When you perform a recount, the Count Quantity field on the Adjustments tab is empty for the recount status.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b><a name="d0e98944" id="d0e98944"></a>To enter unscheduled counts</b></p>
+<ol>
+<li>
+<p>Navigate to the Cycle Count Entries window from the menu.</p>
+</li>
+<li>
+<p>Choose the Find button and select <i>No</i>. This enables you to enter items and counts manually.</p>
+</li>
+<li>
+<p>Enter the item for which you are entering counts.</p>
+</li>
+<li>
+<p>If your item is under revision control, enter the revision for which you are entering counts.</p>
+</li>
+<li>
+<p>Enter the subinventory for which you are entering counts. You can enter only subinventories that track quantity on hand.</p>
+</li>
+<li>
+<p>If this item is under locator control, enter the locator for which you are entering counts.</p>
+</li>
+<li>
+<p>If you have Oracle Warehouse Management installed, and you are working with a warehouse management enabled organization (See: <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>), enter the cost group of the material counted for this count entry.</p>
+</li>
+<li>
+<p>If you have Oracle Warehouse Management installed, and you are working with a warehouse management enabled organization (See: <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>), enter the Parent LPN in which the material counted resides. This is not populated automatically when the count is requested. See: Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i>.</p>
+</li>
+<li>
+<p>If the item is under lot control, enter the lot for which you are entering counts.</p>
+</li>
+<li>
+<p>For serial control items, enter the serial number.</p>
+<p>If you specified <i>Multiple Per Request</i> as the Count option and <i>Quantity and Serial Numbers</i> as the Detail option in the Cycle Counts window, you must enter serial number information in the Cycle Count Serial Number Details window as described in the next task below. If you selected <i>Quantity Only</i> as the Detail option, you must use the Cycle Count Serial Number Details window only if there is a quantity mismatch.</p>
+</li>
+<li>
+<p>Enter the count UOM. Inventory displays the primary unit of measure for the item as the default. If the item is under dual unit of measure control, then the system also displays the secondary UOM.</p>
+</li>
+<li>
+<p>Enter the quantity in the quantity field. If the item is under dual unit of measure control the quantity in the secondary unit of measure is supplied automatically.</p>
+<p><strong><span>Important:</span></strong> You may receive a warning message stating, "Zero count, no adjustment performed." You can and should enter the quantity for reporting purposes, but no adjustment to on-hand quantity is performed. To make the adjustment enter an unscheduled count using either this window or the Count Adjustment Approvals Summary window. See: <a href="T291651T292438.htm#c_zerocnt">Count Requests for Items with Zero Count</a>.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To enter serial number detail information</b></p>
+<ol>
+<li>
+<p>Select the Serial button to open the Cycle Count Serial Number Details window.</p>
+<p>If you specified <i>Multiple Per Request</i> as the Count option and <i>Quantity and Serial Numbers</i> as the Detail option in the Cycle Counts window, you must use this window to enter serial detail information. You must also use this window if you selected <i>Quantity Only</i> as the Detail option and there is a quantity mismatch.</p>
+<p>This window displays the serial numbers on hand for the current count sequence from the Cycle Count Entries window, with check boxes to indicate whether the serial number is present in this count and present in the system. You can use the All Present and All Missing buttons to set the Present check boxes globally, or you can check or uncheck the Present check boxes. You also can enter additional serial numbers, but the total number of serial numbers checked present must equal the count quantity. The system also displays the cost group information for each serial number if you are in a Warehouse Management organization.</p>
+<p>The Cancel button clears all your entries in this window and returns you to the Cycle Count Entries window.</p>
+</li>
+<li>
+<p>When you have completed your entries, select the Done button to record your entries and return to the Cycle Count Entries window.</p>
+</li>
+</ol>
+<p><b>To enter optional count reference information</b></p>
+<ol>
+<li>
+<p>Select the Count Reference tabbed region.</p>
+</li>
+<li>
+<p>Enter a transaction reason for the cycle count transaction. See: <a href="T291651T291655.htm#I_t_trnreason">Defining Transaction Reasons</a>.</p>
+</li>
+<li>
+<p>Enter any further reference details pertaining to this count record.</p>
+</li>
+<li>
+<p>Enter the name of the employee who performed the cycle count, if it is different from the one entered in the Count Defaults region.</p>
+</li>
+<li>
+<p>Enter the date and time the cycle count was performed, if it is different from the one entered in the Count Defaults region.</p>
+</li>
+</ol>
+<p><b>To view current item adjustment information</b></p>
+<ol>
+<li>
+<p>Select the Adjustments tab.</p>
+</li>
+<li>
+<p>View information for primary and secondary UOM, primary and secondary count quantity, previous counted quantity, primary and secondary system quantity, variance quantity, variance value, and variance percentage.</p>
+<p>The Previous Counted Qty field displays the previously counted quantity only for the recount status.</p>
+<p>This region is available only if you turned the <i>Display System Quantity</i> option on when you defined your cycle count header. The System Quantity field displays the quantity on hand, and the Variance Qty field displays the proposed adjustment quantity based on the actual count quantity you enter. If you choose not to display system quantities, you enter and save your counts not knowing whether you are generating any adjustments, and if so, whether the counts are out of tolerance.</p>
+</li>
+</ol>
+<p><b>To enter optional container information</b></p>
+<p>If you have Oracle Warehouse Management installed, and you are working with a warehouse management enabled organization (See: <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>), the Container Details tab will display.</p>
+<ol>
+<li>
+<p>Select the Container Details tabbed region.</p>
+</li>
+<li>
+<p>View information for item, Parent LPN, Outermost LPN, Container Item, Revision, Cost Group, Lot Number, and Serial Number.</p>
+</li>
+<li>
+<p>Enter the Outermost LPN in which the material counted resides. This is not populated automatically when the count is requested. See: Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i>.</p>
+</li>
+</ol>
+<p><b><a name="d0e99290" id="d0e99290"></a>To enter preapproved counts</b></p>
+<ol>
+<li>
+<p>Navigate to the Cycle Counts Summary folder window.</p>
+</li>
+<li>
+<p>Choose Enter Preapproved Counts from the Tools menu.</p>
+<p>Since this functionality overrides the approval process it is usually available only to managers and employees with a certain function security.</p>
+<p>See: Overview of Function Security, <i>Oracle E-Business Suite Security Guide</i>.</p>
+</li>
+<li>
+<p>In the Preapproved Count Entries window, query or enter the count information.</p>
+<p>The counts you enter are automatically approved without regard to adjustment tolerances or defaults set for the cycle count. Adjustments are made if applicable.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#I_t_apprvadj">Approving Cycle Count Adjustments</a></p>
+<h2><a name="1760141"></a><a id="T292447"></a><b>Approval Options and Tolerances</b></h2>
+<a name="d0e99363" id="d0e99363"></a> <a name="INVADCYC.INVARHMA_PARAMS" id="INVADCYC.INVARHMA_PARAMS"></a> <a name="I_c_apprvops" id="I_c_apprvops"></a>
+<h3><a id="T292461"></a><b>Approval Tolerances<a name="d0e99381" id="d0e99381"></a></b></h3>
+<p>You can set cycle counting tolerance values at three different levels:</p>
+<ul>
+<li>
+<p>Item Attributes window</p>
+</li>
+<li>
+<p>Item Class Definition</p>
+</li>
+<li>
+<p>Cycle Count Header</p>
+</li>
+</ul>
+<p>When determining if approvals are required, the system first checks the item attributes. If no tolerances are defined, the system checks the item class definition. If there are no tolerances defined on the item class definition, the system checks the cycle count header for tolerance values.</p>
+<p>Oracle Inventory supports two types of cycle count approval tolerances. For each type, you can specify a positive and a negative limit. When a particular cycle count entry results in an adjustment that exceeds any one of these limits, you have a cycle count adjustment that exceeds approval tolerances. Based on the approval option you choose when you define your cycle count, this adjustment is either posted automatically or held for approval.</p>
+<h3><a id="T292462"></a> <b>Quantity Variance Tolerance</b></h3>
+<p>The quantity variance tolerances a user-defined limit for the difference between the actual cycle count quantity and the system tracked on-hand quantity. You express positive and negative quantity variance tolerances as percentages of the system on-hand quantity.</p>
+<p>You enter these percentages when you define your:</p>
+<ul>
+<li>
+<p>cycle count header, see: <a href="T291651T292438.htm#I_t_defcc">Defining and Maintaining a Cycle Count</a></p>
+</li>
+<li>
+<p>cycle count classes, see: <a href="T291651T292438.htm#I_t_dccclass">Defining Cycle Count Classes</a></p>
+</li>
+<li>
+<p>cycle count items, see: <a href="T291651T292438.htm#I_t_dccitems">Defining Cycle Count Items</a></p>
+</li>
+</ul>
+<p>Inventory uses any percentages you define at the cycle count item level first. If you do not have any defined for an item, it uses the tolerances defined for that item's cycle count class. If you do not have any defined for the class, it uses the tolerances at the cycle count header level. If you have no tolerances defined for the header, Inventory assumes that there is no limit to the approval tolerance.</p>
+<h3><a id="T292463"></a> <b>Adjustment Value Tolerance</b></h3>
+<p>The adjustment value tolerance is a user-defined limit for the total value of a cycle count adjustment. The adjustment value is calculated as:</p>
+<pre>adj value = (count qty - system on-hand qty) x current item cost</pre>
+<p>The adjustment value tolerance is expressed as positive and negative amounts in your ledger currency. An adjustment value is out of tolerance if it falls outside of these amounts.</p>
+<p>You enter these tolerances when you define your cycle count header and cycle count classes. Inventory uses the values you define at the cycle count class level first. If you do not have any defined for an item's class, it uses the values at the cycle count header level. If you have no tolerances defined for the header, Inventory assumes that there is no limit to the approval tolerance.</p>
+<h3><a id="T292464"></a><b>Examples of Quantity Variance and Adjustment Value Tolerances</b></h3>
+<p>The following table shows possible values for quantity variance and adjustment value tolerances for an item in a cycle count:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Item Attributes</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>Item Standard Cost</td>
+<td>$10.00</td>
+</tr>
+<tr valign="top">
+<td>Positive Quantity Variance Tolerance</td>
+<td>5%</td>
+</tr>
+<tr valign="top">
+<td>Negative Quantity Variance Tolerance</td>
+<td>10%</td>
+</tr>
+<tr valign="top">
+<td>Positive Adjustment Value Tolerance</td>
+<td>$200</td>
+</tr>
+<tr valign="top">
+<td>Negative Adjustment Value Tolerance</td>
+<td>$250</td>
+</tr>
+</table>
+<p>The following table shows four different count scenarios for the same item and the tolerances that each different scenario violates:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>System on-hand quantity</b></th>
+<th scope="col"><b>Count Quantity</b></th>
+<th scope="col"><b>Quantity Variance</b></th>
+<th scope="col"><b>Adjustment Quantity</b></th>
+<th scope="col"><b>Adjustment Value</b></th>
+<th scope="col"><b>Tolerance Exceeded</b></th>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>106</td>
+<td>+6%</td>
+<td>+6</td>
+<td>+$60</td>
+<td>Positive Quantity Variance</td>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>88</td>
+<td>-12%</td>
+<td>-12</td>
+<td>-$120</td>
+<td>Negative Quantity Variance</td>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>122</td>
+<td>+22%</td>
+<td>+22</td>
+<td>+$220</td>
+<td>Positive Quantity Variance and Positive Adjustment Value</td>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>73</td>
+<td>-27%</td>
+<td>-27</td>
+<td>-$270</td>
+<td>Negative Quantity Variance and Negative Adjustment Value</td>
+</tr>
+</table>
+<h3><a id="T292465"></a><b>Hit/Miss Tolerances</b></h3>
+<p>The hit/miss tolerance is similar to the quantity variance tolerance in that it is also a user-defined limit for the difference between the system tracked on-hand quantity and the actual cycle count quantity. You express positive and negative hit/miss tolerances as percentages of the system on-hand quantity. A count is considered a "hit" if it is within these tolerances, and a "miss" if it is outside them. The hit/miss tolerance is used to evaluate the accuracy of your cycle counting procedures rather that the actually accuracy of inventory.</p>
+<p>You enter hit/miss tolerance percentages when you define your cycle count header and when you define your cycle count classes. Inventory uses the percentages you define at the cycle count class level first. If you do not have any defined for an item's class, it uses the tolerances at the cycle count header level. If you have no tolerances defined for the header, Inventory assumes that there is no limit to the hit/miss tolerance, and all variances are therefore "hits" regardless of the size.</p>
+<p>Inventory uses these tolerances to generate the Cycle Count Hit/Miss Analysis report. See: <a href="T291651T295121.htm#I_rx2Dinvarhma">Cycle Count Hit/Miss Analysis</a>.</p>
+<h3><a id="T292466"></a><b>Measurement Errors<a name="d0e99852" id="d0e99852"></a></b></h3>
+<p>Negative and positive measurement errors are also user-defined limits for the difference between the cycle count quantity and the system tracked on-hand quantity. Inventory does not make any adjustments to an item whose cycle count quantity differs from the system tracked on-hand quantity by less than the measurement error. Because of this, measurement errors implicitly override any approval tolerances you specify.</p>
+<p>You specify measurement errors when you define or update an item. Use measurement errors with extreme caution since they actually prevent cycle count adjustments from taking place. You would typically use this feature on an exception basis for items you cannot accurately count. For example, if you visually check the level of bolts in a bin to estimate the quantity, or you use their weight to approximate the quantity, you might want to allow for measurement errors. Therefore, if your system tracked on-hand quantity for the bolts in that bin is within an acceptable range, you do not perform a cycle count adjustment. See: <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#I_t_defcc">Defining and Maintaining a Cycle Count</a></p>
+<p><a href="T291651T292438.htm#I_t_dccclass">Defining Cycle Count Classes</a></p>
+<p><a href="T291651T292438.htm#c_adjapprv">Count Adjustments and Approvals</a></p>
+<h2><a name="1760148"></a><a id="T292448"></a><b>Count Adjustments and Approvals</b></h2>
+<p><a name="d0e99903" id="d0e99903"></a><a name="d0e99912" id="d0e99912"></a><a name="c_adjapprv" id="c_adjapprv"></a>Once you enter and save your cycle counts, Oracle Inventory determines whether any adjustments need to be made depending on the approval options and tolerances you set when you defined the cycle count. See: <a href="T291651T292438.htm#I_c_apprvops">Approval Options and Tolerances</a>.</p>
+<h3><a id="T292467"></a><b>Automatic Recounts<a name="d0e99937" id="d0e99937"></a></b></h3>
+<p>If you turned the Automatic Recount option on when you defined your cycle count, Inventory automatically submits recount requests for items that are outside the limits of the approval tolerances you specify. Inventory submits recounts as many times as necessary, limited by the maximum automatic recounts you specify for the cycle count. After you reach the maximum number of recounts, Inventory holds the count for approval. Any count request with the <i>Recount</i> status automatically appears on the next cycle count listing.</p>
+<p>You can also manually request recounts when you are approving adjustments. The count request for which you want a recount is also automatically included in the next cycle count listing.</p>
+<p><strong><span>Important:</span></strong> When generating the cycle count listing, you must include a from date far enough back to include the recount's original count date, or it is not on the report.</p>
+<h3><a id="T292468"></a><b>Approving Cycle Counts Held for Approval</b></h3>
+<p>Employees with access to the Count Adjustments Approvals Summary window can query, request the recount of, or approve cycle counts pending approval. When you select the Find button, you can query all counts or only those pending approval. You can then approve adjustments, recount an item in question, reject the count or take no action until further investigation.</p>
+<p>You can use the INV: Cycle Count Approval workflow to approve, reject, or recount cycle counts. To use the workflow the cycle counts must not have any pending approvals. For more information about the workflow, see <i>Approving Cycle Counts Using the Approval Workflow</i>.</p>
+<h3><a id="T435741"></a><b>Cycle Count Adjustments Reserved Serial Items</b></h3>
+<p>If you need to perform negative adjustments for reserved serial quantities during a cycle count, the system displays a messages that pending reservations exist and the adjustment requires approval. If you make final adjustments then the system removes the corresponding reservations.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#I_t_apprvadj">Approving Cycle Count Adjustments</a></p>
+<h2><a name="7931464"></a><a id="T292487"></a><b>Approving Cycle Count Adjustments</b></h2>
+<p><a name="d0e100015" id="d0e100015"></a><a name="I_t_apprvadj" id="I_t_apprvadj"></a><a name="INVAMCAP.cc_approve_counts" id="INVAMCAP.cc_approve_counts"></a><a name="INVAMCAP.cc_approve_find" id="INVAMCAP.cc_approve_find"></a><a name="INVAMCAP.cc_approve_counts_cb" id="INVAMCAP.cc_approve_counts_cb"></a><a name="INVAMCAP.count_entry_details" id="INVAMCAP.count_entry_details"></a><a name="INVADCYC.cc_approve_counts" id="INVADCYC.cc_approve_counts"></a><a name="INVADCYC.cc_approve_find" id="INVADCYC.cc_approve_find"></a><a name="INVADCYC.cc_approve_counts_cb" id="INVADCYC.cc_approve_counts_cb"></a><a name="INVADCYC.count_entry_details" id="INVADCYC.count_entry_details"></a><a name="INVADCYC_INVARCTA_PARAMS" id="INVADCYC_INVARCTA_PARAMS"></a>Use the Count Adjustment Approvals Summary window to approve cycle count adjustments held for approval, to recount an item, or to reject the adjustment. Inventory determines which counts need approval by using the approval tolerances you enter while defining your cycle count.</p>
+<p>You can use flexible search criteria to specify the cycle count adjustments you want to review or approve.</p>
+<p><b>Approving Cycle Counts Using the Approval Workflow</b></p>
+<p>When you select the <b>Workflow Approval</b> check box in the <b>Organization Parameters</b> window, the cycle counting approval process is routed to the INV: Cycle Count Approval workflow. This disables the approval actions in the <b>Count Adjustment Approvals Summary</b> window. The workflow facilitates the approval actions from the hierarchy of approvers that is defined using the AME workflow setup. The approvers can access the cycle count notifications and process approval actions.</p>
+<p>To access the cycle counts approvals workflow status:</p>
+<ol>
+<li>
+<p>Navigate to the <b>Count Adjustment Approvals Summary</b> window.</p>
+</li>
+<li>
+<p>On the Tools menu, select the option <b>Workflow Status</b>. The <b>Activity History</b> page appears. On this page you can view the workflow approval hierarchy.</p>
+</li>
+</ol>
+<p>Or</p>
+<ol>
+<li>
+<p>Log in to the application with the Workflow Administrator responsibility.</p>
+</li>
+<li>
+<p>Navigate to the <b>Status Monitor</b> page. Search for the relevant cycle count workflow notification.</p>
+</li>
+<li>
+<p>Click <b>Status Diagram</b> to view the status diagram for details of the workflow approval hierarchy.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> If you purge the workflow table, the cycle count approval history is deleted. The cycle count table in Oracle Inventory stores only the final approver details.</p>
+<p><b>To select the cycle count for which to approve adjustments</b></p>
+<ol>
+<li>
+<p>Navigate to the Count Adjustment Approvals Summary window by selecting Approve Counts on the menu, or by choosing the Approvals button in the Cycle Counts Summary folder window.</p>
+<p><img width="965" height="505" src="./img/invug_CycleCountApprovalsSum.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the name of the cycle count for which to approve or enter counts.</p>
+<p>This information is provided if you navigate from the Cycle Counts Summary folder window.</p>
+</li>
+<li>
+<p>Optionally change information in the Approval Defaults region. Inventory provides default values for the Date, Approver, and the Adjustment Account that will be used when you later enter approval actions and adjustments.</p>
+</li>
+<li>
+<p>Query item information for the selected count:</p>
+<p>If you navigated from the menu, select the Find button to query records. You are prompted to either query all records or query only counts pending approval.</p>
+<p>If you have navigated from the Cycle Counts Summary folder window, you can use the Find feature on the Query menu to open the Find Approvals window, where you can query a subset of counts matching the search criteria you enter. You can search by any combination of count sequences, item, revision, subinventory, locator, or lot. You can also search for counts with a particular status including uncounted, pending approval, recount, rejected, or completed.</p>
+</li>
+</ol>
+<p><b>To view cycle count summary information</b></p>
+<p>You can view a variety of current item information to help determine whether to approve an adjustment. Select from the following tabbed regions:</p>
+<ul>
+<li>
+<p><i>Adjustment</i>: View information for the count adjustment primary and secondary units of measure, primary and secondary variance quantity, variance value, variance percentage, and primary and secondary system quantity.</p>
+</li>
+<li>
+<p><i>Item Details</i>: View information for revision, lot, serial number, unit of measure, and primary and secondary adjustment quantity.</p>
+</li>
+<li>
+<p><i>Item Location</i>: View information for subinventory, locator, primary and secondary units of measure, primary and secondary adjustment quantity, and if you have Oracle Warehouse Management installed, cost group and parent LPN. See Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i>.</p>
+</li>
+<li>
+<p><i>Container Details.</i> If you have Oracle Warehouse Management installed, and you are working with a warehouse management enabled organization (See <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>), the Container Details tab appears. View information for parent LPN (LPN in which counted material resides), outermost LPN (outermost LPN in which counted material resides), container item, revision, cost group, lot, and serial number. See: Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i>.</p>
+</li>
+<li>
+<p><i>Reason, Reference</i>: View or update the transaction reason and reference information. You can also view the primary and secondary units of measure and primary and secondary adjustment quantity.</p>
+</li>
+<li>
+<p><i>Count</i>: View information for primary and secondary units of measure, primary and secondary count quantity, counter, and count date.</p>
+</li>
+<li>
+<p><i>Count Status, Class</i>: View information for the sequence number, count status, and cycle count class.</p>
+</li>
+<li>
+<p><i>Approval</i>: View information for date approved and approver.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#invccntappact">Approval Actions and Adjustments</a></p>
+<h2><a name="7931466"></a><a id="T649080"></a><b>Approval Actions and Adjustments</b></h2>
+<p><a name="invccntappact" id="invccntappact"></a>For items appearing in the Approval Actions, Adjustments region, you can approve, request a recount, or reject cycle count entries that are pending approval. You can also approve or reject any count for which a recount has already been requested. You can reject any cycle count request that has not yet been counted. Finally, you can display count history information or open the Count Adjustment Approvals window.</p>
+<p><b>To approve a count check</b></p>
+<p>Select <a name="d0e100328" id="d0e100328"></a>Approved to approve the selected count entry and post the adjustment to the transaction manager for processing.</p>
+<p><b>To reject a count check</b></p>
+<p>Select Rejected to reject the selected count record. An adjustment is not posted. No further processing of this count entry takes place.</p>
+<p><b>To request a recount check</b></p>
+<p>Select Recount to process a recount request for the selected count request. An adjustment is not posted.</p>
+<p><b>To display count history information</b></p>
+<p>Select the Count History button to open the Count History window for the current item. For the current item, this window displays count and variance information for the current, prior, and first counts. If the number of recounts is more than three only the system displays only the first count, prior count, and the current count in the Count History window.</p>
+<p><img width="918" height="505" src="./img/invug_cyclecount_history.gif" alt="the picture is described in the document text"></p>
+<p><b>To open the Count Adjustment Approvals window</b></p>
+<p>Select the Open button to open the Count Adjustment Approvals window for the current line. This window is a combination block which you can use to view and enter approval and adjustment information for the current line instead of using the Count Adjustment Approvals Summary window.</p>
+<p><img width="966" height="554" src="./img/invug_cyclecount_line_adjustment.gif" alt="the picture is described in the document text"></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#c_adjapprv">Count Adjustments and Approvals</a></p>
+<p>Searching for Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1760095"></a><a id="T292440"></a><b>Serialized Cycle Counting</b></h2>
+<p><a name="d0e100438" id="d0e100438"></a><a name="d0e100447" id="d0e100447"></a><a name="I_sercount" id="I_sercount"></a>Cycle counting of serial items takes place within the standard cycle counting functionality in Inventory; however, the following sections discuss additional considerations specific to serialized cycle counting.</p>
+<h3><a id="T292451"></a><b>Defining Cycle Counts<a name="d0e100469" id="d0e100469"></a><a name="d0e100476" id="d0e100476"></a></b></h3>
+<p>All cycle counts are defined in the Cycle Counts window. See: <a href="T291651T292438.htm#I_t_defcc">Defining and Maintaining a Cycle Count</a>.</p>
+<p>Four options set in this window govern the handling of serial controlled items:</p>
+<h3><a id="T292452"></a><b>Count</b></h3>
+<ul>
+<li>
+<p>Not Allowed: Serialized items are excluded from the cycle count.</p>
+</li>
+<li>
+<p>One Per Request: A separate count request is generated for each serial number.</p>
+</li>
+<li>
+<p>Multiple Per Request: Serial numbers for the same item/location are grouped in one count request.</p>
+</li>
+</ul>
+<h3><a id="T292453"></a><b>Detail<a name="d0e100531" id="d0e100531"></a></b></h3>
+<ul>
+<li>
+<p>Quantity and Serial Numbers: Serial number and quantity are required and are validated when entering counts.</p>
+</li>
+<li>
+<p>Quantity Only: Serial number entry is required if the count quantity does not match the system quantity. Serial number entry is optional if the count quantity matches the system quantity, regardless of whether the serial numbers match. If you do not enter serial numbers, the count is marked as completed, and no adjustments are performed. If you do enter serial numbers, both quantity and serial numbers are validated when determining whether adjustments are required</p>
+</li>
+</ul>
+<h3><a id="T292454"></a><b>Adjustment<a name="d0e100562" id="d0e100562"></a></b></h3>
+<ul>
+<li>
+<p>Review All Adjustments: No automatic adjustments are attempted. Serialized items that require adjustment must go to an approver for review</p>
+</li>
+<li>
+<p>Adjust if Possible: If a discrepancy exists between the count quantity and system quantity or if the entered serial numbers do not correspond to the serial numbers already in the specified location, then the system will attempt to make adjustments if the adjustment variance and value are within tolerances, as long as serial uniqueness constraints are not violated. These adjustments consist of receipts and issues of the appropriate serial numbers to and from the specified location and are applicable only to instances in which new serial numbers or shipped serial numbers are counted.</p>
+<p>If the adjustment quantity or value for a serialized item falls outside the specified tolerances, the item is sent for recount or approval, just like a non-serialized item.</p>
+</li>
+</ul>
+<h3><a id="T292455"></a><b>Discrepancy<a name="d0e100596" id="d0e100596"></a></b></h3>
+<ul>
+<li>
+<p>Allow Discrepancies: When a count includes a serial number already assigned to the same item elsewhere in the system, an adjustment is created if it would be within tolerances. No adjustment is ever allowed for counts including serial numbers already assigned to another item.</p>
+</li>
+<li>
+<p>Do not Allow Discrepancies: Adjustments are not made for items not found in the specified location.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292438.htm#I_t_entercc">Entering Cycle Counts</a></p>
+<p><a href="T291651T292438.htm#c_adjapprv">Count Adjustments and Approvals</a></p>
+<h2><a name="1760101"></a><a id="T292441"></a><b>Scheduling and Generating Count Requests</b></h2>
+<p><a name="d0e100647" id="d0e100647"></a><a name="schedule_generate" id="schedule_generate"></a>Scheduling now includes serial numbers, as does the cycle count generation. If the Count option in the cycle count definition is set to <i>One per Request</i>, then one count request is created for each serial number for the item in a specific location. If the Count option is set to <i>Multiple per Request</i>, then one count request is created for all serial numbers in the specified item locations.</p>
+<p>For the zero count generation of serial numbers, the only way to get a meaningful zero count entry for a serial number is to specify the serial number in the Manual Schedule Requests window. See: <a href="T291651T292438.htm#I_t_ccmansc">Entering Manual Schedule Requests</a>. Otherwise, zero count requests are created for serial controlled items, but they will not have a serial number tied to them.</p>
+<h2><a name="1760102"></a><a id="T292442"></a><b>Entering Cycle Counts</b></h2>
+<p><a name="d0e100688" id="d0e100688"></a>How you enter cycle counts depends on the Count and Detail option settings in the count definition. When the Count option is set to <i>One Per Request</i> and the Detail option is set to <i>Quantity Only</i>, the count request itself contains the serial number, and you enter a count quantity of either present or missing. When the Count option is set to <i>Multiple Per Request</i> and the Detail option is set to <i>Quantity and Serial Numbers</i>, the Serial Number field in the count request is disabled, and you must use the Cycle Count Serial Detail window to specify whether the serial number is present. If you selected <i>Quantity Only</i> as the Detail option, you must use the Cycle Count Serial Number Details window if there is a quantity mismatch.</p>
+<p>On-hand quantities for serial numbers are retrieved when count requests are queried. Thus, it is possible to have count requests for serial numbers with an on-hand quantity of zero. If you mark the serial number as present, then you will need to make an adjustment.</p>
+<h2><a name="1760103"></a><a id="T292443"></a><b>Approving and Adjusting Counts</b></h2>
+<p><a name="d0e100733" id="d0e100733"></a><a name="d0e100745" id="d0e100745"></a>The approval process for serialized items differs from that for non-serialized items. Serial numbers that are misplaced (at a different location or for a different item) cannot be adjusted.</p>
+<p>Counts in which there is a misplaced serial number are sent for approval, regardless of whether the adjustment variances fall within tolerance if discrepancies are allowed. However, if a count entry contains a serial number found in another location, the count request cannot be approved until the discrepancy is corrected. You can make the correction manually in the Transaction window, or you can cycle count the other location (performing an issue, adjustment transaction) and then recount the first location.</p>
+<p>For serial numbers that do not appear in the cycle count request but are entered by the counter, adjustment transactions are considered receipts. These receipt transactions are allowed for the serial states where the unit is defined but never used and where the unit has been issued out of stores. For serial numbers that appear in the count request but are not marked as present by the counter, adjustment transactions are considered issues. These issue transactions are allowed for the serial state where the unit is received into stores. Count requests whose serial adjustments fall into these two categories may have adjustment transactions performed against them and may complete normally.</p>
+<h2><a name="30111501"></a><a id="T2011014"></a><b>Prioritize Cycle Counts to Analyze Inventory Discrepancies Using Machine Learning</b></h2>
+<p><a name="d0e100779" id="d0e100779"></a><a name="prcycoanindiusML" id="prcycoanindiusML"></a>You can use Machine Learning to identify items with a historically high number of inventory discrepancies. A discrepancy probability for each item at every location is calculated by analyzing the past cycle count adjustment data. These predicted discrepancy percentages help prioritize high-risk stock locations, optimize resource allocation, and therefore enhance overall inventory management. You can view the inventory discrepancies in the Aging Inventory Dashboard, which will enable you to take informed decisions and schedule cycle counts.</p>
+<p><b>Steps to generate the Discrepancy Percentages</b>:</p>
+<ol>
+<li>
+<p>Run the concurrent program <b>On-Hand Discrepancy Accuracy Analytics</b>. This concurrent program:</p>
+<ul>
+<li>
+<p>Prepares the training data in the required format from the adjustment history.</p>
+</li>
+<li>
+<p>Builds and trains the machine learning model on the prepared dataset.</p>
+</li>
+</ul>
+<p>Ensure that this program completes successfully before proceeding.</p>
+<p><b>On-Hand Discrepancy Accuracy Analytics Concurrent Program</b></p>
+<p><img width="1327" height="826" src="./img/R12215CPOnHandDiscrepancyAccuracyAnalytics.gif" alt="the picture is described in the document text"></p>
+<p><b>Parameters</b>:</p>
+<ul>
+<li>
+<p>Start Date: The date from which the adjustment transactions will be used to train the Machine Learning Model.</p>
+</li>
+<li>
+<p>Model: The regression algorithm that is used to build the model.</p>
+<p><b>Model Window</b></p>
+<p><img width="871" height="387" src="./img/R12215CPModel.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p><b>Train Test Split</b>: The data split percentage or ratio that will be used to train and to test the model.</p>
+<p><b>Train Test Split Window</b></p>
+<p><img width="943" height="331" src="./img/R12215CPTrainTestSplit.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Run the concurrent program <i>On-Hand Discrepancy Recommendations</i>. You can schedule the program to run periodically.</p>
+<p>This concurrent program:</p>
+<ul>
+<li>
+<p>Identifies the on-hand stock locations across all organizations.</p>
+</li>
+<li>
+<p>Generates discrepancy percentage recommendations for these stock locations using the predictive model that is selected in the concurrent program <i>On-Hand Discrepancy Accuracy Analytics</i>.</p>
+</li>
+</ul>
+<p>Ensure that this program completes successfully before proceeding.</p>
+<p><b>On-Hand Discrepancy Recommendations Concurrent Program</b></p>
+<p><img width="1149" height="826" src="./img/R12215CPOnHandDiscrepancyRecommendations.gif" alt="the picture is described in the document text"></p>
+<p><b>Parameter</b>:</p>
+<ul>
+<li>
+<p>Organization: The organization name for which the concurrent program must be run. This is an optional parameter. If you specify an organization name, then the recommendations are generated only for that organization. If you do not specify an organization name, then the recommendations are generated for all the organizations.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>To view the predictions, navigate to the <a href="T291651T671994.htm#ecc_agingdb"><b>Aging Inventory Dashboard</b></a>, <b>Recommended Discrepancy Locations</b> tab, and then view the column <b>Discrepancy Percentage</b>.</p>
+<p><b>Recommended Discrepancy Locations Tab - Discrepancy Percentage Column</b></p>
+<p><img width="1273" height="569" src="./img/R12215DiscrepancyPercentage.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p>For more information about machine learning, see <i>Oracle Machine Learning for SQL User's Guide</i>.</p>
+<h2><a name="1760161"></a><a id="T292488"></a><b>Purging Cycle Count Information</b></h2>
+<p><a name="I_t_purgecc" id="I_t_purgecc"></a><a name="INVADCYC.INCACP_PARAMS" id="INVADCYC.INCACP_PARAMS"></a><b>To purge cycle count information</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e101038" id="d0e101038"></a>Cycle Counts Summary folder window.</p>
+</li>
+<li>
+<p>Select a cycle count.</p>
+</li>
+<li>
+<p>Choose Purge Cycle Count from the Tools menu. The Purge Cycle Count Parameters window appears.</p>
+</li>
+<li>
+<p>Indicate whether this is a full cycle count purge including the header, cycle count items, schedule requests, and count requests, or this is a historical cycle count purge of schedule requests and count requests on or before the historical purge date.</p>
+</li>
+<li>
+<p>Enter the date for the purge. Oracle Inventory deletes schedule requests and count requests on or before this date.</p>
+</li>
+<li>
+<p>Choose OK to submit the request to the concurrent manager.</p>
+</li>
+</ol>
+<h2><a name="1760163"></a><a id="T292489"></a><b>Cycle Count Open Interface<a name="INVCCEOI.CCEOI_WIN" id="INVCCEOI.CCEOI_WIN"></a><a name="INVCCEOI.CCEOI_DETAIL_WIN" id="INVCCEOI.CCEOI_DETAIL_WIN"></a><a name="INVCCEXP.CCEXP_WIN" id="INVCCEXP.CCEXP_WIN"></a><a name="INVCCEXP.CCEXP_DETAIL_WIN" id="INVCCEXP.CCEXP_DETAIL_WIN"></a><a name="INVCCEOI.CCEOI_QF_WIN" id="INVCCEOI.CCEOI_QF_WIN"></a> <a name="INVCCEOI_CCEOI_ERROR_WIN" id="INVCCEOI_CCEOI_ERROR_WIN"></a></b></h2>
+<p><a name="d0e101108" id="d0e101108"></a><a name="d0e101117" id="d0e101117"></a><a name="I_cciface" id="I_cciface"></a>You can import cycle count entries from external systems into Oracle Inventory using the Cycle Count Entries Open Interface. You can also export cycle count requests with this interface to external systems.</p>
+<p><a name="d0e101134" id="d0e101134"></a><b>To export cycle count entries</b></p>
+<ol>
+<li>
+<p>Navigate to the Export Cycle Count Entries window.</p>
+<p><img width="756" height="531" src="./img/invug_expcc.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a cycle count header.</p>
+</li>
+<li>
+<p>Choose Find.</p>
+<p>The window displays all cycle count entries that belong to the selected cycle count header.</p>
+</li>
+<li>
+<p>Select the records you want to export or choose Select All from the Tools menu to select all the records.</p>
+</li>
+<li>
+<p>Choose Export to export cycle count entries to the open interface.</p>
+</li>
+</ol>
+<p><b>To unexport a cycle count entry</b></p>
+<ol>
+<li>
+<p>Select the record you want to unexport.</p>
+</li>
+<li>
+<p>Choose Unexport.</p>
+<a name="d0e101239" id="d0e101239"></a></li>
+</ol>
+<p><b>To inquire about or update cycle count entries</b></p>
+<ol>
+<li>
+<p>Navigate to the Inquiry/Update Cycle Count Entries Open Interface window. The Find Interface Cycle Count Entries window appears.</p>
+<p><img width="755" height="503" src="./img/invug_inqupcc.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter search criteria to query cycle count entries for which you want to view or update cycle count entry information. Choose Find to start the search and display the information in the Inquiry/Update Cycle Count Entries Open Interface window.</p>
+</li>
+<li>
+<p>In the Processing tabbed region, view or update the following information:</p>
+<p><i>Item:</i> The item number.</p>
+<p><i>Action:</i> Choose one of the following options:</p>
+<p><i>Validate:</i> Validate cycle count header, sequence, and org ID. Choose this option only if you use the open interface API.</p>
+<p><i>Create:</i> Create an unscheduled cycle count entry.</p>
+<p><i>Simulate:</i> Simulate the open interface process without committing the entry. This option displays errors found during processing.</p>
+<p><i>Process:</i> Process the entry.</p>
+<p><i>Status:</i> The cycle count status.</p>
+<p><i>Incomplete:</i> The open interface process is incomplete.</p>
+<p><i>Process completed:</i> The open interface process is complete.</p>
+<p><i>Simulated:</i> The entry was processed but not committed.</p>
+<p><i>Group ID:</i> The identification number for entries submitted in batch mode.</p>
+<p><i>Interface ID:</i> The interface table identification number.</p>
+<p><i>Header ID:</i> The cycle count header identification number.</p>
+<p><i>Cycle Count Header:</i> The name of the cycle count header.</p>
+<p><i>Entry ID:</i> The cycle count entry identification number.</p>
+<p><i>Process Mode:</i> Choose one of the following options:</p>
+<p><i>Online:</i> Process open interface online.</p>
+<p><i>Background:</i> Process open interface in the background.</p>
+<p><i>Request ID:</i> The concurrent request identification number generated during background processing.</p>
+<p><i>Process Status:</i></p>
+<p><i>Ready:</i> The entry is ready for processing.</p>
+<p><i>Not Ready:</i> The entry is not ready for processing.</p>
+<p>Note: This field is not updatable.</p>
+<p><i>Valid Status:</i></p>
+<p><i>Yes:</i> The entry is valid.</p>
+<p><i>No:</i> The entry has errors and is not valid.</p>
+<p>Note: This field is not updatable.</p>
+<p><i>Lock Status:</i></p>
+<p><i>Yes:</i> The entry is locked by another user.</p>
+<p><i>No:</i> The entry is not locked by another user.</p>
+<p>Note: This field is not updatable.</p>
+</li>
+<li>
+<p>In the Count tabbed region, view or update the following information:</p>
+<p><i>Sequence:</i> The cycle count sequence. This field is not updatable.</p>
+<p><i>Count Qty:</i> The count quantity in the primary unit of measure.</p>
+<p><i>UOM:</i> The primary unit of measure</p>
+<p><i>Secondary Count Qty:</i> The count quantity in the secondary unit of measure.</p>
+<p><i>Secondary UOM:</i> The secondary unit of measure.</p>
+<p><i>Count Date:</i> The cycle count date.</p>
+<p><i>Counter:</i> The name of the employee who performed the cycle count.</p>
+<p><i>Reference:</i> Reference information about the cycle count.</p>
+<p><i>Reason:</i> The transaction reason.</p>
+<p><i>Interface ID:</i> The interface table ID number. This field is not updatable.</p>
+</li>
+<li>
+<p>In the Item Stocking tabbed region, view the following information:</p>
+<p><i>Rev:</i> The revision number (if the item is under revision control).</p>
+<p><i>Subinventory:</i> The subinventory.</p>
+<p><i>Locator:</i> The locator (if the item is under locator control).</p>
+<p><i>Lot Number:</i> The lot number (if the item is under lot control).</p>
+<p><i>Serial Number:</i> The serial number (if the item is under serial control).</p>
+<p><i>Adjustment Account:</i> The general ledger account charged for the cycle count.</p>
+<p><i>Interface ID:</i> The interface table identification number.</p>
+<p><i>Cost Group:</i> The cost group associated with the item. Cost group information is available only if you are in a Warehouse Management enabled organization.</p>
+<p><i>Parent LPN:</i> The LPN that contains the items to count. LPN information is available only if you are in a Warehouse Management enabled organization.</p>
+<p><i>Outermost LPN:</i> The outermost LPN if the LPNs are nested. LPN information is available only if you are in a Warehouse Management enabled organization.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To delete cycle count entries</b></p>
+<ol>
+<li>
+<p>Select the cycle count entries you want to delete.</p>
+</li>
+<li>
+<p>Choose Delete.</p>
+<p><strong><span>Note:</span></strong> To delete an item that is marked for recounting (that is, its internal status flag value is marked for recounting), you must first re-submit the record. If an error occurs after the record has been resubmitted, then the record can be deleted by clicking the Delete button.</p>
+</li>
+</ol>
+<p><b>To submit cycle count entries to the open interface</b></p>
+<ol>
+<li>
+<p>Select the cycle count entries you want to submit to the open interface.</p>
+</li>
+<li>
+<p>Choose Submit.</p>
+</li>
+</ol>
+<p><b>To view errors for an entry</b></p>
+<ol>
+<li>
+<p>Select a cycle count entry.</p>
+</li>
+<li>
+<p>Choose Errors. The Cycle Count Entries Interface Errors window lists the error date and an explanation of the error.</p>
+<p><img width="756" height="349" src="./img/invug_inquiry_update_errors.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To open cycle count entry header information</b></p>
+<ol>
+<li>
+<p>Select a cycle count entry.</p>
+</li>
+<li>
+<p>Choose Open. This window shows information about the individual item.</p>
+<p><img width="822" height="528" src="./img/invug_inqury_update_line.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_impitm">Importing Items</a></p>
+<p><a href="T291651T298833.htm#I_c_itmintrfc">Open Item Interface</a></p>
+<p><a href="T291651T295121.htm#I_invccimp">Import Cycle Count Entries from Open Interface Report</a></p>
+<p><a href="T291651T295121.htm#I_invccpur">Purge Cycle Count Entries Open Interface Data Report</a></p>
+<p><a href="T291651T295121.htm#I_invccprt">Print Cycle Count Entries Open Interface Data Report</a></p>
+<h2><a name="3526588"></a><a id="T410807"></a><b>Cycle Counting Reports</b></h2>
+<p><a name="d0e101799" id="d0e101799"></a><a name="d0e101808" id="d0e101808"></a><a name="I_r_ccrprts" id="I_r_ccrprts"></a>You can use a number of reports to help you during the process of cycle counting and to analyze and report the results of cycle count transactions. You can submit a concurrent request for these reports from the Tools menu in most of the cycle counting windows as well as from the Submit Requests window.</p>
+<h3><a id="T292469"></a> <b>Cycle Count Schedule Requests Report</b></h3>
+<p>This report shows all schedule requests for a specified time period. It includes both manually and automatically scheduled items. See: <a href="T291651T295121.htm#I_rx2Dinvarrta">Cycle Count Schedule Requests Report</a>.</p>
+<h3><a id="T292470"></a> <b>Cycle Count Listing</b></h3>
+<p>This report lists all of the items currently due for cycle counting, including their revision, lot number, subinventory and locator information. You can use this report as the document you give to the employees performing the cycle counts. Since the report leaves a blank line for the counter's name, the count date, and the actual count quantity, the counter can use this listing to write down and report his cycle count results. See: <a href="T291651T295121.htm#I_rx2Dinvarcli">Cycle Count Listing</a>.</p>
+<h3><a id="T292471"></a> <b>Cycle Count Open Requests Listing</b></h3>
+<p>This report shows count requests where no counts have been entered, or count entries where you have requested a recount. You can optionally report on late counts, where no counts have been entered and the due date for the count entry is before the date of the report. See: <a href="T291651T295121.htm#I_rx2Dinvarore">Cycle Count Open Requests Listing</a>.</p>
+<h3><a id="T292472"></a> <b>Cycle Count Unscheduled Items Report</b></h3>
+<p>This report shows those items that are currently not scheduled to be counted and were last scheduled a period of time in the past that is longer than expected, as dictated by the count frequency of the class to which the item belongs. For example, if item XYZ belongs to class A, and you count class A 52 times a year, you would expect item XYZ to be scheduled once a week. If item XYZ was last scheduled two weeks before the date you run the Cycle Count Unscheduled Items Report, it appears on the report.</p>
+<p>You primarily use this report as an auditing tool. If you correctly set up your scheduling and counting, and are always current in your count, Oracle Inventory should not find any unscheduled items to report. However, if you do not run the auto scheduler as frequently as it needs to run, or if concurrent manager problems prevent its execution, you may fall behind in your count schedules. See: <a href="T291651T295121.htm#I_rx2Dinvaruir">Cycle Count Unscheduled Items Report</a>.</p>
+<h3><a id="T292473"></a> <b>Cycle Counts Pending Approval Report</b></h3>
+<p>This report shows those counts that were entered and are currently pending approval. The supervisor with the authority to approve cycle count adjustments would typically run this report regularly to monitor the approval queue. See: <a href="T291651T295121.htm#I_rx2Dinvarcpa">Cycle Counts Pending Approval Report</a>.</p>
+<h3><a id="T292474"></a> <b>Cycle Count Entries and Adjustments Report</b></h3>
+<p>This report shows all cycle count entries for a specified time period. It analyzes the number of cycle count transactions you make against an item, and the number of units you actually adjust. The report also calculates the value, in your ledger currency, of the adjustments to inventory. See: <a href="T291651T295121.htm#I_rx2Dinvarcta">Cycle Count Entries and Adjustments Report</a>.</p>
+<h3><a id="T292475"></a> <b>Cycle Count Hit/Miss Analysis</b></h3>
+<p>This report shows, for each cycle count class, the total number of count entries and the number of counts outside the limits of the user-specified hit/miss tolerances. The report also calculates the overall accuracy percentages broken down by cycle count class and subinventory. This report is based on the first count only, not recounts. See: <a href="T291651T295121.htm#I_rx2Dinvarhma">Cycle Count Hit/Miss Analysis</a>.</p>
+<h3><a id="T292476"></a> <b>Import Cycle Count Entries from Open Interface</b></h3>
+<p>This process allows you to import cycle count entries open interface records into the database.</p>
+<h3><a id="T292477"></a> <b>Purge Cycle Count Entries Open Interface Data</b></h3>
+<p>This process allows you to purge all cycle count entries from the open interface.</p>
+<h3><a id="T292478"></a> <b>Print Cycle Count Entries Open Interface Data</b></h3>
+<p>This process allows you to print cycle count entries open interface data.</p>
+<p><strong>Related Topics</strong></p>
+<p>Running Reports and Programs, <i>Oracle E-Business Suite User's Guide</i></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

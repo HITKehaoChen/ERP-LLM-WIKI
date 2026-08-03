@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Cost Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Cost Management User's Guide">
+<meta name="dcterms.identifier" content="E48829-27">
+<meta name="dcterms.isVersionOf" content="CSTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T372621T374058.htm" title="Previous" type="text/html">
+<link rel="Next" href="T372621T435195.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Cost Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">11/29</span> <!-- End Header -->
+<h1>FIFO and LIFO Costing</h1>
+<h2><a name="3521547"></a><a id="T410172"></a><b>Overview of FIFO and LIFO Costing (also known as Layer Costing)</b></h2>
+<p><a name="d0e20888" id="d0e20888"></a><a name="d0e20894" id="d0e20894"></a><a name="c_ovfifo" id="c_ovfifo"></a><a name="c_layoverview" id="c_layoverview"></a>First In, First Out (FIFO) and Last In, First Out (LIFO) are two separate perpetual costing methods based on actual costs. These methods are also referred to as layer costing. A perpetual costing method is selected for each inventory organization including Standard costing, Weighted Average costing, FIFO costing, or LIFO costing. Inventory balances and values are updated perpetually after each transaction is sequentially costed.</p>
+<p>FIFO costing is based on the assumption that the first inventory units acquired are the first units used. LIFO costing is based on the assumption that the last inventory units acquired are the first units used. Layer costing methods are additional costing methods to complement the Standard and Weighted Average costing methods.</p>
+<p>In layer costing, a layer is the quantity of an asset item received or grouped together in inventory and sharing the same costs. Available inventories are made of identifiable cost layers.</p>
+<ul>
+<li>
+<p>Inventory layer</p>
+<p>On-hand inventory contains layers that are receipt-based (purchased items) or completion-based (manufactured items).</p>
+</li>
+<li>
+<p>Work in Process (WIP) layer</p>
+<p>Components issued to a WIP job are maintained in layers within the job itself. Each issue to WIP represents a separate layer within the job. In addition, each WIP layer consists of only one inventory layer initially consumed by the issue transaction. The costs of those inventory layers are held separately within the WIP layer.</p>
+</li>
+</ul>
+<h3><a id="T410173"></a><b>Process Costs at Organizational Level Based on Purchase Order Prices</b></h3>
+<p>FIFO/LIFO costing is processed at the inventory organizational level. Under FIFO/LIFO cost systems, the unit cost of an item is the value of one receipt in one layer, selected by the FIFO or the LIFO rule. Each receipt of material to inventory has its own unit cost. Each receipt of material is valued at the purchase order price. Each receipt or assembly completion creates either a new layer for each organization.</p>
+<p>Layer creation is minimized for item and organization combinations. Layer creation transactions following a transaction for the same type, cost, and cost group for the same organization. Do not create single layers as in previous versions of Oracle Cost Management. The item quantity is added to the last layer created. New layers are created when the next transaction is of a different type, cost, or cost group.</p>
+<p><strong><span>Note:</span></strong> New layers are created for transactions where the cost is user-defined, rather than system calculated. This includes transactions that meet all the qualifying conditions and have an equal cost value.</p>
+<p>Other features include:</p>
+<ul>
+<li>
+<p>If an organization is defined as a FIFO costing organization, all inventories of the organization are valued at FIFO. You cannot specify that some inventory items are costed at FIFO, while others are costed at standard or weighted-average, for example.</p>
+</li>
+<li>
+<p>You can only specify only one cost flow assumption for an organization. All inventory items of an organization must be costed at FIFO or at LIFO. You cannot specify some items to be costed at FIFO and other items to be costed at LIFO.</p>
+</li>
+<li>
+<p>FIFO/LIFO costing is based on purchase order prices. Neither invoices nor acquisition costs are considered when costing a receipt from a supplier.</p>
+</li>
+</ul>
+<p>For purchased items, each receipt creates a layer cost. For manufactured items, each completion creates a layer. All assemblies in that layer have the same unit cost.</p>
+<p><strong><span>Note:</span></strong> FIFO/LIFO costing cannot be applied to repetitively manufactured items. Therefore, you cannot define repetitive schedules in an organization that is defined as a manufacturing FIFO/LIFO cost organization.</p>
+<p>This same FIFO/LIFO cost is used to value transactions. You can reconcile inventory and WIP balances to your accounting entries.</p>
+<p><strong><span>Note:</span></strong> Under layer costing, you cannot share costs; FIFO/LIFO costs are maintained separately in each inventory organization.</p>
+<h3><a id="T410174"></a><b>Perpetually Value Inventory at FIFO Cost or at LIFO Cost</b></h3>
+<p>You can perpetually value inventory at a FIFO/LIFO cost. When an organization uses FIFO or LIFO costing methods, inventory costs are maintained in layers, each with its own costs. The cost flows of FIFO and LIFO are opposite.</p>
+<ul>
+<li>
+<p>In FIFO valuation, the earliest-received stock is assumed to be used first; the latest-received stock is assumed to be still on hand.</p>
+</li>
+<li>
+<p>In LIFO valuation, the earliest-received stock is assumed to be still on hand; the latest-received stock is assumed to be used first.</p>
+</li>
+</ul>
+<p>FIFO/LIFO costing enables you to:</p>
+<ul>
+<li>
+<p>Approximate actual material costs</p>
+</li>
+<li>
+<p>Value inventory and transact at layer cost</p>
+</li>
+<li>
+<p>Maintain layer costs</p>
+</li>
+<li>
+<p>Automatically interface with your general ledger</p>
+</li>
+<li>
+<p>Reconcile inventory balances with general ledger</p>
+</li>
+<li>
+<p>Analyze profit margins using an actual cost method</p>
+</li>
+</ul>
+<h4><a id="T410175"></a><b>Layer Item Cost</b></h4>
+<p>The first layer cost is cost of the first layer with a positive quantity. The layer item cost is the unit cost shared by the layer quantity. It is the average unit cost of a layer.</p>
+<p><b>Layer Item Cost = layer's acquisition cost / layer's quantity</b></p>
+<h4><a id="T410176"></a><b>FIFO Item Cost</b></h4>
+<p>FIFO item cost is the weighted&ndash;average of all inventory layer costs divided by the sum of layer quantities.</p>
+<p>For example:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Layer 1 LQ1 = 20 ea.</td>
+<td>LC1 = $2/each</td>
+</tr>
+<tr valign="top">
+<td>Layer 2 LQ2 = 10 ea.</td>
+<td>LC2 = $1.40/each</td>
+</tr>
+</table>
+<p>FIFO Item cost = ($2*20 + $1.40*10) / (20+10) = $1.80</p>
+<h3><a id="T410177"></a><b>Charge Resources to Work in Process at Actual Cost</b></h3>
+<p>You can charge WIP resources at an actual rate. You can charge the same resource at different rates over time. You can also charge outside processing costs to a job at the purchase order unit cost.</p>
+<h3><a id="T410178"></a><b>Inventory Valued at Layer Cost</b></h3>
+<p>Under layer costing, all asset purchased items in inventory are valued based on their purchase order cost. This results in item unit costs that reflect the layer of the purchase order unit costs for all quantity on-hand.</p>
+<h3><a id="T410179"></a><b>This Level/Previous Level Elemental Costs<a name="d0e21038" id="d0e21038"></a><a name="d0e21044" id="d0e21044"></a><a name="d0e21050" id="d0e21050"></a><a name="d0e21056" id="d0e21056"></a></b></h3>
+<p>Elemental costs for manufactured items are kept at two levels: this level and previous level. This level costs are those costs incurred in producing the part at the current bill of material level. Previous level costs are those incurred at lower levels. This level costs might include labor and overhead supplied to bring an assembly to a certain state of completion. Previous level costs might include material and labor, and outside processing costs incurred to bring a component or subassembly to its current state of completion. Totals costs for an item are calculated by summing the this level and previous level costs as shown in the following table.</p>
+<h4><a id="T410180"></a><b>Example of This Level and Previous Level Costs</b></h4>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Costs in Dollars</b></th>
+<th scope="col"><b>Material</b></th>
+<th scope="col"><b>Material Overhead</b></th>
+<th scope="col"><b>Resource</b></th>
+<th scope="col"><b>Outside Processing</b></th>
+<th scope="col"><b>Overhead</b></th>
+</tr>
+<tr valign="top">
+<td>Previous Level</td>
+<td>100</td>
+<td>20</td>
+<td>25</td>
+<td>27</td>
+<td>5</td>
+</tr>
+<tr valign="top">
+<td>This Level</td>
+<td>0</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>Total Costs</td>
+<td>100</td>
+<td>22</td>
+<td>28</td>
+<td>30</td>
+<td>6</td>
+</tr>
+</table>
+<h3><a id="T410181"></a><b>Cost Element Visibility<a name="d0e21158" id="d0e21158"></a></b></h3>
+<p>For tracking and analysis purposes, you can see cost details by cost element in two ways:</p>
+<ul>
+<li>
+<p>For unit costs, as a breakout of the total unit cost into each of the five cost elements. From this detail, you can determine the value of labor, overhead, and material components in inventory.</p>
+</li>
+<li>
+<p>For WIP, as all job charges (including previous level subassemblies) and relief in cost element detail.</p>
+</li>
+</ul>
+<h3><a id="T410182"></a><b>Layer Cost Updates</b></h3>
+<p>When you update layer costs, you update the layer regardless of the subinventory.</p>
+<p>You can change costs by cost element and can choose one, several, or all cost elements at the same time. The offset to the change in inventory value resulting from a cost update is posted to the layer cost adjustment account that you specify. Items in WIP are not revalued by a layer cost update, nor are expense items or any item in an expense subinventory.</p>
+<p>You can also perform a mass changes for multiple layers in a group for the cost, account number, and reason values.</p>
+<h3><a id="T410183"></a><b>Material Overhead Application</b></h3>
+<p>You can add costs (receiving, stocking, material movement, and handling) using material overhead. You can define as many material overheads as required and include that additional cost be included in the layer cost.</p>
+<p>Material overheads are associated to items in a layer. As in standard costing and in average costing, you can define default material overheads to apply to selected categories of items or all items in your organization.</p>
+<p>Specifically, you can charge material overhead when you perform any of the following three transactions:</p>
+<ul>
+<li>
+<p>Deliver purchased items to subinventory</p>
+</li>
+<li>
+<p>Complete assemblies from WIP to subinventory</p>
+</li>
+<li>
+<p>Receive items being transferred from another organization and deliver to subinventory</p>
+</li>
+</ul>
+<p>Material overhead is applied at the rate or amount in effect at the time of the transaction. On-hand balances are not revalued when the rate or amount of a material overhead is redefined.</p>
+<h3><a id="T410184"></a><b>Transfers Between Organizations</b></h3>
+<p>You can transfer items in inventory to a subinventory in a different organization. This is done using a direct transfer or through an intransit transfer, just as in standard costing and in average costing. Because item unit costs are held elementally, like standard costs, elemental detail is available for items being transferred whether they are in subinventory or in intransit.</p>
+<p>When such an item is received into a layer costing organization and delivered to the destination subinventory, you can choose whether all of its cost elements from the shipping organization, plus freight, plus transfer charges, if any, are combined into the material cost element in the receiving organization or if they are to remain separate and elementally visible.</p>
+<p><strong><span>Note:</span></strong> Combining all cost elements into the material cost element assures that the receiving organization does not have another organization's overhead (over which they have no control and for which they have no absorption) combined with their own.</p>
+<p>You can earn material overhead on the delivery as stated above. That amount goes into the material overhead cost element.</p>
+<h3><a id="T410185"></a><b>Transaction and Cost Processing<a name="d0e21222" id="d0e21222"></a><a name="d0e21226" id="d0e21226"></a></b></h3>
+<p>The transaction processor, which affects current on-hand quantities of items, can be set up to run either periodically (in the background) or on line (quantities updated immediately). Oracle strongly recommends that you set up the transaction processor to run on line. The cost processor is always run in the background at user-defined intervals.</p>
+<h3><a id="T410186"></a><b>Transaction Backdating</b></h3>
+<p>You can backdate transactions. If you backdate transactions, the next time transactions are processed, the backdated transactions are processed first, before all other unprocessed transactions. Previously processed transactions, however, are not rolled back and reprocessed.</p>
+<h2><a name="3521562"></a><a id="T410187"></a><b>Describing the Major Features of FIFO/LIFO Costing</b></h2>
+<a name="d0e21243" id="d0e21243"></a><a name="c_fifofeatur" id="c_fifofeatur"></a><a name="c_laymf" id="c_laymf"></a>
+<ul>
+<li>
+<p>FIFO Costing is organization specific.</p>
+<ul>
+<li>
+<p>All items in inventory for an organization are valued at FIFO, when you specify FIFO as the primary costing method for the organization. You can still maintain other costing methods, such as standard or weighted-average for other inventory organizations. But each organization can have only one primary costing method.</p>
+</li>
+<li>
+<p>You cannot share costs across organizations using FIFO costing.</p>
+</li>
+<li>
+<p>You can specify the cost type that stores all your resource and overhead rates for FIFO costing as the rates cost type.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Receipts are valued at purchase order prices.</p>
+<p>When you deliver a purchase order receipt to inventory, it is valued at the purchase order price. The costs to your inventory consist of the purchase order cost and any specified material overhead earned.</p>
+</li>
+<li>
+<p>Inventory is maintained in receipt-based layers only.</p>
+<ul>
+<li>
+<p>Layer creation: Receipts into inventory create new layers with their own quantity and cost.</p>
+</li>
+<li>
+<p>Layer consumption: Issues consume earliest layers that still have quantity balance. Issue transactions are costed based on the cost of the consumed layers.</p>
+<p>You can specify the first inventory layer to be consumed, using the layer hook (client extension).</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The return transactions (such as returns to vendor, WIP component returns, WIP assembly returns) are the exception to the FIFO flow.</p>
+<p><strong><span>Note:</span></strong> Layers are maintained only for the seeded FIFO or LIFO cost types. User-defined cost types do not have layer costs.</p>
+<ul>
+<li>
+<p>Layer creation is minimized for item and organization combinations.</p>
+<ul>
+<li>
+<p>Layer creation transactions following a transaction for the same type, cost, and cost group for the same organization - do not create a new layer as in previous versions of Oracle Cost Management. The item quantity is added to the last layer created. New layers are created when the next transaction is of a different type, cost, or cost group. The qualifying transactions include:</p>
+<ul>
+<li>
+<p>Return material authorizations</p>
+</li>
+<li>
+<p>Miscellaneous receipts</p>
+</li>
+<li>
+<p>Account receipt</p>
+</li>
+<li>
+<p>Account alias receipt</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> New layers are created for transactions where the cost is defined by the user, rather than calculated by the application. This includes transactions that meet all the qualifying conditions and have an equal cost value.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>WIP components are held in layers within a job.</p>
+<p>Component issues are held in layers within each job. Each issue creates a WIP layer. In addition, component issued to a job will not lose their inventory layer identification and costs.</p>
+</li>
+<li>
+<p>Items are returned to inventory as new layers.</p>
+<ul>
+<li>
+<p>WIP component return</p>
+<p>A new inventory layer is created when a component is returned to inventory from WIP. The return transaction is valued at the latest WIP layer costs. The last layers issued to a job at a specified operation are the first layers returned to inventory.</p>
+</li>
+<li>
+<p>RMA receipts</p>
+<p>A receipt of customer return also creates a new layer at the same cost as the original shipment. This new layer is created as a latest layer cost for LIFO without a sales order reference, an earliest positive layer cost for FIFO without a sales order reference, or an original sales order issue cost if the RMA has a sales order reference.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Returns to vendor are returned from inventory at original layers and layer costs.</p>
+<p>Unlike most of the other issues from inventory, returns to vendor and assembly returns do not consume the earliest receipt layers. They are layer-identified transactions. In other words, they are issue transactions that have reference to specific layers.</p>
+<ul>
+<li>
+<p>Returns to vendor consume the layers created for the original receipts.</p>
+</li>
+<li>
+<p>Assembly returns consume the layers created for the original completions.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Layers are maintained at the cost group level in Project Manufacturing.</p>
+<p>Layers are maintained at the project cost group level within an inventory organization. Issues from a cost group consume the earliest layers within the cost group.</p>
+<p><strong><span>Note:</span></strong> Cost layers are not held at subinventory level.</p>
+</li>
+<li>
+<p>Layer cost can be updated by the user.</p>
+<ul>
+<li>
+<p>At any given time during an open period, you can perform a cost update to revalue your inventory. You will have the option to update the costs of an item layer by a specified amount, a percent of the selected layer's costs, or user -entered layer costs by cost element and level.</p>
+</li>
+<li>
+<p>The cost update process calculates the adjustment values for your inventory layer cost, and creates corresponding adjustment accounting entries.</p>
+<p><strong><span>Note:</span></strong> Just as in average costing, you must specify the items to be updated. You cannot update all items or a range of items. You can update only a single receipt layer for any given item. You can update only one layer at a time.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Both FIFO item costs and layer costs are maintained at elemental levels.</p>
+<ul>
+<li>
+<p>Both the FIFO item cost and the layer costs are maintained at elemental levels and by cost groups.</p>
+</li>
+<li>
+<p>The FIFO item costs, which is the weighted average of layer item costs, is used for current inquiries and reports, such as inventory by sub-inventory, by category, and so on. Functionality (such as copy cost, mass edits, cost rollup) also uses FIFO item costs in its process.</p>
+</li>
+<li>
+<p>The layer costs are used to value the unconsumed inventory layers and to cost transactions based on FIFO cost flow.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Reports by layers are available.</p>
+<p>Most standard reports that are currently available for average costing are also available for FIFO costing. In addition, you have reports at the layer level.</p>
+</li>
+</ul>
+<h2><a name="2974555"></a><a id="T450418"></a><b>Setting Up Layer Costing</b></h2>
+<p><a name="d0e21386" id="d0e21386"></a><a name="d0e21392" id="d0e21392"></a><a name="c_laysu" id="c_laysu"></a>The following steps are required when setting up perpetual layer costing. Additional steps follow in the next section for those also using BOM alone, or WIP and BOM together.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Create a cost type to hold rates for resources and overheads</li>
+<li>Define organization parameters. See: Organization Parameters Window, <i>Oracle Inventory User's Guide</i></li>
+<ul>
+<li>
+<p>Set the costing method to FIFO Costing.</p>
+</li>
+<li>
+<p>Set Transfer Detail to GL appropriately.</p>
+</li>
+<li>
+<p>(Optional) Set the Default Material Subelement account.</p>
+</li>
+<li>
+<p>Assign the user-defined cost type as the rates cost type.</p>
+</li>
+</ul>
+<li>Define material overhead defaults.</li>
+<li>Define item, item costs, and establish item cost controls. See: Overview of Item Setup and Control, <i>Oracle Inventory User's Guide</i></li>
+<li>Launch transaction managers.</li>
+<h3><b>Selecting FIFO Costing</b></h3>
+<p><a name="c_selfifocst" id="c_selfifocst"></a><b>To select FIFO costing, a perpetual cost method in Organization Parameters</b></p>
+<ol>
+<li>
+<p>Navigate to the Organization Parameters window, and open the Costing Information tab.</p>
+<p><img width="678" height="610" src="./img/cst_orgparam.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the Costing Organization.</p>
+</li>
+<li>
+<p>Enter FIFO as the Costing Method from the List of Values and select OK.</p>
+</li>
+<li>
+<p>Enter the Rates Cost Type, previously created.</p>
+</li>
+<li>
+<p>Set Transfer Detail to GL appropriately.</p>
+</li>
+<li>
+<p>Optionally, specify a Default Material Subelement account.</p>
+</li>
+</ol>
+<p><b>To set up layer costing</b></p>
+<ol>
+<li>
+<p>Set the Control Level for your items to Organization. Layer cost cannot be shared between organizations.</p>
+</li>
+<li>
+<p>Define, at minimum, one cost type to hold the layer rates or amounts for material overhead rates. Inventory valuation and transaction costing in a layer cost organization involve two cost types: Seeded: FIFO and User-Defined: Rates.</p>
+</li>
+<li>
+<p>Assign the cost type defined above as the rates cost type in the Organization Parameters window in Oracle Inventory. See: Organization Parameters Window, <i>Oracle Inventory User's Guide</i> and Defining Costing Information, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Set the <i>TP: INV:Transaction Processing Mode</i> profile option in Oracle Inventory to On-line processing.</p>
+<p>When using layer costing, transactions must be properly sequenced to ensure that the correct costs are used to value transactions so that unit costs can be accurately calculated. Proper transaction sequencing can only be ensured if all transaction processing occurs on line. See: Inventory Profile Options, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+</ol>
+</ul>
+<h2><a name="3521563"></a><a id="T410188"></a><b>Layer Maintenance</b></h2>
+<p><a name="d0e21508" id="d0e21508"></a><a name="d0e21514" id="d0e21514"></a><a name="d0e21520" id="d0e21520"></a><a name="cst_layermaint" id="cst_layermaint"></a>Transactions can be classified into two different types in the context of FIFO/LIFO costing:</p>
+<ul>
+<li>
+<p>Layer-identified transactions</p>
+<p>These transactions identify specific layers. Identified layers can be new layers, like new purchase order receipt layers, or existing layers, like receipt layers specified for return to vendor transactions or for assembly returns. All receipt transactions are layer-identified transactions. Only a few issue transactions carry layer identification.</p>
+</li>
+<li>
+<p>Layer-derived transactions</p>
+<p>These transactions do not have layer identification. Most issues are layer-derived transactions; they do not consume layers created by specific transactions. Instead, they consume the oldest layers first for FIFO, and the most recent layers first for LIFO.</p>
+</li>
+</ul>
+<h3><a id="T410189"></a><b>Inventory Layer Creation<a name="d0e21544" id="d0e21544"></a><a name="d0e21550" id="d0e21550"></a><a name="c_layicreate" id="c_layicreate"></a></b></h3>
+<ul>
+<li>
+<p>Receipts Into Inventory Create New Layers.</p>
+<p>For both FIFO and LIFO cost methods, each receipt into stores creates a new receipt layer which is costed as follows:</p>
+<ul>
+<li>
+<p>Purchase order receipts are valued at purchase order price</p>
+</li>
+<li>
+<p>Assembly completions are valued at job completion cost</p>
+</li>
+<li>
+<p>Miscellaneous receipts, account receipts and user-defined transactions are valued at user-entered transaction cost, or latest receipt layer cost</p>
+</li>
+<li>
+<p>Direct interorganization transfer and intransit receipt are valued at the transfer transaction cost</p>
+</li>
+<li>
+<p>WIP component returns are valued at the job's component costs</p>
+</li>
+<li>
+<p>Each positive cycle count adjustment and each positive physical inventory adjustment is valued at the latest layer's cost and creates a new layer</p>
+</li>
+<li>
+<p>Positive receipt corrections are valued at purchase order price</p>
+</li>
+<li>
+<p>Customer returns (RMA receive transaction) creates a new layer at the same cost as the original shipment. This new layer is created as a latest layer cost for LIFO without a sales order reference, an earliest positive layer cost for FIFO without a sales order reference, or an original sales order issue cost if the RMA has a sales order reference.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Receipt Into Inventory Replenishes Negative Layers.</p>
+<p>If there are negative layers when the transaction is performed, then a receipt into inventory will also trigger the replenishment of the negative layers. Those layers will be replenished up to a zero balance, starting with the oldest negative layers for FIFO and the most recent layer first for LIFO.</p>
+</li>
+</ul>
+<h3><a id="T410190"></a><b>Inventory Layer Consumption<a name="d0e21597" id="d0e21597"></a><a name="d0e21603" id="d0e21603"></a><a name="d0e21609" id="d0e21609"></a><a name="c_layicon" id="c_layicon"></a></b></h3>
+<ul>
+<li>
+<p>Inventory layers are consumed when items are:</p>
+<ul>
+<li>
+<p>Issued to jobs</p>
+</li>
+<li>
+<p>Transferred out of inventory, project cost group, or organization</p>
+</li>
+<li>
+<p>Sold</p>
+</li>
+<li>
+<p>Considered a loss, such as in cycle count adjustments or in physical count adjustments</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>Issues from inventory consume the oldest layers.</p>
+<p>Oldest layers with positive balances are consumed by issue transactions. However, layer-identified transactions consume the specified layer first, then the oldest layers with positive quantity balances if there is insufficient quantity to be consumed from the specified layers.</p>
+<p>Some of the layer-identified issue transactions are return to vendor, negative receipt correction, assembly return to WIP, and transactions using the layer hook (client extensions).</p>
+</li>
+<li>
+<p>Consumption may drive the latest layer negative when the transaction is performed.</p>
+<p>If there is insufficient quantity to consume, an issue transaction will drive the latest layer negative when the transaction is performed.</p>
+<p>If the on-hand quantity is already negative, the latest layer is updated by the consumption quantity. There should be no layer with a positive quantity balance if negative layers exist for an item in a cost group.</p>
+</li>
+<li>
+<p>The cost of inventory layer consumed does not always match the transaction cost.<a name="d0e21652" id="d0e21652"></a></p>
+<p>Layer-identified transactions have their own transaction costs and consume the specified layer if it still has a positive quantity balance.</p>
+</li>
+<li>
+<p>Return to Vendor (RTV) transactions, receiving correction transactions are valued at the purchase order price associated with the original receipt transactions. The sequence of a RTV (or receiving correction) layer consumption is as follows:</p>
+<ul>
+<li>
+<p>Consume the initial receipt layer first.</p>
+</li>
+<li>
+<p>If there is insufficient quantity, consume the oldest layers with quantity balance.</p>
+</li>
+<li>
+<p>The latest layer at time of transaction can be driven negative by the consumption.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Assembly Return to WIP transactions are valued at the job completion cost. (Also see WIP Layer Relief section.) The consumption sequence is similar to RTV transactions.</p>
+<p>When a layer-identified issue transaction cannot consume the specified layer(s) because the layer quantity has already been consumed by other transactions, it will have to consume other layers that do not necessarily have the same costs. In such case, the difference between the cost of the transaction and the value of the layer(s) actually consumed is debited or credited to a variance account.</p>
+<p>An under-costed transaction is an inventory transaction that incurs a negative variance. An over-costed transaction incurs a positive variance. You enter the variance account when defining costing information in organization parameters costing, or when defining cost groups.</p>
+</li>
+</ul>
+<h3><a id="T410191"></a><b>WIP Layer Creation<a name="d0e21683" id="d0e21683"></a><a name="d0e21689" id="d0e21689"></a><a name="c_laywcreate" id="c_laywcreate"></a></b></h3>
+<ul>
+<li>
+<p>A WIP Component Issue transaction creates a WIP layer and a corresponding WIP layer ID. Because components are issued to WIP at specific operations, WIP layers are maintained at the job operation level.</p>
+</li>
+<li>
+<p>Each WIP layer consists of one inventory layer. Depending upon the number of inventory layers consumed by the issue transaction, the WIP layers are identified by the combination of WIP layer ID and the inventory layer IDs.</p>
+</li>
+<li>
+<p>Quantity and costs are maintained separately for each inventory layer within a WIP layer.</p>
+</li>
+<li>
+<p>If there are no previous issues to the job and no backflush transactions, the relieved cost of a component is computed using the cost of the earliest inventory layer with positive quantity at the time of transaction.</p>
+</li>
+<li>
+<p>A WIP Component Return will move back to inventory the latest WIP layers at the specified operation. However, this transaction will create a new layer in inventory. It will not &rdquo;unconsume&rdquo; the inventory layer(s) previously consumed by the initial Component Issue transaction.</p>
+</li>
+</ul>
+<h3><a id="T410192"></a><b>WIP Layer Relief<a name="d0e21714" id="d0e21714"></a><a name="d0e21720" id="d0e21720"></a><a name="c_laywrelief" id="c_laywrelief"></a></b></h3>
+<ul>
+<li>
+<p>At assembly completion, relieved material costs are computed using the earliest inventory layers' costs within a WIP layer that are still available to be relieved. WIP layers at each operation are relieved on the FIFO basis.</p>
+</li>
+<li>
+<p>A scrap transaction should relieve WIP layers in the FIFO manner as an assembly completion.</p>
+</li>
+<li>
+<p>An assembly return should trigger an adjustment to the WIP layer quantity, and the cost relieved should initially be the assembly completion.</p>
+<p><strong><span>Note:</span></strong> The component cost computation for assembly completions uses the same algorithm as for average costing.</p>
+</li>
+</ul>
+<h2><a name="2974564"></a><a id="T375131"></a><b>Setting Up Layer Costing for Manufacturing</b></h2>
+<p><a name="d0e21743" id="d0e21743"></a><a name="cst_setlayercst" id="cst_setlayercst"></a><a name="c_laysumfg" id="c_laysumfg"></a><strong>Prerequisites</strong></p>
+<ul>
+<li>Set the <i>INV:Transaction Date Validation</i> profile option to <i>Do not allow past date.</i> See: Inventory Profile Options, <i>Oracle Inventory User's Guide</i>.</li>
+<li>Define bills of material parameters. See: Defining Bills of Material Parameters, <i>Oracle Bills of Material User's Guide</i>.</li>
+<p>Defining bills of material parameters ensures that bill and routing information (resource, outside processing, and overhead cost elements) is accessible when you define item costs and define overhead.</p>
+<li>Define resources. See: Defining a Resource, <i>Oracle Bills of Material User's Guide</i>.</li>
+<p>Define resource subelements by creating resources, departments, bills, and routings with Bills of Material.</p>
+<p>Resources can be costed or not costed. Because you can have multiple resources per operation, you can use a non-costed resource for scheduling and a costed resource for costing. The cost update process and accounting transaction processing ignore uncosted resources.</p>
+<p>For each resource, the charge type determines whether the resource is for internal (labor, machine, and such) or outside processing. Use PO Move and PO Receipt charge types for outside processing. Each resource has its own absorption account and variance account.</p>
+<li>Define departments. See: Defining a Department, <i>Oracle Bills of Material User's Guide</i>.</li>
+<li>Assign resources to departments. See: Creating a Routing, <i>Oracle Bills of Material User's Guide</i>.</li>
+<p>For capacity planning and overhead assignment purposes, you must assign each resource to one or more departments. Once you assign a resource, you can select that resource when you define a routing.</p>
+<li>Define overheads and assign them to departments. See: <a href="T372621T372759.htm#t_fdovh">Defining Overhead</a>.</li>
+<p>The cost processor uses the assigned basis type to apply the overhead charge and assigns the activity to the calculated overhead cost. You can define pending rates and use the cost update process to specify the pending rates as the rates cost type.</p>
+<li>Review routing and bill structures. See: Overview of Bills of Material, <i>Oracle Bills of Material User's Guide</i> and Overview of Routings, <i>Oracle Bills of Material User's Guide</i>.</li>
+<li>Control overheads by resource.</li>
+<p>For overheads based on resource units or resource value, you must specify the resources on which the overhead is based. You can then charge multiple resources in the same department for the same operation, while still earning separate overhead for each resource. If you do not associate your overheads and resources, you do not apply overhead or charge resource-based overhead in WIP.</p>
+<li>Confirm that the WIP parameters, <i>Recognize Period Variance</i> and <i>Require Scrap Account,</i> are set as required.</li>
+<li>Confirm that your WIP accounting classes and their valuations and accounts are properly set up. See: WIP Accounting Classes, <i>Oracle Work in Process User's Guide</i>, Defining WIP Accounting Classes, <i>Oracle Work in Process User's Guide</i>, and Work in Process Valuation and Variances, <i>Oracle Work in Process User's Guide</i>.</li>
+<p>If you use the same account numbers for different valuation and variance accounts, then Cost Management automatically maintains your inventory and WIP values by cost element. Even if you use the same cost element account for inventory or a WIP accounting class, Oracle recommends that you use different accounts for each and never share account numbers between subinventories and WIP accounting classes. If you do, you will have difficulty reconciling Inventory and Work in Process valuation reports to your account balances.</p>
+</ul>
+<p><b>To set up layer costing with BOM and WIP</b></p>
+<ol>
+<li>
+<p>In addition to setting the <i>TP: INV:Transaction Processing Mode</i> profile option in Oracle Inventory to On-line processing. See: Inventory Profile Options, <i>Oracle Inventory User's Guide</i>.</p>
+<p>You must also set the following WIP transaction processing profile options to On-line:</p>
+<ul>
+<li>
+<p>TP:WIP:Completion Transactions Form</p>
+</li>
+<li>
+<p>TP:WIP:Material Transactions Form</p>
+</li>
+<li>
+<p>TP:WIP:Move Transaction</p>
+</li>
+<li>
+<p>TP:WIP:Operation Backflush Setup</p>
+</li>
+<li>
+<p>TP:WIP:Shop Floor Material Processing</p>
+<p>See: Profile Options, <i>Oracle Work in Process User's Guide</i>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Define rates for your resources and associate these resources and rates with the Rates cost type. See: Defining a Resource, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p>Unlike under standard costing, charging a resource defined as a Standard rate resource does not create rate variances. For each resource the charge type determines whether the resource is for internal (labor, machine, etc.) or outside processing. Use PO Move and PO Receipt charge types for outside processing. Each resource has its own absorption account and variance account.</p>
+</li>
+<li>
+<p>Define overheads and assign to departments. See: <a href="T372621T372759.htm#t_fdovh">Defining Overhead</a>.</p>
+<p>For each overhead subelement, define a rate of amount in the cost type you have specified as the rates cost type. Overheads with a basis type of Resource Units or Resource Value use the actual transaction resource amount or hours to calculate the overhead amount. The cost processor uses the assigned basis type to apply the overhead charge and assigns the activity to the calculated overhead cost. You can define pending rates and use the cost update process to specify the pending rate as the rates cost type.</p>
+</li>
+<li>
+<p>Define WIP parameters. See: Defining WIP Parameters, <i>Oracle Work in Process User's Guide</i>.</p>
+<p>You can use the <i>Require Scrap Account</i> parameter to determine whether a scrap account is mandatory when you move assemblies into a scrap intraoperation step. Requiring a scrap account relieves scrap from the job or schedule. Not requiring a scrap account leaves the cost of scrap in the job or schedule.</p>
+<p>If the Require Scrap Account is set to <i>No</i>, scrap costs remain in the job. See: the following sections from <i>Oracle Work in Process User's Guide</i>: WIP Parameters, Assembly Scrap, and Scrapping Assemblies.</p>
+<p>You must set the appropriate layer costing parameters - Default Completion Cost Source, Cost Type, Auto Compute Final Completion, and System Option - to determine how completions are charged.</p>
+<p>How these parameters are applied is explained in the Assembly Completion Transaction and Resource Transaction sections.</p>
+</li>
+<li>
+<p>Define WIP accounting classes. See: WIP Accounting Classes, <i>Oracle Work in Process User's Guide</i> and Defining WIP Accounting Classes, <i>Oracle Work in Process User's Guide</i>.</p>
+<p>Accounting classes determine which valuation and variance accounts are charged and when. You can define the following elemental accounts for WIP accounting classes that are used with layer costing: material, material overhead, resource, outside processing, overhead, material variance, resource variance, outside processing variance, overhead variance, bridging, and expense accounts. See: WIP Valuation and Variances, <i>Oracle Work in Process User's Guide</i>.</p>
+<p><strong><span>Note:</span></strong> If you use the same account numbers for different valuation and variance accounts, then Cost Management automatically maintains your inventory and WIP values by cost element even if you use the same cost element account in a given subinventory or WIP accounting class. Oracle recommends you use different accounts for each and never share account numbers between subinventories and WIP accounting classes. If you do, you will have difficulty reconciling Inventory and WIP valuation reports to your account balances.</p>
+</li>
+<li>
+<p>Define subinventories and subinventory valuation accounts.</p>
+<p>The five Valuation accounts and the default Expense account are defined at the organization level. The valuation accounts apply to each subinventory and intransit within the organization. They cannot be changed at the subinventory level under layer costing. The expense account defaults to each subinventory within the organization and can be overridden. You can choose a different valuation account for each cost element, or use the same account for several or all elements.</p>
+<p>How you set up your accounts determines the level of elemental detail in the General Ledger and on Inventory valuation reports. See: Defining Subinventories, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+</ol>
+<h2><a name="3521571"></a><a id="T410193"></a><b>Layer Costing Flows</b></h2>
+<p><a name="d0e21954" id="d0e21954"></a><a name="d0e21960" id="d0e21960"></a><a name="cst_layercstflows" id="cst_layercstflows"></a>The following sections discuss transaction flows that occur when transacting jobs in a layer costing organization:</p>
+<ul>
+<li>
+<p>Labor charges</p>
+</li>
+<li>
+<p>Overhead charges</p>
+</li>
+<li>
+<p>Component issues</p>
+</li>
+<li>
+<p>Material overhead charges</p>
+</li>
+<li>
+<p>Scrap charges</p>
+</li>
+<li>
+<p>Assembly completions</p>
+</li>
+<li>
+<p>Assembly returns</p>
+</li>
+<li>
+<p>Job closures and cancellations</p>
+</li>
+<li>
+<p>Layer cost update</p>
+</li>
+</ul>
+<h3><a id="T410194"></a><b>Labor Charges to WIP<a name="d0e22001" id="d0e22001"></a></b></h3>
+<p>You can charge person-type resources to jobs either at a predefined labor rate or at the actual labor rate. If you choose to charge labor at the predefined rate, move transactions that complete an operation automatically charge WIP Move resources associated with that operation at the resource's rate, as defined as the rates cost type. Resource rates are associated with cost types when you define resources. If you choose to charge labor at an actual employee rate, you can enter an employee rate as you charge manual resources. You can charge labor at either an actual or a predefined rate if you choose to import resource transaction through the Open Resource Cost Interface.</p>
+<p>You can charge a predetermined number of labor hours by adding a WIP Move resource to a routing operation, or you can charge the actual hours to a manual resource by either:</p>
+<ul>
+<li>
+<p>Entering the actual hours as assemblies are moved</p>
+</li>
+<li>
+<p>Entering the actual hours as part of an independent resource transaction</p>
+</li>
+<li>
+<p>Importing resource transactions through the WIP Resource Cost Transaction Interface</p>
+</li>
+</ul>
+<p>Resource labor transactions are valued at the rate in effect at the time of the transaction. As a result, when the same labor subelement or employee is charged to the same job at different times, different rates may be in effect.</p>
+<h3><a id="T410195"></a><b>Overhead Charges to WIP<a name="d0e22027" id="d0e22027"></a></b></h3>
+<p>For each overhead subelement, define a rate or amount in the cost type that you have specified as the rates cost type. Overheads with a basis type of resource units or resource value use the actual transaction resource amount or hours to calculate the overhead amount. See: <a href="T372621T372759.htm#t_fdovh">Defining Overhead</a>.</p>
+<h3><a id="T410196"></a><b>Components Issued to WIP<a name="d0e22045" id="d0e22045"></a><a name="d0e22051" id="d0e22051"></a></b></h3>
+<p>Component items can be defined as push or pull requirements on your jobs. Components issued to jobs are valued at the inventory layer cost in effect at the time of the transaction. Components issued to a job in several different transactions may have different unit costs for each transaction. If a component's unit cost is composed of more than one cost element, then this elemental detail continues to be visible after it is charged to a job. These costs are held and relieved as previous level costs.</p>
+<h3><a id="T410197"></a><b>Material Overhead Application<a name="d0e22063" id="d0e22063"></a></b></h3>
+<p>Define as many material overhead subelements as desired and base their charging in a variety of ways: by item, by activity or lot, or based on transaction value. See: <a href="T372621T372759.htm#t_fdovh">Defining Overhead</a>.</p>
+<p>When defining item costs, you can associate material overhead(s) to items and define the rate / amount manually using the rates cost type. Once defined, the material overhead(s) are applied whenever the particular item is involved in an applicable transaction. You can change these overheads at any time. Making a change affects future transactions, but has no impact on the FIFO unit cost in inventory. See: <a href="T372621T372805.htm#t_fdiac">Defining Item Costs</a>.</p>
+<p>For purchase order receipts and transfers between organizations, the material overhead amount earned is added to the purchase order cost / transfer cost of the item (but held as a separate cost element) when it is delivered to inventory. For assembly completions, the material overhead amount earned is added to the cost of the completion in inventory, but is never charged to the job.</p>
+<h3><a id="T410198"></a><b>Material Overhead Defaulting<a name="d0e22085" id="d0e22085"></a></b></h3>
+<p>For ease in assigning material overheads to items, you may choose to default them when an item is first defined rather than manually associating them item by item. You default material overhead in layer costing the same as in standard costing. You can create defaults to apply at the organization level or at an item category level. Within either of these, you can choose the default to apply to make or buy items only, or to all items.</p>
+<p>If you define more than one rate or amount for the same material overhead subelement, the order of priority is category level make or buy items, category level all items, organization level make or buy items, and organization level all items, with the higher priority rate/amount taking precedence and overriding any other. If you want to apply more than one material overhead, then you must use different subelements. When you change material overhead defaults, the change that you make applies only to items defined later; there is no impact to existing items. See: <a href="T372621T372759.htm#t_fdmod">Defining Material Overhead Defaults</a>.</p>
+<h3><a id="T410199"></a><b>Assembly Scrap<a name="d0e22102" id="d0e22102"></a></b></h3>
+<p>The WIP Require Scrap Account parameter determines how assembly scrap is handled. If you enter a scrap account as you move assemblies into scrap, then the transaction is costed by an algorithm that calculates the cost of each assembly through the operation at which the scrap occurred. The scrap account is debited, and the job elemental accounts are credited. If you do not enter a scrap account, the cost of scrap remains in the job. If the job is then completed using the final completion option in the Completion Transactions window, the cost is included in the finished assembly cost. Otherwise, the cost is written off as a variance when the nonstandard asset and standard discrete jobs are closed and when nonstandard expense jobs are closed for the period.</p>
+<p>If you enter a scrap account as you move assemblies out of a scrap intraoperation step, the above accounting transactions are reversed.</p>
+<h3><a id="T410200"></a><b>Assembly Completions Out of WIP<a name="d0e22114" id="d0e22114"></a></b></h3>
+<p>When finished assemblies are completed from a job to inventory, they are costed in System Calculated - Actual Resources.</p>
+<p>You set the default for the <i>Completion Cost Source</i> through the <i>Default Completion Cost Source</i> parameter in the WIP Parameters window.</p>
+<p>These parameters are the defaults in the WIP Accounting Class window as you define standard and non-standard discrete accounting classes.</p>
+<p>If you choose System Calculated, then you must choose the system option, <i>Use Actual Resources</i> because <i>Use Pre-defined Resources</i> is not available. The system option determines how the applicaton calculates costs.</p>
+<p>If you choose User Defined, then you must choose a cost type.</p>
+<p>If you choose System Calculated, then you can override the Default Completion Cost Source parameter.</p>
+<p>If you choose System calculated, then select a system option. If you select Use Actual Resources, then the unit cost to be relieved from the job is calculated based on actual job charges and is charged to inventory as each unit is completed. This algorithm costs the completions using a prorated amount of actual resources charged to the job and material usages as defined on the assembly bill, multiplied by the layer costs in the job.</p>
+<p><strong><span>Note:</span></strong> For completions out of a nonstandard job having no routing, this algorithm selects the unit cost from the Layer cost type. This method works best for jobs that have resources charged in a timely manner.</p>
+<p>Job assemblies completed in the same transaction have the same layer unit cost.</p>
+<p>As part of a completion transaction, the unit cost of the assembly in inventory is recalculated when it is different from the unit cost used in the completion transaction.</p>
+<h3><a id="T410201"></a><b>Overcompletions<a name="d0e22160" id="d0e22160"></a><a name="d0e22166" id="d0e22166"></a></b></h3>
+<p>If you have overcompleted a job, then it is not necessary to change the job quantity.</p>
+<h3><a id="T410202"></a><b>Final Completion<a name="d0e22178" id="d0e22178"></a></b></h3>
+<p>The Final Completion option check box in the WIP Assembly Completion window allows an additional costing option for the assemblies currently being completed:</p>
+<p><i>Enabled</i>: Costs these assemblies by taking the current job balances and spreading them evenly over the assembly units being completed or taking them to variance.</p>
+<p><i>Disabled</i> : Costs these assemblies according the Completion Cost Source method set.</p>
+<p>Final completions ensure that no positive or negative residual balances are left in the job after the current assembly has been completed.</p>
+<p><strong><span>Note:</span></strong> Use of the final completion option is unrelated to whether or not this is the last completion of the job.</p>
+<p>The WIP Auto Compute Final Completion parameter setting determines whether the Final Completion option check box defaults to selected (enabled) or clear (disabled).</p>
+<p><strong><span>Note:</span></strong> When the last assembly in a job is a scrap, a residual balance may remain in the job, regardless of how you have chosen to deal with assembly scrap (see Assembly Scrap paragraph above), because the above routine for clearing the job balance is not invoked.</p>
+<h3><a id="T410203"></a><b>Assembly Returns<a name="d0e22208" id="d0e22208"></a></b></h3>
+<p>If you return completed assemblies back to a job, then the assemblies being returned are valued at the layer cost of all completions in this job (net of any prior completion reversals), if the completion cost source is <i>System Calculated</i> and the <i>Use Actual Resources</i> option. If the completion cost source is <i>User-defined</i>, then the assembly is returned at User-defined costs.</p>
+<h3><a id="T410204"></a><b>WIP Job Closures and Cancellations<a name="d0e22227" id="d0e22227"></a></b></h3>
+<p>Define variance accounts for each standard and non-standard discrete WIP accounting class. Any balance remaining in a job after it has been closed is written off elementally to these accounts.</p>
+<p>Just prior to job closure, either all costs in the job have been relieved, leaving a zero balance, or a balance will be left in the job. If the job was completed, all units required were either completed or rejected / scrapped. If you used the Final Completion option, then the job balance is zero. The final units completed have absorbed all remaining job costs into their value.</p>
+<p>However if the job balance is not zero, it is written off to the elemental variance accounts defined for the job's WIP accounting class. A residual job balance may remain under the following conditions:</p>
+<ul>
+<li>
+<p>On the element by level, the job was over-relieved, resulting in a negative net activity for that element by level in the WIP Value Summary.</p>
+</li>
+<li>
+<p>All assemblies were completed, but the final completion was not used.</p>
+</li>
+<li>
+<p>A late transaction was posted after the completions.</p>
+</li>
+<li>
+<p>The job was cancelled and closed short (not all assemblies were completed / rejected).</p>
+</li>
+</ul>
+<p>The elemental account for the job's WIP accounting class should be different from the Cost Variance account.</p>
+<h3><a id="T410205"></a><b>Cost Variances</b></h3>
+<p>Define this account in organization parameters. All variances occurring in any subinventory within an organization are charged to the same account. This account is charged if you choose to allow negative quantities in inventory or a transaction results in a negative amount in inventory for one or more cost elements of an item.</p>
+<h3><a id="T410206"></a><b>Miscellaneous Issues</b></h3>
+<p>You can enter a transaction unit cost when performing a Miscellaneous Issue transaction. Because entering a cost that is significantly different from the layer can cause large swings in the unit cost of remaining on-hand inventory, you should not allow the cost to be entered.</p>
+<h3><a id="T410207"></a><b>Layer Cost Update</b></h3>
+<p>You can manually change the layer cost of an item by performing an Layer Cost Update transaction. The Update Layer Cost window is used to enter cost transaction information for inventory layers. You first select to display the appropriate transaction records. You can perform a mass change for multiple layers in a group including cost, account number, and reason values.</p>
+<p><strong><span>Note:</span></strong> You should perform layer cost updates only to correct transaction costing errors that affect items in subinventory. If the cost error originates from a WIP issue transaction, then the impacted quantities must be returned to a subinventory, corrected there, then reissued to WIP after the update is completed.</p>
+<h2><a name="2974582"></a><a id="T450420"></a><b>Updating Layer Costs</b></h2>
+<p><a name="d0e22280" id="d0e22280"></a><a name="d0e22286" id="d0e22286"></a><a name="d0e22292" id="d0e22292"></a><a name="c_layupdate" id="c_layupdate"></a><a name="CSTFELCU_UPDATES_QF_WINDOW" id="CSTFELCU_UPDATES_QF_WINDOW"></a><a name="CSTFELCU_UPDATES_WINDOW" id="CSTFELCU_UPDATES_WINDOW"></a><a name="CSTFELCU_UPDATE_DETAILS_WINDOW" id="CSTFELCU_UPDATE_DETAILS_WINDOW"></a><a name="CSTFELCU_MASS_UPDATE_DETAILS_WINDOW" id="CSTFELCU_MASS_UPDATE_DETAILS_WINDOW"></a>You can directly update each layer cost of an item to include additional costs such as freight, invoice price variances, or job variances. You can update cost elements individually, or you can update to the total cost. You can also perform a mass edit for multiple layers in a group. You can change costs by updating one of the following values in your record. These changes can be updated for a specific record, or for the total (which is proportioned across all cost elements and levels).</p>
+<p>Layer cost update transactions are inserted into the Transaction Open Interface in Oracle Inventory. Transaction details are viewed in the Create Transaction tabbed region.</p>
+<p>See: Oracle Inventory Open Interfaces, <i>Oracle Manufacturing, Distribution, Sales and Service Open Interfaces Manual.</i></p>
+<p><b>To search for records for layer cost updates</b></p>
+<ol>
+<li>
+<p>Navigate to the Update Layer Cost window.</p>
+<p>The Update Layer Cost search window displays for entering criteria.</p>
+<p><img width="754" height="505" src="./img/cst_updlaycst.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Update Transaction Region, select a transaction date within any open period.</p>
+</li>
+<li>
+<p>Select Layer Cost Update in the Type field.</p>
+</li>
+<li>
+<p>Optionally, you can enter a Source type to describe the origins for transactions.</p>
+</li>
+<li>
+<p>Select an expense account in the Adjustment Acct field.</p>
+</li>
+<li>
+<p>In the Item region, select the item for the layer cost update.</p>
+<p>The description, unit of measure, and cost group information defaults.</p>
+<p>If the Project References Enabled and Project Cost Collection Enabled parameters are set in the Organization Parameters window in Oracle Inventory, you can select a cost group. See: Organization Parameters Window, <i>Oracle Inventory User's Guide</i>. If these parameters are not set, the organization's default cost group is used.</p>
+</li>
+<li>
+<p>Optionally, you can filter your search by selecting information in the Inventory Layer region. Select a value in the Create Transaction Type field for the transaction creating the inventory layer.</p>
+</li>
+<li>
+<p>Select a value in the Transaction Source Type field for the type of transaction that created the inventory layer.</p>
+</li>
+<li>
+<p>If you have a value in the Transaction Source Type field, then you can select a value in the Create Transaction Source field. This indicates the source of the transaction that created the inventory layer.</p>
+</li>
+<li>
+<p>In the Create Transaction Date field, you can select a specific transaction date.</p>
+</li>
+<li>
+<p>If you are searching for specific layers, then select a number or range of numbers in the Layer Number field.</p>
+<p>The layer number comes from a layer belonging to the cost group and having positive layer quantity balance.</p>
+</li>
+<li>
+<p>Choose Continue to display the results of your search on the Layer Cost Update Transactions window. Or choose Clear to remove the data entry to perform a new search.</p>
+<p>The Layer Cost Update Transactions window has four tabbed regions for viewing and updating information:</p>
+<ul>
+<li>
+<p>Cost Change</p>
+</li>
+<li>
+<p>Accounts</p>
+</li>
+<li>
+<p>Comments</p>
+</li>
+<li>
+<p>Create Transaction</p>
+<p><img width="725" height="474" src="./img/cst_layercstupdt1.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To update a specific layer cost</b></p>
+<ol>
+<li>
+<p>Select the Cost Change tabbed region.</p>
+<p>Information for your search results display in the Layer Number, Layer Quantity, Create Quantity, and Layer Cost fields.</p>
+</li>
+<li>
+<p>Enter a value in one of the cost fields for that record.</p>
+<ul>
+<li>
+<p>New Layer Cost: Enter the new cost. The cost element and level, and the new total unit cost are automatically calculated when you save your work. Onhand inventory in all subinventories in the cost group is revalued.</p>
+<p><strong><span>Note:</span></strong> If you are updating the cost of an item in common inventory, then the cost of that item intransit owned by the current organization is updated.</p>
+</li>
+<li>
+<p>% Change: Enter a percentage change in this field as a whole value. The item cost is updated by this percentage value. The cost element and level, and the new total unit cost are automatically calculated when you save your work. Onhand inventory in all subinventories in the cost group is revalued.</p>
+</li>
+<li>
+<p>Layer Value Change: Enter the amount to increase or decrease the current on&ndash;hand inventory value. To decrease the value, enter a negative amount.</p>
+<p>Layer inventory is revalued by this amount, and the item's layer cost is recalculated by dividing the on&ndash;hand quantity into the new layer inventory value.</p>
+<p>To protect each element/level from becoming negative, the cost update reduces the value to zero and distributes the remainder to the cost variance account.</p>
+</li>
+<li>
+<p>Specify the adjustment quantity (Adjustment Qty) for value change.</p>
+<ul>
+<li>
+<p>If the layer quantity at the time of cost processing is greater than the user entered Adjustment Quantity, then the entire value change due to landed cost adjustment is applied to the layer's inventory valuation.</p>
+</li>
+<li>
+<p>If the layer quantity is less than the user entered Adjustment Quantity, then only the proportionate value change is applied to the layer's inventory valuation. The left-off value goes to the Expense account specified by the user.</p>
+<p><strong><span>Note:</span></strong> Adjustment Quantity can be entered only for Layer Cost Update &ndash; Value Change transaction. Adjustment Quantity cannot be entered for Layer Cost Update &ndash; New Cost or percentage transaction.</p>
+<p>See the <i>Oracle Landed Cost Management Process Guide</i> for complete details on setting up and using Landed Cost Management.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Update any changes in the other tabbed regions before saving your work. Save your work.</p>
+</li>
+</ol>
+<p><b>To update layer costs by element or level</b></p>
+<ol>
+<li>
+<p>Choose Cost Elements to display the Layer Cost Update Transactions Details window.</p>
+<p><img width="745" height="372" src="./img/cst_lupdate6.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Level field, select either This Level, or Previous Level.</p>
+</li>
+<li>
+<p>Select a value in the Cost Element field. Your choices are Material, Material Overhead, Resource, Outside Processing, or Overhead.</p>
+</li>
+<li>
+<p>For each level or element, enter a value in one of the cost fields.</p>
+<ul>
+<li>
+<p>New Layer Cost: Enter the new cost.</p>
+</li>
+<li>
+<p>% Change: Enter a percentage change in this field as a whole value.</p>
+</li>
+<li>
+<p>Layer Value Change: Enter the amount to increase or decrease the current on&ndash;hand inventory value. To decrease the value, enter a negative amount.</p>
+</li>
+</ul>
+<p>For any of the values changed, the cost element, level, and total unit cost are automatically calculated when you save your work. Onhand inventory in all subinventories in the cost group is revalued.</p>
+<p>Layer inventory is revalued by this amount and the item's layer cost is recalculated by dividing the on&ndash;hand quantity into the new layer inventory value. You cannot change the layer cost value by this method unless the item has quantity on&ndash;hand.</p>
+</li>
+<li>
+<p>Update any changes in the other tabbed regions before saving your work. Save your work.</p>
+</li>
+</ol>
+<p><b>To update layer cost by Total Cost and perform a mass change for your records</b></p>
+<ol>
+<li>
+<p>Enter a value in one of the cost Total fields.</p>
+<ul>
+<li>
+<p>New Layer Cost Total: Enter the new total.</p>
+</li>
+<li>
+<p>% Change Total: Enter a percentage change in this field as a whole value. The total cost is updated by this percentage value.</p>
+</li>
+<li>
+<p>Layer Value Change Total: Enter the amount to increase or decrease the current on&ndash;hand inventory value. To decrease the value, enter a negative amount.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Update any changes in the other tabbed regions before saving your work.</p>
+</li>
+<li>
+<p>Choose Mass Edit to update all your records displaying on this window.</p>
+<p>When you save your record, the new total cost and the amount of change is automatically proportioned across all cost elements and levels. Onhand inventory in all subinventories in the cost group is revalued.</p>
+</li>
+</ol>
+<p><b>To view and enter account information</b></p>
+<ol>
+<li>
+<p>Select the Accounts tabbed region.</p>
+</li>
+<li>
+<p>Enter values for the accounts you want to change.</p>
+<p>You can update information for the following accounts: Material, Material Overhead, Resource, Outside Processing, and Overhead.</p>
+<p>The offset to the inventory revaluation is applied to the layer cost adjustment account specified.</p>
+<p>You can update individual account records. You can also change all records displaying by entering an account value in the Total field.</p>
+<p>Enter an Expense account for adjustment quantity.</p>
+<p><img width="725" height="473" src="./img/cst_layercstupdt2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Update any changes in the other tabbed regions before saving your work.</p>
+</li>
+<li>
+<p>Save your work. For mass changes, choose Mass Edit to update all displayed records. You can use Mass Edit for adjustment quantity, and the application apportions the total adjustment quantity according to the layer quantity.</p>
+</li>
+</ol>
+<p><b>To view or add reason and reference information for transactions</b></p>
+<ol>
+<li>
+<p>Select the Comments tabbed region.</p>
+</li>
+<li>
+<p>Select a reason code in the Reason field to classify or explain the transaction.</p>
+<p><img width="755" height="491" src="./img/cst_lupdate8.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Reference field, you have the option to enter any descriptive text.</p>
+</li>
+<li>
+<p>Update any changes in the other tabbed regions before saving your work.</p>
+</li>
+<li>
+<p>Save your work. For mass changes, choose Mass Edit to update all displayed records.</p>
+</li>
+</ol>
+<p><b>To review all previous transactions for your search results</b></p>
+<p>Select the Create Transaction tabbed region. Layer number, cost, and quantity information display &ndash; along with the transaction identification number and type of transaction.</p>
+<p><img width="755" height="490" src="./img/cst_lupdate4.gif" alt="the picture is described in the document text"></p>
+<h2><a name="4188483"></a><a id="T462082"></a><b>Layer Cost</b></h2>
+<p><a name="d0e22601" id="d0e22601"></a><a name="c_layercst" id="c_layercst"></a>This section discusses those transactions that create layer cost and those transactions that use layer cost.</p>
+<h3><a id="T410213"></a><b>Receipt to Inventory<a name="d0e22612" id="d0e22612"></a><a name="d0e22618" id="d0e22618"></a><a name="T375236" id="T375236"></a></b></h3>
+<p>This includes both purchase order receipts to inventory and deliveries to inventory from receiving inspection. This does <i>not</i> include receipts to receiving inspection, which do <i>not</i> update the layer cost. Inventory calculates the transaction value as follows:</p>
+<p><b>Transaction value equals purchase order price times transaction quantity</b></p>
+<p>If the purchase order uses a foreign currency, then inventory calculates the transaction value as follows:</p>
+<p><b>Transaction value equals purchase order price converted to inventory ledger currency times transaction quantity</b></p>
+<h3><a id="T410214"></a><b>Inter-Organization Receipt<a name="d0e22645" id="d0e22645"></a><a name="T375237" id="T375237"></a></b></h3>
+<p>This includes material you receive directly from another organization and from intransit inventory. Inventory calculates the transaction value as follows:</p>
+<p><b>Transaction value equals [(cost from sending organization times transaction quantity) plus freight charges plus transfer credit charges</b></p>
+<p>For a direct receipt, the organization that receives the material does not perform a transaction. The sending organization performs a ship transaction to the receiving organization. Inventory considers the transfer a receipt in the receiving organization and creates the layer and cost accordingly.</p>
+<h3><a id="T410215"></a><b>Receipt from Account<a name="d0e22663" id="d0e22663"></a><a name="T375238" id="T375238"></a></b></h3>
+<p>This refers to a miscellaneous receipt of material from a general ledger account or account alias. Inventory calculates the transaction value as follows:</p>
+<p><b>Transaction value equals latest layer cost in inventory times transaction quantity</b></p>
+<p>However, you can enter your own layer cost. This cost is spread elementally proportional to the average layer cost elements.</p>
+<p>For example, if you enter a user-defined transaction cost of $20 for an item that has an average layer cost of $10 (distributed as shown in the following table), then the transaction elemental costs are distributed proportionally (also shown in the table):</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Cost Element</b></th>
+<th scope="col"><b>Weighted Average Layer Cost</b></th>
+<th scope="col"><b>Distribution of Transaction Cost</b></th>
+</tr>
+<tr valign="top">
+<td>Material</td>
+<td>$5</td>
+<td>$10</td>
+</tr>
+<tr valign="top">
+<td>Material Overhead (MOH)</td>
+<td>$2</td>
+<td>$4</td>
+</tr>
+<tr valign="top">
+<td>Resource</td>
+<td>$1</td>
+<td>$2</td>
+</tr>
+<tr valign="top">
+<td>Overhead</td>
+<td>$1</td>
+<td>$2</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing</td>
+<td>$1</td>
+<td>$2</td>
+</tr>
+<tr valign="top">
+<td>Total</td>
+<td>$10</td>
+<td>$20</td>
+</tr>
+</table>
+<p>See: Performing Miscellaneous Transactions, <i>Oracle Inventory User's Guide</i>.</p>
+<h3><a id="T410216"></a><b>Issue to Account<a name="d0e22766" id="d0e22766"></a><a name="T375239" id="T375239"></a></b></h3>
+<p>This refers to a miscellaneous issue of material to a general ledger account or account alias. Inventory calculates the transaction value as follows:</p>
+<p><b>Transaction value equals first layer cost in inventory times transaction quantity</b></p>
+<p>If you use the first layer's cost of the item, this transaction does not update the layer cost. For this type of transaction, you can override the defaulted first layer's cost with your own cost.</p>
+<p><strong><span>Warning:</span></strong> The difference between the prior layer's cost and the entered cost may greatly and adversely affect the layer cost of the layer consumed.</p>
+<p>See: Performing Miscellaneous Transactions, <i>Oracle Inventory User's Guide</i>.</p>
+<h3><a id="T410217"></a><b>Return to Supplier<a name="d0e22793" id="d0e22793"></a><a name="d0e22799" id="d0e22799"></a><a name="T375240" id="T375240"></a></b></h3>
+<p>This includes both purchase order returns from inventory direct to the supplier and returns to receiving inspection. Inventory calculates the transaction value as follows:</p>
+<p><b>Transaction value equals purchase order price times transaction quantity</b></p>
+<p>If the purchase order uses a foreign currency, Inventory calculates the transaction value as follows:</p>
+<p><b>Transaction value equals purchase order price converted to inventory ledger currency times transaction quantity</b></p>
+<p>Material overhead is also reversed based on the current material overhead rate(s).</p>
+<p>See: Managing Receipts, <i>Oracle Purchasing User's Guide</i> and Entering Receiving Transactions, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><a id="T410218"></a><b>Return from Customer (RMA Receipt)<a name="d0e22831" id="d0e22831"></a><a name="T375241" id="T375241"></a></b></h3>
+<p>Although this transaction is a receipt, it creates a new layer at the same cost as the original shipment. This new layer is created as a latest layer cost for LIFO without a sales order reference, an earliest positive layer cost for FIFO without a sales order reference, or an original sales order issue cost if the RMA has a sales order reference.</p>
+<p><strong><span>Tip:</span></strong> Use the layer cost update to revise this layer's cost.</p>
+<h3><a id="T410219"></a><b>Subinventory Transfer<a name="d0e22847" id="d0e22847"></a><a name="d0e22853" id="d0e22853"></a><a name="T375242" id="T375242"></a></b></h3>
+<p>This transaction uses the first layer's cost of the item to value the transfer. Since this cost is the same for all subinventories in a cost group, this transaction does <i>not</i> update the layer cost of the item in the receiving subinventory, if you transfer within the same cost group.</p>
+<h3><a id="T410220"></a><b>Negative Inventory Balances<a name="d0e22869" id="d0e22869"></a><a name="T375243" id="T375243"></a></b></h3>
+<p>When your on-hand inventory balance is negative, the transaction is split into three parts and costed as explained below:</p>
+<ol>
+<li>
+<p>The receipt creates a new layer.</p>
+</li>
+<li>
+<p>Immediately that layer replenishes the layer(s) with negative quantity. The difference in costs between the layers creates an entry to the cost variance account.</p>
+</li>
+<li>
+<p>The new layer is updated with the balance quantity.</p>
+</li>
+</ol>
+<h2><a name="2974592"></a><a id="T375141"></a><b>Viewing Layer Item Costs</b></h2>
+<p><a name="d0e22891" id="d0e22891"></a><a name="T375244" id="T375244"></a><a name="T375245" id="T375245"></a><a name="T375246" id="T375246"></a><a name="c_layvlic" id="c_layvlic"></a>You can examine your FIFO/LIFO item costs to determine how and why they have changed.</p>
+<p>The following windows can be used to assist you in this process:</p>
+<ul>
+<li>
+<p><b>View Item Costs:</b> Displays item costs and their elemental cost components (Material, Material Overhead, Resource, Overhead, and Outside Processing) for FIFO/LIFO cost types. You cannot update layer costs here.</p>
+</li>
+<li>
+<p><b>View Transaction Layer Costs:</b> Displays the cost of the consumed layer(s) for each inventory transaction and shows you how much quantity and at what cost the consumption is valued. Displays the receipt layer created or the negative layer, replenished for the receipt transactions. You can query by date/date range, specific item, transaction id, transaction source type/source.</p>
+</li>
+<li>
+<p><b>View WIP Layer Costs:</b> For issue transactions, it displays all the WIP layers by item and by operation for a specified job. The inventory layers that make up the WIP layers and their elemental costs are also displayed.</p>
+</li>
+</ul>
+<p><b>To view transaction layer costs</b></p>
+<ol>
+<li>
+<p>Navigate to the View Transaction Layer Cost window. The <a name="d0e22927" id="d0e22927"></a>Find Transaction Layer Cost window appears.</p>
+<p><img width="668" height="288" src="./img/cst_app2_1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter your search criteria. You can search for items by the following search criteria:</p>
+<ul>
+<li>
+<p>Date/date range</p>
+</li>
+<li>
+<p>Item (item description is only a display field)</p>
+</li>
+<li>
+<p>Transaction ID</p>
+</li>
+<li>
+<p>Source type and source (the source field will be enabled only after you choose a source type)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose the Find button. The results display in the View Transaction Layer Cost window.</p>
+<p><img width="755" height="504" src="./img/cst_app22.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a transaction for an item displayed in the Transactions block of the View Transaction Layer Cost window.</p>
+<p><img width="755" height="504" src="./img/cst_app23.gif" alt="the picture is described in the document text"></p>
+<p>For each transaction selected in the master block, you can view in the detail block all the layers created, consumed or replenished by the transaction. For each layer, you can view the elemental costs as well as the source type and the source of the transaction which creates the layer.</p>
+</li>
+</ol>
+<p><b>To view WIP layer costs</b></p>
+<ol>
+<li>
+<p>Navigate to the WIP Layers window.</p>
+<p><img width="755" height="504" src="./img/cst_app31.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select your job by entering a valid job number or choosing from the List of Values.</p>
+</li>
+<li>
+<p>Choose the Find button. The results display in the detail block of the WIP Layers window.</p>
+<p><img width="755" height="504" src="./img/cst_app32.gif" alt="the picture is described in the document text"></p>
+<p>For a specified job number, you can view all the material operation requirements by item, by operation. When you select a component which has been issued to the job, you can view WIP layers related to the issues with the quantity issued and relieved in the detail block. Quantity relieved represents the total of components reliefs due to assembly completions and scrap transactions.</p>
+<p>Since an issue to WIP transaction can consume multiple inventory layers, you can also view those inventory layers with their elemental costs. You can view the ID of the transaction creating the WIP layers.</p>
+</li>
+</ol>
+<h2><a name="3522254"></a><a id="T410248"></a><b>Layer Cost Valuation</b></h2>
+<p><a name="d0e23009" id="d0e23009"></a><a name="d0e23015" id="d0e23015"></a><a name="c_laycstvalua" id="c_laycstvalua"></a>Inventory continually maintains the value of inventory, updating it with each transaction. This means that you can report your inventory value quickly and accurately.</p>
+<h3><a id="T410249"></a><b>Unlimited Cost Types<a name="d0e23028" id="d0e23028"></a><a name="d0e23034" id="d0e23034"></a></b></h3>
+<p>You can define an unlimited number of cost types and use them with any inventory valuation and margin analysis reports. This allows you to compare simulation and budget cost types against your actual layer costs. You can also periodically save your layer costs into another cost type for year to year and other comparisons.</p>
+<p>When you use Oracle Bills of Material with Inventory, you can specify the cost type in explosion reports and report these costs for simulation purposes.</p>
+<h2><a name="3522256"></a><a id="T410250"></a><b>Cost Variances</b></h2>
+<p><a name="d0e23049" id="d0e23049"></a><a name="d0e23055" id="d0e23055"></a><a name="c_layercstvar" id="c_layercstvar"></a>Under layer costing, variances are generated and handled as follows:</p>
+<h3><a id="T410251"></a><b>Cost Variance<a name="d0e23068" id="d0e23068"></a><a name="d0e23074" id="d0e23074"></a></b></h3>
+<p>Cost variances are generated if you issue additional material even though the inventory balances for that material are negative. Inventory balances can be driven negative if the <i>Allow Negative Balances</i> parameter is set in the Organization Parameters window in Oracle Inventory.</p>
+<p>Return to Vendor (RTV) and Negative Delivery Adjustments can drive specified layers negative because they are layer-specified transactions. This can occur even if other layers have positive quantities.</p>
+<p>If negative quantities are allowed, when a receipt (or transfer in) transaction occurs for an item with negative on-hand inventory, the following takes place:</p>
+<ul>
+<li>
+<p>The negative layers are replenished in a FIFO or in a LIFO manner, up to the receipt quantity available. In addition, the new receipt layer is created with zero quantity.</p>
+</li>
+<li>
+<p>If the transaction quantity is greater than the absolute value of the negative on-hand quantity (that is, the on-hand quantity would be positive if the transaction were processed), then the negative layers are completely replenished in FIFO/LIFO and a new layer with the balance quantity is created.</p>
+<p>The difference between the units valued at the negative layer unit cost and those valued at the normal transaction unit cost is written to the cost variance account.</p>
+</li>
+</ul>
+<p>The Cost Variance account is also charged when a transaction results in a negative amount in inventory for one or more cost elements of an item.</p>
+<p><strong><span>Important:</span></strong> If you develop a large balance in the Cost Variance account, adjust your layer costs.</p>
+<h3><a id="T410252"></a><b>Invoice Price Variance<a name="d0e23107" id="d0e23107"></a><a name="d0e23113" id="d0e23113"></a></b></h3>
+<p>Invoice Price Variance (IPV) is the difference between the purchase price and the invoice price paid for a purchase order receipt. IPV's are generated when the invoice is processed and matched to the purchase order line items. Upon invoice approval, Oracle Payables automatically records this variance to both the invoice price variance and the exchange rate variance accounts. IPV is determined and recorded the same under both standard and average costing.</p>
+<h3><a id="T410253"></a><b>Cycle Count and Physical Inventory<a name="d0e23125" id="d0e23125"></a><a name="d0e23131" id="d0e23131"></a><a name="d0e23137" id="d0e23137"></a><a name="d0e23143" id="d0e23143"></a><a name="c_layccpi" id="c_layccpi"></a></b></h3>
+<p>Inventory considers cycle count and physical inventory adjustments as variances.</p>
+<p>Distribute these variances to the general ledger when you perform the general ledger transfer or period close.</p>
+<h3><a id="T410254"></a><b>Borrow Payback Variance<a name="d0e23158" id="d0e23158"></a><a name="d0e23164" id="d0e23164"></a></b></h3>
+<p>Under project manufacturing costing, borrow/payback variance accounts are set up in the Cost Group window to make it possible for one project to borrow from another and return (payback) in the original cost.</p>
+<h2><a name="3522263"></a><a id="T410255"></a><b>Layer Cost Transactions</b></h2>
+<p><a name="d0e23177" id="d0e23177"></a><a name="d0e23183" id="d0e23183"></a><a name="c_layercsttrans" id="c_layercsttrans"></a>The following types of cost transactions can occur:</p>
+<ul>
+<li>
+<p><a href="T372621T375126.htm#c_laytxspur">Layer Costing Purchasing Transactions</a></p>
+</li>
+<li>
+<p><a href="T372621T375126.htm#c_laytxsinv">Layer Costing Inventory Transactions</a></p>
+</li>
+<li>
+<p><a href="T372621T375126.htm#c_laytxsomse">Layer Costing Order Management/Shipping Transactions</a></p>
+</li>
+<li>
+<p><a href="T372621T375126.htm#c_laytxupdate">Layer Cost Update</a></p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> Layer Cost Transactions use default accounts. If Subledger Accounting (SLA) is enabled and SLA rules are customized, then the default accounts are not used.</p>
+<h2><a name="3522264"></a><a id="T410256"></a><b>Layer Costing Purchasing Transactions</b></h2>
+<p><a name="d0e23217" id="d0e23217"></a><a name="d0e23223" id="d0e23223"></a><a name="c_laytxspur" id="c_laytxspur"></a>This section shows accounting entries for layer costing purchasing transactions.</p>
+<p><strong><span>Note:</span></strong> The following accounts are the default accounts when layer costing is used. If Subledger Accounting (SLA) is enabled and SLA rules are customized, then the default accounts are not used.</p>
+<h3><a id="T410257"></a><b>Purchase Order Receipt to Receiving Inspection<a name="d0e23239" id="d0e23239"></a><a name="d0e23245" id="d0e23245"></a><a name="T375247" id="T375247"></a><a name="c_laytxporri" id="c_laytxporri"></a></b></h3>
+<p>You can use the Receipts window in Oracle Purchasing to receive material or outside processing items from a supplier into a receiving location (destination type equals receiving). You can also use this window to receive material directly to inventory.</p>
+<p>When you receive material or outside processing items from a supplier into receiving inspection, the Receiving Inspection account is debited and the Inventory A/P Accrual account is credited based on the quantity received and the purchase order price.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Receiving Inspection account at PO cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory A/P Accrual account at PO cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><strong><span>Important:</span></strong> If a purchase order line item lacks a defined price, the system uses zero to value the transaction.</p>
+<h3><a id="T410258"></a><b>Delivery From Receiving Inspection to Inventory<a name="d0e23299" id="d0e23299"></a><a name="d0e23305" id="d0e23305"></a> <a name="T375248" id="T375248"></a></b></h3>
+<p>You can use the Receiving Transactions window to move material from receiving inspection to inventory. The system uses the quantity and the purchase order price of the delivered item to update the receiving inspection account and quantity. The system uses the layer cost. Here are the accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Account</td>
+<td>Debit</td>
+<td>Credit</td>
+</tr>
+<tr valign="top">
+<td>Organization Material account at PO cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Receiving Inspection account at PO cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>A new layer is created at PO price.</p>
+<h4><a id="T410259"></a><b>Material Overhead</b></h4>
+<p>If your item has material overhead(s), you earn material overhead on deliveries from receiving inspection. Here are the accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Material Overhead Absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T410260"></a><b>Foreign Currencies</b></h4>
+<p>If the purchase order uses a foreign currency, the purchase order cost is converted to the ledger currency before the accounting entries are generated. This converted value is used for receiving accounting purposes.</p>
+<p>The layer cost is recalculated using the transaction value of the purchase price converted to the inventory ledger currency times the transaction quantity.</p>
+<h4><a id="T410261"></a><b>Expense Subinventories and Expense Inventory Items</b></h4>
+<p>With Oracle Purchasing and Inventory, there are two types of expense items. Purchasing has non-inventory purchases, such as office supplies or capital equipment. These items use an expense destination type for the purchase order's distribution information. You can inspect these purchasing items in receiving, but you cannot deliver these items into inventory.</p>
+<p>However, expense inventory items can be stocked in a subinventory, but cannot be valued. Expense inventory items use an inventory destination type for the purchase order's distribution information. Expense inventory items can be delivered into both expense or asset subinventories.</p>
+<p>When you receive to expense locations or receive expense inventory items, here are the accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory Expense account at PO cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory A/P Accrual account at PO cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>When you receive into an expense subinventory or receive an expense (non-asset) inventory item, the system debits the subinventory expense account instead of the valuation accounts.</p>
+<p>See: Entering Receiving Transactions, <i>Oracle Purchasing User's Guide</i>, Defining Ledgers, <i>Oracle General Ledger User's Guide</i> and Organization Parameters Window, <i>Oracle Inventory User's Guide</i></p>
+<h3><a id="T410262"></a><b>Purchase Order Receipt to Inventory<a name="d0e23471" id="d0e23471"></a><a name="d0e23477" id="d0e23477"></a><a name="T375249" id="T375249"></a></b></h3>
+<p>You can use the Receipts window to receive material directly from a supplier to inventory (destination type equals inventory).</p>
+<p>When you receive material from a supplier directly to inventory, a receipt and delivery transaction are performed in one step.</p>
+<p>Here are the accounting entries for the receipt portion of the transaction:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Receiving Inspection account at PO cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory A/P Accrual account at PO cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Here are the accounting entries for the delivery portion of the transaction:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Organization Material account at PO cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Receiving Inspection account at PO cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T410263"></a><b>Material Overhead</b></h4>
+<p>If your item has material overhead(s), you earn material overhead on the delivery portion of the transaction. Here are the accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Organization Material Overhead account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Material Overhead Absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T410264"></a><b>Foreign Currencies</b></h4>
+<p>The layer cost is recalculated using the transaction value of the purchase price converted to the inventory ledger currency times the transaction quantity.</p>
+<h3><a id="T410265"></a><b>Return To Supplier From Receiving<a name="d0e23619" id="d0e23619"></a><a name="d0e23625" id="d0e23625"></a><a name="T375250" id="T375250"></a><a name="c_layrtvr" id="c_layrtvr"></a></b></h3>
+<p>Use Receiving Returns and Receiving Corrections windows to return material from receiving inspection or from inventory to a supplier. If you use receiving inspection and you have delivered the material into inventory, then you must first return the goods to receiving before you can return to the supplier. For a return from inspection, the system decreases the receiving inspection balance and reverses the accounting entry created for the original receipt. To decrease the inventory balance, the return to supplier transaction uses the purchase order cost.</p>
+<p>Entering Returns, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><a id="T410266"></a><b>Return To Supplier From Inventory<a name="d0e23642" id="d0e23642"></a><a name="d0e23648" id="d0e23648"></a><a name="T375251" id="T375251"></a><a name="c_laytxrtvi" id="c_laytxrtvi"></a></b></h3>
+<p>When you do not use receiving inspection, the return to supplier transaction updates the same accounts as the direct receipt to inventory, with reverse transaction amounts. To decrease the inventory balance, the return to supplier transaction uses the purchase order cost.</p>
+<h4><a id="T410267"></a><b>Foreign Currencies</b></h4>
+<p>As with the purchase order receipts to inventory, if the purchase order uses a foreign currency, the purchase order cost is converted to the ledger currency before the accounting entries are generated.</p>
+<p>See: Entering Returns, <i>Oracle Purchasing User's Guide</i>.</p>
+<h2><a name="3522276"></a><a id="T410268"></a><b>Layer Costing Inventory Transactions</b></h2>
+<p><a name="d0e23675" id="d0e23675"></a><a name="d0e23681" id="d0e23681"></a><a name="c_laytxsinv" id="c_laytxsinv"></a>This section describes the accounting entries for layer costing inventory transactions.</p>
+<p><strong><span>Note:</span></strong> The following accounts are the default accounts when layer costing is used. If Subledger Accounting (SLA) is enabled and SLA rules are customized, then the default accounts are not used.</p>
+<h3><a id="T410269"></a><b>Miscellaneous Transactions<a name="d0e23697" id="d0e23697"></a><a name="d0e23703" id="d0e23703"></a><a name="c_laytxmisc" id="c_laytxmisc"></a></b></h3>
+<p>You can use the Miscellaneous Transaction window to issue items from a subinventory to a general ledger account (or account alias) and to receive items into a subinventory from an account / account alias. An account alias identifies another name for a general ledger account that you define.</p>
+<p><strong><span>Tip:</span></strong> Use account aliases for account numbers you use frequently. For example, use the alias SCRAP for your general ledger scrap account.</p>
+<p>Here are the accounting entries for issuing material from a subinventory to a general ledger account or alias:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Entered G/L account at layer cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts at layer cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Here are the accounting entries for receiving material to a subinventory from an account or an alias:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts at layer cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Entered G/L account at layer cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> Under layer costing, you can enter a unit cost which the system uses in place of the layer cost.</p>
+<p>Performing Miscellaneous Transactions, <i>Oracle Inventory User's Guide</i>.</p>
+<h4><a id="T410270"></a><b>Expense Subinventories and Expense Items</b></h4>
+<p>When you receive into an expense location or receive an expense item, you have expensed the item. If you use the miscellaneous transaction to issue from an expense location, you can issue to an account or to an asset subinventory of the <i>INV:Allow Expense to Asset Transfer</i> profile option in Oracle Inventory is set to Yes. If issued to an account the system assumes the item is consumed at the expense location and moves the quantity without any associated value. If transferred to an asset subinventory, the item moves at its current cost.</p>
+<p>When you receive an expense item to either an asset or expense subinventory, no accounting occurs. Since the account balance could involve different costs over time, the system assumes the cost of the expense item is unknown.</p>
+<h4><a id="T410271"></a><b>Transaction Unit Cost</b></h4>
+<p><strong><span>Caution:</span></strong> Transaction unit costs can be entered when you perform a miscellaneous transaction in Inventory. However, entering a cost that is significantly different from the layer can cause large swings in the unit cost of remaining on-hand inventory. Oracle recommends you take the appropriate measures to control the ability to enter the transaction unit cost.</p>
+<h3><a id="T410272"></a><b>Subinventory Transfers<a name="d0e23826" id="d0e23826"></a><a name="d0e23832" id="d0e23832"></a><a name="T375253" id="T375253"></a></b></h3>
+<p>Use the Subinventory Transfer window to move material from one subinventory to another. If you specify the same subinventory as the From and To Subinventory, you can move material between locators within a subinventory.</p>
+<p>Since you use the same valuation accounts for your subinventories (the organization inventory valuation accounts), this transaction has no net effect on overall inventory value. The net effect is zero.</p>
+<h4><a id="T410273"></a><b>Expense Subinventories and Expense Items</b></h4>
+<p>You can issue from an asset to an expense subinventory, and you can issue from an expense subinventory if the Oracle Inventory <i>INV:Allow Expense to Asset Transfer</i> profile option is set to Yes. The application assumes the item is consumed at the expense location.</p>
+<p>See: Transferring Between Subinventories, <i>Oracle Inventory User's Guide</i>.</p>
+<h3><a id="T410274"></a><b>Cycle Count and Physical Inventory<a name="d0e23864" id="d0e23864"></a><a name="d0e23870" id="d0e23870"></a><a name="d0e23876" id="d0e23876"></a><a name="d0e23882" id="d0e23882"></a><a name="T375254" id="T375254"></a></b></h3>
+<p>You can use cycle counting and physical inventory to correct your inventory on-hand balances.</p>
+<p>If you physically count more than your on-hand balance, then here are the accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts at layer cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Adjustment account at layer cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>If you count less than your on-hand balance, then here are the accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Adjustment account at layer cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts at layer cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>The accounting entries for physical inventory adjustments are the same as those for cycle counts.</p>
+<p><strong><span>Tip:</span></strong> Since the quantities, not the layer cost, is kept when you freeze the physical inventory, you should not perform any transactions that might affect your layer costs until you have adjusted your physical inventory.</p>
+<h4><a id="T410275"></a><b>Expense Subinventories and Expense Items</b></h4>
+<p>The system does not record accounting entries when physical inventory or cycle count adjustments involve expense subinventories or expense items. However, quantity balances in expense subinventories are corrected if the quantities in these subinventories are tracked.</p>
+<p><strong>Related Topics</strong></p>
+<p>Overview of Cycle Counting, <i>Oracle Inventory User's Guide</i>,</p>
+<p>Entering Cycle Counts, <i>Oracle Inventory User's Guide</i>,</p>
+<p>Overview of Physical Inventory, <i>Oracle Inventory User's Guide</i>, and</p>
+<p>Processing Physical Inventory Adjustments, <i>Oracle Inventory User's Guide</i>.</p>
+<h2><a name="3522289"></a><a id="T410295"></a><b>Layer Costing Order Management/Shipping Execution Transactions</b></h2>
+<p><a name="d0e24009" id="d0e24009"></a><a name="d0e24015" id="d0e24015"></a><a name="c_laytxsomse" id="c_laytxsomse"></a>This section shows accounting entries for layer costing order management and shipping transactions.</p>
+<p><strong><span>Note:</span></strong> The following accounts are the default accounts when layer costing is used. If Subledger Accounting (SLA) is enabled and SLA rules are customized, then the default accounts are not used.</p>
+<h3><a id="T410296"></a><b>Sales Order Shipments<a name="d0e24031" id="d0e24031"></a><a name="d0e24037" id="d0e24037"></a> <a name="c_laytxsos" id="c_laytxsos"></a><a name="T375255" id="T375255"></a></b></h3>
+<p>You ship material on a sales order using Oracle Order Shipping Execution. Here are the accounting entries for sales order shipments:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Cost of Goods Sold account at layer cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts at layer cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><strong><span>Important:</span></strong> You do not create any accounting information when you ship from an expense subinventory or ship an expense inventory item.</p>
+<h3><a id="T410297"></a><b>RMA Receipts<a name="d0e24092" id="d0e24092"></a><a name="d0e24098" id="d0e24098"></a><a name="c_laytxrmarc" id="c_laytxrmarc"></a><a name="T375256" id="T375256"></a></b></h3>
+<p>You can receive items back from a customer using the RMA (return material authorization) Receipts window. Non-referenced RMA receipts are made at the earliest or latest layer cost, depending on whether it is FIFO or LIFO respectively.</p>
+<p>Here are the accounting entries for an RMA receipt:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts at latest cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Cost of Goods Sold account at latest cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Deferred Cost of Goods Sold account at latest cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>You use the same account as the original cost of goods sold transaction.</p>
+<p><strong><span>Important:</span></strong> You do not create any accounting entries for a return to an expense subinventory or return for an expense inventory item.</p>
+<p>See: Return Material Authorizations, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><a id="T410298"></a><b>RMA Returns<a name="d0e24172" id="d0e24172"></a><a name="d0e24178" id="d0e24178"></a><a name="c_layrmart" id="c_layrmart"></a><a name="T375257" id="T375257"></a></b></h3>
+<p>You can return items received into inventory through an RMA back to the customer using the RMA Returns window. For example, you can send back - &ldquo;return" - an item that was returned by the customer to you for repair.</p>
+<p>This transaction reverses an RMA receipt. It also mimics a sales order shipment and updates the same accounts as a sales order shipment.</p>
+<p>Here are the accounting entries for an RMA return:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Cost of Goods Sold account at layer cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred Cost of Goods Sold account at layer cost</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts at layer cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><strong><span>Important:</span></strong> You do not create any accounting entries when you return a customer RMA from an expense subinventory or for an expense inventory item.</p>
+<p>See: Return Material Authorizations, <i>Oracle Purchasing User's Guide</i>.</p>
+<h2><a name="3522293"></a><a id="T410299"></a><b>Layer Cost Update</b></h2>
+<p><a name="d0e24253" id="d0e24253"></a><a name="d0e24257" id="d0e24257"></a><a name="c_laytxupdate" id="c_laytxupdate"></a>You can view and update the layer cost of an item by cost element and level (this level and previous level). You can update layer costs using a percentage change, a new layer cost, or a value change. A change made to the total unit cost of an item is spread to all cost elements and levels in the same proportion as they existed before the update.</p>
+<p>The offset to the inventory revaluation in all cases above will be booked to the Layer Cost Adjustment account(s) you specified at the time you perform the update.</p>
+<p><strong><span>Note:</span></strong> The layer cost update feature is intended to be used sparingly to correct a transaction costing error affecting items in subinventory. If the cost error is in WIP, the impacted quantities will need to be returned to a subinventory, corrected there, then reissued to WIP after the update has been completed.</p>
+<p>If the adjustment increases inventory, then here are the accounting entries:</p>
+<p><strong><span>Note:</span></strong> The following accounts are the default accounts when layer costing is used. If Subledger Accounting (SLA) is enabled and SLA rules are customized, then the default accounts are not used.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Adjustment account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>If the adjustment decreases inventory, then here are the accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Adjustment account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T375126.htm#c_layupdate">Updating Layer Costs</a></p>
+<h2><a name="3522295"></a><a id="T410300"></a><b>Manufacturing Transactions</b></h2>
+<p><a name="d0e24362" id="d0e24362"></a><a name="d0e24368" id="d0e24368"></a><a name="c_mfgtransact" id="c_mfgtransact"></a>The following cost transactions can occur when Oracle Work in Process is installed:</p>
+<ul>
+<li>
+<p>Component Issue and Return Transactions</p>
+</li>
+<li>
+<p>Move Transactions</p>
+</li>
+<li>
+<p>Resource Charges</p>
+</li>
+<li>
+<p>Outside Processing Charges</p>
+</li>
+<li>
+<p>Overhead Charges</p>
+</li>
+<li>
+<p>Assembly Scrap Transactions</p>
+</li>
+<li>
+<p>Assembly Completion Transactions</p>
+</li>
+<li>
+<p>Assembly Returns</p>
+</li>
+<li>
+<p>Job Close Transactions</p>
+</li>
+<li>
+<p>Period Close Transactions</p>
+</li>
+</ul>
+<h3><a id="T410301"></a><b>Component Issue and Return Transactions in Layers<a name="d0e24410" id="d0e24410"></a><a name="d0e24416" id="d0e24416"></a><a name="d0e24422" id="d0e24422"></a><a name="d0e24428" id="d0e24428"></a><a name="T375258" id="T375258"></a><a name="c_laytxcirt" id="c_laytxcirt"></a></b></h3>
+<p>You can perform the following transactions:</p>
+<ul>
+<li>
+<p>Issue component items to jobs from an inventory layer</p>
+</li>
+<li>
+<p>Return components from jobs back to inventory, creating a layer</p>
+</li>
+<li>
+<p>Issue or return directly by performing a WIP material transaction or by using the Inventory Transaction Interface</p>
+</li>
+<li>
+<p>Backflush components using the Move Transactions and Completion Transactions windows in WIP, the Receipts window in Purchasing (for outside processing), or by using the WIP Open Move Transaction Interface</p>
+</li>
+</ul>
+<h4><a id="T410302"></a><b>Costing Issue and Return Transactions</b></h4>
+<p>Issue transactions increase the WIP valuation and decrease the inventory valuation. Components issued to or returned from jobs are valued at the inventory layer cost in effect at the time of the transaction. Components issued to a job or returned from a job in several different transactions may have different unit costs for each transaction. If a component's unit cost is composed of more than one cost element, this elemental detail continues to be visible after it is charged to a job.</p>
+<p>Here are the accounting entries for issue transactions:</p>
+<p><strong><span>Note:</span></strong> The following accounts are the default accounts when layer costing is used. If Subledger Accounting (SLA) is enabled and SLA rules are customized, then the default accounts are not used.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Subinventory elemental accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Here are the accounting entries for return transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory elemental accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>See: Overview of Material Control, <i>Oracle Work in Process User's Guide</i>.</p>
+<h3><a id="T410303"></a><b>Move Transactions<a name="d0e24548" id="d0e24548"></a><a name="d0e24554" id="d0e24554"></a><a name="T375259" id="T375259"></a><a name="c_laytxmt" id="c_laytxmt"></a></b></h3>
+<p>A move transaction moves assemblies within an operation, such as from Queue to Run, or from one operation to the next. Move transactions can automatically launch operation completion backflushing and charge resources and overheads.</p>
+<p>The total quantity required at an operation is issued at the first move transaction (scrap, to move, etc.) for the operation.</p>
+<p>You can perform move transactions using the Move Transactions window, Open Move Transaction Interface, or the Receipts window in Purchasing.</p>
+<h4><a id="T410304"></a><b>Backflush Material Transactions Come From Layers and Create Layers<a name="d0e24572" id="d0e24572"></a><a name="d0e24578" id="d0e24578"></a></b></h4>
+<p>With backflushing, you issue component material used in an assembly or subassembly by exploding the bills of material, and then multiplying by the number of assemblies produced.</p>
+<p>Move transactions can create operation pull backflush material transactions that issue component material from Inventory layers into WIP layers. For backflush components under lot or serial number control, you assign the lot or serial numbers during the move transaction.</p>
+<p>When you move backward in a routing, WIP automatically reverses operation pull backflush transactions. Here are the accounting entries for move transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Here are the accounting entries for return transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>See: Overview of Material Control, <i>Oracle Work inProcess User's Guide</i>.</p>
+<h4><a id="T410305"></a><b>Moved Based Resource Charging<a name="d0e24675" id="d0e24675"></a></b></h4>
+<p>As the assemblies you build pass through the operations on their routings, move transactions charge all pre-assigned resources with an auto-charge type of WIP Move at their standard rate.</p>
+<p>You can charge resources based upon a fixed amount per item moved in an operation (Item basis) or based upon a fixed lot charge per item moved in an operation (Lot basis). For resources with a basis of Lot, WIP automatically charges the lot cost upon completion of the first assembly in the operation.</p>
+<p>You can also enter manual resource transactions associated with a move, or independent of any moves. You can manually charge resources to a job, provided it has a routing. You can also transact resources through the Open Resource Transaction Interface.</p>
+<p>See: Overview of Resource Management, <i>Oracle Work in Process User' Guide</i>.</p>
+<h3><a id="T410306"></a><b>Resource Charges<a name="d0e24700" id="d0e24700"></a><a name="d0e24706" id="d0e24706"></a><a name="d0e24712" id="d0e24712"></a><a name="T375260" id="T375260"></a><a name="c_laytxres" id="c_laytxres"></a></b></h3>
+<p>WIP supports four resource auto-charging methods: Manual, WIP Move, PO Move, and PO Receipt. You can charge resources at an actual rate. You can also charge resource overheads automatically as you charge resources.</p>
+<h4><a id="T410307"></a><b>WIP Move Resource Charges<a name="d0e24726" id="d0e24726"></a></b></h4>
+<p>You can automatically charge resources at predefined rates to a job when you perform a move transaction using either the Move Transaction window or the Open Move Transaction Interface. When you move assemblies from the queue or run intraoperation steps forward to the to move, reject, or scrap intraoperation steps, or to the next operation, WIP charges all pre-assigned resources with an charge type of WIP Move at their predefined rate.</p>
+<p>For resources with a basis of item, WIP automatically charges the resource's usage rate or amount multiplied by the resource's predefined cost upon completion of each assembly in the operation. For resources with a basis of lot, WIP automatically charges the resource's usage rate or amount multiplied by the resource's predefined cost upon completion of the first assembly in the operation.</p>
+<p>You can undo the WIP Move resource charges automatically in these ways:</p>
+<ul>
+<li>
+<p>By moving the assemblies from queue or run of your current operation to queue or run of any prior operation</p>
+</li>
+<li>
+<p>By moving the assemblies from the to move, reject, or scrap intraoperation steps backward to the queue or run intraoperation steps of the same operation, or to any intraoperation step of any prior operation</p>
+</li>
+</ul>
+<h4><a id="T410308"></a><b>Phantom Costing<a name="d0e24752" id="d0e24752"></a><a name="d0e24758" id="d0e24758"></a></b></h4>
+<p>Phantom assemblies can be costed fully in Release 12. To cost the routings of the phantom, you check these BOM parameters:</p>
+<ul>
+<li>
+<p>Use Phantom Routings</p>
+</li>
+<li>
+<p>Inherit Phantom Operation Sequence</p>
+</li>
+</ul>
+<p>The overhead and resources on the phantom routing are charged at this level. Your parent assembly is costed as if the operation contained the resources and overheads of the phantom routing.</p>
+<h4><a id="T410309"></a><b>Manual Resource Charges<a name="d0e24779" id="d0e24779"></a></b></h4>
+<p>You can charge manual resources associated with a move transaction or independently of any moves. Manual resource transactions require you to enter the actual resource units applied rather than autocharging the resource's usage rate or amount based on the move quantity. You can charge resources using that resource's unit of measure or any valid alternate. You can manually charge resources to a job, provided that it has a routing.</p>
+<p>If you use the Move Transactions window to perform moves and manual resource transactions at the same time, WIP displays all pre-assigned manual resources with a charge type of manual assigned to the operations completed in the move. If the resource is a person, you can enter an employee number.</p>
+<p>In addition to the resources that appear, you can manually charge any resource to a job, even if you have not previously assigned the resource to an operation in the job. You can also manually charge resources to an operation added ad hoc by entering any resource defined for the department associated with the operation.</p>
+<p>You can correct or undo manual resource transactions by entering negative resource units worked.</p>
+<h4><a id="T410310"></a><b>Costing Labor Charges at Actual<a name="d0e24797" id="d0e24797"></a><a name="d0e24803" id="d0e24803"></a></b></h4>
+<p>You can charge labor charges at actual in two ways. You can enter an actual rate for the employee using the Open Resource Transaction Interface or when you define employee rates. For labor charges using an actual or employee rate for a resource for which charge standard rate is turned off, here are the accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class resource valuation account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Resource absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>If you enter an actual rate for a resource for which Charge Standard Rate is enabled, WIP charges the job at a predefined amount. If Autocharge is set to manual and actual rates and quantities are recorded, then a rate variance is recognized immediately for any rate difference. Here are the accounting entries for the actual labor charges:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class resource valuation account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Resource rate variance account (Debit when actual rate is greater than the standard rate. Credit when the actual rate is less than the standard rate.)</td>
+<td>XX</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Resource absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T410311"></a><b>PO Receipt and PO Move Transactions<a name="d0e24899" id="d0e24899"></a><a name="d0e24905" id="d0e24905"></a></b></h4>
+<p>You can receive purchased items associated with outside resources from an outside processing operation back into WIP in Oracle Purchasing. For these items, WIP creates resource transactions at the standard or actual rate for all outside resources with an autocharge type of PO receipt or PO move.</p>
+<p>See: Overview of Resource Management, <i>Oracle Work in Process User's Guide</i> , Managing Receipts, <i>Oracle Purchasing User's Guide</i> and Overview of Outside Processing, <i>Oracle Work in Process User's Guide</i>.</p>
+<h3><a id="T410312"></a><b>Outside Processing Charges<a name="d0e24929" id="d0e24929"></a><a name="c_laytxosp" id="c_laytxosp"></a><a name="T375261" id="T375261"></a></b></h3>
+<p>WIP automatically creates resource transactions at the standard or actual rate for all outside processing resources with an charge type of PO Receipt or PO Move when you use the Receipts window in Purchasing to receive assemblies from an outside processing operation back into WIP. For outside processing resources with a charge type of PO Move, WIP also performs a move of the assemblies from the queue or run intraoperation step of your outside processing operation into the queue intraoperation step of your next operation or into the to move intraoperation step if the outside processing operation is the last operation on your routing.</p>
+<p>If you assigned internal resources to an outside operation with an charge type of manual, you use the Move Transactions window or the Open Resource Transaction Interface to charge these resources.</p>
+<p>If you return assemblies to the supplier, the system automatically reverses the charges to all automatic resources associated with the operation. You must manually reverse all manual resource charges using the Move Transactions window. For outside processing resources with an charge type of PO Move, WIP automatically moves the assemblies from the queue intraoperation step of the operation immediately following the outside processing operation into the queue intraoperation step of your outside processing operation. If the outside processing operation is the last operation on your routing, WIP automatically moves the assemblies from the to move intraoperation step to the queue intraoperation step.</p>
+<h4><a id="T410313"></a><b>Costing Outside Processing Charges at a Predefined Rate<a name="d0e24947" id="d0e24947"></a><a name="d0e24953" id="d0e24953"></a></b></h4>
+<p>When you receive the assembly from the supplier, Purchasing sends the resource charges to WIP at either a predefined cost or actual purchase order price, depending upon how you specified the standard rate for the outside processing resource.</p>
+<p>If you enabled Charge Standard Rate for the outside processing resource being charged, then Purchasing charges WIP at the standard rate. WIP then creates a purchase price variance for the difference between the standard rate and the purchase order price. Here are the WIP accounting entries for outside processing items:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class outside processing valuation account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Purchase price variance account (Debit when the actual rate is greater than the standard rate. Credit when the actual rate is less than the standard rate.)</td>
+<td>XX</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Organization Receiving account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Any quantity or usage difference is recognized as an outside processing efficiency variance at period close.</p>
+<p>Here are the accounting entries for return to supplier for outside processing:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Organization Receiving account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Purchase price variance account (Debit when actual rate is less than the standard rate. Credit when the actual rate is greater than the standard rate.</td>
+<td>XX</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class outside processing valuation account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T410314"></a><b>Costing Outside Processing Charges at Actual Purchase Order Price</b></h4>
+<p>If you disable standard option for the outside processing resource being charged, purchasing charges WIP the purchase order price and does not create a purchase price variance.</p>
+<p>Here are the accounting transactions for outside processing charges at purchase order price:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class outside processing valuation account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Organization Receiving account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>See: Overview of Shop Floor Control, <i>Oracle Work in Process User's Guide</i></p>
+<h3><a id="T410315"></a><b>Overhead Charges<a name="d0e25116" id="d0e25116"></a><a name="T375262" id="T375262"></a><a name="c_laytxoh" id="c_laytxoh"></a></b></h3>
+<h4><a id="T410316"></a><b>Moved Based Overhead Charging</b></h4>
+<p>WIP automatically charges appropriate overhead costs as you move assemblies through the shop floor. You can charge overheads directly based on move transactions or based on resource charges. For overhead charges based on move transactions with a basis of item, WIP automatically charges overheads upon completion of each assembly in the operation. WIP automatically reverses these charges during a backward move transaction.</p>
+<p>For overheads based on move transactions with a basis of lot, WIP automatically charges overheads upon completion of the first assembly in the operation. WIP automatically reverses these charges during a backward move transaction if it results in zero net assemblies completed in the operation.</p>
+<h4><a id="T410317"></a><b>Resource Based Overhead Charging<a name="d0e25138" id="d0e25138"></a></b></h4>
+<p>WIP automatically charges appropriate overhead costs as you charge resources. You can charge overheads based on resource units or values. WIP automatically reverses overhead charges when you reverse the underlying resource charge.</p>
+<h4><a id="T410318"></a><b>Costing Overhead Charges<a name="d0e25150" id="d0e25150"></a><a name="d0e25156" id="d0e25156"></a></b></h4>
+<p>Overhead charges increase WIP valuation. Here are the accounting entries for overhead charges:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class overhead account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Overhead absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>You can reverse overhead charges by entering negative manual resource charges or performing backward moves for WIP move resources.</p>
+<p>Here are the accounting entries for reverse overhead charges:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Overhead absorption account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class overhead account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>See: Overview of Shop Floor Control, <i>Oracle Work in Process User's Guide</i></p>
+<h3><a id="T410319"></a><b>Assembly Scrap Transactions<a name="d0e25254" id="d0e25254"></a><a name="d0e25260" id="d0e25260"></a><a name="T375263" id="T375263"></a><a name="c_laytxascrap" id="c_laytxascrap"></a></b></h3>
+<p>The cost of components in the assembly comes from FIFO/LIFO rules.</p>
+<p>If you move assemblies into the scrap intraoperation step of an operation and the WIP Require Scrap Account parameter is set, you must enter a scrap account number or account alias. If you do not specify that a scrap account is required, then it is optional. If you do not provide a scrap account, then the cost of scrap remains in the job or schedule until job or period close. If the job is then completed using the final completion option in the Completion Transactions window, then the cost is included in the finished assembly cost. Otherwise, the cost is written off as a variance when the non-standard asset and standard discrete jobs are closed and at period close for non-standard expense jobs.</p>
+<p>WIP considers assemblies that are moved into the scrap intraoperation step from the queue or run of the same operation as complete at that operation. Operation completion information is updated, components are backflushed, and resource and overhead costs are charged according to the elemental cost setup. See: Scrapping Assemblies, <i>Oracle Work in Process User's Guide</i>.</p>
+<p>If a scrap account is entered, then the cost of scrapped assemblies is determined using an <a name="d0e25280" id="d0e25280"></a>algorithm that calculates the assembly costs through the operation at which the scrap occurred. The scrap account is then debited; the job elemental accounts are credited. The scrap calculation uses jog requirements, rather than cost incurred. If you move assemblies out of a scrap operation step, therefore reversing the ordinal scrap transaction, these accounting entries are reversed.</p>
+<p>Here are the accounting entries for scrap transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Scrap account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts at calculated scrap value</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Here are the accounting entries for reverse scrap transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts at calculated scrap value</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Scrap account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>See: Overview of Shop Floor Control, <i>Oracle Work in Process User's Guide</i>.</p>
+<h3><a id="T410320"></a><b>Assembly Completion Transactions<a name="d0e25374" id="d0e25374"></a><a name="d0e25380" id="d0e25380"></a><a name="d0e25386" id="d0e25386"></a><a name="T375264" id="T375264"></a><a name="c_laytxacompl" id="c_laytxacompl"></a></b></h3>
+<p>Use the Completion Transactions or the WIP Move window in WIP or the Inventory Transaction Interface to receive completed assemblies from WIP into asset subinventories. Completion transactions relieve the valuation account of the accounting class and charge the Inventory Valuation accounts based upon the Cost Source.</p>
+<p>Completions are in layers. Resources, overhead, and outside processing are held at job average.</p>
+<h4><a id="T410321"></a><b>Costing Assembly Completion Transactions</b></h4>
+<p>Completions decrease WIP valuation and increase inventory valuation. Here are the accounting entries for completion transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Inventory Valuation accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T410322"></a><b>Costing Assembly Completions Using Final Completion Option<a name="d0e25445" id="d0e25445"></a><a name="d0e25451" id="d0e25451"></a></b></h4>
+<p>When the final completion option is used for an assembly completion, no residual balance, positive or negative, is left in the job. The accounting entries are different for positive and negative residual balances. Positive residual balances post to inventory and negative residual balances post to variance. The balances are held by element, by level and are not summed. Therefore, transactions per given element may have balances going to inventory and variance for the same element, at different levels.</p>
+<p>If there are positive residual balances at an assembly completion with the final completion option enabled, then here are the accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Inventory Valuation accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>If there are negative residual balances at an assembly completion with the final completion option enabled, then here are the accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class variance accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T410323"></a><b>Earning Assembly Material Overhead on Completion<a name="d0e25541" id="d0e25541"></a><a name="d0e25547" id="d0e25547"></a></b></h4>
+<p>You can assign overheads based on Item, Lot or Total Value basis. For standard discrete jobs, you can earn these overheads as you complete assemblies from WIP to inventory.</p>
+<p>Use non-standard expense jobs for such activities as repair and maintenance. Use non-standard asset jobs to upgrade assemblies, for teardown, and to prototype production.</p>
+<p><strong><span>Note:</span></strong> Unlike standard costing, in layer costing, non-standard discrete jobs earn overhead on completion.</p>
+<p>Here are the accounting entries for material overhead on completion transactions for both standard and non-standard, asset and expense jobs:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory material overhead account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory material overhead absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> Do not complete the assembly if you want to:</p>
+<ul>
+<li>
+<p>Expense all the rework cost</p>
+</li>
+<li>
+<p>Not add the cost to inventory</p>
+</li>
+<li>
+<p>Not earn material overhead</p>
+<p>Instead, return the assembly, by component return, to inventory and then close the job.</p>
+</li>
+</ul>
+<p>See: Completing and Returning Assemblies, <i>Oracle Work in Process User's Guide</i>.</p>
+<h3><a id="T410324"></a><b>Assembly Returns<a name="d0e25624" id="d0e25624"></a><a name="T375265" id="T375265"></a><a name="c_laytxaret" id="c_laytxaret"></a></b></h3>
+<p>The Completion Transactions window in WIP or the Inventory Transaction Interface is used to return completed assemblies from asset subinventories to WIP. The costing of resources, overhead, and outside processing on assembly returns differs depending on the completion cost source method: <i>system calculated</i> or <i>user-defined</i>.</p>
+<p>The layer cost worker uses the FIFO rule to select the appropriate inventory layer from the specified job to determine the amount to credit inventory. The same cost worker calculates the debit to the WIP valuation accounts as a reversal to the latest (most recent) completion(s). The difference is captured in the Cost Variance account.</p>
+<p>Assembly return costing is as follows for the two completion methods:</p>
+<ul>
+<li>
+<p><b>User defined</b> - At user-defined cost</p>
+</li>
+<li>
+<p><b>System calculated</b> - The weighted layer of previous completions of that job.</p>
+</li>
+</ul>
+<p>Returns increase WIP valuation and decrease inventory valuation. Here are the accounting entries for assembly return transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Cost Variance account</td>
+<td>XX</td>
+<td>XX</td>
+</tr>
+</table>
+<h3><a id="T410325"></a><b>Job Close Transactions<a name="d0e25708" id="d0e25708"></a><a name="d0e25714" id="d0e25714"></a><a name="d0e25720" id="d0e25720"></a><a name="T375266" id="T375266"></a><a name="c_laytxjc" id="c_laytxjc"></a></b></h3>
+<p>Until you close a job, or change the status of the job to Complete - No Charges, you can make material, resource, and scrap charges to the job. Closing a discrete job prevents any further activity on the job.</p>
+<p>The completion method has no bearing on the Cost Variance that is generated.</p>
+<h4><a id="T410326"></a><b>Costing Job Close Transactions</b></h4>
+<p>WIP recognizes variances when you close a job. The actual close date that you specify determines the accounting period WIP uses to recognize variances. You can back date the close to a prior open period if desired.</p>
+<p>The close process writes off the balances remaining in the WIP elemental valuation accounts to the elemental variance accounts that you defined by accounting class, leaving a zero balance remaining in the closed job.</p>
+<p>If there is a positive balance in the job at the end of the close, then here are the accounting entries for a job close:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class variance accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h3><a id="T410327"></a><b>Period Close Transactions - Layer Costing<a name="d0e25783" id="d0e25783"></a><a name="d0e25789" id="d0e25789"></a><a name="T375267" id="T375267"></a><a name="c_laytxpc" id="c_laytxpc"></a></b></h3>
+<p>The period close process in Inventory recognizes variances for non-standard expense jobs. It also transfers the WIP period costs to the general ledger.</p>
+<h4><a id="T410328"></a><b>Costing Nonstandard Expense Job Period Close Transactions<a name="d0e25803" id="d0e25803"></a><a name="d0e25809" id="d0e25809"></a></b></h4>
+<p>You can close a discrete job and recognize variances for non-standard expense jobs at any time. In addition, the period close process automatically recognizes variances on all non-standard expense job charges incurred during the period. Therefore, open non-standard expense jobs have zero WIP accounting balances at the start of a new period.</p>
+<p>If there is a positive balance in the job at the end of the period, then here are the accounting entries for non-standard expense jobs at period close:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class variance accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>See: <a href="T372621T378953.htm#p_period">Overview of Period Close</a>, Closing Discrete Jobs, <i>Oracle Work in Process User's Guide</i> and Defining WIP Parameters, <i>Oracle Work in Process User's Guide</i>.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

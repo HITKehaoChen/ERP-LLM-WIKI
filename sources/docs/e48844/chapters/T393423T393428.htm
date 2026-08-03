@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Using Oracle Workflow in Oracle Order Management</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Using Oracle Workflow in Oracle Order Management Guide">
+<meta name="dcterms.identifier" content="E48844-08">
+<meta name="dcterms.isVersionOf" content="OMOWF">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T393423T393427.htm" title="Previous" type="text/html">
+<link rel="Next" href="T393423T393429.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Using Oracle Workflow in Oracle Order Management","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">7/16</span> <!-- End Header -->
+<h1>Extending Oracle Order Management Seeded Workflows</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T393462">Overview</a></li>
+<li><a href="#T393463">Customizations</a></li>
+<li><a href="#T393464">Exceptions</a></li>
+<li><a href="#T393465">Extending Workflow</a></li>
+<li><a href="#T393466">Dependencies</a></li>
+<li><a href="#T393467">Guidelines</a></li>
+<li><a href="#T393468">Examples of Extending Workflow</a></li>
+</ul>
+<h2><a name="3258479"></a><a id="T393462"></a><b>Overview</b></h2>
+<p><a name="t_extend" id="t_extend"></a>This chapter provides guidelines to follow for extending the Oracle Order Management seeded workflow processes to meet your business needs. Oracle supports the extension of workflows. Extensions include using existing seeded subprocesses to build new workflow processes and modifying parameters of a subprocess without changing process logic (for example, changing the wait period of the Wait activity from month end to daily).</p>
+<p>If the Oracle Order Management seeded workflows do not meet your business processing needs, you can create new flows by using any of the following methods:</p>
+<ul>
+<li>
+<p>Copy a seeded order or line flow, change its internal name, display name, and description in the Oracle Workflow Builder. Change the definition as desired. When you copy a flow, do not delete any of the seeded activities.</p>
+</li>
+<li>
+<p>Use the seeded flows as examples to create new order or line flows using the seeded functional subprocesses and include your own custom activities in the Oracle Workflow Builder.</p>
+</li>
+</ul>
+<p><strong><span>Warning:</span></strong> Oracle provides support only for its seeded activities, processes, and the type of extensions described in this manual. Oracle does not provide support for your custom activities and processes.</p>
+<h2><a name="3258480"></a><a id="T393463"></a><b>Customizations</b></h2>
+<p><a name="d0e3645" id="d0e3645"></a>A customization changes the logic of the core application. Oracle does not support customizations to seeded workflows. Examples of customizations include:</p>
+<ul>
+<li>
+<p>Adding a new custom header activity that checks whether the order exceeds a certain currency amount, and performing special logic based on the amount.</p>
+</li>
+<li>
+<p>Using a third party invoicing module instead of Oracle Accounts Receivable for invoice interface; this creates a new activity to populate the custom tables.</p>
+</li>
+<li>
+<p>Changing the basic logic of a seeded subprocess, such as <a href="T393423T393430.htm#t_boman">Book - Order, Manual</a>. Adding or deleting activities from a seeded subprocess alters seeded data. However, you can copy and rename Book - Order, Manual and then insert a notification function activity.</p>
+</li>
+<li>
+<p>Modifying drop-ship logic.</p>
+</li>
+<li>
+<p>Modifying the integration of Oracle Order Management with another application such as Oracle Service.</p>
+</li>
+</ul>
+<p><strong><span>Warning:</span></strong> Customization refers to the modification of the logic of a process or subprocess, and is not supported by Oracle.</p>
+<h2><a name="3258481"></a><a id="T393464"></a><b>Exceptions</b></h2>
+<p><a name="d0e3677" id="d0e3677"></a>The following exceptions are supported by Oracle:</p>
+<ul>
+<li>
+<p>You may change the item attribute OM WF Administrator to another responsibility (it defaults as SYSADMIN). The OM WF Administrator item attribute is available for both the seeded OM Order Header and OM Order Line item types.</p>
+</li>
+<li>
+<p>You may tailor message bodies on seeded messages to meet your business needs.</p>
+<p><strong><span>Note:</span></strong> Any patch containing the workflow definition file will override the message. If this occurs, copy the main flow and the message, then use the message in your custom flow.</p>
+</li>
+<li>
+<p>You can set the default error process of RETRY_ONLY on any new functions, processes or flows that you define.</p>
+<p><strong><span>Note:</span></strong> The RETRY_ONLY error process supports retrying only of the activity in an error state. RETRY_ONLY does not support aborting the flow or skipping the activity in an error state. Do not specify any other error process. Do not leave the error process field empty.</p>
+</li>
+</ul>
+<p>For more information about extending workflows or to learn how to create your own workflows, refer to the <i>Oracle Workflow User's Guide</i>.</p>
+<h2><a name="3258482"></a><a id="T393465"></a><b>Extending Workflow</b></h2>
+<p><a name="d0e3708" id="d0e3708"></a>When extending existing workflows to meet your business needs, always copy the seeded process and rename both the internal and display names before modifying the workflow. This process ensures that you do not modify seeded data. It also prevents patches containing the.wft files (which contain all the seeded flows and related information) from overriding your modifications.</p>
+<p><strong><span>Warning:</span></strong> If you modify any of Oracle's seeded workflow data, your changes are not supported. Any changes to the seeded workflow data are overwritten when a patch containing the .wft file is applied.</p>
+<p>For example, you should not directly change the <a href="T393423T393430.htm#t_boman">Book - Order, Manual</a> subprocess by adding or deleting activities from it. Copy and rename what you want to change before making modifications. Do not modify predefined data; this includes all function activities, subprocesses, processes, and item attributes.</p>
+<p>Always modify a copy of a subprocess instead of function activities. For example, use the seeded Book - Order, Manual subprocess rather than the seeded <a href="T393423T393431.htm#t_book">Book</a> function activity. The subprocess is designed to handle exceptions, and it may perform other functions as well. For example, the <a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a> subprocess not only creates supply, but also determines whether an item is sourced internally or externally.</p>
+<p>Once you have modified an order or line flow, assign it to an order or line type. For more information about assigning workflows to transaction types, refer to <a href="T393423T393427.htm#t_awftt">Assigning Workflows to Transaction Types</a>.</p>
+<h2><a name="3258483"></a><a id="T393466"></a><b>Dependencies</b></h2>
+<p><a name="d0e3739" id="d0e3739"></a>Oracle Order Management requires that some workflow events occur before others. This creates certain dependencies that should not be violated. For example, shipping is dependent on booking and therefore cannot occur after booking.</p>
+<p>The following list describes dependencies in Oracle Order Management:</p>
+<ul>
+<li>
+<p>Order lines wait for booking before continuing their flow. Order lines should not invoice until after booking occurs.</p>
+</li>
+<li>
+<p>Order level booking is required and should not be removed.</p>
+</li>
+<li>
+<p>Lines should not interface to Oracle Invoicing until after shipping occurs (if a shipping activity exists in the process).</p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clord">Close - Order</a> and <a href="T393423T393430.htm#t_clline">Close - Line</a> are mandatory steps in header and line processes, respectively.</p>
+</li>
+<li>
+<p>All order header processes are created as parent flows. Processes for lines on orders are created as child (detail) flows.</p>
+</li>
+<li>
+<p>Wait for Flow and Continue Flow workflow utilities support the order (parent) - line (line or detail) coordination. The <a href="T393423T393431.htm#t_bclcmp">Book - Continue Line (Complete)</a> function activity is part of the <a href="T393423T393430.htm#t_boman">Book - Order, Manual</a> subprocess. The <a href="T393423T393431.htm#t_wbook">Wait for Booking</a> function activity is part of the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. The line flow waits for the header level Book - Order, Manual subprocess to complete before the lines continue.</p>
+</li>
+</ul>
+<p>There are several ways to extend workflow processes without violating the Oracle Order Management dependencies. The following are several examples of extending workflow:</p>
+<ul>
+<li>
+<p>You can construct a flow using only seeded sub-processes from Order Management. If the necessary dependency requirements are met, this is considered extending, and is not a customization.</p>
+</li>
+<li>
+<p>You can change the WAIT period of a seeded WAIT function activity. For instance, by default the Header Close Order sub-process will wait until the end of the month before closing the order. You could change it to wait for a different period of time.</p>
+</li>
+<li>
+<p>You could add a standard WF notification to a flow. For example, you might want to send a simple FYI notification before invoicing a line, or send a Yes/No approval notification before invoicing.</p>
+</li>
+<li>
+<p>You could add a Time Out transition such that if there is no response to a notification, the Line or Header might proceed after a defined period of time.</p>
+<p><strong><span>Note:</span></strong> Oracle Order Management supports only standard WF notifications: either an FYI notification or a notification requiring a response. Notifications that call stored PL/SQL procedures are not supported.</p>
+</li>
+</ul>
+<h2><a name="3258484"></a><a id="T393467"></a><b>Guidelines</b></h2>
+<p><a name="d0e3805" id="d0e3805"></a>When extending workflow processes to meet your business needs, stay within the following guidelines:</p>
+<ul>
+<li>
+<p>All order header processes should include the <a href="T393423T393430.htm#t_clord">Close - Order</a> subprocess. All line level processes should include the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess.</p>
+</li>
+<li>
+<p>The order header process should contain either <a href="T393423T393430.htm#t_boman">Book - Order, Manual</a> or <a href="T393423T393430.htm#t_bodefr">Book - Order, Deferred</a>, and the line level process should include <a href="T393423T393430.htm#t_entln">Enter - Line</a>.</p>
+</li>
+<li>
+<p>Do not design a line level process that conducts invoice interface before it shipping.</p>
+</li>
+<li>
+<p>Include the functional subprocess that represents the business process you are needing. If a line must conduct invoice interface, select a subprocess which performs that particular function. For example, you must include the invoice interface supprocess instead of just including the invoicing activity.</p>
+</li>
+<li>
+<p>Some workflow function activities must be configured. This is done by setting the function activity attributes. For example, with a notification activity you must set up a performer (recipient). If you use <a href="T393423T393431.htm#t_snoapp">Utility - Set Notification Approver</a> to enable you to send notification to the user/responsibility specified in the Notification Approver profile option, you must also specify the user/responsibility in the profile option.</p>
+</li>
+<li>
+<p>Always specify OMERROR/R_ERROR_RETRY as the default error process for any workflow activity you define.</p>
+<p><strong><span>Note:</span></strong> It is recommended that you include the Fulfill activity before invoice interface. Please refer to the <a href="T393423T393431.htm#t_fulfill">Fulfill</a> activity for further details.</p>
+</li>
+</ul>
+<p><b>More Guidelines on Extending Workflow</b></p>
+<p>If you are extending the seeded Order Management workflows to add workflow custom activites, please refer to the standards and procedures in the <i>Oracle Workflow Developer's Guide</i>. All PL/SQL stored procedures that are called by function or notification activities in an Oracle Workflow process should follow this standard API format so that the Workflow Engine can properly execute the activity.</p>
+<p>The Workflow Engine traps errors produced by function activities by setting a savepoint before each function activity. If an activity produces an unhandled exception, the engine performs a rollback to the savepoint, and sets the activity to the ERROR status. For this reason, you should never commit within the PL/SQL procedure of a function activity. The Workflow Engine never issues a commit as it is the responsibility of the calling application to commit.</p>
+<p>For environments such as database triggers or distributed transactions that do not allow savepoints, the Workflow Engine automatically traps "Savepoint not allowed" errors and defers the execution of the activity to the background engine.</p>
+<p>If you must use a commit/rollback, please ensure that your extension is built as an autonomous transaction that insulates the main transaction by establishing the savepoint. Adding Commit/Rollback will interfere with the referential integrity of the application and will cause data corruption and exceptions that will stop the flow of an order or its line.</p>
+<h2><a name="3258485"></a><a id="T393468"></a><b>Examples of Extending Workflow</b></h2>
+<p><a name="d0e3872" id="d0e3872"></a>This section discusses possible extensions to the seeded Oracle Order Management workflows. The extensions listed do not violate Oracle Order Management dependencies, change core logic, or violate the rules for modifying a subprocess.</p>
+<p><strong><span>Note:</span></strong> Always remember to copy the seeded process or subprocess and rename both the internal and displays name before making any modifications.</p>
+<h3><a id="T393565"></a><b><a name="d0e3885" id="d0e3885"></a>Process Parameters</b></h3>
+<p>Complete the following steps to modify the <a href="T393423T393430.htm#t_clord">Close - Order</a> subprocess to close orders more frequently than month-end.</p>
+<ol>
+<li>
+<p>Copy and rename the internal and displays names for the Close - Order subprocess.</p>
+</li>
+<li>
+<p>Modify the <a href="T393423T393431.htm#t_wait">Wait</a> function activity in the copied and renamed Close - Order subprocess. If you want the orders to close twice a day, open the property sheet of the Wait activity, select the Node Attributes tab and set the Wait Mode to Relative Time, and set the Relative Time attribute to a value of .5.</p>
+</li>
+<li>
+<p>Drag and drop this subprocess into your new header level process. Remember to modify the internal and display names of this new process.</p>
+</li>
+<li>
+<p>Attach your new process to a Transaction Type.</p>
+</li>
+</ol>
+<h3><b><a name="d0e3917" id="d0e3917"></a>Approvals</b></h3>
+<p>You can extend processes and subprocesses by adding approvals. Refer to the <i>Oracle Workflow User's Guide</i> for more information about approvals.</p>
+<p>One way to extend a workflow process using an approval is to add an approval to the header before booking. To create a process with this approval, complete the following steps:</p>
+<ol>
+<li>
+<p>Copy and rename the internal and displays names for the header level booking subprocess (<a href="T393423T393430.htm#t_boman">Book - Order, Manual</a> or <a href="T393423T393430.htm#t_bodefr">Book - Order, Deferred</a>).</p>
+</li>
+<li>
+<p>Create the approval message and notification. For more information about creating messages and notifications, refer to the <i>Oracle Workflow User's Guide.</i></p>
+</li>
+<li>
+<p>Insert the approval notification function activity into the subprocess so that the approval occurs before booking.</p>
+</li>
+<li>
+<p>Save your new subprocess and drag and drop it into a header level flow process (one that has been copied and renamed for your extensions).</p>
+</li>
+<li>
+<p>Select the performer of the notification.</p>
+</li>
+<li>
+<p>Set up a Transaction Type in Oracle Order Management that uses your new header process flow.</p>
+</li>
+</ol>
+<p>For more details on creating and extending workflows refer to the <i>Oracle Workflow User's Guide.</i></p>
+<p>Another way to extend a workflow process using an approval is to require approval for all standard line processes before a <a href="T393423T393431.htm#t_ship">Ship</a> activity can occur. To create a process with this approval, complete the following steps:</p>
+<ol>
+<li>
+<p>Copy and rename the internal and displays names for the line level subprocess (such as <a href="T393423T393429.htm#t_lfgen">Line Flow - Generic</a>).</p>
+</li>
+<li>
+<p>Create the approval message and notification. For more information about creating messages and notifications, refer to the <i>Oracle Workflow User's Guide.</i></p>
+</li>
+<li>
+<p>Set the performer of the notification.</p>
+</li>
+<li>
+<p>Insert the approval notification function activity into the subprocess so that the approval occurs before booking.</p>
+</li>
+<li>
+<p>Assign your new line process to a Transaction Type in Oracle Order Management.</p>
+</li>
+</ol>
+<p>For more details on creating and extending workflows refer to the <i>Oracle Workflow User's Guide.</i></p>
+<h3><b><a name="d0e3995" id="d0e3995"></a>Deferred Booking</b></h3>
+<p>Another extension available at the order header level is to create a process with deferred booking. To create a process with deferred booking, complete the following steps:</p>
+<ol>
+<li>
+<p>Copy and rename the internal and displays names for the order level process you want to extend (such as <a href="T393423T393429.htm#t_ofgen">Order Flow - Generic</a>).</p>
+</li>
+<li>
+<p>Remove the <a href="T393423T393430.htm#t_boman">Book - Order, Manual</a> subprocess.</p>
+</li>
+<li>
+<p>Insert the <a href="T393423T393430.htm#t_bodefr">Book - Order, Deferred</a> subprocess in place Book - Order, Manual.</p>
+</li>
+<li>
+<p>Save your new process and assign it to a Transaction Type in Oracle Order Management.</p>
+</li>
+</ol>
+<h3><b><a name="d0e4029" id="d0e4029"></a>Time-out Transition for Notifications</b></h3>
+<p>The time-out transition option is another way to extend workflow to meet business requirements. In the case of quotes, for example, a yes/no approval function activity is inserted before <a href="T393423T393430.htm#t_boman">Book - Order, Manual</a> or <a href="T393423T393430.htm#t_bodefr">Book - Order, Deferred</a>. If approved the order continues to the booking subprocess. The order closes if either of the following conditions occur:</p>
+<ul>
+<li>
+<p>The approval is rejected.</p>
+</li>
+<li>
+<p>There is no response within 30 days.</p>
+</li>
+</ul>
+<p>To set up such a process with a time-out transition, complete the following steps:</p>
+<ol>
+<li>
+<p>Copy and rename the internal and displays names for the line level subprocess (such as <a href="T393423T393429.htm#t_lfgen">Line Flow - Generic</a>).</p>
+</li>
+<li>
+<p>Create an approval message and notification. For more information about creating messages and notifications, refer to the <i>Oracle Workflow User's Guide.</i></p>
+</li>
+<li>
+<p>On the Node tab of your notification define a time-out. If you use the Relative Time time-out of 30 days, orders processed using this Transaction Type close after 30 days if the notification is not approved.</p>
+</li>
+<li>
+<p>Set the performer of the notification.</p>
+</li>
+<li>
+<p>Insert the approval notification function activity into the subprocess so that the approval occurs before booking.</p>
+</li>
+<li>
+<p>Assign your new line process to a Transaction Type in Oracle Order Management.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

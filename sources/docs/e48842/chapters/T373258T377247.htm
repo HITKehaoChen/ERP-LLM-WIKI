@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T377075.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T377248.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">15/36</span> <!-- End Header -->
+<h1>Change Management</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T377251">Processing Constraints</a></li>
+<li><a href="#T377252">Versioning</a></li>
+<li><a href="#T377319">Setup</a></li>
+<li><a href="#T377253">Open Interface Considerations</a></li>
+<li><a href="#T377254">Audit Trail</a></li>
+<li><a href="#T377320">Setup</a></li>
+</ul>
+<h2><a name="3007099"></a><a id="T377251"></a><b>Processing Constraints</b></h2>
+<a name="t_proccons" id="t_proccons"></a>
+<h3><b>Overview</b></h3>
+<p>Processing Constraints enable you to control changes to sales documents in Oracle Order Management. This chapter describes the Processing Constraints framework in detail.</p>
+<h3><b>Introduction</b></h3>
+<p>Processing constraints are rules that control who can change what and when they can change it. Processing constraints can prevent certain changes, but can also be set up to perform actions based on those changes. They can define actions that can result from these changes, such as requiring a reason for the change, triggering an action in Audit Trail or Versioning, or raising an Integration Event.</p>
+<p>With processing constraints, you can control:</p>
+<ul>
+<li>
+<p>Who can make changes based on responsibility. A constraint (rule) may apply to all responsibilities, to only a list of constrained responsibilities or to all except a list of authorized responsibilities.</p>
+</li>
+<li>
+<p>More than just what can be updated. The following operations can be controlled: Create, update, delete, cancel, and split all at the entity level. For example, given a set of conditions you may not want to allow a user to create a new order line. You can also control the update operation down to the attribute level. For example, given a set of conditions, you could choose to allow update to the warehouse field of an order line but not to the price list field.</p>
+</li>
+<li>
+<p>Changes to entities. An entity roughly corresponds to a table or window. The entities you can control in Order Management are:</p>
+<ul>
+<li>
+<p>Order Header</p>
+</li>
+<li>
+<p>Order Line</p>
+</li>
+<li>
+<p>Order Sales Credit</p>
+</li>
+<li>
+<p>Line Sales Credit</p>
+</li>
+<li>
+<p>Order Price Adjustment</p>
+</li>
+<li>
+<p>Line Price Adjustment</p>
+</li>
+<li>
+<p>Order Payment</p>
+</li>
+<li>
+<p>Line Payment</p>
+</li>
+<li>
+<p>Sales Agreement Header</p>
+</li>
+<li>
+<p>Sales Agreement Line</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Changes based on a group of conditions. The conditions must be collectively true for the constraint to fire or prevent the changes. The conditions may be based on either the state of a workflow activity (where the entity is in the flow) or a value in a table. A condition may also be based on a custom API, which means that you can call your own PL/SQL code to evaluate the condition.</p>
+</li>
+</ul>
+<p>Multiple conditions can be combined using either AND logic (all the conditions must be true) or OR logic (at least one of the conditions must be true.)</p>
+<p>A custom message can display when an attempt is made to violate a constraint.</p>
+<p>This chapter details the differences between Processing Constraints and the functionality in Order Entry that it replaced - Security Rules. It describes in detail the implications of selected values in the following forms: Processing Constraints, Validation Templates and Record Sets. Finally, set up for processing constraints is demonstrated using the following business examples:</p>
+<ul>
+<li>
+<p>No one can change the customer purchase order at the line level; your company requires that one sales order can relate to only one customer purchase order.</p>
+</li>
+<li>
+<p>No one can add a line to an order after any of the lines on the order have been invoice interfaced.</p>
+</li>
+<li>
+<p>A reason is required to cancel an order line after it has been booked.</p>
+</li>
+<li>
+<p>Only the Customer Service Manager can change the discount percentage on an order line after the line has been shipped.</p>
+</li>
+<li>
+<p>Require all return orders, identified by order type = Return, to be shipped to a central returns processing facility.</p>
+</li>
+</ul>
+<p>Constraints for drop ship functionality enable you to control changes within the drop ship flow between Oracle Order Management and Oracle Purchasing. See <a href="T373258T377247.htm#t_proccons">Processing Constraints</a> for details on these constraints.</p>
+<p>Versioning in Order Management uses constraints to enable automatic versioning. You can use validation templates for example to drive versioning by transaction type as a condition. By using the processing constraints and workflow activity, you can increment the version and determine the statuses available to version, which give you complete flexibility setting up versioning.</p>
+<p>See: <a href="T373258T377247.htm#t_version">Versioning</a></p>
+<h3><b>Background</b></h3>
+<p>Security Rules provide functionality to control changes to orders. However, they have certain limitations both in the philosophy and in implementation. In Order Management there is a processing constraints framework usable by other products.</p>
+<p>This framework provides to you the ability to:</p>
+<ul>
+<li>
+<p>Control changes based on who is trying to make them (by responsibility)</p>
+</li>
+<li>
+<p>Define constraining conditions based on the state of related objects (for example, define a constraint on a line based on the state of the order)</p>
+</li>
+<li>
+<p>Control changes based on the value of a field - see Validation Templates section below</p>
+</li>
+<li>
+<p>Call custom PL/SQL code to determine whether a condition is true</p>
+</li>
+<li>
+<p>Constrain operations at any point in the process flow. In prior releases you could only control operations for certain hardcoded cycle actions.</p>
+</li>
+</ul>
+<h3><b>Terminology</b></h3>
+<p>Processing Constraints are very powerful and setting them up is not difficult; however, knowledge of the following terms is helpful:</p>
+<p><b>Entity</b></p>
+<p>A group of related attributes that roughly correspond to a table or a window in Order Management. The entities that can be managed using processing constraints are Order Header, Order Line, Order Price Adjustment, Line Price Adjustment, Order Sales Credit, Line Sales Credit, Order Payment, Line Payment, Sales Agreement Header, and Sales Agreement Line. Entities correspond to 'objects' in the old security rules.</p>
+<p><b>Attribute</b></p>
+<p>A field or column that belongs to an entity. For example, the ordered unit of measure is an attribute of the Order Line entity. Attributes correspond to fields in the old security rules.</p>
+<p><b>Operation</b></p>
+<p>An action that you can take on an entity. The operations that can be controlled by processing constraints are Create, Update, Delete, Cancel and Split.</p>
+<p><b>Processing Constraints Framework</b></p>
+<p>A generic facility that will enable you to define processing constraints for application entities and attributes. It includes the set of APIs that will enable you to query the existence of any constraint against the operations you wish to perform on that entity or its attributes.</p>
+<p>Seeded constraints have the System box checked and cannot be modified.</p>
+<p><b>Validation Template</b></p>
+<p>Names a condition and defines the semantics of how to validate that condition. These validation templates can be used in the processing constraints framework to specify the conditions for a given constraint.</p>
+<p><b>Record Set</b></p>
+<p>A record set is a set of records that are bound by some common attribute values (for example all lines on an order). In the processing constraints framework, when you define constraining conditions, you may specify a record set to be validated for a given condition as defined by its validation template.</p>
+<p><b>Scope</b></p>
+<p>Given a record set and a condition, the scope (Any/All) defines how the validation should be performed on records of the record set. "All" requires the validation to be TRUE for every record in the set. "Any" requires the validation to be TRUE for at least one record in the set.</p>
+<p><b>Conditions</b></p>
+<p>The test(s) which must be passed for a constraint to be active. For example, a condition for a constraint might be that the order is booked.</p>
+<h3><b>Defining Processing Constraints</b></h3>
+<p><b>Processing Constraints Window Conditions Tab</b></p>
+<p><img width="814" height="505" src="./img/ontig_proccond.gif" alt="the picture is described in the document text"></p>
+<p>Navigate to the Processing Constraints window. Order Management &gt; Setup &gt; Rules &gt; Security &gt; Processing Constraints.</p>
+<p>Note that the window is divided into several regions. The top region has fields for the Application and the Entity. Any one of the OM entities are the valid values for the entity field. This is used for querying&mdash;you cannot create new entities. When you query an entity you will see all the constraints defined against that entity.</p>
+<p><b>Constraints</b></p>
+<p>The Constraints region is where most of the details of a processing constraint are defined. The region enables you to view the seeded constraints, view, or update the constraints that were created for your company. You can create new constraints, but you cannot change the seeded constraints with the system check box marked.</p>
+<p><b>Operation Field</b></p>
+<p>The Operation field can have the values of Create, Update, and Delete for any of the entities, Cancel for Order Header and Order Line entities only, and Split for the Order Line Entity only.</p>
+<p><b>Attribute Field</b></p>
+<p>The Attribute field can only be used if the operation selected is UPDATE. You may enter a value here, and the constraint will only apply to that field. For instance you may define a constraint that affects only the warehouse field on the order line. If the Attribute field is left blank the constraint will be in effect for all the attributes of the entity. For instance, you may define a constraint which prevents updates to any of the fields of an order line. Please note that only when constrainable attributes are updated, processing constraints execute. All attributes are not constrainable, therefore processing constraints will not execute for such attributes, even though the operation selected is UPDATE.</p>
+<p><b>Action Field</b></p>
+<p>The Action field allows you to select the action to be taken if the constraining conditions are met.</p>
+<p><strong><span>Note:</span></strong> There is no unique Require Reason action; it must be used in conjunction with Versioning or Audit.</p>
+<p><b>Processing Constraints Window with User Action Menu Displayed</b></p>
+<p><img width="868" height="508" src="./img/ontig_procver.gif" alt="the picture is described in the document text"></p>
+<p>The combination of Actions that can be selected are:</p>
+<ul>
+<li>
+<p>Generate Version, Require Reason and Raise Integration Event</p>
+</li>
+<li>
+<p>Generate Version and Require Reason</p>
+</li>
+<li>
+<p>Generate Version</p>
+</li>
+<li>
+<p>Require Reason, History and Raise Integration Event</p>
+</li>
+<li>
+<p>Require Reason and Require History</p>
+</li>
+<li>
+<p>Require History</p>
+</li>
+<li>
+<p>Raise Integration Event</p>
+</li>
+</ul>
+<p>Actions of Require Reason and Require Reasons and Require History for audit history are supported only for the UPDATE operation.</p>
+<p>Constraints are evaluated in the following order (Only one constraint may take effect for a change):</p>
+<ul>
+<li>
+<p>User Action</p>
+<ul>
+<li>
+<p>Not Allowed.</p>
+</li>
+<li>
+<p>Generate Version, Require Reason and Raise Integration Event. This activates automatic versioning.</p>
+</li>
+<li>
+<p>Generate Version and Require Reason. This activates automatic versioning.</p>
+</li>
+<li>
+<p>Generate Version. This activates automatic versioning.</p>
+</li>
+<li>
+<p>Require Reason, History, and Raise Integration Event. This activates Audit Trail to capture changes.</p>
+</li>
+<li>
+<p>Require Reason and Require History. This activates Audit Trail to capture changes.</p>
+</li>
+<li>
+<p>Require History. This activates Audit Trail to capture changes.</p>
+</li>
+<li>
+<p>Raise Integration Event. This can be used with versioning.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>During implementation any action which includes "Raise Integration Event" may be selected. This event is presently used by XML processing and can be used by any other product.</p>
+<p>Actions that Require Reason take precedence over actions that do not.</p>
+<p><b>Example</b></p>
+<p>Assume that both versioning and audit constraints apply to update of price list. Only version is captured as it takes precedence and audit history is not available for this update. However, if audit constraint is on a different attribute like update of payment term and you change the payment term and price list, both version and audit history are captured.</p>
+<p>Applies To Field</p>
+<p>The Applies To field is used to define whether the constraint is applicable in the Negotiation or Fulfillment transaction phase. If the field is blank, then it is applicable to both phases.</p>
+<p>Enabled Field</p>
+<p>The Enabled field indicates whether the current Constraint is active. This allows constraints to be temporarily disabled if necessary.</p>
+<p>System Changes Field</p>
+<p>Use the System Changes field to indicate if system changes are allowed even if the constraining conditions are met. The system changes here refer to an attribute initially getting a default value or being re-defaulted when a source attribute changes. This is applicable only for attribute or field level UPDATE operations. The possible values are:</p>
+<ul>
+<li>
+<p>Never after Insert: System changes are allowed to this field only if the entity has not yet been saved to the database. This is the default value.</p>
+</li>
+<li>
+<p>Always: System changes are always allowed on the attribute</p>
+</li>
+</ul>
+<p><b>User Changes Field</b></p>
+<p>Use the User Changes field to indicate when the user performing the operation is constrained. This is applicable only for attribute or field level UPDATE operations. The possible values are:</p>
+<ul>
+<li>
+<p>Never after Insert: You can change this field only if the entity has not yet been saved to the database. This is the default value.</p>
+</li>
+<li>
+<p>Always: You can never enter a value for this attribute, even if the entity (for example an order) is being created for the first time.</p>
+</li>
+</ul>
+<p><b>System Field</b></p>
+<p>The System Field indicates if a constraint included with the OM system is user updateable. System constraints help prevent data integrity problems and cannot be updated. Any operation, field, action, or list of responsibilities attached to these constraints cannot be modified. However, additional validation conditions can be included as long as they do not have the same group number.</p>
+<p><b>Enabled Field</b></p>
+<p>The Enabled field indicates whether the current Condition is active. This allows conditions to be temporarily disabled if necessary. Note that if all conditions are disabled and the constraint itself is not disabled, the constraint always applies for that change. Care must be taken to ensure that the disabling of conditions does not introduce problems in the business flow.</p>
+<p>The bottom section of the window has two tabbed regions - the Conditions region and the Applicable to region.</p>
+<p><b>Conditions</b></p>
+<p>The Conditions region allows you to define the condition(s) that must be true for the constraint to fire. Unless the group of conditions are true, the constraint will not be active.</p>
+<p><b>Group Number Field</b></p>
+<p>The Group Number field determines whether AND or OR logic is used to combine conditions. For conditions that should together evaluate to TRUE (AND conditions), enter the same group number. Define OR conditions by using different numbers.</p>
+<p><b>Scope Field</b></p>
+<p>The Scope field is evaluated with the Record Set field to determine if the condition is true. The possible values are:</p>
+<ul>
+<li>
+<p>ANY: If the record set on this validation condition can select multiple records, then this condition should be TRUE for AT LEAST ONE of the records. For example you can evaluate a condition against any line on an order: If ANY line on the order is canceled.</p>
+</li>
+<li>
+<p>ALL: If the record set on this validation condition can select multiple records, then this condition should be TRUE for ALL the records. For example you can evaluate a condition against all lines on an order: If ALL lines on the order are canceled.</p>
+</li>
+</ul>
+<p><b>Validation Entity</b></p>
+<p>The Validation Entity is the one for which the condition is evaluated. The validation entity can be the constrained entity (displayed in the Entity region) or any related entity. For example, the constrained entity could be an order line and the constraint could be evaluated based on characteristics of the validation entity order header.</p>
+<p>Select the Record Set and based on the selected scope, the conditions will be evaluated for any or all of the records in the set. An example of a seeded Record Set is a ship set. You may define additional record sets as needed.</p>
+<p><strong><span>Note:</span></strong> If the validation entity on the condition is different from the constrained entity, then only the record set based on the primary key for the validation entity will be available in the LOV</p>
+<p>Check the NOT Box to create a NOT condition. For example if the condition is Booked, checking this flag will evaluate the condition NOT Booked.</p>
+<p><b>System Field</b></p>
+<p>The System field is checked for the conditions that were included with the OM system and are not user updateable. You cannot define new AND conditions with the same group number as a system condition.</p>
+<p><b>User Message Field</b></p>
+<p>The User Message field displays when an attempt is made to violate a constraint. The message is specific not just to the constraint but also to the specific condition that was violated. For example, you can create a user message that states: "line has been booked." If the constraint is set up to prevent any update to the item field on the order line if the line had been booked, the complete error message displayed at run time is: "You are not allowed to update the item; line has been booked."</p>
+<p>The following screen shows the Processing Constraints window again, this time with the Applicable To tab selected. Use this tab to define the responsibilities the constraint applies to.</p>
+<p><b>Processing Constraints Window, Applicable Tab</b></p>
+<p><img width="814" height="505" src="./img/ontig_procapp.gif" alt="the picture is described in the document text"></p>
+<p>If the button for <i>All Responsibilities</i> is selected, then the constraint will apply to all users. No one will be able to perform the constrained action. All seeded constraints are applicable to all responsibilities.</p>
+<p>If you select the <i>Authorized Responsibilities</i> button, then only the responsibilities that you list will be allowed to perform the action. All other users will be stopped from performing the action by the constraint.</p>
+<p>If you select the <i>Constrained Responsibilities</i> button, then all users except for the responsibilities defined will be able to perform the action. The users that you list will be stopped from performing the action by the constraint.</p>
+<p>There are two other forms that are used in setting up processing constraints. These are the <i>Validation Templates</i> window and the <i>Record Sets</i> window. The validation templates and record sets you create, as well as the seeded ones can be used in the Processing Constraints window as described above.</p>
+<p><strong><span>Note:</span></strong> After updating constraints and/or conditions, close and reopen the sales document windows for the updated constraints to apply correctly.</p>
+<h3><b>Defining Validation Templates</b></h3>
+<p><b>Validation Templates Window</b></p>
+<p><img width="726" height="442" src="./img/ontig_valitemp.gif" alt="the picture is described in the document text"></p>
+<p>Navigate to the Validation Templates window. Order Management &gt; Setup &gt; Rules &gt; Security &gt;Validation Templates.</p>
+<p>This window is divided into several regions. The top region displays the Application field. The Validation Templates region has one row for each validation template, and each row has several fields. The Entity field is one of the ten OM entities. Check this entity to determine if the condition is true. Give the validation template a name in the Template Name field, a short name in the Short Name field and a description in the Description field. These are user defined. The short name cannot be changed once the validation template is saved. The box is checked if the validation template is seeded by Oracle development. Seeded validation templates cannot be modified.</p>
+<p>The Validation Type field is a group of radio buttons with the possible values of WF, API and TBL. The available fields in the Validation Semantics region of the window change depending on the selection that you make from this group. If you select WF, then the validation is based on the status of a workflow activity. An example of this is the seeded validation template Booked that is based on the status of the Booked activity of the order header workflow. If you select API, then PL/SQL code is called to evaluate whether the validation template is true. There are several seeded validation templates that call APIs including the Lines Exist template that determines if lines have been entered for an order. If you select TBL then validation is based on the value of a field. For example, the condition will be true if the field order type has a value of Standard.</p>
+<p><strong><span>Note:</span></strong> When the validation template has an activity Booked, and the processing constraint operation is Cancel, if the user tries to cancel the line before booking, the Ordered Quantity decreases to 0, but the line status displays as Entered and not Cancelled.</p>
+<p><b>Validation Semantics for Validation Type WF</b></p>
+<p><img width="724" height="442" src="./img/ontig_valiwf.gif" alt="the picture is described in the document text"></p>
+<p>This graphic depicts the Validation Semantics for Validation Type WF. The Item Type field can be used to define the workflow item type associated with the entity, such as "OM Negotiation Header" or "OM Order Header for the Order Header entity." The Activity field is the name of the workflow activity for which you are checking the status. The Status and Result fields are the attributes of the workflow activity that will make the validation template return a true value. In this graphic, the validation template would be true if the order header had an activity called Invoice Interface - Header Level which had completed with any result.</p>
+<p><b>Validation Semantics for Validation Type API</b></p>
+<p><img width="725" height="442" src="./img/ontig_valiapi.gif" alt="the picture is described in the document text"></p>
+<p>This depicts the Validation Semantics for Validation type API. Enter the validation semantics for validating the API for return value TRUE. (This may be used for complex validations.)</p>
+<ul>
+<li>
+<p>Database Package: Enter name of the data package</p>
+</li>
+<li>
+<p>Procedure Name: Enter the name of the API</p>
+</li>
+</ul>
+<p>All validation APIs should be written with a framework defined signature format</p>
+<p>PROCEDURE YourValidationAPI</p>
+<pre>(p_application_id in number,
+
+</pre>
+<pre>p_entity_short_name in varchar2,
+
+</pre>
+<pre>p_validation_entity_short_name in varchar2,
+
+</pre>
+<pre>p_validation_tmplt_short_name in varchar2,
+
+</pre>
+<pre>p_record_set_short_name in varchar2,
+
+</pre>
+<pre>p_scope in varchar2,
+
+</pre>
+<pre>x_result out number);
+
+</pre>
+<p>x_result returned should be 1 if the condition is valid and should be 0 if condition is NOT valid.</p>
+<p>The procedure should push all error messages (if any) into OE_MSG_PUB Stack. It can reference the record being constrained by referring to the global record variable in the entity's constraint API package. The naming conventions are as follows.</p>
+<p>Entity's constraint API package Name:</p>
+<p>ApplicationShortName_Entity_Short_Name_PCFWK</p>
+<p>(e.g. OE_HEADER_PCFWK)</p>
+<p>global record variable name: g_record</p>
+<p>(e.g. for the entity HEADER, the variable name will be OE_HEADER_PCFWK.g_record)</p>
+<p><b>Validation Semantics for Validation Type TBL</b></p>
+<p><img width="725" height="442" src="./img/ontig_valitbl.gif" alt="the picture is described in the document text"></p>
+<p>This graphic depicts the Validation Semantics for Validation Type TBL. Enter the Column Name in the Column field. The Validation operation can be one of the following:</p>
+<p>= (Equal To)</p>
+<p>&lt;&gt; (Not Equal To)</p>
+<p>Is Null</p>
+<p>Is Not Null</p>
+<p>The Value String can be any value. An example of validation semantics for a column is:</p>
+<p>Column - Order Type</p>
+<p>Validation - = (Equal To)</p>
+<p>Value String - Standard</p>
+<p>This would return TRUE for all orders with type Standard. Note that it wouldn't work if you typed a value string of STANDARD (it must match exactly).</p>
+<h3><b>Defining Record Sets</b></h3>
+<p><a name="OEXPCFRS_CONSTRAINTS" id="OEXPCFRS_CONSTRAINTS"></a>The window for creating record sets is depicted below. This window is also divided into several regions.</p>
+<p><b>Record Sets</b></p>
+<p><img width="728" height="457" src="./img/ontig_recset.gif" alt="the picture is described in the document text"></p>
+<p>The top region has the name of the application, Oracle Order Management.</p>
+<p>The Record Sets region has a row for each record set. The Entity field will be one of the ten OM entities. Each record in the record set will be of this entity. For example you can make a record set of lines or orders. The box is checked if the record set is seeded. This flag is not modifiable by the user, and the seeded record sets cannot be modified by the user.</p>
+<p>Give the record set a name in the Record Set field, a short name in the Short Name field and a description in the Description field. These are user defined. You cannot change the short name once the record set has been saved. Select the Based On Primary Key Box if this record set is selected using the primary key. There can be only one primary record set for a given entity.</p>
+<p>At the bottom of the window is the Matched Columns for Record Selection region. Enter the name of the columns that match from the validated record so that multiple rows can be selected from the validated entity's table. For example, matching the Header ID and Ship Set Number of the order lines entity will select all order lines in the same ship set.</p>
+<h3><b>Concurrent Program</b></h3>
+<p>In order to create or update new processing constraints, you must run the Create Validation Packages concurrent program, which is required for creation of new validation templates or record sets. Run this program from the Tools option on the menu bar of either the Validation Templates or Record Sets window or from the navigation menu by selecting Setup &gt; Rules &gt; Security &gt; Generate Constraints Package. Run this program anytime you create, update, or modify your processing constraints.</p>
+<h3><b>Report</b></h3>
+<p>A report, Processing Constraints Listing, lists defined Processing Constraints. It replaces the old OE Security Rules Listing. It has the following parameters:</p>
+<p><b>Entity</b></p>
+<p>The entity that is constrained.</p>
+<p><b>Attribute</b></p>
+<p>The attribute that is constrained. Enabled only if an entity is selected for the previous parameter.</p>
+<p><b>Operation</b></p>
+<p>The operation that is constrained. Enabled only if the attribute parameter is not selected.</p>
+<p><b>Validation Entity</b></p>
+<p>Only include constraints that have conditions based on this validation entity. Enabled only if the entity parameter is selected.</p>
+<p><b>Record Set</b></p>
+<p>Only include constraints that have conditions set up for this record set. Enabled only if the validation entity parameter is selected.</p>
+<p><b>Validation Template</b></p>
+<p>Only include constraints that have conditions using this validation template. Enabled only if the validation entity parameter is selected.</p>
+<p><b>Seeded</b></p>
+<p>If this field is left blank, both seeded and non-seeded constraint conditions are listed. If you select Yes only seeded conditions are listed. If you select No only non-seeded conditions are listed.</p>
+<p>All of these parameters are optional. If none are specified, the report will include all values in the report.</p>
+<h3><b>Migration/Upgrade from Security Rules</b></h3>
+<p>Because of the magnitude of the changes to the fundamental architecture between Security Rules and Processing Constraints, the decision was made to not upgrade any user-defined Security Rules. Because of the inherent differences between Processing Constraints and Security Rules, the seeded processing constraints do not mimic the seeded OE Security Rules. The only processing constraints that are seeded are those required to ensure data integrity.</p>
+<p>Companies that are implementing Order Management will need to spend more time evaluating their Processing Constraints setup than companies that implemented Order Entry. Companies that are upgrading from Order Entry to Order Management should include some time in their upgrade project plan for setting up the Processing Constraints.</p>
+<p><b>Examples</b></p>
+<p>This example shows how you can use Processing Constraints to meet real business needs. Here are the setup steps and results for five business scenarios.</p>
+<ol>
+<li>
+<p>No one can change the customer purchase order at the line level; your company requires that one sales order can relate to only one customer purchase order.</p>
+<p>Navigate to the processing constraints window. Find the constraints for the application Oracle Order Management and the entity Order Line. Add a new line in the constraints region with the following values:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Operation</b></th>
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>User Action</b></th>
+</tr>
+<tr valign="top">
+<td>UPDATE</td>
+<td>Customer PO</td>
+<td>Not Allowed</td>
+</tr>
+</table>
+<p>Save the constraint. This is the simplest type of constraint to create. It applies to all responsibilities in all conditions. The user will receive a message when they try to change the purchase order number for a line.</p>
+</li>
+<li>
+<p>No one can add a line to an order after any of the lines on the order have been invoice interfaced.</p>
+<p>Navigate to the processing constraints window. Find the constraints for the application Oracle Order Management and the entity Order Line. Add a new line in the constraints region with the following values:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Operation</b></th>
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>User Action</b></th>
+</tr>
+<tr valign="top">
+<td>CREATE</td>
+<td>[Blank]</td>
+<td>Not Allowed</td>
+</tr>
+</table>
+<p>In the Conditions region, enter a line with the following information:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Order Line Conditions</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Group #</b></th>
+<th scope="col"><b>Scope</b></th>
+<th scope="col"><b>Validation Entity</b></th>
+<th scope="col"><b>Record Set</b></th>
+<th scope="col"><b>Validation Template</b></th>
+</tr>
+<tr valign="top">
+<td>[Any Number]</td>
+<td>Any</td>
+<td>Order Line</td>
+<td>Order</td>
+<td>Invoice Interfaced</td>
+</tr>
+</table>
+<p>For the user messages enter: "A line on the order has been invoiced." Save the constraint. This constraint has a condition, so it will only be activated if the condition is true. The condition will be true if any of the lines on the order have been invoice interfaced. This constraint is a good example of a using a record set. It applies to all responsibilities. The user will receive a message when they try to create a new line for an order with lines which have been invoice interfaced. The message will say: The order line cannot be created because: A line on the order has been invoiced. Notice that the error message includes the user message that you entered for the condition.</p>
+</li>
+<li>
+<p>A reason is required to cancel an order line after it has been booked. Navigate to the processing constraints window. Find the constraints for the application Oracle Order Management and the entity Order Line. Add a new line in the constraints region with the following values:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Operation</b></th>
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>User Action</b></th>
+</tr>
+<tr valign="top">
+<td>CANCEL</td>
+<td>[Blank]</td>
+<td>Require Reason and Require History</td>
+</tr>
+</table>
+<p>In the Conditions region, enter a line with the following information:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Group #</b></th>
+<th scope="col"><b>Scope</b></th>
+<th scope="col"><b>Validation Entity</b></th>
+<th scope="col"><b>Record Set</b></th>
+<th scope="col"><b>Validation Template</b></th>
+</tr>
+<tr valign="top">
+<td>[Any Number]</td>
+<td>Any</td>
+<td>Order Line</td>
+<td>Line</td>
+<td>Booked</td>
+</tr>
+</table>
+<p>For the user messages enter "The order has been booked." Save the constraint. This constraint has a condition, so it will only be activated if the condition is true. The condition will be true if the order has been booked. It applies to all responsibilities. All users will be required to enter a reason when they cancel a line which has been booked.</p>
+</li>
+<li>
+<p>Only the Customer Service Manager can change the discount percentage on an order line after the line has been shipped. Navigate to the processing constraints window. Find the constraints for the application Oracle Order Management and the entity Line Price Adjustment. Add a new line in the constraints region with the following values:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Operation</b></th>
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>User Action</b></th>
+</tr>
+<tr valign="top">
+<td>UPDATE</td>
+<td>Operand</td>
+<td>Not Allowed</td>
+</tr>
+</table>
+<p>In the Conditions region, enter a line with the following information:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Group #</b></th>
+<th scope="col"><b>Scope</b></th>
+<th scope="col"><b>Validation Entity</b></th>
+<th scope="col"><b>Record Set</b></th>
+<th scope="col"><b>Validation Template</b></th>
+</tr>
+<tr valign="top">
+<td>[Any Number]</td>
+<td>Any</td>
+<td>Order Line</td>
+<td>Line</td>
+<td>Ship Confirm</td>
+</tr>
+</table>
+<p>For the user messages enter "This line has been shipped." Go to the Applicable To tab and select the Authorized Responsibilities radio button. Enter Customer Service Manager in the table below the radio buttons.</p>
+</li>
+</ol>
+<p>Save the constraint. This constraint has a condition, so it will only be activated if the condition is true. The condition will be true if this line has been shipped. Note that this is not a seeded responsibility. This example assumes the responsibility was created using the System Administrator Define Responsibility functionality. Any user not logged in under the Customer Service Manager responsibility will receive a message when they try to change a discount percentage for a line which has been shipped. The message will say &ldquo;The percent cannot be updated because: This line has been shipped.&rdquo;</p>
+<ol>
+<li>
+<p>Your company requires that all return orders, identified by order type = Return, are shipped to a central returns processing facility.</p>
+<p>This example assumes that you have used the defaulting rules framework to create a rule that will default the warehouse to Wichita for all the lines on orders of type Return. For details on how to create a defaulting rule, see the white paper Using Defaulting Rules in Oracle Order Management.</p>
+<p>To create the constraint, first create a new validation template for orders with an order type of Return. Navigate to the validation templates window. Find the validation templates for the application Oracle Order Management. Enter a new line in the validation templates region with the following information:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Entity</b></th>
+<th scope="col"><b>Template Name</b></th>
+<th scope="col"><b>Short Name</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Validation Type</b></th>
+</tr>
+<tr valign="top">
+<td>Order Header</td>
+<td>Return Order</td>
+<td>RETURN</td>
+<td>Order of type Return</td>
+<td>TBL</td>
+</tr>
+</table>
+<p>In the validation semantics region enter the following:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Column</b></th>
+<th scope="col"><b>Validation Op</b></th>
+<th scope="col"><b>Value String</b></th>
+</tr>
+<tr valign="top">
+<td>Order Type</td>
+<td>= (Equal To)</td>
+<td>Return</td>
+</tr>
+</table>
+<p>Navigate to the constraints window to create a constraint using the new validation template. Find the constraints for the application Oracle Order Management and the entity Order Line. Add a new line in the constraints region with the following values:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Operation</b></th>
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>User Action</b></th>
+</tr>
+<tr valign="top">
+<td>UPDATE</td>
+<td>Warehouse</td>
+<td>Not Allowed</td>
+</tr>
+</table>
+<p>In the Conditions region, enter a line with the following information</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Group #</b></th>
+<th scope="col"><b>Scope</b></th>
+<th scope="col"><b>Validation Entity</b></th>
+<th scope="col"><b>Record Set</b></th>
+<th scope="col"><b>Validation Template</b></th>
+</tr>
+<tr valign="top">
+<td>[Any Number]</td>
+<td>Any</td>
+<td>Order Header</td>
+<td>Order</td>
+<td>Return</td>
+</tr>
+</table>
+</li>
+</ol>
+<p>For the user messages enter "All returns are processed in Wichita."</p>
+<p>Save the constraint. This constraint has a condition, so it will only be activated if the condition is true. The condition will be true if the order type is Return, because this is the way you created the validation template. This assumes that your company has created a Transaction Type for an order with a name of Return. It applies to all responsibilities. Any user who tries to change the warehouse on an order line will receive a message which states: The warehouse cannot be updated because: All returns are processed in Wichita.</p>
+<p>See Oracle Integration Repository (iRepository).</p>
+<h2><a name="3007121"></a><a id="T377252"></a><b>Versioning</b></h2>
+<a name="t_version" id="t_version"></a>
+<h3><b>Overview</b></h3>
+<p>Versioning is a method to capture changes and updates made to a transaction. Versioning is currently available for sales orders, quotes and Sales agreements. There is support for both manual versioning as well as automatic versioning.</p>
+<p>Versioning includes the following:</p>
+<ul>
+<li>
+<p>Version Control: Capture of changes and updates made to Sales Orders, Quotes and Sales Agreements. This feature offers:</p>
+<ul>
+<li>
+<p>Version generation</p>
+</li>
+<li>
+<p>Validation of version number</p>
+</li>
+<li>
+<p>Version history maintenance and comparison</p>
+</li>
+<li>
+<p>Searching prior versions</p>
+</li>
+<li>
+<p>Reasons and comments for versioning</p>
+</li>
+<li>
+<p>Tracking modifications to contract terms on Sales Agreements, Orders or Quotes</p>
+</li>
+<li>
+<p>API's and Order Import: Versioning support for sales transactions created or updated from multiple modes</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Versions can be created, managed, viewed and compared, providing comprehensive information about a given transaction</p>
+</li>
+<li>
+<p>Assists during the negotiation phase of a sales transaction by maintaining a history of the transaction cycle</p>
+</li>
+</ul>
+<p>Note: Price Lists and Modifiers are not versioned on a Sales Agreement.</p>
+<h3><b>Version Generation</b></h3>
+<p>Versioning is manual by default. If you want to enable automatic versioning, you must set up the appropriate processing constraints. For example, you can use validation templates to drive versioning by transaction type as a condition. By using the processing constraints and workflow activity, you can determine when to increment the version and which statuses are available to version.</p>
+<p>For example, you can increment a version only when specific attributes of the transaction are changed/updated. You can increment the version number whenever there is a change in order quantity, payment terms, price list, required date, or other attributes.</p>
+<p>You can link versioning control to workflow activities statuses. Version generation functionality includes:</p>
+<ul>
+<li>
+<p>Manual / Automatic option</p>
+</li>
+<li>
+<p>Version number as a whole number and as separate field, following the document number</p>
+</li>
+<li>
+<p>Update manually at any time, provided the setup allows amendment in a specific status</p>
+</li>
+<li>
+<p>Option to retain the document number during the transition to a Sales Order</p>
+</li>
+<li>
+<p>Specify the required conditions for automatic versioning</p>
+</li>
+</ul>
+<h3><b>Version History</b></h3>
+<p>Version history maintenance is useful for reference and comparison. This is particularly true of quotes and Sale Agreements (SAs) with a negotiation phase where the transaction document changes a number of times before it is approved. This may occur with complex products that are frequently redesigned to meet customer requirements, or with a loyal customer who negotiates for a long time for the best price with the promise of higher order quantities over an extended period of time.</p>
+<p>Versioning maintains the history of previous versions, when the active version is changed. However, one can use the previous versions as templates for creating new sales order, quotes or sales agreements at any time with the copy feature.</p>
+<p>Version history maintenance and comparison enables:</p>
+<ul>
+<li>
+<p>Maintenance of transaction history of previous versions</p>
+</li>
+<li>
+<p>Ability to amend the current version of the transaction</p>
+</li>
+<li>
+<p>Tracking changes over a period of time and view those changes</p>
+</li>
+<li>
+<p>Comparison of changes made to transactions across versions</p>
+</li>
+<li>
+<p>Copy any version of a Quote to a Sales Order</p>
+</li>
+</ul>
+<h3><b>Deciding Priorities for Audit Trail versus Versioning in a Processing Constraints Framework</b></h3>
+<p>Constraints are evaluated in the following order (Only one constraint may take effect for a change):</p>
+<ul>
+<li>
+<p>User Action</p>
+<ul>
+<li>
+<p>Not Allowed</p>
+</li>
+<li>
+<p>Generate Version, Require Reason and Raise Integration Event (Version Activation)</p>
+</li>
+<li>
+<p>Generate Version and Require Reason (Version Activation)</p>
+</li>
+<li>
+<p>Generate Version (Version Activation)</p>
+</li>
+<li>
+<p>Require Reason, History and Raise Integration Event (Audit Trail)</p>
+</li>
+<li>
+<p>Require Reason and Require History&mdash;only for Fulfillment phase (Audit Trail)</p>
+</li>
+<li>
+<p>Require History&mdash;only for Fulfillment phase (Audit Trail)</p>
+</li>
+<li>
+<p>Raise Integration Event (Electronic Messaging)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>During implementation any action which includes "Raise Integration Event" may be selected. This event is presently used by XML processing and can be used by any other product.</p>
+<p>See the Oracle Integration Repository (iRepository).</p>
+<p><strong><span>Note:</span></strong> If multiple constraints are set up for an attribute and the conditions for both versioning and audit constraint apply, only versioning is captured. To improve system performance, limit the number of processing constraints to key updates during setup. The entire transaction is saved in history and increased save times result for large orders where version is activated.</p>
+<h2><a name="3007126"></a><a id="T377319"></a><b>Setup</b></h2>
+<p><a name="t_versetup" id="t_versetup"></a>To use versioning, set up the appropriate attributes with a processing constraint.</p>
+<h3><b>To set up Versioning in Order Management:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Order Management Processing Constraints window. Navigate to Order Management &gt; Setup &gt; Rules &gt; Security &gt; Processing Constraints.</p>
+<p><b>Processing Constraints Window with User Action Menu Displayed</b></p>
+<p><img width="868" height="508" src="./img/ontig_procver.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Set up a processing constraint for versioning. See <a href="T373258T374215.htm#t_defproc">Define Processing Constraints</a> . Select the desired user action from the User Action field. Options are:</p>
+<ul>
+<li>
+<p>Generate Version, Require Reason and Raise Integration Event</p>
+<ul>
+<li>
+<p>Generate Version and Require Reason</p>
+</li>
+<li>
+<p>Generate Version</p>
+</li>
+<li>
+<p>Require Reason, History and Raise Integration Event</p>
+</li>
+<li>
+<p>Require Reason and Require History</p>
+</li>
+<li>
+<p>Require History</p>
+</li>
+<li>
+<p>Raise Integration Event</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Optionally, apply any necessary validation templates. Navigate to the Validation Template window. Order Management &gt; Setup &gt; Rules &gt; Security &gt; Validation Templates.</p>
+<p><b>Setting up Versioning in Validation Templates</b></p>
+<p><img width="725" height="442" src="./img/ontig_vtvers.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> If conditions are applied you must use a validation template.</p>
+</li>
+</ol>
+<h2><a name="3007130"></a><a id="T377253"></a><b>Open Interface Considerations</b></h2>
+<a name="t_oicons" id="t_oicons"></a>
+<h3><b>Public Process Order API / Order Import</b></h3>
+<h3><b>Manual Versioning</b></h3>
+<p>Pass Update Operation with change to version number. Specify a reason if required on change_reason parameter on p_header_rec parameter or change_reason column on the interface tables for order import.</p>
+<h3><b>Automatic Versioning</b></h3>
+<p>Any other transaction change through API/Order Import rolls the version based on the constraints setup. The reason should also be passed if the constraint action includes the require reason.</p>
+<h3><b>Troubleshooting</b></h3>
+<h3><b>Audit is not captured even though Require History constraint is defined?</b></h3>
+<p>Check if there is a versioning constraint for the same operation. Versioning takes precedence and version is captured instead of the audit record.</p>
+<p><b>Example:</b></p>
+<p>You have processing constraints defined for:</p>
+<ul>
+<li>
+<p>Update of price list on booked order with action Require History</p>
+</li>
+<li>
+<p>Update of price list on booked order with action Generate Version</p>
+</li>
+</ul>
+<p><b>System Behavior</b></p>
+<p>A version is generated when price list is updated on booked order but no audit is captured. This change is not visible on the audit history form.</p>
+<p><b>The version rolls even though there were no changes that required versioning?</b></p>
+<p>Check if there were any system updates due to the user change.</p>
+<p><b>Example:</b></p>
+<p>Update to request date triggers a schedule date change that in turn has a versioning constraint. The reason stored for such versions is "SYSTEM."</p>
+<p><b>Line splits generate two versions?</b></p>
+<p>The processing constraint exists on a split operation and update of other attributes updated during split, for example, the warehouse.</p>
+<p>See:</p>
+<p><a href="T373258T374215.htm#t_defprcc">Defining Processing Constraints</a></p>
+<p><a href="T373258T374215.htm#t_defvaltemp">Defining Validation Templates</a></p>
+<p><a href="T373258T377247.htm#t_proccons">Processing Constraints</a> for more information see: <i>Oracle Order Management User's Guide</i></p>
+<h2><a name="3007137"></a><a id="T377254"></a><b>Audit Trail</b></h2>
+<a name="t_autrail" id="t_autrail"></a>
+<h3><b>Overview</b></h3>
+<p>Audit Trail records and tracks updates to specified order attributes as they occur. Reports of comprehensive audit trail updates of Oracle Order Management are generated using Processing Constraints, Lookups, a system parameter, and the Audit Trail Consolidator concurrent program. Current Processing Constraints functionality enables you to specify exactly what business functions, by entity you wish to control when performing order modifications. You can define new processing constraints that specify when, and for what attributes of an order, audit trail updates are recorded. The Order Management system parameter Audit Trail must be enabled to use this feature.</p>
+<h3><b>Process Flow</b></h3>
+<p>Oracle Order Management gives businesses the flexibility to audit as much or as little of their order process as they require. Each business can decide what order attributes are so critical that an audit needs to be maintained and then set up the processing constraints accordingly. Once the constraints are defined, users can enter and change orders as they always have. If a change is made to an attribute that has been defined as requiring a reason to change it, then the user is prompted to select a reason code from a user-defined list.</p>
+<p>Finally, queries can be run or reports produced to show what actual changes have been made to auditable attributes, who made the changes and when.</p>
+<p>Now, versioning works in conjunction with audit trail only when the transaction enters the fulfillment phase, not during the negotiation phase. The audit trail may track all sales order changes that may not necessarily constitute revising the sales order to a new version. You cannot track a single change with both Versioning and Audit Trail. The user must decide what method they wish to use to track the change history. The differences between Version Control and Audit Trail include:</p>
+<p>Version Control records the entire business object, allowing users to view the changes to the document real time and online. Whereas, Audit Trail records a single change in order to capture who made the change and what the change was.</p>
+<p>Version Control can be viewed on line whereas, audit trail can be viewed on line once a report has been generated. Version control can compare against previous versions where audit trail cannot. Audit trail captures changes within a version but version control captures changes that increment a version. And finally, version control applies to all sales documents including Sales Orders, Quotes and Sales Agreements but audit trail is ONLY applicable to Sales Orders.</p>
+<p>New Forms:</p>
+<p>Audit History window can be invoked from Orders, Returns/Audit History menu path.</p>
+<p>The query window will be used to show the audit history for all the user changeable attributes of all entities related to Order.</p>
+<p>This form consists of a Find window and a Results window. The Find window will take history date range, entity name, attribute) and order number range, userid and responsibility as input. All input parameters are optional.</p>
+<p><b>Audit History Find Window</b></p>
+<p><img width="583" height="313" src="./img/ontig_ahfnd.gif" alt="the picture is described in the document text"></p>
+<p>The Results window shows the history records based on the query criteria entered. The window has tabs for each entity that can have audit records. The format of each tab is similar, showing all the data. The tabs for the lines entities shows the line number as well as all the rest of the data. This window is not a folder form, since all data can be seen without much scrolling. The reason code and comments are shown in the overflow region for the selected row.</p>
+<p><b>Audit History Results</b></p>
+<p><img width="901" height="577" src="./img/ontig_ahres.gif" alt="the picture is described in the document text"></p>
+<p>A new pop up window is added to this form to allow the user to input a change reason code and comments. If a change reason must be entered for an update, based on Processing Constraints setup, then this little window will popup to allow for entry. Users can also invoke this window from the Tools menu to record an audit reason even if it's not required.</p>
+<p><b>Audit History Change Reason window</b></p>
+<p><img width="487" height="264" src="./img/ontig_ahchre.gif" alt="the picture is described in the document text"></p>
+<h2><a name="3007143"></a><a id="T377320"></a><b>Setup</b></h2>
+<a name="t_ahset" id="t_ahset"></a>
+<h3><b>To set up Audit Trail:</b></h3>
+<ol>
+<li>
+<p>Add "View Audit History" menu option to the Order Management menu for those responsibilities that need to be able to view the new Audit History forms - this menu option will be created through seed data.</p>
+</li>
+<li>
+<p>Set up Processing Constraints to indicate which attributes on the order you want to have audit trail recorded for. See <a href="T373258T374215.htm#t_defprcc">Define Processing Constraints</a>.</p>
+</li>
+<li>
+<p>Create some new Validation Templates if you have specific conditions to control whether or not to record audit information. See <a href="T373258T374215.htm#t_defvaltemp">Defining Validation Templates</a>.</p>
+</li>
+<li>
+<p>Set the OM System Parameter Audit Trail.</p>
+<p>Navigate to Order Management &gt; Setup &gt; System Parameters &gt; Values.</p>
+<ol>
+<li>
+<p>Select your Operating Unit.</p>
+</li>
+<li>
+<p>Select Generic Parameters from the list of values.</p>
+</li>
+<li>
+<p>For the Audit Trail Parameter, select from the list of values: "Enable when Order is Booked," "Enable when Order is Entered," or "Disabled."</p>
+<p>See <a href="T373258T374215.htm#t_setompara">Setting OM System Parameters</a>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Enter and process orders as usual.</p>
+</li>
+<li>
+<p>Schedule the Consolidator program to run periodically to make audit information available to query and report.</p>
+</li>
+<li>
+<p>Run report or execute queries to view audit information.</p>
+<p><strong><span>Note:</span></strong> Based on the processing constraints that have been set up, users will sometimes be required to input reasons when they make changes to orders.</p>
+<h3><b>Different scenarios in which Audit History is captured</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>System Parameter</b></th>
+<th scope="col"><b>Processing Constraint</b></th>
+<th scope="col"><b>Order Status</b></th>
+<th scope="col"><b>History Captured?</b></th>
+</tr>
+<tr valign="top">
+<td>Disabled</td>
+<td>Entered/Booked</td>
+<td>Entered/Booked</td>
+<td>No history captured</td>
+</tr>
+<tr valign="top">
+<td>Entered</td>
+<td>Entered</td>
+<td>Entered</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Entered</td>
+<td>Booked</td>
+<td>Entered</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Entered</td>
+<td>Booked</td>
+<td>Booked</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Booked</td>
+<td>Entered</td>
+<td>Entered</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Booked</td>
+<td>Entered</td>
+<td>Booked</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Booked</td>
+<td>Booked</td>
+<td>Booked</td>
+<td>Yes</td>
+</tr>
+</table>
+<h3><b>Audit History Report:</b></h3>
+<p>This report enables users to retrieve audit information by different parameters. The report parameters include: start/end dates, entity, attribute, order number, user and responsibility of who made the change.</p>
+<p>To run this report, navigate to Reports -&gt; Requests -&gt; Audit History Report.</p>
+</li>
+</ol>
+<p><a href="T373258T377247.htm#t_proccons">Processing Constraints</a></p>
+<p><a href="T373258T374215.htm#t_defprcc">Define Processing Constraints</a></p>
+<p><a href="T373258T374215.htm#t_defvaltemp">Defining Validation Templates</a></p>
+<p><a href="T373258T374215.htm#t_setompara">Setting OM System Parameters</a></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

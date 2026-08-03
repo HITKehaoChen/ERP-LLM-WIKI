@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Create Accounting and Transfer Journal Entries to GL Programs</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Subledger Accounting Implementation Guide">
+<meta name="dcterms.identifier" content="E48771-04">
+<meta name="dcterms.isVersionOf" content="XLAIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T149412T149415.htm" title="Previous" type="text/html">
+<link rel="Next" href="T149412T521412.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Create Accounting and Transfer Journal Entries to GL Programs","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">7/19</span> <!-- End Header -->
+<h1>Create Accounting and Transfer Journal Entries to GL Programs</h1>
+<h2><a name="2867702"></a><a id="T283034"></a><b>Overview of Create Accounting and Transfer Journal Entries to GL Programs</b></h2>
+<p><a name="d0e10087" id="d0e10087"></a><a name="d0e10092" id="d0e10092"></a><a name="siaccov" id="siaccov"></a>The Create Accounting program processes eligible accounting events to create subledger journal entries. To create the subledger journal entries, the Create Accounting program applies application accounting definitions that are created in the Accounting Methods Builder (AMB).</p>
+<p>The Create Accounting program:</p>
+<ul>
+<li>
+<p>Validates and creates subledger journal entries</p>
+</li>
+<li>
+<p>Transfers the final journal entries in the current batch run to General Ledger and starts the General Ledger posting process</p>
+</li>
+<li>
+<p>Generates the Subledger Accounting Program Report, which documents the results of the Create Accounting program</p>
+</li>
+</ul>
+<p>The Transfer Journal Entries to GL program enables you to transfer any eligible journal entries to General Ledger, including those from previous batch runs that have not yet been transferred to General Ledger.</p>
+<p>If you already created accounting in Final Mode but have not transferred them over to GL, and you run the Create Accounting program with Transfer to GL option, then the application does not pick up events that are already created in the final mode. You run the Transfer Journal Entries to General Ledger program to do that.</p>
+<h2><a name="2867703"></a><a id="T283035"></a><b>Create Accounting Program</b></h2>
+<p><a name="d0e10121" id="d0e10121"></a><a name="siacccracc" id="siacccracc"></a>The Create Accounting program creates and transfers journal entries. In general, the parameters described in the table below determine which accounting events are processed.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Create Accounting Program Parameters</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Parameter</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Ledger</td>
+<td>Required; limits accounting events selected for processing to those of a particular ledger<br>
+Subledger Accounting lists ledgers that have events that the responsibility can access due to transaction-based security. If the profile option SLA: Enable Data Access Security in Subledgers is set to Yes, only those ledgers that are included in General Ledger Access Sets assigned to the responsibility appear in the list of values.<br>
+If the application is a valuation method application as defined in the AMB, then both primary and secondary ledgers within the access sets are displayed. If the application is not a valuation method application, then only primary ledgers are displayed.</td>
+</tr>
+<tr valign="top">
+<td>Process Category</td>
+<td>Optional; restricts the events selected for accounting to a particular process category<br>
+The Create Accounting program selects events with event types falling into the event classes assigned to the process category.<br>
+Only process categories established by development teams as part of the seed data are included in the list of values.</td>
+</tr>
+<tr valign="top">
+<td>End Date</td>
+<td>Required; end date for the Create Accounting program; processes only those events with event dates on or before the end date</td>
+</tr>
+<tr valign="top">
+<td>Mode</td>
+<td>Required; determines whether the subledger journal entries are created in Draft or Final mode<br>
+If Draft mode is selected, then the Transfer to GL, Post in General Ledger, and General Ledger Batch Name fields are disabled. Draft entries cannot be transferred to General Ledger.<br>
+See: Subledger Accounting Setup Options Description, <i>Oracle Subledger Accounting Implementation Guide</i></td>
+</tr>
+<tr valign="top">
+<td>Errors Only</td>
+<td>Required; limits the creation of accounting to those events for which accounting has previously failed<br>
+If Yes is selected, the Create Accounting program processes all events with a status of Error.<br>
+See: Subledger Accounting Setup Options Description, <i>Oracle Subledger Accounting Implementation Guide</i></td>
+</tr>
+<tr valign="top">
+<td>Report</td>
+<td>Required; determines whether to generate a report showing the results of the Subledger Accounting program in summary or detail format<br>
+See: Subledger Accounting Setup Options Description, <i>Oracle Subledger Accounting Implementation Guide</i></td>
+</tr>
+<tr valign="top">
+<td>Transfer to General Ledger</td>
+<td>Required if Mode is set to Final; determines whether to transfer the subledger journal entries to General Ledger<br>
+Journal import is not launched if the profile option SLA: Disable Journal Import is set to Yes.<br>
+See: Subledger Accounting Setup Options Description, <i>Oracle Subledger Accounting Implementation Guide</i></td>
+</tr>
+<tr valign="top">
+<td>Post in General Ledger</td>
+<td>Required if Mode is set to Final or Create Accounting is set to No; determines whether to post subledger journal entries in General Ledger<br>
+If there is a primary ledger with secondary ledgers attached to it and the application is a nonvaluation method application, the journal entries of the secondary ledgers are automatically posted. This is based on the application accounting definition that the user sets up.<br>
+If the application is a valuation method application, then there is a different event for that secondary ledger and the accounting is not created in the same run for both ledgers.<br>
+See: Subledger Accounting Setup Options Description, <i>Oracle Subledger Accounting Implementation Guide</i></td>
+</tr>
+<tr valign="top">
+<td>General Ledger Batch Name</td>
+<td>Optional; user-entered batch name that appears on the transferred General Ledger subledger journal entries. Transfer to GL option must be set to Yes.</td>
+</tr>
+<tr valign="top">
+<td>Include User Transaction Identifiers</td>
+<td>Required; controls whether the report displays user identifiers' names and values.</td>
+</tr>
+</table>
+<h2><a name="4173750"></a><a id="T459845"></a><b>Transfer Journal Entries to GL Program</b></h2>
+<p><a name="d0e10257" id="d0e10257"></a><a name="siajeglp" id="siajeglp"></a>The Transfer Journal Entries to GL program consists of a subset of parameters used in the Create Accounting program as listed below:</p>
+<ul>
+<li>
+<p>Ledger</p>
+</li>
+<li>
+<p>Process Category</p>
+</li>
+<li>
+<p>End Date</p>
+</li>
+<li>
+<p>Post in General Ledger</p>
+</li>
+<li>
+<p>General Ledger Batch Name</p>
+</li>
+</ul>
+<p>Please refer to the descriptions in the <a href="T149412T283033.htm#siacccracc">Create Accounting Programs Parameters table</a> .</p>
+<h2><a name="2867705"></a><a id="T283036"></a><b>Oracle Subledger Accounting Program Report</b></h2>
+<p><a name="d0e10289" id="d0e10289"></a><a name="d0e10294" id="d0e10294"></a><a name="d0e10299" id="d0e10299"></a><a name="siaccrep" id="siaccrep"></a>The Subledger Accounting Program Report is generated by the Create Accounting program. It lists the following:</p>
+<ul>
+<li>
+<p>Successful events and the subledger journal entries created for those events</p>
+</li>
+<li>
+<p>Errors for failed events</p>
+</li>
+</ul>
+<p>Users can run the report in summary or detail mode which are described as follows:</p>
+<ul>
+<li>
+<p>Summary mode provides a summary of events processed and detailed information about their errors.</p>
+</li>
+<li>
+<p>Detail mode provides details of subledger journal entries generated from the processing of completed events and a detailed error report.</p>
+</li>
+</ul>
+<h2><a name="4294075"></a><a id="T466830"></a><b>Transfer Journal Entries to GL Report</b></h2>
+<p><a name="d0e10326" id="d0e10326"></a><a name="siamtjegl" id="siamtjegl"></a>The Transfer to Journal Entries to GL Report is generated by the Transfer Journal Entries to GL program and lists the following:</p>
+<ul>
+<li>
+<p>Transfer to GL Summary</p>
+</li>
+<li>
+<p>General Errors</p>
+</li>
+</ul>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

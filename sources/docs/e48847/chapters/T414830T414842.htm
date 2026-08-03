@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Shipping Execution User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Shipping Execution User's Guide">
+<meta name="dcterms.identifier" content="E48847-15">
+<meta name="dcterms.isVersionOf" content="WSHUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T414830T434644.htm" title="Previous" type="text/html">
+<link rel="Next" href="T414830T633101.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Shipping Execution User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">16/23</span> <!-- End Header -->
+<h1>Carrier Integration</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T414885">Overview of Carrier Integration</a></li>
+<li><a href="#T414996">Calculating Rate and Selecting Service</a></li>
+<li><a href="#T414997">Tracking Lines and Containers</a></li>
+<li><a href="#T414998">Viewing Time in Transit for a Delivery</a></li>
+<li><a href="#T663646">Viewing Time In Transit for a Delivery Line or Container</a></li>
+<li><a href="#T663647">Viewing Carrier Address Validation for a Delivery</a></li>
+<li><a href="#T414999">Viewing Carrier Address Validation for Delivery Lines and Containers</a></li>
+</ul>
+<h2><a name="3573800"></a><a id="T414885"></a><b>Overview of Carrier Integration</b></h2>
+<p><a name="d0e19974" id="d0e19974"></a><a name="d0e19980" id="d0e19980"></a><a name="d0e19986" id="d0e19986"></a><a name="o_ups" id="o_ups"></a>Oracle Shipping Execution integrates with third party carriers through the following common APIs (application programming interfaces) in the wsh_custom_pub custom hook to provide common solutions for customers who use both Oracle Shipping Execution and third party carriers:</p>
+<ul>
+<li>
+<p>Carrier Address Validation: WSH_CUSTOM_PUB.csp_shipment_services</p>
+</li>
+<li>
+<p>Carrier Rate and Service: WSH_CUSTOM_PUB.rate_shipment_services</p>
+</li>
+<li>
+<p>Carrier Time in Transit: WSH_CUSTOM_PUB.tnt_shipment_services</p>
+</li>
+<li>
+<p>Carrier Tracking: WSH_CUSTOM_PUB.trk_shipment_services</p>
+</li>
+</ul>
+<p>See: Step 17: Specify Carrier Options in wsh_custom_pub Custom Hook, <i>Oracle Order Management Implementation Manual</i>.</p>
+<p>The integration enables you to perform the following shipping-related tasks:</p>
+<ul>
+<li>
+<p>Estimate shipping costs for packages.</p>
+</li>
+<li>
+<p>Track lines and LPNs (containers).</p>
+</li>
+<li>
+<p>Find time in transit for ground shipments.</p>
+</li>
+<li>
+<p>Validate address and postal code information for a shipment.</p>
+</li>
+</ul>
+<p>When you specify the third party carrier details in the wsh_custom_pub custom hook, the carrier related actions available in the Shipping Transactions window and Shipping Execution Simplified User Interface are:</p>
+<ul>
+<li>
+<p>Calculating rate and selecting service (only available in the Shipping Transactions window)</p>
+</li>
+<li>
+<p>Tracking lines and containers</p>
+</li>
+<li>
+<p>Viewing time in transit for a delivery, deliver line, and container.</p>
+</li>
+<li>
+<p>Viewing carrier address validation for a delivery, delivery line, and container.</p>
+</li>
+</ul>
+<p>The following topics explain these actions for the carrier.</p>
+<h2><a name="3573801"></a><a id="T414996"></a><b>Calculating Rate and Selecting Service</b></h2>
+<p><a name="d0e20050" id="d0e20050"></a><a name="t_ups_rate" id="t_ups_rate"></a><a name="WSHFURSS.UPS_RASS_MAIN" id="WSHFURSS.UPS_RASS_MAIN"></a>In the Carrier Rate and Service Selection window, you can calculate rates in US dollars, and select carrier services for deliveries, lines, and LPNs (containers).</p>
+<p>You can update freight cost values for a delivery line. Lines and deliveries with the same Ship From and Ship To address are grouped into Rate and Service Groups, and total charges for each group can be calculated. When you calculate the total charges for a line item, you can also update the freight costs for that item.</p>
+<p>You can compare charges for different carrier services, for example, between two-day express versus overnight delivery. You can also select different tracking options, view charges, and surcharges for an item, and enter dimensions for an item.</p>
+<p><b>To Calculate Carrier Rate and Service Costs for a Delivery Using the Shipping Transactions Window</b></p>
+<ol>
+<li>
+<p>Navigate to the Carrier Rate and Service Selection window.</p>
+</li>
+<li>
+<p>Navigate to the Rate and Service Group tabbed region. It displays the total freight charges in US dollars for a group and the Ship From and Ship To addresses for a delivery. You can view freight costs for a group or update freight costs for an item after completing your entries in the remaining tabs.</p>
+</li>
+<li>
+<p>Select the rate chart and service such as ground or worldwide express.</p>
+</li>
+<li>
+<p>Navigate to the Address Details tabbed region and view the detailed Ship From and Ship To address information.</p>
+</li>
+<li>
+<p>Navigate to the Service Options tabbed region.</p>
+</li>
+<li>
+<p>Select one or more service options such as Saturday Pickup or Additional Handling.</p>
+</li>
+<li>
+<p>Navigate to the Tracking Options tabbed region.</p>
+</li>
+<li>
+<p>Select the First and Second Ship Notification. Choose None, Domestic, or International.</p>
+</li>
+<li>
+<p>Select the Call Tag.</p>
+</li>
+<li>
+<p>Select the Delivery Confirmation.</p>
+</li>
+<li>
+<p>Enable the Verbal Confirmation box if you want verbal confirmation.</p>
+</li>
+<li>
+<p>Click <b>Calculate</b> to calculate the charges.</p>
+</li>
+<li>
+<p>Navigate to the Charges tabbed region and view the product charge and surcharge and each line and item.</p>
+</li>
+<li>
+<p>Navigate to the Weight tabbed region and view the default weight (from Oracle Inventory) for the line item displays in pounds.</p>
+</li>
+<li>
+<p>Navigate to the Dimensions tabbed region.</p>
+</li>
+<li>
+<p>Optionally, enter the length, width, and height for each line item.</p>
+</li>
+<li>
+<p>Navigate to the Value tabbed region.</p>
+</li>
+<li>
+<p>Select the packaging type and declared value for each item.</p>
+</li>
+<li>
+<p>Click <b>Update Freight Costs</b> to update freight costs for the delivery lines.</p>
+</li>
+<li>
+<p>Navigate to the Errors tab and view any errors that occur when calculating charges.</p>
+</li>
+<li>
+<p>Click <b>Done</b> to save your work.</p>
+</li>
+</ol>
+<h2><a name="3573804"></a><a id="T414997"></a><b>Tracking Lines and Containers</b></h2>
+<p><a name="d0e20165" id="d0e20165"></a><a name="d0e20171" id="d0e20171"></a><a name="d0e20177" id="d0e20177"></a><a name="t_ups_tracklinescont" id="t_ups_tracklinescont"></a><a name="WSHFUTRK.UPS_TRK_SUMMARY" id="WSHFUTRK.UPS_TRK_SUMMARY"></a><a name="WSHFUTRK.UPS_TRK_DETAIL" id="WSHFUTRK.UPS_TRK_DETAIL"></a><a name="WSHFUTRK_UPS_TRK_SUMMARY" id="WSHFUTRK_UPS_TRK_SUMMARY"></a><a name="DetailCarrierTrackingPG" id="DetailCarrierTrackingPG"></a>You can track carrier ground shipments for lines and containers (LPNs) and view information such as tracking numbers, status, and service type. You can also view detailed tracking information for a selected line such as the date and location where a package was picked up or dropped off.</p>
+<p><b>To Track Lines and Containers Using the Shipping Transactions Window</b></p>
+<ol>
+<li>
+<p>Navigate to the Carrier Tracking Summary window.</p>
+</li>
+<li>
+<p>The window displays the most recent tracking information including tracking number, status such as undelivered or delivered, service type, and date.</p>
+</li>
+<li>
+<p>To view tracking details, select a line and click <b>View Details</b> to display the Carrier Tracking Detail window.</p>
+<p>The Carrier Tracking Detail window displays the package progress including the date, location, and activity such as the arrival and departure scan.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+<p><b>To Track Lines and Containers Using the Shipping Execution Simplified User Interface (Alternate Method)</b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines or containers to which you want to track, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Track Lines and Containers Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one or more delivery lines and container lines by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Tracking.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Tracking page appears. This page displays the most recent tracking information including tracking number, status such as undelivered or delivered, service type, shipped to, shipped/billed on date, location, and weight.</p>
+</li>
+<li>
+<p>To view tracking details, click the <b>Select to Show Information</b> icon in the Details column.</p>
+<p>The tracking details displays including date, location, and activity such as the arrival or departure scan.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+<p><strong><span>Note:</span></strong> You can also track lines for a delivery line by performing the steps above from the Details page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To Track Lines and Containers Using the Line Details Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Detail page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Tracking.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Tracking page appears. This page displays the most recent tracking information including tracking number, status such as undelivered or delivered, service type, shipped to, shipped/billed on date, location, and weight.</p>
+</li>
+<li>
+<p>To view tracking details, click the <b>Select to Show Information</b> icon in the Details column.</p>
+<p>The tracking details displays including date, location, and activity such as the arrival or departure scan.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+<p><b>To Track Lines and Containers Using the LPN Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a container line in the search results table of the Search Details page.</p>
+<p>The LPN page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Tracking.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Tracking page appears. This page displays the most recent tracking information including tracking number, status such as undelivered or delivered, service type, shipped to, shipped/billed on date, location, and weight.</p>
+</li>
+<li>
+<p>To view tracking details, click the <b>Select to Show Information</b> icon in the Details column.</p>
+<p>The tracking details displays including date, location, and activity such as the arrival or departure scan.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573808"></a><a id="T414998"></a><b>Viewing Time in Transit for a Delivery</b></h2>
+<p><a name="d0e20354" id="d0e20354"></a><a name="d0e20360" id="d0e20360"></a><a name="WSHFUTRK.UPS_GTT" id="WSHFUTRK.UPS_GTT"></a><a name="t_ups_time" id="t_ups_time"></a><a name="DlvyCarrierTimeInTransitPG" id="DlvyCarrierTimeInTransitPG"></a>The time in transit refers to the time in business days that it takes to ship between two sites using carrier ground service. The Carrier Time In Transit window and the Carrier Time In Transit page display the time in transit, ship from and ship to addresses, and the corresponding origin and destination addresses used by a carrier for a delivery.</p>
+<p><b>To View Time In Transit for a Delivery Using the Shipping Transactions Window</b></p>
+<ol>
+<li>
+<p>Navigate to the Carrier Time in Transit window.</p>
+<p>The Carrier Time in Transit window displays the selected items, the Ship From and Ship To codes, and the number of business days in transit.</p>
+</li>
+<li>
+<p>Click <b>Done</b> to close the window.</p>
+</li>
+</ol>
+<p><b>To View Time In Transit for a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)</b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries for which you want to view time in transit, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To View Time In Transit for a Delivery Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one or more deliveries by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Time In Transit.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Time In Transit page appears displaying the deliveries, the ship from and ship to codes, the ship from and ship to addresses, the number of business days in transit, and the carrier origin and destination.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also view time in transit for a delivery by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>View Time In Transit for a Delivery Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Time In Transit.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Time In Transit page appears displaying the deliveries, the ship from and ship to codes, the ship from and ship to addresses, the number of business days in transit, and the carrier origin and destination.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="8406616"></a><a id="T663646"></a><b>Viewing Time In Transit for a Delivery Line or Container</b></h2>
+<p><a name="d0e20472" id="d0e20472"></a><a name="d0e20478" id="d0e20478"></a><a name="d0e20484" id="d0e20484"></a><a name="DetailCarrierTimeInTransitPG" id="DetailCarrierTimeInTransitPG"></a>The time in transit refers to the time in business days that it takes to ship between two sites using carrier ground service. The Carrier Time in Transit window and the Carrier Time In Transit page display the time in transit, ship from and ship to addresses, and the corresponding origin and destination addresses used by a carrier for a delivery line or container.</p>
+<p><b>To View Time in Transit for a Delivery Line or Container Using the Shipping Transactions Window</b></p>
+<ol>
+<li>
+<p>Navigate to the Carrier Time in Transit window.</p>
+<p>The Carrier Time in Transit window displays the selected items, the Ship From and Ship To codes, and the number of business days in transit.</p>
+</li>
+<li>
+<p>Click <b>Done</b> to close the window.</p>
+</li>
+</ol>
+<p><b>To View Time In Transit for a Delivery Line or Container Using the Shipping Execution Simplified User Interface (Alternate Method)</b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines or containers to which you want to view time in transit, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To View Time In Transit for a Delivery Line or Container Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one or more delivery lines and container lines by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Time in Transit.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Time In Transit page appears displaying the delivery line and containers, the ship from and ship to codes, the ship from and ship to addresses, the number of business days in transit, and the carrier origin and destination.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+<p><strong><span>Note:</span></strong> You can also view time in transit for a delivery line by performing the steps above from the Details page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To View Time In Transit for a Delivery Line Using the Line Details Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Detail page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Time in Transit.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Time In Transit page appears displaying the delivery line, the ship from and ship to codes, the ship from and ship to addresses, the number of business days in transit, and the carrier origin and destination.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+<p><b>To View Time In Transit for a Container Using the LPN Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a container line in the search results table of the Search Details page.</p>
+<p>The LPN page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Time in Transit.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Time In Transit page appears displaying the container, the ship from and ship to codes, the ship from and ship to addresses, the number of business days in transit, and the carrier origin and destination.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="8406621"></a><a id="T663647"></a><b>Viewing Carrier Address Validation for a Delivery</b></h2>
+<p><a name="d0e20622" id="d0e20622"></a><a name="d0e20628" id="d0e20628"></a><a name="DlvyCarrierAddressValidationPG" id="DlvyCarrierAddressValidationPG"></a>The Carrier Address Validation window and the Carrier Address Validation page display the carrier address validation results. The validation process takes the Ship From and Ship To address postal codes for a delivery and matches it against the UPS address information. Matches are ranked using a quality rating system with 1.000 being the closest (highest) match.</p>
+<p><b>To View Carrier Address Validation for a Delivery Using the Shipping Transactions Window</b></p>
+<ol>
+<li>
+<p>Navigate to the Carrier Address Validation window.</p>
+<p>The top half of the window displays the results of the validation such as the number of address candidates and the accuracy of the validation.</p>
+<p>The lower half of the window displays a ranking of matches from highest to lowest for the Ship From and Ship To addresses.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+<p><b>To View Carrier Address Validation for a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)</b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries for which you want to view carrier address validation, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To View Carrier Address Validation for a Delivery Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one or more deliveries by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Address Validation.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Address Validation page appears displaying the address validation for the deliveries.</p>
+<p>The top half of the page displays the results of the validation such as the number of address candidates and the accuracy of the validation.</p>
+<p>The lower half of the page displays a ranking of matches from highest to lowest for the Ship From and Ship To addresses.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also view carrier address validation for a delivery by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>View Carrier Address Validation for a Delivery Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Address Validation.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Address Validation page appears displaying the address validation for the delivery.</p>
+<p>The top half of the page displays the results of the validation such as the number of address candidates and the accuracy of the validation.</p>
+<p>The lower half of the page displays a ranking of matches from highest to lowest for the Ship From and Ship To addresses.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573811"></a><a id="T414999"></a><b>Viewing Carrier Address Validation for Delivery Lines and Containers</b></h2>
+<p><a name="d0e20748" id="d0e20748"></a><a name="d0e20754" id="d0e20754"></a><a name="WSHFUTRK.UPS_AVAL" id="WSHFUTRK.UPS_AVAL"></a><a name="t_ups_addvalid" id="t_ups_addvalid"></a><a name="DetailCarrierAddressValidationPG" id="DetailCarrierAddressValidationPG"></a>The Carrier Address Validation window and the Carrier Address Validation page display the carrier address validation results. The validation process takes the Ship From and Ship To address postal codes for a delivery line or container and matches it against the UPS address information. Matches are ranked using a quality rating system with 1.000 being the closest (highest) match.</p>
+<p><b>To View Carrier Address Validation for Delivery Lines Using the Shipping Transactions Window</b></p>
+<ol>
+<li>
+<p>Navigate to the Carrier Address Validation window.</p>
+<p>The top half of the window displays the results of the validation such as the number of address candidates and the accuracy of the validation.</p>
+<p>The lower half of the window displays a ranking of matches from highest to lowest for the Ship From and Ship To addresses.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+<p><b>To View Carrier Address Validation for a Delivery Line or Container Using the Shipping Execution Simplified User Interface (Alternate Method)</b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines or containers to which you want to view carrier address validation and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To View Carrier Address Validation for a Delivery Line or Container Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one or more delivery lines and container lines by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Address Validation.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Address Validation page appears displaying the address validation for the delivery lines and containers.</p>
+<p>The top half of the page displays the results of the validation such as the number of address candidates and the accuracy of the validation.</p>
+<p>The lower half of the page displays a ranking of matches from highest to lowest for the Ship From and Ship To addresses.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+<p><strong><span>Note:</span></strong> You can also view carrier address validation for a delivery line by performing the steps above from the Details page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To View Carrier Address Validation for a Delivery Line Using the Line Details Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Detail page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Address Validation.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Address Validation page appears displaying the address validation for the delivery line.</p>
+<p>The top half of the page displays the results of the validation such as the number of address candidates and the accuracy of the validation.</p>
+<p>The lower half of the page displays a ranking of matches from highest to lowest for the Ship From and Ship To addresses.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+<p><b>To View Carrier Address Validation for a Container Using the LPN Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a container line in the search results table of the Search Details page.</p>
+<p>The LPN page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Carrier Address Validation.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Carrier Address Validation page appears displaying the address validation for the container.</p>
+<p>The top half of the page displays the results of the validation such as the number of address candidates and the accuracy of the validation.</p>
+<p>The lower half of the page displays a ranking of matches from highest to lowest for the Ship From and Ship To addresses.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

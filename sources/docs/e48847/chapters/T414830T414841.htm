@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Shipping Execution User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Shipping Execution User's Guide">
+<meta name="dcterms.identifier" content="E48847-15">
+<meta name="dcterms.isVersionOf" content="WSHUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T414830T414840.htm" title="Previous" type="text/html">
+<link rel="Next" href="T414830T414836.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Shipping Execution User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">13/23</span> <!-- End Header -->
+<h1>Ship Confirm</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T414880">Overview of Ship Confirm</a></li>
+<li><a href="#T414881">Ship Confirm Features</a></li>
+<li><a href="#T414989">Running the Ship Confirm Process</a></li>
+<li><a href="#T2006571">Viewing the Document Set</a></li>
+<li><a href="#T414882">Automated Ship Confirmation</a></li>
+<li><a href="#T414990">Defining a Ship Confirm Rule</a></li>
+<li><a href="#T414991">Using a Ship Confirm Rule Within the Release Sales Order for Picking Window</a></li>
+<li><a href="#T414992">Auto Ship Confirm From the Shipping Transactions Window</a></li>
+<li><a href="#T661414">Auto Ship Confirm From the Shipping Execution Simplified User Interface</a></li>
+<li><a href="#T414993">Auto Ship Confirm From the Quick Ship Window</a></li>
+<li><a href="#T414994">Using the Ship Confirm Deliveries SRS to Ship Confirm</a></li>
+<li><a href="#T414884">Interface Trip Stop-SRS</a></li>
+<li><a href="#T414995">Assigning or Updating Serial Numbers to Delivery Line Items</a></li>
+<li><a href="#T673300">Canceling Unshipped Lines</a></li>
+</ul>
+<h2><a name="3573769"></a><a id="T414880"></a><b>Overview of Ship Confirm</b></h2>
+<p><a name="d0e16694" id="d0e16694"></a><a name="t_del_shpcon" id="t_del_shpcon"></a><a name="WSHFSTRX.SHIP_CONFIRM" id="WSHFSTRX.SHIP_CONFIRM"></a><a name="shipconf" id="shipconf"></a>Ship confirm is the process of confirming that items have shipped. When you ship confirm a delivery, Shipping Execution confirms that the delivery lines associated with the delivery have shipped.</p>
+<p>You use the Confirm Delivery window to manually select or deselect ship confirm options. The options in the Confirm Delivery window provide flexibility for automating many tasks associated with processing deliveries with many delivery lines. For example, when the Ship Entered Quantities, Unspecified Quantities Ship option is selected at ship confirm, the shipped amounts are automatically processed so that each delivery line with a missing shipped quantity value is recorded as fully shipped. This saves you from manually entering each item as fully shipped.</p>
+<p><strong><span>Note:</span></strong> Oracle Shipping Execution supports up to 5 decimal points for order quantities created in Discrete Inventory organizations. Existing order quantities containing more than 5 decimal points must not be entered during ship confirm to avoid the ship confirm process from failing.</p>
+<p>During ship confirm, you can also automatically create a trip and related stops for a delivery that has not been assigned to a trip.</p>
+<p><strong><span>Note:</span></strong> For a list of the actions that cause recalculating, see <a href="T414830T414837.htm#frtrecalc">Freight Rate Recalculation Actions</a></p>
+<p>During Ship confirm, the application validates the actual departure against the following:</p>
+<ul>
+<li>
+<p>Shipping calendar associated with the location of the organization.</p>
+<p>If there is no assignment of a shipping calendar to the organization location, and there is an assignment at organization level (shipping calendar), then the application defaults the shipping calendar of the assignment at the organization level and validates against that.</p>
+</li>
+<li>
+<p>Receiving calendar for customer.</p>
+<p>If there is an assignment of receiving calendar at customer location, then the application considers it for validation. Otherwise, the application defaults the calendar at customer level (if any).</p>
+</li>
+<li>
+<p>Carrier calendar.</p>
+<p>If there are assignments at organization location or customer location, then the application considers these calendars. Otherwise, the application considers the calendar defined at organization level (for a particular carrier), and the one defined at customer level (if any).</p>
+</li>
+</ul>
+<h2><a name="3573770"></a><a id="T414881"></a><b>Ship Confirm Features</b></h2>
+<a name="d0e16740" id="d0e16740"></a><a name="t_del_shpconfea" id="t_del_shpconfea"></a>
+<h3><a id="T414934"></a><b>Backordering<a name="d0e16750" id="d0e16750"></a><a name="d0e16754" id="d0e16754"></a></b></h3>
+<p>You may choose to partially backorder when a customer determines that they will have a down production line if you do not ship allocated material to them right away. You can ship a partial quantity to the intended customer and backorder the remaining quantity to accommodate the down line situation. You run pick release on the backordered delivery line to allocate it to the down-line customer.</p>
+<p>If you decide to backorder at ship confirm, use either of the following ship confirm options:</p>
+<ul>
+<li>
+<p>Ship Entered Quantities, Unspecified Quantities Backorder: The ship confirm process splits the delivery line as follows:</p>
+<ul>
+<li>
+<p>The original line quantity is the detailed quantity. Its released status progresses--Released to Warehouse becomes Staged/Pick Confirmed and Staged/Pick Confirmed becomes Shipped.</p>
+</li>
+<li>
+<p>The new line quantity is the difference between the requested quantity and the detailed quantity. Its line status is backordered. It has no move order line reference; it will have one after you pick release it.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Backorder All: The ship confirm process places the delivery line into backorder.</p>
+</li>
+<li>
+<p>With either option, if the delivery detail is assigned to a trip in Contents Firm status, the ship confirm process keeps the delivery and container assignments. If the trip is not firm, the ship confirm process unpacks packed containers.</p>
+</li>
+</ul>
+<p>When you backorder at ship confirm, the inventory displays in a staging location. If you move the backordered material, you must perform a subinventory transfer transaction, if the material needs to be moved back to its original location, to record this movement.</p>
+<p>If an Assemble to Order <a name="d0e16786" id="d0e16786"></a>(ATO) item is backordered, the sales order line is split (one part of the line contains the quantity that shipped and the other part of the line contains the backordered quantity) and the reservation for the item is lost. You must re-reserve the item. However, by setting the profile option WSH: Retain ATO Reservations to Yes, you can avoid the redundancy of re-reserving the item. The inventory system retains the reservation and the reservation status changes from Staged to Unstage, while the delivery line status changes to Backordered.</p>
+<p>You can backorder material from the staging subinventory to the source subinventory when required by automatically generating move orders during the ship confirmation process. Select a <b>Backorder Reason</b> for the <b>Ship Entered Quantities</b> option or for the <b>Backorder All</b> option.</p>
+<p>To ensure that back ordering does not delete reservations for standard items, select the checkbox <b>Retain Reservations for Standard Items</b>. This checkbox is present on the <b>Shipping Transactions</b> tab of the <b>Shipping Parameters</b> window.</p>
+<h3><a id="T414935"></a><b><a name="con_bo" id="con_bo"></a><a name="d0e16818" id="d0e16818"></a><a name="d0e16824" id="d0e16824"></a><a name="d0e16828" id="d0e16828"></a>Consolidating Backorders</b></h3>
+<p>Consolidation of backordered delivery details is done during Pick Release, Cycle Count, or Ship Confirmation. When a backorder occurs, Shipping Execution searches the database for existing delivery detail backorders for the particular source line. If an existing backorder is found, then the current backordered delivery detail is consolidated with the existing backordered delivery detail.</p>
+<p>For example, a source line is split into two delivery details: DD1 and DD2, of a requested quantity of 5 each. A quantity of only 3 are available. If Pick Release is run for DD1 first, then the splits would be handled in the way depicted in the following table.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Delivery Line with Backorder Example</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Delivery Detail</b></th>
+<th scope="col"><b>Order Quantity</b></th>
+<th scope="col"><b>Status</b></th>
+</tr>
+<tr valign="top">
+<td>DD1</td>
+<td>3</td>
+<td>Staged</td>
+</tr>
+<tr valign="top">
+<td>DD2</td>
+<td>5</td>
+<td>Ready to Release</td>
+</tr>
+<tr valign="top">
+<td>DD3</td>
+<td>2</td>
+<td>Backordered</td>
+</tr>
+</table>
+<p>Next, Pick Release is run for DD2 and Oracle Inventory does not find enough quantity to release and Shipping backorders the quantity. Shipping then consolidates DD2 with DD3 and deletes one of them altogether as represented in the following table.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Delivery Line with Consolidated Backorder Example</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Delivery Detail</b></th>
+<th scope="col"><b>Order Quantity</b></th>
+<th scope="col"><b>Status</b></th>
+</tr>
+<tr valign="top">
+<td>DD1</td>
+<td>3</td>
+<td>Staged</td>
+</tr>
+<tr valign="top">
+<td>DD3</td>
+<td>7</td>
+<td>Backordered</td>
+</tr>
+</table>
+<p>Whether or not your organization consolidates backorders is determined by selecting the Consolidate Backordered Lines parameter on the Global Shipping Parameters window.</p>
+<p><strong><span>Note:</span></strong> Only unassigned and unpacked backordered delivery details are consolidated. Also, backordered delivery details with updated flexfield information or backordered delivery details with exceptions or attachments, lose the flexfield, exceptions, and attachment information. Packing and shipping instructions are inherited from the source line.</p>
+<h3><a id="T414936"></a><b><a name="nonres" id="nonres"></a><a name="nresitem" id="nresitem"></a><a name="d0e16939" id="d0e16939"></a><a name="d0e16945" id="d0e16945"></a>Non-Reservable Items</b></h3>
+<p>Non-reservable items require that you specify the subinventory and stock locator to pick the items from at ship confirm. You will also specify lot, serial, and revisions at ship confirm if applicable. You can also specify the subinventory and stock locator, to pick the item from, through the Item Transactions Default window. Using this method will also require that you specify lot, serial, and revision at ship confirm, if necessary.</p>
+<h3><a id="T414937"></a><b><a name="d0e16955" id="d0e16955"></a><a name="d0e16961" id="d0e16961"></a>Models</b></h3>
+<p>You can ship a model non-proportionately, for example:</p>
+<ul>
+<li>
+<p>You ship all of the components but not in the correct proportion.</p>
+</li>
+<li>
+<p>You do not ship all of the components.</p>
+</li>
+</ul>
+<p>When you ship a model in this manner, Oracle Order Management breaks the model and treats each order line as an individual line. Non-shippable lines become fulfilled and eligible for invoicing. To prevent this, do either of the following:</p>
+<ul>
+<li>
+<p>Put the PTO model into a fulfillment set: none of the lines move beyond fulfillment until all the lines are fulfilled.</p>
+</li>
+<li>
+<p>Use header level invoicing; none of the lines are eligible for invoicing until all of the lines are eligible for invoicing.</p>
+</li>
+</ul>
+<h3><a id="T435839"></a><b>Ship Confirm Message Configuration<a name="d0e16988" id="d0e16988"></a></b></h3>
+<p>Message configuration enables you to change certain ship confirmation constraint messages from the default of Warning to Error. These constraint messages are displayed (Warning or Error) when you perform ship confirmation.</p>
+<p>The ship confirmation messages that are applicable include:</p>
+<ul>
+<li>
+<p>Breaking Ship Sets: For example, if you do not want to send partial ship sets, then setting this message to Error will prevent this by displaying an Error at ship confirm.</p>
+</li>
+<li>
+<p>Missing Inventory Controls: For example, if a delivery contains a delivery line that is missing inventory controls (for example, serial number or lot number), then an error is displayed at ship confirm.</p>
+</li>
+<li>
+<p>Breaking Proportionality of Ship Model Complete: For example, if you require a specific percent to ship orders complete, then this will display an error at ship confirm if the proportion of the order is not shipping complete.</p>
+</li>
+<li>
+<p>Invalid Material Status: If the material status is invalid for any reason, such as, a broken item, then set this message to Error to stop the ship confirm process.</p>
+</li>
+<li>
+<p>Shipping Holds on Order Header or Lines: If the order header or order lines contain shipping holds, then set this message to Error to stop the ship confirm process.</p>
+</li>
+<li>
+<p>Unreleased Delivery Lines: Set this to Error to prevent the ship confirm process from running until all the details of a delivery are released. To proceed with the delivery even if unreleased details exist, set it to Warning.</p>
+</li>
+</ul>
+<p>Message configuration is defined in the Shipping Execution Role Definition window.</p>
+<p>The Ship Confirm Message Configuration is not applicable when Oracle Warehouse Management is enabled for your organization.</p>
+<p>See the Shipping Execution Setup chapter of the <i>Oracle Order Management Implementation Manual</i> for information on defining message configuration.</p>
+<h3><a id="T528699"></a><b>Examples of Warning and Error Messages During Ship Confirmation</b></h3>
+<p><a name="d0e17031" id="d0e17031"></a>The following scenarios describe situations where Warning or Error messages are displayed for the following ship confirmation actions:</p>
+<ul>
+<li>
+<p>Broken Ship Set</p>
+</li>
+<li>
+<p>Broken Ship Model Complete</p>
+</li>
+<li>
+<p>Missing Inventory Controls</p>
+</li>
+<li>
+<p>Invalid Material Status</p>
+</li>
+<li>
+<p>Shipping Holds on Order Header or Lines</p>
+</li>
+<li>
+<p>Unreleased Delivery Lines</p>
+</li>
+</ul>
+<h3><a id="T528697"></a><b>Third Party Warehouse Scenarios</b></h3>
+<p>The following scenarios apply if your system is configured with the third party warehouse feature:</p>
+<p><b>Scenario 1: Warning message appears during ship confirmation at the supplier site</b></p>
+<p>When sending a shipment request, the system displays a warning message for any of the following conditions:</p>
+<ul>
+<li>
+<p>Broken ship set</p>
+</li>
+<li>
+<p>Broken ship model complete</p>
+</li>
+<li>
+<p>Missing inventory controls</p>
+</li>
+<li>
+<p>Invalid Material Status</p>
+</li>
+<li>
+<p>Shipping Holds on Order Header or Lines</p>
+</li>
+<li>
+<p>Unreleased Delivery Lines</p>
+</li>
+</ul>
+<p>If you ignore the warning messages and continue to send the shipment request, the ship confirmation process will complete successfully and the transactions will be sent back to the supplier side. When the shipping transactions are received from the third party warehouse, the ship confirmation process will complete successfully because these scenarios are configured as <i>warnings</i> (on the supplier side).</p>
+<p><b>Scenario 2: Error message appears during ship confirmation at the supplier site</b></p>
+<p>When sending a shipment request, the system displays a warning message for any of the following conditions:</p>
+<ul>
+<li>
+<p>Broken ship set</p>
+</li>
+<li>
+<p>Broken ship model complete</p>
+</li>
+<li>
+<p>Missing inventory controls</p>
+</li>
+<li>
+<p>Invalid Material Status</p>
+</li>
+<li>
+<p>Shipping Holds on Order Header or Lines</p>
+</li>
+<li>
+<p>Unreleased Delivery Lines</p>
+</li>
+</ul>
+<p>If you ignore the warning message and continue to send the shipment request, then the ship confirmation process continues successfully and the shipping advice transactions will be sent back to the supplier. When the shipping advice is received from the third party warehouse, the ship confirmation process fails because these messages are configured as <i>errors</i> on the supplier side. To complete the ship confirmation process, you can ship confirm the delivery on the supplier side by configuring the messages as <i>warning</i> messages (message configuration done at the role level).</p>
+<h3><a id="T528698"></a><b>Carrier Manifesting Scenarios</b></h3>
+<p>The following scenarios apply during carrier manifesting:</p>
+<p><b>Scenario 1: Warning message appears during ship confirmation</b></p>
+<p>During carrier manifesting (Send Shipment Advice, 940), the system displays a warning message for any of the following conditions:</p>
+<ul>
+<li>
+<p>Broken ship set</p>
+</li>
+<li>
+<p>Broken ship model complete</p>
+</li>
+<li>
+<p>Missing inventory controls</p>
+</li>
+<li>
+<p>Invalid Material Status</p>
+</li>
+<li>
+<p>Shipping Holds on Order Header or Lines</p>
+</li>
+<li>
+<p>Unreleased Delivery Lines</p>
+</li>
+</ul>
+<p>If you ignore the warning message and send the shipment advice, the shipment advice will get processed successfully. The carrier manifesting will return the shipping advice (945) transactions with the manifesting done successfully even if one or more of the preceding conditions occur. During ship confirmation, you will be warned again that a condition exists (such a broken ship set), and you can choose to either proceed or cancel the ship confirmation process.</p>
+<p><b>Scenario 2: Error message appears during ship confirmation</b></p>
+<p>During carrier manifesting (Send Shipment Advice), the system displays a warning message for any of the following conditions:</p>
+<ul>
+<li>
+<p>Broken ship set</p>
+</li>
+<li>
+<p>Broken ship model complete</p>
+</li>
+<li>
+<p>Missing inventory controls</p>
+</li>
+<li>
+<p>Invalid Material Status</p>
+</li>
+<li>
+<p>Shipping Holds on Order Header or Lines</p>
+</li>
+<li>
+<p>Unreleased Delivery Lines</p>
+</li>
+</ul>
+<p>If you ignore the warning message and send the shipment advice, the shipment advice (940) will be processed successfully. The carrier manifesting system will return the shipping advice (945) transactions with the manifesting done successfully even if one or more of the preceding conditions occur.</p>
+<p>During ship confirmation, if any of these conditions exist, an error message appears and you will be unable to complete ship confirmation because the messages are configured as errors. To complete the ship confirmation process, you can use a role that has the message configured as a <i>warning</i>. (You can set up the message configuration at the user role level.)</p>
+<h2><a name="3573777"></a><a id="T414989"></a><b>Running the Ship Confirm Process</b></h2>
+<a name="d0e17193" id="d0e17193"></a><a name="t_mansc" id="t_mansc"></a>
+<h3><b>Prerequisites</b></h3>
+<p>These prerequisites are required to successfully run ship confirm:</p>
+<ul>
+<li>
+<p>Delivery lines must be Staged/Pick Confirmed.</p>
+</li>
+<li>
+<p>Delivery must be open.</p>
+</li>
+<li>
+<p>At least one delivery line must be assigned to the delivery.</p>
+</li>
+<li>
+<p>For Oracle Warehouse Management organizations, the shipped quantity is disabled, unless the item is either non-reservable or non-transactable.</p>
+</li>
+</ul>
+<p><b>Considerations for the Material On-hand Status Feature (in Oracle Inventory)</b></p>
+<ul>
+<li>
+<p>If lines are not staged/pick confirmed or do not satisfy Inventory controls, a warning appears and they are unassigned from the delivery at Ship Confirm time.</p>
+</li>
+<li>
+<p>You can enter only inventory controls (Subinventory, Locator, Lot, and Serial Numbers) that have a valid material status. You cannot ship confirm if the delivery details inventory controls have material status that does not allow ship confirm. The following transaction types are evaluated when you enter inventory controls and during ship confirmation:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Type</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Sales order issue</td>
+<td>Ship confirm external sales order.</td>
+</tr>
+<tr valign="top">
+<td>Internal order issue</td>
+<td>Ship confirm internal order issue.</td>
+</tr>
+<tr valign="top">
+<td>Internal Order Xfer</td>
+<td>Subinventory transfer sourced by internal order.</td>
+</tr>
+<tr valign="top">
+<td>Int Order Intr Ship</td>
+<td>Ship to intransit sourced by internal order.</td>
+</tr>
+<tr valign="top">
+<td>Int Order Direct Ship</td>
+<td>Direct transfer between two organizations on an internal order.</td>
+</tr>
+<tr valign="top">
+<td>Miscellaneous issue</td>
+<td>Perform miscellaneous issue of material.</td>
+</tr>
+<tr valign="top">
+<td>Project Contract Issue</td>
+<td>Project contract Issue.</td>
+</tr>
+</table>
+</li>
+<li>
+<p><i>Shipping deliveries</i>: When a delivery is being ship confirmed, the material status of all delivery details for that delivery are validated. The validation process ensures that the material status allows appropriate inventory transactions on particular SKUs. If Material Status Check fails for any delivery detail, then one of the following action occurs:</p>
+<ul>
+<li>
+<p>If the Roles definition setup for Ship confirm message Invalid Material Status is set to Warning, then that delivery detail will be unassigned from the delivery and remains in Staged status.</p>
+</li>
+<li>
+<p>If the Roles definition setup for Ship confirm message Invalid Material Status is set to Error, then the delivery will not be ship confirmed.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><b><a name="toshpcn" id="toshpcn"></a>To Manually Ship Confirm a Delivery Using the Shipping Transactions Window<a name="d0e17306" id="d0e17306"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Query Manager</b> window, and find the delivery.</p>
+</li>
+<li>
+<p>From the <b>Actions</b> menu, select <b>Ship Confirm</b> to display the <b>Confirm Delivery</b> window.</p>
+<p><b>Confirm Delivery window</b></p>
+<p><img width="561" height="523" src="./img/wshug_shpcnf.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Optionally, select a <b>Ship Confirm Rule</b>.</p>
+<p><strong><span>Note:</span></strong> A ship confirm rule is defaulted from the shipping parameters for the organization or from client parameters for the client. See <i>Oracle Inventory User's Guide</i> for setting up client.</p>
+<p>Ship Confirm Rule offers a way to default the shipping options automatically. It eliminates the task of selecting the shipping options individually. If you select a ship confirm rule that meets your business needs, then you can skip the remaining steps, and click OK.</p>
+</li>
+<li>
+<p>In the Ship Options region, select one of the following ship confirm options:</p>
+<ul>
+<li>
+<p>Ship Entered Quantities, Unspecified Quantities Ship: Ship confirms the quantity of items specified in the Shipped Quantity field and treats blank values as full quantity (shipped quantity = requested quantity). For example, if the Requested Quantity is 10 and the Shipped Quantity field is blank (no values entered), then the full quantity (10) is shipped and displays in the Shipped Quantity field.</p>
+</li>
+<li>
+<p>Ship Entered Quantities, Unspecified Quantities Backorder: Ship confirms the quantity of items specified in the Shipped Quantity field and treats blank quantities as full backorders (backorder quantity = requested quantity). For example, if the Requested Quantity is 10 and the Shipped Quantity field is blank (no values), the full quantity (10) is backordered and displays in the backordered Quantity field.</p>
+</li>
+<li>
+<p>Ship Entered Quantities, Unspecified Quantities Stage: Leaves the unspecified delivery line quantity as staged and removes it from the delivery. For example, if the Requested Quantity is 10 and the Shipped Quantity field is blank (no values), the full quantity (10) remains in the Stage Quantity field and the line is no longer associated with delivery.</p>
+<p><strong><span>Note:</span></strong> If a non-zero Stage Quantity exists on a line, it is split from the line and unassigned from the delivery. If the Create Delivery for Staged Quantities is enabled, all staged delivery lines are grouped together in a new delivery.</p>
+</li>
+<li>
+<p>Ship Entered Quantities, Unspecified Quantities Cycle Count: Ship confirms the number of items specified in the Shipped Quantity field, treats blank quantities as full backorders (backorder quantity = requested quantity), and transfers the backorder reservation to cycle counting. For example, if the Requested Quantity is 10 and the Shipped Quantity field is blank (no values), the full quantity (10) is backordered and the reservation for quantity 10 is transferred to cycle counting. You can also transfer delivery quantities to cycle count prior to ship confirm by using the Shipping Transactions form, Cycle Count action. Transferring the reservation quantity to cycle count prevents this quantity of the item from being considered for selection during the next pick release.</p>
+</li>
+<li>
+<p>Ship All: Ship confirms the entire quantity regardless of what was entered in the Shipped Quantity field (shipped quantity = requested quantity). For example, if the Requested Quantity is 10 and the Shipped Quantity field is 5, then the full requested quantity is shipped (10) and is displayed in the Shipped Quantity field.</p>
+</li>
+<li>
+<p>Backorder All: Backorders the entire quantity irrespective of what was entered (shipped quantity = 0, backorder quantity = requested quantity).</p>
+<p><strong><span>Note:</span></strong> If the delivery status is Closed, then the delivery is unassigned from all trips and all lines will be unassigned from the delivery.</p>
+</li>
+<li>
+<p>Cycle Count All: Backorders the entire quantity irrespective of what was entered (shipped quantity = 0, backorder quantity = requested quantity) and transfers the backorder reservation to cycle counting. You can also transfer delivery quantities to cycle count prior to ship confirm by using the Shipping Transactions form, Cycle Count action.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For the options <b>Ship Entered Quantities</b> and <b>Backorder All</b>, you can select a backorder reason.</p>
+</li>
+<li>
+<p>Select the Create Delivery for Staged Quantities check box (default setting), if you want all staged delivery lines grouped together in a new delivery.</p>
+<p>If you do not want to create a trip for the delivery, click the OK button to ship confirm and save your work.</p>
+<p><strong><span>Note:</span></strong> Auto-create trip options are dimmed if the selected delivery is already assigned to a trip.</p>
+</li>
+<li>
+<p>In the Trip Options region, select or update the Ship Method and the Actual Departure Date.</p>
+<p>This enables you to specify the stop departure date which is the date the Order Management Inventory interface will occur.</p>
+<p>One way to ship confirm one or more deliveries is to enable the Set Delivery in-Transit and Close Trip fields in the Confirm Delivery window:</p>
+<ul>
+<li>
+<p>Set Delivery In-transit: Creates a trip and stops for the delivery. Closes the first stop of the delivery, but leaves the second stop open. Sets the status of delivery to In-transit and initiates Order Management (OM) and Inventory interfaces.</p>
+</li>
+<li>
+<p>Close Trip: Creates a trip and stops for the delivery. Closes trip, all stops, and the delivery.</p>
+<p>The Actual Departure Date default is the current date and time; however, you can change the date and time to any other date and time.</p>
+<p><strong><span>Note:</span></strong> If Allow Future Ship Date is not selected (in the Global Parameters window), then entering any future date will cause an error. You must enable Allow Future Ship Date if you want to enter future ship dates when ship confirming.</p>
+<p>If you set the Allow Future Ship Date parameter in the Global Parameters window to Yes, enter a future date as the actual departure date, and try to interface the records to Inventory, then the Inventory Interface does not process the delivery line record with the future ship date. Instead, the program ends with a warning.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Select the Create Bill of Lading check box if you want to create a Bill of Lading. This generates a Bill of Lading number and prints it if it is part of a document set.</p>
+</li>
+<li>
+<p>Choose one of the following:</p>
+<ul>
+<li>
+<p>If you clear the Defer Interface check box and run Ship Confirm, then the inventory gets decremented and the order line is updated with the shipped quantity.</p>
+</li>
+<li>
+<p>If you select the Defer Interface check box and run Ship Confirm, then you must run the Interface Trip Stop-SRS concurrent request to update the Inventory and the Order Line status. When the Defer Interface check box is enabled, a request is not submitted automatically to interface the trip stops.</p>
+<p><strong><span>Note:</span></strong> The Defer Interface is defaulted by the Shipping Parameters setup.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Optionally, select the Document Set you want to be printed for the delivery and click <b>OK.</b></p>
+</li>
+<li>
+<p>Save your work</p>
+<p><strong><span>Note:</span></strong> If a delivery is in confirmed status, the pick-up stop must be closed manually to update Inventory/Order Management (OM). The delivery can be re-opened at any time to make changes as long as the delivery is in confirmed status.</p>
+<p><strong><span>Note:</span></strong> If you are utilizing Oracle Project Contracts and your delivery or a delivery line requires inspection (per Oracle Project Contracts), the Inspection Status field, within the Shipping tab of the LPN window, will display Required. You must change this status to Inspected before Oracle Shipping Execution will ship confirm the delivery. A warning message will be displayed, at the ship confirm, if this circumstance occurs.</p>
+<p>You can also perform ship confirmation from the Quick Ship window. See: <a href="T414830T414833.htm#qs_win">Quick Ship Window</a>.</p>
+</li>
+</ol>
+<p><b><a name="tophtml" id="tophtml"></a>To Manually Ship Confirm a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e17470" id="d0e17470"></a><a name="DlvyShipConfirmPG" id="DlvyShipConfirmPG"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page in the Shipping Execution Simplified User Interface.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+</li>
+<li>
+<p>Enter search criteria for the delivery you want to ship confirm, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Ship Confirm a Delivery Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one delivery by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Ship Confirm.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Ship Confirm page appears.</p>
+</li>
+<li>
+<p>Select the ship options and the trip options.</p>
+<p>For more information on the ship options and the trip options, see the <a href="T414830T414841.htm#toshpcn">procedure: To Manually Ship Confirm a Delivery Using the Confirm Delivery Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+<p><b>To Ship Confirm a Delivery Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the delivery <b>Name</b> link in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Ship Confirm.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Ship Confirm page appears.</p>
+</li>
+<li>
+<p>Select the ship options and the trip options.</p>
+<p>For more information on the ship and trip options, see the <a href="T414830T414841.htm#toshpcn">procedure: To Manually Ship Confirm a Delivery Using the Confirm Delivery Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="30040834"></a><a id="T2006571"></a><b>Viewing the Document Set</b></h2>
+<p><a name="d0e17568" id="d0e17568"></a><a name="view_docset" id="view_docset"></a>After ship confirm, you can view the document set that you had selected for printing from the:</p>
+<ul>
+<li>
+<p><b>Document Set</b> column of the <b>Delivery</b> tab in the <b>Shipping Transactions</b> window</p>
+</li>
+<li>
+<p>Results table of the <b>Search Deliveries</b> page</p>
+</li>
+<li>
+<p><b>Delivery</b> page</p>
+</li>
+</ul>
+<p><strong><span>Additional Information:</span></strong> In the <b>Shipping Transactions</b> window, <b>Document Set</b> is a folder field that you can show or hide from the <b>Folder</b> menu. On the <b>Delivery</b> pages, you can display the <b>Document Set</b> column by personalizing the pages.</p>
+<h2><a name="3573781"></a><a id="T414882"></a><b>Automated Ship Confirmation</b></h2>
+<p><a name="d0e17621" id="d0e17621"></a><a name="d0e17625" id="d0e17625"></a><a name="t_auto_shpcon" id="t_auto_shpcon"></a><a name="WSHFASCR.SHIP_CONFIRM" id="WSHFASCR.SHIP_CONFIRM"></a>Automated Ship Confirm enables you to automatically ship confirm all deliveries that have all lines at status of staged. Automated Ship Confirm can be executed as a concurrent program (set to run at specific intervals) or it can be launched manually.</p>
+<p>Each method of executing Automated Ship Confirm has its advantages. You can utilize either or both processes depending on your business needs.</p>
+<ul>
+<li>
+<p>Concurrent Submission: If you use a Ship Confirm Rule within the Ship Confirm SRS program and schedule this concurrent program to run periodically, you will not have to manually ship confirm each delivery. It is designed to support delivery selection based on range of parameters.</p>
+</li>
+<li>
+<p>Ad Hoc (or one time) Submission: Submitting the Ship Confirm SRS program on an ad hoc basis enables you to control when each ship confirm process will be executed by invoking the process manually.</p>
+</li>
+</ul>
+<p>You can disable Automated Ship Confirm for any delivery by using the Enable Auto Ship Confirm flag at the Delivery tab. If the check box is selected, the delivery is considered for Automated Ship Confirm. If it is not selected the delivery is not considered.</p>
+<p>You can view the deliveries included in an Automated Ship Confirm batch by using the Query Manager window to search for Deliveries. In the Ship Confirm Batch field, find the batch number in the list of values.</p>
+<p><strong><span>Note:</span></strong> Only deliveries that do not need manual input or intervention can be automatically ship confirmed.</p>
+<p>Within the Automated Ship Confirm parameters, you must choose a Ship Confirm Rule that you have predefined in the Ship Confirm Rule window. Using the <a href="T414830T414841.htm#shcrule">Ship Confirm Rules</a> window, you can define as many rules as you need depending on your business needs.</p>
+<h3><a id="T414938"></a><b><a name="d0e17659" id="d0e17659"></a>Auto Ship Confirm Report</b></h3>
+<p>The <a href="T414830T414843.htm#rep_shpconf">Auto Ship Confirm Report</a> is submitted automatically at the end of Auto Ship Confirm.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414841.htm#ascpro">Executing the Auto Ship Confirm Process</a></p>
+<h2><a name="3573783"></a><a id="T414883"></a><b>Executing the Auto Ship Confirm Process</b></h2>
+<p><a name="d0e17681" id="d0e17681"></a><a name="t_autospcfm" id="t_autospcfm"></a><a name="WSHFASCR.MAIN" id="WSHFASCR.MAIN"></a><a name="ascpro" id="ascpro"></a>The process of executing the auto ship confirm process includes the following:</p>
+<ul>
+<li>
+<p><a href="T414830T414841.htm#defash">Defining a Ship Confirm Rule</a></p>
+</li>
+<li>
+<p><a href="T414830T414841.htm#ascrsow">Using a Ship Confirm Rule Within the Release Sales Order Window</a></p>
+</li>
+<li>
+<p><a href="T414830T414841.htm#ascstf">Auto Ship Confirm From the Shipping Transactions Window</a></p>
+</li>
+<li>
+<p><a href="T414830T414841.htm#autoshipconhtmlui">Auto Ship Confirm From the Shipping Execution Simplified User Interface</a></p>
+</li>
+<li>
+<p><a href="T414830T414841.htm#ascqs">Auto Ship Confirm From the Quick Ship Window</a></p>
+</li>
+<li>
+<p><a href="T414830T414841.htm#asccr">Using the Ship Confirm Deliveries SRS to Ship Confirm</a></p>
+</li>
+<li>
+<p><a href="T414830T414841.htm#itsrsr">Interface Trip Stop-SRS</a></p>
+</li>
+</ul>
+<h2><a name="3573784"></a><a id="T414990"></a><b>Defining a Ship Confirm Rule</b></h2>
+<p><a name="d0e17724" id="d0e17724"></a><a name="d0e17730" id="d0e17730"></a><a name="t_defascr" id="t_defascr"></a><a name="defash" id="defash"></a><a name="shcrule" id="shcrule"></a>You define Ship Confirm Rules using the Ship Confirm Rules window.</p>
+<p><b>To Define a Ship Confirm Rule<a name="d0e17745" id="d0e17745"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Ship Confirm Rules window.</p>
+</li>
+<li>
+<p>Enter a unique rule name in the Ship Confirm Rule field.</p>
+</li>
+<li>
+<p>Optionally, select an Effective date.</p>
+<p><strong><span>Note:</span></strong> The default Effective date will be the current date. You can modify this date to suit your business needs. Also, you can enter an ending Effective date to disable the rule if needed.</p>
+</li>
+<li>
+<p>Within the Ship Options region, select one of the following options from the Action list of values:</p>
+<ul>
+<li>
+<p>Ship Entered Quantities: To ship the quantities entered</p>
+</li>
+<li>
+<p>Ship All: To ship all</p>
+</li>
+<li>
+<p>Backorder All: To backorder all</p>
+</li>
+<li>
+<p>Cycle Count All: To cycle count all</p>
+</li>
+<li>
+<p>Backorder Reason: Select a reason to backorder material from the staging subinventory to the source subinventory. This LOV is available only for the options Ship Entered Quantities and Backorder All.</p>
+<p><strong><span>Note:</span></strong> If you want your rule to be eligible as the default rule in the Shipping Parameters window, you must select Ship All as your option.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The Ship Options region also enables you to determine the action to perform with Unspecified Quantities. Select one of the following options:</p>
+<ul>
+<li>
+<p>Ship</p>
+</li>
+<li>
+<p>Backorder</p>
+</li>
+<li>
+<p>Stage</p>
+</li>
+<li>
+<p>Cycle Count</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Determine whether you want to Create Delivery for Staged Quantities.</p>
+<p>If this check box is selected, the system creates deliveries for delivery lines that are staged but not yet assigned to a delivery, and subsequently performs the other operations defined by this Ship Confirm Rule. If this check box is not selected, delivery lines not assigned to deliveries are not considered for ship confirm using this rule.</p>
+<p><b>Ship Confirm Rules window</b></p>
+<p><img width="639" height="406" src="./img/wshug_shconrule.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Within the Trip Options region, select the Ship Method Default Option. Options are:</p>
+<ul>
+<li>
+<p>Select the Ship Method option and select a ship method using the list of values.</p>
+</li>
+<li>
+<p>Select the Default from Trip/Delivery option.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The remaining options within the Trip Options region also require attention. These options include the following:</p>
+<ul>
+<li>
+<p>Set Delivery In-Transit</p>
+</li>
+<li>
+<p>Close Trip</p>
+</li>
+<li>
+<p>Defer Interface</p>
+</li>
+<li>
+<p>Create Bill of Lading</p>
+<p><strong><span>Note:</span></strong> If Close Trip is not enabled (if the Close Trip check box is not selected) all trips must be manually closed.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Optionally, select a Document Set that prints with the shipment.</p>
+<p><strong><span>Note:</span></strong> Current system date is used as the actual departure date for these deliveries.</p>
+</li>
+</ol>
+<h2><a name="3573787"></a><a id="T414991"></a><b>Using a Ship Confirm Rule Within the Release Sales Order for Picking Window</b></h2>
+<p><a name="d0e17861" id="d0e17861"></a><a name="t_ascrsow" id="t_ascrsow"></a><a name="ascrsow" id="ascrsow"></a>You can manually execute Auto Ship Confirm within the Release Sales Orders for Picking window.</p>
+<p>From the Release Sales Orders for Picking window, you can specify an individual sales order from which to perform Auto Ship Confirm. Auto Ship Confirm is performed for all the deliveries assigned to the individual order.</p>
+<p><b>To Manually Execute the Auto Ship Confirm Process From the Release Sales Orders for Picking Window<a name="d0e17877" id="d0e17877"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Release Sales Orders for Picking window.</p>
+</li>
+<li>
+<p>Query the specific sales order, or query the batch number.</p>
+<p><strong><span>Note:</span></strong> For detailed information on running Pick Release and the Release Sales Orders for Picking window, refer to the topic <a href="T414830T414840.htm#relsopkg">Releasing Sales Orders for Picking</a></p>
+</li>
+<li>
+<p>Optionally, select a ship confirm rule.</p>
+<p><strong><span>Note:</span></strong> A ship Confirm Rule is defaulted from the shipping parameters for the organization or from the client parameters for the client. See Oracle Inventory User's Guide for setting up client.</p>
+</li>
+<li>
+<p>Delete the dates that are in the Scheduled Ship Dates and Requested Dates regions. These dates must be deleted, otherwise the system only looks for shipments within those dates. If your order number does not fall within those dates, the lines are not picked.</p>
+</li>
+<li>
+<p>Within the Inventory tab, select the warehouse.</p>
+</li>
+<li>
+<p>Pull Replenishment: For pull replenishment, a replenishment suggestion is auto-created as soon as a shortfall is detected during the order release process. This replenishment is useful for items with high uniform demand in forward pick areas.</p>
+<ul>
+<li>
+<p>Yes: Enables pull replenishment.</p>
+</li>
+<li>
+<p>No: Disables pull replenishment.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> You cannot select the pull replenishment value if the value in the Allocation Method field is Cross Dock Only or Prioritize Inventory. The pull replenishment feature is valid only for Oracle Warehouse Management-enabled organizations. For more information on replenishment, see the <i>Oracle Warehouse Management User's Guide</i>.</p>
+</li>
+<li>
+<p>Within the Inventory, in the Auto Pick Confirm field, select Yes.</p>
+</li>
+<li>
+<p>Within the Shipping tab, in the Auto Ship Confirm Rule field, select the rule that you want to use for auto ship confirming.</p>
+</li>
+<li>
+<p>From the list of values in the Autocreate Delivery field, select Yes.</p>
+</li>
+<li>
+<p>Select Online to process the request.</p>
+<p><strong><span>Note:</span></strong> You can use a Ship Confirm Rule in the Release Rules window which can then be used in the Release Sales Orders -SRS concurrent program.</p>
+</li>
+</ol>
+<h2><a name="3573789"></a><a id="T414992"></a><b>Auto Ship Confirm From the Shipping Transactions Window</b></h2>
+<p><a name="d0e17951" id="d0e17951"></a><a name="t_ascstf" id="t_ascstf"></a><a name="ascstf" id="ascstf"></a>From within the Shipping Transactions window, you can select deliveries or delivery lines that you want Auto Ship Confirm to run against.</p>
+<p><b>To Manually Execute the Auto Ship Confirm Process From the Shipping Transactions Window<a name="d0e17965" id="d0e17965"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window.</p>
+</li>
+<li>
+<p>Find your delivery or order.</p>
+<p><strong><span>Note:</span></strong> For detailed information on using the Query Manager, refer to the topic <a href="T414830T414834.htm#qrmgr">Query Manager</a></p>
+</li>
+<li>
+<p>Select the delivery or delivery lines for the shipment.</p>
+</li>
+<li>
+<p>From the Actions region, select <b>Pick and Ship</b> or <b>Pick, Pack and Ship</b> depending on your needs.</p>
+<p><strong><span>Note:</span></strong> The action Pick, Pack, and Ship is used if an organization uses the packing features of Oracle Shipping Execution. The packing functionality is determined in the Autopack Deliveries field, within the Pick Release tab of the Shipping Parameters window.</p>
+</li>
+<li>
+<p>Select <b>Go.</b></p>
+</li>
+</ol>
+<h2><a name="8339618"></a><a id="T661414"></a><b>Auto Ship Confirm From the Shipping Execution Simplified User Interface</b></h2>
+<p><a name="d0e18011" id="d0e18011"></a><a name="autoshipconhtmlui" id="autoshipconhtmlui"></a>From within the Delivery pages in the Shipping Execution Simplified User Interface, you can select deliveries or delivery lines that you want the Auto Ship Confirm to run against.</p>
+<p><b>To Manually Execute the Auto Ship Confirm Process From the Shipping Execution Simplified User Interface<a name="d0e18024" id="d0e18024"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery for which you want to perform the auto ship confirm process, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Manually Execute the Auto Ship Confirm Process Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one delivery by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Pick and Ship</b> or <b>Pick, Pack and Ship.</b></p>
+<p><strong><span>Note:</span></strong> The action Pick, Pack, and Ship is used if an organization utilizes the packing features of Oracle Shipping Execution. The packing functionality is determined in the Autopack Deliveries field, within the Pick Release tab of the Shipping Parameters window.</p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+<p><b>To Manually Execute the Auto Ship Confirm Process Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the delivery <b>Name</b> link in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Pick and Ship</b> or <b>Pick, Pack and Ship.</b></p>
+<p><strong><span>Note:</span></strong> The action Pick, Pack, and Ship is used if an organization utilizes the packing features of Oracle Shipping Execution. The packing functionality is determined in the Autopack Deliveries field, within the Pick Release tab of the Shipping Parameters window.</p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573791"></a><a id="T414993"></a><b>Auto Ship Confirm From the Quick Ship Window</b></h2>
+<p><a name="d0e18106" id="d0e18106"></a><a name="t_ascqs" id="t_ascqs"></a><a name="ascqs" id="ascqs"></a>From within the Quick Ship Window, you can select deliveries that you want to Ship Confirm.</p>
+<p><b>To Auto Ship Confirm From the Quick Ship window<a name="d0e18120" id="d0e18120"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Quick Ship window.</p>
+</li>
+<li>
+<p>Find your delivery or trip.</p>
+</li>
+<li>
+<p>Click <b>Ship Confirm.</b></p>
+</li>
+<li>
+<p>Within the Confirm Delivery window, determine your ship confirm options.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+<h2><a name="3573793"></a><a id="T414994"></a><b>Using the Ship Confirm Deliveries SRS to Ship Confirm</b></h2>
+<p><a name="d0e18154" id="d0e18154"></a><a name="t_asccr" id="t_asccr"></a><a name="asccr" id="asccr"></a><a name="ascconcu" id="ascconcu"></a>You use the Ship Confirm Deliveries SRS window to systematically ship confirm your deliveries.</p>
+<p><b>To Execute the Auto Ship Confirm Concurrent Process<a name="d0e18169" id="d0e18169"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Ship Confirm Deliveries SRS window.</p>
+<p>The Parameters window appears.</p>
+</li>
+<li>
+<p>Populate the parameter fields as needed, including the following:</p>
+<ul>
+<li>
+<p>Operating Unit: Select an operating unit.</p>
+</li>
+<li>
+<p>Ship Confirm Rule: Select the appropriate rule from the list of values. This field is required.</p>
+</li>
+<li>
+<p>Actual Departure Date: Accept the system default date or change the default to the actual date that the shipment departs your facility. For example, you might ship confirm yesterday's deliveries today. In this case, you would enter yesterday's date in place of the default system date.</p>
+</li>
+<li>
+<p>Ship Confirm Batch Prefix: Define a batch prefix to uniquely identify your request. Although this field is free form, it is required.</p>
+</li>
+<li>
+<p>Client: Select the client name from the list if you have set LSP mode as the value for WMS: Deployment Mode profile option. See <i>Oracle Inventory User's Guide</i> for setting up client.</p>
+</li>
+<li>
+<p>Organization: Optionally, select the organization that the shipment is originating from.</p>
+</li>
+<li>
+<p>Pick Release Batch: Optionally, select the Pick Release Batch name that contains the deliveries that you are ship confirming.</p>
+</li>
+<li>
+<p>Auto Pack Batch: Optionally, select the Auto Pack Batch name that contains the deliveries that you are ship confirming.</p>
+</li>
+<li>
+<p>Delivery Name (Low): Optionally, select the low end of delivery names, if you choose to ship confirm based on a range of delivery names.</p>
+</li>
+<li>
+<p>Delivery Name (High): Optionally, select the high end of delivery names, if you choose to ship confirm based on a range of delivery names.</p>
+</li>
+<li>
+<p>Bill of Lading (Low): Optionally, select the low end of bill of ladings, if you choose to ship confirm based on a range of bill of ladings.</p>
+</li>
+<li>
+<p>Bill of Lading (High): Optionally, select the high end of bill of ladings, if you choose to ship confirm based on a range of bill of ladings.</p>
+</li>
+<li>
+<p>Firm Status: Optionally, select Yes/No to indicate whether the deliveries scheduled for auto ship confirm are: Not Firm, Contents Firm, or Routing and Contents Firm.</p>
+</li>
+<li>
+<p>Ship From Location: Optionally, select a ship from location to ship confirm.</p>
+</li>
+<li>
+<p>Ship To Location: Optionally, select a ship to location to ship confirm.</p>
+</li>
+<li>
+<p>Intermediate Ship To Location: Optionally, select an intermediate ship to location to ship confirm.</p>
+</li>
+<li>
+<p>Pooled Ship To Location: Optionally, select a pooled ship to location to ship confirm.</p>
+</li>
+<li>
+<p>Consignee/Customer Name: Optionally, select a consignee who is a customer or a supplier to ship confirm. For an ISO return delivery, select a ship-to organization in this field.</p>
+</li>
+<li>
+<p>Ship Method: Optionally, select a ship method to ship confirm.</p>
+</li>
+<li>
+<p>FOB: Optionally, select FOB terms to ship confirm.</p>
+</li>
+<li>
+<p>Freight Terms: Optionally, select freight terms to ship confirm.</p>
+</li>
+<li>
+<p>Pick-up Date (Low): Optionally, select the low end of a pick up date, if you want to use a range of pick up dates, to ship confirm.</p>
+</li>
+<li>
+<p>Pick-up Date (High): Optionally, select the high end of a pick up date, if you want to use a range of pick up dates, to ship confirm.</p>
+</li>
+<li>
+<p>Drop-off Date (Low): Optionally, select the low end of a drop off date, if you want to use a range of drop off dates, to ship confirm.</p>
+</li>
+<li>
+<p>Drop-off Date (High): Optionally, select the high end of a drop off date, if you want to use a range of drop off dates, to ship confirm.</p>
+</li>
+<li>
+<p>Log Level: Optionally, select log level for this run. This determines whether a debug file is created. Select zero for no debugging log, or one to create a debugging log.</p>
+<p><b>Ship Confirm Deliveries SRS - Parameters window</b></p>
+<p><img width="767" height="527" src="./img/scdsrs_wsh_ug.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+<li>
+<p>Within the At These Times... region, click <b>Schedule</b> and enter how often you require the process to run.</p>
+<p><strong><span>Note:</span></strong> Ship Confirm Deliveries SRS does not ship confirm a partial ship set. Ship Confirm Deliveries SRS ships either all of a ship set or none.</p>
+</li>
+</ol>
+<h2><a name="3573796"></a><a id="T414884"></a><b>Interface Trip Stop-SRS</b></h2>
+<p><a name="d0e18295" id="d0e18295"></a><a name="d0e18299" id="d0e18299"></a><a name="d0e18303" id="d0e18303"></a><a name="t_trpstpsrs" id="t_trpstpsrs"></a><a name="itsrsr" id="itsrsr"></a><a name="ifacets" id="ifacets"></a>The Interface Trip Stop-SRS process runs the interface to update Order Management sales order lines, initiates the generation of Departure Ship Notice Outbound (DSNO) generation, and calls a process to update Oracle Inventory. You can run this process one of two ways:</p>
+<ol>
+<li>
+<p>Automatically: The request will be executed upon ship confirm if the delivery is not assigned to a trip, or the Defer Interface check box is not selected. If the delivery is assigned to a trip, the Interface Trip Stop concurrent request program will be run automatically when the destination Trip Stop is closed. If the delivery is not assigned to a trip, and at the time of ship confirm the Defer Interface is checked, the Interface Trip Stop concurrent request will be automatically run when the destination Trip Stop is closed.</p>
+</li>
+<li>
+<p>Manually: To manually execute the concurrent request, navigate to the Shipping Interfaces window and select Interface Trip Stop-SRS from the Name field. The parameters window will be displayed.</p>
+</li>
+</ol>
+<p>The Interface Trip Stop-SRS parameters window contains the following fields:</p>
+<ul>
+<li>
+<p>Mode: You select the interfaces that you want the process to run against. The list of values contains the following choices:</p>
+<ul>
+<li>
+<p>All</p>
+</li>
+<li>
+<p>Inventory</p>
+</li>
+<li>
+<p>OM and DSNO</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Operating Unit: Select an operating unit.</p>
+</li>
+<li>
+<p>Trip Stop: Select a trip stop that you want to run the process for. The list of values will display all open trip stops.</p>
+</li>
+<li>
+<p>Delivery: Select a delivery that you want to run the process for. The list of values will display all open deliveries.</p>
+<p><strong><span>Note:</span></strong> If you selected a trip stop from the Trip Stop field, the Delivery field will default to the delivery associated with that trip stop when you select the list of values in the Delivery field.</p>
+</li>
+<li>
+<p>Debug Level: This is the debug log level that is used when attempting to identify the cause of an error. You can enter zero (0) for Off and one (1) for On.</p>
+<p><strong><span>Note:</span></strong> When the debug log level is turned on, a debug file is generated for further analysis of the issue.</p>
+</li>
+<li>
+<p>Organization: If you select an organization, then all eligible trip stops for the organization will be processed. Trip Stop and Delivery fields must be left blank if you use this option.</p>
+</li>
+<li>
+<p>Number of Child Processes: The number of child concurrent programs that should be run in parallel and is defaulted to one. If the number is not greater than 1, then the Interface Trip Stop will not run the child processes in parallel, instead the Interface Trip Stop process itself will finish the process.</p>
+</li>
+<li>
+<p>Stops per Batch: Indicates how many trip stops should be processed per child request and is defaulted to one.</p>
+<p><strong><span>Note:</span></strong> When the profile OM: Invoice Numbering Method is set to Delivery Name, then even if you specify the Stops per Batch in the Interface Trip Stop concurrent program with a number greater than 1, it is treated as only one stop per request and runs Interface Trip Stop for one stop at a time. If the profile is NOT set to Delivery Name, then it takes the Stops per Batch that you specify and processes accordingly.</p>
+<p><strong><span>Note:</span></strong> The Interface Trip Stop program does not validate the Number of Child Processes or the Stops per Batch fields.</p>
+</li>
+</ul>
+<p>When the Interface Trip Stop runs, you can view the status of your request. The status will be Error, Warning, or Success. The result will be Success if all child processes are successful. The result will be Error if all child processes were in error. The result will be Warning if the child processes have any mixture of Error, Warning, or Success.</p>
+<h2><a name="3573797"></a><a id="T414995"></a><b>Assigning or Updating Serial Numbers to Delivery Line Items</b></h2>
+<p><a name="d0e18377" id="d0e18377"></a><a name="d0e18383" id="d0e18383"></a><a name="t_scserial" id="t_scserial"></a><a name="snassign" id="snassign"></a>At the Lines/LPNs tab in the Shipping Transactions window or on the Line Details page of the Shipping Execution Simplified User Interface, you can manage assignment of serial numbers to delivery line items or you can update the serials numbers that were entered at the time of picking. Serial numbers can be assigned singly or consecutively to a range of items depending on your requirements.</p>
+<p>To assign serial numbers, the item must have been defined with serial control as "At Sales Order Issue". This is performed in Oracle Inventory using the Master Item window (Inventory tab &gt; Serial section &gt; Generation &gt; At Sales Order Issue). After pick release is run, you must enter the shipped quantity in the Shipping Transactions window before you can enter the serial numbers at ship confirm.</p>
+<p>To update serial numbers, the item must have been defined with serial control set to "No Control" or "At Sales Order Issue" and must have a serial tagging assignment of "Sales Order Pick" and/or "Internal Order Pick". After serial numbers are entered for these items at the time of picking, they can be updated before ship confirm using the Shipping Transactions window or the Shipping Execution Simplified User Interface.</p>
+<p>For more information on defining items and serial tagging, see the <i>Oracle Inventory User's Guide.</i></p>
+<p>If you enter multiple serial numbers in the Shipping Transactions window for a staged delivery line, the Interface Trip Stop concurrent process explodes the delivery line into multiple delivery lines, each having a serial number range. For example, you are shipping a delivery line with a quantity of 10,000. If you enter 10 ranges of 1000 serial numbers each, the Interface Trip Stop concurrent process splits the delivery line into ten delivery lines. You can view the deliveries' low and high serial numbers in the Shipping Transactions window, after a run of the Inventory Interface concurrent process, by:</p>
+<ul>
+<li>
+<p>Querying the Lines/LPNs folder</p>
+</li>
+<li>
+<p>Querying the Lines/LPNs folder, clicking Detail, and selecting the Inventory Details tabbed region</p>
+</li>
+</ul>
+<p><b>To Assign Serial Numbers to Delivery Line Items Using the Shipping Transactions Window<a name="assignserialsstw" id="assignserialsstw"></a><a name="d0e18415" id="d0e18415"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window and query the order.</p>
+<p>The order displays in the Shipping Transactions window.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Launch Pick Release</b> and click <b>Go.</b></p>
+<p>The order is pick released.</p>
+</li>
+<li>
+<p>Select the Line/LPN tabbed region and confirm that the delivery line is in Staged/Pick Confirmed status.</p>
+</li>
+<li>
+<p>Click <b>Detail.</b></p>
+</li>
+<li>
+<p>In the Shipped Qty field, enter the shipped quantity.</p>
+</li>
+<li>
+<p>Remove the cursor from the Shipped field; the process accepts the shipped quantity.</p>
+</li>
+<li>
+<p>If you are shipping a quantity of one item:</p>
+<ul>
+<li>
+<p>Enter the Serial Number, if applicable.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+<p><strong><span>Note:</span></strong> You must select Serial Numbers from the Tools menu in order to view serial numbers for Closed lines with shipped quantity greater than one.</p>
+<p><strong><span>Note:</span></strong> You cannot partially cancel lines from the Sales Order window that have Staged Delivery details with serial numbers assigned. You must delete the assigned serial numbers before canceling the line partially.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you are shipping more than one of the items:</p>
+<ul>
+<li>
+<p>On the menu bar, select Tools &gt; Serial Numbers.</p>
+</li>
+<li>
+<p>To enter individual serial numbers for the item, in the Serial Number Entries Mode area, select Individual and enter the serial numbers.</p>
+<p>To enter a range of serial numbers for the item, leave Range selected and enter the serial number range. The Range selection assumes that you are entering a consecutively numbered series beginning with the first serial number. For example, if you ship three and enter the serial number as 345, the series is 345, 346, and 347.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+<p><strong><span>Note:</span></strong> If you reduce the quantity for a Staged line that has serial numbers assigned at ship confirm, then a warning message will indicate all serial numbers will be unmarked. It is suggested that you first unmark the serial numbers from the Serial Numbers window before reducing the quantity to be shipped.</p>
+<p><strong><span>Note:</span></strong> Also note that if you ship partial quantity of lines that are assigned serial numbers at ship confirm, and stage the remainder, you will be required to manually split the delivery and serial numbers assigned and then stage the delivery.</p>
+<p>Lines with serial controlled items are not split automatically into multiple delivery lines during pick release or during inventory interface when the picked/shipped quantity is greater than 1. The table WSH_SERIAL_NUMBERS stores the serial numbers after the delivery line is interfaced. The delivery line will no longer contain the serial number if the picked/shipped quantity is greater than 1.</p>
+<p>If the delivery lines shipped quantity is 1, then the serial number is stored on the delivery line.</p>
+</li>
+</ol>
+<p><b>To Assign Serial Numbers to Delivery Line Items Using Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e18508" id="d0e18508"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the order to which you want to assign a serial number, and click <b>Go.</b></p>
+</li>
+<li>
+<p>If you are shipping a quantity of one for a serial item on the delivery line:</p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Details page appears displaying information for the delivery line.</p>
+</li>
+<li>
+<p>Enter the serial number in the Serial Number field.</p>
+</li>
+<li>
+<p>Click <b>Save</b> to save your work and stay on this page.</p>
+<p>Click <b>Apply</b> to save your work and to return to the previous page.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> The Shipping Execution Simplified User Interface only supports the shipping of a quantity of one for a serial item on the delivery line. If you are shipping more than a quantity of one for a serial item on a delivery line then you must use the Shipping Transactions window.</p>
+<p>For more information on shipping more than a quantity of one for a serial item on a delivery line, see <a href="T414830T414841.htm#assignserialsstw">Procedure: To Assign Serial Numbers to Delivery Lines Items Using the Shipping Transactions Window</a>.</p>
+</li>
+</ol>
+<h2><a name="8687389"></a><a id="T673300"></a><b>Canceling Unshipped Lines</b></h2>
+<p><a name="can_un_li" id="can_un_li"></a>This feature lets you deliver only the available quantity and cancel the remaining quantity instead of creating a backorder. It will automatically cancel the order lines and any remaining quantity.</p>
+<p>In the sales order header, select the <b>Cancel Unshipped Lines</b> check box to cancel the sales order lines for the unshipped quantity after ship confirm. Lines that have the same ship-to location are then canceled. The shipped quantity details are sent to the sales order through the Interface Trip Stop program. For more information about this feature, see Backorder Enhancements, <i>Oracle Order Management User's Guide</i>.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

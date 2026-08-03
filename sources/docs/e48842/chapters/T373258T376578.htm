@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T662260.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T376579.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">23/36</span> <!-- End Header -->
+<h1>Payment</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T376588">Credit Checking</a></li>
+<li><a href="#T376589">Global Credit Checking</a></li>
+<li><a href="#T376590">Credit Cards and Oracle Payments</a></li>
+<li><a href="#T376591">Features</a></li>
+<li><a href="#T376592">Set Up</a></li>
+<li><a href="#T376595">Payment Terms</a></li>
+<li><a href="#T376596">Lookups</a></li>
+<li><a href="#T376597">Oracle Payments Setup</a></li>
+<li><a href="#T376598">Reports</a></li>
+<li><a href="#T376599">Implementation Considerations</a></li>
+<li><a href="#T376600">Examples</a></li>
+<li><a href="#T376601">Multiple and Partial Payments</a></li>
+<li><a href="#T376602">Profiles</a></li>
+<li><a href="#T376621">Setup</a></li>
+</ul>
+<h2><a name="2993912"></a><a id="T376588"></a><b>Credit Checking</b></h2>
+<a name="t_crdchk" id="t_crdchk"></a>
+<h3><b>Overview</b></h3>
+<p>The ultimate goal of Credit Management processes is to minimize the financial risk that your organization assumes as a result of day-to-day operations. Order Management's credit checking feature is the process by which orders are validated and released against your credit checking business rules. Using credit rules, system parameters, and credit profiles, Order Management credit checking verifies that your customer has a sufficient credit availability with your organization to allow orders to be processed and shipped in advance of payment.</p>
+<p>Order Management enables you to perform credit checks on customer orders or order lines, and automatically hold orders or lines that violate your credit setup. Using Order Management credit checking effectively requires a complete understanding of the functional components as well as a careful consideration of timing and performance factors. For example,</p>
+<ul>
+<li>
+<p>You can choose to perform credit checking automatically at pre-specified workflow events against real time transactional data or pre-calculated summary exposure amounts. Pre-calculated exposure amounts can be either:</p>
+<ul>
+<li>
+<p>Real time transactional data summarized at a specific point in time</p>
+</li>
+<li>
+<p>Exposure amounts imported into Oracle Order Management exposure tables</p>
+</li>
+<li>
+<p>Real time transactional data summarized at a specific point in time plus exposure amounts imported into Oracle Order Management exposure tables</p>
+</li>
+</ul>
+</li>
+<li>
+<p>You can choose to perform credit checking across orders with different currencies within a single organization, specifying the currencies to include when calculating overall exposure amount</p>
+</li>
+<li>
+<p>You can choose to perform credit checking at the customer account level, across all operating units within your system</p>
+</li>
+<li>
+<p>You can choose to perform credit checking on external transactions utilizing the credit check processes and exposure balances maintained within Oracle Applications</p>
+</li>
+</ul>
+<p>Order Management Credit checking includes:</p>
+<ul>
+<li>
+<p>Validating orders and lines against existing credit limits to enable continued flow through order and line workflows</p>
+</li>
+<li>
+<p>Placing credit holds at either the order or line level, including notifications to appropriate parties of credit holds</p>
+</li>
+<li>
+<p>The functionality to either manually release or schedule credit reassessment processes for order or line credit holds</p>
+</li>
+<li>
+<p>Ability to honor manually released holds as long as the increase in order amount is less than a specified tolerance limit.</p>
+</li>
+<li>
+<p>Honoring tolerance limits and skipping re-credit check if you have changed the Bill to Site as long as the new site is from within the same customer and you have not defined the credit limits for the new site.</p>
+</li>
+<li>
+<p>Approvals for orders that exceed credit limits</p>
+</li>
+<li>
+<p>Reporting and querying tools to effectively manage your credit processes and ensure credit holds are processed in a timely manner</p>
+</li>
+</ul>
+<p>Depending upon your business practices, you may not want to perform credit check for all orders, but rather only those orders that could pose a credit risk. Orders that could be exempted from credit check can be:</p>
+<ul>
+<li>
+<p>Orders of a given type. For example, you may want to exclude staff sales or internal sales orders from credit checks. Credit checking rules are assigned to order types. While setting up order types, if the credit check rule fields are left blank, this would automatically exclude orders of that type from credit check.</p>
+</li>
+<li>
+<p>Orders for a given customer. For example, a manufacturer may wish to exclude all orders from its largest customer from credit check. With Order Management and Oracle Receivables, excluding a specific customer from a credit check can be achieved by disabling the Credit Check flag for this customer in the individual customer profile.</p>
+</li>
+<li>
+<p>Orders for a given class of customer. For example, a manufacturer may wish to exclude all orders from internal customers from credit check. You can group all your internal customers into one Customer Profile Class, and then set up credit checking rules to exclude that profile class of customer. With Order Management and Oracle Receivables, while setting up a customer profile class, you can disable the Credit Check flag. Customers that have this customer profile class assigned to them would then be excluded from credit check.</p>
+</li>
+<li>
+<p>Orders for a given customer billing address. For example, a manufacturer may wish to exclude orders that will be invoiced to one of its' largest customer corporate headquarters from the credit check process. With Order Management and Oracle Receivables, the individual bill-to sites can have a different transaction profile from the parent customer. While setting up the bill-to site profile, enabling the Credit Check flag determines whether orders billed to that address will be credit checked.</p>
+</li>
+<li>
+<p>Order lines with a given payment term. For example, order lines with a cash on delivery payment term can be excluded from the credit checking process. With Order Management and Oracle Receivables, the payment terms also have a Credit Check flag. Disabling this flag will automatically exclude order lines with that payment term from the credit evaluation. Only those lines that have payment terms with credit checking turned on are compared against the credit limits.</p>
+</li>
+<li>
+<p>Order lines that are paid via Commitments. These lines are in effect prepaid, so you do not need to credit check them.</p>
+</li>
+<li>
+<p>Orders with a payment type = Credit Card. These orders will have credit card authorization in place of credit checking.</p>
+</li>
+</ul>
+<p>When using Oracle Order Management to define your credit management policies, you should familiarize yourself with the following Oracle credit check concepts:</p>
+<ul>
+<li>
+<p>Credit Profile</p>
+</li>
+<li>
+<p>Credit Check Rules</p>
+</li>
+<li>
+<p>Credit Usage Rules</p>
+</li>
+</ul>
+<h3><b>Credit Checking Components</b></h3>
+<p>The Credit Check process can be performed for orders or order lines, and the determination on whether credit checking is performed is based upon all of the following:</p>
+<ul>
+<li>
+<p>The credit check rule definition and the order type of which the definition is attached</p>
+</li>
+<li>
+<p>Order or line payment terms</p>
+</li>
+<li>
+<p>Enabled credit profiles</p>
+</li>
+</ul>
+<p>Credit Checking will only occur for an order or line when all three levels enable credit checking. If one level disregards credit checking, credit checking does not occur for the order or line.</p>
+<h3><b>Credit Exposure</b></h3>
+<p>When you perform credit checking in Order Management, you determine what type of exposure to use when determining credit worthiness. Order Management enables you to perform credit checking against real time transactional data or current exposure amounts stored in exposure summary tables.</p>
+<ul>
+<li>
+<p>Real time transactional data is all related transactions which are summarized at the point credit checking is invoked.</p>
+</li>
+<li>
+<p>Current (pre-calculated) exposure amounts can be either:</p>
+<ul>
+<li>
+<p>Real time transactional data summarized at a specific point in time <i>or</i></p>
+</li>
+<li>
+<p>Exposure amounts imported using the Credit Exposure Import concurrent program.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>When defining your Credit Check rules, you specify the type of exposure to utilize when performing credit checking.</p>
+<h3><b>Credit Check Rule<a name="d0e66952" id="d0e66952"></a> Definition</b></h3>
+<p>Credit Checking Rules within Order Management enable you to determine credit worthiness of orders when performing credit checking, and provide you with various options in determining your customer's credit exposure.</p>
+<p>Credit Check Rules are attached to Order Management Transaction Types. Within the Transaction Type window, credit check rules are assigned to pre-specified events that trigger the credit checking process. For example, you might want to perform a high-level credit check before booking, but you may want to apply more specific controls before shipping the product to your customer.</p>
+<p>In Order Management, separate credit checking rules can be assigned for use at the time of booking, pick release and purchase release (for drop shipments), packing, or shipping within corresponding order or line workflow processes. You can also choose to perform credit checking at multiple points within an order or line processes by selecting credit check rules for a combination of booking, pick release and purchase release (from drop shipments), packing, or shipping.</p>
+<p>Order Management Credit Check Rules enable and control:</p>
+<ul>
+<li>
+<p>Credit check level</p>
+</li>
+<li>
+<p>Credit check hold level</p>
+</li>
+<li>
+<p>Currency conversion type used during exposure calculations</p>
+</li>
+<li>
+<p>The exposure method used for validating credit checking</p>
+</li>
+<li>
+<p>Whether to include open receivables balances, uninvoiced order balances, freight and special charges, or taxes</p>
+</li>
+<li>
+<p>Hold management procedures</p>
+</li>
+<li>
+<p>Notifications of credit holds to appropriate personnel</p>
+</li>
+</ul>
+<p>See: <a href="T373258T376578.htm#t_ccipay">Credit Cards and iPayment</a></p>
+<h3><b>Credit Checking Rule Level</b></h3>
+<p>The Credit Check process can be performed at sales order header or sales order line level. Additionally, the payment terms used for orders and order lines must be enabled for credit checking to occur. See: <a href="T373258T376578.htm#t_payterm">Payment Terms</a></p>
+<ol>
+<li>
+<p>Order Header Level: Order Level credit check uses exclusively header level information ignoring different bill-to sites detailed at line level. Order level credit check uses the credit profile attached to the customer Bill-to site defined at order (header) level. Credit checking will use order totals and will evaluate credit exposure against the credit profile attached at header level, and holds are always applied at header level.</p>
+<p><strong><span>Note:</span></strong> Sales Order header level credit checking enables backward compatibility with previous credit check versions.</p>
+</li>
+<li>
+<p>Order Line Level: Line level credit check uses data at the sales order line level. If you have sales order lines that are attached to different Bill To sites and if you want to use the specific credit profiles attached to those Bill To Sites, you should use Sales Order Lines level credit check.</p>
+<p>Additionally, you could use line level credit check when you have defined customer relationships in your system and you actively use them in Order Management. In this situation, you are able to create a sales order whose lines could be attached to different bill-to sites owned by different customers.</p>
+<p>Lines with the same Bill To sites are not checked individually to see whether they exceed the credit limit. A cumulative total up to the line being assessed is taken to compare it against the credit limit. As a line is released and the order ID is passed to OM the total number of lines for the bill to should be summed and when the cum. Line totals arrive at a value that exceeds credit limits those lines only should be held. The line sequence in which the hold is applied is determined by a system parameter Credit Hold Sequence for Order Lines.</p>
+</li>
+</ol>
+<p>The system parameter Credit Hold Sequence for Order Lines is used to determine the sequence in which the lines are placed on hold:</p>
+<ol>
+<li>
+<p>Option 1: All Lines</p>
+</li>
+<li>
+<p>Option 2:</p>
+<ul>
+<li>
+<p>Schedule Ship Date / Request Date</p>
+</li>
+<li>
+<p>Shipment Priority Code</p>
+</li>
+<li>
+<p>Line Number</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Option 3:</p>
+<ul>
+<li>
+<p>Shipment Priority Code</p>
+</li>
+<li>
+<p>Schedule Ship Date / Request Date</p>
+</li>
+<li>
+<p>Line Number</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Option 4: Uninvoiced line amount ascending</p>
+</li>
+<li>
+<p>Option 5: Uninvoiced line amount descending</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> Include Uninvoiced Orders in Credit Check rule should be unchecked (i.e. the unInvoiced orders are NOT included in exposure calculation),</p>
+<h3><b>Credit Checking Rule Hold Level</b></h3>
+<p>You can choose to place credit holds for orders or lines that fail credit check validations at either the sales order or sales order line if you use order line level credit checking. Credit checking holds are automatically placed based upon your credit rule definition, and you can automatically release order or order line credit holds when a customer's credit exposure has been reduced to a point that enables credit checking validation to pass successfully. You automatically release credit holds by scheduling the Credit Check Processor concurrent program to run at specific intervals.</p>
+<h3><b>Credit Checking Rule Override Manual Release (check box)</b></h3>
+<p>You can specify whether or not you wish to enable additional credit checking if an order or line credit check hold was released manually. The Override Manual Release check box, used in conjunction with Days to Honor Manual Release field and the Tolerance fields, enables you to define the duration (number of days) you will forego additional credit checking if an order or line credit check hold is released manually. The Tolerance fields enable you to specify an order amount increase limit for foregoing additional credit checking of orders or line that were previously on hold and were released manually.</p>
+<p>Your Order Management Transactions Type definitions will control whether or not additional credit check processing can occur for manually released holds (credit check rules entered for booking, pick release and purchase release (for drop shipments), packing, or shipping within your transaction type definitions).</p>
+<p>Manually released holds are honored only if the Credit Check Rule being used is Picking, Packing or Shipping, and the credit check was not triggered due to a change on the order itself, such as change in item quantity, or price.</p>
+<h3><b>Credit Checking Rule Days to Honor Manual Release</b></h3>
+<p>This field, in conjunction with the Override Manual Release check box, enables you to define the duration (number of days) manually released holds will be honored and not overridden by additional credit checking processes. The application uses the value in this field during picking, packing, or shipping activities.</p>
+<p>For example, suppose you have defined a credit check rule in which you have enabled the Override Manual Release check box, with a value of 15 within the Days to Honor Manual Release field. Assume that this credit check rule is assigned to the transaction type as a credit check rule for booking and shipping. If you manually release an order or line from credit check hold after booking, and if you ship the order or order line within 15 days, Order Management will not enable credit checking to occur again. However, if you ship after Day 15, then Order Management will enable the credit checking process to be invoked again.</p>
+<h3><b>Credit Checking Tolerance</b></h3>
+<p>This region has the following fields and the application uses the values in conjunction with the Override Manual Release check box when you update the order amount:</p>
+<ul>
+<li>
+<p>Tolerance Percentage - This field enables you to define the percentage of tolerance threshold within which an increase in order amount does not re-trigger credit checking if the order was previously placed on credit check hold and then the hold was released manually.</p>
+</li>
+<li>
+<p>Tolerance Currency and Tolerance Amount - If you enter the currency, then you must enter the tolerance amount. These fields enable you to define the absolute tolerance threshold amount within which an increase in order amount does not re-trigger credit checking if the order was previously placed on credit check hold and then the hold was released manually. If you enter tolerance percentage and tolerance amount, then the application considers the lesser of the two. For example, if the tolerance percentage is 10% and the tolerance currency and tolerance amount is USD 1000, then the application does not redo credit checking for an order that was previously placed on credit check hold and then manually released in the following cases:</p>
+<ul>
+<li>
+<p>The increase in the order amount is lesser than 10% of the order amount or USD 1000.</p>
+</li>
+<li>
+<p>No active credit check failure hold exists on the order.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><b>Credit Checking Rule Conversion Type</b></h3>
+<p>Conversion types for credit check rules enable you to model a fixed exchange rate between currencies or use an average exchange rate. When performing credit checking, the credit limit currency does not necessarily have to be the same as the functional currency. Conversion types are limited to the values you define within the Oracle General Ledger Conversion Rate Types window.</p>
+<h3><b>Credit Checking Rule Exposure</b></h3>
+<p>You can choose how you wish to validate credit worthiness during credit checking by determining the exposure method used.</p>
+<p>Previous versions of credit checking calculated customer exposure accessing underlying transactional tables. When a credit check request was executed, underlying transaction tables were summed to generate customer balance information.</p>
+<p>In order to improve performance, Oracle Order Management has incorporated an additional option, the use of pre-calculated exposure. Using this option, credit checking will validate exposure against balance information stored in a summary table. The summary table is updated as often as your business practices require, and updates to the table are performed by submitting a concurrent program. This program accesses both Oracle Receivables and Order Management transactional tables, and should be scheduled to run periodically, based on your specific business needs.</p>
+<h3><b>Credit Checking Rule Values to Include Within Exposure Calculation</b></h3>
+<p>Your credit checking rule definition can include or exclude the following credit related details when calculating credit exposure:</p>
+<ul>
+<li>
+<p>Open receivables balances</p>
+</li>
+<li>
+<p>Uninvoiced order balances</p>
+</li>
+<li>
+<p>Freight and special charges</p>
+</li>
+<li>
+<p>Taxes</p>
+</li>
+<li>
+<p>Payments at risk</p>
+</li>
+</ul>
+<h3><b>Credit Checking Rule Notifications</b></h3>
+<p>You can choose to send notifications whenever a sales order or order lines fails credit check. The notification is sent to the person who created the order.</p>
+<h3><b>Credit Checking Limits Hierarchy</b></h3>
+<p><b>Site Level</b></p>
+<p>If credit check is not enabled, then no credit checking takes place. If credit checking is enabled and limits are available, then credit check is done at the site level. If credit checking is enabled and limits are Null, Customer level is accessed.</p>
+<p><b>Customer Level</b></p>
+<p>If credit check is not enabled, then no credit checking takes place. If credit checking is enabled and limits are available, then credit check is done at the customer level. If credit checking is enabled and limits are Null, Party level is accessed.</p>
+<p>If Credit Management is installed and pre-calculated exposure is checked, then party limits are used.</p>
+<p><b>Party Level</b></p>
+<p>If credit check is not enabled, then no credit checking takes place. If credit checking is enabled and limits are available, then credit check is done at the Parent Party level. If credit checking is enabled and limits are Null, Operating Unit Default is accessed. If the party hierarchy is set up using Trading Community Architecture, then credit checking will look into this hierarchy, to verify if a Parent Party is available. If so, the limits of the parent and checked and if it is null, Operating Unit Default level is checked.</p>
+<p><b>Operating Unit Default Level</b></p>
+<p>If credit checking is enabled and limits are available, then credit check is done at the Operating Unit Default level. If the credit limits are null, then the Maximum Credit Limit is used.</p>
+<h3><b>Order Management Order Transaction Type</b></h3>
+<p>Order Management Order Transaction Types enable you to also control when credit checking occurs and the credit check rule to be utilized when calculating credit exposure (outstanding credit balance) by assigning credit check rules to Order Management Transaction Types.</p>
+<p>When you assign a credit check rule to a transaction type within the Order Management Transaction Types window, you enable credit checking for all orders or order lines which use the order type. Select a credit check rule for an order type by selecting a credit check rule within the Booking, Pick Release and Purchase Release (for drop shipments), Packing, or Shipping fields of the Credit Check Rule region.</p>
+<p>You can assign the same credit check rule to a single function (field), multiple functions, or all functions, or use a different credit check rule for each function, depending upon your business needs.</p>
+<h3><b>Payment Terms</b></h3>
+<p>Payment Terms specify the due date and discount date for payment of an invoice. Payment terms also enable you to choose whether or not the payment term will be used for controlling credit checking. Each payment term can be enabled for credit checking by selecting the Credit Check box for the payment term so you never unnecessarily perform credit checking.</p>
+<p>All orders, except orders with a Payment Type of Credit Card are included when exposure calculations are performed, regardless of their payment terms. If an order is to be paid by credit card and has already been approved (approval date not null) it will never be included in exposure.</p>
+<h3><b>Credit Profiles</b></h3>
+<p>Credit profiles define the maximum financial risk you are willing to withstand on your regular operations. The Credit Check check box in the credit region of the Standard Customer window (for the customer master record) must be enabled in order to perform credit check. You can define the credit profile information at the following levels:</p>
+<ul>
+<li>
+<p>Customer and Customer Site: This profile defines your credit policies for individual customers or customer sites. You can accept the default credit policies from a Customer Profile Class, or you can customize credit limits to fit the particular customer.</p>
+<p>You can implement credit policy changes by modifying a Profile Class and cascading the changes to individual Customer Profiles. Check current limitations for multi-currency credit check set up.</p>
+</li>
+<li>
+<p>Organization: This type of Credit Profile is used to define an organization's (operating unit) credit policy for credit control and credit checking. It is used as a default when customer/customer site credit profile is missing.</p>
+<p>Organization Default provides a higher level in the customer profile hierarchy (customer site - customer - organization default), and the fulfilled credit profile at operating unit level enforces credit checking for any customer which does not have credit limits defined at the customer or site level.</p>
+</li>
+<li>
+<p>Item Category: Item Category Credit Profiles enables you to define credit information by Order Management Item Category.</p>
+<p>Item Category credit profile is completely independent from customer credit profiles. Item-category credit check will place a credit hold for transaction amounts over pre-defined category credit limits.</p>
+<p>Item Category credit profiles can be used to model credit limits such as service line for insurance coverage which can prevent you from shipping materials that exceed a pre-defined monetary limit.</p>
+<p>There is an embedded hierarchy provided by credit checking routines for establishing credit information between the following entities:</p>
+<ul>
+<li>
+<p>Customer Site</p>
+</li>
+<li>
+<p>Customer</p>
+</li>
+<li>
+<p>Organization Default</p>
+</li>
+</ul>
+<p>When customer site and customer credit profiles do not exist, the Organization Default credit profile is used, if it exists.</p>
+</li>
+</ul>
+<h3><b>Integration between Credit Checking and Credit Management</b></h3>
+<p>Credit Management is a Receivables functionality and when integrated with Credit Checking, enables you to perform credit checks at party level or at any level of a Credit Management hierarchy. You can also release holds based on implemented recommendations generated in Credit Management.</p>
+<p>Some of the important integration features between Credit Checking and Credit Management include:</p>
+<ul>
+<li>
+<p>You can define a credit hierarchy of parties, party relationships, hierarchy levels, accounts, and account sites. Typically, the party object and party subject in a credit relationship represent a parent and child, or HQ and division hierarchy. For each entity in the hierarchy, you can view credit information, such as credit hold status, credit limits by currency, and credit review cycle. Please note that all setup is performed through Credit Management (credit profiles at party level can only be done in Credit Management).</p>
+</li>
+<li>
+<p>In order to perform credit check at party level or at any level of a hierarchy, the credit check rule must use pre-calculated exposure.</p>
+</li>
+<li>
+<p>When credit profile is not defined at customer site level, or customer account level, then credit checking will go up to the party level and use the credit profile defined at that level. Exposure is summarized for all the customer accounts associated to that party.</p>
+</li>
+<li>
+<p>Whenever a sales order is placed on hold because of credit check failure at any one or more levels of credit checking, a Credit Request application is generated in Credit Management. Recommendations generated in Credit Management (i.e. release credit check hold) are implemented in Order Management in the background, if the sales order amount has not increased.</p>
+</li>
+<li>
+<p>When using Credit Management, credit check holds trigger a credit review in Credit Management. Order Management submits a credit management review and passes the reason(s) of credit check failure as messages to OCM. These messages enable the credit manager/analyst reviewing the case folder to determine the exact reason for the credit check failure. For any one or more cases of credit check validation failure, Order Management creates one case folder in OCM. To apply a hold release or not is decided in Credit Management and implemented in Order Management.</p>
+</li>
+<li>
+<p>Different Exposure Sources can be configured in OM as part of the OE_EXPOSURE_INTERFACE program. The Initialize Credit Summaries table program do not delete imported exposure. There is a purge program that allows you to delete by exposure source.</p>
+</li>
+<li>
+<p>The imported exposure is maintained as one single amount group by customer account, bill-to site, and currency. Currently, it is not group by date. So, when enabled in the credit check rule, the imported exposure amount is always included in the overall exposure even if the shipping horizon days are specified. If you want to consider shipping horizon for the imported exposure, you will need to consider the shipping horizon in your exposure calculation before importing it. The import program allows import of exposure by overwriting any existing imported exposure amount or updating the existing exposure amount.</p>
+</li>
+</ul>
+<h2><a name="2993928"></a><a id="T376589"></a><b>Global Credit Checking</b></h2>
+<p><a name="d0e67246" id="d0e67246"></a>Oracle Order Management enables you to perform global (across multiple operating units) credit checking. Global credit checking ensures that all organizational data, irrespective of the operating unit, is considered during the credit checking process. You enable global exposure credit checking if you select the Global Exposure check box when defining Credit Usage Rules.</p>
+<p>Global Credit checking is currently only enabled at the following levels in the credit checking hierarchy:</p>
+<ol>
+<li>
+<p>Customer level credit checking: Global credit checking will use the overall credit limit defined at the customer level for all operating units.</p>
+</li>
+<li>
+<p>Organization (org) Default level credit checking: Global credit checking will use the overall credit limit defined at the organizational level for all operating units within the organization.</p>
+</li>
+</ol>
+<p>The credit check engine will identify the overall limit (which level within hierarchy) to utilize for credit checking, calculate the credit exposure for all the operating units, and then validate the calculated exposure against the overall credit limit selected.</p>
+<h3><b>Multi-currency Credit Check</b></h3>
+<p><a name="d0e67268" id="d0e67268"></a><a name="d0e67273" id="d0e67273"></a><a name="d0e67276" id="d0e67276"></a>You can perform multiple currency credit checking by sharing credit limits across currencies you specify.</p>
+<p>With Single currency credit check you must define a credit limit profile in each currency if you want to control your customer exposure in that currency. In other words, every currency is treated individually for credit check purposes.</p>
+<p>With Multi-currency credit checking, you need to define just one credit profile (i.e. in US dollars) and share it among the other currencies.</p>
+<h3><b>Multi-currency Terminology</b></h3>
+<p>Usage Rule Sets: Usage rule sets define the set of currencies that are involved in a specific credit check process. A usage rule set specifies which transactions (based upon transaction currency) qualify for use with a credit limit.</p>
+<p>Usage Rule Sets can be assigned to a customer profile class, or credit profiles: customer, customer site, item category, or organization. If you do not assign a credit usage rule set to your credit profiles, then the credit checking is performed as Single currency credit check.</p>
+<h3><b>Support for Credit Checking External Transactions against exposure balances maintained within Oracle Order Management (OE_EXTERNAL_CREDIT_PUB)</b></h3>
+<p>With this release Order Management enables you to perform credit checking of external amounts utilizing the Oracle credit check process and exposure balances maintained within Order Management. The API essentially perform the same credit checking process as the Order Management credit check engine except for the differences listed in the table below:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Credit Checking</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>OM Credit Check Engine</b></th>
+<th scope="col"><b>Check External Credit API</b></th>
+</tr>
+<tr valign="top">
+<td>Validate if the item categories flag is enabled for the credit check rule. If, enabled, perform item category credit check for each item category of the sales order.</td>
+<td>Item category limits will not be checked. The API will give an error if the credit check rule has the item categories flag enabled.</td>
+</tr>
+<tr valign="top">
+<td>Check that the Credit Check flag is specified for the customer profile and payment term. If either of these items are not enabled, do not perform credit check for the sales order.</td>
+<td>Ignore the Credit Check flag setting at the Payment term. Only the Credit Check flag specified at the default/customer/site credit profile is validated to see if credit checking will be performed.<br>
+For anything else, it is assumed that credit check is needed when the API is called. It is up to the calling program to determine credit check should be done or not.</td>
+</tr>
+<tr valign="top">
+<td>The credit check level (order / line) selected for the credit check rule setup determines what level the credit engine will perform.</td>
+<td>The API will only allow credit check rules that utilize order level credit checking; the API does not support line level credit checking and will error out if a line level credit checking rule is provided.</td>
+</tr>
+<tr valign="top">
+<td>If the Send Holds Notification check box is enabled for the credit check rule, the credit check engine will send a workflow notification to the creator of the sales order when a credit hold is placed on the sales order.</td>
+<td>The API will not send any notifications. It will ignore the Send Hold Notifications flag set at the credit check rule.</td>
+</tr>
+<tr valign="top">
+<td>When an order fails credit check, it is placed on credit check hold. The hold contains the reason for the failure.</td>
+<td>When an order fails credit check, a reason is returned to the calling program in addition to the Failure result. It is up to the calling program to take appropriate action, such as placing the sales order on credit check hold.</td>
+</tr>
+</table>
+<p>Given a credit check rule, a bill-to site, and the transaction amount and currency, the API will credit check the amount against the credit limits and exposure within Oracle Applications and return the result of the credit check. The calling routine then can perform the appropriate action depending on the result of the check.</p>
+<p>You must create a custom program that can execute PL/SQL procedures to utilize the Check External Credit API. For each sales order in the external system, a call will need to be made to the Check External Credit API to credit check against the exposure data stored inside Oracle Order Management. Prior to executing the call, ensure the following:</p>
+<ul>
+<li>
+<p>Group all the lines for the external transaction into a single amount and single currency, along with the credit check rule to utilize</p>
+</li>
+<li>
+<p>Determine appropriate customer (Bill To site) within Oracle Applications to associated your external transactions with</p>
+</li>
+</ul>
+<p>The API will return the result of the credit check.</p>
+<p>Depending on the result of the check, the custom program can take the appropriate action for the sales order such as place a credit hold on it.</p>
+<h2><a name="2993933"></a><a id="T376590"></a><b>Credit Cards and Oracle Payments</b></h2>
+<p><a name="t_ccipay" id="t_ccipay"></a>Oracle Payments (formerly known as Oracle iPayment) now has a number of enhancements in the E-Business Suite funds capture process in the current release. One of the most important enhancements is the centralization and encryption of credit card data and bank account data in Oracle Applications. Information about credit cards, pinless debit cards and bank accounts is encrypted and stored in the centralized Payments model. Calling applications (like Order Management and iStore) now simply integrate with the Payments model and do not store any payment-related data locally. In addition to these enhancements, there is support for capturing and validating the Credit Card Security Code for credit card transactions. The security code is however, not stored anywhere in the database.</p>
+<h2><a name="2993936"></a><a id="T376591"></a><b>Features</b></h2>
+<p><a name="ccpayfeatures" id="ccpayfeatures"></a>Oracle Order Management enables you to enter one credit card that can be used as invoice payment on the order header and one credit card for the order line as invoice payment. You can enter multiple credit cards as prepayment, however prepayment can be used only at the order header level.</p>
+<p>Credit card and bank account information are now stored in an encrypted format in Oracle Payments. Furthermore this information is masked as well for display purposes. The display / masking of credit card and bank account number is controlled by Oracle Payments. However it is user-definable. The possible masking options that a user can select are:</p>
+<ul>
+<li>
+<p>Display last N digits (N &ndash; user defined as per requirement)</p>
+</li>
+<li>
+<p>Display first N digits (N &ndash; same as above)</p>
+</li>
+<li>
+<p>Display all digits (no masking)</p>
+</li>
+<li>
+<p>Mask all digits (complete masking)</p>
+</li>
+</ul>
+<p>For more information on this and other setup related to Oracle Payments, please refer to <i>Oracle Payments Implementation Guide.</i></p>
+<p><img width="753" height="504" src="./img/ont_ig_cc1.gif" alt="the picture is described in the document text"></p>
+<h3><b>Changes to existing profile options/system parameters</b></h3>
+<p>OM: Credit Card Privileges: This profile option is used for controlling the entry of new credit card details, updating existing details, and allowing for manual authorization. The valid values for this profile option are Yes and No. Please note that this profile option was additionally controlling the masking or display of credit card number in earlier releases; in the current release, this profile option is used by Oracle Payments.</p>
+<p><b>Obsoleted profile options:</b></p>
+<ul>
+<li>
+<p>OM: Risk Factor Threshold for Electronic Payments</p>
+</li>
+<li>
+<p>OM: Estimated Authorization Validity Period</p>
+</li>
+<li>
+<p>OM: Number of Days to Backdate Bank Account Creation</p>
+</li>
+<li>
+<p>OM: Payment Method for Credit Card Transactions</p>
+</li>
+<li>
+<p>OM: Process Payment Immediately at Booking?</p>
+</li>
+</ul>
+<p><b>System Parameter</b></p>
+<p>The system parameter Enable Multiple Payments was used to enable multiple payments for the same order. In the current release the system parameter is always set to on, i.e. multiple payments are always enabled. This means that the users can always invoke the payment windows from the header or the lines and enter payment information.</p>
+<h3><b>Payment Types</b></h3>
+<p>The Order Management seeded payment types are in use and they now map to the Oracle Payments' payments methods. In the current release you can disable a seeded payment method. Since Order Management uses its own lookup codes for payment types, only those payment types that map to active payment methods are displayed.</p>
+<h3><b>Credit Card Billing Address</b></h3>
+<p>Oracle Payments enables you to enter a card statement billing address and this can be set as mandatory. However Order Management passes the bill to address as the statement billing address during credit card creation.</p>
+<h3><b>Actions on sales orders that affect Payment information</b></h3>
+<ul>
+<li>
+<p>The field label Credit Card Type used in the earlier release of the product would now be called as Card Brand.</p>
+</li>
+<li>
+<p>When a sales order or line gets cancelled or deleted, the payment information would also get deleted in the order header and the payments windows of the header or lines.</p>
+</li>
+<li>
+<p>The copy functionality ensures that payment information is also copied to new orders/returns. In the current release, copying of payment attributes from a source order to a destination order would be supported only when the security code is not set as mandatory. If the security code was set as mandatory in Oracle Payments, when trying to copy an order to a new order, you would have to uncheck the Payments box in the header or line before copying. If you go ahead with the copy, an appropriate error message would be displayed, asking the user to use copy appropriately.</p>
+</li>
+<li>
+<p>In the Order Organizer, you can query for sales orders by credit card number. However, you need to enter the complete credit card number along with other criteria like bill to customer, bill to site, in order to optimize the search. Wild card searches with the credit card number are not supported. The search results would display the credit card number as per the display control setup in Payments Central Security. For more information on this, please refer to the <i>Oracle Payments Implementation Manual.</i></p>
+</li>
+<li>
+<p>When you change the bill to address on the order header or line, the information in the credit card related fields would be deleted from the Payments table. The information would no longer be shown in the order header or line and you would be required to enter new card information. This also applies to the Header Payments and Line Payments windows; ACH and Direct Debit types are also affected in the same way as they are dependant on bill to address.</p>
+</li>
+<li>
+<p>In the credit card LOV, all credit card assignments belonging to a customer account are displayed. The LOV now displays additional fields like card holder name in encrypted format and expiration date without a value. It displays other fields like card expiration status and bill to org. The LOV is displayed in the figure below:</p>
+<p><img width="576" height="207" src="./img/ont_ig_cc2.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> There is no multi-org impact on credit card information as this information is not org-specific.</p>
+<h3><b>Credit Card Security Code</b></h3>
+<p>Credit card companies have incorporated new methods of securing transactions in order to ensure safety and authenticity during a transaction. One such precaution is to introduce a security code, a 3 or 4 digit code. The customer is required to verify this code to the customer service representative, in order to validate that he has the card in front of him, thus preventing fraud.</p>
+<p>The security code, called CVV2 (by Visa) or CVC2 (by MasterCard) or CID (by American Express) is used to authenticate the cardholder and progress the transaction to authorization. During authorization, the credit card company reserves a credit amount from a customer's account for an ongoing transaction. The account is not actually charged &ndash; that is carried out during the capture phase of the credit card transaction processing cycle. The credit card company issues an authorization code, which the system uses in the capture phase. Additionally, risk management is also carried out after authorization. Risk Management allows you to define any number of risk factors to verify the identity of your customers, assess their credit rating, and manage risk in a secure online environment.</p>
+<p>Credit card transactions are validated and authorized by Oracle Payments. The Payments server now stores all credit card related information and Oracle Order Management uses the Process Order API to call the Payments application for credit card related transactions.</p>
+<p>Online transactions are handled by iStore and there are 2 ways in which iStore handles the credit card transactions. Depending on the profile option IBE: Perform Payment Authorization in iStore, iStore can now either call the Payments Authorization directly or call Order Capture (ASO) and then Order Management, which in turn calls Payment Authorization. The details of the two scenarios are given below:</p>
+<ol>
+<li>
+<p>When the profile option IBE: Perform Payment Authorization in iStore is set to Yes, iStore calls Payment Authorization to authorize the card. If the authorization succeeds, then iStore calls the Process Order API to create an order in Order Management. If the authorization fails, then iStore does not call the API to create an order. Please note that when iStore calls Payments directly, risk management is not carried out.</p>
+</li>
+<li>
+<p>When the profile option IBE: Perform Payment Authorization in iStore is set to No, then Order Management calls Payment Authorization. Now depending on the value of the Order Capture profile option ASO: Credit Card Authorization, authorization/risk management will be carried out. If authorization/risk management succeeds, then the iStore order can progress. If authorization/risk management fails, then the order will be put on hold. When ASO: Credit Card Authorization is set to Yes, either of the following flows take place:</p>
+<ul>
+<li>
+<p>When the profile option ASO: Enable Risk Management is set to N, ASO: default order status = 'Entered' and IBE: Perform Payment Authorization in iStore = 'No', the order will be created in entered mode and authorization will be performed at order creation time without risk management.</p>
+</li>
+<li>
+<p>When the profile option ASO: Enable Risk Mgmt is set to 'Y', ASO: default order status = 'Entered' and IBE: Perform Payment Authorization in iStore = 'No', the order will be created in entered mode and authorization will be performed during order creation. In this scenario, risk management is also carried out during order creation.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>In order to ensure both the safety and success of the transaction, the credit card transaction needs to be authorized and also risk management needs to be carried out. There are various scenarios in which credit card security code is checked and authorization is carried out. Given below are some common scenarios:</p>
+<p>In iStore, customers enter credit card information along with the security code. iStore either calls Payments directly or via Order Capture / Order Management depending on the value of the profile option IBE: Perform Payment Authorization in iStore. In either case, Oracle Payments API is called and it creates a record in the Payments table and generates a unique id for the credit card. iStore passes this unique id to Order Management with other data for order creation. Order Management passes this unique id to Payments to identify the card and perform credit card authorization.</p>
+<p>In Order Management, the Sales Orders, Quick Sales Orders and Order Import Corrections windows have a new field &ndash; Security Code - in the database. This field is also visible in the Payments window. The security code value is available only temporarily, that too only till the time authorization is done. Once authorization is done, the security code value gets nulled out and is not stored anywhere. Credit card authorization may fail on account of multiple reasons and one possible reason is an invalid security code. However, please note that there are some cornerstone cases where credit card authorization can still succeed even with an invalid security code. It depends on the payment system in use. Please refer to <i>Oracle Payments Implementation Manual</i> for more information on these scenarios.</p>
+<p>The following Sales Orders window, Order Header, Others tab shows the new Security Code field. This is a field that can be displayed using the folder functionality. The security code field is also displayed in the in the Payment windows invoked from Order Information Sub-tab and Line Items sub-tab under Orders tab of Contact Center window in addition to its availability in Order Information sub-tab under the Orders tab as shown above.</p>
+<p><img width="755" height="506" src="./img/ont_ccseccode.gif" alt="the picture is described in the document text"></p>
+<p>If you want to run risk management during credit card authorization as an option, you need to populate request type of the action request table p_Action_Request_tbl with G_VERIFY_PAYMENT, the parameter param1 associated this request type will be used to indicate whether or not to turn on or off the risk management. This should be done when calling Process Order API to create or book an order with credit card authorization.</p>
+<p>In case there is a credit card authorization failure, the order will be put on hold. Also if the card fails risk validation, Order Management would put the order on hold.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Scenarios</b></th>
+<th scope="col"><b>Message Text</b></th>
+<th scope="col"><b>Internal Name</b></th>
+<th scope="col"><b>Existing / New</b></th>
+</tr>
+<tr valign="top">
+<td>Credit Card Authorization success</td>
+<td>Payment of &amp;AMOUNT has been authorized</td>
+<td>ONT_PAYMENT_AUTH_SUCCESS</td>
+<td>Existing</td>
+</tr>
+<tr valign="top">
+<td>Credit Card Authorization failure on account of payment authorization and the parameter value is set to hold the order on failure</td>
+<td>Credit card authorization for this order has failed. The order has been placed on Credit Card Authorization Failure Hold.</td>
+<td>ONT_CC_AUTH_HOLD_APPLIED</td>
+<td>New</td>
+</tr>
+<tr valign="top">
+<td>Credit card authorization success but security code related errors</td>
+<td>Credit card authorization for this order has succeeded but with security code warning. Order has been put on Hold.</td>
+<td>ONT_CC_ SECURITY_CODE_ FAILED</td>
+<td>New</td>
+</tr>
+<tr valign="top">
+<td>Risk management evaluation failure and the parameter is set to hold the order on failure.</td>
+<td>Risk management evaluation for this order has failed due to a high risk credit card. The order has been placed on Credit Card High Risk Hold.</td>
+<td>ONT_CC_RISK_HOLD_APPLIED</td>
+<td>New</td>
+</tr>
+<tr valign="top">
+<td>Credit Card Attributes validations</td>
+<td>Credit Card Security Code is required for credit card payment<br>
+Credit Card Expiration Date is required for Credit Card Payment Authorization.<br>
+Credit Card Holder Name is required for Credit Card Payment Authorization.<br>
+Credit Card Number is required for Credit Card Payment Authorization.<br>
+Invoice To is required for Credit Card Payment Processing.<br>
+Unable to set up a Credit Card Bank Account for the Customer.</td>
+<td>OE_CC_SECURITY_CODE_REQD<br>
+OE_VPM_CC_EXP_DT_REQUIRED<br>
+OE_VPM_CC_HOLDER_REQUIRED<br>
+OE_VPM_INV_TO_REQUIRED<br>
+OE_VPM_CC_ACCT_NOT_SET</td>
+<td>New<br>
+Existing messages</td>
+</tr>
+</table>
+<p>The credit card information can also be viewed in the Contact Center window (in the Orders tab) as shown below:</p>
+<p><img width="968" height="639" src="./img/ont_cccreditcardinfo.gif" alt="the picture is described in the document text"></p>
+<h3><b>Authorization Flow</b></h3>
+<p>The following is an Oracle Payments authorization flow example:</p>
+<ul>
+<li>
+<p>During Order Header entry, choose a payment TYPE of Credit Card.</p>
+</li>
+<li>
+<p>The customer's credit card number, expiration date and cardholder's name default in from Receivables Customer information. In Release 12, each credit card account for the customer has a priority, the highest priority is indicated by the lowest number (among the account level and account site level) and is defaulted to Order Management. Also, you cannot override the Primary flag as it does not exist at all in this release, instead, you can change the priority.</p>
+</li>
+<li>
+<p>If the security code is set as mandatory in the Payments Central Security Setup, enter the security code. Enter the rest of the order information, including all the line information and book the order.</p>
+</li>
+<li>
+<p>Order Management calls the Oracle Payments server to obtain authorization for the full amount of the order, including tax and freight and other charges, less commitments.</p>
+</li>
+<li>
+<p>Oracle Payments returns an approval or a denial, along with a risk code. The authorization code is recorded on the order header, and the order proceeds in its workflow. If authorization is denied or an unacceptably high risk factor is returned, Order Management places the order on hold until the problem is resolved.</p>
+</li>
+<li>
+<p>The order is picked and shipped, and during Invoice Interface, the credit card information is passed to Receivables. AR handles the funds capture and all accounting transactions.</p>
+</li>
+<li>
+<p>In Oracle Payments, you can set up the risk score threshold, that determines which transactions are risky transactions.</p>
+</li>
+</ul>
+<h3><b>Prepaid Flow</b></h3>
+<p>In Oracle Order Management, you can collect funds for credit card orders at the time of booking, rather than having to wait for Invoicing to occur. The following is an Oracle Payments authorization prepaid flow example:</p>
+<ul>
+<li>
+<p>Enter an order and open the Payments window through Actions.</p>
+</li>
+<li>
+<p>Check the prepay flag and enter the required card information. Save the payment information and return to the order header.</p>
+</li>
+<li>
+<p>Enter the rest of the order information, including all the line information and book the order.</p>
+</li>
+<li>
+<p>The customer's credit card number, expiration date and cardholder's name default in from Receivables Customer Information. You can override the credit card and select from other credit cards that have been set up in Customer Bank Accounts for this customer, or enter a new credit card number along with any other required information. You also need to check the Prepay check box, and enter percent or amount of the prepayment amount.</p>
+</li>
+<li>
+<p>Oracle Order Management calls the Receivables Receipt API to capture funds from the credit card and create a receipt for those funds. The amount captured is the amount you entered.</p>
+</li>
+<li>
+<p>Receivables returns a payment set ID that references the receipt that was created. If any error occurs in this processing, Oracle Order Management places the order on hold until the problem can be resolved.</p>
+</li>
+<li>
+<p>At any time during the processing of the order, any Receipts in Receivables tied to this order can be viewed from Order Management by using the View Receipts button from the Order Header Payment window. This action opens the Receivables Receipt window.</p>
+</li>
+<li>
+<p>The order is fulfilled and the credit card information and the payment set ID are passed to Receivables during Invoice Interface. AR matches the receipt with the invoice and performs all accounting transactions.</p>
+</li>
+</ul>
+<h3><b>Types of Authorizations</b></h3>
+<p>There are three types of authorizations that can be done from Order Management.</p>
+<ol>
+<li>
+<p>A credit card can be authorized automatically, as described above. For this to occur, the order type must be setup must be set up in such a way that there is at least one credit check rule assigned to either Ordering, Picking/Purchase Release, Packing or Shipping event in the Order Type setup window. The authorization will occur automatically during the Payment Verification processing.</p>
+</li>
+<li>
+<p>A credit card can also be authorized on-line, by choosing the Process Payment order action from the Action button on the Sales Order window. If this is done, authorization is attempted using the Oracle Payments interface, and the results are processed the same as for automatic authorization.</p>
+</li>
+<li>
+<p>Problems, such as those with hardware, software, servers or networks, may require an authorization to be obtained manually. This might be necessary because of hardware or software problems with the link to the Oracle Payments server or out to the credit card networks. Some back-end processors return an error instructing the user to call for authorization. In any event, an authorization might be obtained via a telephone call, or a dial-up device. In that case, the authorization code can be keyed on the Order Header, and the order will be considered to be authorized. This Voice Authorization results in a call to Oracle Payments to record the authorization, so that AR can later capture funds against it.</p>
+</li>
+</ol>
+<p><b>Voice Authorization</b></p>
+<p>Voice authorization is supported both in Payments' UIs and APIs. There are three fields and their corresponding parameters in the APIs:</p>
+<ol>
+<li>
+<p>Voice Authorization (Yes/No)</p>
+</li>
+<li>
+<p>Voice Authorization Date (date field)</p>
+</li>
+<li>
+<p>Voice Authorization Code (free text field)</p>
+</li>
+</ol>
+<p>If a voice authorization is obtained instead of an online electronic one, then the user should set the first field to Yes and enter the other two pieces of data. Oracle Payments then passes that information through when settlement is done.</p>
+<p>Manual authorization refers to those approval codes that were obtained outside of the payment system. In Order Management, the manually obtained code is checked to confirm if it is still within the validity period; if so, it is marked as a Voice authorization and sent to Oracle Payments. If it is beyond the validity period, then it is re-authorized as the regular authorization.</p>
+<p><b>Timing of Authorization</b></p>
+<p>The authorization call to Oracle Payments takes place at Booking, if there is a Booking Credit Check Rule set up for the order type. The second authorization takes places in one of the following ways:</p>
+<ul>
+<li>
+<p>If the credit check rule is set at Booking and Pick Release Only, the Second Authorization takes place at Pick Release if the first authorization has expired.</p>
+</li>
+<li>
+<p>If the credit check rule is set at Booking and Shipping Only, the Second Authorization takes place at Ship Confirm if the first authorization has expired. In this Case, there is NO Authorization during Pick Release because no Credit Check Rule is set at Pick Release.</p>
+</li>
+</ul>
+<p><b>Authorization Results</b></p>
+<p>The authorization call to Oracle Payments returns a success or failure, as well as a risk code. The authorization code can be viewed by users with appropriate security. If an authorization fails, the order is placed on Credit Card Authorization Failure hold. If the authorization was done on-line or at Booking, you will be notified of the failure by a message. The message will indicate the type of error encountered, such as communication error, invalid credit card . If there was a communications error, the action can be retried using the Action button. An invalid credit card error can be remedied by changing the credit card information and then re-authorizing using the Action button.</p>
+<p><b>Returns and Mixed Orders</b></p>
+<p>In Order Management, you can use a credit card as a Payment Type on returns and also on mixed orders &ndash; that is, orders containing both outbound and return lines. In the case of mixed orders, the amount authorized is the total amount of the outbound order lines, not the net of outbound and inbound. For pure return orders, a credit card number can be recorded, but no processing is done with it in Order Management. The credit card information is passed to Receivables for return lines. The payment type on the return in Order Management is ignored in Receivables, and if the order was originally paid with a credit card, then that same card will be refunded for credit. If you set up your system to automatically manage receipts when importing credits, then the automated receipt handling process occurs as follows:</p>
+<ul>
+<li>
+<p>AutoInvoice reviews the transaction batch source for each submission, to determine if automated receipt handling is enabled.</p>
+</li>
+<li>
+<p>If enabled, then AutoInvoice evaluates each credit memo and its associated invoice to determine eligibility for automatic receipt handling. To be eligible, the paid invoice's transaction type must be set to allow natural application only. Additionally, the transaction must not be in doubt.</p>
+</li>
+<li>
+<p>If eligible, then AutoInvoice unapplies the paid invoice (original transaction) from the receipt to be credited.</p>
+</li>
+<li>
+<p>AutoInvoice automatically creates the credit memo in the amount of the requested credit, and applies the credit to the correct invoice.</p>
+</li>
+<li>
+<p>If your policy is to automatically refund your customers, then AutoInvoice evaluates the receipt for refund eligibility. To be eligible, the receipt must not be in doubt.</p>
+</li>
+<li>
+<p>Finally, AutoInvoice applies the appropriate receivable activity to the receipt, as determined by your batch source setup.</p>
+</li>
+</ul>
+<p><b>Copy Orders</b></p>
+<p>Copy Orders has been enhanced in Order Management to give a choice whether or not to copy credit card information when an order header is being copied. There is a check box on the Copy Header window called Credit Card details where you can indicate your desire to copy. Data to be copied are Credit Card Number, Card Holder's Name, Credit Card Type and Expiration Date. This check box is enabled only when you have All or Limited credit card privileges, as set in the profile option. The check box is seeded as unchecked to allow users to make a conscious decision to copy such information.</p>
+<h3><b>Order Changes and Partial Shipments</b></h3>
+<p><b>Authorization Flow</b></p>
+<p>Credit card authorization is obtained for the authorized amount. If the order changes after authorization result in the amount being decreased, no further authorization occurs. If the order total increases, another authorization is done if the previous authorization is still not valid. Oracle Payments no longer supports void transactions, so in order to not block excess funds which would occur if multiple authorizations are done, reauthorization is done only if the previous authorization has expired. If an order is authorized and then only partially shipped, the shipped amount may go to Receivables for capture before the backordered quantities ship. If that occurs, Receivables captures only the amount of the shipped lines, using the original authorization code. An authorization code can only be used once for a capture transaction. When the remainder of the order is Shipped (Pick Released), a check is made to see if there is an unexpired and uncaptured authorization on the order. If not, then the remaining amount is authorized again. See the examples below for further clarification.</p>
+<p><b>Prepaid Flow</b></p>
+<p>Credit card funds capture takes place for the total order amount minus commitments. If order changes occur after the funds capture occurs, Oracle Order Management calls the Receivables Receipt API to create incremental receipts or creates refunds, if the order amount is reduced.</p>
+<h3><b>Holds</b></h3>
+<p><b>Authorization</b></p>
+<p>There are two holds seeded in Order Management for credit card authorization processing:</p>
+<ul>
+<li>
+<p>Credit Card Authorization Failure is applied if authorization fails</p>
+</li>
+<li>
+<p>Credit Card High Risk is applied if authorization is successful but the risk score is higher than the threshold set in Oracle Payments.</p>
+</li>
+</ul>
+<p>Both of these holds can be released manually, but can be reapplied automatically if a subsequent authorization fails. These holds can be removed with a manual authorization.</p>
+<p><b>Prepaid</b></p>
+<p>There are three holds seeded in Order Management for the Prepaid Credit Card feature:</p>
+<ul>
+<li>
+<p>Pending Process Payment is placed if an order needs to have a Receipt processed asynchronously</p>
+</li>
+<li>
+<p>ePayment Failure is placed when a failure occurs in the capture and receipt creation process that needs human intervention to resolve</p>
+</li>
+<li>
+<p>ePayment Server Failure is placed when an error occurs in the capture process. This error allows you to retry the capture process.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> The credit card bank account needs to be set up correctly in Payments for authorization to take place. If it is not set up correctly, an ePayment Failure hold is placed. So if the Payments server is unavailable and the bank account is not set up properly, the hold that is placed is the ePayment Failure Hold and not the ePayment Server Failure hold. This is because Receivables is checked first for errors/failures.</p>
+<p>The concurrent program Credit Card Process Pending Payments can be scheduled to process ePayment holds.</p>
+<h3><b>Risk Management</b></h3>
+<p>Oracle Payments has a Risk Management feature, that can help manage exposure to questionable transactions. You can define any number of risk factors to verify the identity of your customers, assess their credit rating, and manage risk in a secure online environment. Set up these factors and a risk calculation formula when you set up Oracle Payments. Authorizations from Order Management use the default risk formula setup in Oracle Payments. Authorization returns a risk score, in addition to an authorization code. The score can range from 0 to 100, with 0 referring to a risk free transaction and 100 referring to a high risk authorization. If the risk score exceeds the risk threshold you have set up in the corresponding profile option, the order is automatically placed on Credit Card High Risk hold.</p>
+<p>The profile option OM: Risk Factor Threshold for Electronic Payments has been obsoleted in the current release and now risk management is handled by Oracle Payments. Orders are checked for high risk and compared to the risk score returned by Payments. If the risk score exceeds the risk threshold, then Order Management initiated orders would go on high risk hold. For more information on setting up risk management, please refer to the <i>Oracle Payments Implementation Manual.</i></p>
+<p>For Order Management you can get the risk management evaluation results even if credit card authorization has failed as this is derived from Payments. For iStore, risk evaluation may be turned on or off depending on the parameter value.</p>
+<p><b>Scenarios</b></p>
+<ul>
+<li>
+<p>In case authorization is carried out successfully and there is a security code warning, the order would be placed on hold.</p>
+</li>
+<li>
+<p>In a situation where authorization is carried out successfully and there is no security code warning, risk evaluation is done. The order is placed on credit card high risk hold if the risk score exceeds the threshold.</p>
+</li>
+<li>
+<p>If authorization is carried out and error messages like &ldquo;Authorization Declined&rdquo;, &ldquo;System Error&rdquo; or &ldquo;Developer Error&rdquo; are displayed, then the order is automatically placed on Order on Credit Card Authorization hold.</p>
+</li>
+</ul>
+<h3><b>Importing Orders and CRM Integration</b></h3>
+<p>You can import orders with a payment type of credit card. There are columns in the payment interface tables for all of the credit-card related data. You can import orders that are already authorized by populating the authorization code and authorization date columns. This supports the business case where you might have a legacy system or some other feeder system that has already done the authorization sending orders into Order Management for fulfillment.</p>
+<p>Similarly, orders coming from CRM or other front-end systems that have been pre-authorized can be entered into Order Management via the Process Orders API. Those orders will not be re-authorized, unless re-authorization is needed at Shipping or because of increases in the order value after authorization.</p>
+<h3><b>Commitments</b></h3>
+<p>Commitments are a type of prepayment transaction recorded in Oracle Receivables. Order Management enables you to specify that a line is to be paid from funds paid from a commitment by selecting a commitment number, and optionally, an amount on the order line. If commitments are used on orders that have a payment type of credit card, the amount to be authorized or collected is the total order or line amount minus the commitment amount on lines with commitments. This supports the business case where some lines are prepaid with commitments and the customer gives a credit card number to cover the amount of the order not paid by the commitment.</p>
+<h2><a name="2993945"></a><a id="T376592"></a><b>Set Up</b></h2>
+<p>To use credit card authorization in Order Management, you must install and set up the Oracle Payments server which in turn communicates with the credit card provider networks. In addition, create at least one Credit Check Rule in Order Management and set up your order transaction types to use Credit Checking. Credit Card authorization will not occur automatically unless a credit card rule is present on the order type.</p>
+<p>See: <i>Oracle Payments Implementation Guide</i></p>
+<p><i>Oracle Payments Concepts and Procedures</i></p>
+<h2><a name="2993953"></a><a id="T376595"></a><b>Payment Terms</b></h2>
+<p><a name="t_payterm" id="t_payterm"></a><a name="t_pay" id="t_pay"></a>If you use the Prepaid Credit Card feature, you must set up at least one Payment Terms in Receivables with the prepaid credit card attribute checked. Oracle Order Management only invokes the Prepaid Credit Card processing if the order header payment terms is a prepaid payment terms. If an order has a header payment terms indicating prepaid credit card, then any payment terms at the order line level are ignored. They are not even passed to Receivables at Invoice Integration.</p>
+<p>There are two ways to create a Prepayment in Release 12:</p>
+<ul>
+<li>
+<p>Enter a Prepaid Payment Term in the Order Header, and a prepayment record is created automatically.</p>
+</li>
+<li>
+<p>In the Payments window, you can create Prepayments by selecting the Prepay box.</p>
+</li>
+</ul>
+<h2><a name="2993954"></a><a id="T376596"></a><b>Lookups</b></h2>
+<p>There are several OM lookups that are used by Credit Card authorization. There is an OM lookup for Credit Card Type&mdash; this is seeded with the most common credit card types such as AMEX or Visa. You can extend this list.</p>
+<h2><a name="2993955"></a><a id="T376597"></a><b>Oracle Payments Setup</b></h2>
+<p>There is an entire manual devoted to implementing the Oracle Payments server. Several critical things to setup that influence Order Management are the risk management factors and formula and the merchant bank account. Other setup information can be found in the <i>Oracle Payments Implementation Guide</i>.</p>
+<h2><a name="2993956"></a><a id="T376598"></a><b>Reports</b></h2>
+<p>There are no new or existing reports in Order Management that list credit card information.</p>
+<h2><a name="2993957"></a><a id="T376599"></a><b>Implementation Considerations</b></h2>
+<h3><b>Credit Checking</b></h3>
+<p>A credit check rule must be assigned to one of the credit checking events (Booking, Shipping, Picking/Purchase Release or Packing) in Order Type set up. It is not mandatory for credit checking to be active, as other setup steps are involved in activating credit checking. However, Authorization requires that a credit check rule be assigned in the Order Type setup.</p>
+<h3><b>Encryption</b></h3>
+<p>The masking of credit card information is now controlled by Oracle Payments.</p>
+<h3><b>Under Authorization</b></h3>
+<p>Order Management can have multiple active authorizations per order at any given time. If the order value increases on an order with an unexpired and uncaptured authorization, Order Management does not perform additional authorization. Because of this, it is possible that insufficient funds may be available on the credit card for the order when it gets to AR for capture. AR will still attempt to authorize and capture the full amount if the invoiced amount exceeds the authorized amount.</p>
+<p>If it is a common practice in your business to have users add products to credit card orders after they have been authorized but before the typical authorization expiration, you will need to assess the risk of non-payment. If this is deemed to be an issue, you might want to adopt a practice of requiring that users create new orders for the additional lines or quantity, so that those amounts will be authorized.</p>
+<h3><b>If Oracle Payments is not Installed</b></h3>
+<p>If Oracle Payments is not installed, but a payment type of credit card is entered on the order, Verify Payment does not return an error or place the order on hold. The Authorize Payment action on the Action button will not be available. The only way to authorize a credit card without Oracle Payments or customization is to manually enter the authorization code. In effect, if you don't have Oracle Payments installed, the credit card fields on the order header are for information only. Credit card data is passed to Receivables; however, even if Oracle Payments is not installed, which may cause problems in Autoinvoice.</p>
+<p>If you don't have Oracle Payments installed and you don't want to take the risk of entering credit card information that is not used, you can set up a Processing Constraint to prohibit users from saving data to the credit card fields. See <a href="T373258T377247.htm#t_proccons">Processing Constraints</a> for more information.</p>
+<p>Oracle Order Management always treats credit card information as automatic payment. It is therefore recommended that you should not enter any credit card information in the sales order if the provided credit card information is not intended for automatic payment. You can make use of order or line level descriptive flex fields if credit card information is intended for information purposes only.</p>
+<h3><b>Debugging Tips</b></h3>
+<p>If you are experiencing problems getting the Oracle Payments integration to work in your environment, it can be very helpful to Oracle Support if you generate a log file of what is happening. Here are specific steps to generate a debug file while reporting Oracle Payments integration issues:</p>
+<ol>
+<li>
+<p>Log into the application using a new session.</p>
+</li>
+<li>
+<p>Open the sales order window and query the order.</p>
+</li>
+<li>
+<p>From Tools menu click Debug.</p>
+</li>
+<li>
+<p>Choose Turn Debug On.</p>
+</li>
+<li>
+<p>From Tools menu click Debug.</p>
+</li>
+<li>
+<p>Choose Initialize Debug Cache.</p>
+</li>
+<li>
+<p>From Tools menu click Debug.</p>
+</li>
+<li>
+<p>Choose Write to a File. Make a note of the default file name&mdash;you cannot change it. Debug messages are logged into this file.</p>
+</li>
+<li>
+<p>Perform the steps which are failing&mdash;in this case it may be payment authorization through booking/ picking/ manual.</p>
+</li>
+<li>
+<p>Turn debug off.</p>
+</li>
+<li>
+<p>Provide the debug file to Oracle Support.</p>
+</li>
+</ol>
+<h2><a name="2993963"></a><a id="T376600"></a><b>Examples</b></h2>
+<p>The following examples assume an order type that has a Credit Check Rule assigned for both Booking and Shipping.</p>
+<p><strong><span>Note:</span></strong> These are authorization-only examples and do not apply to prepayment orders or orders with line level payments.</p>
+<p><b>Simple order:</b> Consider the case of a simple order that is authorized at Booking, pick released and shipped complete within one week with no changes to the order. One authorization is obtained for the entire order at Booking. No further authorization at Shipping occurs, because an unexpired and uncaptured authorization existed. The entire order interfaces to Receivables at one time. Receivables does the funds capture against the original authorization code.</p>
+<p><b>Partial Shipment:</b> This order consists of one line for a quantity of 10 with an extended amount of $1000. The authorization obtained at Booking is for $1000. Only 3 of the quantity of 10 is picked and ship confirmed and interfaced to Receivables. The remaining 7 were backordered. What occurs when the remainder of the order is pick released depends on whether Receivables has captured against the original authorization. If so, AR captures $300 against the first authorization. At Pick Release of the remainder of the order, a new authorization is obtained for $700 &ndash; the amount uncaptured. If AR has not done a funds capture at the time of the second Pick Release, OM will not reauthorize if the original authorization had not expired. Whether or not an authorization has had funds captured is determined by calling an Oracle Payments API.</p>
+<p><b>Cancellations:</b> Consider the same order as in Partial Shipments above. However, after Booking, but before interface to Receivables, the order is cancelled. If the entire order is cancelled, OM will do nothing and the authorization will just be left to expire. On the other hand, if the order is partially cancelled, the part that is shipped and interfaced to Receivables will capture against the original authorization code but for the amount shipped. The remainder&mdash;the amount canceled&mdash;will never authorize, as it has been canceled.</p>
+<p><b>Mixed Order:</b> This order consists of one outbound line for $200 and one return line with a value of $50. Therefore the order total is the net or $150. The authorization at Booking will authorize for the full $200.</p>
+<h3><b>Migration/Upgrade</b></h3>
+<p>There is no special upgrade performed for orders containing credit card information. Credit card information from old Order Entry orders are copied to the upgraded order. If the new upgraded order goes through Booking or Shipping and there is a credit check rule on the order type, then authorization is attempted.</p>
+<h2><a name="2993965"></a><a id="T376601"></a><b>Multiple and Partial Payments</b></h2>
+<a name="t_multpar" id="t_multpar"></a>
+<h3><b>Overview</b></h3>
+<p>Oracle Order Management's multiple and partial payment features allow additional types of payment vehicles and specification of a payment type at the line level. Also multiple prepayments can be processed at the order header level, to provide support for down payments. This increases support for Business to Consumer flows, reduces risk in collection of payments, and enhances flexibility in the payment of orders through use of multiple credit cards, electronic payment options. Major features include the following:</p>
+<ul>
+<li>
+<p>Support for additional payment types:</p>
+<ul>
+<li>
+<p>Wire Transfer</p>
+</li>
+<li>
+<p>Purchase Card</p>
+</li>
+<li>
+<p>Automated Clearing House transaction (ACH)</p>
+</li>
+<li>
+<p>Direct Debit</p>
+</li>
+<li>
+<p>Cash</p>
+</li>
+<li>
+<p>Credit Card</p>
+</li>
+<li>
+<p>On-account (or PO)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Payment Types with optional attributes</p>
+</li>
+<li>
+<p>Payment information for an order or line</p>
+</li>
+<li>
+<p>Prepayment data for an order: Create multiple prepayments for a partial amount of the order total or for the full amount. Oracle Order Management creates one or more Accounts Receivable receipts linked to the order to apply to the invoice when it is created</p>
+</li>
+<li>
+<p>Workflow activity for Payment Assurance to verify that a prepayment has been collected before you ship</p>
+</li>
+<li>
+<p>Payment instrument (in addition to a commitment) at the line level where there are no prepayments on the order.</p>
+</li>
+<li>
+<p>Print a Quick Receipt document for a retail customer.</p>
+</li>
+<li>
+<p>Credit Card Authorization for Installment terms to authorize the first installment only instead of the total order amount.</p>
+</li>
+<li>
+<p>Batch authorization of Credit Cards, including automatic retries of authorizations that fail due to network outages.</p>
+</li>
+<li>
+<p>Create multiple payments and prepayments using Order Import.</p>
+</li>
+<li>
+<p>Copy order or line with payment information.</p>
+</li>
+<li>
+<p>Create a prepayment receipt by entering a receipt date.</p>
+</li>
+</ul>
+<h2><a name="2993967"></a><a id="T376602"></a><b>Profiles</b></h2>
+<p><a name="d0e68095" id="d0e68095"></a>Set up profile options related to Credit Card Processing appropriately when using multiple and partial payments.</p>
+<h2><a name="2993968"></a><a id="T376621"></a><b>Setup</b></h2>
+<h3><b>Multiple Payments</b></h3>
+<a name="OEXPMTYP_PAYMENT_TYPES" id="OEXPMTYP_PAYMENT_TYPES"></a>
+<ol>
+<li>
+<p>The system parameter Allow Multiple Payments is enabled by default but you cannot update it in the System Parameters window.</p>
+<p>You cannot add new Payment Types or deleted seeded payment types. Payment Types are Operating Unit (OU) specific. When you make changes in one operating unit, these are not replicated to other operating units. Order Management predefines only those payment types that are supported in Oracle Receivables and Oracle Payments.</p>
+<p><strong><span>Note:</span></strong> If payment types are not displayed for your Operating Unit, run the &ldquo;Replicate Seed Data&rdquo; concurrent program from the System Administrator responsibility.</p>
+<h3><b>Payment Types Setup Window Details</b></h3>
+<p><b>Payment Types window</b></p>
+<p><img width="978" height="409" src="./img/ont_pymttypes.gif" alt="the picture is described in the document text"></p>
+<ul>
+<li>
+<p><b>Operating Unit:</b>This shows your default Operating Unit. You can pick a different Operating Unit from the LOV which displays all Operating Units accessible to you via your MO: Security Profile. Thus you manage payment types across multiple Operating Units that are accessible to you.</p>
+</li>
+<li>
+<p><b>Payment Type Code:</b> Payment Types supported. You cannot change the code, but you can change the description and the Payment Type name.</p>
+</li>
+<li>
+<p><b>Receipt Method:</b> Assign a predefined Receipt Method to the Payment type. This payment method will be used on the Invoice to collect the open balance. You can update this field.</p>
+<p>The Receipt Method that is assigned to the check payment type has a creation method of Manual, because that is validated in Order Management. The Accounts Receivables Receipt API handles Manual or Automatic Receipt Methods. The Automatic creation method is reserved for the Automatic Receipts program in Accounts Receivables, which is the automatic generation of receipts from the Invoice document flagged with an Automatic receipt method.</p>
+<p>See the section Setting up Accounts Receivable for Multiple Payments in the payments chapter.</p>
+</li>
+<li>
+<p><b>Start Date</b>: Effective Start Date for payment type. You can update this field.</p>
+</li>
+<li>
+<p><b>End Date:</b> Effective End Date for payment type. You can update this field.</p>
+</li>
+<li>
+<p><b>Defer Payment Processing:</b> Payment Type should be processed in deferred mode for performance gain. You can update this check box.</p>
+</li>
+<li>
+<p><b>Credit Check:</b> If this payment type should go through Credit Check or not. This is an additional setup required for Credit Checking to occur if you are using the prepayments functionality. You can update this check box.</p>
+</li>
+</ul>
+<p><b>Payment Types supported and additional information required on the transaction</b></p>
+<ul>
+<li>
+<p><b>Credit Card / Purchase Card:</b> Specify Credit Card Number, Credit Card Holder Name, Expiration Date, Type of Card</p>
+</li>
+<li>
+<p><b>ACH:</b> Specify Bank Number, Account Number, Account Holder Name, Account Type</p>
+</li>
+<li>
+<p><b>Direct Debit:</b> Specify Bank Number, Account Number, Account Holder Name, Account Type</p>
+</li>
+<li>
+<p><b>Wire Transfer/EFT:</b> Supported for Invoice Payment Only</p>
+</li>
+<li>
+<p><b>Check:</b> Specify Bank Account Number, Check Number. Note that if you use Check for a prepayment, you cannot use the lockbox to process the check.</p>
+</li>
+<li>
+<p><b>Cash:</b> cash</p>
+</li>
+</ul>
+<p>When the payment type on an Order Header is NULL Send an Invoice is implied. In addition, the PO number can be entered on the Order Header.</p>
+<p><b>Specify Commitment Number (Supported for Line level payments)</b></p>
+<ul>
+<li>
+<p>Available only at the line level and Only one commitment per order line</p>
+</li>
+<li>
+<p>The Commitment Promised Amount can be updated.</p>
+</li>
+<li>
+<p>Commitment is not included as a Payment type and cannot be used for Down Payment.</p>
+</li>
+</ul>
+<p>Multiple Payment Types for down payment are at the order level only. If there is a prepayment/down payment on the Order, you cannot specify any payment types at the order line level. If there is a pre payment on the order, the View Line Payments button on the Payments window is disabled and the Payments Action on the Lines tab is not visible.</p>
+<p>For Orders without down payment you can choose ONE additional payment type in addition to a commitment PER order line. Only one payment instrument in addition to Commitment can be used for the balance of an order line.</p>
+<p><b>Defer Prepayment Processing and Credit Card Authorization:</b></p>
+<p>Payment can be processed first at Booking. However you can defer prepayment processing by setting the Defer flag on the Payment Type to Yes. You can override the defaulted value of the flag at the transaction level on the Payments window for more granular control.</p>
+<p>The Defer flag represents both Prepayment Processing and Credit Card Authorization. Setting that flag to Yes defers both payment processing and credit card authorization.</p>
+<p>Once flagged for deferred authorization, Order Management defers the call to Oracle Payments for credit card authorization. A Pending Payment Authorization hold is placed on the order/line.</p>
+<p>If you use a Credit Check Rule at shipping the Defer flag is not applicable, as Credit Card Authorization is executed regardless of the setting of this flag.</p>
+<h3><b>Receipt Date</b></h3>
+<p>When the prepayment is processed a receipt gets created with system date. You can enter a receipt date in the past so that when the prepayment is processed, the receipt gets created with the receipt date that you entered.</p>
+<p>When you make payments through a credit card, ensure that the credit card is active on the Receipt Date, for a successful authorization. You can change the credit card assignment date on the corresponding customer setup page to make the credit card active on the Receipt Date.</p>
+<p><b>Points about Receipt Date</b>:</p>
+<ul>
+<li>
+<p>Prepayments are made at the sales order header level only.</p>
+</li>
+<li>
+<p>The Receipt Date is determined by the Prepay check box. Select the check box to enable you to enter a receipt date.</p>
+</li>
+<li>
+<p>Record a receipt date in the past between the Date Ordered and the system date. If the Receipt Date is earlier than the Order Date on the sales order, then a warning message displayed - <i>Prepayment receipt date is earlier than the ordered date on sales order</i>.</p>
+</li>
+<li>
+<p>If you do not enter a receipt date, the Accounts Receivable receipt is created with the system date. You can update the Receipt Date till an AR Receipt is created for it.</p>
+</li>
+<li>
+<p>Record multiple prepayments with different Receipt Dates and multiple payment types and amounts.</p>
+</li>
+<li>
+<p>Enter and update the Receipt Date in the Sales Order, Quick Sales Order, Quote, Quick Quote, and Order Import Corrections windows. You can also enter and update the Receipt Date in the Sales Order HTML UI.</p>
+</li>
+<li>
+<p>Receipt Date is hidden by default. You can enable this field using the Folder &gt; Show Field option. You can see the Receipt Date under the Header Payments.</p>
+</li>
+<li>
+<p>In Quote and Quick Quote window, if you enter a receipt date earlier than the Date Ordered, then while converting the quote to a sales order, the application validates and displays this message -<i>Prepayment receipt date is earlier to ordered date on sales order</i>.</p>
+</li>
+<li>
+<p>You can also enter and update the Receipt Date using the Process Order API, Order Import, and Web Services.</p>
+</li>
+<li>
+<p>EDI and HVOP do not support the Receipt Date.</p>
+</li>
+</ul>
+<h3><b>Credit Check</b></h3>
+<p>For Credit Checking to occur on orders with Payment Types, this flag must be set to Y on the Payment Type, in addition to setting Credit Check = Y on the Payment Term, Order Transaction type and the Customer Profile.</p>
+<p>Set up Prepayment Payment Terms. Payment Terms can be set up in Order Management. Navigate to Setup &gt; Orders &gt; Payment Terms. Optionally you can also set up Payment Terms from the Oracle Receivables Super user menu.</p>
+<p><b>Payment Terms Window</b></p>
+<p><img width="669" height="505" src="./img/ontig_pmtrm.gif" alt="the picture is described in the document text"></p>
+<p>A selected check box for PrePayment in setup implies that when the payment term is used on the Order Header for prepayment, a suggested prepay amount is defaulted on the Payments window. The calculation for the suggested prepay amount is based on the first installment setup for the prepaid payment term.</p>
+<p>During order entry the List of Values (LOV) for payment terms also displays Pre Paid / Non Prepaid flag. If a non prepaid payment term is used on the order header, user can still enter a prepayment amount to record a prepayment on the Payments window.</p>
+<p>For down payments only the header level payment term is used to determine the suggested down payment amount. Users can manually override this amount on the payments window during order entry.</p>
+<p>For prepaid payment term with installments you must set up the first installment to be the down payment.</p>
+<p>Oracle Receivables supports early pay discounts when using prepayments on remaining installments other than the down payment. Tax is not accounted upon collection of down payment, and revenue is not recognized.</p>
+<p><strong><span>Note:</span></strong> A prepayment term with an installments calculation of a suggested down, assumes the usage of Allocate Tax and Freight across the Installment instead of Include Tax and Freight in first installment.</p>
+</li>
+<li>
+<p>Create a transaction type with Payment Assurance activity included in the line workflow. It is possible to include Payment Assurance workflow activity within your line level workflow.</p>
+<p><b>Payment Assurance in line level workflow</b></p>
+<p><img width="319" height="157" src="./img/ontig_mlpwf.gif" alt="the picture is described in the document text"></p>
+<p>This optional workflow activity ensures that the receipt must be in a specific receipt status depending on the Payment Type before an order line can progress. You can set up workflow or extend seeded line flows to insert this activity at any point between booking and invoicing. It is recommended to add it before Shipping. With this activity in the flow, the order line does not progress unless the Prepay Receipt is in an appropriate status depending on the Payment Type used. This ensures reasonable assurance of collection of down payment.</p>
+<p>See: Define Order Management Transaction Types.</p>
+</li>
+<li>
+<p>Decide if you want to print the Payment receipt document and how you want to launch it. Create a transaction type with Payment Receipt Printing activity included in the order workflow. This optional step creates a document as a payment receipt when funds are collected along with the order. Note: Funds are not necessarily collected, and this shows only the prepayment processed. The three ways to create the Payment Receipt document are:</p>
+<ul>
+<li>
+<p><b>Option 1:</b> Include the &ldquo;Print Payment Receipt&rdquo; function within the workflow. Use this option if you always want to trigger printing a Payment Receipt. Usually, you would put this right after booking in the Order flow.</p>
+<ul>
+<li>
+<p><b>Option 2:</b> Launch the new report Payment Receipt with parameters Order Number or Order Type using Run Reports. Use this option if you do not want to Print Payment Receipts for every order.</p>
+</li>
+<li>
+<p><b>Option 3:</b> It is also accessible through Actions at the Order level.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The Print Payment Receipt action is available only if the function Sales Orders: Print Payment Receipt is attached to the OM Menu</p>
+</li>
+<li>
+<p>You can define Defaulting on the following attributes using the Defaulting Framework (payment_type_code, Receipt_method_id, Payment_collection_ event). Defaulting Rules are seeded for the entities Order Payment and Line Payment, Receipt Method, and API Based Defaulting:</p>
+<ul>
+<li>
+<p>If a value exists in the payment type setup, then this value defaults to the payment record.</p>
+<ul>
+<li>
+<p>Otherwise, for Credit Card and ACH payment type, look at the primary payment method defined for the customer site.</p>
+</li>
+<li>
+<p>Otherwise, for Credit Card and ACH payment type, look at the primary payment method defined for the customer.</p>
+</li>
+<li>
+<p>Otherwise, for Credit Card payment type only, please refer to Oracle Payments functionality.</p>
+<p><strong><span>Note:</span></strong> Payment method and customer bank account ID is defaulted at payment creation time. These are required at Booking for Credit Card and ACH. Payment Level code is defaulted at Payment creation time.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>See: <a href="T373258T377073.htm#OEXDEFWK_DEFOBJ">Define Defaulting Rules</a>.</p>
+</li>
+<li>
+<p>Set up Processing Constraints.</p>
+<h3><b>Seeded Processing Constraints</b></h3>
+<p>For prepayments, when payment has been processed and the receipt has been successfully created:</p>
+<ul>
+<li>
+<p>Payment information cannot be updated except for the amount, which can be adjusted to a higher or lower value</p>
+<ul>
+<li>
+<p>Payment information cannot be deleted</p>
+</li>
+<li>
+<p>Cannot change the following attributes on the order header &ndash; Transactional Currency, Invoice To Customer, Invoice To Address, Payment Type</p>
+</li>
+<li>
+<p>Payment number is system generated and cannot be updated</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>For header level invoice payment, the payment information cannot be changed if at-least one order line has been invoice interfaced.</p>
+<p>For Line level payment the payment information cannot be changed if the order line has been invoice interfaced.</p>
+<p>For Invoice payment using credit card, credit card related data cannot be changed when authorization has been completed.</p>
+<p><strong><span>Note:</span></strong> It is not required to provide a payment instrument at Order Entry. Null is allowed as the payment type. A constraint can be set up so that a not null form of payment type must be provided at order entry.</p>
+<p>Constraints can be defined on other attributes using the constraint framework. Available attributes include:</p>
+<ul>
+<li>
+<p>Payment Type Code</p>
+</li>
+<li>
+<p>Commitment Applied Amount</p>
+</li>
+<li>
+<p>Credit Card Code</p>
+</li>
+<li>
+<p>Credit Card Number</p>
+</li>
+<li>
+<p>Credit Card Holder Name</p>
+</li>
+<li>
+<p>Credit Card Expiration Date</p>
+</li>
+<li>
+<p>Credit Card Approval Code</p>
+</li>
+<li>
+<p>Credit Card Approval Date</p>
+</li>
+<li>
+<p>Receipt Method Id</p>
+</li>
+<li>
+<p>Payment Collection Event</p>
+</li>
+<li>
+<p>Check Number</p>
+</li>
+<li>
+<p>Payment Amount</p>
+</li>
+</ul>
+<p>See: Define Processing Constraints.</p>
+</li>
+<li>
+<p>Schedule the Process Pending Payment concurrent program. Payment Processing can also be triggered by running this program standalone or in batch mode. Navigate to the Submit Request window. Order Management &gt; Reports, Requests &gt; Run Requests.</p>
+<p><b>Submit Request Window</b></p>
+<p><img width="708" height="480" src="./img/ontig_subrq.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Name field select Process Pending Payment from the list of values.</p>
+<p><b>Process Pending Payments Parameters Window</b></p>
+<p><img width="772" height="457" src="./img/ontig_pppp.gif" alt="the picture is described in the document text"></p>
+<p>The Process Pending Payments concurrent program can be used to process the following in batch mode:</p>
+<ul>
+<li>
+<p><b>Credit Card Authorization Only (non &ndash; Prepayment):</b> Process those orders that have no pre payments on the order and have a Pending Payment Authorization hold on the Order/Line</p>
+<ul>
+<li>
+<p><b>Pre Payment Processing only:</b> Process those orders which have a pre payment on the order and have a Pending Process Payment hold on the Order/Line</p>
+</li>
+<li>
+<p><b>Both Pre Payment and Non Prepayment processing:</b> Process those orders that have a Pending Payment Authorization hold or Pending Process Payment hold on the Order/Line</p>
+<p>You can submit this program to run a specified number of times or at regular intervals to process payments asynchronously without manual intervention. This setup is optional.</p>
+<p><strong><span>Note:</span></strong> The Process Payment action from the Sales Orders window processes all pending payments for the current order including prepayments processing and credit card authorizations. It behaves like the Pending Process Payment concurrent program with the parameter selected as Both Pre Payment and Non Prepayment processing.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3><b>Credit Check for Orders with Prepayment</b></h3>
+<p><b>Order Level Credit Check</b></p>
+<p>Pre-paid amount for any payment type, is subtracted (in addition to commitment applied amount) from the total order value during credit checking. All other credit checking controls are still honored.</p>
+<p><b>Line level Credit Check</b></p>
+<p>For orders with down payment, the pre paid amount is not subtracted from the total order value. Only the commitment applied amount is subtracted from the line total.</p>
+<p><strong><span>Note:</span></strong> Calculation of Overall Credit exposure is not impacted by prepayments functionality, regardless of whether or not AR balances are included in the total exposure calculation.</p>
+<h3><b>Credit Card Payment Type</b></h3>
+<p><b>When Credit check flag is on:</b> Credit Check and authorize open balance.<b>When Credit check flag is off:</b> Authorize open balance only.</p>
+<p>Credit Checking is re-executed upon subsequent payment processing.</p>
+<h3><b>Pre Payment Holds</b></h3>
+<ul>
+<li>
+<p><b>Pending Process Payment Hold:</b> Relates to all cases where Process Payment activity is Pending.</p>
+</li>
+<li>
+<p><b>Epayment Failure Hold:</b> For expected errors returned by Oracle Payments, like invalid data.</p>
+</li>
+<li>
+<p><b>Epayment server failure Hold:</b> For any unexpected errors returned by Oracle Payments, like failure to connect to server.</p>
+<ul>
+<li>
+<p>Process Pending Payments concurrent program (batch mode)</p>
+</li>
+<li>
+<p>Process Payments Action (manual action from sales order form - per order)</p>
+</li>
+<li>
+<p>At Booking (Booking triggers Process Payments)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>For credit card payment at header level, the amount to be authorized at the header level is equal to the Order Total, charges and estimated taxes included, minus the total prepayment, minus the line totals of commitment applied amount, and the amount covered by other payment instruments.</p>
+<p>For credit card payment at the line level, the amount to be authorized at the line level is equal to the Line Total, charges and taxes included, minus the commitment applied amount.</p>
+<p>For authorization to occur you must turn on the credit check rule as appropriate, such as those for Booking.</p>
+<p><b>Overpayment</b></p>
+<p>If the prepayment amount collected is higher than the total open balance a warning message is displayed and payment is processed successfully.</p>
+<p><strong><span>Note:</span></strong> Once a down payment amount has been processed any changes that increase or decrease the Order total will not automatically result in an additional Receipt/Refund. The prepaid amount must be manually set to a higher value for more collection, and the Process Payment Action must be executed or the Process Pending Payments program must be run.</p>
+<h3><b>Setting up Accounts Receivable (AR) For Multiple Payments</b></h3>
+<p>Receivables Activity is set up in Oracle Receivables. Receivables activity of type Prepayment must be set up. Once an order with prepayments is Booked, Payment Processing is triggered automatically provided Defer flag was unchecked on the Payments window prior to Booking. A prepayment receipt is created in Oracle Receivables. This prepay receipt is applied to the Prepayment Receivables Activity. The Receivables Activity of type Prepayment is a placeholder application until the Order is Invoiced and the Invoice and Prepayments are matched. Upon matching, the Prepayment is unapplied from the Prepayment Receivables Activity and applied to the Invoice to close out/reduce the balance of the Invoice.</p>
+<p>See: <i>Oracle Receivables Implementation</i> Guide.</p>
+<h3><b>Setting up Remittance Bank Accounts</b></h3>
+<p>Navigate to Bank Accounts from the Receipt Class / Payment Method window. The attribute for the Remittance Bank should be the Minimum Receipt Amount. Before creation of a Receipt for Pre payment, the system validates that the Receipt creation amount is greater than the Minimum Receipt Amount of the Remittance Bank. If the receipt creation amount is less than the Minimum Receipt Amount then a prepay receipt is not automatically created. In such a case, the order is not placed on Pending Payment Process hold.</p>
+<p>See: <i>Oracle Receivables Implementation</i> Guide</p>
+<h3><b>Copying Orders with Payment Information</b></h3>
+<p>The Payments check box on the Copy Header and Copy Lines tabs of the Copy window allows you to copy payment information. Please note that if the Credit Card Security Code is mandatory, then the order will not be copied with all the credit card attributes. If Credit Card Security Code is not mandatory, then the order will be copied with all the credit card attributes.</p>
+<p><b>Copy Header Tab of Copy Window</b></p>
+<p><img width="500" height="419" src="./img/ontig_mpch.gif" alt="the picture is described in the document text"></p>
+<p>The default value for this check box is Unchecked. The payment types are copied from the source order but the amounts are not.</p>
+<p><b>Copy Lines Tab of Copy Window</b></p>
+<p><img width="494" height="419" src="./img/ontig_mpcl.gif" alt="the picture is described in the document text"></p>
+<p>Copy of payment information is available for Outbound orders only.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

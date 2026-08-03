@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Cost Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Cost Management User's Guide">
+<meta name="dcterms.identifier" content="E48829-27">
+<meta name="dcterms.isVersionOf" content="CSTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T372621T378169.htm" title="Previous" type="text/html">
+<link rel="Next" href="T372621T514642.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Cost Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">14/29</span> <!-- End Header -->
+<h1>Periodic Costing</h1>
+<h2><a name="3022319"></a><a id="T451792"></a><b>Overview of Periodic Costing</b></h2>
+<p><a name="d0e31259" id="d0e31259"></a><a name="d0e31265" id="d0e31265"></a><a name="c_pcoverview" id="c_pcoverview"></a>As an option to the mandatory perpetual costing system, which uses either the standard or average or FIFO (First-In First-Out) or LIFO (Last-In First-Out) costing methods, Cost Management provides support for two methods of Periodic Costing:</p>
+<ul>
+<li>
+<p>Periodic Average Costing (PAC)</p>
+</li>
+<li>
+<p>Periodic Incremental LIFO (Last-In First-Out)</p>
+</li>
+</ul>
+<p>Periodic Costing is an option that enables you to value inventory on a periodic basis. There are three principal objectives of Periodic Costing:</p>
+<ul>
+<li>
+<p>To capture actual acquisition costs based on supplier invoiced amounts plus other direct procurement charges required by national legislation or company policy</p>
+</li>
+<li>
+<p>To capture actual transaction costs using fully absorbed resource and overhead rates</p>
+</li>
+<li>
+<p>To average inventory costs over a prescribed period, rather than on a transactional basis</p>
+</li>
+</ul>
+<p>You must set up a perpetual costing method (standard or average or FIFO or LIFO) for each inventory organization that you establish in Oracle Inventory. In addition, you have the option to use Periodic Costing.</p>
+<p>You can choose to create Periodic Costing distributions and send them to the General ledger after a Periodic Costing run. You can also disable the perpetual costing General Ledger transfer, electing instead to produce accounting entries only after a Periodic Costing run.</p>
+<p>Prior to Release 12, the Periodic Cost Processor computed the assembly unit cost based on actual quantities issued to the job, and not Bills of Material (BOM) requirements. You now have the option to adopt BOM requirements in PAC costing. With the functionality for defining an item as lot-based made available in BOM, the Periodic Cost Processor supports lot-based components.</p>
+<p>Oracle maintains the perpetual system and the periodic system (if one is enabled) separately and produces separate reports.</p>
+<h3><a id="T411961"></a><b>Uses<a name="d0e31305" id="d0e31305"></a><a name="d0e31311" id="d0e31311"></a><a name="c_user" id="c_user"></a></b></h3>
+<p>You may want to use Periodic Costing if:</p>
+<ul>
+<li>
+<p>You want to incorporate acquisition costs in your inventory valuation, possibly to set standards or update perpetual standard costs.</p>
+</li>
+<li>
+<p>You are in a country with a fiscal requirement to transact and/or report on inventory costs using one or both Periodic Costing methods.</p>
+</li>
+</ul>
+<h3><a id="T411962"></a><b>Major Features<a name="d0e31331" id="d0e31331"></a><a name="d0e31337" id="d0e31337"></a><a name="c_majfeat" id="c_majfeat"></a></b></h3>
+<p>Periodic Costing lets you cost items from one or more inventory organizations on a periodic basis. This cost is based on invoice price if the invoice is available; otherwise, the purchase price is used for purchased items. For manufactured items, Periodic Costing is the sum of the actual cost of resources and materials consumed.</p>
+<p><i>Acquisition Costing:</i> The Periodic Costing processor uses acquisition costs (including additional charges such as freight, customs, and insurance) to value receipts and returns. If no invoice is matched to the receipt at the time the cost processor is run, the PO price is used. You can view receipts that use PO Cost and make any corrections necessary.</p>
+<p><i>Full Absorption:</i> Using periodic rates cost types, you can create rates that fully absorb resource and overhead costs. The Periodic Cost processor uses these rates to cost Inventory and Work in Process (WIP) transactions.</p>
+<p><i>Shared Periodic Costs:</i> You can share Periodic Costs across a group of inventory organizations within a Legal Entity. Perpetual cost methods for the individual organizations in the legal entity can be a mixture of standard cost and average cost.</p>
+<p><i>Reports:</i> In addition to inventory valuation reports, you can run reports to see the detailed cost of receipts and identify receipts that used the PO price instead of the invoice price.</p>
+<p><i>Flexible use of Cost Methods:</i> You can use either or both Periodic Incremental LIFO and Periodic Average Costing to cost the inventory transactions of a period. You can view the results and produce inventory valuation reports using either method.</p>
+<p><i>Periodic Costing Distributions:</i> You can choose to post periodic distributions or perpetual costing distributions to the General Ledger. While it is not recommended, you could also post both distributions to the General Ledger.</p>
+<p><i>Full absorption of material and resource cost into the final assembly cost:</i> Periodic Costing relieves the remaining job balance into the final assembly cost.</p>
+<p><i>Relieve material charges using predefined (BOM) quantity or actual quantity</i>: Customers can choose to relieve component charges using the quantity defined in the job's bill, or using the actual quantity of components issued to the job.</p>
+<p><i>Scrap Absorption</i>: For Scrap Absorption there are two solutions as follows:</p>
+<ol>
+<li>
+<p>If you choose to have the completion cost derived based on the job's bill (standard quantity completion algorithm), then you can use the final completion flag to relieve the additional scrap value out of the job.</p>
+</li>
+<li>
+<p>If you choose to have the completion cost derived based on actual material usage, then the scrap value will be automatically absorbed by completions performed after the scraps.</p>
+</li>
+</ol>
+<p><i>Support for Material Overhead Absorption Rules for PAC</i>: You can define Material Overhead Absorption Rules for controlling material overhead absorption. See: <a href="T372621T372759.htm#c_mtovhabsrules">To define material overhead absorption rules</a>. These rules are respected in PAC as well.</p>
+<p><i>eAM Support in PAC</i>: You can associate eAM-enabled organizations to be included in the cost group setups so that you can use PAC.</p>
+<h3><a id="T411963"></a><b>Periodic Cost Updates<a name="d0e31404" id="d0e31404"></a><a name="d0e31410" id="d0e31410"></a><a name="c_pcupdates" id="c_pcupdates"></a></b></h3>
+<p>You can manually change the periodic cost of an item by performing a periodic cost update.</p>
+<p>Periodic Costing provides similar features to perpetual average costing, but with certain restrictions. See <a href="T372621T378952.htm#t_pcupdate">Updating Periodic Costs.</a></p>
+<h3><a id="T411964"></a><b>Requirements<a name="d0e31429" id="d0e31429"></a><a name="d0e31435" id="d0e31435"></a><a name="c_pcrequire" id="c_pcrequire"></a></b></h3>
+<p>In order to use Periodic Costing, the following requirements must be met:</p>
+<ul>
+<li>
+<p>Only one master item organization exists for each organization cost group. Only one master item organization is recommended per database instance.</p>
+</li>
+<li>
+<p>An organization cost group must be assigned to a single legal entity. A legal entity can contain several organization cost groups.</p>
+</li>
+<li>
+<p>An inventory organization can be associated with only one organization cost group.</p>
+</li>
+<li>
+<p>Frozen and average cost types cannot be used for Periodic Costing.</p>
+</li>
+<li>
+<p>Cost types used for Periodic Costing must be multiorg and non-updatable.</p>
+</li>
+<li>
+<p>Periodic Rates cost types must be multiorg and updatable.</p>
+</li>
+<li>
+<p>Cost types used for Periodic Costing cannot be disabled.</p>
+</li>
+<li>
+<p>Organization cost groups cannot be disabled.</p>
+</li>
+<li>
+<p>The Actual Cost extension is not allowed for cost derived transactions, WIP Assembly Completion, and WIP Assembly return.</p>
+</li>
+<li>
+<p>Oracle Bills of Material must be installed.</p>
+</li>
+</ul>
+<h3><a id="T411965"></a><b>Terms<a name="d0e31479" id="d0e31479"></a><a name="d0e31485" id="d0e31485"></a><a name="c_pcTerms" id="c_pcTerms"></a></b></h3>
+<h4><a id="T411966"></a><b>Cost Owned Transactions</b></h4>
+<p>Cost owned transactions are transactions that carry their own costs and are used to compute an average unit cost, which is applied to cost derived transactions.</p>
+<p>Examples:</p>
+<ul>
+<li>
+<p>PO receipt transactions</p>
+</li>
+<li>
+<p>WIP completion transactions</p>
+</li>
+<li>
+<p>Interorg transfers between cost groups</p>
+</li>
+<li>
+<p>WIP labor/resource transactions</p>
+</li>
+</ul>
+<h4><a id="T411967"></a><b>Cost-Derived Transactions<a name="d0e31519" id="d0e31519"></a><a name="d0e31525" id="d0e31525"></a></b></h4>
+<p>Cost-derived transactions are transactions that are transacted at the newly computed average unit cost of the period.</p>
+<p>Examples:</p>
+<ul>
+<li>
+<p>Material issues</p>
+</li>
+<li>
+<p>Issues to WIP</p>
+</li>
+<li>
+<p>Returns to WIP</p>
+</li>
+<li>
+<p>Returns from customer</p>
+<p><strong><span>Note:</span></strong> Returns from customer are only cost derived if they have no reference to sales orders. If they do reference sales orders, then they are costed at the original sales order issue cost.</p>
+</li>
+</ul>
+<h4><a id="T411968"></a><b>Periodic Rates Cost Type<a name="d0e31555" id="d0e31555"></a><a name="d0e31561" id="d0e31561"></a></b></h4>
+<p>A periodic rates cost type is the cost type that stores the material overhead, resource, outside processing, and overhead rates for a specific legal entity/cost type association. This is similar to the Average Rates cost type in perpetual average costing.</p>
+<p>The periodic rates cost type is defined in cost setup like any other cost type. It is associated with a legal entity/cost type using the Org Cost Group/Cost Type Associations window. You can update the periodic rates cost type field. For example, you can update the periodic rates each period. Each legal entity/cost type combination can have its own periodic rates cost type or share a periodic rates cost type. See: <a href="T372621T372759.htm#t_fdctp">Defining Cost Types</a>.</p>
+<h4><a id="T411969"></a><b>Period End Cost Layers (Periodic Incremental LIFO only)<a name="d0e31578" id="d0e31578"></a><a name="d0e31584" id="d0e31584"></a></b></h4>
+<p>Period end cost layers contain the recorded weighted average cost of all items purchased and produced in a period. Layers will remain in the system permanently.</p>
+<h4><a id="T411970"></a><b>Delta Quantity (Periodic Incremental LIFO Only)<a name="d0e31596" id="d0e31596"></a><a name="d0e31602" id="d0e31602"></a></b></h4>
+<p>Delta quantity refers to the net quantity of a year's production. For example, if 10 items were produced, 5 bought and 12 issued, the delta quantity is 3.</p>
+<h2><a name="3534975"></a><a id="T411972"></a><b>Periodic Costing Methods</b></h2>
+<p><a name="d0e31615" id="d0e31615"></a><a name="d0e31621" id="d0e31621"></a><a name="c_pcmethods" id="c_pcmethods"></a>Cost Management provides two Periodic Costing methods:</p>
+<ul>
+<li>
+<p>Periodic Average Costing</p>
+</li>
+<li>
+<p>Periodic Incremental LIFO Costing.</p>
+</li>
+</ul>
+<p>Determine your Periodic Costing methods in setting up. See: <a href="T372621T378952.htm#c_setpc">Choosing Periodic Cost Method</a></p>
+<p>Oracle Cost Management requires that you use one of the perpetual accounting methods. However, you can choose to post either periodic distributions or perpetual costing distributions to the General Ledger. While it is not recommended, you can also post both distributions to the General Ledger. See: <a href="T372621T378952.htm#t_percdist">Processing Periodic Cost Distribution</a></p>
+<p><b>Average Cost</b></p>
+<p>For both Periodic Costing methods, (weighted) average costs are calculated in the following manner:</p>
+<p>On a per item basis, within a period, cost owned transactions are costed first. Then the cost-derived transactions are calculated by averaging the accumulated amount and units for the period. This usually means that the system processes receipts into inventory before costing cost-derived transactions such as issues to jobs.</p>
+<h3><a id="T411973"></a><b>Periodic Average Costing<a name="d0e31657" id="d0e31657"></a><a name="d0e31663" id="d0e31663"></a><a name="c_WAC" id="c_WAC"></a></b></h3>
+<p>In Periodic Average Costing, the weighted average calculation adds the opening Inventory Value amounts and units to the current period's cost-owned transactions before calculating the cost-derived transaction costs.</p>
+<p>Cost-derived transactions change quantities but not item unit costs.</p>
+<p>The derived cost and the ending Inventory Value are used as the beginning Inventory Value of the next period.</p>
+<h4><a id="T427138"></a><b>Calculating Periodic Item Cost</b></h4>
+<p>Periodic item cost is not calculated for each cost-owned inventory transaction. It is calculated only after processing all the cost-owned transactions, which results in posting a variance once, not for every transaction. The application posts a variance only when quantity is zero or the cost is negative (when the Inventory Value is &gt; 0 and Quantity is &lt; 0, or vice versa) after processing all cost-owned transactions. Variance absorbs remaining inventory value, and the inventory value becomes 0.</p>
+<p><b>No variance generated:</b></p>
+<ul>
+<li>
+<p>PO Receipt of 5 units @ $5 each</p>
+</li>
+<li>
+<p>RTV of 4 units @ $6</p>
+</li>
+<li>
+<p>Miscellaneous receipt of 10 units without cost</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>PO receipt 5@ $5</td>
+<td>Inventory Value 25, Quantity 5</td>
+</tr>
+<tr valign="top">
+<td>RTV of 4@ $6</td>
+<td>Inventory Value 1, Quantity 1</td>
+</tr>
+<tr valign="top">
+<td>Calculate Cost</td>
+<td>Periodic Cost 1, Variance 0</td>
+</tr>
+<tr valign="top">
+<td>Misc Receipt 10</td>
+<td>Inventory Value 11, Quantity 11</td>
+</tr>
+</table>
+<p><b>Variance Generated (Quantity = 0)</b></p>
+<ul>
+<li>
+<p>PO receipt of 5 units @ $5 each</p>
+</li>
+<li>
+<p>RTV of 5 units @ 4 each</p>
+</li>
+<li>
+<p>Periodic Cost update: New cost: $6</p>
+</li>
+<li>
+<p>Miscellaneous receipt of 10 units without cost</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Cost Update</td>
+<td>Periodic Cost 6, Inventory Value 0</td>
+</tr>
+<tr valign="top">
+<td>PO receipt 5 @ $5</td>
+<td>Inventory Value 25, Quantity 5</td>
+</tr>
+<tr valign="top">
+<td>RTV of 5 @ $4</td>
+<td>Inventory Value 5, Quantity 0</td>
+</tr>
+<tr valign="top">
+<td>Calculate Cost</td>
+<td>Periodic Cost 6 (Period Beginning Cost), Variance 5, Inventory Value 0</td>
+</tr>
+<tr valign="top">
+<td>Misc Receipt 10</td>
+<td>Inventory Value 60, Quantity 10</td>
+</tr>
+</table>
+</li>
+</ul>
+<p><b>Variance Generated (Quantity &gt; 0 , Inventory Value &lt; 0)</b></p>
+<ul>
+<li>
+<p>PO receipt of 5 units @ $5 each</p>
+</li>
+<li>
+<p>RTV of 3 units @ $9 each</p>
+</li>
+<li>
+<p>Miscellaneous Receipt of 10 units without cost</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>PO receipt 5 @ $5</td>
+<td>Inventory Value 25, Quantity 5</td>
+</tr>
+<tr valign="top">
+<td>RTV of 3 @ $9</td>
+<td>Inventory Value -2, Quantity 2</td>
+</tr>
+<tr valign="top">
+<td>Calculate Cost</td>
+<td>Periodic Cost 0, Variance &ndash;2, Inventory Value 0</td>
+</tr>
+<tr valign="top">
+<td>Misc Receipt 10</td>
+<td>Inventory Value 0, Quantity 12</td>
+</tr>
+</table>
+<p><b>Variance Generated (Quantity &lt; 0 , Inventory Value &gt; 0)</b></p>
+<ul>
+<li>
+<p>PO receipt of 5 units @ $5 each</p>
+</li>
+<li>
+<p>RTV of 6 units @ $4 each</p>
+</li>
+<li>
+<p>Miscellaneous Receipt of 10 units without cost</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>PO receipt 5 @ $5</td>
+<td>Inventory Value 25, Quantity 5</td>
+</tr>
+<tr valign="top">
+<td>RTV of 6 @ $4</td>
+<td>Inventory Value 1, Quantity -1</td>
+</tr>
+<tr valign="top">
+<td>Calculate Cost</td>
+<td>Periodic Cost 0, Variance 1, Inventory Value 0</td>
+</tr>
+<tr valign="top">
+<td>Misc Receipt 10</td>
+<td>Inventory Value 0, Quantity 9</td>
+</tr>
+</table>
+<p><b>WIP Rework Transactions:</b></p>
+<ul>
+<li>
+<p>PO receipt of 5 units @ $5 each</p>
+</li>
+<li>
+<p>RTV of 6 units @ $4 each</p>
+</li>
+<li>
+<p>Non-rework completion of 3 units @ $6 each</p>
+</li>
+<li>
+<p>Issue to rework job of 5 units</p>
+</li>
+<li>
+<p>Completion from rework of 5 units @ $8 each</p>
+</li>
+<li>
+<p>Miscellaneous Receipt of 10 units without cost</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>PO receipt 5 @ $5</td>
+<td>Inventory Value 25, Quantity 5</td>
+</tr>
+<tr valign="top">
+<td>RTV of 6 @ $4</td>
+<td>Inventory Value 1, Quantity &ndash;1</td>
+</tr>
+<tr valign="top">
+<td>Non-Rework Completion</td>
+<td>Inventory Value 19, Quantity 2</td>
+</tr>
+<tr valign="top">
+<td>Cost Calculation</td>
+<td>Periodic Cost 9.5, Variance 0, Inventory Value 19</td>
+</tr>
+<tr valign="top">
+<td>Rework Issue</td>
+<td>Inventory Value -28.5, Quantity -3</td>
+</tr>
+<tr valign="top">
+<td>Rework Completion</td>
+<td>Inventory Value 11.5, Quantity 2</td>
+</tr>
+<tr valign="top">
+<td>Cost Calculation</td>
+<td>Periodic Cost 5.75, Quantity 2, Variance 0</td>
+</tr>
+<tr valign="top">
+<td>Misc Receipt</td>
+<td>Inventory Value 69, Quantity 12</td>
+</tr>
+</table>
+<h3><a id="T411974"></a><b>Periodic Incremental LIFO<a name="d0e31973" id="d0e31973"></a><a name="d0e31979" id="d0e31979"></a><a name="c_inlifo" id="c_inlifo"></a></b></h3>
+<p>The Periodic Incremental LIFO (last-in first-out) costing method provides support for periodic valuation of inventory for both fiscal and managerial reporting purposes.</p>
+<p>With this costing method, the costs of the most recently acquired items are relieved from inventory first. This results in financial statements that match current costs with current revenues.</p>
+<p>Periodic Incremental LIFO is useful for situations where the current replacement cost of inventory exceeds historical values.</p>
+<p><strong><span>Note:</span></strong> Periodic Incremental LIFO meets the statutory requirements for Italian manufacturing and distribution companies.</p>
+<h4><a id="T411975"></a><b>Market Value<a name="d0e31999" id="d0e31999"></a><a name="d0e32005" id="d0e32005"></a><a name="c_market" id="c_market"></a></b></h4>
+<p>Periodic Incremental LIFO also allows valuation of inventory according to Lower of Cost or Market principles. To do this, you replace the calculated LIFO item cost with the market value, if the market value of an item is lower. The costing information generated can be used to produce detailed and summary LIFO costing reports, where required.</p>
+<p>You use the Item Cost Inquiry screen to compare the calculated LIFO item cost with a published market value. See: <a href="T372621T378952.htm#t_iteminq">Making Item Cost Inquiries</a>.</p>
+<p>For more information on calculating a LIFO item cost, See: <a href="T372621T378952.htm#c_peridcal">Periodic Incremental LIFO Calculations</a>.</p>
+<p>If the market value is less than the calculated LIFO item cost, then you can enter that value along with a mandatory justification. This market value replaces the calculated LIFO item cost for quantities in all period cost layers and in the Incremental LIFO Valuation reports run at this time.</p>
+<p>You can update and remove the market value and justification until the period is closed.</p>
+<p>The inventory valuation that is carried forward is now based on that market value. Previous layers do not figure in future calculations, but they are not purged, so that you can still run reports from prior periods, for auditing purposes and to maintain historical records of Incremental LIFO quantities.</p>
+<p>See: <a href="T372621T378952.htm#c_lifobus">Periodic Incremental LIFO Business Example</a>.</p>
+<h4><a id="T411976"></a><b>Periodic Incremental LIFO Calculations<a name="d0e32040" id="d0e32040"></a><a name="d0e32046" id="d0e32046"></a><a name="c_peridcal" id="c_peridcal"></a></b></h4>
+<p>Cost Management calculates Periodic Incremental LIFO in this manner:</p>
+<ul>
+<li>
+<p>Items received into inventory are costed at the weighted average of the period in which they are received.</p>
+</li>
+<li>
+<p>For any period where items received (purchased or manufactured) exceed items issued (or scrapped), a period cost layer is created to record the weighted average per item and the quantity.</p>
+</li>
+<li>
+<p>In periods where items issued exceed items received, further issues are then made from prior existing period cost layers in LIFO order.</p>
+</li>
+<li>
+<p>The inventory value at any point consists of the remaining items in the period cost layers at their average costs (that is, each year's remaining units at the average cost of that period), except where a market value has been used. See: <a href="T372621T378952.htm#c_market">Market Value</a>.</p>
+</li>
+<li>
+<p>Whenever a period ends with an inventory value of zero, prior period cost layers are no longer used in calculations, but the information remains available for historical purposes.</p>
+</li>
+<li>
+<p>The LIFO item cost is calculated using an average calculation (inventory value/total quantity) for inventory valuation. The item cost is used for comparison to a potential market value.</p>
+<p><strong><span>Note:</span></strong> The LIFO item cost used for purposes of valuation differs from the item cost that might be removed from inventory.</p>
+</li>
+</ul>
+<h3><a id="T411977"></a><b>Using Both Costing Methods<a name="d0e32084" id="d0e32084"></a><a name="d0e32090" id="d0e32090"></a><a name="c_both" id="c_both"></a></b></h3>
+<p>You can run the cost processors and produce inventory valuation reports using both Periodic Costing methods. If changing Periodic Cost methods is permitted by the accounting rules of your country, you may then decide which report to submit. You can use the two periodic methods simultaneously by associating cost types designated for both Periodic Costing methods, with the same legal entity (See: <a href="T372621T372805.htm#t_selitm">Selecting an Item/Cost Type Association</a>). To compare the values, run the Acquisition Cost processor, the Periodic Cost processor, and reports for the legal entity, using cost types designated for one method first, and the other method second. In Periodic Costing, the item cost is held at the cost type/organization cost group/period combination.</p>
+<h2><a name="3535173"></a><a id="T412010"></a><b>Periodic Cost Setup</b></h2>
+<p><a name="d0e32107" id="d0e32107"></a><a name="d0e32113" id="d0e32113"></a><a name="c_percstsetup" id="c_percstsetup"></a>Using Periodic Costing requires that you first install a perpetual cost method. See <a href="T372621T372759.htm#c_ovcstsu">Setup</a></p>
+<p><b>Choosing Periodic Cost Method</b><a name="d0e32129" id="d0e32129"></a><a name="d0e32135" id="d0e32135"></a><a name="c_setpc" id="c_setpc"></a></p>
+<p>In Periodic Costing, the cost type is associated with the Periodic Costing method. When you run the Periodic Cost processor and choose cost type, you implicitly choose a cost method.</p>
+<p><b>Ledger</b><a name="d0e32147" id="d0e32147"></a><a name="d0e32153" id="d0e32153"></a></p>
+<p>If you enable distributions for a Legal Entity/Cost Type, then associate the same ledger that you used in the perpetual cost type.</p>
+<p>If you enable distributions for a Legal Entity/Cost Type, then associate the same ledger that you used in the perpetual cost type.</p>
+<p>If you do not enable distributions for a Legal Entity/Cost Type, then you can use a different ledger but the chart of account and currency must be the same as those used in the perpetual cost type.</p>
+<p><b>Setup Steps</b><a name="d0e32168" id="d0e32168"></a><a name="d0e32174" id="d0e32174"></a></p>
+<p>In Periodic Costing, the item cost is held at the cost type/organization cost group/period combination.</p>
+<p>There are six setup steps specific to Periodic Costing:</p>
+<ul>
+<li>
+<p>Defining the organization cost group.</p>
+</li>
+<li>
+<p>Creating cost types and periodic rates cost types for use in Periodic Costing.</p>
+</li>
+<li>
+<p>Associating the organization with an organization cost group.</p>
+</li>
+<li>
+<p>Associating the cost type with the legal entity.</p>
+</li>
+<li>
+<p>Setting accounting options (required if using Periodic Cost Distributions).</p>
+</li>
+<li>
+<p>Assigning periodic accounts (required if using Periodic Cost Distributions).</p>
+</li>
+</ul>
+<p>The end result, once all these associations are set up, is a many-to-many relationship between organization cost groups and cost types through the legal entity.</p>
+<h3><b>Step 1: Defining Organization Cost Group<a name="d0e32208" id="d0e32208"></a><a name="CSTFDFCG_C_COST_GROUPS" id="CSTFDFCG_C_COST_GROUPS"></a><a name="c_deforct" id="c_deforct"></a></b></h3>
+<p>Each organization cost group must be associated with a legal entity.</p>
+<p><b>To define an organization cost group</b></p>
+<ol>
+<li>
+<p>Navigate to the Organization Cost Group window.</p>
+<p><img width="621" height="320" src="./img/cst_orgcstgp.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a name for the Org Cost Group.</p>
+</li>
+<li>
+<p>Enter a description for the Org Cost Group.</p>
+</li>
+<li>
+<p>Select the legal entity to associate with the Org Cost Group.</p>
+</li>
+<li>
+<p>Enter the Item Master Organization ID.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h3><b>Step 2: Creating Cost Types and Periodic Rates Cost Types<a name="c_crct" id="c_crct"></a></b></h3>
+<p>Oracle Cost Management Periodic Costing methods require the use of cost types and periodic rates cost types (similar to average rates cost type used in average costing for manufacturing). Both are created in the main setup window for cost types. Cost types for Periodic Costing must be multi-org and not updatable. Periodic rates cost types are not restricted. Any user defined cost type can be a periodic rates cost type if it is so designated in the Cost Type Association tab of the Org Cost Group/Cost Type Associations window.</p>
+<p><b>To create cost types and periodic rates cost types<a name="d0e32259" id="d0e32259"></a><a name="d0e32265" id="d0e32265"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Cost Types window.</p>
+</li>
+<li>
+<p>Create cost types and periodic rates cost types.</p>
+<p>Cost types must be multi-org and not updatable. If you make these selections, then other options appear available, but are not.</p>
+<p>Periodic rates cost types must be multi-org and updatable.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h3><b>Step 3: Associating Organization with an Organization Cost Group<a name="d0e32290" id="d0e32290"></a><a name="c_assoro" id="c_assoro"></a><a name="CSTFDPCC.LEGAL_ENTITY" id="CSTFDPCC.LEGAL_ENTITY"></a></b></h3>
+<p>Once an inventory organization is associated with an Organization Cost Group and transactions have been processed, that association is permanent and exclusive.</p>
+<p>An Organization Cost Group can be associated with one or more organizations.</p>
+<p>Those inventory organizations which can be associated with an organization cost group meet the following qualifications:</p>
+<ul>
+<li>
+<p>The organization already belongs to the legal entity.</p>
+</li>
+<li>
+<p>The organization is not associated with any other organization cost group.</p>
+</li>
+</ul>
+<p><b>To associate an organization with the organization cost group</b></p>
+<ol>
+<li>
+<p>Navigate to the Org Cost Group/Cost Type Associations window.</p>
+<p><img width="689" height="506" src="./img/cst_orgcstgt.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the appropriate legal entity.</p>
+</li>
+<li>
+<p>Navigate to the Org Cost Group Associations tab.</p>
+</li>
+<li>
+<p>Select the organization cost group.</p>
+</li>
+<li>
+<p>Select the organizations you wish to associate with this cost group.</p>
+<p>Only those organizations which met the qualifications listed above will be available for selection.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h3><b>Step 4: Associating Cost Type with Legal Entity<a name="d0e32346" id="d0e32346"></a><a name="c_assorle" id="c_assorle"></a></b></h3>
+<p><b>To associate the cost type with legal entity and select cost method</b></p>
+<ol>
+<li>
+<p>Navigate to the Org Cost Group/Cost Type Association window.</p>
+</li>
+<li>
+<p>Select the appropriate legal entity.</p>
+</li>
+<li>
+<p>Navigate to the Cost Type Associations tab.</p>
+<p><img width="703" height="505" src="./img/cst_orgcstass.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the <b>Cost Type</b>.</p>
+</li>
+<li>
+<p>Select a value for the <b>Cost Method</b>.</p>
+<p>The available values are:</p>
+<p><i>Incremental LIFO</i></p>
+<p><i>Periodic Average</i></p>
+</li>
+<li>
+<p>Select the <b>Ledger</b>.</p>
+</li>
+<li>
+<p>Select the <b>Periodic Rates Cost Type</b>.</p>
+</li>
+<li>
+<p>Select the Enable Iterative Periodic Average Costing indicator to enable the Iterative Periodic Average Costing (IPAC) processor at the legal entity and cost type level. If you leave this unchecked, then the application uses the standard periodic cost processor.</p>
+<p>See: <a href="T372621T514642.htm#cst_ipacoverview">Iterative Periodic Average Costing (IPAC)</a> and <a href="T372621T514642.htm#cst_ipacsetup">Setting Up Iterative Periodic Average Costing (IPAC)</a>.</p>
+</li>
+<li>
+<p>Select the Material Relief Algorithm indicator to Use Pre-defined Materials, or Use Actual Materials.</p>
+<p>If there have been no prior WIP transactions for the chosen Cost Type in all previous periods, then you can use the relief algorithm option to relieve material using the quantity that is actually used, or using the quantity defined in the BOM. If there are WIP related transactions based on actuals, then relief costs for all subsequent transactions cannot be based on BOM. The relief algorithm is only applicable for components. Resource and overhead are always relieved using the actual quantity.</p>
+</li>
+<li>
+<p>Select the Restrict Documents by Process Upto Date indicator if you want to run partial period processing.</p>
+<p>You can run a partial period by entering the date in the parameter Process Upto Date field in the periodic acquisition processors.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+<li>
+<p>If you need to set accounting options, choose Accounting Options and follow the instructions in the next section. See <a href="T372621T378952.htm#t_accopt">Step 53: Setting Accounting Options</a></p>
+<p>See: <a href="T372621T514642.htm#cst_ipacsetup">Setting Up Iterative Periodic Average Costing (IPAC)</a> for setting the Iterative Periodic Average Costing (IPAC).</p>
+</li>
+</ol>
+<h3><b>Step 5: Setting Accounting Options (Optional)<a name="d0e32453" id="d0e32453"></a><a name="d0e32459" id="d0e32459"></a><a name="t_accopt" id="t_accopt"></a><a name="CSTFDPCC.options" id="CSTFDPCC.options"></a></b></h3>
+<p>Using the Cost Type Associations Accounting Options window, you can set options pertaining to the creation of accounting entries (cost distributions) and posting (transferring) to General Ledger. If you do not Create Accounting Entries, you cannot post to the General Ledger from Periodic Costing, and therefore General Ledger options are unavailable to you.</p>
+<p>You can choose to submit the Journal Import at the same time as the transfer to General Ledger or as a separate process.</p>
+<p>You can check Allow Override at Program Submission which allows the user to change these options:</p>
+<ul>
+<li>
+<p>Journal Import</p>
+</li>
+<li>
+<p>Transfer mode (detail or summary) .</p>
+</li>
+</ul>
+<p><b>To set your accounting options</b></p>
+<ol>
+<li>
+<p>Navigate to the Cost Type Associations Accounting Options window.</p>
+<p><img width="611" height="431" src="./img/cst_acctoptn.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Check Create Accounting Entries if you wish to have Periodic Cost distribution entries created.</p>
+<p>If you do not check this option, all the other options are unavailable to you. Exit from this window.</p>
+</li>
+<li>
+<p>Select an Accounting Library. The options are:</p>
+<ul>
+<li>
+<p>US GAAP</p>
+</li>
+<li>
+<p>PAC Brazil</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> Landed Cost Management (LCM) related accounting is only supported for US GAAP.</p>
+</li>
+<li>
+<p>Check Post entries to GL if you wish to post your Periodic Cost distributions to the General Ledger.</p>
+<p>This enables options for additional options.</p>
+</li>
+<li>
+<p>Make selections on the following options:</p>
+<ul>
+<li>
+<p>Allow Override at Program Submission.</p>
+</li>
+<li>
+<p>Transfer to GL Interface. Choose one:</p>
+<ul>
+<li>
+<p>In Detail</p>
+</li>
+<li>
+<p>Summarize by Accounting Date</p>
+</li>
+<li>
+<p>Summarize by Accounting Period</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Submit Journal Import.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h3><b>Step 6: Assigning Periodic Accounts<a name="d0e32551" id="d0e32551"></a><a name="d0e32557" id="d0e32557"></a><a name="t_accassign" id="t_accassign"></a><a name="CSTFDFCA_MTL_CAT_QF_window" id="CSTFDFCA_MTL_CAT_QF_window"></a><a name="CSTFDFCA_mtl_cat_accts" id="CSTFDFCA_mtl_cat_accts"></a><a name="CSTFDFCA_CAT_ACCT_WINDOW" id="CSTFDFCA_CAT_ACCT_WINDOW"></a></b></h3>
+<p>This step is required if you are using the Periodic Cost Distributions Processor.</p>
+<p>Periodic Cost Accounts are used during Periodic Cost distributions. The periodic accounting library may use these accounts to create accounting entries. Users can only specify these accounts if distribution is enabled for the legal entity cost type. There are two sets of accounts:</p>
+<ul>
+<li>
+<p><i>Cost group category level accounts:</i> used to perform periodic inventory accounting based on categories defined in the master item organization for the cost group.</p>
+</li>
+<li>
+<p><i>Cost group level accounts:</i> used independently of the category to define variance and inventory offset accounts.</p>
+</li>
+</ul>
+<p><b>To assign periodic accounts</b></p>
+<ol>
+<li>
+<p>Navigate to Periodic Account Assignments.</p>
+</li>
+<li>
+<p>Select your legal entity and cost type association.</p>
+</li>
+<li>
+<p>Select the cost group.</p>
+</li>
+<li>
+<p>Choose the MTL Account tab to assign accounts for the category.</p>
+<p><img width="756" height="505" src="./img/cst_peraccass.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the category column, select item family and class.</p>
+</li>
+<li>
+<p>Select accounts for the following:</p>
+<ul>
+<li>
+<p>Material</p>
+</li>
+<li>
+<p>Material Overhead</p>
+</li>
+<li>
+<p>Overhead</p>
+</li>
+<li>
+<p>Resource</p>
+</li>
+<li>
+<p>Outside Processing</p>
+</li>
+<li>
+<p>Expense</p>
+</li>
+<li>
+<p>Bridging</p>
+</li>
+<li>
+<p>Non-Invoice Sales orders</p>
+</li>
+<li>
+<p>Non-Invoiced Revenue</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose the Cost Group Accounts tab to assign variance accounts.</p>
+</li>
+<li>
+<p>Select an account for Cost Variance.</p>
+</li>
+<li>
+<p>Select an adjustment account for Retroactive Price Adjustment Account if you are using the Retroactive Pricing functionality.</p>
+<p>This account must be entered in your initial setup only.</p>
+<p><strong><span>Note:</span></strong> The application prevents retroactive price adjustment transactions when the Purchase Order is Landed Cost Management (LCM) enabled.</p>
+<p>See: <a href="T372621T372624.htm#retroprice">Retroactive Pricing</a></p>
+</li>
+<li>
+<p>Enter a Landed Cost Absorption account and a Landed Cost Variance account when Landed Cost Management (LCM) is enabled for any of the inventory organizations that belong to PAC Cost Groups.</p>
+<p><img width="756" height="505" src="./img/cst_periodaccassign.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Save your work.</p>
+<p>You can choose the Open button in the MTL Accounts tab to view the accounts in list format.</p>
+<p><strong><span>Note:</span></strong> Accounts are required when Landed Cost Management (LCM) is enabled for any of the inventory organizations that belong to the PAC cost group.</p>
+</li>
+</ol>
+<h2><a name="3022353"></a><a id="T451791"></a><b>Periodic Cost Processing</b></h2>
+<p><a name="d0e32689" id="d0e32689"></a><a name="d0e32695" id="d0e32695"></a><a name="t_processing" id="t_processing"></a>The following list is the procedure for processing Periodic Costs:</p>
+<ul>
+<li>
+<p><a href="T372621T378952.htm#t_pcacqcst">Run the Periodic Acquisition Cost Processor</a></p>
+</li>
+<li>
+<p>Optionally, for invoices matched to receipts of closed periods, you can submit the <a href="T372621T378952.htm#t_aqui">Periodic Acquisition Cost Adjustment Processor</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#t_runcost">Run the Periodic Cost Processor</a></p>
+</li>
+<li>
+<p>Optionally, you can run the <a href="T372621T378952.htm#t_percdist">Periodic Cost Distributions Processor</a></p>
+</li>
+<li>
+<p>Perform any other required activities such as cost copy, item cost inquiry, and Periodic Cost update</p>
+</li>
+<li>
+<p>Run Reports</p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#t_close">Close the period</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#t_transg">Transfer to General Ledger</a></p>
+</li>
+</ul>
+<p><b>Partial Period Runs</b></p>
+<p>You can submit the Periodic Acquisition Cost Processor, the Periodic Acquisition Cost Adjustment Processor, and the Periodic Cost Processor for the whole period or a partial period. A partial period run must always begin with the first day of the period. Any further partial period runs, or a complete run (the whole period) must also start with the first day of the period. Any processing runs after the first one will repeat the others in a specific period.</p>
+<p>To enable this option, check the box for Restrict Documents by Process Upto Date on the Org Cost Group/Cost Type Associations window. You can run a partial period by entering the date in the parameter Process Upto Date. In order to complete processing and close the period, The entire period must be run for all cost groups in a legal entity. See: <a href="T372621T378952.htm#c_assorle">Associating Cost Type with Legal Entity</a></p>
+<h3><b>Processing Periodic Acquisition Costs<a name="d0e32748" id="d0e32748"></a><a name="d0e32754" id="d0e32754"></a></b></h3>
+<p><a name="SRS.CSTPACAP" id="SRS.CSTPACAP"></a><a name="SRS.cmcacq" id="SRS.cmcacq"></a><a name="t_pcacqcst" id="t_pcacqcst"></a>The Periodic Acquisition Cost Processor computes acquisitions from Oracle Purchasing and Oracle Payables. This concurrent program calculates costs of the receipt using the invoice price, or, if that is not available, the purchase order price.</p>
+<p>Acquisition costs are the sum of the costs associated with the acquisition of the goods. They include material costs, freight, special charges, and non-recoverable taxes. The acquisition cost processor processes all receipt transactions that take place within a period for a particular cost group and cost type.</p>
+<p><strong><span>Note:</span></strong> When Landed Cost Management (LCM) is enabled, acquisition cost is based on landed costs computed by LCM product for the corresponding LCM enabled PO receipt.</p>
+<p>For each receipt, the net quantity received is frozen at the end of the period. The costs are frozen based on the invoices matched to the receipt at the time of period close.</p>
+<p><b>Resubmitting the Acquisition Processor</b></p>
+<p>Acquisition processing can be resubmitted if additional matching invoices are received, provided the period is still open. If the period is closed, manual updates are made using the Periodic Cost Update program.</p>
+<p>Resubmitting the Periodic Acquisition Cost Processor purges prior processing, including cost processor computations, accounting distribution entries, reconciliation information, and write off information.</p>
+<p><b>Exchange Rates and Acquisition Costs</b></p>
+<p>Exchange rates are handled in the following manner:</p>
+<ul>
+<li>
+<p>If the invoice is used, then the exchange rate at the invoice time is used.</p>
+</li>
+<li>
+<p>If purchase order price is used and the match option is set to <i>Match to PO</i>, then the exchange rate at the time of the purchase order is used.</p>
+</li>
+<li>
+<p>If purchase order price is used and the match option is set to <i>Match to Receipt</i>, then the exchange rate at the time of the receipt is used.</p>
+</li>
+</ul>
+<p><b>To run the Periodic Acquisition Cost Processor</b></p>
+<ol>
+<li>
+<p>Navigate to Periodic Acquisition Cost Processor concurrent window. The Parameters window displays.</p>
+<p><img width="778" height="455" src="./img/cst_pacp.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select information in the following parameters:</p>
+<ul>
+<li>
+<p>Legal Entity</p>
+</li>
+<li>
+<p>Cost Type</p>
+</li>
+<li>
+<p>Period</p>
+</li>
+<li>
+<p>Process Upto Date - If you want to create a partial period run, enter the date for limiting records in the submission</p>
+</li>
+<li>
+<p>Cost Group</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The Run Option field is used when you want to regenerate a run that has started. Your options are:</p>
+<ul>
+<li>
+<p>Start - Regenerates the Periodic Acquisition Cost Processor concurrent program.</p>
+</li>
+<li>
+<p>Resume - This option is only available when the processor is stopped because of errors. It enables you to resume the program from the beginning phase, to the phase where the error began.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose OK.</p>
+</li>
+<li>
+<p>Choose Submit on the Request window to process this request.</p>
+</li>
+</ol>
+<h3><b>Processing Periodic Acquisition Cost Adjustments<a name="d0e32856" id="d0e32856"></a><a name="d0e32862" id="d0e32862"></a></b></h3>
+<p><a name="t_aqui" id="t_aqui"></a>You can transfer costs generated in closed accounting periods to your current open period. The invoice for a receipt in a closed period is used to generate a periodic cost update in the open period. Examples of such invoices from previous periods can include invoice price variances, and charges such as freight and tax. The new acquisition cost calculated represents what the acquisition cost would have been if the invoices had been received in the same period. Acquisition cost adjustments enable you to:</p>
+<ul>
+<li>
+<p>Create periodic cost update transactions to adjust the acquisition cost for a closed period</p>
+</li>
+<li>
+<p>Use invoice accounting date to restrict invoice eligibility, and transaction date for return to vendor eligibility when you run the program</p>
+</li>
+<li>
+<p>Run the Periodic Acquisition Cost Processor for historical periods</p>
+</li>
+</ul>
+<p>The Acquisition Cost Adjustment Processor can be continually resubmitted for the period that is open. Every time the Acquisition Cost Adjustment Processor is submitted, the amount posted is recalculated and the data for the latest run is retained. The data for previous run is deleted.</p>
+<p><strong><span>Note:</span></strong> The Acquisition Cost Adjustment Processor is not used for LCM enabled Purchase Orders.</p>
+<p><b>To run the Periodic Acquisition Cost Adjustment Processor</b></p>
+<ol>
+<li>
+<p>Navigate to Periodic Acquisition Cost Adjustment Processor concurrent window. The Parameters window displays.</p>
+<p><img width="769" height="352" src="./img/cst_pacap.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select information in the following parameters:</p>
+<ul>
+<li>
+<p>Legal Entity</p>
+</li>
+<li>
+<p>Cost Type</p>
+</li>
+<li>
+<p>Period</p>
+</li>
+<li>
+<p>Process Upto Date - If you want to create a partial period run, then enter the date for limiting records in the submission</p>
+</li>
+<li>
+<p>Cost Group</p>
+</li>
+<li>
+<p>Run Option - You can run the program for All Invoices, Particular Invoice, or Particular Receipt</p>
+</li>
+<li>
+<p>Parent Receipt - This is the original receipt number before corrections were submitted</p>
+</li>
+<li>
+<p>Invoice Number</p>
+</li>
+<li>
+<p>Adjustment Account</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose OK.</p>
+</li>
+<li>
+<p>Choose Submit on the Request window to process this request.</p>
+</li>
+</ol>
+<h3><b>Running the Periodic Cost Processor<a name="d0e32943" id="d0e32943"></a><a name="d0e32949" id="d0e32949"></a><a name="t_runcost" id="t_runcost"></a><a name="SRS.cmcpam" id="SRS.cmcpam"></a></b></h3>
+<p>The Periodic Cost Processor calculates the Periodic Cost for all asset items in asset subinventories. The Periodic Cost processor is run manually, by submission, not automatically.</p>
+<p>The Periodic Cost Processor can be run using either the Periodic Average or Incremental LIFO algorithm. You can define different cost types for each and associate them with one appropriate cost method.</p>
+<p><b>To run the Periodic Cost Processor</b></p>
+<ol>
+<li>
+<p>Navigate to Periodic Cost Processor concurrent window. The Parameters window displays.</p>
+</li>
+<li>
+<p>Select information in the following parameters:</p>
+<ul>
+<li>
+<p>Legal Entity</p>
+</li>
+<li>
+<p>Cost Type</p>
+</li>
+<li>
+<p>Period</p>
+</li>
+<li>
+<p>Process Upto Date - If you want to create a partial period run, then enter the date for limiting records in the submission</p>
+</li>
+<li>
+<p>Cost Group</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The Run Option field is used when you want to regenerate a run that has started. Your options are:</p>
+<ul>
+<li>
+<p>Start - Regenerates the Periodic Cost Processor concurrent program.</p>
+</li>
+<li>
+<p>Resume - This option is only available when the processor is stopped because of errors. It enables you to resume the program from the beginning phase, to the phase where the error began.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose OK.</p>
+</li>
+<li>
+<p>Choose Submit on the Request window to process this request.</p>
+</li>
+</ol>
+<h3><b><a name="SRS.CSTPDPPC" id="SRS.CSTPDPPC"></a>Processing Periodic Cost Distributions<a name="d0e33011" id="d0e33011"></a><a name="d0e33017" id="d0e33017"></a></b></h3>
+<p><a name="t_percdist" id="t_percdist"></a>The Periodic Cost Distributions Processor uses the accounts set up in Periodic Account Assignment to create accounting entries (distributions) which are copied to the manufacturing subledgers.</p>
+<p>When Landed Cost Management (LCM) is enabled, accounting entries are generated based on landed costs for LCM enabled PO receipts. Unlike other PO receipt transactions, the difference between acquisition cost (calculated from Landed Cost) and PO price goes into the Landed Cost Absorption account instead of the IPV or ERV account.</p>
+<p>Separate accounting events that include PAC Landed Cost Adjustment &ndash; Receipt, and PAC Landed Cost Adjustment &ndash; Delivery, are created from the perpetual landed cost adjustment transactions when the latest perpetual landed cost adjustment transactions are within the current PAC period for which the parent PO receipts are in the previous PAC period.</p>
+<p>PAC Landed Cost Adjustment &ndash; Receipt, and PAC Landed Cost Adjustment &ndash; Delivery accounting events are not created when perpetual landed cost adjustment transactions are in the current PAC period for which parent PO receipts are also in the same PAC period.</p>
+<p>When LCM is enabled, the application creates PAC Accounting Distributions for the new accounting events:</p>
+<ul>
+<li>
+<p>PAC Landed Cost Adjustment &ndash; Receipt</p>
+</li>
+<li>
+<p>PAC Landed Cost Adjustment &ndash; Delivery</p>
+</li>
+</ul>
+<p>Options for the distribution processor are set in the Cost Type Associations Accounting Options window, which is chosen from the Cost Type Associations tab of the Org Cost Group/Cost Type Associations window. See: <a href="T372621T378952.htm#t_accopt">Setting Accounting Options</a>.</p>
+<p><strong><span>Note:</span></strong> To use Periodic Distributions, your ledger for the cost type must be the same as for the perpetual costing method.</p>
+<p><b>To run Periodic Distributions</b></p>
+<ol>
+<li>
+<p>Navigate to Periodic Cost Distributions concurrent window. The Parameters window displays.</p>
+</li>
+<li>
+<p>Select the following parameters.</p>
+<ul>
+<li>
+<p>Legal Entity</p>
+</li>
+<li>
+<p>Cost Type</p>
+</li>
+<li>
+<p>Cost Group</p>
+</li>
+<li>
+<p>Period</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose OK.</p>
+</li>
+<li>
+<p>Choose Submit on the Request window to process this request.</p>
+</li>
+</ol>
+<h3><b>Making Item Cost Inquiries <a name="d0e33086" id="d0e33086"></a><a name="d0e33092" id="d0e33092"></a></b></h3>
+<p><a name="t_iteminq" id="t_iteminq"></a><a name="CSTGPICQ_LIFO" id="CSTGPICQ_LIFO"></a><a name="CSTGPICQ_LIFO_FIND_W" id="CSTGPICQ_LIFO_FIND_W"></a>In the Item Cost Inquiry window, you can list items by the following:</p>
+<ul>
+<li>
+<p>Cost Group</p>
+</li>
+<li>
+<p>Cost Type</p>
+</li>
+<li>
+<p>Period</p>
+</li>
+</ul>
+<p>This window includes fields for entering market values and justifying the market values to be used with the Incremental LIFO costing method. These fields still appear when the method is periodic average costing, but are ignored.</p>
+<p><strong><span>Note:</span></strong> You must specify values for Legal Entity, Organization Cost Group, Cost Type, and Period in the Find Window (mandatory). Additionally, you can choose options for Item Category, Item Range, or Particular Item.</p>
+<p><b>Entering Market Values (Incremental LIFO)</b><a name="d0e33121" id="d0e33121"></a><a name="d0e33125" id="d0e33125"></a></p>
+<p>You can view the calculated inventory item cost per period in the Item Cost Inquiry window. Also, you can run and review the Incremental LIFO Valuation report.</p>
+<p>If the market value of an item is less than the calculated LIFO item cost, then you may manually enter that value along with a mandatory justification. The market values replaces the LIFO item cost. You may update and delete the market value and it's justification while the period is open.</p>
+<p>The Incremental LIFO Valuation report calculates the Inventory Value using the formula:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Inventory Value = Total Item Quantity x LIFO item cost</b></td>
+</tr>
+</table>
+<p>If you enter a market value, the report uses this calculation:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Inventory Value = Total Item Quantity x Market Value</b></td>
+</tr>
+</table>
+<p>For that particular point in time, this market value is applied to accumulated items. The totals for that point in time will be carried forward and calculated using the previous formula, considering the market value as if it were an item cost.</p>
+<p><b>To perform an item cost inquiry or enter a market value</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Cost Inquiry window.</p>
+<p><img width="535" height="432" src="./img/cst_fndperit.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Query for desired cost item information, including LIFO item cost for possible entry of market value in the current period.</p>
+<p><img width="756" height="505" src="./img/cst_itmcstinq.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a market value in place of the LIFO item cost if it is appropriate.</p>
+</li>
+<li>
+<p>Save if you have entered a market value.</p>
+</li>
+</ol>
+<p>See: <a href="T372621T378952.htm#c_inlifo">Periodic Incremental LIFO</a> and <a href="T372621T378952.htm#c_lifobus">Periodic Incremental LIFO Business Example</a></p>
+<h3><b>Viewing Material and Receiving Transactions<a name="d0e33197" id="d0e33197"></a><a name="d0e33203" id="d0e33203"></a></b></h3>
+<p><a name="CSTFQMTX.RESULTS_WINDOW" id="CSTFQMTX.RESULTS_WINDOW"></a><a name="CSTFQMTX.FINDSCREEN" id="CSTFQMTX.FINDSCREEN"></a><a name="CSTFQMTX.cost_type_w" id="CSTFQMTX.cost_type_w"></a><a name="t_materrec" id="t_materrec"></a>The Viewing Material and Receiving Transactions window enables you to view those transactions, per cost type, that have been:</p>
+<ul>
+<li>
+<p>Processed by the Periodic Cost processor and the Periodic Acquisition processor</p>
+</li>
+<li>
+<p>Distributed using the Periodic Costing Transfer to General Ledger. See: <a href="T372621T378952.htm#c_fergl">Transferring to General Ledger</a>.</p>
+</li>
+</ul>
+<p>Transactions that have not been processed and distributed cannot be viewed.</p>
+<p>These same transactions are viewable in the perpetual system.</p>
+<p><strong><span>Note:</span></strong> This feature differs from the corresponding feature in perpetual costing, in that you view transactions by organization and cost type. Perpetual costing is limited to the default cost type for the costing method (standard or average). For a discussion of the perpetual system feature, See: <a href="T372621T372805.htm#t_fqitd">Viewing Material Transaction Distributions</a>.</p>
+<p>A transaction from receiving to inventory appears twice since it is both a receiving and an inventory transaction.</p>
+<p><b>To view Material and Receiving Transactions</b></p>
+<ol>
+<li>
+<p>Navigate to Material and Receiving Transactions. The Find Transactions window appears.</p>
+<p><img width="737" height="471" src="./img/cst_fndmattxn.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter search criteria in the Find Transactions window.</p>
+</li>
+<li>
+<p>Choose Find to initiate the search.</p>
+<p><img width="756" height="505" src="./img/cst_matrectxn.gif" alt="the picture is described in the document text"></p>
+<p>The Material and Receiving Transactions window displays six tabs:</p>
+<ul>
+<li>
+<p>Location</p>
+</li>
+<li>
+<p>Intransit</p>
+</li>
+<li>
+<p>Reason, Reference</p>
+</li>
+<li>
+<p>Transaction ID</p>
+</li>
+<li>
+<p>Transaction Type</p>
+</li>
+<li>
+<p>Receipt Transaction</p>
+<p><strong><span>Note:</span></strong> You can view the accounting debits and credits, and the T-accounts from the Tools menu.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3><b>Viewing WIP Transactions<a name="d0e33289" id="d0e33289"></a><a name="d0e33295" id="d0e33295"></a></b></h3>
+<p><a name="t_wiptr" id="t_wiptr"></a><a name="CSTFQWTX.CST_PAC_WIP_TXN_V" id="CSTFQWTX.CST_PAC_WIP_TXN_V"></a><a name="CSTFQWTX.WIP_TXNS_QF" id="CSTFQWTX.WIP_TXNS_QF"></a><a name="CSTFQWTX.WIP_control" id="CSTFQWTX.WIP_control"></a>You can view WIP transactions from the Periodic Costing View WIP Transactions window.</p>
+<p>If distributions were run, view by cost type.</p>
+<p>For a discussion of the corresponding perpetual system feature, See: <a href="T372621T372805.htm#t_fqwtd">Viewing WIP Transaction Distributions</a>.</p>
+<p><b>To view WIP transactions</b></p>
+<ol>
+<li>
+<p>Navigate to WIP Transactions. The Find WIP Transactions window appears.</p>
+<p><img width="606" height="409" src="./img/cst_fndwiptxn.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the following required criteria:</p>
+<ul>
+<li>
+<p>Legal Entity</p>
+</li>
+<li>
+<p>Cost Group</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter any additional optional criteria.</p>
+</li>
+<li>
+<p>Choose Find to initiate the search.</p>
+<p><img width="752" height="445" src="./img/cst_wiptxns.gif" alt="the picture is described in the document text"></p>
+<p>The WIP Transactions window displays five tabs:</p>
+<ul>
+<li>
+<p>Job or Schedule Header</p>
+</li>
+<li>
+<p>Operation, Quantities</p>
+</li>
+<li>
+<p>Resource Information</p>
+</li>
+<li>
+<p>Transaction Comments</p>
+</li>
+<li>
+<p>Project</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> You can view the accounting debits and credits, and the T&ndash;accounts from the Tools menu.</p>
+</li>
+</ol>
+<h3><b>Closing Periodic Cycle<a name="d0e33374" id="d0e33374"></a><a name="d0e33380" id="d0e33380"></a><a name="d0e33386" id="d0e33386"></a></b></h3>
+<p><a name="t_close" id="t_close"></a><a name="CSTFDPPS_PERIODS" id="CSTFDPPS_PERIODS"></a><a name="CSTFDPPS_PERIODS_QF" id="CSTFDPPS_PERIODS_QF"></a><a name="CSTFDPPS_PROCESS_PHASES" id="CSTFDPPS_PROCESS_PHASES"></a>Periodic Accounting Periods displays accounting periods for the legal entity and the cost type, along with the status of the periods.</p>
+<p>Unopened periods are labeled <i>future</i>. A period can be changed to <i>open</i> only if there are no other open periods. The current period is the open period in the Periodic Costing calendar for the cost type. Before the period can be closed, all cost groups associated with a legal entity must be processed by the acquisition cost processor and the Periodic Cost processor.</p>
+<p>Before closing a period validate that:</p>
+<ul>
+<li>
+<p>All cost groups have been successfully processed up to the last phase (either the cost processing phase or the distribution phase, as the case may be).</p>
+</li>
+<li>
+<p>No backdated transactions have been performed in any cost group since the last time the cost group was processed.</p>
+</li>
+<li>
+<p>There are no pending transactions for the period in Inventory, Work in Process, or Receiving for the cost group.</p>
+</li>
+<li>
+<p>There are no pending Landed Cost Adjustment interface records if any of the inventory organization is enabled with LCM.</p>
+</li>
+<li>
+<p>The perpetual periods are closed.</p>
+</li>
+<li>
+<p>The A/P period is closed.</p>
+<p><strong><span>Note:</span></strong> A period cannot be closed if only a partial period has been processed.</p>
+</li>
+<li>
+<p>The A/R period is closed.</p>
+<p><strong><span>Note:</span></strong> The A/R period must be closed before the Costing period can be closed. The period cannot be closed until the concurrent request Create COGS Recognition Events is run to clear all events that may fall into the period you are trying to close.</p>
+</li>
+</ul>
+<p>For those periods with a status of open, processing status can be viewed from a window on the Periodic Accounting Periods window.</p>
+<p><b>Accounting Period Status</b></p>
+<p>The available statuses for a period are:</p>
+<ul>
+<li>
+<p><i>Future:</i> Can not be changed back.</p>
+</li>
+<li>
+<p><i>Open:</i> Can only be opened if the previous period is closed and there are no other open periods. Can only be changed to closed.</p>
+</li>
+<li>
+<p><i>Closed:</i> Can only be changed to closed if the previous period is closed. Can only be changed to closed if the perpetual period has been closed. Cannot be changed.</p>
+</li>
+<li>
+<p><i>Processing:</i> Cannot be changed until processing is completed<i>.</i></p>
+</li>
+<li>
+<p><i>Error:</i> Cannot process until the error is corrected.</p>
+</li>
+</ul>
+<p><b>Processing Status</b></p>
+<p>The Process Status window shows any organization cost groups that are unprocessed by either the acquisition processor, Periodic Cost processor, or periodic distributions processor. Possible process statuses are:</p>
+<ul>
+<li>
+<p><i>Unprocessed:</i> Unprocessed.</p>
+</li>
+<li>
+<p><i>Complete:</i> Fully processed.</p>
+</li>
+<li>
+<p><i>Error:</i> Cannot process until the error is corrected.</p>
+</li>
+</ul>
+<p><b>To view or change the status of periodic accounting periods</b></p>
+<ol>
+<li>
+<p>Navigate to the Periodic Accounting Periods window.</p>
+<p><img width="736" height="408" src="./img/cst_peracprd.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the legal entity and cost type.</p>
+</li>
+<li>
+<p>Choose Change Status and select one of the following options:</p>
+<ul>
+<li>
+<p>Change future to open</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Change open to closed</p>
+<p>This activates the period close program.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose Process Status to view the current processing status of the period.</p>
+<p><img width="714" height="403" src="./img/cst_procstat.gif" alt="the picture is described in the document text"></p>
+<p>If necessary, close Periodic Accounting Periods, complete any necessary processing, and begin again.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p><strong><span>Note:</span></strong> If the distribution option is enabled for a legal entity cost type, the General Ledger transfer should be run after period close.</p>
+<p>The application performs a validation to check for pending Landed Cost Adjustment interface records. The PAC period cannot be closed until the inventory period is closed. Inventory period can be closed only when all pending transactions, including landed cost adjustment interface records, are cleared.</p>
+</li>
+</ol>
+<h3><b>Transferring to General Ledger<a name="d0e33547" id="d0e33547"></a><a name="d0e33553" id="d0e33553"></a><a name="d0e33559" id="d0e33559"></a><a name="d0e33565" id="d0e33565"></a><a name="d0e33571" id="d0e33571"></a><a name="d0e33577" id="d0e33577"></a></b></h3>
+<p><a name="t_transg" id="t_transg"></a><a name="SRS.CSTPGLXF" id="SRS.CSTPGLXF"></a><a name="SRS.CSTPGLXF_XML" id="SRS.CSTPGLXF_XML"></a><a name="c_fergl" id="c_fergl"></a>You can transfer your cost distributions to the General Ledger if you have checked the Post Entries to GL check box in the Cost Type Associations Accounting Options window. You have the option of transferring your cost distributions to the General Ledger for either Periodic or perpetual costing, or both.</p>
+<p>However, Cost Management warns you of the possibility of inadvertently transferring both distributions to the General Ledger. The warning displays if there is at least one legal entity-cost type combination that has the Periodic Cost Post Entries to GL option checked, where the organization under that legal entity also has the perpetual cost GL transfer enabled.</p>
+<p>For a discussion of General Ledger transfers in perpetual costing, See: <a href="T372621T378953.htm#c_xfergl">Transfer Transactions to General Ledger</a>.</p>
+<p><b>To transfer Periodic Cost distributions to the General Ledger</b></p>
+<ol>
+<li>
+<p>Navigate to Transfer to General Ledger.</p>
+<p><img width="708" height="506" src="./img/cst_gltrsfpc.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select Transfer Periodic Cost Distributions to GL.</p>
+</li>
+<li>
+<p>Select the following parameters:</p>
+<ul>
+<li>
+<p>Legal Entity</p>
+</li>
+<li>
+<p>Cost Type</p>
+</li>
+<li>
+<p>Period</p>
+</li>
+<li>
+<p>Batch Name (Optional)</p>
+<p>The system generates a batch name from the journal entry source, the Request ID, the group ID, and the Actual Flag (A (actual), B (budget), or E (encumbrance). If you wish, you can enter a name for your journal entry for easy identification. The system uses this name as the prefix to the generated name.</p>
+</li>
+<li>
+<p>GL Transfer Mode</p>
+<p>There are three choices:</p>
+<ul>
+<li>
+<p>In Detail</p>
+</li>
+<li>
+<p>Summarized by Accounting Date</p>
+</li>
+<li>
+<p>Summarized by Accounting Period</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Submit Journal Import</p>
+<p>Select Yes or No to determine whether the Journal Import is submitted during posting or later.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose Submit.</p>
+</li>
+</ol>
+<h3><b>Writing Off Accruals<a name="d0e33658" id="d0e33658"></a><a name="d0e33664" id="d0e33664"></a></b></h3>
+<p><a name="t_accwo" id="t_accwo"></a><a name="CSTACCWO.headers" id="CSTACCWO.headers"></a><a name="CSTACCWO.lines" id="CSTACCWO.lines"></a><a name="CSTACRAP_HEADERS" id="CSTACRAP_HEADERS"></a><a name="CSTACRVT_HEADERS" id="CSTACRVT_HEADERS"></a><a name="CSTACRAA_MASTER" id="CSTACRAA_MASTER"></a><a name="CSTACRMI_HEADERS" id="CSTACRMI_HEADERS"></a>You can use the Periodic Accrual Write-Off window to write off entries that have accrued but have not been removed from the Periodic Accrual Reconciliation report because of problems such as:</p>
+<ul>
+<li>
+<p>Differences in quantities between receipts and invoices</p>
+</li>
+<li>
+<p>Discrepancies in Supplier billing</p>
+</li>
+<li>
+<p>Errors in Purchase Order to Purchase Order line matching</p>
+</li>
+<li>
+<p>Inventory or WIP transactions posted to incorrect accrual accounts</p>
+</li>
+</ul>
+<p>You should run and review the Periodic Accrual Reconciliation Report and determine which transactions need to be written off. This report is run for a legal entity, cost type, cost group, period, and source. See: <a href="T372621T378952.htm#r_cstraccr">Periodic Accrual Reconciliation Report</a></p>
+<p>The Accrual Write-Off function permits you to list a reason for the write-off and change the date from the system default to any date in the current accounting period.</p>
+<p><b>To make an accrual write-off</b></p>
+<ol>
+<li>
+<p>Navigate to Accrual Write&ndash;Off.</p>
+<p>(N) Cost &gt; Periodic Costing &gt; Periodic Close Cycle &gt; Accrual Write Off</p>
+</li>
+<li>
+<p>In the Find Write&ndash;Off Transactions form, select the following required criteria:</p>
+<ul>
+<li>
+<p>Legal Entity</p>
+</li>
+<li>
+<p>Cost Type</p>
+</li>
+<li>
+<p>Cost Group</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter additional search parameters (optional).</p>
+<p><img width="745" height="361" src="./img/cst_findwriteofftrans.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enable the following, if desired:</p>
+<ul>
+<li>
+<p>Include Write-Offs</p>
+</li>
+<li>
+<p>Matched to Purchase Order</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click the Find button to initiate the search. The Accrual Write-Offs form appears.</p>
+</li>
+<li>
+<p>In the Accrual Write-Offs form, select the Write-off checkboxes for those transactions that you want to write off.</p>
+</li>
+<li>
+<p>Enter any reasons and comments.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h3><b>Copying Periodic Costs<a name="d0e33764" id="d0e33764"></a><a name="d0e33770" id="d0e33770"></a></b></h3>
+<p><a name="t_copypccost" id="t_copypccost"></a><a name="SRS.cstppcic" id="SRS.cstppcic"></a>You can copy costs from one Periodic Cost type to a destination perpetual cost type. For instance, you can copy your Periodic Cost ending balances to your standard cost beginning balances of the following period.</p>
+<p><b>Requirements</b><a name="d0e33783" id="d0e33783"></a></p>
+<p>In order to use the copying Periodic Costs feature, the following conditions must be met:</p>
+<ul>
+<li>
+<p>The destination cost type must be multi-org.</p>
+</li>
+<li>
+<p>The period for which costs are being copied has been processed successfully.</p>
+</li>
+<li>
+<p>Appropriate unit of measure conversions must be made for copying cost from master item organization to individual child organization, since costs in CPIC are stored based on master item organization's primary unit of measure.</p>
+</li>
+</ul>
+<p><b>To copy costs from a Periodic Cost type to a managerial cost type</b></p>
+<ol>
+<li>
+<p>Navigate to Copy Periodic Costs.</p>
+</li>
+<li>
+<p>Select Copy Item Period Cost.</p>
+</li>
+<li>
+<p>Select the following parameters:</p>
+<ul>
+<li>
+<p>Legal Entity</p>
+</li>
+<li>
+<p>Cost Type</p>
+</li>
+<li>
+<p>Cost Group</p>
+</li>
+<li>
+<p>Period</p>
+</li>
+<li>
+<p>To Organization</p>
+</li>
+<li>
+<p>To Cost Type</p>
+</li>
+<li>
+<p>Material Subelement</p>
+</li>
+<li>
+<p>Material Overhead Subelement</p>
+</li>
+<li>
+<p>Resource Subelement</p>
+</li>
+<li>
+<p>Outside Processing Subelement</p>
+</li>
+<li>
+<p>Overhead Subelement</p>
+</li>
+<li>
+<p>Copy Option</p>
+</li>
+<li>
+<p>Range</p>
+</li>
+<li>
+<p>Specific Item (Optional)</p>
+</li>
+<li>
+<p>Category Set (Optional)</p>
+</li>
+<li>
+<p>Specific Category (Optional)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Submit request.</p>
+</li>
+</ol>
+<h3><b>Importing Periodic Costs<a name="d0e33872" id="d0e33872"></a><a name="d0e33878" id="d0e33878"></a><a name="d0e33884" id="d0e33884"></a><a name="d0e33890" id="d0e33890"></a></b></h3>
+<p><a name="t_imppc" id="t_imppc"></a><a name="SRS.cmcpim" id="SRS.cmcpim"></a><a name="SRS.CSTPCIMP" id="SRS.CSTPCIMP"></a><a name="CSTPCIMP" id="CSTPCIMP"></a>Oracle Periodic Cost Open Interface provides an open interface for you to load Periodic Costs transactions from external applications or legacy systems and then import them into Cost Management.</p>
+<p>If you have entered beginning balances for Periodic Costs using the Periodic Cost Open Interface, you can then import those costs using the Import Periodic Cost feature.</p>
+<p><strong><span>Note:</span></strong> This feature is only available for importing beginning balances and does not work after new transactions have been entered.</p>
+<p><b>To import Periodic Costs</b></p>
+<ol>
+<li>
+<p>Navigate to Import</p>
+</li>
+<li>
+<p>Select Period Cost Import Manager</p>
+</li>
+<li>
+<p>Select a parameter for:</p>
+<p>Delete Interface Rows After Import</p>
+</li>
+<li>
+<p>Submit the request</p>
+</li>
+</ol>
+<h3><b>Import Cost From Price List</b></h3>
+<p><a name="SRS.CSTPLIMP" id="SRS.CSTPLIMP"></a><a name="CSTPLIMP" id="CSTPLIMP"></a>You can also import and load Periodic Costs from price lists that you have created.</p>
+<p><b>To import Periodic Costs from a price list</b></p>
+<ol>
+<li>
+<p>From Cost Mass Edits, select Import Cost From Price List. The Parameters form appears.</p>
+</li>
+<li>
+<p>Select a Price List that you created (required).</p>
+</li>
+<li>
+<p>Select a Range of Items (required).</p>
+</li>
+<li>
+<p>Optionally, enter a Specific Item, Category Set, and Specific Category.</p>
+</li>
+<li>
+<p>Enter the Item Price Effective Date (required).</p>
+</li>
+<li>
+<p>Select a Based on Rollup value (required).</p>
+</li>
+<li>
+<p>Enter a Currency Conversion Type and Currency Conversion Date (optional).</p>
+</li>
+<li>
+<p>Select a Default Material Sub-Element (optional).</p>
+</li>
+<li>
+<p>Click OK and then Submit.</p>
+</li>
+</ol>
+<h3><b>Updating Periodic Costs<a name="d0e33977" id="d0e33977"></a><a name="d0e33983" id="d0e33983"></a></b></h3>
+<p><a name="t_pcupdate" id="t_pcupdate"></a><a name="CSTFEPCU_UPDATE" id="CSTFEPCU_UPDATE"></a><a name="CSTFEPCU_TXN_DETAILS" id="CSTFEPCU_TXN_DETAILS"></a>Update Periodic Costs must be run for any items that have been updated using the average cost update. The main use of the Periodic Cost update is to update Invoice Price Variances (IPVs) that have been updated by average cost update.</p>
+<p>Periodic Costing provides the same three types of updates as average costing, <i>but</i> with more restrictions on when the updates may be performed, as described below:</p>
+<ul>
+<li>
+<p><i>Percent Change:</i> changes the periodic item cost by a given percentage. Performed at the beginning of the period.</p>
+</li>
+<li>
+<p><i>New Periodic Cost:</i> replaces the periodic item cost with the specified amount. Performed at the beginning of the period.</p>
+</li>
+<li>
+<p><i>Inventory Value Change:</i> changes the inventory values with a specified amount. Performed after all cost owned transactions and before any cost derived transactions.</p>
+</li>
+</ul>
+<p>Changes in the Update Periodic Cost window for all three types of updates is applied only against the Material Cost Element, and is not automatically proportioned across all cost elements and levels.</p>
+<p>The first two types of updates are performed as the first transaction of the period. These types of updates overwrite beginning balances. The <i>% change</i> is mainly used in the event of a currency fluctuation. The <i>new Periodic Cost</i> is generally used to bring in beginning balances or where a legacy system did not come up with good results.</p>
+<p>The <i>inventory value change</i> is performed after all cost owned transactions and before any cost derived transactions. It is generally performed to allow for unmatched invoices or for additional overhead or resources for a make item.</p>
+<p><strong><span>Note:</span></strong> You can also create Periodic Cost Update transactions using the following open interface tables:</p>
+<ul>
+<li>
+<p>MTL_TRANSACTIONS_INTERFACE</p>
+</li>
+<li>
+<p>MTL_TXN_COST_DET_INTERFACE</p>
+</li>
+</ul>
+<p>Periodic cost updates for New Periodic Cost, Percent Change, and Inventory Value Change transactions are supported and are valid transactions that are created using Oracle open interface tables.</p>
+<p>For additional detail on updating Periodic Costs, review the section on Average Cost Update (even if you are a standard cost user). See: <a href="T372621T374058.htm#t_acup">Updating Average Cost</a>.</p>
+<p><b>To update Periodic Costs</b></p>
+<ol>
+<li>
+<p>Navigate to the Update Periodic Cost window.</p>
+</li>
+<li>
+<p>Enter the following parameters:</p>
+<ul>
+<li>
+<p>Legal Entity</p>
+</li>
+<li>
+<p>Cost Type</p>
+</li>
+<li>
+<p>Org Cost Group</p>
+</li>
+<li>
+<p>Transaction Date</p>
+</li>
+<li>
+<p>Item Master Organization</p>
+<p><img width="752" height="506" src="./img/cst_periodiccstupdt1.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the Transaction Change tab, enter the following:</p>
+<ul>
+<li>
+<p>New Periodic Cost</p>
+</li>
+<li>
+<p>% Change</p>
+</li>
+<li>
+<p>Inventory Value Change</p>
+</li>
+<li>
+<p>Adjustment Quantity</p>
+<ul>
+<li>
+<p>You can enter the adjustment quantity for Periodic Cost Update - Value Change.</p>
+</li>
+<li>
+<p>If the on-hand at the time of cost processing is greater than the user-entered Adjustment Quantity, then the entire value change is applied to inventory valuation.</p>
+</li>
+<li>
+<p>If the on-hand is less than the user-entered Adjustment Quantity, then only the proportionate value change is applied to the on-hand quantity. Inventory valuation is performed for the on-hand quantity based on proportionate value change. The left-off value goes to the Expense account that you specify.</p>
+</li>
+<li>
+<p>Adjustment Quantity can be entered only for Periodic Cost Update - Value Change transactions. Adjustment Quantity cannot be entered for Periodic Cost Update - New Cost or percentage transactions.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Select the Accounts tab and enter the following accounts:</p>
+<ul>
+<li>
+<p>Material</p>
+</li>
+<li>
+<p>Material Overhead</p>
+</li>
+<li>
+<p>Resource</p>
+</li>
+<li>
+<p>Outside Processing</p>
+</li>
+<li>
+<p>Overhead</p>
+</li>
+<li>
+<p>Expense - enter if Adjustment Quantity is specified</p>
+<p><img width="753" height="505" src="./img/cst_periodiccstupdt2.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter a change in item cost or value.</p>
+</li>
+<li>
+<p>Enter an Adjustment Quantity for Landed Costs.</p>
+</li>
+<li>
+<p>Click the Cost Elements button to view Update Periodic Cost Details.</p>
+<p><img width="756" height="505" src="./img/cst_periodiccstupdt3.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="3535705"></a><a id="T412062"></a><b>Periodic Incremental LIFO Business Examples</b></h2>
+<p><a name="d0e34171" id="d0e34171"></a><a name="d0e34177" id="d0e34177"></a><a name="c_lifobus" id="c_lifobus"></a>The following three tables present different possible scenarios for XYZ company's inventory of material x using Periodic Incremental LIFO.</p>
+<h3><a id="T412063"></a><b>Example 1: Typical<a name="d0e34190" id="d0e34190"></a></b></h3>
+<p>Example 1 describes basic Periodic Incremental LIFO calculations.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Period</b></td>
+<td><b>Delta Qty.</b></td>
+<td><b>Weighted Average for year</b></td>
+<td><b>LIFO Calculations:</b><br>
+<b>yearly quantities remaining at Weighted Average</b></td>
+<td><b>LIFO Item cost (total inventory/total quantity)</b></td>
+</tr>
+<tr valign="top">
+<td>1995</td>
+<td>+5</td>
+<td>20</td>
+<td>1995 5 * 20 =100</td>
+<td>100/5 =20</td>
+</tr>
+<tr valign="top">
+<td>1996</td>
+<td>+5</td>
+<td>23</td>
+<td>1995 5 * 20 =100<br>
+1996 5 * 23 =115<br>
+Total Qty. 10 Total Inv. 215</td>
+<td>215/10 =21.5</td>
+</tr>
+<tr valign="top">
+<td>1997</td>
+<td>-4</td>
+<td>24</td>
+<td>1995 5 * 20 =100<br>
+1996 1 * 23 = 23<br>
+Total Qty. 6 Total Inv. 123</td>
+<td>123/6 =20.50</td>
+</tr>
+<tr valign="top">
+<td>1998</td>
+<td>+3</td>
+<td>25</td>
+<td>1995 5 * 20 =100<br>
+1996 1 * 23 = 23<br>
+1998 3 * 25 = 75<br>
+Total Qty. 9 Total Inv. 198</td>
+<td>198/9 =22</td>
+</tr>
+</table>
+<p>In the first year (1995), XYZ company purchased 100 units of material x. Five units (the delta) remain at the end of the year, and their various costs average out to 20.</p>
+<p>Because there is only one year to consider, the total quantity is the same as the delta quantity for the year and the weighted average item cost is the same as the LIFO item cost. At the end of the year, the 5 remaining units constitute the initial LIFO period cost layer.</p>
+<p>A new layer for 1996 of 5 units at weighted average cost 23 is added. Since the delta for the year is positive, the 1995 layer remains unchanged.</p>
+<p>The LIFO item cost equals the total inventory divided by the total quantity.</p>
+<p>In 1997, since the quantity on hand decreased by 4 units, no new layer is created for the year and the last 4 units were subtracted from the most recent year, 1996, at the weighted average cost of 23.</p>
+<p>With a positive delta, a new layer for 1998 is added and the previous layers remain unchanged.</p>
+<h3><a id="T412064"></a><b>Example 2: When Inventory is Depleted<a name="d0e34322" id="d0e34322"></a></b></h3>
+<p>Example 2 describes when total inventory is depleted.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Period</b></td>
+<td><b>Delta Qty.</b></td>
+<td><b>Weighted Average for year</b></td>
+<td><b>LIFO Calculations:</b><br>
+<b>yearly quantities remaining at Weighted Average</b></td>
+<td><b>LIFO Item cost (total inventory/total quantity)</b></td>
+</tr>
+<tr valign="top">
+<td>1995</td>
+<td>+5</td>
+<td>20</td>
+<td>1995 5 * 20 =100</td>
+<td>100/5 =20</td>
+</tr>
+<tr valign="top">
+<td>1996</td>
+<td>+5</td>
+<td>23</td>
+<td>1995 5 * 20 =100<br>
+1996 5 * 23 =115<br>
+Total Qty. 10 Total Inv. 215</td>
+<td>215/10 =21.5</td>
+</tr>
+<tr valign="top">
+<td>1997</td>
+<td>-10</td>
+<td>24</td>
+<td>Total Qty. 0 Total Inv. 0</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>1998</td>
+<td>+3</td>
+<td>25</td>
+<td>1998 3 * 25 = 75<br>
+Total Qty. 3 Total Inv. 75</td>
+<td>75/3 =25</td>
+</tr>
+</table>
+<p>In 1997, all units in inventory were issued. The total inventory valuation is 0.</p>
+<p>If the total inventory is depleted, as in 1997, then the range of periods that are included in calculations restarts with the next period that includes a positive total inventory balance. The effect is seen in 1998, where only period cost layers for 1998 are used for calculation. Subsequent calculations will include period cost layers for 1998 and forward until the next time that the total inventory is depleted.</p>
+<h3><a id="T412065"></a><b>Example 3: Use of Market Value<a name="d0e34438" id="d0e34438"></a></b></h3>
+<p>Example 3 illustrates a situation where a market value is used.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Period</b></td>
+<td><b>Delta Qty.</b></td>
+<td><b>Weighted Average for year</b></td>
+<td><b>LIFO Calculations</b><br>
+<b>yearly quantities remaining at Weighted Average</b><br>
+<b>Or new market value and inventory</b></td>
+<td><b>LIFO Item cost (total inventory/total quantity) or new market value</b></td>
+</tr>
+<tr valign="top">
+<td>1995</td>
+<td>+5</td>
+<td>20</td>
+<td>1995 5 * 20 =100</td>
+<td>100/5 =20</td>
+</tr>
+<tr valign="top">
+<td>1996</td>
+<td>+5</td>
+<td>23</td>
+<td>1995 5 * 20 =100<br>
+1996 5 * 23 =115<br>
+Total Qty. 10 Total Inv. 215</td>
+<td>215/10 =21.5</td>
+</tr>
+<tr valign="top">
+<td>1997</td>
+<td>-4</td>
+<td>24</td>
+<td><b>new market value 20.25</b><br>
+Total Qty. 6<br>
+Total Inv. 6 * 20.25 = 121.50</td>
+<td><b>new market value</b><br>
+<b>20.25</b></td>
+</tr>
+<tr valign="top">
+<td>1998</td>
+<td>+3</td>
+<td>25</td>
+<td>1997 6*20.25 = 121.50<br>
+1998 3 * 25 = 75<br>
+Total Qty. 9 Total Inv. 196.50</td>
+<td>196.50/9 =21.83</td>
+</tr>
+</table>
+<p>In the year 1997, the market value (20.25) is lower than the calculated LIFO item cost of 20.50 (see calculation in Example 1). This market value replaces the LIFO item cost in the 1997 and prior period cost layers.</p>
+<p><strong><span>Note:</span></strong> Period cost layers are removed from the above tables for the purposes of explaining the calculations; however, they still remain in the system for possible auditing purposes.</p>
+<p>See: <a href="T372621T378952.htm#c_inlifo">Periodic Incremental LIFO</a> and <a href="T372621T378952.htm#t_iteminq">Making Item Inquiries</a></p>
+<h2><a name="3535742"></a><a id="T412070"></a><b>Reports</b></h2>
+<p><a name="d0e34578" id="d0e34578"></a><a name="d0e34584" id="d0e34584"></a><a name="c_reports" id="c_reports"></a>The following reports are available in Periodic Costing:</p>
+<ul>
+<li>
+<p><a href="T372621T378952.htm#csteamrpt">eAM Report for Estimates and Actuals</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#r_cstrpacq">Periodic Acquisition Cost Report</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#r_cstgilev">Periodic Incremental LIFO Valuation Report</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#r_cstraccr">Periodic Accrual Reconciliation Report</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#r_cstrpwro">Periodic Accrual Write-Off Report</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#r_cstrpicr">Periodic Inventory Value Report</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#cst_peritemcst">Periodic Item Cost Change Report</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#r_cstrpwcr">Periodic WIP Value Report</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#r_cstrpmds">Periodic Material and Receiving Distribution Summary Report</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#r_cstrpmdd">Periodic Material and Receiving Distribution Details Report</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#r_cstrpwdd">Periodic WIP Distribution Details Report</a></p>
+</li>
+<li>
+<p><a href="T372621T378952.htm#r_cstrpwds">Periodic WIP Distributions Summary Report</a></p>
+</li>
+</ul>
+<h2><a name="4141345"></a><a id="T456098"></a><b>eAM Report for Estimates and Actuals</b></h2>
+<p><a name="d0e34647" id="d0e34647"></a><a name="d0e34653" id="d0e34653"></a><a name="csteamrpt" id="csteamrpt"></a>The PAC eAM Report for Estimates and Actuals displays the estimates versus actuals bucketed into the EAM cost elements.</p>
+<h3><a id="T427214"></a><b>Report Submission<a name="d0e34666" id="d0e34666"></a><a name="d0e34672" id="d0e34672"></a></b></h3>
+<p>In the Submit Requests window, select the report name.</p>
+<h3><a id="T427215"></a><b>Report Parameters<a name="d0e34684" id="d0e34684"></a></b></h3>
+<p><b>Legal Entity</b></p>
+<p>Select a legal entity</p>
+<p><b>Cost Type</b></p>
+<p>Select a cost type</p>
+<p><b>Cost Group</b></p>
+<p>Select an organization cost group</p>
+<p><b>From Work Order</b></p>
+<p>Select a beginning work order</p>
+<p><b>To Work Order</b></p>
+<p>Select an ending work order</p>
+<p><b>Range</b></p>
+<p>Select a work order range. You can specify all work orders, specific work orders, or a range of work orders.</p>
+<h2><a name="4141326"></a><a id="T456094"></a><b>Periodic Acquisition Cost Report</b></h2>
+<p><a name="d0e34725" id="d0e34725"></a><a name="d0e34731" id="d0e34731"></a><a name="r_cstrpacq" id="r_cstrpacq"></a><a name="srs.cstrpacq" id="srs.cstrpacq"></a>Use this Periodic Costing report to analyze the acquisition cost for each receive transaction.</p>
+<h3><a id="T412073"></a><b>Report Submission<a name="d0e34747" id="d0e34747"></a><a name="d0e34753" id="d0e34753"></a></b></h3>
+<p>In the Submit Requests window, select the report name.</p>
+<h3><a id="T412074"></a><b>Report Parameters<a name="d0e34765" id="d0e34765"></a></b></h3>
+<p>Choose one of the following options:</p>
+<p><b>Sort Options</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>receipt number</i></td>
+<td>Purchase Order Receipt Number</td>
+</tr>
+<tr valign="top">
+<td><i>receipt line</i></td>
+<td>Purchase Order Receipt Line Number</td>
+</tr>
+<tr valign="top">
+<td><i>parent distribution id</i></td>
+<td>Invoice Distribution ID matched to the Receipt</td>
+</tr>
+<tr valign="top">
+<td><i>distribution number</i></td>
+<td>Distribution Line Number</td>
+</tr>
+</table>
+<p><b>Legal Entity</b></p>
+<p>Select a legal entity</p>
+<p><b>Cost Group</b></p>
+<p>Select an organization cost group</p>
+<p><b>Cost Type</b></p>
+<p>Select a cost type</p>
+<p><b>Period</b></p>
+<p>Select a period</p>
+<p><b>Item From / To (Optional)</b></p>
+<p>To restrict the report to a range of assembly items, select a beginning and an ending item.</p>
+<h2><a name="3535746"></a><a id="T412072"></a><b>Periodic Incremental LIFO Valuation Report</b></h2>
+<p><a name="d0e34843" id="d0e34843"></a><a name="d0e34849" id="d0e34849"></a><a name="d0e34857" id="d0e34857"></a><a name="srs.cstgilev" id="srs.cstgilev"></a><a name="r_cstgilev" id="r_cstgilev"></a>Use this report to view the final results of the Periodic Incremental LIFO calculation process. The report is used for fiscal purposes. The information in the report is added to the balance sheet as the inventory valuation at the end of the fiscal year.</p>
+<h3><a id="T412075"></a><b>Report Submission<a name="d0e34869" id="d0e34869"></a></b></h3>
+<p>In the Submit Requests window, select the report name.</p>
+<h3><a id="T412076"></a><b>Report Parameters<a name="d0e34881" id="d0e34881"></a></b></h3>
+<p><b>Report Option</b></p>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>Detail</i></td>
+<td>Report the item costs by item and period.</td>
+</tr>
+<tr valign="top">
+<td><i>Summary</i></td>
+<td>Report the item cost of each item in the current period.</td>
+</tr>
+</table>
+<p><b>Legal Entity</b></p>
+<p>Select a legal entity</p>
+<p><b>Cost Group</b></p>
+<p>Select an organization cost group</p>
+<p><b>Cost Type</b></p>
+<p>Select a cost type</p>
+<p><b>Period</b></p>
+<p>Select a period</p>
+<p><b>Item From / To (Optional)</b></p>
+<p>To restrict the report to a range of items, select a beginning and an ending item.</p>
+<p>See: <a href="T372621T378952.htm#c_inlifo">Periodic Incremental LIFO</a> and <a href="T372621T378952.htm#c_lifobus">LIFO Business Example</a></p>
+<h2><a name="3535817"></a><a id="T412078"></a><b>Periodic Accrual Reconciliation Report</b></h2>
+<p><a name="d0e34951" id="d0e34951"></a><a name="d0e34957" id="d0e34957"></a><a name="srs.cstraccr" id="srs.cstraccr"></a><a name="srs.cstracrr" id="srs.cstracrr"></a><a name="r_cstraccr" id="r_cstraccr"></a>Use this report to view detailed accounting entries in A/P accrual accounts for certain legal entity, cost type and organization cost group in a period.</p>
+<p>The report is available in two versions:</p>
+<ul>
+<li>
+<p>Periodic Accrual Reconciliation Report</p>
+</li>
+<li>
+<p>Periodic Accrual Rebuild Reconciliation Report</p>
+</li>
+</ul>
+<p>The Periodic Accrual Rebuild Reconciliation Report collects all accounting entries from appropriate subledgers and stores them in a temporary table. This accounting information resides in a temporary table and remains until you rebuild this information again.</p>
+<p>The Periodic Accrual Reconciliation Report uses the information stored in the temporary table by the last Periodic Accrual Rebuild Reconciliation Report. When you specify Accrual Reconciliation Report, the report does not reselect this information. Instead, it merely reports using the pre-existing information. This feature saves you time, because you do not have to recreate the accrual information every time you submit a report. Typically, you specify the Accrual Rebuild Reconciliation Report at month end and use the Accrual Reconciliation Report for interim reports.</p>
+<p>With the Application Technology Multi-Organization Access Control (MOAC), the SRS window for this report includes an Operating Unit List of Values that lists the Operating Units attached to the Responsibility's Security Profile.</p>
+<h3><a id="T412080"></a><b>Report Submission<a name="d0e34985" id="d0e34985"></a></b></h3>
+<p>In the Submit Requests window, select the report name. You can choose either report. The parameters are the same.</p>
+<h3><a id="T412081"></a><b>Report Parameters<a name="d0e34995" id="d0e34995"></a></b></h3>
+<p><b>Sort By</b></p>
+<p>Choose either of the following options:</p>
+<ul>
+<li>
+<p>Item</p>
+</li>
+<li>
+<p>Vendor</p>
+</li>
+</ul>
+<p><b>Title (Optional)</b></p>
+<p>Enter a title</p>
+<p><b>Legal Entity</b></p>
+<p>Select a legal entity</p>
+<p><b>Cost Type</b></p>
+<p>Select a cost type</p>
+<p><b>Cost Group</b></p>
+<p>Select an organization cost group</p>
+<p><b>Period</b></p>
+<p>Select a period</p>
+<p><b>Items From / To (Optional)</b></p>
+<p>To restrict the report to a range of items, select a beginning and an ending item.</p>
+<p><b>Vendors From / To (Optional)</b></p>
+<p>To restrict the report to a range of vendors, select a beginning and an ending vendor.</p>
+<p><b>Include All Transactions</b></p>
+<p>Enter Yes or No to indicate whether you want to print zero balance purchase order line subtotals on the report. The report adds up all receipts and invoices by purchase order line. When you specify Yes and the net purchase order line amount is zero, the report prints all receipt or invoice entries for that line. When you specify No<b>,</b> the report considers the Transaction Amount Tolerance and Transaction Quantity Tolerance parameters. When you choose the Accrual Rebuild Reconciliation Report, the default is No<b>.</b> When you choose the Accrual Reconciliation Report, the default is Yes<b>.</b></p>
+<p><strong><span>Tip:</span></strong> To minimize the size of the report, you should specify No for this option. However, if you want to see all accrual entries, you should specify Yes<b>.</b></p>
+<p><b>Transaction Amount Tolerance</b></p>
+<p>If you selected No for Include All Transactions, specify the net amount below which purchase order line transactions are not included in the report.</p>
+<p><b>Transaction Quantity Tolerance</b></p>
+<p>If you selected No for Include All Transactions, then specify the net quantity below which transactions are not included. This condition is checked only if the transaction amount tolerance is satisfied.</p>
+<p><b>Dynamic Quantity Precision</b></p>
+<p>Select the quantity precision.</p>
+<p><b>Include Written Off Transactions</b></p>
+<p>Enter Yes or No to indicate whether you want to print written off entries on the report. When you specify Yes, an asterisk appears in the far right column to indicate a written off transaction. By selecting No<b>,</b> you decrease the report size. The default is No<b>.</b></p>
+<p><b>Aging Number of Days (Optional)</b></p>
+<p>Enter the number of days you would like the report to group information. For example, if you enter 60, for 60 days, then the report first groups all purchase order lines that have the earliest transaction date in the past sixty days, and then groups the next set of lines with the earliest transaction date from 60 to 120 days, and so on. If you do not specify a number, then the report displays all receipts and invoices together. This report parameter helps you separate your older activity from your current activity. When you enter a number of days, a subheading appears on the report to indicate the to and from range of days for each group of information.</p>
+<p>See: <a href="T372621T378952.htm#t_accwo">Writing Off Accruals</a></p>
+<h2><a name="3535820"></a><a id="T412079"></a><b>Periodic Accrual Write-Off Report</b></h2>
+<p><a name="d0e35107" id="d0e35107"></a><a name="d0e35113" id="d0e35113"></a><a name="r_cstrpwro" id="r_cstrpwro"></a><a name="srs.cstrpwro" id="srs.cstrpwro"></a>Use this report to list details for each Accrual Write-off Account Number. The details listed include the item number, PO Number, Source, organization, accrual amount, date, transaction quantity, unit price, and write off reason.</p>
+<p>All the transactions that have been chosen for write off will be queried and presented in the report based on your criteria.</p>
+<p>With the Application Technology Multi-Organization Access Control (MOAC), the SRS window for this report includes an Operating Unit List of Values that lists the Operating Units attached to the Responsibility's Security Profile.</p>
+<h3><a id="T412082"></a><b>Report Submission<a name="d0e35131" id="d0e35131"></a></b></h3>
+<p>In the Submit Requests window, select the report name.</p>
+<h3><a id="T412083"></a><b>Report Parameters<a name="d0e35141" id="d0e35141"></a></b></h3>
+<p><b>Legal Entity</b></p>
+<p>Select a legal entity</p>
+<p><b>Cost Type</b></p>
+<p>Select a cost type</p>
+<p><b>Cost Group</b></p>
+<p>Select an organization cost group</p>
+<p><b>Period</b></p>
+<p>Select a period</p>
+<p><b>Reason Code (Optional)</b></p>
+<p>Enter a reason code</p>
+<p><b>Title (Optional)</b></p>
+<p>Enter a title</p>
+<p><b>Print Comments (Optional)</b></p>
+<p>Yes / No to print comments</p>
+<h2><a name="4141347"></a><a id="T456099"></a><b>Periodic Inventory Value Report</b></h2>
+<p><a name="d0e35185" id="d0e35185"></a><a name="srs.cstrpicr" id="srs.cstrpicr"></a><a name="r_cstrpicr" id="r_cstrpicr"></a>Use this report to value inventory at the end of a period. This report is run for a particular legal entity, cost group, period, cost type, and category set combination.</p>
+<h3><a id="T412088"></a><b>Report Submission<a name="d0e35199" id="d0e35199"></a></b></h3>
+<p>In the Submit Requests window, select the report name.</p>
+<h3><a id="T412089"></a><b>Report Parameters<a name="d0e35209" id="d0e35209"></a></b></h3>
+<p><b>Report Options</b></p>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>Detailed</i></td>
+<td>Displays elemental costs</td>
+</tr>
+<tr valign="top">
+<td><i>Summary</i></td>
+<td>Summarizes elemental costs</td>
+</tr>
+</table>
+<p><b>Sort Options</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>Item</i></td>
+<td>Sort by item name.</td>
+</tr>
+<tr valign="top">
+<td><i>Category</i></td>
+<td>Sort by category, then by item name within the category.</td>
+</tr>
+</table>
+<p><b>Legal Entity</b></p>
+<p>Select a legal entity</p>
+<p><b>Cost Type</b></p>
+<p>Select a cost type</p>
+<p><b>Period</b></p>
+<p>Select a period</p>
+<p><b>Cost Group</b></p>
+<p>Select an organization cost group</p>
+<p><b>Item From / To (Optional)</b></p>
+<p>To restrict the report to a range of items, select a beginning and an ending item.</p>
+<p><b>Category Set</b></p>
+<p>Select a category set. The value of all items associated with this category set are reported. The category set defined for the costing functional area is the default.</p>
+<p><b>Category From / To (Optional)</b></p>
+<p>To restrict the report to a range of categories, select a beginning and an ending category.</p>
+<p><b>Currency</b></p>
+<p>Select a currency. You can run this report for any defined currency. When you enter a currency other than your ledger currency, the system converts item costs to the selected currency using the End of period rate you choose in the Exchange Rate field.</p>
+<p><b>Exchange Rate</b></p>
+<p>Choose an exchange rate. If you choose a currency other than your ledger currency, the most recent End of period rate is the default. However, you can choose any prior End of period rate.</p>
+<h2><a name="4141352"></a><a id="T456100"></a><b>Periodic Item Cost Change Report</b></h2>
+<p><a name="d0e35313" id="d0e35313"></a><a name="d0e35319" id="d0e35319"></a><a name="cst_peritemcst" id="cst_peritemcst"></a><a name="SRS.CSTPICCR" id="SRS.CSTPICCR"></a>Use this report to outline the periodic item cost calculation in a given period for an item.</p>
+<h3><a id="T427211"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select the report name.</p>
+<h4><a id="T427212"></a><b>Report Parameters</b></h4>
+<p><b>Legal Entity</b></p>
+<p>Select a legal entity</p>
+<p><b>Cost Type</b></p>
+<p>Select a cost type</p>
+<p><b>Period</b></p>
+<p>Select a period</p>
+<p><b>Cost Group</b></p>
+<p>Select a Cost Group</p>
+<p><b>Category Set</b></p>
+<p>Select a category set. The value of all items associated with this category set are reported. The category set defined for the costing functional area is the default.</p>
+<p><b>Category Organization</b></p>
+<p>Select the Category Organization</p>
+<p><b>Category From / To (Optional)</b></p>
+<p>To restrict the report to a range of categories, select a beginning and an ending category.</p>
+<p><b>Item From / To (Optional)</b></p>
+<p>If you selected Range of items in the Item Range field, select beginning and ending Item From and To values.</p>
+<h2><a name="4141367"></a><a id="T456102"></a><b>Periodic WIP Value Report</b></h2>
+<p><a name="d0e35384" id="d0e35384"></a><a name="d0e35390" id="d0e35390"></a><a name="d0e35396" id="d0e35396"></a><a name="srs.cstrpwcr" id="srs.cstrpwcr"></a><a name="r_cstrpwcr" id="r_cstrpwcr"></a>Use this report to view the value of jobs in an organization cost group at the end of a period. You can also view cost element level information that includes beginning balance, costs incurred, costs relieved, and ending balance.</p>
+<h3><a id="T412090"></a><b>Report Submission<a name="d0e35412" id="d0e35412"></a></b></h3>
+<p>In the Submit Requests window, select the report name.</p>
+<h3><a id="T412091"></a><b>Report Parameters<a name="d0e35422" id="d0e35422"></a></b></h3>
+<p><b>Report Option</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>Period To Date</i></td>
+<td>Report the value of jobs/schedules resulting from the activity in the specified period. Those values are displayed in the Beginning Balance, Cost Incurred, Cost Relieved, Variance Relieved and Ending Balance columns. The Ending Balance column displays the net total value at the end of the specified period.</td>
+</tr>
+<tr valign="top">
+<td><i>Cumulative To Date</i></td>
+<td>Report the net total value of jobs/schedules resulting from all activity up to the end of the specified period.</td>
+</tr>
+</table>
+<p><b>Legal Entity</b></p>
+<p>Select a legal entity</p>
+<p><b>Cost Type</b></p>
+<p>Select a cost type</p>
+<p><b>Period</b></p>
+<p>Select a period</p>
+<p><b>Cost Group</b></p>
+<p>Select an organization cost group</p>
+<p><b>Class Type (Optional)</b></p>
+<p>Choose one of the following accounting class options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>Asset non-standard</i></td>
+<td>To report costs for asset non-standard jobs.</td>
+</tr>
+<tr valign="top">
+<td><i>Expense non-standard</i></td>
+<td>To report costs for expense non-standard jobs.</td>
+</tr>
+<tr valign="top">
+<td><i>Repetitive</i></td>
+<td>To report costs for repetitive assemblies.</td>
+</tr>
+<tr valign="top">
+<td><i>Standard discrete</i></td>
+<td>To report costs for standard discrete jobs.</td>
+</tr>
+</table>
+<p><b>Job/Schedules From/To (Optional)</b></p>
+<p>To restrict the report to a range of jobs or repetitive schedules, enter a beginning and ending job/repetitive schedule. You cannot specify a job/schedule range unless you first enter a value in the Class Type field.</p>
+<p>For repetitive schedules, you are actually entering a repetitive assembly value, such as an item number. For discrete jobs, you are entering a job name.</p>
+<p><b>Assemblies From/To (Optional)</b></p>
+<p>To restrict the report to a range of assemblies, enter a beginning and an ending assembly. You cannot specify an assembly range unless you first enter a value in the Class Type field.</p>
+<p>If you are reporting values for repetitive schedules, you do not need to enter both a job/schedule and assembly range unless you changed a repetitive assembly item number since you defined your repetitive assembly.</p>
+<p><b>Currency Code</b></p>
+<p>Enter the currency code in which you want to report your WIP inventory values. The system defaults the ledger currency from the ledger associated with your organization.</p>
+<p><b>Exchange Rate</b></p>
+<p>Choose an exchange rate. If you choose a currency other than your ledger currency, the most recent End of period rate is the default. However, you can choose any prior End of period rate.</p>
+<h2><a name="4141368"></a><a id="T456103"></a><b>Periodic Material and Receiving Distribution Summary Report</b></h2>
+<p><a name="d0e35541" id="d0e35541"></a><a name="d0e35547" id="d0e35547"></a><a name="d0e35553" id="d0e35553"></a><a name="srs.cstrpmds" id="srs.cstrpmds"></a><a name="r_cstrpmds" id="r_cstrpmds"></a>Use this report to view material and receiving transaction accounting distributions summarized.</p>
+<h3><a id="T412092"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select the report name.</p>
+<h3><a id="T412093"></a><b>Report Parameters<a name="d0e35575" id="d0e35575"></a></b></h3>
+<p><b>Legal Entity</b></p>
+<p>Select a legal entity</p>
+<p><b>Sort By</b></p>
+<p>Choose one of the following sort options:</p>
+<ul>
+<li>
+<p>account and item</p>
+</li>
+<li>
+<p>account and transaction type</p>
+</li>
+<li>
+<p>account and source type</p>
+</li>
+</ul>
+<p><b>Organization Cost Group</b></p>
+<p>Select an organization cost group</p>
+<p><b>Cost Type</b></p>
+<p>Select a cost type</p>
+<p><b>Period</b></p>
+<p>Select a period</p>
+<p><b>Account From/To (Optional)</b></p>
+<p>To restrict the display of accounting distributions, select a range of accounts.</p>
+<h2><a name="4141369"></a><a id="T456104"></a><b>Periodic Material and Receiving Distribution Details Report</b></h2>
+<p><a name="d0e35624" id="d0e35624"></a><a name="d0e35630" id="d0e35630"></a><a name="srs.cstrpmdd" id="srs.cstrpmdd"></a><a name="r_cstrpmdd" id="r_cstrpmdd"></a>Use this report to view detailed accounting distribution information of both material transactions and receiving transactions.</p>
+<h3><a id="T412099"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select the report name.</p>
+<h3><a id="T412100"></a><b>Report Parameters<a name="d0e35652" id="d0e35652"></a></b></h3>
+<p><b>Sort Options</b></p>
+<p>Choose one of the following sort options:</p>
+<ul>
+<li>
+<p>Account</p>
+</li>
+<li>
+<p>Account and item</p>
+</li>
+<li>
+<p>Item and account</p>
+</li>
+</ul>
+<p><b>Legal Entity</b></p>
+<p>Select a legal entity</p>
+<p><b>Cost Group</b></p>
+<p>Select an organization cost group</p>
+<p><b>Cost Type</b></p>
+<p>Select a cost type</p>
+<p><b>Period</b></p>
+<p>Select a period</p>
+<p><b>Accounts From/To (Optional)</b></p>
+<p>To restrict the range of accounts, enter a beginning and an ending account.</p>
+<p><b>Category Set (Optional)</b></p>
+<p>Select a category set. The value of all items associated with this category set are reported. The category set defined for the costing functional area is the default.</p>
+<p><b>Categories From/To (Optional)</b></p>
+<p>To restrict the report to a range of categories, select a beginning and an ending category.</p>
+<p><b>Items From/To (Optional)</b></p>
+<p>To restrict the report to a range of items, select a beginning and an ending item.</p>
+<p><b>Values From/To (Optional)</b></p>
+<p>Enter beginning and ending transaction values to restrict the report to a range of transaction values.</p>
+<p><strong><span>Note:</span></strong> When you use this option, the report evaluates the transaction amounts in absolute value. Therefore, if you enter a from value of 100, the report selects all transactions with positive (debit) or negative (credit) values greater than or equal to 100. If you enter a to value of 100, the report selects all transactions with positive or negative values less than or equal to 100.</p>
+<p><b>Transaction Source Type (Optional)</b></p>
+<p>Choose one of the following options. In addition to the predefined source types listed below, you may have additional user-defined source types.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>Account</i></td>
+<td>Report general ledger account transactions.</td>
+</tr>
+<tr valign="top">
+<td><i>Account alias</i></td>
+<td>Report account alias transactions.</td>
+</tr>
+<tr valign="top">
+<td><i>Cycle Count</i></td>
+<td>Report cycle count transactions.</td>
+</tr>
+<tr valign="top">
+<td><i>Internal order</i></td>
+<td>Report internal order transactions.</td>
+</tr>
+<tr valign="top">
+<td><i>Internal Requisition</i></td>
+<td>Report internal requisition transactions.</td>
+</tr>
+<tr valign="top">
+<td><i>Inventory</i></td>
+<td>Report inventory transactions.</td>
+</tr>
+<tr valign="top">
+<td><i>Job or Schedule</i></td>
+<td>Report job or repetitive schedule transactions.</td>
+</tr>
+<tr valign="top">
+<td><i>Physical Inventory</i></td>
+<td>Report physical inventory transactions.</td>
+</tr>
+<tr valign="top">
+<td><i>Purchase order</i></td>
+<td>Report purchase order transactions.</td>
+</tr>
+<tr valign="top">
+<td><i>RMA</i></td>
+<td>Report return material authorization transactions.</td>
+</tr>
+<tr valign="top">
+<td><i>Sales order</i></td>
+<td>Report sales order transactions.</td>
+</tr>
+<tr valign="top">
+<td><i>Standard cost update</i></td>
+<td>Report standard cost update transactions.</td>
+</tr>
+</table>
+<p><b>Sources From/To (Optional)</b></p>
+<p>Enter the beginning and ending source values to restrict the report to a range of source values for the transaction source type you specified.</p>
+<p><b>Transaction Type (Optional)</b></p>
+<p>Choose to display by transaction type or transaction source type.</p>
+<p><b>Transaction Reason (Optional)</b></p>
+<p>Enter a beginning and an ending transaction reason to restrict the report to a range of transaction reasons.</p>
+<p><b>Currency</b></p>
+<p>Select a currency. You can run this report for any defined currency. When you enter a currency other than your ledger currency, the system converts item costs to the selected currency using the End of period rate you choose in the Exchange Rate field.</p>
+<p><b>Exchange Rate</b></p>
+<p>Choose an exchange rate. If you choose a currency other than your ledger currency, the most recent End of period rate is the default. However, you can choose any prior End of period rate.</p>
+<h2><a name="4141370"></a><a id="T456105"></a><b>Periodic WIP Distribution Details Report</b></h2>
+<p><a name="d0e35855" id="d0e35855"></a><a name="d0e35861" id="d0e35861"></a><a name="d0e35867" id="d0e35867"></a><a name="srs.cstrpwdd" id="srs.cstrpwdd"></a><a name="r_cstrpwdd" id="r_cstrpwdd"></a>Use this report to view the detailed accounting distribution information of WIP transactions for a specific legal entity, cost type, and period combination.</p>
+<h3><a id="T412101"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select the report name.</p>
+<h3><a id="T412102"></a><b>Report Parameters<a name="d0e35889" id="d0e35889"></a></b></h3>
+<p><b>Legal Entity</b></p>
+<p>Select a legal entity</p>
+<p><b>Cost Type</b></p>
+<p>Select a cost type</p>
+<p><b>Organization Cost Group</b></p>
+<p>Select an organization cost group</p>
+<p><b>Period</b></p>
+<p>Select a period</p>
+<p><b>Accounts From/To (Optional)</b></p>
+<p>To restrict the range of accounts, enter a beginning and an ending account.</p>
+<p><b>Organization</b></p>
+<p>Select an organization</p>
+<p><b>Job/Schedule (Optional)</b></p>
+<p>Enter a specific job or schedule.</p>
+<p><b>Line (Optional)</b></p>
+<p>Enter a production line.</p>
+<p><b>Assembly (Optional)</b></p>
+<p>Enter an assembly.</p>
+<p><b>Transaction Type (Optional)</b></p>
+<p>Select a transaction type from the following:</p>
+<ul>
+<li>
+<p>Resource transactions</p>
+</li>
+<li>
+<p>Overhead transaction</p>
+</li>
+<li>
+<p>Outside processing</p>
+</li>
+<li>
+<p>Cost update</p>
+</li>
+<li>
+<p>Period close variance</p>
+</li>
+<li>
+<p>Job close variance</p>
+</li>
+<li>
+<p>Final completion variance</p>
+</li>
+</ul>
+<p><b>Department (Optional)</b></p>
+<p>Enter a department name.</p>
+<p><b>Activity (Optional)</b></p>
+<p>Enter an activity.</p>
+<p><b>Class (Optional)</b></p>
+<p>Enter a WIP accounting class name.</p>
+<p><b>Currency</b></p>
+<p>Select a currency. You can run this report for any defined currency. When you enter a currency other than your ledger currency, the system converts item costs to the selected currency using the End of period rate you choose in the Exchange Rate field.</p>
+<p><b>Exchange Rate</b></p>
+<p>Choose an exchange rate. If you choose a currency other than your ledger currency, the most recent End of period rate is the default. However, you can choose any prior End of period rate.</p>
+<h2><a name="4141371"></a><a id="T456106"></a><b>Periodic WIP Distribution Summary Report</b></h2>
+<p><a name="d0e35995" id="d0e35995"></a><a name="d0e36001" id="d0e36001"></a><a name="d0e36007" id="d0e36007"></a><a name="srs.cstrpwds" id="srs.cstrpwds"></a><a name="r_cstrpwds" id="r_cstrpwds"></a>Use this report to view Work in Process transaction accounting distributions summarized.</p>
+<h3><a id="T412103"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select the report name.</p>
+<h3><a id="T412104"></a><b>Report Parameters<a name="d0e36029" id="d0e36029"></a></b></h3>
+<p><b>Legal Entity</b></p>
+<p>Select a legal entity</p>
+<p><b>Cost Group</b></p>
+<p>Select an organization cost group</p>
+<p><b>Organization Cost Type</b></p>
+<p>Select an organization cost type.</p>
+<p><b>Period</b></p>
+<p>Select a period</p>
+<p><b>Account From/To (Optional)</b></p>
+<p>To restrict the display of accounting distributions, select a range of accounts.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

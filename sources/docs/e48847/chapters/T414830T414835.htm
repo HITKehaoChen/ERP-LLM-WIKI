@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Shipping Execution User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Shipping Execution User's Guide">
+<meta name="dcterms.identifier" content="E48847-15">
+<meta name="dcterms.isVersionOf" content="WSHUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T414830T661484.htm" title="Previous" type="text/html">
+<link rel="Next" href="T414830T414837.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Shipping Execution User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">8/23</span> <!-- End Header -->
+<h1>Managing Trips</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T414847">Overview of Trips</a></li>
+<li><a href="#T414946">Creating a Trip</a></li>
+<li><a href="#T414947">Firming a Trip</a></li>
+<li><a href="#T414948">Unfirming a Trip</a></li>
+<li><a href="#T435185">Purging Trips and Trip Stops</a></li>
+<li><a href="#T414949">Assigning Freight Costs to a Trip</a></li>
+<li><a href="#T414950">Printing a Document Set for a Trip</a></li>
+<li><a href="#T447112">Printing a Master Bill of Lading for a Trip</a></li>
+<li><a href="#T414951">Calculating Weight and Volume for a Trip Stop</a></li>
+<li><a href="#T414952">Ship Confirming a Trip</a></li>
+<li><a href="#T434356">Trip Workflow Status</a></li>
+<li><a href="#T414849">Using Quick Ship for Trips</a></li>
+<li><a href="#T414953">Finding and Confirming Quick Ship Trips</a></li>
+</ul>
+<h2><a name="3573531"></a><a id="T414847"></a><b>Overview of Trips</b></h2>
+<p><a name="d0e4403" id="d0e4403"></a><a name="o_trp" id="o_trp"></a><a name="WSHFSTRX.UPDATE_STOP_STATUS" id="WSHFSTRX.UPDATE_STOP_STATUS"></a><a name="WSHFSTRX.TRIP_CONFIRM" id="WSHFSTRX.TRIP_CONFIRM"></a><a name="TripDetailsPG" id="TripDetailsPG"></a><a name="TripSearchPG" id="TripSearchPG"></a><a name="hlptrp" id="hlptrp"></a>A trip is an instance of a specific freight carrier departing from a particular location containing deliveries.</p>
+<p>A trip is carrier-specific and contains at least two stops, such as a stop to pick up goods and another stop to drop off goods, and may include intermediate stops. There are three ways to view trip stops:</p>
+<ul>
+<li>
+<p>On the Stops tab of the Shipping Transactions window</p>
+</li>
+<li>
+<p>On the Stops page in the Shipping Execution Simplified User Interface</p>
+</li>
+<li>
+<p>In the Stops region of the Trips page, after you have searched for the trip in the Shipping Execution Simplified User Interface</p>
+</li>
+</ul>
+<p>Stops are displayed in sequence, and the stop sequence does not change if a stop is removed. For example, if you have two stops, each with an arrival and departure date and time, and you remove one, the remaining stops stay in the same sequence as they were originally.</p>
+<p>You can perform the following tasks with trips:</p>
+<ul>
+<li>
+<p><a href="T414830T414835.htm#create">Create a trip</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#plan">Plan a trip</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#unplan">Unplan a trip</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#asfrtcst">Assign freight costs to a trip</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#print">Print a document set for a trip</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#wtvol">Calculate weight and volume for a trip stop</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#spconf">Ship confirm a trip</a></p>
+</li>
+</ul>
+<h2><a name="3573532"></a><a id="T414946"></a><b>Creating a Trip</b></h2>
+<p><a name="d0e4467" id="d0e4467"></a><a name="t_trpcre" id="t_trpcre"></a><a name="create" id="create"></a>You can create trips automatically or manually.</p>
+<h3><b>Automatic</b></h3>
+<p>Trips are required for all deliveries and can be created automatically as part of Ship Confirmation that is transparent to the user for those not interested. If your shipping process does not require advanced planning, you may prefer to automatically create trips:</p>
+<ul>
+<li>
+<p>Auto-creating a trip for a delivery: You can find the delivery you want to ship, and auto-create a trip and related trip stops.</p>
+</li>
+<li>
+<p>Auto-creating a trip for containers and lines: You can find the lines and containers you want to ship and auto-create a trip which creates a trip, related deliveries, and trip stops.</p>
+</li>
+</ul>
+<p><b>To Autocreate a Trip for a Delivery Using the Shipping Transactions Window<a name="d0e4493" id="d0e4493"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery or group of deliveries.</p>
+<p><b>Shipping Transactions window - Delivery Results</b></p>
+<p><img width="945" height="502" src="./img/wshug_delnew.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>If more than one delivery displays, select the deliveries.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>At least one trip and its related stops are created based on the deliveries Shipped From and Shipped To locations.</p>
+<p>You can view information about the trip by choosing the Detail button, the Path by Stop tab, or the Path by Trip tab.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Autocreate a Trip for a Delivery Using the Delivery Pages in the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e4539" id="d0e4539"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries for which you want to automatically create a trip, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Auto-Create Trips From the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one or more deliveries by clicking the corresponding check boxes in the Select column.</p>
+<p><strong><span>Note:</span></strong> You can also click the <b>Select All</b> link at the top of the Select column to select all of the deliveries in the table.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>A message at the top of the page indicates that the auto-create trip action was completed successfully.</p>
+</li>
+</ol>
+<p><b>To Auto-Create Trips From the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the delivery <b>Name</b> link in the search results table.</p>
+<p>The Delivery page appears, displaying all of the information associated with the delivery.</p>
+</li>
+<li>
+<p>From the Action menu at the top of the page, select <b>Auto-create Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>A message at the top of the page indicates that the auto-create trip action was completed successfully.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><b>To Autocreate a Trip for Delivery Lines and Containers Using the Shipping Transactions Window<a name="d0e4618" id="d0e4618"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window and find the delivery lines and containers.</p>
+</li>
+<li>
+<p>Select the delivery lines.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>At least one trip, stop, and deliveries are created for the lines and containers.</p>
+<p>To view additional information about the trip, click <b>Detail</b> or select the Path by Stop tab, or the Path by Trip tab.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Autocreate a Trip for Delivery Lines and Containers Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e4659" id="d0e4659"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery details for which you want to automatically create a trip, and click Go.</p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Auto-Create Trips From the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one or more details by clicking the corresponding check boxes in the Select column.</p>
+<p><strong><span>Note:</span></strong> You can also click the <b>Select All link</b> at the top of the Select column to select all of the details in the table.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>A message at the top of the page indicates that the auto-create trip action was completed successfully.</p>
+</li>
+</ol>
+<p><b>To Auto-Create Trips From the Line Details Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a detail record in the search results table in the Search Details page.</p>
+<p>The Line Details page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>A message at the top of the page indicates that the auto-create trip action was completed successfully.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3><b>Manual</b></h3>
+<p>You can manually create a trip and later assign delivery lines or find the delivery lines and create a trip. For example, for a regular trip scheduled to depart every Friday, you can manually set up a trip ahead of time and then assign delivery lines.</p>
+<p>When you manually create a trip, you can manually assign stops, deliveries, and delivery lines to that trip.</p>
+<p><b>To Manually Create a Trip Using the Shipping Transactions Window<a name="manctripstw" id="manctripstw"></a><a name="d0e4744" id="d0e4744"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Trip window.</p>
+<p><b>Trip window</b></p>
+<p><img width="964" height="502" src="./img/wshug_trip.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a name for the trip.</p>
+<p><strong><span>Note:</span></strong> If you do not define a name, then a default name is assigned by Shipping Execution.</p>
+</li>
+<li>
+<p>Select the Ship Method. For example, Overnight or LTL.</p>
+<p>If you update Ship Method and one or more delivery legs of the trip have bill of lading numbers generated, Oracle Shipping Execution checks the Document Code for the Document Type BOL from the Document Categories window and:</p>
+<ul>
+<li>
+<p>If Document Code is All, it updates ship method for the trip and all of its delivery legs.</p>
+</li>
+<li>
+<p>If Document Code is One, it cancels all the bill of lading numbers associated with the trip and logs a trip exception. You must then regenerate and reprint those bills of ladings.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> If the trip is firmed, you cannot change the stops on the trip, but you can add deliveries to the trip as long as they are for existing stops. You can also unassign deliveries from trips and if the delivery is the last delivery on the stop, the stop will remain associated with the trip, however it will be empty.</p>
+</li>
+<li>
+<p>Select a Vehicle Org Code.</p>
+</li>
+<li>
+<p>Select the Vehicle Item Name such as 50' Truck.</p>
+</li>
+<li>
+<p>Select the Vehicle Number Prefix and Vehicle Number.</p>
+</li>
+<li>
+<p>Optionally, enter Routing Instructions.</p>
+</li>
+<li>
+<p>Optionally, select a trip in the Arrive After Trip field if you want the new trip to follow after another trip.</p>
+<p>In the Arrive after Trip field, you can define the order in which trips arrive at their final destination. For example, if you created Trip B and want it to arrive after Trip A, enter Trip A in the Arrive after Trip field.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+<p><b>To Manually Create a Trip Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e4819" id="d0e4819"></a><a name="TripCreatePG" id="TripCreatePG"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Trips page.</p>
+</li>
+<li>
+<p>Perform one of these options:</p>
+<ul>
+<li>
+<p>Click the <b>Create Trip</b> icon (+ plus sign) at the top of the search results table in the Trips page.</p>
+</li>
+<li>
+<p>Click <b>Search</b> and then click the <b>Create Trip</b> icon (+ plus sign) at the top of the search results table in the Search Trips page.</p>
+</li>
+</ul>
+<p><b>Create Trip page</b></p>
+<p><img width="800" height="600" src="./img/wshug_scn_createtrip.gif" alt="the picture is described in the document text"></p>
+<p>The Create Trip page appears.</p>
+</li>
+<li>
+<p>Enter information for the trip.</p>
+<p>For more information on how to create a trip, see the <a href="T414830T414835.htm#manctripstw">procedure: To Manually Create a Trip Using the Shipping Transactions window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+<p>The trip is created.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414843.htm#pdsrs">Process Deliveries SRS</a>.</p>
+<h2><a name="3573540"></a><a id="T414947"></a><b>Firming a Trip</b></h2>
+<p><a name="d0e4888" id="d0e4888"></a><a name="d0e4894" id="d0e4894"></a><a name="t_trppln" id="t_trppln"></a><a name="plan" id="plan"></a>Once deliveries and delivery lines have been assigned to a trip, you can set the status of the trip to one of the following:</p>
+<ul>
+<li>
+<p>Firm Routing: Prevents trip stops from being added, or removed for the selected trip.</p>
+</li>
+<li>
+<p>Firm Routing and Contents: Prevents trip stops from being added, or removed for the selected trip and prevents contents from being added or removed.</p>
+</li>
+</ul>
+<p>If the trip status is Firm Routing, you can still update trip details, delivery, and delivery line information. For example, you can add delivery lines and make changes to the delivery. However, to add or remove trip stops, you first must set the status of the trip to Unfirmed before making the changes.</p>
+<p>When you firm a trip, Shipping Execution performs the following:</p>
+<ul>
+<li>
+<p>Validates that the sequence numbers between the deliveries of the trip are unique for containers within the deliveries.</p>
+</li>
+<li>
+<p>Validates that the weight, volume, and fill percentage do not exceed their maximum number of containers in the delivery.</p>
+</li>
+<li>
+<p>Validates that the minimum fill percentage is met.</p>
+</li>
+<li>
+<p>Validates the planned arrival date and planned departure trip dates are not in the past.</p>
+</li>
+<li>
+<p>Validates pick-up and drop-off dates and times with the Transportation Calendar for the shipper, carrier, and receiver.</p>
+</li>
+</ul>
+<h3><b>Prerequisites</b></h3>
+<p>At least two stops must be assigned to the trip.</p>
+<p>At least one delivery must be assigned to the trip.</p>
+<p>At least one delivery line must be assigned to each delivery in the trip.</p>
+<p>All delivery lines for the trip must be assigned to a delivery.</p>
+<p><b>To Firm a Trip Using the Shipping Transactions Window<a name="d0e4946" id="d0e4946"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the trip.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Firm Routing</b> or <b>Firm Routing and Contents.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Firm a Trip Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e4978" id="d0e4978"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Trips page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Trips page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the trips you want to firm and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Firm Trips Using the Search Trips Page</b></p>
+<ol>
+<li>
+<p>Select one or more trips by clicking the corresponding check boxes in the Select column.</p>
+<p><strong><span>Note:</span></strong> You can also click the <b>Select All</b> link at the top of the Select column to select all of the details in the table.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Firm Routing</b> or <b>Firm Routing and Contents.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also firm a trip by performing the steps above from the Trips page when any infotile is selected.</p>
+<p><b>To Firm a Trip Using the Trip Page</b></p>
+<ol>
+<li>
+<p>Click the trip <b>Name</b> link in the search results table of the Search Trips page.</p>
+<p>The Trip page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Firm Routing</b> or <b>Firm Routing and Contents.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573543"></a><a id="T414948"></a><b>Unfirming a Trip</b></h2>
+<p><a name="d0e5063" id="d0e5063"></a><a name="d0e5069" id="d0e5069"></a><a name="t_trpupln" id="t_trpupln"></a><a name="unplan" id="unplan"></a>When a trip is in Firm Routing or Firm Routing and Contents status, you cannot add, remove, or re sequence trip stops unless you first Unfirm the trip. When the trip is in Not Firm status, you can remove or rescreen existing trip stops or add new stops.</p>
+<p>After the changes are done, the trip can be Firmed to prevent the trip stop settings from being changed. However, if you leave the trip Not Firm, the existing trip stops can be removed or new trip stops can be added.</p>
+<p>When you unfirm a trip, Shipping Execution:</p>
+<ul>
+<li>
+<p>Sets the status of all deliveries in the trip to Open.</p>
+</li>
+<li>
+<p>Sets the status of the trip to Open.</p>
+<p><strong><span>Note:</span></strong> All delivery lines remain assigned to their respective deliveries when you unfirm a trip.</p>
+</li>
+</ul>
+<h3><b>Prerequisites</b></h3>
+<p>Trip Firm status must be set to Firm Routing or Firm Routing and Contents.</p>
+<p>Trip Firm status for all deliveries must be set to Firm Routing or Firm Routing and Contents.</p>
+<p><b>To Unfirm a Trip Using the Shipping Transactions Window<a name="d0e5104" id="d0e5104"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window and find the trip.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unfirm.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Unfirm a Trip Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e5133" id="d0e5133"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Trips page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Trips page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the trips you want to firm and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Unfirm Trips Using the Search Trips Page</b></p>
+<ol>
+<li>
+<p>Select one or more trips by clicking the corresponding check boxes in the Select column.</p>
+<p><strong><span>Note:</span></strong> You can also click the <b>Select All</b> link at the top of the Select column to select all of the details in the table.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unfirm.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also unfirm a trip by performing the steps above from the Trips page when any infotile is selected.</p>
+<p><b>To Unfirm a Trip Using the Trip Page</b></p>
+<ol>
+<li>
+<p>Click the trip <b>Name</b> link in the search results table of the Search Trips page.</p>
+<p>The Trip page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unfirm.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3908135"></a><a id="T435185"></a><b>Purging Trips and Trip Stops</b></h2>
+<p><a name="d0e5212" id="d0e5212"></a><a name="d0e5218" id="d0e5218"></a><a name="d0e5224" id="d0e5224"></a><a name="t_tripprg" id="t_tripprg"></a>If purge criteria of deliveries, delivery lines, and LPNs associated to trips and trip stops are met, then Oracle Shipping Execution enables you to purge (permanently delete) trip and trip stop records from the Oracle Shipping Execution tables. The following criteria must be met before trips and trip stops are purged:</p>
+<ul>
+<li>
+<p>Trip entities (stops, deliveries, lines, and LPNs) must meet the given criteria of the entity in order to purge the trip that they belong to. For example, in order to purge a trip that contains two stops and one delivery, the stops must meet the purge criteria and the delivery must meet the delivery purge requirements. See <a href="T414830T414837.htm#deliv_purge">Purging Deliveries</a>.</p>
+</li>
+<li>
+<p>If a trip is part of a multi-delivery consolidation and is in progress, then the trip will not be purged.</p>
+</li>
+<li>
+<p>Only Closed trips and Intransit trips (if selected) can be purged.</p>
+</li>
+</ul>
+<p>All information associated with the purged entities is also purged, for example freight costs, weight and volume, dates, and exceptions.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414843.htm#t_shpprgrep">Shipping Purge Concurrent Process</a></p>
+<h2><a name="3573546"></a><a id="T414949"></a><b>Assigning Freight Costs to a Trip</b></h2>
+<p><a name="d0e5258" id="d0e5258"></a><a name="d0e5264" id="d0e5264"></a><a name="t_fcass" id="t_fcass"></a><a name="WSHINTFR.FREIGHT" id="WSHINTFR.FREIGHT"></a><a name="asfrtcst" id="asfrtcst"></a><a name="TripFreightCostsResultPG" id="TripFreightCostsResultPG"></a><a name="TripFreightCostMainPG" id="TripFreightCostMainPG"></a>You can assign freight costs to a specific trip, override the suggested freight costs, or update existing freight costs. For example, if you wanted to add additional costs to a particular vehicle that is used in the trip to deliver goods. A freight cost can also be assigned to a delivery, a stop, a delivery leg, a delivery detail, or a container.</p>
+<p><b>To Assign Freight Costs to a Trip Using the Shipping Transactions Window<a name="fctripstw" id="fctripstw"></a><a name="d0e5282" id="d0e5282"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the trip.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><b>Freight Costs window</b></p>
+<p><img width="752" height="501" src="./img/wshug_frtcst.gif" alt="the picture is described in the document text"></p>
+<p>The Freight Cost window appears.</p>
+<p><strong><span>Note:</span></strong> When assigning freight costs from the Quick Ship window, the Freight Costs window is displayed for the Delivery that your cursor is on.</p>
+</li>
+<li>
+<p>Enter the Freight Cost Name.</p>
+<p>The Type and Trip display by default based on the Name.</p>
+</li>
+<li>
+<p>Enter a Currency Code or accept the default.</p>
+</li>
+<li>
+<p>Enter an Amount or accept the default.</p>
+</li>
+<li>
+<p>Optionally, enter a Conversion Type, Conversion Date, and Conversion Rate.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+</ol>
+<p><b>To View Freight Costs for a Trip Using the Shipping Transactions Window<a name="d0e5344" id="d0e5344"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window and find the trip.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+<li>
+<p>View the freight cost information.</p>
+<p>Type displays the freight cost type associated with the freight cost name. Freight cost name and freight cost type uniquely identify a freight cost charge.</p>
+<p>Trip is blank for manually entered freight costs.</p>
+</li>
+</ol>
+<p><b>To Assign Freight Costs to a Trip Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e5377" id="d0e5377"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Trips page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Trips page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the trips to which you want to assign freight costs, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Assign Freight Costs to a Trip Using the Search Trips Page</b></p>
+<ol>
+<li>
+<p>Select one trip by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Freight Cost page appears displaying the freight costs for the trip if they exist.</p>
+</li>
+<li>
+<p>Click the <b>Create Freight Cost</b> icon (+ plus sign).</p>
+</li>
+<li>
+<p>Enter freight cost information.</p>
+<p>For information on entering freight costs, see the <a href="T414830T414835.htm#fctripstw">procedure: To Assign Freight Costs to a Trip Using the Shipping Transactions Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+<p><strong><span>Note:</span></strong> You can also assign freight costs to a trip by performing the steps above from the Trips page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To Assign Freight Costs to a Trip Using the Trip Page</b></p>
+<ol>
+<li>
+<p>Click the trip <b>Name</b> link in the search results table of the Search Trips page.</p>
+<p>The Trip page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Freight Cost page appears displaying the freight costs for the trip if they exist.</p>
+</li>
+<li>
+<p>Click the <b>Create Freight Cost</b> icon (+ plus sign).</p>
+</li>
+<li>
+<p>Enter the freight cost information.</p>
+<p>For information on entering freight costs, see the <a href="T414830T414835.htm#fctripstw">procedure: To Assign Freight Costs to a Trip Using the Shipping Transactions Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<p><b>To View Freight Costs for a Trip Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e5491" id="d0e5491"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Trips page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Trips page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the trips for which you want to view freight costs, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To View Freight Costs for a Trip Using the Search Trips Page</b></p>
+<ol>
+<li>
+<p>Select one trip by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Freight Cost page appears displaying the freight costs for the trip.</p>
+<p><strong><span>Note:</span></strong> You can also view freight costs for a trip by performing the steps above from the Trips page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To View Freight Costs for a Trip Using the Trip Page</b></p>
+<ol>
+<li>
+<p>Click the trip <b>Name</b> link in the search results table of the Search Trips page.</p>
+<p>The Trip page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Freight Cost page appears displaying the freight costs for the trip.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573550"></a><a id="T414950"></a><b>Printing a Document Set for a Trip</b></h2>
+<p><a name="d0e5568" id="d0e5568"></a><a name="d0e5574" id="d0e5574"></a><a name="t_docsetprnt" id="t_docsetprnt"></a><a name="print" id="print"></a>You can print a group of shipping documents and other reports in a set for a trip. These document sets might include pick release documents, pack slip, bill of lading, or any other shipping document.</p>
+<p>Any Shipping document enabled for XML Publisher can also be included in a document set. Once included, the document automatically prints with other documents in the document set. XML Publisher enabled Shipping documents enable the flexibility to define your own report layouts, include additional fields on reports, and print the document in PDF format. See: <a href="T414830T414843.htm#t_wshrepcustom">Report Customization with Layout Templates</a></p>
+<p><b>To Print a Document Set for a Trip Using the Shipping Transactions Window<a name="d0e5592" id="d0e5592"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the trip.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print Document Set,</b> or if you have added a <b>Print Document Set</b> button, click it.</p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Document Sets window displays a list of document sets.</p>
+</li>
+<li>
+<p>Select the document set and click <b>OK.</b></p>
+<p>The document set for the trip is printed.</p>
+</li>
+</ol>
+<p><b>To Print a Document Set for a Trip Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e5631" id="d0e5631"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Trips page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Trips page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the trip for which you want to print a document set, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Print a Document Set for a Trip Using the Search Trips Page</b></p>
+<ol>
+<li>
+<p>Select one trip by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print Document Set.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Choose Document Set page appears.</p>
+</li>
+<li>
+<p>Select the document set in the Name field and click <b>OK.</b></p>
+<p>A message at the top of the page indicates that the document set was submitted and provides the request ID.</p>
+<p><strong><span>Note:</span></strong> You can also print a document set for a trip by performing the steps above from the Trips page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To Print a Document Set for a Trip Using the Trip Page</b></p>
+<ol>
+<li>
+<p>Click the trip <b>Name</b> link in the search results table of the Search Trips page.</p>
+<p>The Trip page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print Document Set.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Choose Document Set page appears.</p>
+</li>
+<li>
+<p>Select the document set in the Name field and click <b>OK.</b></p>
+<p>A message at the top of the page indicates that the document set was submitted and provides the request ID.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="4033316"></a><a id="T447112"></a><b>Printing a Master Bill of Lading for a Trip</b></h2>
+<p><a name="d0e5722" id="d0e5722"></a><a name="d0e5728" id="d0e5728"></a><a name="t_pmboltirp" id="t_pmboltirp"></a>You can print the Master Bill of Lading report for trips from the Actions menu on these windows or pages:</p>
+<ul>
+<li>
+<p>Trips window in the Shipping Transactions window.</p>
+</li>
+<li>
+<p>Trips page in the Shipping Execution Simplified User Interface.</p>
+</li>
+<li>
+<p>Trip page in the Shipping Execution Simplified User Interface.</p>
+</li>
+</ul>
+<p>The Master Bill of Lading is XML Publisher enabled and can be printed in PDF if the Master Bill of Lading PDF template is enabled in the document set for Master Bill of Lading. See: <a href="T414830T414843.htm#t_wshrepcustom">Report Customization with Layout Templates</a>.</p>
+<p><b>To Print a Master Bill of Lading for a Trip Using the Shipping Transactions Window<a name="d0e5756" id="d0e5756"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the trip.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print Master BOL.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+<p><b>To Print a Master Bill of Lading for a Trip Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e5781" id="d0e5781"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Trips page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Trips page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the trip for which you want to print a master bill of lading, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Print a Master Bill of Lading for a Trip Using the Search Trips Page</b></p>
+<ol>
+<li>
+<p>Select one or more trips by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print Master BOL.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>A message at the top of the page indicates that the master bill of lading documents were submitted and provides the request IDs.</p>
+<p><strong><span>Note:</span></strong> You can also print a master bill of lading for a trip by performing the steps above from the Trips page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To Print a Print a Master Bill of Lading for a Trip Using the Trip Page</b></p>
+<ol>
+<li>
+<p>Click the trip <b>Name</b> link in the search results table of the Search Trips page.</p>
+<p>The Trip page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print Master BOL.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>A message at the top of the page indicates that the master bill of lading documents were submitted and provides the request IDs.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573552"></a><a id="T414951"></a><b>Calculating Weight and Volume for a Trip Stop</b></h2>
+<p><a name="d0e5858" id="d0e5858"></a><a name="d0e5864" id="d0e5864"></a><a name="t_wgtvolcal" id="t_wgtvolcal"></a><a name="wtvol" id="wtvol"></a>The weight and volume is always calculated based on values defined as the physical attributes in the Master Item window in Oracle Inventory. The automatic calculation of weight and volume includes the fill percentage.</p>
+<p>You can manually enter the weight and volume in each delivery, which will be used at ship confirmation.</p>
+<p>When the weight, volume, and fill percentage for a trip stop is calculated, Shipping Execution:</p>
+<ul>
+<li>
+<p>Calculates the weight, volume, and fill percentage of each open delivery and adds the values to the trip stop's current weight, volume, and fill percentage.</p>
+</li>
+<li>
+<p>Validates that the maximum load weight, the maximum internal volume, and the maximum fill percentage are not exceeded.</p>
+</li>
+<li>
+<p>Validates that minimum fill percentage requirements are attained.</p>
+<p><strong><span>Note:</span></strong> A vehicle must be assigned to the trip before the actual fill percentage can be calculated.</p>
+</li>
+</ul>
+<p><b>To Manually Enter Weight and Volume for a Trip Stop Using the Shipping Transactions Window<a name="d0e5895" id="d0e5895"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the trip stop.</p>
+</li>
+<li>
+<p>Click <b>Details.</b></p>
+</li>
+<li>
+<p>Enter your weights and volume.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Manually Enter Weight and Volume for a Trip Stop Using the Trips Page in the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e5922" id="d0e5922"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Trips page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Trips page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the trips containing the stops for which you want to enter weight and volume, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Click the trip <b>Name</b> link in the search results table.</p>
+<p>The Trip page appears displaying the trip information and the stops associated with the trip.</p>
+</li>
+<li>
+<p>Click the <b>Sequence</b> link in the Stops region of the page.</p>
+<p>The Stop Location page appears.</p>
+</li>
+<li>
+<p>Enter weights and volume.</p>
+</li>
+<li>
+<p>Click <b>Save</b> to save the information and to stay on this page.</p>
+<p>Click <b>Apply</b> to save the information and to return to the previous page.</p>
+</li>
+</ol>
+<p><b>To Manually Enter Weight and Volume for a Trip Stop Using the Stops Page in the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e5986" id="d0e5986"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Stops page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Stops page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the stops for which you want to enter weight and volume, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Click the <b>Sequence</b> link in the search results table.</p>
+<p>The Stop Location page appears.</p>
+</li>
+<li>
+<p>Enter weights and volume.</p>
+</li>
+<li>
+<p>Click <b>Save</b> to save the information and to stay on this page.</p>
+<p>Click <b>Apply</b> to save the information and to return to the previous page.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414837.htm#wtvoldel">Calculating Weight and Volume for a Delivery</a></p>
+<p><a href="T414830T414838.htm#calcwtvol">Calculating Weight and Volume for Delivery Lines</a></p>
+<h2><a name="3573555"></a><a id="T414952"></a><b>Ship Confirming a Trip</b></h2>
+<p><a name="d0e6049" id="d0e6049"></a><a name="d0e6055" id="d0e6055"></a><a name="t_shconftrp" id="t_shconftrp"></a><a name="spconf" id="spconf"></a>You can ship confirm a trip from the Shipping Transactions window, or the Trips or Trip pages in the Shipping Execution Simplified User Interface which also progresses the status of all assigned deliveries, LPNs, and delivery lines. This method of ship confirming might be preferable if your trips consist of multiple deliveries.</p>
+<p><strong><span>Note:</span></strong> A new role, with the privilege Ship Confirm enabled at the trip tab, will need to be defined in order for you to perform ship confirm at the trip level.</p>
+<p><b>To Ship Confirm at the Trip Level Using the Shipping Transactions Window<a name="d0e6072" id="d0e6072"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window.</p>
+</li>
+<li>
+<p>Find your Trip.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Ship Confirm.</b></p>
+<p><b>Shipping Transactions - Trip window</b></p>
+<p><img width="944" height="502" src="./img/wshug_shpconftrip.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Within the Confirm Trip window, select the options suitable to your needs.</p>
+<p>In the <b>Ship Options</b> section, for the options <b>Ship Entered Quantities</b> and <b>Backorder All</b>, you can select a backorder reason to move backordered material from the staging subinventory to the source subinventory. You can select the backorder reason based on the Shipping Parameters setup for organizations in a trip.</p>
+<p><b>Confirm Trip (Ship Confirm Trip) window</b></p>
+<p><img width="564" height="506" src="./img/wshug_conftrip.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> You can ship confirm all deliveries, set deliveries in-transit, or close trip, if the deliveries have the same pickup location. If the trip has multiple pickups, Multiple is defaulted in the Pickup Stop field and you will not be able to choose any of the trip options. Clicking OK will confirm all deliveries at the initial pickup location and you must close the drop off stops manually. If the trip includes multiple pickup stops, you must manually ship confirm any delivery that is not part of the initial pickup otherwise it's pickup will not be closed. Ship confirming a trip only closes the pickup stop for deliveries that occur at the start of the trip; not intermediate pickup stops.</p>
+</li>
+</ol>
+<p><b>To Ship Confirm at the Trip Level Using the Trips Page in the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e6127" id="d0e6127"></a><a name="TripShipConfirmPG" id="TripShipConfirmPG"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Trips page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Trips page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the trips for which you want to ship confirm, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Ship Confirm a Trip Using the Search Trips Page</b></p>
+<ol>
+<li>
+<p>Select one trip by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Ship Confirm.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><b>Ship Confirm page</b></p>
+<p><img width="800" height="600" src="./img/wshug_scn_shipctrip.gif" alt="the picture is described in the document text"></p>
+<p>The Ship Confirm page appears.</p>
+</li>
+<li>
+<p>Select the ship options and the trip options.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+<p><strong><span>Note:</span></strong> You can also ship confirm a trip by performing the steps above from the Trips page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To Ship Confirm a Trip Using the Trip Page</b></p>
+<ol>
+<li>
+<p>Click the trip <b>Name</b> link in the search results table of the Search Trips page.</p>
+<p>The Trip page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Ship Confirm.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Ship Confirm page appears.</p>
+</li>
+<li>
+<p>Select the ship options and the trip options.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414841.htm#toshpcn">To ship confirm a delivery</a></p>
+<h2><a name="3894433"></a><a id="T434356"></a><b>Trip Workflow Status</b></h2>
+<p><a name="d0e6233" id="d0e6233"></a><a name="d0e6237" id="d0e6237"></a><a name="d0e6243" id="d0e6243"></a><a name="trp_wf" id="trp_wf"></a>With the use of Oracle Workflow, Oracle Shipping Execution enables you to view the status of trip specific workflow through the Shipping Transactions window or the Quick Ship window.</p>
+<p>The Workflow Monitor is used to graphically display the status of the workflow associated with the trip.</p>
+<p>Trip Workflow must be enabled in the Global parameters.</p>
+<h3><b>Viewing Trip Workflow Status<a name="d0e6258" id="d0e6258"></a></b></h3>
+<p><b>To View the Workflow Status of a Trip<a name="d0e6267" id="d0e6267"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions window.</p>
+</li>
+<li>
+<p>Find the trip.</p>
+</li>
+<li>
+<p>From the Tools menu, select Workflow status.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T434644.htm#viewwshwf">Workflow Status</a></p>
+<h2><a name="3573559"></a><a id="T414849"></a><b>Using Quick Ship for Trips</b></h2>
+<p><a name="d0e6294" id="d0e6294"></a><a name="t_trpqs" id="t_trpqs"></a><a name="qs_trip" id="qs_trip"></a>The Quick Ship window enables you to process shipments quickly, using the minimum shipping requirements with the benefit of a highly configurable window. You can access trips and perform several actions within the Quick Ship window.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414833.htm#qs_win">Quick Ship Window</a></p>
+<p><a href="T414830T414835.htm#fndqst">Finding and Confirming Quick Ship Trips</a></p>
+<h2><a name="3573560"></a><a id="T414953"></a><b>Finding and Confirming Quick Ship Trips</b></h2>
+<p><a name="d0e6317" id="d0e6317"></a><a name="d0e6325" id="d0e6325"></a><a name="d0e6333" id="d0e6333"></a><a name="d0e6339" id="d0e6339"></a><a name="t_qsfndqs" id="t_qsfndqs"></a><a name="WSHQSSUI_FIND_TRIP" id="WSHQSSUI_FIND_TRIP"></a><a name="WSHQSSUI_FIND_TRIP_RESULTS" id="WSHQSSUI_FIND_TRIP_RESULTS"></a><a name="fndqst" id="fndqst"></a>You will use the find window to search for applicable trips.</p>
+<p><b>To Find a Trip<a name="d0e6355" id="d0e6355"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Quick Ship window.</p>
+</li>
+<li>
+<p>Ensure that the window view is set to Trip Confirm View.</p>
+</li>
+<li>
+<p>With the cursor in the trip Name field, press F11 or select Find from the View menu.</p>
+<p>There are several ways to find trips in the Quick Ship window:</p>
+<ul>
+<li>
+<p>The Find icon</p>
+</li>
+<li>
+<p>The LOV for the Trip Name</p>
+</li>
+<li>
+<p>Enter the Trip Name and press [Tab]</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter your search criteria.</p>
+</li>
+<li>
+<p>Click <b>Find.</b></p>
+</li>
+</ol>
+<p><b>To Confirm a Trip Using the Quick Ship Window<a name="d0e6400" id="d0e6400"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Quick Ship window.</p>
+</li>
+<li>
+<p>Ensure that the window view is set to Trip Confirm View.</p>
+</li>
+<li>
+<p>Within the Trip region, enter or find the trip Name.</p>
+</li>
+<li>
+<p>Verify all data in the header fields and update as necessary.</p>
+<p>Any of the following actions can be executed by clicking the appropriate button at the bottom of the window, or by right-clicking and selecting the action from that menu:</p>
+<ul>
+<li>
+<p><a href="T414830T414835.htm#asfrtcst">Assign Freight Costs</a></p>
+</li>
+<li>
+<p><a href="T414830T414841.htm#snassign">Serial Numbers</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#wtvol">Reset Weight and Volume</a></p>
+</li>
+<li>
+<p><a href="T414830T414843.htm#rep_pkslip">Print Packing Slip</a></p>
+</li>
+<li>
+<p><a href="T414830T414843.htm#rep_bol">Print Bill of Lading (BOL)</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#print">Print Document Set</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#spconf">Ship Confirm</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click the <b>Ship Confirm</b> button or right click and select <b>Ship Confirm.</b></p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Shipping Execution User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Shipping Execution User's Guide">
+<meta name="dcterms.identifier" content="E48847-15">
+<meta name="dcterms.isVersionOf" content="WSHUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T414830T414842.htm" title="Previous" type="text/html">
+<link rel="Next" href="T414830T414843.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Shipping Execution User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">17/23</span> <!-- End Header -->
+<h1>Oracle Yard Management Integration</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T633102">Overview of Integration with Yard Management</a></li>
+<li><a href="#T633103">YMS Entities in Shipping Transactions Window</a></li>
+<li><a href="#T633104">YMS Entities in Quick Ship Window</a></li>
+<li><a href="#T633105">APIs to Support Outbound Activities</a></li>
+<li><a href="#T633106">YMS Related Actions/Tasks in Shipping Transactions Window</a></li>
+</ul>
+<h2><a name="7223544"></a><a id="T633102"></a><b>Overview of Integration with Yard Management</b></h2>
+<p><a name="d0e20911" id="d0e20911"></a><a name="wshugymsio" id="wshugymsio"></a>Oracle Yard Management (YMS) is designed to oversee the movement of equipment in the yard of a manufacturing facility, warehouse, or distribution center. YMS provides real-time information on the location of equipment in the yard and allows yard employees to move equipment from parking to docks to fill orders in an efficient manner. Oracle Shipping Execution is integrated with YMS for outbound activities such as loading equipment and ship confirmation.</p>
+<p>To support this integration, Shipping Execution provides the following:</p>
+<ul>
+<li>
+<p>YMS entities in Shipping Transactions window</p>
+</li>
+<li>
+<p>YMS entities in Quick Ship window</p>
+</li>
+<li>
+<p>APIs to support the applicable outbound activities</p>
+</li>
+<li>
+<p>YMS Related Actions in Shipping Transactions window</p>
+</li>
+</ul>
+<p>See: <i>Oracle Yard Management Process Guide</i> and My Oracle Support Note 1672903.1 - <i>Oracle Yard Management, Deployment Steps For ADF Components</i>.</p>
+<h2><a name="7223545"></a><a id="T633103"></a><b>YMS Entities in Shipping Transactions Window</b></h2>
+<p><a name="d0e20946" id="d0e20946"></a><a name="wshugymsestw" id="wshugymsestw"></a>Shipping Transactions window enables the following to support Oracle Warehouse Management (WMS) and non-WMS inventory organizations:</p>
+<ul>
+<li>
+<p>Stores the equipment number at delivery detail level.</p>
+</li>
+<li>
+<p>Supports multiple deliveries for equipment.</p>
+</li>
+<li>
+<p>Supports multiple trips for equipment (Oracle Transportation Management (OTM) and non OTM trips).</p>
+</li>
+<li>
+<p>Supports multiple equipment for one delivery.</p>
+</li>
+<li>
+<p>Supports multiple equipment for one trip (non OTM trips).</p>
+</li>
+<li>
+<p>Flexibility to relieve inventory at ship confirm or yard check-out that you can achieve by defining a business process on when to run Interface Trip Stop (ITS) / Inventory Interface.</p>
+</li>
+<li>
+<p>Once the pick-up stop is closed, ITS runs or you can schedule it to run which relieves inventory and interfaces the shipment to OM and AR.</p>
+</li>
+<li>
+<p>The application stamps the time of actual ship confirm on the shipment records and ITS honors it as the shipment date and time.</p>
+</li>
+<li>
+<p>For issues related to incorrect shipments, you can create an RMA to receive the shipments back into inventory.</p>
+</li>
+<li>
+<p>Shipping Execution validates only the shipments created by Oracle Transportation Management (OTM) &ndash; One equipment per OTM batch/shipment/trip.</p>
+</li>
+<li>
+<p>For OTM planning eligible deliveries in OTM enabled organizations, whenever a delivery has contents that are loaded into a equipment and if the delivery is not already assigned to a trip, the application stops you from performing the load action. It prompts you to mark such deliveries to 'Ignore for planning' and then perform this action. You cannot mark this delivery, which is loaded to equipment, as 'Include for Planning'.</p>
+</li>
+<li>
+<p>Whenever delivery(s) is sent to OTM for planning and OTM sends the equipment type, Shipping Execution enforces loading of the details/delivery/trip in only one equipment instance of the equipment type sent by OTM. If you want to load the details/delivery/trip into a different equipment type, then you have to unassign the delivery from trip and the application marks the delivery as Ignore for Planning automatically.</p>
+<p><strong><span>Note:</span></strong> Whenever a delivery is sent to OTM for planning and OTM sends the equipment type, Shipping Execution enforces the loading of the details/delivery/trip in only one equipment instance of the equipment type sent by OTM. If you want to load the details/delivery/trip into a different equipment type, then you need to change the vehicle details on the Trips tab of the Shipping Transaction window or you can remove the vehicle details from this tab.</p>
+</li>
+<li>
+<p>Shipping Execution prevents pack and unpack transactions for details already assigned to equipment.</p>
+</li>
+<li>
+<p>Validates close pick stop if at-least one delivery is not loaded to equipment.</p>
+</li>
+<li>
+<p>Validates the following during ship confirm:</p>
+<ul>
+<li>
+<p>Prevents ship confirm if a delivery is partially loaded to equipment.</p>
+</li>
+<li>
+<p>Availability of an implicit yard checkout at ship confirm.</p>
+<p><strong><span>Note:</span></strong> You need to add subscription to the existing business event &ldquo;oracle.apps.wsh.delivery.gen.shipconfirmed" and in that subscription you could call out your custom pl/sql API. In this custom pl/sql api, you need to call YMS Public API - YMS_TRANSACTION_PUB.checkout.</p>
+</li>
+<li>
+<p>Allows backorder for only unloaded equipment.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For OTM enabled organizations, under the Trips tab, if the vehicle related information is not populated, then Shipping Execution populates this information as soon as any of the content of the trip is loaded into the equipment.</p>
+</li>
+</ul>
+<h2><a name="7223546"></a><a id="T633104"></a><b>YMS Entities in Quick Ship Window</b></h2>
+<p><a name="d0e21025" id="d0e21025"></a><a name="wshugymseqsw" id="wshugymseqsw"></a>The Search Results for lines/LPNs display the following YMS entities:</p>
+<ul>
+<li>
+<p>Equipment Number</p>
+</li>
+<li>
+<p>Dock Door information</p>
+</li>
+<li>
+<p>Equipment Status (like 'In Yard')</p>
+</li>
+<li>
+<p>SCAC Code</p>
+</li>
+</ul>
+<h2><a name="7223547"></a><a id="T633105"></a><b>APIs to Support Outbound Activities</b></h2>
+<p><a name="d0e21052" id="d0e21052"></a><a name="wshugymsapi" id="wshugymsapi"></a>This integration uses the following:</p>
+<ul>
+<li>
+<p>Public APIs to support load and unload of equipment from Oracle Shipping Execution entities such as Lines/LPNs, Deliveries, Stops and Trips.</p>
+</li>
+<li>
+<p>Private API to calculate the equipment content cost. This API accepts a delivery and equipment as inputs and computes the current cost of all its contents assigned in that equipment.</p>
+</li>
+<li>
+<p>Private API to determine the delivery checkout status. This API accepts one or more deliveries as input and checks whether the associated pickup stop(s) are closed or not. If the stop(s) are not closed during checkout, then it raises an error.</p>
+</li>
+<li>
+<p>Calling the private YMS Document Content API in the shipping processes. Whenever there is an assignment of lines/LPNs to a delivery or unassignment from a delivery (involving an inventory organization having an associated yard organization), then the Call YMS Document Content API reflects these changes. This API reflects the changes done during load and unload of equipment as well.</p>
+</li>
+</ul>
+<h2><a name="7223548"></a><a id="T633106"></a><b>YMS Related Actions/Tasks in Shipping Transactions Window</b></h2>
+<p><a name="wshugymsstwa" id="wshugymsstwa"></a>The following actions are available for all organizations which have an associated YMS organization:</p>
+<ul>
+<li>
+<p>Search for Deliveries using YMS Entities</p>
+</li>
+<li>
+<p>View YMS Entities in Search Results</p>
+</li>
+<li>
+<p>Load To Dock Door</p>
+</li>
+<li>
+<p>Unload to Dock Door</p>
+</li>
+<li>
+<p>View Equipment Details and Update Seal Information</p>
+</li>
+<li>
+<p>Ensure Contents of Trips are Loaded into Specific Equipment</p>
+</li>
+</ul>
+<h3><a id="T633107"></a><b>Searching for Deliveries Using YMS Entities</b></h3>
+<p>You can now search for deliveries using the following folder-enabled criteria at line and LPN level in the Shipping Transactions window:</p>
+<ul>
+<li>
+<p>Equipment Number</p>
+</li>
+<li>
+<p>Dock Door</p>
+</li>
+<li>
+<p>In Yard &ndash; Tied to the status and available only if the organization has an associated yard.</p>
+</li>
+<li>
+<p>SCAC Code</p>
+</li>
+<li>
+<p>Loaded To Dock Door</p>
+</li>
+</ul>
+<p><img width="674" height="349" src="./img/wshugQueryMngr1.gif" alt="the picture is described in the document text"></p>
+<h3><a id="T633108"></a><b>Viewing YMS Entities in Search Results</b></h3>
+<p>The Search Results in the Shipping Transaction window displays the following yard objects in the Lines/LPNs tab:</p>
+<ul>
+<li>
+<p>Equipment Number</p>
+</li>
+<li>
+<p>Equipment Status (like 'In Yard')</p>
+</li>
+<li>
+<p>SCAC Code</p>
+</li>
+<li>
+<p>Dock Door information</p>
+</li>
+</ul>
+<p><img width="648" height="342" src="./img/wshugQueryResults.gif" alt="the picture is described in the document text"></p>
+<h3><a id="T633109"></a><b>Loading to Dock Door</b></h3>
+<p>The Load to Dock Door action enables you to choose equipment and load one or more (multi-select) shipping entities to that equipment. This action is available from Lines/LPNs, Delivery, Path by Stop, and Path by Trip tabs. Only Staged details are eligible for loading to equipment. The application loads the packed delivery details together.</p>
+<p>You can complete this action using the following navigation:</p>
+<ul>
+<li>
+<p>Query Staged lines &gt; Select deliveries for which you want to load equipment &gt; Select Load From Dock Door action &gt; Click <b>Go</b></p>
+</li>
+</ul>
+<p><img width="644" height="595" src="./img/wshugaction1.gif" alt="the picture is described in the document text"></p>
+<h3><a id="T633110"></a><b>Unloading From Dock Door</b></h3>
+<p>The Unload to Dock Door action enables you to unload one or more (multi-select) shipping entities from the equipment that they are currently loaded into. This action is available from Lines/LPNs, Delivery, Path by Stop, and Path by Trip tabs. Only Staged details are eligible for unloading from the equipment. The application unloads the packed delivery details together.</p>
+<p>You can complete this action using the following navigation:</p>
+<ul>
+<li>
+<p>Query Staged lines &gt; Select deliveries with equipment loaded previously &gt; Select Unload From Dock Door action &gt; Click <b>Go</b></p>
+</li>
+</ul>
+<p><img width="1203" height="502" src="./img/wshugaction2.gif" alt="the picture is described in the document text"></p>
+<h3><a id="T633111"></a><b>Viewing Equipment Details and Updating Seal Information</b></h3>
+<p>Oracle Shipping Execution enables you to navigate to the Equipment Details page in Oracle Yard Management to search equipment by dock door, equipment number, SCAC, and update the seal number for the equipment. You cannot perform this action when you select multiple details and is enabled if the delivery detail is loaded into the equipment.</p>
+<p>You can complete this action using the following navigation:</p>
+<ul>
+<li>
+<p>Query Staged lines &gt; Under Lines/LPNs tab, select deliveries with equipment loaded previously &gt; choose Tools menu &gt; choose Equipment Details</p>
+</li>
+</ul>
+<p><img width="1203" height="559" src="./img/wshugequipdetails.gif" alt="the picture is described in the document text"></p>
+<h3><a id="T633112"></a><b>Ensuring Contents are Loaded into Specific Equipment</b></h3>
+<p>Oracle Shipping Execution enables you to ensure that contents are loaded into specific equipment. Under the Path by Trip tab, if the following fields are populated, then you can load the contents into the same vehicle mentioned. These fields are editable if none of the contents are loaded in the equipment. However, if the contents are partially or fully loaded into the equipment, then these fields are read only:</p>
+<ul>
+<li>
+<p>Vehicle Org Code</p>
+</li>
+<li>
+<p>Vehicle Item Name</p>
+</li>
+<li>
+<p>Vehicle Number</p>
+</li>
+<li>
+<p>Vehicle Number Prefix</p>
+</li>
+</ul>
+<p><img width="1199" height="503" src="./img/wshugvehicle1.gif" alt="the picture is described in the document text"></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

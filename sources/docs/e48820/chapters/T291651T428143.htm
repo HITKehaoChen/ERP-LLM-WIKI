@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T292014.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T292324.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">19/31</span> <!-- End Header -->
+<h1>Move Orders</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T292092">Overview of Move Orders</a></li>
+<li><a href="#T292026">Setting Up Move Orders</a></li>
+<li><a href="#T292093">Generating Move Order Requisitions</a></li>
+<li><a href="#T292094">Generating Replenishment Move Orders</a></li>
+<li><a href="#T292095">Allocating and Transacting Move Orders</a></li>
+<li><a href="#T441746">Manual Move Order Allocation</a></li>
+<li><a href="#T292096">Configuring the Material Pick Wave Process</a></li>
+<li><a href="#T292097">Exception Management</a></li>
+<li><a href="#T292098">Manually Allocating and Transacting Pick Wave Move Orders</a></li>
+<li><a href="#T292099">Express Pick Release</a></li>
+<li><a href="#T292028">Reservation Details</a></li>
+</ul>
+<h2><a name="1755848"></a><a id="T292092"></a><b>Overview of Move Orders</b></h2>
+<p><a name="d0e89150" id="d0e89150"></a><a name="I_movordov" id="I_movordov"></a>Move orders are requests for the movement of material within a single organization. They allow planners and facility managers to request the movement of material within a warehouse or facility for purposes like replenishment, material storage relocations, and quality handling. You can generate move orders either manually or automatically depending on the source type you use.</p>
+<p><strong><span>Note:</span></strong> Move orders are restricted to transactions within an organization. If you are transferring material between organizations, you must use the internal requisition process. See: Overview of Internal Requisitions, <i>Oracle Purchasing User's Guide</i>.</p>
+<p><b>Managed Material Flow in a Facility</b></p>
+<p>Move orders allow you to distinguish between inventory management processes and the actual material transaction process. This provides for the following:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>Quick response</i></td>
+<td>You can request a transaction and forward the request to a picker for transaction execution. The request is tracked in Oracle Inventory, which allows you to avoid manual systems, thus eliminating inaccurate transfer of information. Also, Oracle Inventory replenishment functionality can automatically generate move orders without the intervention of an item planner. This results in faster inventory replenishment, with minimal human intervention.</td>
+</tr>
+<tr valign="top">
+<td><i>Warehouse visibility</i></td>
+<td>Move orders use inventory picking rules to determine where to source material for a subinventory or account transfer. This ensures that the same mechanisms created to rotate material properly for deliveries can be used to rotate material within the facility.</td>
+</tr>
+<tr valign="top">
+<td><i>Tracking</i></td>
+<td>Move orders can be transacted through APIs. This allows you to transact material using mobile devices, giving you better material visibility and accuracy. Move orders can also be created to cross dock material to staging locations.</td>
+</tr>
+</table>
+<p><b>Move Order Source Types<a name="d0e89203" id="d0e89203"></a></b></p>
+<p>Oracle provides three types of move orders: 1) Move order requisitions, 2) Replenishment move orders, and 3) Pick wave move orders. The move order type refers to the entity that created the move order. For all move orders, the final result is one of the two supported transactions: subinventory transfer or account issue.</p>
+<h3><b>Move Order Requisitions<a name="d0e89214" id="d0e89214"></a></b></h3>
+<p>A move order requisition is a manually generated request for a move order. It is available for subinventory transfers and account transfers. Once a requisition has been approved, it becomes a move order. These requests can optionally go through a workflow-based approval process before they become move orders ready to be sourced and transacted. See: <a href="T291651T428143.htm#I_genmoreq">Generating Move Order Requisitions</a>.</p>
+<p>Move orders can be generated automatically to back order material from the Default Stage Subinventory to source subinventory. These move orders must have the associated transaction type set to Reverse Staging Transfer and must be created with their preapproved status as pick wave move orders. These move orders are created only by the concurrent program Process Move Order for Backordered Materials.</p>
+<h3><b>Replenishment Move Orders<a name="d0e89229" id="d0e89229"></a></b></h3>
+<p>You can automatically create pre-approved move orders using the following planning and replenishment functions. These processes generate move orders if the material is sourced from another inventory location within the organization.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>Min-Max Planning:</i></td>
+<td>When a minimum quantity for a specific item is reached in inventory, you can use a move order to replenish the supply.</td>
+</tr>
+<tr valign="top">
+<td><i>Replenishment Counting</i></td>
+<td>If a system that uses replenishment counting triggers an item for replenishment, you can use move orders to replenish the supply.</td>
+</tr>
+<tr valign="top">
+<td><i>Kanban Replenishment</i></td>
+<td>When a kanban card signals the need to release an item into a subinventory, you can generate a move order to handle the release.</td>
+</tr>
+</table>
+<p>For min-max planning and replenishment counting, you can set the subinventory source type at the following levels:</p>
+<ul>
+<li>
+<p>Master/Organization Items</p>
+</li>
+<li>
+<p>Subinventory</p>
+</li>
+<li>
+<p>Item Subinventory</p>
+</li>
+</ul>
+<p>For kanban pull sequence or cards, you set the subinventory source type at the Pull Sequence level. See: <a href="T291651T428143.htm#I_genrplmo">Generating Replenishment Move Orders</a>.</p>
+<h3><b>Pick Wave Move Orders<a name="d0e89285" id="d0e89285"></a></b></h3>
+<p>Pick wave move orders are pre-approved requests for subinventory transfers to bring material from a source location in the warehouse to a staging subinventory. These move orders are generated automatically by the Oracle Shipping Execution pick release process. See: <a href="T291651T428143.htm#pckwvow">Overview of Material Pick Waves</a>.</p>
+<p><b>Move Order Components<a name="d0e89298" id="d0e89298"></a></b></p>
+<p>A move order comprises the following:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>Move order header</i></td>
+<td>Oracle Inventory uses the move order header to store the move order source type. This refers to the entity that created the move order. The header also stores the default source and destination (if known), the order number, and the requested date.</td>
+</tr>
+<tr valign="top">
+<td><i>Move order lines</i></td>
+<td>Move order lines are the requests on a move order. They store the item, requested quantity, completed quantity (if the move order has been partially fulfilled), and source and destination (if known). The move order lines also include any project and task references if the organization is Oracle Project Manufacturing enabled. You can also request specific serial and lot numbers on the move order line.</td>
+</tr>
+<tr valign="top">
+<td><i>Move order line allocations</i></td>
+<td>The line allocations are the transactions that occur to fulfill a particular move order line. You can set up your system to have Oracle Inventory's picking engine automatically fill in the allocations, or you can manually fill in the line details and edit them before you transact. If the material is locator, lot, or serial controlled, the system fills in this information at the line detail level.</td>
+</tr>
+</table>
+<p><b>Move Order Process Flow<a name="d0e89338" id="d0e89338"></a></b></p>
+<p>The move order process follows the following steps:</p>
+<ol>
+<li>
+<p><b>Create a move order for required material.</b> You can manually create a move order requisition or set up your system to automatically generate replenishment or pick wave move orders.</p>
+</li>
+<li>
+<p><b>Approve the move order lines.</b> If the move order requisitions require approval, the item planner must approve the move order lines.</p>
+</li>
+<li>
+<p><b>Allocate the move order</b><a name="d0e89365" id="d0e89365"></a>. Once the move order is approved, you can allocate it, or cancel it. Allocating is the process that uses Oracle Inventory picking rules to determine where to source the material to fulfill a request line. The allocating process fills in the move order line details with the actual transactions to be performed and allocates the material to the move order.</p>
+<p>You can also cancel partially allocated move order requisitions and replenishment move orders. Oracle Inventory provides a profile option INV: Kill Move Order which allows the system to cancel partially allocated and transacted move orders. See: <a href="T291651T291654.htm#I_r_profopts">Inventory Profile Options</a>.</p>
+</li>
+<li>
+<p><b>Print a pick slip.</b> Before you transact the move order, you can print a pick slip or push the move order line allocations to mobile devices for transaction through the move order APIs.</p>
+</li>
+<li>
+<p><b>Transact move order lines.</b><a name="d0e89387" id="d0e89387"></a> You can either transact all the move order lines at once or transact one allocation line at a time as the items are moved. If you transact less than the requested quantity, the move order stays open until the total quantity is transacted or until the order is closed or cancelled. You can cancel partially allocated and transacted Move Order Requisitions and Replenishment Move Order lines.</p>
+</li>
+</ol>
+<p><b>Allocating Move Orders<a name="d0e89396" id="d0e89396"></a></b></p>
+<p>Move orders use Inventory picking rules to suggest source location, lot numbers, and revisions for the material to be picked. You can choose to view and update the suggested source allocations before printing a pick slip or committing the transaction. See: <a href="T291651T291798.htm#I_t_defpckrul">Defining Picking Rules</a>.</p>
+<p><strong><span>Note:</span></strong> Allocating creates a pending transaction that will be executed when you transact the line. It therefore decrements the available quantity.</p>
+<p><b>Workflow for Move Order Approval Process<a name="d0e89413" id="d0e89413"></a></b></p>
+<p>If you require planner approval for move order requisitions, you can use the move order approval process, which forwards move order lines to the designated item planner for approval. Oracle Inventory manages the approval process through Oracle Workflow.</p>
+<p>To govern the move order approval process, you set two inventory organization parameters: Move Order Timeout Period and Move Order Timeout Action. The Move Order Timeout Period attribute determines the number of days the order can wait for approval. After one time out period, if the recipient has not approved or rejected the order, a reminder notice is sent. After a second time out period, the order is automatically approved or rejected, depending on the Move Order Timeout Action attribute you set. Upon approval, additional notifications can be sent to specified individuals.</p>
+<p>The item planner is an item attribute. If no planner is specified on the item, the requisition line will be automatically approved.</p>
+<p>Once the order line is approved, notices are sent to a notification list that is attached to the source and destination subinventories to let the subinventory planners know that material will be moved to or from their areas.</p>
+<p><strong><span>Note:</span></strong> Replenishment and pick wave move orders are pre-approved</p>
+<p><b>Print Move Order Pick Slips</b></p>
+<p>You can print move order pick slips before or after the move order transaction is committed. The Move Order Pick Slip report generates pick slips for move order requisitions and replenishment move orders. See: <a href="T291651T295121.htm#invmvpck">Move Order Pick Slip Report</a>.</p>
+<p>To generate a pick slip for pick wave move orders, you submit the Oracle Shipping Execution Pick Slip report.</p>
+<p><b>Backorder Move Order API</b></p>
+<p>The Backorder Move Order Application Program public API lets you back order the open move order lines for pick waves and manufacturing pick move orders. The technical name of this API is INV_MO_BACKORDER_PUB.BACKORDER. This API accepts move order line as input, validates it, and deletes the allocations and associated reservations, if any. Depending on the source of the move order, the API updates the shipping or WIP tables with the status and quantities. Finally, the API closes the move order line. For more information about this API, see the Oracle Integration Repository.</p>
+<p><b>Move Orders HTML Page</b></p>
+<p>The <b>Move Orders</b> page provides the same functionality as the <b>Move Orders</b> window. The <b>Search Move Orders</b> page provides ready-to-use search criteria and lets you personalize the page to show or hide different search criteria. For example, you can personalize the page to display fields such as <b>Header Source Subinv</b>, <b>Project</b>, <b>Task</b>, <b>Lines Destination Account</b>, and so on.</p>
+<p>From the <b>Move Orders</b> page, you can create, view, or update move order headers, lines, and allocations. You can also approve, close, or cancel a move order and close or cancel a move order line.</p>
+<p>On the move orders <b>Results</b> page, you can perform the following actions for move order headers, move order lines, and move order allocations:</p>
+<ul>
+<li>
+<p>Create a move order</p>
+</li>
+<li>
+<p>View lines and line details</p>
+</li>
+<li>
+<p>View allocations</p>
+</li>
+<li>
+<p>View flex details</p>
+</li>
+</ul>
+<p>For allocations, you can also view lot and serial pages, and allocation details.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292324.htm#I_c_minmax78">Min-Max Planning</a></p>
+<p><a href="T291651T292324.htm#c_replcnt">Replenishment Counting</a></p>
+<p><a href="T291651T292324.htm#I_kanov">Overview of Kanban Replenishment</a></p>
+<p><a href="T291651T428143.htm#pckwvow">Overview of Material Pick Waves</a></p>
+<h2><a name="1755859"></a><a id="T292026"></a><b>Setting Up Move Orders</b></h2>
+<a name="d0e89522" id="d0e89522"></a><a name="I_setupmo" id="I_setupmo"></a>
+<ul>
+<li>
+<p>Define the subinventory source type.</p>
+<p>To automatically create move orders using min-max planning and replenishment counting, you must define the subinventory source type at once of the following levels:</p>
+<ul>
+<li>
+<p>Subinventory see <a href="T291651T291796.htm#I_t_dsubinv">Defining Subinventories</a></p>
+</li>
+<li>
+<p>Item subinventory see <a href="T291651T298833.htm#t_sub_itm">Assigning Subinventories to an Item</a> and <a href="T291651T298833.htm#t_itm_sub">Assigning Items to a Subinventory</a></p>
+</li>
+</ul>
+<p>To automatically create move orders using the kanban system, you must define the subinventory source type at the pull sequence level. See <a href="T291651T292324.htm#I_kanpull">Defining Kanban Pull Sequences</a>.</p>
+</li>
+<li>
+<p>Define approval process parameters.</p>
+<p>To require planner approval for move order requisitions, you must define two parameters at the organization level: Move Order Timeout Period and Move Order Timeout Action. See <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>.</p>
+<p>If you want to bypass the move order approval process and automatically approve move order requisitions, enter <i>0</i> days for the Move Order Timeout Period and select <i>Automatically Approve</i> for the Move Order Timeout Action.</p>
+<p>You must also assign the planner who approves move order lines to the item or the organization. See <a href="T291651T298833.htm#I_t_ditems">Defining Items</a>, and <a href="T291651T298833.htm#I_t_updattr">Updating Organization Level Items</a>.</p>
+<p>You can also specify individuals to be notified if a shortage occurs. <a href="T291651T291796.htm#I_dshrtpar">Defining Shortage Parameters</a>.</p>
+<p><strong><span>Note:</span></strong> If the requested item does not have an assigned planner, the approval process is not enabled.</p>
+</li>
+<li>
+<p>Define item transaction defaults.</p>
+<p>If you want to populate move order line allocations with item transaction defaults for the destination locator, you must first define the item transaction defaults. <a href="T291651T298833.htm#I_t_itmtrx78def">Defining Item Transaction Defaults</a>.</p>
+<p><strong><span>Note:</span></strong> You do not need to perform this step if you specify the locator at the time you create or allocate the move order lines.</p>
+</li>
+<li>
+<p>Define lot level UOM conversions.</p>
+<p>If you define a lot level conversion for a specific lot the move order quantity reflects the lot quantity to transact. See <a href="T291651T291797.htm#Lot_conversion">Lot Specific Unit of Measure Conversions</a> for more information.</p>
+</li>
+<li>
+<p>Setup Material Status</p>
+<p>You can transact only material that permits move order transactions. You must that verify you can transact the material before you perform move orders. See <a href="T291651T439508.htm#mat_stat">Overview of Material Status</a> for more information.</p>
+</li>
+</ul>
+<h2><a name="1755860"></a><a id="T292093"></a><b>Generating Move Order Requisitions</b></h2>
+<p><a name="d0e89617" id="d0e89617"></a><a name="I_genmoreq" id="I_genmoreq"></a><a name="INVTOMAI.TOMAI_QF_WIN" id="INVTOMAI.TOMAI_QF_WIN"></a><a name="INVTOMAI.TOMAI_MAIN_WIN" id="INVTOMAI.TOMAI_MAIN_WIN"></a><a name="INVTOMAI.TOMAI_LINES_WIN" id="INVTOMAI.TOMAI_LINES_WIN"></a><a name="INVTOMAI.TOMAI_HEADER_WIN" id="INVTOMAI.TOMAI_HEADER_WIN"></a>Use the Move Orders window to generate move order requisitions.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define approval process parameters</li>
+<p>To require planner approval for move order requisitions, you must define two parameters at the organization level: Move Order Timeout Period and Move Order Timeout Action. You must also assign the planner who approves move order lines to the item or organization. See: <a href="T291651T428143.htm#I_setupmo">Setting Up Move Orders</a>. This step is required only if you wish to require planner approval for move order requisitions.</p>
+</ul>
+<p><b>To generate move order requisitions</b></p>
+<ol>
+<li>
+<p>Navigate to the Move Orders window.</p>
+<p><img width="824" height="530" src="./img/invug_moveorders.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Optionally, enter a move order number. To have the system automatically generate a number, tab to the Description field.</p>
+</li>
+<li>
+<p>Optionally, enter a description.</p>
+<p>The Status field displays <i>Incomplete</i> until the move order is approved.</p>
+</li>
+<li>
+<p>Information in the Header block defaults to the tabbed regions. These fields can be overridden at the move order line level. Enter or select the following:</p>
+<p><i>Transaction type:</i> The transaction type.</p>
+<p><i>Account transfer:</i> Transfer items from a subinventory to a destination account (account issue).</p>
+<p><i>Subinventory transfer:</i> Transfer items from one subinventory to another within the same inventory organization.</p>
+<p><i>Move order issue:</i> Issues items to a designated location.</p>
+<p><i>Issue to project:</i> Issues items to a designated project.</p>
+<p><i>Location:</i> If the transaction type is move order issue or issue to project, you can enter the ship to organization. If you select the Location Required parameter on the Transaction Types window, then this field is mandatory.</p>
+<p><i>Source Subinventory:</i> The source subinventory.</p>
+<p><i>Destination Subinventory:</i> The destination subinventory for subinventory transfers.</p>
+<p><i>Destination Account:</i> The destination account number for account transfers.</p>
+<p><i>Date Required:</i> The date the items are required to be transferred.</p>
+</li>
+<li>
+<p>In the Item tabbed region, enter or update the following information:</p>
+<p><i>Line:</i> The line number.</p>
+<p><i>LPN:</i> The LPN to transfer if applicable. This field appears if you have Oracle Warehouse Management installed, and you are working with a warehouse management enabled organization. See <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a> and Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i>.</p>
+<p><i>Item:</i> The item number for which you want to perform a move order.</p>
+<p><i>Rev:</i> Revision control number (if the item is under revision control).</p>
+<p><i>Primary Quantity:</i> The quantity to be moved in the primary unit of measure.</p>
+<p><i>UOM:</i> The primary unit of measure.</p>
+<p><i>Secondary Quantity:</i> The quantity to be moved in the secondary unit of measure. You can update this field only if the item is under dual unit of measure control. See <a href="T291651T427992.htm#I_r_mainattr">Main Attribute Group</a> for more information.</p>
+<p><i>UOM:</i> The secondary unit of measure. You can update this field only if the item is under dual unit of measure control.</p>
+<p><i>Date Required:</i> The date the items are required to be in the destination subinventory.</p>
+</li>
+<li>
+<p><i>Grade:</i> The lot grade of the item that you want to transact. If the item is under grade control, you can specify the grade to move. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a> for more information.</p>
+</li>
+<li>
+<p>In the Project and Task tabbed region, optionally select the following (these options are available only if Oracle Project Manufacturing is installed or the transaction type of the move order is related to the Project).</p>
+<p><i>LPN:</i> The LPN to transfer if applicable. This field appears if you have Oracle Warehouse Management installed, and you are working with a warehouse management enabled organization. See <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a> and Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i>.</p>
+<p><i>Project:</i> The project number associated with this item.</p>
+<p><i>Task:</i> The task associated with this item.</p>
+<p>If the transaction type of the move order is related to a Project and the organization is not Project Manufacturing enabled, in the Master Item window, Pegging value should be set to Soft Pegging or End Assembly / Soft Pegging.</p>
+</li>
+<li>
+<p>In the Source tabbed region, optionally enter or update the following:</p>
+<p><i>LPN:</i> This is the transfer LPN if applicable. This field appears if you have Oracle Warehouse Management installed, and you are working with a warehouse management enabled organization. See <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a> and Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i>.</p>
+<p><i>Subinventory:</i> The source subinventory for this item.</p>
+<p><i>Locator:</i> The source locator.</p>
+<p><i>Lot Number:</i> The lot number (if the item is under lot control). If you set the lot divisible flag to No on the lot master, you cannot transact a partial lot quantity. You must transact the entire lot. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a> for more information.</p>
+<p><i>Serial From:</i> The beginning serial number (if the item is under serial number control).</p>
+<p><i>Serial To:</i> The ending serial number (if the item is under serial control).</p>
+</li>
+<li>
+<p>In the Destination tabbed region if the transaction type is Subinventory Transfer enter or update the following information:</p>
+<p><i>LPN:</i> This is the transfer LPN if applicable. This field appears if you have Oracle Warehouse Management installed, and you are working with a warehouse management enabled organization. See <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a> and Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i>.</p>
+<p><i>Subinventory:</i> The destination subinventory.</p>
+<p>If the transaction type is Account Transfer, enter or update:</p>
+<p><i>Account:</i> The destination account.</p>
+<p>Optionally, enter or update:</p>
+<p><i>Locator:</i> The destination locator.</p>
+<p>When you create a move order transfer, you can specify the destination locator, or leave it blank. If you leave it blank, Oracle Inventory selects a default locator for the item in the destination subinventory you specified on the move order line. If you did not define a default locator for the item in the subinventory, you receive the error Failed to Generate Allocations. Cannot suggest a destination locator because there is no default destination locator for this item. To avoid this problem, you must either define a locator for the item, or provide the specified destination locator to which the move order should be allocated when created.</p>
+</li>
+<li>
+<p><i>Location:</i> If the transaction type is move order issue or issue to project, you can enter the ship to organization. If you select the Location Required parameter on the Transaction Types window, then this field is mandatory.</p>
+</li>
+<li>
+<p>In the Control tabbed region, optionally enter or update the following:</p>
+<p><i>LPN:</i> This is the transfer LPN if applicable. This field displays if you have Oracle Warehouse Management installed, and you are working with a warehouse management enabled organization. See <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a> and Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i>.</p>
+<p><i>Transaction Type:</i> The transaction source type.</p>
+<p><i>Reason:</i> The transaction reason.</p>
+<p>The window automatically displays:</p>
+<p><i>Reference:</i> Reference information about the item.</p>
+<p><i>Source Type:</i> The source type.</p>
+<p><i>Source:</i> The source entity.</p>
+<p><i>Source ID:</i> The identification number of the source entity.</p>
+<p><i>Status Date:</i> The date the status was last updated.</p>
+<p><i>Status:</i> The status of the move order line: Incomplete, Preapproved, Approved, Rejected, Cancelled, or Closed.</p>
+<p><i>Created By:</i> The name of the person creating the move order requisition.</p>
+</li>
+<li>
+<p>Click Approve to submit the move order requisition for approval.</p>
+</li>
+</ol>
+<p><b>To view on-hand quantities</b></p>
+<ol>
+<li>
+<p><a name="d0e89965" id="d0e89965"></a>Optionally, click On Hand to view on-hand quantities for items. The on-hand quantities may help you to determine an appropriate source subinventory.</p>
+</li>
+</ol>
+<p><b>To cancel a move order</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e89980" id="d0e89980"></a>Move Orders window.</p>
+</li>
+<li>
+<p>Find the move order to cancel.</p>
+</li>
+<li>
+<p>Select Cancel Order from the tools menu.</p>
+</li>
+</ol>
+<p><b>To close a move order</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e90001" id="d0e90001"></a>Move Orders window.</p>
+</li>
+<li>
+<p>Find the move order to close.</p>
+</li>
+<li>
+<p>Select Close Order from the tools menu.</p>
+<p><strong><span>Note:</span></strong> You can close move order headers in all status except for incomplete, and if the header status in pending approval, not approved, partially approved.</p>
+</li>
+</ol>
+<p><b>To cancel a move order requisition line</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e90025" id="d0e90025"></a>Move Orders window.</p>
+</li>
+<li>
+<p>Find the move order from which you want to cancel a move order line.</p>
+</li>
+<li>
+<p>Select the move order line to cancel.</p>
+</li>
+<li>
+<p>Select Cancel Line from the tools menu.</p>
+</li>
+</ol>
+<p><b>To close a move order requisition line</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e90052" id="d0e90052"></a>Move Orders window.</p>
+</li>
+<li>
+<p>Find the move order from which you want to close a move order line.</p>
+</li>
+<li>
+<p>Select the move order line to close.</p>
+</li>
+<li>
+<p>Select Close Line from the tools menu.</p>
+<p><strong><span>Note:</span></strong> You can close move order lines only if they reside in one of the following statuses:</p>
+<ul>
+<li>
+<p>Approved</p>
+</li>
+<li>
+<p>Pre-Approved</p>
+</li>
+<li>
+<p>Not Approved</p>
+</li>
+<li>
+<p>Cancelled</p>
+</li>
+<li>
+<p>Cancelled by Source</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> You can close a move order line independently of a move order header.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T428143.htm#I_movordov">Overview of Move Orders</a></p>
+<h2><a name="1755869"></a><a id="T292094"></a><b>Generating Replenishment Move Orders</b></h2>
+<p><a name="d0e90103" id="d0e90103"></a><a name="I_genrplmo" id="I_genrplmo"></a>You can automatically create pre-approved move orders using min-max planning, replenishment counting, and kanban replenishment. These processes generate move orders based on the subinventory source type.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define the subinventory source type. See: <a href="T291651T428143.htm#I_setupmo">Setting Up Move Orders</a>.</li>
+</ul>
+<p><b>To automatically create move orders using min-max planning:<a name="d0e90124" id="d0e90124"></a></b></p>
+<ol>
+<li>
+<p>If an item is below its minimum value in a subinventory and it is sourced from another subinventory, a move order will be created when you request the min-max planning report. See: <a href="T291651T292324.htm#I_t_reqminmax78">Requesting the Min-Max Planning Report</a>.</p>
+</li>
+</ol>
+<p><b>To automatically create move orders using replenishment counting</b></p>
+<ol>
+<li>
+<p>Run the Process Replenishment Counts program. See: <a href="T291651T292324.htm#I_t_replcnt">Entering and Processing Replenishment Counts</a>.<a name="d0e90148" id="d0e90148"></a></p>
+</li>
+</ol>
+<p><b>To automatically create move orders using kanban replenishment:<a name="d0e90158" id="d0e90158"></a><a name="d0e90165" id="d0e90165"></a></b></p>
+<ol>
+<li>
+<p>Generate kanban cards. See: <a href="T291651T292324.htm#I_kangen">Generating Kanban Cards</a>.</p>
+</li>
+</ol>
+<h2><a name="1755875"></a><a id="T292095"></a><b>Allocating and Transacting Move Orders</b></h2>
+<p><a name="d0e90183" id="d0e90183"></a><a name="d0e90190" id="d0e90190"></a><a name="d0e90197" id="d0e90197"></a><a name="d0e90202" id="d0e90202"></a><a name="INVTOTRX.TOLINES_WIN" id="INVTOTRX.TOLINES_WIN"></a><a name="INVTOTRX.TOLINES_QF_WIN" id="INVTOTRX.TOLINES_QF_WIN"></a><a name="INVTOTRX.BLOCKNAME" id="INVTOTRX.BLOCKNAME"></a><a name="INVTOTRX_MTL_TRX_LINES" id="INVTOTRX_MTL_TRX_LINES"></a><a name="I_trnmo" id="I_trnmo"></a><a name="INVTOTRX_MTL_TRX_LINE" id="INVTOTRX_MTL_TRX_LINE"></a>After a move order has been approved, you must allocate the move order lines and then transact the move order, to complete the transfer of items to the destination subinventory or account. A move order can have multiple move order lines. Each move order line is a single request for the movement of material.</p>
+<p><strong><span>Important:</span></strong> Move orders with transaction types of Reverse Staging Transfer are allocated by default. When these move orders have organizations that are not WMS enabled, you cannot change the source subinventory of the material.</p>
+<p>You can either transact all the move order lines at once or transact one detail line at a time as the items are moved. You can only query approved move order in the Transact Move Orders window. See: <a href="T291651T428143.htm#I_movordov">Overview of Move Orders</a>.</p>
+<p>You can cancel move order lines that have no allocations. You can select an individual move order line, or multiple move order lines. It does not matter if the move order lines belong to different move orders.</p>
+<p><strong><span>Note:</span></strong> You can cancel move order lines only for move order requisitions and replenishment move orders.</p>
+<p>When you transact a quantity smaller than allocated for a pick wave move order, you can enter the missing quantity. There are two types of quantities for move orders.</p>
+<ul>
+<li>
+<p>Confirmed Quantity: The quantity to transact.</p>
+</li>
+<li>
+<p>Missing Quantity: The missing quantity for the move order.</p>
+</li>
+</ul>
+<p>When there is a missing quantity, you select the type of missing quantity when you update the move order allocation.</p>
+<p><b>To view move order lines</b></p>
+<ol>
+<li>
+<p>Navigate to the Transact Move Orders window.</p>
+<p><strong><span>Tip:</span></strong> Enter search criteria and click Find to locate the move order lines you want to transact.</p>
+</li>
+<li>
+<p>The Transact Move Orders window displays move order lines returned by your search criteria.</p>
+<p><img width="787" height="600" src="./img/invug_transmoor.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To allocate move order lines</b></p>
+<ol>
+<li>
+<p>Select the move order lines you want to allocate.</p>
+</li>
+<li>
+<p>Click Allocate to populate detailed suggestions into move order line allocations with specific source locations.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+<li>
+<p>You can choose to view or update details (see procedure below) or exit the window to print a pick slip before transaction.</p>
+</li>
+</ol>
+<p><b>To view or update move order line allocations</b></p>
+<ol>
+<li>
+<p>In the Transact Move Orders window, select the move order lines you want to view or update.</p>
+</li>
+<li>
+<p>Click View/Update Allocations to display the Transact Move Order Line Allocations window. This window shows details about the move order line.</p>
+<p><img width="837" height="527" src="./img/invug_transact_line.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Review, and if desired, update the following data where permitted (view-only fields cannot be updated):</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Material Classification Code</td>
+<td>Defines the material classification code for the selected item.<br>
+This column is available only for material classification tagged at sales order or internal sales order pick items.</td>
+</tr>
+<tr valign="top">
+<td>Subinventory</td>
+<td>Defines the source subinventory for the selected item.</td>
+</tr>
+<tr valign="top">
+<td>Locator</td>
+<td>Defines the source subinventory locator for the selected item.</td>
+</tr>
+<tr valign="top">
+<td>To Locator</td>
+<td>Defines the destination locator for the selected item.</td>
+</tr>
+<tr valign="top">
+<td>UOM</td>
+<td>Displays the unit of measure.</td>
+</tr>
+<tr valign="top">
+<td>Requested Quantity</td>
+<td>Displays the quantity listed on the move order line in the primary unit of measure.</td>
+</tr>
+<tr valign="top">
+<td>Quantity</td>
+<td>Defines the quantity you want to transact. You can enter <code>0</code> as the transaction quantity for pick wave move orders without any missing quantity. If you enter <code>0</code>, the system deletes the allocations and the move order line remains released to warehouse. This provides redirecting material for other sales orders at the time of pick confirmation without backordering and repicking the line</td>
+</tr>
+<tr valign="top">
+<td>Allocated Quantity</td>
+<td>Displays the quantity allocated for the move order in the primary unit of measure.
+<p><strong><span>Additional Information:</span></strong> The following error message may appear if you try to decrease the quantity for packed allocations (such as an LPN packed quantity): <i>Transacted quantity should be less than or equal to the available quantity.</i> This message appears because you cannot specify the LPN in the Transact Move Order Line Allocations window. However, this error typically will not occur when performing loose allocations.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Secondary UOM</td>
+<td>Displays the secondary unit of measure if the item is under dual unit of measure control.</td>
+</tr>
+<tr valign="top">
+<td>Secondary Requested Quantity</td>
+<td>Displays the requested quantity that is listed on the move order line in the secondary unit of measure.</td>
+</tr>
+<tr valign="top">
+<td>Secondary Quantity</td>
+<td>Displays the quantity that you want to transact in the secondary unit of measure.</td>
+</tr>
+<tr valign="top">
+<td>Secondary Allocated Quantity</td>
+<td>Displays the quantity allocated in the secondary unit of measure.</td>
+</tr>
+<tr valign="top">
+<td>Reason</td>
+<td>Defines the transaction reason.</td>
+</tr>
+<tr valign="top">
+<td>Reference</td>
+<td>Defines reference information about the move order line.</td>
+</tr>
+<tr valign="top">
+<td>Missing Quantity Action</td>
+<td>The action to perform on the missing quantity. This field is required if the quantity confirmed does not match the allocated quantity.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Optionally, to view and update lot and serial numbers, click Lot/Serial.</p>
+</li>
+<li>
+<p>Optionally, click Select Available Inventory to manually select the inventory to transact. See. <a href="T291651T428143.htm#select_avilable_inventory">Manual Move Order Allocation</a> for more information.</p>
+</li>
+<li>
+<p>Click Update to save information in the above fields (this will not transact the lines).</p>
+</li>
+</ol>
+<p><b>To select available inventory</b></p>
+<p>From the Transact Move Order window, when allocations are created for a move order line, you can review or modify the allocations in the Select Available Inventory window.</p>
+<ol>
+<li>
+<p>From the Tools menu, select <b>Select Available Inventory</b> to display the Select Available Inventory window.</p>
+<p>This menu item is enabled when the move order is pre-allocated without lot (for lot control); for example, in the pick release process for a lot-controlled item when the organization parameter Allocate Lot is set to No.</p>
+<p><strong><span>Additional Information:</span></strong> The Select Available Inventory menu item may not be enabled in the following situations:</p>
+<ul>
+<li>
+<p>For pick wave move orders when there are no high level reservations (even if the move order is not pre-allocated).</p>
+</li>
+<li>
+<p>On the Select Available Inventory window (move order header), if you select the available inventory and click Done.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For information about reviewing allocations in the Select Available Inventory (SAI) window, see <a href="T291651T428143.htm#select_avilable_inventory">Manual Move Order Allocation</a>.</p>
+</li>
+</ol>
+<p><b>To cancel allocations</b></p>
+<ol>
+<li>
+<p>Select the move order lines for which you want to cancel the allocations.</p>
+</li>
+<li>
+<p>Select Cancel Allocations from the Tools menu.</p>
+</li>
+</ol>
+<p><b>To transact move orders</b></p>
+<ol>
+<li>
+<p>In the Transact Move Orders window choose the Select box for the move order lines you want to transact.</p>
+</li>
+<li>
+<p>Click Transact.</p>
+<p>You can also transact move order lines at the line detail level by selecting the lines you want to transact and then clicking Transact.</p>
+</li>
+</ol>
+<p><b>To cancel or close move order lines:<a name="d0e90505" id="d0e90505"></a></b></p>
+<ol>
+<li>
+<p>Select the move order lines to cancel or close.</p>
+</li>
+<li>
+<p>From the Tools menu, select Cancel / Close Line.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T428143.htm#select_avilable_inventory">Manual Move Order Allocation</a></p>
+<p><a href="T291651T428143.htm#I_dtlpwmo">Manually Allocating and Transacting Pick Wave Move Orders</a></p>
+<h2><a name="3980523"></a><a id="T441746"></a><b>Manual Move Order Allocation</b></h2>
+<p><a name="d0e90533" id="d0e90533"></a><a name="select_avilable_inventory" id="select_avilable_inventory"></a><a name="INVPCKLT_INVPCKLT" id="INVPCKLT_INVPCKLT"></a>The Select Available Inventory window displays available inventory that meets the demand required by the move order. The system displays only the material that satisfies the picking rules that are in effect, and presents the material in order of the sort criteria on the picking rules. You can then manually select the material to allocate against the move order, and the system creates the allocations. You cannot manually allocate a move order requisition that has a transaction type of Reverse Staging Transfer.</p>
+<p>You can modify or delete existing allocations, as well as create new allocations. If you choose to create new allocations, the system checks whether the new allocation criteria drives the lot balances negative or whether the lot is indivisible. The system honors lot-specific conversions, process manufacturing quality matches, material status, and preferred grade if you set the profile option INV: Target Preferred Grade to Yes. The information that appears on this page is available according to the picking rules you define, and sorted in the order defined on the allocation rules. The window contains four alternative regions: Document Information, Requested, Selected, and Available Inventory Details.</p>
+<h3><a id="T441747"></a><b>Document Information</b></h3>
+<p>The Document Information region contains the following information that is supplied automatically from the move order line:</p>
+<p><img width="997" height="601" src="./img/invug_select_available.gif" alt="the picture is described in the document text"></p>
+<ul>
+<li>
+<p>Item: The item number</p>
+</li>
+<li>
+<p>Description: Item description</p>
+</li>
+<li>
+<p>Requested Revision: Desired revision of the item</p>
+</li>
+<li>
+<p>Source Type: WIP or transaction source type</p>
+</li>
+<li>
+<p>Source Number: Source type number</p>
+</li>
+<li>
+<p>Line Number: Move order line number</p>
+</li>
+<li>
+<p>Preferred Grade: Preferred grade that is listed on the move order</p>
+</li>
+</ul>
+<h3><a id="T441748"></a><b>Requested and Selected Transaction Quantities</b></h3>
+<p>The Requested and Selected alternative regions contain the requested and selected quantity information that is listed on the move order line as well as the transaction units of measure. If the item is under dual unit of measure control, the system displays the secondary unit of measure information.</p>
+<h3><a id="T441749"></a><b>Available Inventory Details</b></h3>
+<p>The Available Inventory Details alternative region displays the information about the currently allocated material. All of the fields except for the Selected Transaction Quantity fields and the Transaction Reason field are display-only. You can modify these fields as necessary. To delete an allocation, enter 0 in the Selected Transaction quantity fields. The Available Inventory Details alternative region contains the following information:</p>
+<ul>
+<li>
+<p>Subinventory: Subinventory from which to transact the material</p>
+</li>
+<li>
+<p>Locator: Locator from which to transact the material</p>
+</li>
+<li>
+<p>Lot Number: Available lot to transact</p>
+</li>
+<li>
+<p>Revision: Revision of item to transact</p>
+</li>
+<li>
+<p>Selected Transaction Quantity: The quantity to transact in the primary unit of measure. You can modify this field if necessary. You can click Default Qty to enter the default move order quantity in this field.</p>
+</li>
+<li>
+<p>Secondary Selected Quantity: The quantity to transact in the secondary unit of measure if the item is under dual unit of measure control. If you modify the selected transaction quantity, this field is updated automatically. If you modify this field, then the Selected Transaction Quantity field updates automatically.</p>
+</li>
+<li>
+<p>Grade: The grade of the lot to allocate</p>
+</li>
+<li>
+<p>Primary Available Quantity: The total available quantity of the item to transact in the primary unit of measure.</p>
+</li>
+<li>
+<p>Secondary Available Quantity: The total available quantity of the item to transact in the secondary unit of measure.</p>
+</li>
+<li>
+<p>Reason Code: The reason for the transfer. See <a href="T291651T291655.htm#I_t_trnreason">Defining Transaction Reasons</a> for more information.</p>
+</li>
+<li>
+<p>Quality Match: Indicates whether the material quality matches customer specifications.</p>
+</li>
+</ul>
+<h3><a id="T441750"></a><b>Available Actions</b></h3>
+<p>When you finish modifying the inventory allocations you can click Default Qty to allocate according to the lot available and requested quantity. If the lot is indivisible, then the system allocates the entire lot quantity. You can click Done to accept the quantity changes that you made, or Cancel to cancel the changes.</p>
+<p>You can also use the Tools menu to review quality specifications and results.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T428143.htm#I_genmoreq">Generating Move Order Requisitions</a></p>
+<p><a href="T291651T428143.htm#I_trnmo">Allocating and Transacting Move Orders</a></p>
+<h2><a name="1755882"></a><a id="T292096"></a><b>Configuring the Material Pick Wave Process</b></h2>
+<p><a name="d0e90736" id="d0e90736"></a><a name="pckwvow" id="pckwvow"></a>The Material Pickwave process includes the following steps:</p>
+<ol>
+<li>
+<p>Pick Release (Oracle Shipping Execution procedure</p>
+<p>For information about Oracle Shipping Execution's pick release procedure, see: Overview of Pick Release and Releasing Sales Orders for Picking in <i>Oracle Shipping Execution User's Guide</i>.</p>
+</li>
+<li>
+<p>Move Order Line Allocation</p>
+<p>Oracle Shipping Execution's pick release procedure creates move order lines. In order to release those lines to the warehouse and print pick slips, the lines must be allocated. The process by which the Oracle Inventory picking engine generates transaction line suggestions is called <i>allocation</i>. The allocation process for a pick wave move order line also creates a high-level (organization-wide) reservation on the material if no reservations previously existed.</p>
+<p>You can choose to have the system automatically allocate move order lines, or you can postpone this step and manually allocate the move order lines at a later time. In either case, pick release creates move orders in an approved status, so that no additional approval process is required in order to transact them. Postponing the allocating process can be useful to organizations that pick release across multiple warehouses but prefer to allow each warehouse to determine when to release its order lines to the floor. You use a shipping parameter in Oracle Shipping Execution to specify whether the allocating process is automatic or manual. See: Setting Up Shipping Parameters, <i>Oracle Shipping Execution User's Guide.</i></p>
+<p>You can override this default parameter at each pick release. See: Releasing Sales Orders for Picking, <i>Oracle Shipping Exeuctoin User's Guide</i>.</p>
+<p>If you choose to postpone the allocation process and perform these steps manually, you use an Oracle Inventory procedure. However, you postpone the allocation, the inventory allocation rules are still used when the moved order is allocated in the Transact Move Order from. for Pick Wave Move Orders, you cannot manually enter all the allocation details, but you can update certain attributes of the allocation that the system provides. See: <a href="T291651T428143.htm#I_dtlpwmo">Manually Allocating Pick Wave Move Orders</a>.</p>
+<p><strong><span>Note:</span></strong> If the item and source subinventory are reservable and no reservation existed for the sales order prior to pick release, the allocation process will create a high-level (organization level) reservation on the material to be picked.</p>
+</li>
+<li>
+<p>Move Order Line Pick Confirmation</p>
+<p>The move order line allocations (transaction lines) created by the allocation process must be transacted to confirm the material drop-off in staging. This process is called <i>pick confirmation</i>. Pick confirmation processes the subinventory transfer that moves the material from its source location in the warehouse into the staging location. Pick confirmation automatically transfers any existing reservation to an allocated reservation (including lots, revision, subinventory, and locators) in the staging location. At pick confirmation, you can report a missing quantity or change the transaction line if the picker chooses to use material from a different lot, serial, locator, or subinventory. If an organization's picks rarely deviate from the suggested picking lines and the overhead of requiring a pick confirmation is unmanageable, the pick confirm transactions can occur automatically, immediately after the lines are allocated.</p>
+<p>You use an Oracle Inventory parameter to specify whether pick confirmation occurs automatically or whether you want your picker to pick confirm move order lines manually. See: <a href="T291651T291796.htm#t_atp_source">Defining ATP, Pick, Item-Sourcing Parameters</a>.</p>
+<p>You can override this default parameter at each pick release. See: Releasing Sales Orders for Picking, , <i>Oracle Shipping Execution User's Guide</i>.</p>
+<p><strong><span>Note:</span></strong> If the organization is enabled for Oracle Warehouse Management, then move orders cannot be transacted on the desktop Transact Move Orders form. Rather, the move orders are transacted as tasks on mobile devices. However, the Transact Move Order from can be use to view the allocations, so long as LPNs have not been allocated. The allocations can still be manually updated from this form, but the Transact button is not available for move orders in a WMS enabled organization.</p>
+<p>To pick confirm move order lines manually, you use Oracle Inventory's Transact Move Orders window. You use the same procedure as you do to transact move order requisitions and replenishment move orders. The manual pick confirm option allows you to transact each move order line or move order line allocation individually. This allows you to confirm the transaction of each pick. When you manually pick confirm (transact), you can update any pick details that were different from the suggestions generated by the system, including lot, serial number, and locator information. See: <a href="T291651T428143.htm#I_trnmo">Transacting Move Orders</a>.</p>
+<p>Move orders can be over pick confirmed, within the shipping tolerances for the customer, in an Inventory organization. The operator can transact more than the requested quantity, adding additional lots and or serials as required.</p>
+<p>If you use the automatic pick confirm process, the material is only transacted to the staging subinventory and reserved. You can still manage any discrepancies found by deleting the reservation and transacting the material back to its original subinventory. If you use mobile devices such as bar code scanners to perform inventory transactions, it is suggested that you use manual pick confirmation for greatest inventory accuracy and control. If you used the automatic pick confirm process, the the move order is not visible in the Transact Move Order form.</p>
+<p><strong><span>Note:</span></strong> Non-reservable items are always automatically pick confirmed, regardless of whether pick confirmation is required for the batch. If the item should be manually pick confirmed, then make the item reservable.</p>
+</li>
+<li>
+<p>Ship Confirmation (Oracle Shipping Execution Procedure</p>
+<p>You can customize the process by deciding when you want to allocate and pick confirm move order lines. See: Overview of Ship Confirm, <i>Oracle Shipping Execution User's Guide</i>.</p>
+</li>
+</ol>
+<h2><a name="1755883"></a><a id="T292097"></a><b>Exception Management</b></h2>
+<a name="exeptmgn" id="exeptmgn"></a>
+<h3><b>Shortages</b></h3>
+<p><a name="d0e90833" id="d0e90833"></a>If the allocation process is unable to locate enough material to fulfill a move order line, a shortage situation exists. Note that only shortages for move orders <i>resulting from sales orders or work in progress transactions</i> can be tracked. The move order line stores both the requested quantity and the quantity that has been sourced by the allocation process. If the requested quantity exceeds the sourced quantity, a potential shortage exists. You can view shortages in Oracle Inventory's View Potential Shortages window or in the Shortages Summary report. See <a href="T291651T292013.htm#I_shrtalrt">Shortage Alerts and Shortage Notifications</a></p>
+<h3><b>Reporting Missing Quantities</b></h3>
+<p>An inventory inaccuracy in a warehouse can result in a shortage condition that Oracle Inventory does not recognize at allocation. In this event, a picker will be unable to pick the complete quantity. If the picker was not able to pick the line as suggested, the picker can enter the quantity he or she was unable to locate in the Missing Qty field on the Transact Move Order Line Allocations window. Entering a missing quantity will change the allocated quantity on the move order line so that a potential shortage will exist. The move order line can be re-allocated in the same form, allowing the system to direct the picker to another location in inventory to find more material.</p>
+<p>When a missing quantity is reported through the Transact Move Order Line Details window, Oracle Inventory transfers the reservation that exists for the missing quantity to a cycle count reservation. This will not create a cycle count header, but the reservation will ensure that future detailing processes do not direct pickers to the material that is reported as missing. A cycle count performed on that item in that location will consume the reservation. If automatic pick confirmation is used, a picker cannot report a missing quantity in the Transact Move Order Line Details window. A cycle count quantity can still be entered at ship confirm. A cycle count reservation will still be created, but it will now be for the item in the staging location. See: Defining Shipping Transactions, <i>Oracle Shipping Execution User's Guide</i>.</p>
+<h3><b>Opportunistic Cross Docking</b></h3>
+<p>You can set up your system to send a shortage alert if a shortage is encountered during the receiving process. See: <a href="T291651T292013.htm#I_shrtalrt">Shortage Alerts and Shortage Notifications</a>. The shortage alert notifies you of a cross docking opportunity, and you can transfer the material to a staging location instead of to a storage location. You can then re-allocate and transact the move order line. The system automatically updates the reservations to include the new items. You can also reprint a pick slip to include the new material.</p>
+<p><b>Backordering to Address</b></p>
+<p>You can also backorder sales order lines that have been allocated in the Transact Move Orders form. This cancels the allocations, making the allocated material available for other transactions, and set the delivery detail line status to backordered so that it can be pick released in future batches.</p>
+<p><b>To Backorder Sales Order Lines</b></p>
+<ol>
+<li>
+<p>Query the move order lines you which to backorder.</p>
+</li>
+<li>
+<p>Select the check boxes next to one or more move orders.</p>
+</li>
+<li>
+<p>Select Backorder from the Tools menu. The allocations are cancelled and move order lines deleted.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T428143.htm#I_movordov">Overview of Move Orders</a>.</p>
+<h2><a name="1755889"></a><a id="T292098"></a><b>Manually Allocating and Transacting Pick Wave Move Orders</b></h2>
+<p><a name="d0e90894" id="d0e90894"></a><a name="d0e90899" id="d0e90899"></a><a name="I_dtlpwmo" id="I_dtlpwmo"></a>Pick wave move orders are created by Oracle Shipping Execution's pick release process. You can use the Transact Move Orders window to perform manual allocations of the pick wave move order.</p>
+<p>The allocation process uses Oracle Inventory picking rules to determine where to source the material to fulfill a request line. The allocation process populates the move order line allocations with the actual transactions to be performed and allocates the material to the move order.</p>
+<p>Manual allocation allows you to determine when to release the pick to the floor. This option is used with global order management with distributed warehouse management and shipping. With manual allocation, you can release orders to your regional warehouses from the central order management location in advance, allowing individual warehouses to schedule their picks closer to the actual ship date. See: <a href="T291651T428143.htm#pckwvow">Overview of Material Pick Wave Process</a>.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define shipping parameters.</li>
+<p>To allocate pick wave move orders using the Transact Move Orders window, you must define shipping parameters in Oracle Shipping Execution. See: Defining Pick Release Parameters, <i>Oracle Shipping Execution User's Guide</i>.</p>
+</ul>
+<p><b>To manually allocate pick wave move orders</b></p>
+<ol>
+<li>
+<p>Navigate to the Transact Move Orders window. The Find Move Order Lines window appears.</p>
+<p><img width="582" height="337" src="./img/invug_pick.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Pick Wave tab.</p>
+</li>
+<li>
+<p>Enter search criteria and choose Find to locate the move order lines you want to allocate.</p>
+</li>
+<li>
+<p>Select the move order lines you want to allocate.</p>
+</li>
+<li>
+<p>Choose Location Details. This populates detailed suggestions into move order line allocations with specific source locations.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p>You can now print pick slips. See: Pick Slip Report, <i>Oracle Shipping Execution User's Guide</i>.</p>
+</li>
+</ol>
+<p><b>To transact move order lines</b></p>
+<p>Select the lines to be transacted and click Transact.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T428143.htm#I_trnmo">Allocating and Transacting Move Orders</a></p>
+<h2><a name="1755893"></a><a id="T292099"></a><b>Express Pick Release</b></h2>
+<p><a name="I_c_x78pick" id="I_c_x78pick"></a>Customers who use Oracle Inventory primarily for financial purposes as opposed to operational purposes can user express pick release to enhance pick release performance. The overall process for this method is as follows:</p>
+<ol>
+<li>
+<p>Create detailed reservations.</p>
+</li>
+<li>
+<p>Pick release order.</p>
+</li>
+<li>
+<p>Populate reservations in shipping delivery details.</p>
+</li>
+<li>
+<p>Ship confirm order.</p>
+<p>Express pick release makes the following assumptions:</p>
+<ul>
+<li>
+<p>There are no locators in the warehouse.</p>
+</li>
+<li>
+<p>The same subinventory is used for storing and staging shipped material.</p>
+</li>
+<li>
+<p>Detail level reservations are created before you run pick release, or during order or after order import.</p>
+<ul>
+<li>
+<p>For plain and serial controlled items, the reservation must specify the subinventory.</p>
+</li>
+<li>
+<p>For lot-controlled items, the reservation must specify the subinventory and lot number.</p>
+</li>
+<li>
+<p>For revision controlled items, the reservation must specify the revision.</p>
+</li>
+</ul>
+<p>If the above conditions are met, the logic in pick release is set to bypass creating of move order lines, quantity tree and reservations, and pick confirm.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>The following are not supported for express pick release:</p>
+<p>Pick slip reported is not created</p>
+<p>Ship model complete is not supported</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291654.htm#I_r_profile">Implementing Profile Options Summary</a></p>
+<p><a href="T291651T428143.htm#pckwvow">Overview of Material Pick Waves</a></p>
+<h2><a name="1755894"></a><a id="T292028"></a><b>Reservation Details</b></h2>
+<p><a name="resdetail" id="resdetail"></a>There are different series that can occur based on reservation details. Some of the scenarios are as follows:</p>
+<h3><b>All Reservations Complement Detailed</b></h3>
+<p>If the reservation quantity in the detailed reservations is equal to or greater then the quantity on the delivery detail, update the reservations as staged and updated the delivery as staged.</p>
+<h3><b>Some Reservations Completely Detailed</b></h3>
+<p>If the reservation quantity in the detailed reservations is less than the quantity on the delivery detail, then update the reservation as staged and split the delivery. The system updates the delivery for the detailed reservations that exist as staged. The system also marks the reminding delivery details as Ready to Release. You can then process these delivery details in a pick release where the Express Pick Release profile is not set to Yes.</p>
+<h3><b>No Reservations Completely Detailed</b></h3>
+<p>If the reservation quantity in the detailed reservations is zero, the system marks the delivery detail as Ready to Release. These deliver details can be process in a pick release where the express pick profile is not set to Yes.</p>
+<h3><b>Serial Items</b></h3>
+<p>The system finds and marks the serial numbers then creates serial number records in MTL_SERIAL_NUMBERS_TEMP (MSNT) and updates shipping with transaction_temp_id associated with MSNT records.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291654.htm#I_r_profile">Implementing Profile Options Summary</a></p>
+<p><a href="T291651T428143.htm#pckwvow">Overview of Material Pick Waves</a></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Advanced Global Intercompany System User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Advanced Global Intercompany System User's Guide">
+<meta name="dcterms.identifier" content="E48781-06">
+<meta name="dcterms.isVersionOf" content="GISUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T463896T463900.htm" title="Previous" type="text/html">
+<link rel="Next" href="T463896T463902.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Advanced Global Intercompany System User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">7/10</span> <!-- End Header -->
+<h1>Importing Intercompany Transactions</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T463940">Importing Transactions</a></li>
+</ul>
+<h2><a name="4207702"></a><a id="T463940"></a><b>Importing Transactions</b></h2>
+<p><a name="interimport" id="interimport"></a><a name="d0e3684" id="d0e3684"></a><a name="d0e3688" id="d0e3688"></a>You can import intercompany transactions from external applications using the Open Interface tables and WebADI.</p>
+<p>See <a href="T463896T463901.htm#openinter">Importing Intercompany Using Open Interface</a> and <a href="T463896T463901.htm#interwebadi">Intercompany WebADI Integration</a></p>
+<h2><a name="4207703"></a><a id="T463941"></a><b>Importing Intercompany Using Open Interface</b></h2>
+<p><a name="openinter" id="openinter"></a>You can import intercompany transactions from third party software or Oracle SQL Loaders into AGIS.</p>
+<p>Before you import, ensure the data format in the external source and the Intercompany Interface tables are the same.</p>
+<p>The following figure displays the importing process an external source to Intercompany:</p>
+<ol>
+<li>
+<p>Upload transactions into the Intercompany Interface tables.</p>
+<p>While uploading the transactions to the Intercompany Interface tables, you must ensure the following:</p>
+<ul>
+<li>
+<p>Columns specified <b>Not Null</b> must contain data.</p>
+</li>
+<li>
+<p>Columns specified <b>Required</b> must contain data when importing the transactions to AGIS.</p>
+</li>
+<li>
+<p>Columns specified <b>Conditionally Required</b> must contain a value if a dependent column has values.</p>
+</li>
+<li>
+<p>Columns specified <b>Optional</b> need not contain data. However, the transactions are rejected if the data fails the validation.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Run the Intercompany Import Program.</p>
+</li>
+</ol>
+<p><img width="533" height="119" src="./img/fun_OpenInterfaceICflow.gif" alt="the picture is described in the document text"></p>
+<h2><a name="4207704"></a><a id="T463942"></a><b>Intercompany Open Interface Tables</b></h2>
+<p><a name="openintab" id="openintab"></a>Intercompany transactions from the external source populate the following Intercompany Interface tables:</p>
+<ul>
+<li>
+<p>FUN_INTERFACE_CONTROLS, which groups the data imported in each run.</p>
+</li>
+<li>
+<p>FUN_INTERFACE_BATCHES, which stores batch information.</p>
+</li>
+<li>
+<p>FUN_INTERFACE_HEADERS, which stores information about the transaction header for each recipient.</p>
+</li>
+<li>
+<p>FUN_INTERFACE_DIST_LINES, which stores distributions for initiator and recipient.</p>
+</li>
+</ul>
+<h2><a name="4207705"></a><a id="T463943"></a><b>Running the Intercompany Import Program</b></h2>
+<p><a name="interimpprg" id="interimpprg"></a>Run the Intercompany Import Program in the Schedule Requests page to import the Intercompany transactions from Interface tables to Intercompany tables. Before importing, the transactions are validated by the Transaction API.</p>
+<p>On successful completion of the import program, an import execution report is printed which lists the status of the transactions being imported.</p>
+<p>The following table describes selected fields in the Intercompany Import Program.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Parameters</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Source</td>
+<td>Specify the application source.</td>
+</tr>
+<tr valign="top">
+<td>Group</td>
+<td>Enter the Group ID.</td>
+</tr>
+<tr valign="top">
+<td>Send Transactions</td>
+<td>Enter Yes to send the transactions as initiator transactions and start the recipient workflow.</td>
+</tr>
+<tr valign="top">
+<td>Print Rejected Only</td>
+<td>Specify No if you want to print all the transactions in the report.</td>
+</tr>
+<tr valign="top">
+<td>Debug</td>
+<td>Helps you to query, rectify and re-import rejected transactions.</td>
+</tr>
+</table>
+<p>Successful transactions are purged from the interface tables.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T463896T463903.htm#interoitables">Intercompany Open Interface Tables</a></p>
+<h2><a name="4207706"></a><a id="T463944"></a><b>Importing Intercompany Transactions Using WebADI</b></h2>
+<p><a name="interwebadi" id="interwebadi"></a>WebADI enables you to enter transactions in a spreadsheet application and upload them into AGIS. The advantages of using WebADI for entering intercompany transactions are:</p>
+<ul>
+<li>
+<p>You only need a browser and spreadsheet application such as Excel in your desktop to run WebADI.</p>
+</li>
+<li>
+<p>You can enter transactions in a transaction entry worksheet in a spreadsheet that is similar to the transaction entry page in Intercompany.</p>
+</li>
+<li>
+<p>You can define a spreadsheet specific to intercompany transactions and use powerful spreadsheet features.</p>
+<p>For example, you can define formulae for allocation entries in the spreadsheet. You can save, manage the transaction entry worksheet and upload it later, regardless of being connected to AGIS. You can also define a spreadsheet to define intercompany templates for modifying and uploading repeatedly (for recurring transactions).</p>
+</li>
+<li>
+<p>You can quickly enter intercompany journal lines by copying and pasting journal lines, then performing incremental modifications in the spreadsheet worksheet.</p>
+</li>
+<li>
+<p>You can validate accounts by enforcing security and cross validation rules.</p>
+</li>
+<li>
+<p>You can use the following items in the WebADI menu in the spreadsheet:</p>
+<ul>
+<li>
+<p><b>Upload Journal:</b> Select this option to choose the upload parameters.</p>
+</li>
+<li>
+<p><b>List of Values:</b> Select this option to invoke a List of Values when entering transactions.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a name="4207707"></a><a id="T463945"></a><b>Oracle WebADI: Create Document Page</b></h2>
+<p><a name="adiintegrate" id="adiintegrate"></a>To import transactions, you must first create the spreadsheet document in Oracle WebADI: Create Document page and later upload the transactions.</p>
+<h3><a id="T463988"></a><b>Create Spreadsheet Document</b></h3>
+<p>The spreadsheet document created using WebADI has predefined formats for entering Intercompany transactions.</p>
+<p><b>To create a spreadsheet document:</b></p>
+<ol>
+<li>
+<p>Navigate to the WebADI page.</p>
+</li>
+<li>
+<p>Select Create Document from the Navigation menu.</p>
+</li>
+<li>
+<p>Specify the WebADI settings by selecting the Viewer. The Viewer is the spreadsheet application you must choose to create the document.</p>
+</li>
+<li>
+<p>Select the Intercompany - Single Batch Entry Integrator. WebADI Integrator is the application that integrates with various Oracle Applications.</p>
+</li>
+<li>
+<p>Select the Intercompany - Single Batch Entry Layout.</p>
+<p><strong><span>Note:</span></strong> You can create new layouts or modify the seeded layouts available in Intercompany.</p>
+</li>
+<li>
+<p>Review the selections and click Create Document.</p>
+</li>
+</ol>
+<p>On clicking Create Document, the spreadsheet application opens with the defined spreadsheet where you can enter transactions.</p>
+<h3><a id="T463989"></a><b>Upload Transactions</b></h3>
+<p>After entering the transactions, you must upload the transactions to Intercompany.</p>
+<p><b>To upload the transactions:</b></p>
+<ol>
+<li>
+<p>Click Upload Journal on the WebADI menu and specify the upload parameters.</p>
+<p>The transactions are uploaded into the Intercompany Interface tables.</p>
+</li>
+<li>
+<p>Submit the Intercompany Open Interface program to import the transactions into Intercompany.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>WebADI Spreadsheets, <i>Oracle Financial Consolidation Hub User's Guide</i></p>
+<h2><a name="5512182"></a><a id="T544549"></a><b>Purge Rejected Intercompany Transactions</b></h2>
+<p><a name="fun_agispurge" id="fun_agispurge"></a>You should be able to purge the rejected intercompany transactions from the AGIS interface tables to remove the redundant data.</p>
+<p>When you run the Intercompany Import program, the program validates intercompany transactions imported from external source applications and a status of &ldquo;Accepted&rdquo; or &ldquo;Rejected&rdquo; is assigned to intercompany batches, headers and lines. The accepted intercompany transaction batches become transaction records, however, rejected intercompany transaction batches remain in the AGIS interface tables. These rejected intercompany transactions occupy a lot of space in the database, leading to detrimental impact on performance for both online and background processing. You can purge the rejected intercompany transactions from the AGIS interface tables to remove the redundant data with the help of the Purge Rejected Intercompany Transactions concurrent program. The system lets you view the transactions before purging.</p>
+<p>The Purge Rejected Intercompany Transactions program is based on the parameters entered to purge all rejected intercompany batches for a given source and group ID. When the import status for some intercompany headers and lines are rejected and some accepted, the overall status for the related intercompany batch is &ldquo;Rejected&rdquo; and therefore the whole batch can be deleted, including all headers and lines.</p>
+<p>A log file is generated after you run the Purge Rejected Intercompany Transactions program with debug messages.</p>
+<h3><a id="T544591"></a><b>Purge Rejected Intercompany Transactions Execution Report</b></h3>
+<p>A report is generated after you run the Purge Rejected Intercompany Transactions program having information about the rejected intercompany batches that were purged or previewed. If you run the program with the preview mode set to Yes, then the report will be named as &ldquo;Purge Rejected Intercompany Transactions Preview Report&rdquo;. If you run the program with the preview mode set to No, then the report will be named as &ldquo;Purge Rejected Intercompany Transactions Execution Report&rdquo;.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T292528.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T295121.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">25/31</span> <!-- End Header -->
+<h1>Intercompany Invoicing</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T292535">Intercompany Invoicing Process Overview</a></li>
+<li><a href="#T292546">Intercompany Invoicing Setup</a></li>
+<li><a href="#T292611">Transaction Flows</a></li>
+<li><a href="#T292538">Intercompany Invoicing Reports</a></li>
+<li><a href="#T292543">Intercompany Invoice Accounting Distributions</a></li>
+<li><a href="#T292547">Intercompany Invoice Pricing</a></li>
+<li><a href="#T292551">Intercompany Invoicing for Sales Orders Example</a></li>
+<li><a href="#T292555">Intercompany Accounting Transactions Flows</a></li>
+</ul>
+<h2><a name="1761398"></a><a id="T292535"></a><b>Intercompany Invoicing Process Overview</b></h2>
+<p><a name="d0e103469" id="d0e103469"></a><a name="I_c_intprocs" id="I_c_intprocs"></a>When you process and invoice an order, the selling organization records entries to accounts receivable, for revenue, tax, and freight. The shipping warehouse records entries to the inventory asset account and the cost of goods sold (COGS) account. When the above scenario involves a selling organization in one operating unit, and a shipping organization in another operating unit additional accounting must take place.</p>
+<p>The shipping organization must bill the selling organization at the transfer price, and the selling organization must make the corresponding payment. The intercompany accounts receivable invoice is the transaction the system uses to record the intercompany receivable accounting for the shipping organization. It debits the intercompany accounts receivable at transfer price, charges tax, freight, and credits intercompany revenue.</p>
+<p>The intercompany accounts payable invoice is the transaction the system uses to record the payable accounting for the selling organization. The system debits intercompany COGS and freight, and credits the intercompany payable account.</p>
+<p><strong><span>Additional Information:</span></strong> For advanced catch weight situations: Intercompany invoicing honors the shipped quantities but is still driven by primary-based pricing.</p>
+<h3><a id="T292564"></a><b>Benefits of Intercompany Invoicing</b></h3>
+<p>Intercompany invoicing provides the following benefits:</p>
+<ul>
+<li>
+<p>Reduce procurement costs.</p>
+</li>
+<li>
+<p>Reduce the complexity of interactions with suppliers.</p>
+</li>
+<li>
+<p>Centrally control the amount and timing of funds dedicated to procurement activities on behalf of subsidiaries.</p>
+</li>
+<li>
+<p>Secure supply commitments on the basis of parent company credit ratings.</p>
+</li>
+<li>
+<p>Expedite delivery by avoiding unnecessary intermediate delivery locations.</p>
+</li>
+</ul>
+<h2><a name="1761401"></a><a id="T292536"></a><b>Features</b></h2>
+<a name="I_c_features" id="I_c_features"></a>
+<h3><a id="T292565"></a><b>Automatic Intercompany Sales Recognition</b></h3>
+<p>You can ship an order from a shipping warehouse that has a different operating unit other than the selling organization. The system generates an intercompany invoice to record an intercompany sale between the shipping organization and the selling organization.</p>
+<h3><a id="T292566"></a><b>Segregating Trade, Intercompany COGS and Revenue</b></h3>
+<p>You can define different accounts for trade, intercompany COGS, and sales revenue to eliminate intercompany profits. You can also use price lists to establish intercompany invoices.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292529.htm#I_c_intprocs">Intercompany Invoicing Process Overview</a></p>
+<p>Overview of Pricing, <i>Oracle Advanced Pricing User's Guide</i></p>
+<h2><a name="1761406"></a><a id="T292537"></a><b>General Business Processes Summary</b></h2>
+<p><a name="I_t_general" id="I_t_general"></a>The following is the overall intercompany invoice business process:</p>
+<ol>
+<li>
+<p>The customer places an order with the selling operating unit.</p>
+</li>
+<li>
+<p>The order ships to the customer from a shipping warehouse associated with an operating unit that differs from the selling operating unit.</p>
+</li>
+<li>
+<p>The shipping operating unit issues an intercompany receivable invoice to the selling operating unit at the transfer price.</p>
+</li>
+<li>
+<p>The selling operating unit issues an intercompany payable to the shipping operating unit.</p>
+</li>
+<li>
+<p>If the customer is external then, the selling operating unit sends a separate invoice to the customer.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_t_intcom">Defining Intercompany Relations</a></p>
+<p><a href="T291651T295121.htm#I_r_interar">Intercompany AR Invoice Report</a></p>
+<p><a href="T291651T295121.htm#I_r_intap">Intercompany Invoice AP Report</a></p>
+<p>Bills Receivable Overview page , <i>Oracle Receivables User's Guide</i></p>
+<p>Accounting in Payables page , <i>Oracle Payables User's Guide</i></p>
+<p>Running Reports and Programs, <i>Oracle E-Business Suite User's Guide</i></p>
+<p>Key Concepts for Representing Enterprises, <i>Oracle HRMS Enterprise and Workforce Management Guide</i></p>
+<p>Defining Item Cost Details, <i>Oracle Cost Management User's Guide</i></p>
+<p>Order Import, <i>Oracle Order Management User's Guide</i></p>
+<h2><a name="1761425"></a><a id="T292546"></a><b>Intercompany Invoicing Setup</b></h2>
+<p><a name="d0e103632" id="d0e103632"></a><a name="I_c_iipro" id="I_c_iipro"></a>To perform intercompany invoicing verify the following:</p>
+<ul>
+<li>
+<p>Define intercompany relations between the selling and shipping operating units</p>
+</li>
+<li>
+<p>Define intercompany transaction flows</p>
+</li>
+<li>
+<p>Define price lists</p>
+</li>
+<li>
+<p>Define Oracle Receivables system options</p>
+</li>
+<li>
+<p>Define Oracle Payables system options</p>
+</li>
+<li>
+<p>Define tax structures in Oracle Payables and Oracle Receivables</p>
+</li>
+<li>
+<p>Set up the Account Generator for the Cost of Goods Sold accounts</p>
+</li>
+</ul>
+<p>Before checking the Intercompany AP invoice, ensure you have met the following conditions:</p>
+<ul>
+<li>
+<p>The Intercompany AR invoice was created</p>
+</li>
+<li>
+<p>The create Intercompany AP Invoices program successfully ran for the selling operating unit</p>
+</li>
+<li>
+<p>The Invoice import program completed for invoice source = intercompany</p>
+</li>
+</ul>
+<h3><a id="T292579"></a><b>Profile Options<a name="d0e103679" id="d0e103679"></a><a name="d0e103684" id="d0e103684"></a></b></h3>
+<p>The Create Intercompany AR Invoices program examines the profile options values of all responsibilities of an operating unit. If you do not set a profile option for any responsibility the program uses the site value. If one responsibility has a particular profile option set, the program uses the set value. If you set identical values for two or more responsibilities, the AR Invoices program uses the set value. If the profile option values differ between responsibilities, the program produces an error.</p>
+<ul>
+<li>
+<p>INV:Intercompany Currency Conversion</p>
+<p>Determines the conversion type for foreign currency invoices.</p>
+</li>
+<li>
+<p>INV:Inter-company Invoice for Internal Orders</p>
+<p>This profile option allows you to create intercompany invoices for internal orders of type in-transit shipments, internal RMA receipts, internal RMA in transit shipment receipts, and internal RMA canceled in transit shipment receipts. Set this profile option at site level.</p>
+</li>
+<li>
+<p>INV: Use Transfer Price From Intercompany AR With Internal Order RMA</p>
+<p>To calculate the transfer price for a credit memo, this profile option determines whether to use the transfer price from the intercompany AR with internal order RMA or from the price list. The default value of the profile is <b>Yes</b>. Set this profile at the Site level.</p>
+<ul>
+<li>
+<p>If set to <b>Yes</b>, then the profile option calculates the transfer price for the credit memo based on the parent or reference in-transit shipment transaction intercompany AR invoice.</p>
+</li>
+<li>
+<p>If set to <b>No</b>, then the profile option calculates the transfer price for the credit memo based on the transfer price functionality.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>INV: Advanced Pricing for Inter-company Invoice</p>
+<p>This profile option enables you to use advanced pricing for intercompany invoice. Set this profile option at site level. To use this profile, Oracle Advanced Pricing must be installed.</p>
+</li>
+<li>
+<p>Tax: Allow Override of Tax Code</p>
+<p>Determines if tax code information should be passed to AR for freight</p>
+</li>
+<li>
+<p>Tax: Invoice Freight as Revenue</p>
+<p>Indicates if freight lines should be invoiced as revenue lines.</p>
+</li>
+<li>
+<p>Tax: Inventory Item for Freight</p>
+<p>Use this inventory item when you invoice freight lines as revenue lines.</p>
+</li>
+<li>
+<p>MO: Operating Unit</p>
+<p>Set this profile option to the appropriate operating unit for each responsibility.</p>
+</li>
+</ul>
+<h3><a id="T292580"></a><b>Ledger</b></h3>
+<p>A ledger determines the ledger currency, account structure, and accounting calendar for each company or group of companies. Verify you created a ledger for your operating unit See: Defining Ledgers, <i>Oracle General Ledger User's Guide</i>.</p>
+<h3><a id="T292581"></a><b>Define Currencies</b></h3>
+<p>Verify you defined the currencies used in relations between operating units. See: Defining Currency, <i>Oracle General Ledger User's Guide</i>.</p>
+<h3><a id="T292582"></a><b>Define Customers</b></h3>
+<p>You must define both internal and external customers before you can use intercompany invoicing. See: Creating Customers, <i>Oracle Receivables User's Guide</i>.</p>
+<h3><a id="T292583"></a><b>Organization Setup</b></h3>
+<p>You must establish all organizations involved in the Intercompany Invoicing Process. See: Creating an Organization, <i>Oracle HRMS Enterprise and Workforce Management Guide</i>.</p>
+<h3><a id="T292584"></a><b>Intercompany Relations</b></h3>
+<p>You must establish intercompany relations between the operating units you wish to use intercompany invoicing. See: <a href="T291651T291796.htm#I_t_intcom">Defining Intercompany Relations</a>.</p>
+<p>For each pair of selling and shipping operating units, define the following:</p>
+<ul>
+<li>
+<p>A customer and customer site combination, defined in the shipping organization operating unit to represent each operating unit that is capable of promising shipments from the shipping operating unit. This customer and customer site combination is used in intercompany receivables invoices.</p>
+</li>
+<li>
+<p>An invoice transaction type defined in the shipping organization operating unit.</p>
+</li>
+<li>
+<p>A supplier and supplier site combination, defined under the selling organization, to represent each shipping entity. This supplier and supplier site combination is used in Intercompany payable invoices.</p>
+</li>
+<li>
+<p>An operating unit to each inventory organization for creating an intercompany Oracle Receivables invoice.</p>
+</li>
+</ul>
+<h3><a id="T292585"></a><b>Items</b></h3>
+<p>To enable intercompany invoicing, you must perform the following item setups.</p>
+<ul>
+<li>
+<p>Enable Item at the Master and Organization levels</p>
+</li>
+<li>
+<p>Verify the following item attributes are enabled</p>
+<ul>
+<li>
+<p>Customer Ordered</p>
+</li>
+<li>
+<p>Customer Order Enabled</p>
+</li>
+<li>
+<p>Internal Ordered</p>
+</li>
+<li>
+<p>Internal Order Enabled</p>
+</li>
+<li>
+<p>Invoiceable Item</p>
+</li>
+<li>
+<p>Invoice Enabled</p>
+</li>
+<li>
+<p>Cost Enabled</p>
+</li>
+<li>
+<p>Stockable</p>
+</li>
+<li>
+<p>Transactable</p>
+</li>
+<li>
+<p>Inventory Item</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291654.htm#I_r_profile">Implementing Profile Options</a></p>
+<p><a href="T291651T291654.htm#I_r_profile">Defining Items</a></p>
+<p><a href="T291651T298833.htm#I_t_asgnorg">Assigning Items to Organizations</a></p>
+<p><a href="T291651T427992.htm#I_r_oeattr">Order Management Attribute Group</a></p>
+<p><a href="T291651T427992.htm#I_r_invcattr">Invoicing Attribute Group</a></p>
+<p>Key Concepts for Representing Enterprises, <i>Oracle HRMS Enterprise and Workforce Management Guide</i></p>
+<p>Defining Sets of Books, <i>Oracle General Ledger User's Guide</i></p>
+<h2><a name="1761433"></a><a id="T292611"></a><b>Transaction Flows</b></h2>
+<p><a name="I_t_transflow" id="I_t_transflow"></a><a name="INVSICTF_TRX_FLOW" id="INVSICTF_TRX_FLOW"></a><a name="INVSICTF_TRX_FLOW_QF" id="INVSICTF_TRX_FLOW_QF"></a>Transaction flows specify the operating units and inventory organizations involved in the financial transactions when goods move from a source operating unit to a destination operating unit. This may differ and be independent from the physical flow of goods.</p>
+<p>Transaction flows map the financial path that indicates the participating operating units involved in the transfer of assets from the point of procurement to the final selling organization. The transaction flow between a source and a destination identifies the chain of operating units and associated inventory organizations involved in the costing, transfer of liability, and revenue when you ship material from a source to a destination. You transfer liability and revenue from one operating unit and organization to another operating unit and organization using logical transactions.</p>
+<p>Logical transaction: A <i>logical transaction</i> is an accounting event that represents the financial transaction between two operating units without the physical movement of goods.</p>
+<h3><b>Transaction Flow Types</b></h3>
+<p>The two transaction flow types are <i>shipping</i> and <i>procuring</i>:</p>
+<ul>
+<li>
+<p>Shipping flow: A shipping flow is set up between two operating units of type shipping. You use the shipping flow when the shipping operating unit differs from the selling operating unit on the shipping document.</p>
+</li>
+<li>
+<p>Procuring flow: A procuring flow is set up between two operating units of type <i>procuring</i> when the receiving operating unit differs from the procuring operating unit on the receiving document. This type of flow indicates that the operating unit that created the PO differs from the operating unit that receives the PO.</p>
+</li>
+</ul>
+<p><b>To create a transaction flow</b></p>
+<ol>
+<li>
+<p>Navigate to the Intercompany Transaction Flows window.</p>
+<p><img width="752" height="484" src="./img/invug_transflow.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter or select the start operating unit. In a shipping flow, the start operating unit is the operating that contains the shipping organization. In a procuring flow, the start operating unit is the operating unit that contains the procuring organization.</p>
+</li>
+<li>
+<p>Enter or select the end operating unit. In a shipping flow, the end operating unit is the operating unit that contains the sales organization. In a procuring flow, the end operating unit is the operating that contains the receiving organization.</p>
+</li>
+<li>
+<p>Select the transaction flow type from the drop-down list. The available values are shipping or procuring.</p>
+</li>
+<li>
+<p>Optionally enter the ship from / to organization. If you enter a ship from or to organization the system automatically uses the specified organization as the shipping or receiving organization.</p>
+<p><strong><span>Note:</span></strong> To send material from all inventories of the shipping operating unit, do not enter a value in the Ship From / To Organization field.</p>
+</li>
+<li>
+<p>Optionally select the category qualifier. If you select a qualifier the system automatically selects items belonging to that category set. If you are creating a shipping flow, the system uses the inventory category set. If you are creating a purchasing flow, the system uses the purchasing category set.</p>
+</li>
+<li>
+<p>If you selected the category qualifier, enter the appropriate category.</p>
+</li>
+<li>
+<p>If you are creating a procuring flow, select the Asset price from the list of values. The available values are PO and Transfer.</p>
+</li>
+<li>
+<p>If you are creating a procuring flow, select the Expense price from the list of values. The available choices are PO and Transfer</p>
+</li>
+<li>
+<p>Enter the start date for the flow in the Start field.</p>
+</li>
+<li>
+<p>Optionally, enter the end date in the End field.</p>
+<p><strong><span>Note:</span></strong> If a transaction flow was set up in error or changes are required to an existing setup, then enter a end date for the flow to be replaced/updated, and create a new transaction flow.</p>
+</li>
+<li>
+<p>Select the Advanced Accounting check box if you plan to have intermediate operating units in the flow. If you use more than two operating units, the system automatically selects this check box. For transaction flows that contain two operating units, you can select this check box if you want to use advanced accounting.</p>
+<p><strong><span>Note:</span></strong> If the Advanced Accounting check box is selected, then the <i>Organization</i> and <i>To Operating Unit</i> fields are required (mandatory) values.</p>
+</li>
+<li>
+<p>In the Nodes alternative region modify the to operating unit if you have intermediate operating units. The value in the To Operating Unit field automatically defaults to the selling or purchasing organization depending on the flow type.</p>
+</li>
+<li>
+<p>Enter any subsequent operating units in the alternative nodes region. Make sure the final operating unit is the operating unit specified in the Operating Unit alternative region.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_t_intcom">Defining Intercompany Relations</a>.</p>
+<h2><a name="1761407"></a><a id="T292538"></a><b>Intercompany Invoicing Reports</b></h2>
+<p><a name="I_c_interr" id="I_c_interr"></a>The following section contains the different accounting reports for intercompany invoicing:</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292529.htm#I_c_intera">Intercompany AR Invoices Report</a></p>
+<p><a href="T291651T292529.htm#I_c_interap">Intercompany AP Invoices Report</a></p>
+<h2><a name="1761408"></a><a id="T292539"></a><b>Intercompany Account Receivables Invoices Report</b></h2>
+<p><a name="I_c_intera" id="I_c_intera"></a>Use this report to create intercompany accounts receivables invoices for product shipment and freight charges initiated from sales orders and internal orders another operating unit initiates. Oracle Inventory retrieves information such as customer, customer site, and transaction type from the intercompany relations definitions.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T295121.htm#I_r_interar">Intercompany AR Invoice Report</a></p>
+<h2><a name="1761409"></a><a id="T292540"></a><b>Intercompany Account Payables Invoices Report</b></h2>
+<p><a name="I_c_interap" id="I_c_interap"></a>Use this report to copy intercompany account receivables invoices into Oracle Payables. This process creates invoices in the expense express tables with a unique import source name and is processed by the Oracle Payables Invoices Import Process.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T295121.htm#I_r_intap">Intercompany AP Invoice Report</a></p>
+<h2><a name="1761412"></a><a id="T292543"></a> <b>Intercompany Invoice Accounting Distributions</b></h2>
+<p><a name="d0e104192" id="d0e104192"></a><a name="d0e104197" id="d0e104197"></a><a name="I_c_icacct" id="I_c_icacct"></a>The following section discusses the accounting practices for intercompany invoicing.</p>
+<h2><a name="1761413"></a><a id="T292544"></a><b>Accounting Distributions from the Intercompany Accounts Receivable Invoice</b></h2>
+<a name="d0e104210" id="d0e104210"></a><a name="d0e104217" id="d0e104217"></a><a name="I_c_adiar" id="I_c_adiar"></a>
+<h3><a id="T292570"></a><b>Oracle Receivables Invoice Batch Source</b></h3>
+<p>An invoice batch source indicates the source of invoices you transfer to Oracle Receivables. It also determines how auto invoice processes an invoice. All intercompany invoices the create intercompany AR invoice process generates use the predefined batch source intercompany. Modifying this invoice batch source may cause unexpected failures during auto invoice</p>
+<p><strong><span>Note:</span></strong> Auto accounting uses sales credit records to construct distribution accounts based on sales representative. If you use sales representative in one or more account segment assignments for a particular operating unit, set the Allow Sales Credit Flag to yes for the intercompany batch source in that operating unit.</p>
+<h3><a id="T292571"></a><b>Currency<a name="d0e104246" id="d0e104246"></a><a name="d0e104253" id="d0e104253"></a></b></h3>
+<p>The system record the transaction at transfer price, and uses the bill-to-site and the currency of the selling operating unit. For example, if the selling operating unit is located in the UK, and the shipping operating unit is located in the US, create the intercompany invoice in British Pounds, and convert to US dollars.</p>
+<p>If the freight, handling, duty, and insurance charges are not in the same currency as the transfer price list, you must create another intercompany invoice.</p>
+<p>The Currency Code field in the Intercompany Relations window is used to define which currency code is used in the Intercompany AR Invoice. The field is used if the profile option INV: Use Advanced Pricing is set to yes. For advanced accounting, and procuring, this is only applicable if the pricing options in the transaction flow are set to transfer price</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Fl Type</b></th>
+<th scope="col"><b>Use Adv Pric</b></th>
+<th scope="col"><b>Curr Cde</b></th>
+<th scope="col"><b>Curr Cde in AR</b></th>
+</tr>
+<tr valign="top">
+<td>Shipping</td>
+<td>N</td>
+<td>Does not matter</td>
+<td>Price List Currency Code</td>
+</tr>
+<tr valign="top">
+<td>Shipping</td>
+<td>Y</td>
+<td>Shipping Operating Unit</td>
+<td>Shipping Operating Unit Currency Code</td>
+</tr>
+<tr valign="top">
+<td>Shipping</td>
+<td>Y</td>
+<td>Selling Operating Unit</td>
+<td>Selling Operating Unit Currency Code</td>
+</tr>
+<tr valign="top">
+<td>Shipping</td>
+<td>Y</td>
+<td>Order Currency Code</td>
+<td>Sales Order Currency Code</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Fl Tpe</b></th>
+<th scope="col"><b>Pric Opt</b></th>
+<th scope="col"><b>Use Adv Pric</b></th>
+<th scope="col"><b>Curr Cde</b></th>
+<th scope="col"><b>Curr Cde in AR</b></th>
+</tr>
+<tr valign="top">
+<td>Procuring</td>
+<td>PO Price</td>
+<td>N</td>
+<td>Does not matter</td>
+<td>Currency Code of Procuring / From Operating Unit</td>
+</tr>
+<tr valign="top">
+<td>Procuring</td>
+<td>Transfer Price</td>
+<td>N</td>
+<td>Does not matter</td>
+<td>Currency Code of Price List</td>
+</tr>
+<tr valign="top">
+<td>Procuring</td>
+<td>Transfer Price</td>
+<td>Y</td>
+<td>Procuring / Shipping operating Unit</td>
+<td>Currency Code of Procuring / From Operating Unit</td>
+</tr>
+<tr valign="top">
+<td>Procuring</td>
+<td>Transfer Price</td>
+<td>Y</td>
+<td>Receiving / Selling Operating Unit</td>
+<td>Currency Code Receiving / To Operating Unit</td>
+</tr>
+<tr valign="top">
+<td>Procuring</td>
+<td>Transfer Price</td>
+<td>Y</td>
+<td>Order Currency Code</td>
+<td>Currency Code in the Purchase Order</td>
+</tr>
+</table>
+<h4><a id="T292572"></a><b>Prerequisites</b></h4>
+<p>Before checking the Intercompany AR invoice, ensure you have met the following conditions:</p>
+<ul>
+<li>
+<p>The transaction processor successfully completed the order issue.</p>
+</li>
+<li>
+<p>Transaction is costed.</p>
+</li>
+<li>
+<p>The auto invoice program completed without error for source = Intercompany.</p>
+</li>
+</ul>
+<h3><a id="T292573"></a><b>Source of Accounts<a name="d0e104685" id="d0e104685"></a><a name="d0e104692" id="d0e104692"></a></b></h3>
+<p>The accounts for the intercompany accounts receivable invoice are built using AutoAccounting. The system uses an open interface to import records into Oracle Receivables. Individual account segments may come from different sources, and the combination must be allowed in the shipping organization ledger.</p>
+<ul>
+<li>
+<p>Salesperson Account Segment: The system derives the salesperson account segment from the accounts assigned to the no sales credit default.</p>
+</li>
+<li>
+<p>Standard Lines Segment: The system derives the standards lines segments from the item master sales account for your items.</p>
+</li>
+<li>
+<p>Standard Lines Freight Segment: You set the profile options Inv: Tax Invoice Item as Freight and Inv: Tax Invoice Freight as Revenue to yes obtain the freight account segments from the item.</p>
+<p>However, if freight is not an item, and it is a header-level charge on the invoice, the system derives the account segments from the standard memo line intercompany freight.</p>
+</li>
+<li>
+<p>Invoice Type Segment: The system derives the invoice type segment from the invoice type you identified in the Intercompany Relations window for transactions between operating units.</p>
+</li>
+</ul>
+<h3><a id="T292574"></a><b>Tax Structure</b></h3>
+<ul>
+<li>
+<p>If you need to apply tax to intercompany invoices, you must set up identical tax structures (tax codes and rates) in Oracle Payables and Oracle Receivables. This allows Oracle Receivables Invoices to mirror correctly into intercompany Oracle Payables invoices.</p>
+</li>
+</ul>
+<h3><a id="T292575"></a><b>Period Close</b></h3>
+<ul>
+<li>
+<p>Before closing accounting periods in Oracle Inventory, Oracle Receivables and Oracle Payables, process all outstanding intercompany shipments including, but not limited to, posting to Oracle General Ledger.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T295121.htm#I_r_interar">Intercompany AR Invoices Report</a></p>
+<h2><a name="1761421"></a><a id="T292545"></a><b>Accounting Distributions for Intercompany Accounts Payable Invoice</b></h2>
+<a name="d0e104779" id="d0e104779"></a><a name="d0e104786" id="d0e104786"></a><a name="I_c_acctap" id="I_c_acctap"></a>
+<h3><a id="T292576"></a><b>Currency<a name="d0e104798" id="d0e104798"></a><a name="d0e104805" id="d0e104805"></a></b></h3>
+<p>The system records the transaction in the currency of the intercompany accounts receivable invoice. If AR invoice currency differs from the ledger currency of the selling operating unit, then the system converts the currency to the ledger currency of the selling operating unit and uses the exchange rate that corresponds to the invoice line general ledger date.</p>
+<h3><a id="T292577"></a><b>Source of Accounts<a name="d0e104823" id="d0e104823"></a><a name="d0e104830" id="d0e104830"></a></b></h3>
+<ul>
+<li>
+<p>COGS Account: The Account Generator builds the COGS account for the selling organization ledger. Typically segments are sourced from a combination of constant values and the cost of goods sold from the selling unit.</p>
+</li>
+<li>
+<p>Freight Account: Oracle Inventory uses the freight account you defined on the Intercompany Relations window for the corresponding selling and shipping organizations.</p>
+</li>
+<li>
+<p>Intercompany Payable Invoice: The intercompany payable comes from the liability account associated with the shipping organization created in the selling organization payables system. Because more than one payable site can exist for a supplier, the system uses the site you defined on the Intercompany Relations window.</p>
+</li>
+</ul>
+<h3><a id="T292578"></a><b>Account Generator</b></h3>
+<ul>
+<li>
+<p>The Created Intercompany Accounts Payable (AP) invoices process uses the Account Generator process Inventory Cost of Goods Sold Account to construct the expense account for regular invoice lines. You must set up this process before you can user the Create Intercompany AP Invoice process.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T295121.htm#I_r_interar">Intercompany AR Invoices Report</a></p>
+<p><a href="T291651T295121.htm#I_r_intap">Intercompany AP Invoices Report</a></p>
+<h2><a name="1761436"></a><a id="T292547"></a> <b>Intercompany Invoice Pricing</b></h2>
+<p><a name="d0e104892" id="d0e104892"></a><a name="I_c_IIP" id="I_c_IIP"></a>The intercompany invoicing program uses the advanced pricing engine to derive the invoice price for an item. The advanced pricing setup enables you to define which rules, based on price list, the system uses to derive invoice price for an item.</p>
+<p>To use this feature, you must set the <code>INV: Advanced Pricing for Inter-company Invoice</code> profile option. You set this profile option at site level. When you set this profile option to Yes, you can use the Advance Pricing engine for intercompany invoicing. Otherwise, the system uses the static price from the selling operating unit price list.</p>
+<p><strong><span>Note:</span></strong> You must purchase a separate license for Advanced Pricing. If you set this profile without a license, you are not able to use advanced pricing.</p>
+<p>The following figure shows the intercompany invoicing process with or without Oracle Advanced Pricing.</p>
+<p><img width="800" height="713" src="./img/invug_Inter.gif" alt="the picture is described in the document text"></p>
+<h2><a name="1761437"></a><a id="T292548"></a><b>Using Advanced Pricing Engine with Intercompany Invoicing</b></h2>
+<p><a name="d0e104919" id="d0e104919"></a><a name="I_t_adpii" id="I_t_adpii"></a>Before using the pricing logic, the intercompany invoicing program looks for an external API to return a price for the items on the order. If the API does not return a value, and if you set the Advanced Pricing profile option to yet, the pricing logic attempts derive the price from the price list using the Advanced pricing engine. If the advanced pricing engine finds the price for the item in one of the price lists, the intercompany invoicing program processes the record and moves on to the next record. If Oracle Advanced Pricing cannot find a correct price for the item, the intercompany invoicing program logs an error message for that record, and moves to the next record.</p>
+<h3><a id="T292586"></a><b>Static Pricing</b></h3>
+<p>You can uses order management to create a static price list. See: Overview of Price Lists, <i>Oracle Order Management User's Guide</i>.</p>
+<h3><a id="T292587"></a><b>Use of Third Party Pricing Engine</b></h3>
+<p>Oracle Inventory has the ability to call an external API to support custom-specific complex pricing logic written by the customer or a third party.</p>
+<p><strong><span>Note:</span></strong> The name of the API is MTL_INTERCOMPANY_INVOICES.get_transfer_price. The name of the file is INVICIVB.pls it is located in $INV_TOP/patch/115/sql.</p>
+<h3><a id="T292588"></a><b>Advanced Pricing Engine Setup<a name="d0e104965" id="d0e104965"></a></b></h3>
+<p>You must set up pricing rules to use the advanced pricing engine for intercompany invoicing. If you do not setup rules, the system picks the invoice price from a static price list. See: Creating a Qualifier Group, <i>Oracle Advance Pricing User's Guide</i>.</p>
+<p><strong>Related Topics</strong></p>
+<p>Overview of Pricing Qualifiers, <i>Oracle Advanced Pricing User's Guide</i></p>
+<p>Overview of Price Lists page: , <i>Oracle Advance Pricing User's Guide</i></p>
+<p>Creating a Price List, <i>Oracle Advanced Pricing User's Guide</i></p>
+<h2><a name="1761441"></a><a id="T292549"></a><b>Seed Data Support of Advanced Pricing Integration with Intercompany Invoicing</b></h2>
+<p><a name="I_t_seed" id="I_t_seed"></a>There are two seeded relationships between request type and source codes. The first one is between request type intercompany and source system inventory. The second relationship is between request type intercompany and source system advanced pricing. These mappings enable you to create price lists that are common to intercompany invoicing and sales order invoicing. For sales orders, you create price lists with the source code of QP &lt;Advanced Pricing&gt; and the system uses the mapping between Oracle Order Management and Oracle Advanced Pricing to pick price lists for sales order invoices. Similarly, you may decide to create separate price lists for intercompany invoicing. You do this by using the system source code of inventory. To do this, set the profile option QP: Source system code to INV. See Profile Options, <i>Oracle Advanced Pricing Implementation Manual</i>. If you want to use separate price lists for intercompany invoicing, disable the mapping between intercompany and Advanced Pricing, otherwise if the pricing engine finds a better fit for the price list defined under Advanced Pricing, it returns that price list.</p>
+<p>You can use the defined global structure to define mapping rules for qualifier attributes and pricing attributes for price lists. The global structure is based on the information that is captured and available in a sales order or an internal sales order record. All seeded default rules are defined using this global structure.</p>
+<h3><a id="T292589"></a> <b>Seeded Qualifier Attributes<a name="d0e105011" id="d0e105011"></a></b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Qualifier Context<br>
+Context</b></th>
+<th scope="col"><b>Qualifier Attribute</b></th>
+<th scope="col"><b>Data Source</b></th>
+<th scope="col"><b>Table Validated Value Set</b></th>
+</tr>
+<tr valign="top">
+<td>Intercompany_invoicing</td>
+<td>Shipping Organization</td>
+<td>Qualifier_attribute1</td>
+<td>HR_OPERATING_UNITS</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>Selling Organization</td>
+<td>Qualifier_attribute2</td>
+<td>HR_OPERATING_UNITS</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>Customer ID</td>
+<td>Qualifier_attribute3</td>
+<td>HZ_CUST_ACCOUNTS, Hz_parties</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>Customer Site ID</td>
+<td>Qualifier_attribute4</td>
+<td>ra_addresses_all, ra_site_uses_all, fnd_territories_vl ft</td>
+</tr>
+</table>
+<h3><a id="T292590"></a> <b><a name="d0e105182" id="d0e105182"></a>Default Attribute Mapping for Line Qualifier Attributes</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Context</b></th>
+<th scope="col"><b>Pricing Attribute</b></th>
+<th scope="col"><b>Source Package</b></th>
+<th scope="col"><b>Source Function</b></th>
+<th scope="col"><b>Default Condition Template</b></th>
+</tr>
+<tr valign="top">
+<td>Intercompany_Invoicing</td>
+<td>Qualifier attribute1</td>
+<td>INV_IC_ORDER_PUB</td>
+<td>G_LINE, SHIPPING_ORG_ID</td>
+<td>INV Intercompany Pricing</td>
+</tr>
+<tr valign="top">
+<td>Intercompany_Invoicing</td>
+<td>Qualifier attribute2</td>
+<td>INV_IC_ORDER_PUB</td>
+<td>G_LINE, IC_SELLING_ORG_ID</td>
+<td>INV Intercompany Pricing</td>
+</tr>
+<tr valign="top">
+<td>Intercompany_Invoicing</td>
+<td>Qualifier attribute3</td>
+<td>INV_IC_ORDER_PUB</td>
+<td>G_LINE, IC_CUSTOMER_ID</td>
+<td>INV, Intercompany Pricing</td>
+</tr>
+<tr valign="top">
+<td>Intercompany_Invoicing</td>
+<td>Qualifier attribute4</td>
+<td>INV_IC_ORDER_PUB</td>
+<td>G_LINE, IC_CUSTOMER__SITE_ID</td>
+<td>INV, Order Volume Context</td>
+</tr>
+<tr valign="top">
+<td>Intercompany_Invoicing</td>
+<td>Qualifier attribute1</td>
+<td>INV_IC_ORDER_PUB</td>
+<td>G_LINE, ORDERED DATE</td>
+<td>INV, Order Context</td>
+</tr>
+<tr valign="top">
+<td>Intercompany_Invoicing</td>
+<td>Qualifier attribute14</td>
+<td>INV_IC_ORDER_PUB</td>
+<td>G_LINE, ORDERED QUANTITY</td>
+<td>INV, Order Volume Context</td>
+</tr>
+</table>
+<h3><a id="T292591"></a> <b><a name="d0e105449" id="d0e105449"></a>Default Attribute Mapping for Line Pricing Attributes</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Context</b></th>
+<th scope="col"><b>Pricing Attribute</b></th>
+<th scope="col"><b>Source Package</b></th>
+<th scope="col"><b>Source Function</b></th>
+<th scope="col"><b>Default Condition Template</b></th>
+</tr>
+<tr valign="top">
+<td>Item</td>
+<td>Pricing attribute1</td>
+<td>INV_IC_ORDER_PUB</td>
+<td>G_Line, inventory_item _id</td>
+<td>INV Intercompany Pricing</td>
+</tr>
+</table>
+<h3><a id="T292592"></a> <b><a name="d0e105551" id="d0e105551"></a>Default Attribute Mapping for Global Procurement</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Context</b></th>
+<th scope="col"><b>Qualifier Attribute</b></th>
+<th scope="col"><b>Data Source</b></th>
+<th scope="col"><b>Table Validated Value Set</b></th>
+</tr>
+<tr valign="top">
+<td>Global_Procurement</td>
+<td>Procuring Operating Unit</td>
+<td>Qualifer_attribute1</td>
+<td>NA</td>
+</tr>
+<tr valign="top">
+<td>Global_Procurement</td>
+<td>Receiving Operating Unit</td>
+<td>Qualifier_Attribute2</td>
+<td>NA</td>
+</tr>
+<tr valign="top">
+<td>Global_Procurement</td>
+<td>Vendor ID</td>
+<td>Qualifier_Attribute3</td>
+<td>NA</td>
+</tr>
+<tr valign="top">
+<td>Global_Procurement</td>
+<td>Vendor Site ID</td>
+<td>Qualifier_Attribute4</td>
+<td>NA</td>
+</tr>
+</table>
+<h3><a id="T292593"></a> <b><a name="d0e105720" id="d0e105720"></a>Default Attribute Mapping for Global Procurement</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Context</b></th>
+<th scope="col"><b>Pricing Attribute</b></th>
+<th scope="col"><b>Source Package</b></th>
+<th scope="col"><b>Source Function</b></th>
+<th scope="col"><b>Default Condition Template</b></th>
+</tr>
+<tr valign="top">
+<td>Global_procurement</td>
+<td>qualifier attribute1</td>
+<td>INV_IC_ORDER_PUB</td>
+<td>G_PROC_LINE, IC_PROCURING</td>
+<td>INV Intercompany Invoicing</td>
+</tr>
+<tr valign="top">
+<td>Global_procurement</td>
+<td>qualifier attribute2</td>
+<td>INV_IC_ORDER_PUB</td>
+<td>ORG_ID, G_PROC_LINE, IC_RECEIVING_ORG_ID</td>
+<td>INV Intercompany Invoicing</td>
+</tr>
+<tr valign="top">
+<td>Global_procurement</td>
+<td>qualifier attribute3</td>
+<td>INV_IC_ORDER_PUB</td>
+<td>G_PROC_LINE, IC_VEND0R_ID</td>
+<td>INV Intercompany Invoicing</td>
+</tr>
+<tr valign="top">
+<td>Global_procurement</td>
+<td>qualifier attribute4</td>
+<td>INV_IC_ORDER_PUB</td>
+<td>G_PROC_LINE, IC_VENDOR_SITE_ID</td>
+<td>INV Intercompany Invoicing</td>
+</tr>
+</table>
+<h2><a name="1761450"></a><a id="T292551"></a><b>Intercompany Invoicing for Sales Orders Example</b></h2>
+<p><a name="d0e105921" id="d0e105921"></a><a name="I_c_intersls" id="I_c_intersls"></a>A customer located in the UK purchases computers from a sales division in the United Kingdom. The shipping warehouse located in an operating unit in the United States ships the computers from a US warehouse to the customer in the UK, and records the cost in US dollars. The US operating unit invoices the UK operating unit at transfer price in British pounds which is then converted to US dollars. The following figure describes the steps you use in intercompany invoicing for a sales order.</p>
+<p><img width="795" height="710" src="./img/invug_salesorder.gif" alt="the picture is described in the document text"></p>
+<h2><a name="1761451"></a><a id="T292552"></a><b>Intercompany Invoicing Example Accounting Details</b></h2>
+<p><a name="I_c_iaccdet" id="I_c_iaccdet"></a>A sales office in the UK operating unit sells products to a customer. The products are then shipped from a shipping organization under the US operating unit. When the order shipment is confirmed, inventory transactions record the material movements. These inventory transactions generate the accounting distributions shown in the following table, which are recorded in the US operating unit's Oracle Inventory accounting distribution table MTL_TRANSACTION_ACCOUNTS.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intercompany Cost of Goods Sold (via Account Generator</td>
+<td>US Unit Cost x Qty</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>US Unit Cost x Qty</td>
+</tr>
+</table>
+<p>The Oracle Receivables Interface process in Oracle Order Management and Oracle Shipping Execution creates the invoice distributions shown in the following table, in Oracle Receivables (applicable taxes excluded) for the UK operating unit:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Trade Receivables</td>
+<td>(Selling Price x Qty)</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Trade Revenue</td>
+<td>-</td>
+<td>(Selling Price x Qty)</td>
+</tr>
+</table>
+<p>The Create Intercompany AR Invoice process uses the AutoInvoice mechanism to generate an intercompany receivable invoice from the US legal entity to the UK legal entity. The transaction date stamp on the inventory shipment transaction is the transaction date in the invoice lines. The transfer price of the product is extracted from the appropriate price list.</p>
+<p>The following table shows the intercompany receivable accounting in the US shipping organization.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intercompany Receivables</td>
+<td>Transfer Price x Qty</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Revenue</td>
+<td>-</td>
+<td>Transfer Price x Qty</td>
+</tr>
+</table>
+<p>After the system invokes AutoInvoice to process the intercompany Oracle Receivables invoices, the Create Intercompany AP Invoices concurrent program can be run followed by the AP Invoice Import Program to create the intercompany payable invoices from the UK legal entity to the US legal entity.</p>
+<p>The following table shows intercompany payables that would be created in the UK selling organization.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Trade COGS (via Account Generator)</td>
+<td>Transfer Price x Qty</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Payables</td>
+<td>-</td>
+<td>(Transfer Price x Qty)</td>
+</tr>
+</table>
+<h2><a name="1761452"></a><a id="T292553"></a><b>Intercompany Invoicing Sales Order Process</b></h2>
+<a name="I_t_sales" id="I_t_sales"></a>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Steps</b></th>
+<th scope="col"><b>Process</b></th>
+<th scope="col"><b>Program</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Enter Order</td>
+<td>UK Order Management</td>
+<td>Enter order information. See: Overview of Sales Orders, <i>Oracle Order Management User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>Schedule order and issue demand</td>
+<td>UK Order Management</td>
+<td>The Demand and or reservation is placed in the UK, and communicated to US manufacturing. UK order management maintains the schedule date. See: Sales Orders Scheduling, <i>Oracle Order Management User's Guide</i> and Availability and Reservations, <i>Oracle Order Management User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>3</td>
+<td>Perform pick release and print picking documents</td>
+<td>UK Order Management</td>
+<td>Select lines that need to be picked out of the warehouse and staged for shipping. Generate the appropriate picking documents. See: Releasing Sales Orders for Picking, <i>Oracle Shipping Execution User's Guide</i><br>
+Before performing pick release, you may need to provide additional information regarding the product location.<br>
+You must choose the subinventory location for the item. The picking documents need to print at the US distribution center. See: Defining Sales Order Main and Other Header Information, <i>Oracle Order Management User's Guide</i>.</td>
+</tr>
+<tr valign="top">
+<td>4</td>
+<td>Run update shipping information</td>
+<td>UK Shipping Execution</td>
+<td>This program updates the Order Management tables to reflect the order lines shipped status.</td>
+</tr>
+<tr valign="top">
+<td>5</td>
+<td>Run Inventory interface and Order Management Interface</td>
+<td>UK Shipping</td>
+<td>You can run the inventory interface program automatically after you ship confirm each order or defer the process. See: Defining Shipping Transaction Parameters, <i>Oracle Shipping Execution User's Guide</i><br>
+You can run the Interface Trip Stop-SRS program to run the Inventory and Order Management SRS Interfaces at the same time. The Transaction Manager processes the material issue out of Inventory.</td>
+</tr>
+<tr valign="top">
+<td>6</td>
+<td>The Transaction Manager processes the material issue out of inventory</td>
+<td>US Inventory</td>
+<td>The transaction manager periodically sweeps the Inventory interface tables, after which the on-hand balance is reduced that accounting distributions are made. See <a href="T291651T291655.htm#I_t_reqmgrs">Launching Transaction Manager</a></td>
+</tr>
+<tr valign="top">
+<td>7</td>
+<td>Costing</td>
+<td>US Costing</td>
+<td>The sales order issue transaction needs to be costed.</td>
+</tr>
+<tr valign="top">
+<td>8</td>
+<td>Run receivables interface</td>
+<td>UK Order Management</td>
+<td>After you perform shipment confirmation, run the receivables interface program to populate the receivables interfaces tables. See: Invoice Processing, <i>Oracle Order Management User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>9</td>
+<td>Run AutoInvoice master program</td>
+<td>UK Receivables</td>
+<td>After you run the receivables interface from UK order Management, you can import the customer invoice information in to Oracle Receivables. See: Importing Invoice Information Using AutoInvoice, <i>Oracle Receivables User's Guide</i>.</td>
+</tr>
+<tr valign="top">
+<td>10</td>
+<td>Print Invoice</td>
+<td>UK Receivables</td>
+<td>Print and mail the customer invoice See: Printing Transactions, <i>Oracle Receivables User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>11</td>
+<td>Run Create Intercompany AR Invoices</td>
+<td>US Inventory</td>
+<td>This program creates the intercompany receivable invoices.</td>
+</tr>
+<tr valign="top">
+<td>12</td>
+<td>Run AutoInvoice master program</td>
+<td>US Receivables</td>
+<td>After you create the intercompany invoice in US inventory, you can import it in to Oracle Receivables.<br>
+Run Auto Invoice Master program. See: Importing Invoice Information Using Auto Invoice, <i>Oracle Receivables User's Guide</i>.</td>
+</tr>
+<tr valign="top">
+<td>13</td>
+<td>Print the invoice</td>
+<td>US Receivables</td>
+<td>Review the intercompany invoice, print and send to the UK office.<br>
+The create Intercompany AR invoices program populates the AR interface with those shipment lines that have successfully passed through inventory. Therefore, the shipping division's intercompany AR invoice may not have the same number of lines as the corresponding packing slip. See: Printing Transactions, <i>Oracle Receivables User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>14</td>
+<td>Run Create Intercompany AP Invoices</td>
+<td>UK Inventory</td>
+<td>Creates records in the AP interface table. Only those records which successfully imported in to the US AR system will populate the AP interface</td>
+</tr>
+<tr valign="top">
+<td>15</td>
+<td>Run Invoice Import</td>
+<td>UK Accounts Payable</td>
+<td>Generates the intercompany AP invoice<br>
+The Vendor is the shipping operating unit. Choose the site to use for intercompany payables you set up in the Define Intercompany Relations Screen. See: Payables Open Interface Program, <i>Oracle Payables User's Guide</i></td>
+</tr>
+</table>
+<h2><a name="1761453"></a><a id="T292554"></a><b>Intercompany Invoicing Internal Order Process</b></h2>
+<p><a name="d0e106373" id="d0e106373"></a><a name="I_t_internal" id="I_t_internal"></a>Intercompany invoicing for an internal order differs from intercompany invoicing for sales orders. The customer is an internal organization. Consider the following scenario: A manufacturing division located in Japan purchases computer chips from the UK operating unit of the same company. The UK shipping division ships the computer chips from a UK warehouse to the Japanese manufacturing division unit, and records the cost in British Pounds. The following figure describes the steps you use for intercompany invoicing for an internal order.</p>
+<p><img width="795" height="714" src="./img/invug_Intercompany.gif" alt="the picture is described in the document text"></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Step</b></th>
+<th scope="col"><b>Process</b></th>
+<th scope="col"><b>Program</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Generate Internal Requisition</td>
+<td>Japan Purchasing</td>
+<td>The Japanese operating unit generates an internal requisition to the order Overview of Internal Requisitions, <i>Oracle Purchasing User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>Create an Internal Sales Order</td>
+<td>Japan Purchasing</td>
+<td>Create the internal Sales Order, see: Creation of internal Sales Order, <i>Oracle Purchasing User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>3</td>
+<td>Order Import</td>
+<td>UK Order Management</td>
+<td>Import internal order information see: Order Import, <i>Oracle Order Management User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>4</td>
+<td>Schedule Order and Issue Demand</td>
+<td>UK Order Management</td>
+<td>The Demand and or reservations is placed in the UK. UK order management maintains the schedule date: See: Sales Order Scheduling, <i>Oracle Order Management User's Guide</i> and Availability and Reservations, <i>Oracle Order Management User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>5</td>
+<td>Perform pick release and print picking documents</td>
+<td>UK Order Management</td>
+<td>Select lines that need to be picked out of the warehouse and staged for shipping. Generate the appropriate picking documents. See: Releasing Sales Orders for Picking, <i>Oracle Shipping Execution User's Guide</i><br>
+Before performing pick release, you may need to provide additional information regarding the product location.<br>
+You must choose the subinventory location for the item. See: Defining Sales order Main and Other Header Information, <i>Oracle Order Management User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>6</td>
+<td>Print Invoice</td>
+<td>UK Receivables</td>
+<td>Print and mail the customer invoice. See: Printing Transactions, <i>Oracle Receivables User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>7</td>
+<td>Run Inventory Interface and Order Management Interface</td>
+<td>UK Shipping</td>
+<td>you can run the inventory interface program automatically after you ship confirm each order, or you may defer the process. See: Defining Shipping Transaction Parameters, <i>Oracle Shipping Execution User's Guide</i><br>
+You can run the Interface Trip Stop-SRS program to run the Inventory and Order Management SRS Interfaces at the same time.</td>
+</tr>
+<tr valign="top">
+<td>8</td>
+<td>The transaction manager processes the material issue out of inventory</td>
+<td>UK Inventory</td>
+<td>The transaction manager periodically sweeps the Inventory interface tables, after while the on-hand balance is reduced and accounting distributions are made. See: <a href="T291651T291655.htm#I_t_reqmgrs">Launching Transaction Manager</a></td>
+</tr>
+<tr valign="top">
+<td>9</td>
+<td>Run Create Intercompany AR Invoices</td>
+<td>UK Inventory</td>
+<td>This program creates the intercompany receivable invoices. See: <a href="T291651T295121.htm#I_r_interar">Intercompany Invoicing AR Report</a></td>
+</tr>
+<tr valign="top">
+<td>10</td>
+<td>Run AutoInvoice Master Program</td>
+<td>UK Receivables</td>
+<td>After you create the intercompany invoice in UK inventory, you can import it into Oracle Receivables.<br>
+Run the AutoInvoice Master program. See: Importing Invoice Information using AutoInvoice, <i>Oracle Receivables User's Guide</i>.</td>
+</tr>
+<tr valign="top">
+<td>11</td>
+<td>Print the Invoice</td>
+<td>UK Receivables</td>
+<td>Review the intercompany invoice, print and send to the Japan office.<br>
+The Create Intercompany AR Invoices program populates the AR interface with the shipment lines that successfully passed through inventory. Therefore, the shipping division's intercompany AR invoice may not have the same number of lines as the corresponding packing slip.</td>
+</tr>
+<tr valign="top">
+<td>12</td>
+<td>Run Create Intercompany AP Invoices</td>
+<td>Japan Inventory</td>
+<td>Create records in the AP interface table. Only those records which successfully imported into the UK AR system populate in the AP interface. See: <a href="T291651T295121.htm#I_r_intap">Intercompany AP Report</a></td>
+</tr>
+<tr valign="top">
+<td>13</td>
+<td>Run Invoice Report</td>
+<td>Japan Accounts Payable</td>
+<td>Generate the intercompany AP invoice. The vendor is the shipping operating unit. Choose the site to use for intercompany payables that you set up in the Define Intercompany Relations window. See: Payables Open Interface, <i>Oracle Payables User's Guide</i></td>
+</tr>
+</table>
+<p>To optimize the financial flow and to create intercompany invoicing in the intermediate operating unit, the advanced accounting option is supported for the internal sales orders. That is, you can define Intercompany Transaction Flow Setup with an intermediate operating unit and generate multiple intercompany invoices between different operating units for the same physical movements of the material.</p>
+<p>For intercompany transaction flows with intermediate nodes configured:</p>
+<ul>
+<li>
+<p>Logical transactions are created for internal orders.</p>
+</li>
+<li>
+<p>Logical transactions are created during in transit shipments if the <b>FOB Point</b> is <b>Shipment</b>.</p>
+</li>
+<li>
+<p>Logical transactions are created during in transit receipt if the <b>FOB Point</b> is <b>Receipt</b>.</p>
+</li>
+<li>
+<p>Logical sales order issue transaction in the selling operating unit (OU) is not created for internal orders with the Intermediate Node set up.</p>
+</li>
+<li>
+<p>If the intercompany transaction flow between the shipping OU and selling OU is defined without an intermediate node, or if the intercompany transaction flow between the shipping OU and selling OU is defined without an intermediate node but with an advanced accounting setup (the <b>Advanced Accounting</b> checkbox is selected), then the application processes the internal order flows in the usual manner. The functionality is the same irrespective of the FOB point and logical transactions are not created.</p>
+</li>
+<li>
+<p>If the <b>FOB Point</b> is <b>Receipt</b> and the shipment is in transit, then logical transactions are not created, and the in-transit shipment transaction is considered ineligible for intercompany invoicing.</p>
+</li>
+<li>
+<p>Logical transactions are not created for IRMA cancellation and the IRMA cancellation transaction is considered ineligible for intercompany invoicing.</p>
+</li>
+</ul>
+<h3><a id="T683264"></a><b>Intercompany Invoicing for Internal RMA Receipts</b></h3>
+<p>Intercompany invoicing for an internal RMA receipt is different from the intercompany invoicing for a RMA receipt.</p>
+<p>Consider the following scenario: A manufacturing division located in Japan purchases computer chips from the UK operating unit. A shipping division in the UK ships the computer chips from a UK warehouse to the Japanese manufacturing division unit, and records the cost in British Pounds. The material from the Japanese manufacturing division unit is returned to the UK operating unit. An Internal RMA Receipt is created in the UK operating unit and records the cost in British Pounds.</p>
+<p><strong><span>Important:</span></strong> The transaction type Internal RMA Receipt is eligible for intercompany invoicing only when the corresponding referenced internal order shipment is intercompany invoiced.</p>
+<p>To perform intercompany invoicing for an internal RMA receipt you can use the steps and processes described in the following table.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Step</b></th>
+<th scope="col"><b>Process</b></th>
+<th scope="col"><b>Organization</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Create Return Order</td>
+<td>Japan Purchasing</td>
+<td>The Japanese operating unit creates a return order after performing the return transaction.</td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>Run Order Import Program</td>
+<td>UK Order Management</td>
+<td>This program imports internal RMA information.</td>
+</tr>
+<tr valign="top">
+<td>3</td>
+<td>Autocreate Delivery</td>
+<td>Japan Shipping</td>
+<td>Use Autocreate to generate a delivery for the return order. This delivery name is the return ASN number.</td>
+</tr>
+<tr valign="top">
+<td>4</td>
+<td>Ship Return Order</td>
+<td>Japan Shipping</td>
+<td>Confirm shipping of the return order</td>
+</tr>
+<tr valign="top">
+<td>5</td>
+<td>Receive Internal RMA</td>
+<td>UK Purchasing</td>
+<td>Receive and deliver Internal RMA, on-hand balances will increase, and accounting distributions are made</td>
+</tr>
+<tr valign="top">
+<td>6</td>
+<td>Run Create Intercompany AR Invoices Program</td>
+<td>UK Inventory</td>
+<td>This program creates the intercompany receivable invoices.</td>
+</tr>
+<tr valign="top">
+<td>7</td>
+<td>Run AutoInvoice Master Program</td>
+<td>UK Receivables</td>
+<td>This program imports the invoice information.</td>
+</tr>
+<tr valign="top">
+<td>8</td>
+<td>Run Create Intercompany AP Invoice Program</td>
+<td>Japan Inventory</td>
+<td>This program creates records in the Oracle Payables interface table for those records that are successfully imported into the UK Oracle Receivables application.</td>
+</tr>
+<tr valign="top">
+<td>9</td>
+<td>Run Invoice Report Program</td>
+<td>Japan Account Payables</td>
+<td>This program generates the intercompany Oracle Payables invoice. The vendor is the shipping operating unit. Select the site to use for intercompany payables that is set up in the <b>Define Intercompany Relations</b> window.</td>
+</tr>
+</table>
+<p>For intercompany transaction flows with intermediate nodes defined:</p>
+<ul>
+<li>
+<p>If the <b>FOB Point</b> is <b>Shipment</b>, then logical transactions are created for IRMA returns or cancellation flows.</p>
+</li>
+<li>
+<p>If the <b>FOB Point</b> is <b>Receipt</b>, then logical transactions are not created for IRMA cancellation and the IRMA cancellation transaction is considered ineligible for intercompany invoicing.</p>
+</li>
+<li>
+<p>The functionality of the profile <i>INV: Use Transfer Price From Intercompany AR With Internal Order RMA</i> remains the same.</p>
+</li>
+</ul>
+<h2><a name="1761454"></a><a id="T292555"></a><b>Intercompany Accounting Transactions Flows</b></h2>
+<p><a name="I_t_tx78nflow" id="I_t_tx78nflow"></a>This section depicts the transaction flows and accounting entries for intercompany invoicing, and global procurement flows. The tables contain the following information</p>
+<ul>
+<li>
+<p>Time: The event sequence</p>
+</li>
+<li>
+<p>Transaction: Physical event.</p>
+</li>
+<li>
+<p>Description: Depicts the underlying transactions, both physical and logical. Logical transactions are in italics.</p>
+</li>
+<li>
+<p>Accounting: These columns depict the accounting entries for each operating unit. The process responsible for the accounting entries is also indicated for example cost processor, intercompany invoicing, or receiving processor.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> The AP accrual account defaults from the organization parameter you set.</p>
+<h3><a id="T292596"></a><b>External Drop Shipment from Supplier to Customer</b></h3>
+<p>The following image and table depict the transaction flow for an external drop shipment from a supplier to a customer.</p>
+<p><img width="440" height="270" src="./img/invug_External1.gif" alt="the picture is described in the document text"></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Time</b></th>
+<th scope="col"><b>Txn</b></th>
+<th scope="col"><b>Desc</b></th>
+<th scope="col"><b>OU1 acct</b></th>
+<th scope="col"><b>OU2 acct</b></th>
+</tr>
+<tr valign="top">
+<td>T1</td>
+<td>Receipt in RC through Desktop</td>
+<td>Receive in RC R1</td>
+<td>Receiving Processor (Dr OU1 Clearing 10 Cr Accrual 10</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>T2</td>
+<td>Delivering into RC through receiving desktop window</td>
+<td>Deliver in RC</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>PO Receipt in RC Accounting Transaction</td>
+<td>(Cost Processor) DR Inventory RC 10<br>
+CR OU1 Clearing 10</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>RC &gt; DC (Accounting Transaction) <i>(Logical I/C Shipment Logical I/C Receipt)</i></td>
+<td>(I/C Invoicing) DR I/C Receivable 15<br>
+CR I/C Revenue 15</td>
+<td>(Cost Processor) DR Inventory DC 15 CR I/C Accrual 15</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(Cost Processor) DR I/C COGS 10 CR Inventory RC 10</td>
+<td>(I/C Invoicing) DR I/C Accrual 15 CR I/C Payable 15</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>DC &gt; C1 Accounting Transaction <i>(Logical Sales Order Issue)</i></td>
+<td>--</td>
+<td>(Cost Processor) DR COGS DC 15 CR Inventory DC 15</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(AR Invoice) DR Receivable DC 20 CR Revenue DC 20</td>
+</tr>
+</table>
+<h3><a id="T292597"></a><b>External Drop Shipment from Supplier to Customer with Intermediate Financial Nodes</b></h3>
+<p>The following image and table depict the external drop shipment from supplier to customer with intermediate financial nodes process.</p>
+<p><img width="464" height="288" src="./img/invug_external2.gif" alt="the picture is described in the document text"></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Time</b></th>
+<th scope="col"><b>Txn</b></th>
+<th scope="col"><b>Desc</b></th>
+<th scope="col"><b>OU1 Acct</b></th>
+<th scope="col"><b>OU2 Acct</b></th>
+<th scope="col"><b>OU3 Acct</b></th>
+</tr>
+<tr valign="top">
+<td>T1</td>
+<td>Receipt in PC through Desktop Receiving window</td>
+<td>Receive in PC</td>
+<td>(Receiving Processor) DR OU1 Clearing 10 CR Accrual 10</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>T2</td>
+<td>Deliver into PC through Desktop window</td>
+<td>Deliver in PC</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>PO receipt in PC (Accounting Transaction <i>(Logical PO receipt)</i></td>
+<td>(Cost Processor) DR Inventory PC 10 CR OU1 Clearing 10</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>PC &gt; RC (Accounting Transaction) <i>(Logical I/C Shipment) (Logical I/C Receipt)</i></td>
+<td>(I/C Invoicing) DR I/C Receivable 15 CR I/C Revenue 15</td>
+<td>(Cost Processor) DR Inventory RC 15 CR I/C Accrual 15</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(Cost Processor) DR I/C COG 10 CR Inventory PC 10</td>
+<td>(I/C Invoicing) DR I/C Accrual 15 CR I/C Payable 15</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>RC &gt; DC (Accounting Transactions <i>(Logical I/C Shipment) Logical I/C Receipt)</i></td>
+<td>--</td>
+<td>(I/C Invoicing) DR I/C Receivable 20 CR I/C Revenue 20</td>
+<td>(Cost Processor) DR Inventory DC 20 CR I/C Accrual</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(Cost Processor) DR I/C COGS 15 CR Inventory RC 15</td>
+<td>(I/C Invoicing DR I/C Accrual 20 CR I/C Payable 20</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>DC &gt; C1 Accounting Transaction <i>(Logical Sales Order Issue</i>)</td>
+<td>--</td>
+<td>--</td>
+<td>(Cost Processor) DR COGS DC 20 CR Inventory DC 20</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(AR Invoice DR Receivable DC 25 CR Revenue DC 25</td>
+</tr>
+</table>
+<h3><a id="T292598"></a><b>External Drop Shipment from Supplier with Shipment and Procurement Financial Flow</b></h3>
+<p>The following image and table depict the external drop shipment from supplier with shipment and financial flow process.</p>
+<p><img width="454" height="253" src="./img/invug_ext.gif" alt="the picture is described in the document text"></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Time</b></th>
+<th scope="col"><b>Txn</b></th>
+<th scope="col"><b>Desc</b></th>
+<th scope="col"><b>OU1 Acct</b></th>
+<th scope="col"><b>OU2 Acct</b></th>
+<th scope="col"><b>OU3 Acct</b></th>
+</tr>
+<tr valign="top">
+<td>T1</td>
+<td>Receipt in RC</td>
+<td>Receive in RC</td>
+<td>(Receiving Processor) DR OU1 Clearing 10 CR Accrual 10</td>
+<td>(Receiving Processor) DR OU2 Clearing 15 Cr I/C Accrual 15</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>PO Receipt in PC (Accounting Transaction) (Logical PO receipt)</td>
+<td>(Cost Processor) DR Inventory PC 10 CR OU1 Clearing 10</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>PC &gt; RC RI</td>
+<td>(I/C Invoicing DR I/C Receiving 15 CR I/C Revenue</td>
+<td>I/C Invoicing) DR I/C Accrual 15 CR I/C Payable 15</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>Logical Receipt in RC</td>
+<td>--</td>
+<td>(Cost Processor) DR Inventory RC 15 CR OU2 Clearing 16</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>RC &gt; DC (Accounting Transaction <i>(Logical I/C Shipment) (Logical I/C Receipt</i></td>
+<td>--</td>
+<td>(I/C Invoicing) DR I/C Receivable 20 CR I/C Revenue 20</td>
+<td>(Cost Processor) DR Inventory DC 20 CR I/C Accrual</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(Cost Processor) DR I/C COGS 15 CR Inventory RC 15</td>
+<td>I/C Invoicing) DR I/C Accrual 20 CR I/C Payable 20</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(Cost Processor) DR COGS DC 20 CR Inventory DC 20</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(AR Invoice) DR Receivable DC 25 CR Revenue DC 25</td>
+</tr>
+</table>
+<h3><a id="T292599"></a><b>Internal Drop Shipment from Supplier (Global Procurement)</b></h3>
+<p>The following image and flow depict the internal drop shipment from supplier process.</p>
+<p><img width="450" height="282" src="./img/invug_global1.gif" alt="the picture is described in the document text"></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Time</b></th>
+<th scope="col"><b>Txn</b></th>
+<th scope="col"><b>Desc</b></th>
+<th scope="col"><b>OU1 Acct</b></th>
+<th scope="col"><b>OU2 Acct</b></th>
+</tr>
+<tr valign="top">
+<td>T1</td>
+<td>Receipt in DC</td>
+<td>Receive in DC</td>
+<td>(Receiving Processor) DR OU1 Clearing 10 CR Accrual 10</td>
+<td>(Receiving Processor) DR RI DC 15 CR I/C Accrual 15</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>PO Receipt in RC (Accounting Transaction <i>(Logical PO Receipt)</i></td>
+<td>(Cost Processor) DR Inventory RC 10 CR OU1 Clearing 10</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>RC &gt; DC (Accounting Transaction (Logical I/C Shipment)</td>
+<td>(I/C Invoicing) DR I/C Receivable 15 CR I/C Revenue 15</td>
+<td>(I/C Invoicing) DR I/C Accrual 15 CR I/C Payable 15</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(Cost Processor) DR I/C COGS 10 CR Inventory RC 10</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>T2</td>
+<td>Deliver into DC</td>
+<td>Deliver in DC</td>
+<td>--</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>PO Receipt in DC (Regular Transaction)</td>
+<td>--</td>
+<td>(Cost Processor) DR Inventory DC 15 CR RI DC 15</td>
+</tr>
+<tr valign="top">
+<td>T3</td>
+<td>Ship from DC</td>
+<td>DC &gt; Regular Transaction)</td>
+<td>--</td>
+<td>(Cost Processor) DR DC 15 CR Inventory DC 15</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(AR Invoice) DR Receivable DC 20 CR Revenue DC 20</td>
+</tr>
+</table>
+<h3><a id="T292600"></a><b>Global Procurement with Intermediate Financial Nodes</b></h3>
+<p>The following image and table depict the global procurement with intermediate financial nodes process.</p>
+<p><img width="430" height="253" src="./img/invug_visiochange.gif" alt="the picture is described in the document text"></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Time</b></th>
+<th scope="col"><b>Txn</b></th>
+<th scope="col"><b>Desc</b></th>
+<th scope="col"><b>OU1 Acct</b></th>
+<th scope="col"><b>OU2 Acct</b></th>
+<th scope="col"><b>OU3 Acct</b></th>
+</tr>
+<tr valign="top">
+<td>T1</td>
+<td>Receipt in DC</td>
+<td>Receive in DC</td>
+<td>(Receiving Processor) DR OU1 Clearing 10 CR Accrual 10</td>
+<td>(Receiving Processor) DC OU2 Clearing 15 CR I/C Accrual 15</td>
+<td>(Receiving Processor) DR RI DC 20 CR I/C Accrual 20</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>PO receipt in PC (Accounting Transaction) <i>(Logical PO Receipt)</i></td>
+<td>I/C Invoicing) DR I/C Receivable 15 (CR I/C Revenue 15</td>
+<td>(Cost Processor) DR Inventory RC 15 CR OU2 Clearing 15</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(Cost Processor) DR I/C COGS 10 CR Inventory RC 10</td>
+<td>(I/C Invoicing) DR I/C Accrual 15 CR I/C Payable 15</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>RC &gt; DC Accounting Transaction (Logical I/C Shipment)</td>
+<td>--</td>
+<td>(I/C Invoicing) DR I/C Receivable 20 CR I/C Revenue 20</td>
+<td>(I/C Invoicing) DR I/C Accrual 20 CR I/C Payable 20</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(Cost Processor) DR I/C COGS 15 CR Inventory RC 15</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>T2</td>
+<td>Deliver into DC</td>
+<td>Deliver in DC</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr valign="top">
+<td>T2 &gt;=T1</td>
+<td>--</td>
+<td>PO Receipt in DC (Regular Transaction)</td>
+<td>--</td>
+<td>--</td>
+<td>(Cost Processor) DR Inventory DC 20 CR RI DC 20</td>
+</tr>
+<tr valign="top">
+<td>T3</td>
+<td>Ship from DC to C1</td>
+<td>DC &gt; C1 (Regular Transaction)</td>
+<td>--</td>
+<td>--</td>
+<td>(Cost Processor) DR COGS DC 20 CR Inventory DC 20</td>
+</tr>
+<tr valign="top">
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>(AR Invoice) DR Receivable DC 25 CR Revenue DC 25</td>
+</tr>
+</table>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T376984.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T447082.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">33/36</span> <!-- End Header -->
+<h1>Multimodal and Consolidated Shipments</h1>
+<p>This appendix covers the following topics:</p>
+<ul>
+<li><a href="#T376996">Introduction</a></li>
+<li><a href="#T376997">Definitions</a></li>
+<li><a href="#T376998">Business Scenario 1: Multimodal Shipment</a></li>
+<li><a href="#T376999">Business Scenario 2: Consolidated Shipment</a></li>
+<li><a href="#T377000">Creating Locations and Stops</a></li>
+<li><a href="#T377001">Executing the Shipments</a></li>
+</ul>
+<h2><a name="3002241"></a><a id="T376996"></a><b>Introduction</b></h2>
+<p><a name="t_modintro" id="t_modintro"></a>This appendix presents two business scenarios:</p>
+<ul>
+<li>
+<p><a href="T373258T376985.htm#t_bus1">Business Scenario 1: Multimodal Shipment</a>: An order needs to ship bya different modes before arriving at its final destination.</p>
+</li>
+<li>
+<p><a href="T373258T376985.htm#t_bus2">Business Scenario 2: Consolidated Shipment</a>: An order sourced from various locations needs to be staged at an intermediate location before arriving at its final destination.</p>
+</li>
+</ul>
+<h2><a name="3002242"></a><a id="T376997"></a><b>Definitions</b></h2>
+<p><a name="t_moddef" id="t_moddef"></a>Consolidation: The collection of packages to be either dropped-off in a set or to share transportation costs. Consolidations may include shipments for an individual ship to location or for multiple different customers within the same vicinity.</p>
+<p>Ship confirmation: To enter shipped quantity and inventory controls for specific shippable lines. You can ship confirm the same delivery/trip repeatedly until you close the delivery/trip. Once it is closed, no more changes can be made to a delivery/trip.</p>
+<p>Ship-to location: The delivery point for consolidated shipments, gathered from multiple locations, that will be shipped to an intermediate and/or ultimate ship to location.</p>
+<p>Delivery: A set of order lines to be shipped to a customer's ship-to location on a given date in a given vehicle. Multiple deliveries can be grouped into a single trip. A single delivery may include items from different sales orders and may include backorders as well as regular orders.</p>
+<p>Ship confirmation: A process in Shipping Execution that enables you to identify shipped quantities, assign inventory control information for released lines, assign freight charges, and specify whether or not to backorder unfulfilled quantities of released line items.</p>
+<p>Trip planning: The process of planning the necessary vehicles and grouping the scheduled shipments that will be included in a given trip. Planning the trip requires consideration of vehicle load capacities, container capacities and, in certain cases, the loading order for the customer's specified unload order.</p>
+<p>Trip: An instance of a specific freight carrier departing from a particular location containing deliveries. The carrier may make other stops on its way from the starting point to its final destination. These stops may be for picking up or dropping off deliveries.</p>
+<p>Stop: A location at which the trip is due for a pick-up or drop-off.</p>
+<p>Shipment: An individual package sent to a customer. Thus, a shipment might contain an entire order, if all items in that order are pick released and packed together. A shipment might contain just part of an order that is pick released and packed. A shipment might also contain only part of a released order line, where some of the items on the picking slip are not in stock.</p>
+<p>Ultimate ship-to location: The final destination of a shipment.</p>
+<h2><a name="3002243"></a><a id="T376998"></a><b>Business Scenario 1: Multimodal Shipment</b></h2>
+<a name="t_bus1" id="t_bus1"></a>
+<h3><b>Overview</b></h3>
+<p>When a customer's order needs to ship by different modes (for example, air, ocean, truck) to arrive at the final destination, multimodal shipping must be used. This business process starts when your company receives an order from your customer, the items are picked, and you need to ship them using multiple modes of transportation.</p>
+<p>Once the order line reaches the Order Management workflow Shipping Activity, Order Management calls Shipping Execution to identify the line as ready to import. When shipping imports the order line, Shipping Execution picks the items and autocreates a delivery. Once a delivery has been created, it can be assigned to the corresponding carriers via trips. Shortly after assigning the delivery to the trips, the delivery can be shipped.</p>
+<p>A few quick setup steps can be followed to execute this scenario. Setting defaults in the Organization and Shipping parameters will enable the streamlined pick process to occur. Trips can be created to represent multiple carriers either before the order has been placed or during the order flow from entered to shipped.</p>
+<h3><b>Required Setup</b></h3>
+<p>To accomplish Multimodal Shipment, the following setups are required:</p>
+<h3><b>Organization Parameters</b></h3>
+<ol>
+<li>
+<p>Navigate to the Organization Parameters window.</p>
+</li>
+<li>
+<p>On the ATP, Pick, Item-Sourcing tab, ensure that the Pick Confirm Required check box is deselected.</p>
+<p>This will allow Oracle Inventory to automatically pick confirm each move order line.</p>
+</li>
+</ol>
+<h3><b>Shipping Parameters</b></h3>
+<ol>
+<li>
+<p>Navigate to the Shipping Parameters window.</p>
+</li>
+<li>
+<p>On the Pick Release tab, check Autocreate Deliveries to use the delivery grouping rules that you have defined to group delivery lines into deliveries.</p>
+</li>
+<li>
+<p>Check Auto Allocate to use the picking rules that you have defined in Oracle Inventory to determine the source.</p>
+<p><strong><span>Note:</span></strong> If you prefer to manually create a delivery ahead of time to assign delivery lines to, the Autocreate Deliveries box must be deselected.</p>
+</li>
+<li>
+<p>Navigate to the Delivery tab.</p>
+</li>
+<li>
+<p>You can define delivery grouping rules, based on conditions that make sense to your business process. Ship from location and ship to location are mandatory. These are the additional conditions:</p>
+<ul>
+<li>
+<p>Customer</p>
+</li>
+<li>
+<p>Freight Terms</p>
+</li>
+<li>
+<p>FOB Code</p>
+</li>
+<li>
+<p>Intermediate Ship To Location</p>
+</li>
+<li>
+<p>Ship Method</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3><b>Picking Rules</b></h3>
+<ol>
+<li>
+<p>Navigate to the <a href="T373258T376737.htm#t_navpath">Picking Rules</a> window.</p>
+</li>
+<li>
+<p>When you define an item you choose a picking rule to determine the order in which revisions, lots, subinventories, and locators are picked for sales orders. Shipping Execution submits requests to Inventory, which uses the information you enter in the Picking Rules window to generate pick lists for sales orders. If you select None for any of the criteria fields, then Inventory ignores that criterion. For example, if you select None for Revision, then Inventory picks units of an item without regard to revision levels. Inventory looks at the picking criteria in the order in which they appear in the Picking Rules window. Then, Inventory looks at the options (except for None options) for each criterion in the order in which they appear beneath each criterion.</p>
+</li>
+</ol>
+<p>See: <i>Oracle Inventory User's Guide</i></p>
+<h3><b>Defaulting Rules</b></h3>
+<ol>
+<li>
+<p>Navigate to the Defaulting Setup - Entity Attributes window.</p>
+</li>
+<li>
+<p>Freight Terms and FOB are fields that appear on the order header that could be helpful to default during order entry. They may also be entered or the defaults overridden at the time the order is created. These fields can be entered until the delivery has been ship confirmed. Once the delivery has been ship confirmed, changes can not be made to the mentioned fields.</p>
+</li>
+</ol>
+<p>See: <i>Oracle Order Management User's Guide</i></p>
+<h3><b>Define Location</b></h3>
+<ol>
+<li>
+<p>Navigate to the Location window.</p>
+</li>
+<li>
+<p>An intermediate address can be assigned to a trip once a location has been defined. This address will be used as the pick-up or drop-off location defined when a delivery is assigned to a trip. Upon saving the newly created location, the system will generate a number which corresponds to the location. In many cases, the location may represent a port or an airport.</p>
+</li>
+</ol>
+<p>See: <i>Oracle Inventory User's Guide</i></p>
+<h3><b>Process Steps</b></h3>
+<ol>
+<li>
+<p>Enter and book your order</p>
+</li>
+<li>
+<p>Launch pick release.</p>
+</li>
+<li>
+<p>There are several ways to launch pick release; however, the most streamlined method is to set up pick release to run as a concurrent process. Navigate: Shipping &gt; Release Sales Orders &gt; Release Sales Orders SRS.</p>
+<p>Other methods for launching pick release include the following:</p>
+<ul>
+<li>
+<p>From the Shipping Transactions form, select a specific delivery line for pick release by selecting one or multi-selecting many delivery lines, then select one of the following: Pick and Ship or Pick Pack and Ship.</p>
+<p>Additionally, you can navigate to the Release Sales Order window while in the Shipping Transactions form by using the Tools menu and selecting the Pick Release form.</p>
+</li>
+<li>
+<p>Finally, pick release can be run manually. Navigate to the Release Sales Orders window.</p>
+<p><strong><span>Note:</span></strong> When pick releasing using the Release Sales Order window, any of the defaults set in the Organization and Shipping parameters can be overridden for that particular pick release.</p>
+</li>
+<li>
+<p>Create your Trips. Navigate to the Shipping Transactions form.</p>
+</li>
+<li>
+<p>Populate the trip information. At minimum, Name and Ship Method.</p>
+</li>
+<li>
+<p>Save each trip.</p>
+</li>
+</ul>
+<p><b>Example</b></p>
+<p>When a delivery requires transportation on multiple carriers, the creation of a trip is required for each carrier.</p>
+<p><b>Create Trip 2 to follow Trip 1</b></p>
+<p><img width="772" height="519" src="./img/ontig_trip_1.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<h3><b>Assign Delivery to Trips</b></h3>
+<ol>
+<li>
+<p>Find your delivery.</p>
+</li>
+<li>
+<p>Select the action Assign to Trip.</p>
+</li>
+<li>
+<p>Click Go and assign the delivery to each newly created trip.</p>
+</li>
+</ol>
+<p><b>Assign Delivery to Trip 2 (same procedure for each Trip)</b></p>
+<p><img width="592" height="446" src="./img/ontig_trip_2.gif" alt="the picture is described in the document text"></p>
+<h3><b>View the Stops</b></h3>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions form.</p>
+</li>
+<li>
+<p>Find your trip.</p>
+</li>
+<li>
+<p>Click the Path by Stop tab and verify that there are two stops associated with each trip.</p>
+<p><b>View Path by Stop tab</b></p>
+<p><img width="777" height="525" src="./img/ontig_trip_3.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<h3><b>Ship Confirm the Delivery</b></h3>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions form.</p>
+</li>
+<li>
+<p>Find your delivery.</p>
+</li>
+<li>
+<p>Highlight the desired delivery.</p>
+</li>
+<li>
+<p>Select the action Ship Confirm.</p>
+</li>
+<li>
+<p>Click Go.</p>
+</li>
+<li>
+<p>When the Ship Confirm window appears, click OK to complete the process.</p>
+<p>Process Order API runs after the delivery has been ship confirmed.</p>
+<p><strong><span>Note:</span></strong> The options in the Auto-create Trip Options box are grayed out.</p>
+</li>
+<li>
+<p>Update the status of the stops to Closed.</p>
+</li>
+</ol>
+<p>The Inventory Interface will be submitted when the pick-up stop has been Closed. The delivery lines will now be available to the Receivables Interface.</p>
+<h2><a name="3002259"></a><a id="T376999"></a><b>Business Scenario 2: Consolidated Shipment</b></h2>
+<p><a name="t_bus2" id="t_bus2"></a>This scenario presents a solution in support of a process where items on a customer order are sourced from different geographical locations. The shipments containing the items are to be merged or consolidated at an intermediate location with the final delivery being made to the customer's ultimate ship to destination.</p>
+<p>You can create a multileg shipment and to manage the activities at each stop along the shipment's journey.</p>
+<p>A sales order is placed for two items: a desktop CPU and a monitor. The order lines are booked and scheduled in Order Management. The inventory for the desktop CPU resides in the M1 Inventory organization and the Monitor resides in V1 Inventory organization.</p>
+<p>The objective is to create a plan that enables the shipments of the individual items to be made from their respective Inventory organizations, merge or consolidate at an intermediate distribution center location, and deliver to the customers ultimate ship to location as a single shipment.</p>
+<h3><b>Creating Trips</b></h3>
+<p>Once the order is booked, the order lines are imported into Shipping Execution where the Transportation Planner has visibility to the lines. At this point, the planner creates Trip 1 (consisting of carrier and vehicle information) for the desktop CPU located in Warehouse 1 in Seattle, WA. The key element depicting the trip is the ship method. The creation of the trip can be done in a variety of ways depending on your business process.</p>
+<h3><b>Autocreate Trip</b></h3>
+<p>When a trip is created using the Autocreate Trip functionality, two stops are created. The first stop consists of the location where the shipment is picked up, (ship from) and the second stop is the location where the shipment is dropped off (ship to). In the business scenario described here, an intermediate stop needs to be defined and assigned to the Trip 1.</p>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions form.</p>
+</li>
+<li>
+<p>Enter criteria for the lines to ship.</p>
+</li>
+<li>
+<p>Multi-select lines.</p>
+</li>
+<li>
+<p>Select the action Autocreate Trips.</p>
+</li>
+<li>
+<p>Click Go.</p>
+<p>Oracle Shipping Execution creates the trips, creates the pick up and dropoff stops, autocreates the deliveries, and assigns the deliveries to trips.</p>
+</li>
+</ol>
+<h3><b>Create Trip Manually</b></h3>
+<p>One of the two processes described would need to be performed in order to create Trip 2 for the monitor originating from warehouse V1 located in New York, and an ultimate destination of Chattanooga, TN. In the case of a manually created trip, deliveries could either be auto created or manually created and subsequently assigned to the trip.</p>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions form.</p>
+</li>
+<li>
+<p>Expand the Data Entry tree (click the expand bar on the left side of the window).</p>
+</li>
+<li>
+<p>Expand the Data Entry link.</p>
+</li>
+<li>
+<p>Open Trip Data Entry.</p>
+</li>
+<li>
+<p>On the Trip form, enter Name, Ship Method, and Vehicle Info.</p>
+</li>
+<li>
+<p>Click Done.</p>
+<p><b>Trip - New Window</b></p>
+<p><img width="750" height="501" src="./img/ontig_cs01.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<h2><a name="3002264"></a><a id="T377000"></a><b>Creating Locations and Stops</b></h2>
+<p><b>Creating Locations</b></p>
+<p>In order to perform the merge or consolidation of the shipments originating from warehouse M1 and V1, a stop must be defined to represent the distribution center in Troy Michigan. (A stop is a location within your network where a shipment can be picked up or dropped off.) In this scenario, this is a non-Oracle location. The location of the distribution center must also be set up in Oracle Inventory in order to be used when defining a stop.</p>
+<ol>
+<li>
+<p>Navigate to the Location window.</p>
+<p><b>Location Window</b></p>
+<p><img width="627" height="424" src="./img/ontig_cs02.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a Name.</p>
+</li>
+<li>
+<p>Enter a Description.</p>
+</li>
+<li>
+<p>Optionally, enter an Inactive Date.</p>
+<p><strong><span>Note:</span></strong> The Address Style will default to United States. Use the list of values to change the Address Style.</p>
+</li>
+<li>
+<p>Within the Address Details tab, enter the Address.</p>
+</li>
+<li>
+<p>Within the Shipping Details tab, enter a Contact and Ship-To Location Detail, and select the type of site.</p>
+<p><strong><span>Note:</span></strong> Once the location is defined, the distribution center can be define as a stop and ultimately assigned as intermediate stops to Trip 1 and Trip 2.</p>
+</li>
+</ol>
+<h3><b>Creating Stops</b></h3>
+<p>To create and assign Trip 1 with the intermediate Stop (for example, Distribution Center Location), the following process can be followed.</p>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions form.</p>
+</li>
+<li>
+<p>Expand the Data Entry link.</p>
+</li>
+<li>
+<p>Open the Stop Data Entry.</p>
+</li>
+<li>
+<p>On the Stop form, select Location and Trip from their lists of values.</p>
+</li>
+<li>
+<p>Enter Planned Arrival and Departure Dates.</p>
+</li>
+<li>
+<p>Click Done.</p>
+</li>
+</ol>
+<p>Follow this same process for Trip 2.</p>
+<p>At this point of the consolidation solution, a delivery has been created for the material being sourced from warehouse M1 and the delivery has been assigned to Trip 1. A delivery has also been created for the material being sourced from warehouse V1 and the delivery has been assigned to Trip 2. The intermediate stop (for example, Distribution Center Troy Michigan) has also been defined and assigned to Trip 1 and Trip 2.</p>
+<p>A stop consisting of the location of the distribution center has been assigned to Trip 1 and Trip 2. The data at this point is represented in the following table.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Trip Data</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Trip</b></th>
+<th scope="col"><b>Pick up</b></th>
+<th scope="col"><b>Dropoff</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>M1 Seattle WA</td>
+<td>Troy DC</td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>V1 New York NY</td>
+<td>Troy DC</td>
+</tr>
+</table>
+<p>This screen represents similar data to Trip 2 described in our business scenario. The trip is awaiting pick up at M1 warehouse.</p>
+<p>The solution at this point is represented by a Trip 1 originating at warehouse M1 (Seattle) and dropping off at the Troy distribution center and Trip 2 originating from warehouse V1 (New York) and dropping off at the Troy distribution center stop.</p>
+<p>The final step is to create a Trip 3 that originates at the Troy distribution center, assign the deliveries that are on Trip 1 and 2 to Trip 3 and have the final drop off be the customers ultimate ship to destination.</p>
+<h3><b>To create trip 3:</b></h3>
+<p>Shipping Transactions</p>
+<ol>
+<li>
+<p>Navigate to the form.</p>
+</li>
+<li>
+<p>Expand the Data Entry link.</p>
+</li>
+<li>
+<p>Open Trip Data Entry.</p>
+</li>
+<li>
+<p>On the Trip form, enter Name, Ship Method, and Vehicle Info.</p>
+</li>
+<li>
+<p>Click Done.</p>
+</li>
+<li>
+<p>Query the deliveries from trip 1 and trip 2.</p>
+</li>
+<li>
+<p>Select the action Assign to Trip.</p>
+</li>
+<li>
+<p>Select trip 3, select New Location.</p>
+</li>
+<li>
+<p>In Pickup Location, enter DC; in Dropoff Location, enter Cust.</p>
+</li>
+</ol>
+<h2><a name="3002269"></a><a id="T377001"></a><b>Executing the Shipments</b></h2>
+<h3><b>Pick Releasing the Trip</b></h3>
+<p>Because the shipments are originating from two separate locations, it is assumed that the execution processes would be performed independently. However, a single user can execute the releases from both locations.</p>
+<p>What has been done up to this point is a plan. The plan cannot take effect until actual inventory is allocated to the deliveries and trips. At the highest level, this can be accomplished by pick releasing the trip. The individual delivery can be pick released as well.</p>
+<h3><b>To pick release a trip:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions form.</p>
+</li>
+<li>
+<p>Query Trip 1.</p>
+</li>
+<li>
+<p>From the Action menu, select Launch Pick Release.</p>
+</li>
+<li>
+<p>Click Go.</p>
+</li>
+</ol>
+<p>The same process is performed at warehouse V1 for Trip 2.</p>
+<p>See: <i>Oracle Shipping Execution User's Guide</i></p>
+<p>Pick slips will print at each of the warehouses indicating the items to be picked for their respective trips.</p>
+<p>There are many options as part of the Shipping Execution setup steps to allow each organization to set up how picking is done. For example, pick slip grouping rules can be used to determine how released lines are grouped on to pick slips.</p>
+<p>Once the trips from each warehouse are released, a bill of lading and packing list can be generated for each delivery in the trip. The bill of lading can be generated at ship confirmation as part of the Ship Confirm Doc Set or it can be generated before ship confirm.</p>
+<p>Document categories and document sequences must be set up before bills of lading or packing slips can be generated.</p>
+<p>See: <i>Oracle Shipping Execution User's Guide</i></p>
+<p>The bill of lading for Trip 1 and Trip 2 will indicate the Ship From address as the M1 and V1 locations and the Ship To address of the distribution center.</p>
+<p>The order line should already contain the intermediate ship to information before being imported into shipping execution. For example, if the shipment from warehouse M1 had the intermediate ship to information on the line prior to it's being imported into shipping execution, and there wasn't an intermediate stop assigned to the M1 trip, the bill of lading would print with three addresses: The ship from address of warehouse M1, the intermediate address indicated on the shipment line, and the final destination ship to of Chattanooga TN.</p>
+<p>In the scenario we're defining, if intermediate ship to was used, the bill of lading for Trip 1 would print with the ship from address of warehouse M1, an intermediate address of the Troy DC and the final ship to of the Troy DC. For Trip 1 the ultimate destination for Trip 1 is the Troy DC.</p>
+<p>A packing slip can be generated prior to ship confirmation similar to the bill of lading. The following process can be used to generate the packing slip.</p>
+<p>See: <i>Oracle Shipping Execution User's Guide</i></p>
+<h3><b>Ship Confirming the Trip</b></h3>
+<p>The next step in the consolidation process is to Ship Confirm Trip 1 and Trip 2. This must be done at Inventory organization M1 and V1 in order to recognize revenue, decrement inventories, update Order Management and initiate the receivables interface to generate invoices.</p>
+<p>The following depicts how the trip originating in the M1 (Seattle) warehouse would look prior to ship confirmation and closing the stop at M1. In this example the trip is named Trip 1.</p>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions form.</p>
+</li>
+<li>
+<p>Query Trip 1.</p>
+</li>
+<li>
+<p>Select the action Ship Confirm.</p>
+</li>
+<li>
+<p>Click Go.</p>
+</li>
+</ol>
+<p>Closing the stop sets the trip to an In Transit status.</p>
+<p>See: <i>Oracle Shipping Execution User's Guide</i></p>
+<h3><b>Changing Stop Status</b></h3>
+<p>At this point in the process, it is assumed that the delivery from the M1 warehouse and the delivery from the V1 warehouse are on the carrier's truck and in transit to the Troy distribution center.</p>
+<p>In order to perform the next step in the process, a communication mechanism must be in place that lets the Oracle user know that the shipment has reached the Troy distribution center.</p>
+<p>When the user is notified that the shipment has reached the distribution center, the following process can be used to update the stop.</p>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions form.</p>
+</li>
+<li>
+<p>Query the Stop (distribution center.)</p>
+</li>
+<li>
+<p>Select the action Update Status.</p>
+</li>
+<li>
+<p>Click Go.</p>
+</li>
+<li>
+<p>Select Arrive and click OK.</p>
+</li>
+</ol>
+<p>The same process should be performed for Trip 2 after it reaches the Troy distribution center.</p>
+<p>The arrive step indicates the drop off of the trip. The deliveries from M1 warehouse and V1 warehouse are now at the Troy distribution center.</p>
+<p>Since the deliveries were assigned to trip 3 in the planning process, all that has to be done is print the new bill of lading for the final leg from the Troy DC to Chattanooga TN.</p>
+<p>Once the bill of lading from the Troy distribution center to the final drop off in Chattanooga is printed, the Troy distribution center stop can be closed. Updating the status of the stop closes the stop. Use the following process to close the stop.</p>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions form.</p>
+</li>
+<li>
+<p>Query your Stop.</p>
+</li>
+<li>
+<p>Select the stop for the Troy distribution center.</p>
+</li>
+<li>
+<p>Select the action Update Status.</p>
+</li>
+<li>
+<p>Click Go.</p>
+</li>
+<li>
+<p>Select Close.</p>
+</li>
+</ol>
+<p>See: <i>Oracle Shipping Execution User's Guide</i></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

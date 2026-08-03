@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T228113.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107T228115.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">12/31</span> <!-- End Header -->
+<h1>Repetitive Manufacturing</h1>
+<p>This chapter explains how to use and define repetitive schedules.</p>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#I_cx2Drpovw">Overview of Repetitive Manufacturing</a></li>
+<li><a href="#T228890">Setting Up Repetitive Manufacturing</a></li>
+<li><a href="#T228891">Associating Lines and Assemblies</a></li>
+<li><a href="#T228892">Deleting Line/Assembly Associations</a></li>
+<li><a href="#T228233">Overview of Creating Repetitive Schedules</a></li>
+<li><a href="#T228893">Defining Repetitive Schedules Manually</a></li>
+<li><a href="#T228894">Overview of Building Repetitive Schedules</a></li>
+<li><a href="#T228895">Finding Repetitive Schedules</a></li>
+<li><a href="#T228896">Releasing Repetitive Schedules</a></li>
+<li><a href="#T228897">Printing Reports for Current Repetitive Schedules</a></li>
+<li><a href="#T228898">Overview of Viewing Repetitive Schedules</a></li>
+<li><a href="#T228899">Viewing Repetitive Schedule Information</a></li>
+<li><a href="#T228900">Overview of Changing Repetitive Schedules</a></li>
+<li><a href="#T228901">Changing Repetitive Schedules</a></li>
+<li><a href="#T228902">Rescheduling Repetitive Schedules</a></li>
+<li><a href="#T228903">Mass Changing Repetitive Schedule Statuses</a></li>
+<li><a href="#I_tx2Dcomprs">Completing Repetitive Schedules</a></li>
+<li><a href="#T228235">Overview of Repetitive Schedule Purge</a></li>
+<li><a href="#T228904">Purging Repetitive Schedules</a></li>
+</ul>
+<h2><a name="1034479"></a><a id="I_cx2Drpovw"></a><b>Overview of Repetitive Manufacturing</b></h2>
+<p>You can use Work in Process to produce assemblies on a continuous basis, this is known as repetitive manufacturing.</p>
+<h3><b>Repetitive Schedules</b></h3>
+<p>You can control your repetitive production quantities using repetitive schedules. You charge all production costs to the assembly itself, eliminating the need for discrete jobs.</p>
+<h3><b>Production Lines</b></h3>
+<p>You can manage repetitive production by production line. Production lines control how you schedule individual assemblies. Material and shop floor transactions are also controlled by production line. You can build an assembly on one or several lines. You can build single or multiple assemblies on a line.</p>
+<h3><b>Shop Floor Control</b></h3>
+<p>Shop floor control helps you manage the flow of production inside the plant. Routings can be used to schedule repetitive production activities and create requirements. You can use reports and views to help you control these activities. You can use production lines to separate areas of the shop floor.</p>
+<h3><b>Material Control</b></h3>
+<p>Material control helps you manage the flow of component material from inventory onto lines and into repetitive schedules. Bills of material can be used to create repetitive material requirements. You can build different repetitive assemblies on one production line to aggregate material requirements for a number of assemblies. You can use reports and views to help you control material activities.</p>
+<h3><b>Engineering Bills and ECOs</b></h3>
+<p>You can build released as well as unreleased revisions and engineering items. You can also add engineering items as material requirements. The system can automatically update your repetitive schedules following an engineering change order (ECO). You always schedule to build the most current revision.</p>
+<h3><b>Repetitive Line Scheduling</b></h3>
+<p>You can define minimum and maximum line rates, line start and stop times, and line lead times for repetitive production lines. The system uses these rates and times to schedule repetitive production to the minute.</p>
+<h3><b>Fixed and Variable Speed Production Lines</b></h3>
+<p>You can specify all the assemblies on a production line to run at the same production rate on your fixed rate lines. You can specify the production rate by assembly for your variable rate lines.</p>
+<h3><b>Fixed vs. Routing Based Line Lead Time Options</b></h3>
+<p>You can schedule your repetitive production lead time based on the assembly's routing or lead time line attributes to best simulate your repetitive production process.</p>
+<h3><b>Partial Days and Fractional Rates</b></h3>
+<p>You can define repetitive schedules for any number of processing days, including partial days. You can specify the daily quantity and/or the total quantity as any positive number including decimal quantities (up to 6 decimal places), such as 1.25.</p>
+<h3><b>Planning Repetitive Production</b></h3>
+<p>Oracle planning products are used to plan your repetitive production. You can automatically create repetitive schedules from planning's suggestions.</p>
+<h3><b>Work Order Interface</b></h3>
+<p>You can import planned repetitive schedules from external systems into Work in Process. See the Work Order Interface in the Oracle Integration Repository. The Oracle Integration Repository is shipped as part of Oracle E-Business Suite. Users who are granted the Integration Analyst role can navigate to the Oracle Integration Repository through the Integration Repository responsibility. Users who are granted the Integration Developer role or the Integration Administrator role can access the Oracle Integration Repository through the Integrated SOA Gateway responsibility.</p>
+<p>You can calculate the costs of repetitive production and recognize any variances on a periodic basis by closing accounting periods. You do not need to close repetitive schedules.</p>
+<h3><b>Repetitive Assembly and Line Costs</b></h3>
+<p>Repetitive production costs are tracked by assembly so you do not have to review your costs by individual repetitive schedule. You can also track your costs by assembly on a line or by individual line so you can compare costs for your production lines. See: <a href="T228107T228120.htm#I_cx2Ddjrscst">Work in Process Costs</a></p>
+<h3><b>Repetitive Schedule Purge</b></h3>
+<p>You can purge all information associated with repetitive schedules including header records and detail and transaction information. You can also selectively purge some or all of the following schedule related information: schedule details (material requirements, resource requirements, and operations), move transactions, and resource cost transactions.</p>
+<h3><b>View Workflows</b></h3>
+<p>You can view the status of workflows used for tracking outside processing of repetitive schedules. Workflows automatically send notifications and activate processes during specific manufacturing points. You can display a graphical display of the status of workflows from the Tools menu in the Repetitive Schedules and View Repetitive Schedules windows. See the Work Order Interface in the Oracle Integration Repository and <a href="T228107T228118.htm#I_ospwkflw">Outside Processing Workflows</a></p>
+<h2><a name="1034494"></a><a id="I_cx2Drmpro"></a><b>Repetitive Manufacturing Process Diagram<a name="d0e24033" id="d0e24033"></a><a name="d0e24039" id="d0e24039"></a><a name="d0e24045" id="d0e24045"></a></b></h2>
+<p>The following diagram illustrates the repetitive manufacturing process:</p>
+<p><img width="600" height="599" src="./img/wip_wip02.gif" alt="the picture is described in the document text"></p>
+<h2><a name="1034495"></a><a id="T228890"></a><b>Setting Up Repetitive Manufacturing</b></h2>
+<a name="d0e24063" id="d0e24063"></a><a name="d0e24069" id="d0e24069"></a><a name="I_cx2Drmsu" id="I_cx2Drmsu"></a>
+<ul>
+<li>
+<p>For a listing of setups that affect repetitive manufacturing see: <a href="T228107T228110.htm#I_cx2Dprereq">Setup Prerequisites</a></p>
+</li>
+<li>
+<p>For a listing of setup steps within Work in Process see: <a href="T228107T228110.htm#I_cx2Dchklst">Setup Check List</a></p>
+</li>
+<li>
+<p>For additional information about repetitive parameters and accounting classes see: <a href="T228107T228110.htm#I_cx2Dparmrm">Repetitive Manufacturing Parameters</a> and <a href="T228107T228110.htm#I_cx2Drmacctcl">Repetitive Accounting Classes</a></p>
+</li>
+<li>
+<p>For a listing of profile options that affect repetitive manufacturing see: <a href="T228107T228110.htm#c_profsum">Profile Options</a></p>
+</li>
+</ul>
+<h2><a name="1034496"></a><a id="T228891"></a><b>Associating Lines and Assemblies</b></h2>
+<p><a name="d0e24105" id="d0e24105"></a><a name="WIPREMAL_ASSY_QF" id="WIPREMAL_ASSY_QF"></a><a name="WIPREMAL_BASE_W" id="WIPREMAL_BASE_W"></a><a name="I_tx2Dlaassoc" id="I_tx2Dlaassoc"></a><a name="WIPREMAL_DETAIL_W" id="WIPREMAL_DETAIL_W"></a>Line/assembly associations establish a link between an assembly and the production line on which it is manufactured. You can define any number of line/assembly associations. You can also update and delete line/assembly associations.</p>
+<p>Your repetitive assembly/line associations guide your repetitive production process. You can build the same assembly on different production lines. You can also build different assemblies on the same production line. Building different assemblies on the same production line makes it possible to aggregate, by production line, material requirements for a number of assemblies.</p>
+<p>For each assembly on a line, you can enter a primary or alternate bill and a primary or alternate routing. If you change routings for an assembly on a line and there are open repetitive schedules, the new routing must have the same operations as the prior routing.</p>
+<p>If you plan to over-complete assemblies, you can set a tolerance level, which restricts the number of assemblies that can be over-completed on the schedule.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define and enable one production line. See: <a href="T228107T228110.htm#I_tx2Ddpline">Defining Production Lines</a>.</li>
+</ul>
+<p><b>To add a line/assembly associations</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e24138" id="d0e24138"></a>Repetitive Line/Assembly Associations window. The <a name="d0e24145" id="d0e24145"></a>Repetitive Line/Assembly Associations summary window appears.</p>
+<p><img width="649" height="431" src="./img/wip_wip_replinea.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> You can associate several lines and assemblies simultaneously using the Repetitive Line/Assembly Associations Summary window. You can, however, also associate lines and assemblies one-at-a-time in the Repetitive Line/Assembly Associations window.</p>
+</li>
+<li>
+<p>Choose the New button to open the Repetitive Line/Assembly Associations window.</p>
+</li>
+<li>
+<p>Select the production <a name="d0e24168" id="d0e24168"></a><a name="d0e24174" id="d0e24174"></a>Line where you build the repetitive assembly, then the assembly or select the <a name="d0e24181" id="d0e24181"></a><a name="d0e24187" id="d0e24187"></a>Assembly then the production line.</p>
+<p>You cannot update the name of a production line after you have assigned it to a repetitive assembly nor can you delete a production line that supports repetitive schedules.</p>
+</li>
+</ol>
+<p><b>To assign an alternate bill or alternate routing to the line/assembly association</b></p>
+<ol>
+<li>
+<p>Select the alternate <a name="d0e24203" id="d0e24203"></a><a name="d0e24209" id="d0e24209"></a>Bill of material. See: Primary and Alternate Bills of Material, <i>Oracle Bills of Material User's Guide</i></p>
+<p>You can select an alternate bill if alternates have been defined for the assembly. If the <i>WIP:See Engineering Items</i> profile option is set to Yes, you can select engineering items as alternates. .</p>
+</li>
+<li>
+<p>Select the <a name="d0e24227" id="d0e24227"></a><a name="d0e24233" id="d0e24233"></a>alternate Routing. See Primary and Alternate Bills of Material, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p>You can select an alternate routing if alternates have been defined. If the <i>WIP:See Engineering Items</i> profile option is set to Yes, you can select engineering routings as alternates.</p>
+</li>
+</ol>
+<p><b>To enter a completion subinventory and locator</b></p>
+<ol>
+<li>
+<p>Select the completion <a name="d0e24255" id="d0e24255"></a><a name="d0e24261" id="d0e24261"></a>Subinventory and, if required by the subinventory, the <a name="d0e24268" id="d0e24268"></a><a name="d0e24274" id="d0e24274"></a>Locator.</p>
+<p>Assemblies are completed or returned into or from this subinventory and locator. If the assembly has a routing, the completion subinventory and locator are defaulted from the routing but can be overwritten.</p>
+<p><strong><span>Note:</span></strong> You can override the completion subinventory and locator you specify here when you complete or return assemblies using the Completion Transactions window.</p>
+<p><strong><span>Note:</span></strong> You must specify a completion subinventory and locator if you plan to complete or return assemblies using the Move Transactions window since the subinventory and locator specified here are automatically used for those transactions.</p>
+</li>
+</ol>
+<p><b>To enter a supply type, accounting class, line priority, and hourly production rate</b></p>
+<ol>
+<li>
+<p>Select the <a name="d0e24296" id="d0e24296"></a>Supply Type. See: <a href="T228107T228127.htm#I_rx2Dsupptype">Supply Types</a>.</p>
+<p>The supply type defaults to <i>Based on Bill.</i> This supply type indicates that component requirements are supplied based upon their individual supply types. You can override this default by choosing one of the following supply types: Push, Assembly Pull, Operation Pull, Bulk, or Supplier. .</p>
+</li>
+<li>
+<p>Select an accounting <a name="d0e24315" id="d0e24315"></a><a name="d0e24321" id="d0e24321"></a>Class.</p>
+<p>Accounting classes can also be defaulted based on the assembly item's category default WIP class. You can override these defaults with any active repetitive accounting class. See: <a href="T228107T228110.htm#I_cx2Ddfltwipcl">WIP Accounting Class Defaults</a> and <a href="T228107T228110.htm#I_cx2Drmacctcl">Repetitive Accounting Classes</a>.</p>
+</li>
+<li>
+<p>Enter a numeric line <a name="d0e24340" id="d0e24340"></a><a name="d0e24344" id="d0e24344"></a>Priority.</p>
+<p>You must specify a line priority for each line/assembly association. Planning uses line priority to determine which line to create repetitive schedules on. Repetitive schedules are created on the highest priority line first. For example, if you build the same assembly on two lines and the first line has a priority of 1 and the other a priority of 10, planning creates repetitive schedules on the first line - the one with a priority of 1 - first.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e24357" id="d0e24357"></a><a name="d0e24363" id="d0e24363"></a>Hourly Production Rate of assemblies on the production line.</p>
+<p>The maximum hourly rate for the production line is the default. The repetitive line scheduling method also uses the production rate to calculate how fast the line runs in terms of completed assemblies per hour. The production rate for any assembly on the line must be less than the maximum hourly rate on the line.</p>
+</li>
+<li>
+<p>Check the <a name="d0e24376" id="d0e24376"></a><a name="d0e24382" id="d0e24382"></a>Lead Time Line check box to indicate which production line Oracle Bills of Material is to use to calculate the processing lead time for the repetitive assembly. Oracle planning products use the calculated lead time in its planning process.</p>
+<p>If you do not select a lead time line for the repetitive assembly, the lead time rollup process in Bills of Material does not calculate a lead time for this repetitive assembly. There is no requirement to specify a lead time line.</p>
+</li>
+</ol>
+<p><b>To set the tolerance level for over-completing assemblies:</b></p>
+<ol>
+<li>
+<p>In the Overcompletion region, select the Overcompletion Tolerance Type. The options are Percent or Amount. If you do not select a Tolerance Type, it signifies no tolerance, and you will not be able to over-complete assemblies on this job.</p>
+</li>
+<li>
+<p>In the Overcompletion Tolerance Value field, enter the corresponding value for the Overcompletion Tolerance Type. If you did not select an Overcompletion Tolerance Type, you will not be able to enter a value in this field or over-complete assemblies on this job.</p>
+</li>
+</ol>
+<p><b>To change line/assembly associations</b></p>
+<ol>
+<li>
+<p>Navigate to the Repetitive Line/Assembly Associations Summary window.</p>
+</li>
+<li>
+<p>Choose Find from the Query Menu.</p>
+</li>
+<li>
+<p>In the Find Repetitive Line/Assembly Associations window, select either a Line to find all Line/Assembly associations for that line, select an Assembly to find all Line/Assembly associations for that Assembly, or select a Line and Assembly.</p>
+</li>
+<li>
+<p>Select the Line/Assembly association to change and choose the Open button.</p>
+</li>
+<li>
+<p>Change Line/Assembly association information as required.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a></p>
+<p><a href="T228107T228114.htm#I_tx2Dasscdelg">Deleting Line/Assembly Associations</a></p>
+<h2><a name="1034504"></a><a id="T228892"></a><b>Deleting Line/Assembly Associations</b></h2>
+<p><a name="d0e24438" id="d0e24438"></a><a name="I_tx2Dasscdelg" id="I_tx2Dasscdelg"></a>You can delete line/assembly associations that have not been used to define a repetitive schedule.</p>
+<p><b>To delete line/assembly associations</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e24455" id="d0e24455"></a>Repetitive Line/Assembly Associations Summary window.</p>
+</li>
+<li>
+<p>Choose Find from the Query Menu.</p>
+</li>
+<li>
+<p>In the Find Repetitive Line/Assembly Associations window, enter your search criteria. The results display in the <a name="d0e24470" id="d0e24470"></a>Repetitive Line/Assembly Associations Summary window.</p>
+<p><strong><span>Note:</span></strong> You can delete line/assembly associations in either the <a name="d0e24480" id="d0e24480"></a>Repetitive Line/Assembly Associations window or Repetitive Line/Assembly Associations Summary windows.</p>
+</li>
+<li>
+<p>Select the Line/Assembly association.</p>
+</li>
+<li>
+<p>Choose Delete from the Edit Menu.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228114.htm#I_tx2Dlaassoc">Associating Lines and Assemblies</a></p>
+<p><a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a></p>
+<h2><a name="1034506"></a><a id="T228233"></a><b>Overview of Creating Repetitive Schedules</b></h2>
+<p><a name="c_ovcrrep" id="c_ovcrrep"></a>You can create repetitive schedules in the following ways:</p>
+<ul>
+<li>
+<p>Manually. See: <a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a>.</p>
+</li>
+<li>
+<p>Automatically using Oracle planning products to plan your repetitive schedules, then using the Planner Workbench to implement them. See: <a href="T228107T228114.htm#I_cx2Drscrauto">Planned Repetitive Schedules</a>.</p>
+</li>
+<li>
+<p>Using the Open Job and Schedule Interface to import suggested repetitive schedules. See: <a href="T228107T228111.htm#I_cx2Dopen">Open Job and Schedule Interface</a>.</p>
+</li>
+</ul>
+<h2><a name="1034507"></a><a id="T228234"></a><b>Planned Repetitive Schedules</b></h2>
+<p><a name="d0e24535" id="d0e24535"></a><a name="d0e24541" id="d0e24541"></a><a name="I_cx2Drscrauto" id="I_cx2Drscrauto"></a>Oracle Planning products create planned orders and reschedule recommendations. You can choose whether to implement these planned orders.</p>
+<p>You can use the Planner Workbench in Oracle planning products to automatically implement some or all suggested repetitive schedules. When you implement planned schedules, their statuses change to Pending-Mass Loaded. You cannot perform transactions against schedules with this status.</p>
+<p>Implemented schedules are assigned a default description and load date. You can update the schedule as if it were an unreleased schedule. For example, you can modify the first and last unit start date, the processing days, daily quantity, the production line, and firm plan the schedule.</p>
+<p>Repetitive schedules are loaded across production lines using the line priorities specified in the Repetitive Line/Assembly Associations window. The bill and routing revisions default to the current revision, alternate bill and routing, supply type, WIP accounting class, and completion subinventory and locator are based on the line/assembly association.</p>
+<p>Oracle planning products do not suggest changes to repetitive schedules, instead it suggests new repetitive schedules to meet the demand. Therefore, it is possible to have pending schedules that overlap existing repetitive schedules.</p>
+<p>For example, suppose you have a schedule that starts at the beginning of next week for 10 assemblies a day for the next 5 days. Oracle Planning suggests a schedule that starts the beginning of next week for 25 assemblies a day for the next 5 days. When you implement the repetitive schedule in the Planner Workbench, Work in Process assigns a status of Pending-Mass Loaded to the new schedule. In the Repetitive Schedules window, you now have two overlapping schedules with different rates (10 per day and 25 per day), and different statuses (Unreleased and Pending-Mass Loaded). Either cancel the unreleased repetitive schedule and change the status of the pending schedule to Unreleased or Released or, update the rate of the unreleased schedule to match the recommended rate and cancel the pending schedule.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228121.htm#I_cx2Dreplsch">Repetitive Line Scheduling</a></p>
+<p>Overview of Master Scheduling, <i>Oracle MRP User's Guide</i></p>
+<h2><a name="1034508"></a><a id="T228893"></a><b>Defining Repetitive Schedules Manually</b></h2>
+<p><a name="I_tx2Ddefrs" id="I_tx2Ddefrs"></a><a name="WIPREMDF_DETAIL" id="WIPREMDF_DETAIL"></a><a name="WIPREMDF_REP_SCHEDS" id="WIPREMDF_REP_SCHEDS"></a><a name="WIPREMDF_RESCHEDULE" id="WIPREMDF_RESCHEDULE"></a>When defining repetitive schedules, you can:</p>
+<ul>
+<li>
+<p>Define repetitive schedules to build assemblies repetitively on a production line. Repetitive schedules are used to schedule production, resources, and material requirements, and to collect the costs of manufacturing a repetitive assembly on a production line.</p>
+</li>
+<li>
+<p>Assign bills and routings to repetitive schedules to create material requirements, schedule operations, and create resource requirements. Neither bills of material nor routings are required however.</p>
+</li>
+<li>
+<p>Specify the line, the assembly you are building, daily quantity, processing days, and/or total quantity, and a date to schedule.</p>
+</li>
+<li>
+<p>Attach illustrative or explanatory files - in the form of text, images, word processing documents, spreadsheets, video, and so on - to repetitive schedules. See: About Attachments, <i>Oracle E-Business Suite User's Guide</i>, and <a href="T228107T228128.htm#I_tx2Dattach">Attaching Files to Jobs, Schedules, and Operations</a></p>
+</li>
+</ul>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define at least one production line. See: <a href="T228107T228110.htm#I_tx2Ddpline">Defining Production Lines</a>.</li>
+<li>Define at least one Repetitive Line/Assembly Association. See: <a href="T228107T228114.htm#I_tx2Dlaassoc">Associating Lines and Assemblies</a>.</li>
+</ul>
+<p><b>To define a repetitive schedule:</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e24621" id="d0e24621"></a>Repetitive Schedules window. The <a name="d0e24628" id="d0e24628"></a>Repetitive Schedule Summary window appears.</p>
+</li>
+<li>
+<p>Choose the New button to open the Repetitive Schedules window.</p>
+<p><img width="753" height="502" src="./img/wip_wip_repschdl.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> You can define several repetitive schedules simultaneously in the Repetitive Schedules Summary window. You can, however, also define repetitive schedules one-at-a-time using the Repetitive Schedules window.</p>
+</li>
+<li>
+<p>Select the production Line and the repetitive Assembly.</p>
+<p>You can select any production Line and associated Assembly. The routing, bill, accounting class, supply type, and completion subinventory/locator defined for the Repetitive Line/Assembly Association selected are defaulted. See: <a href="T228107T228114.htm#I_tx2Dlaassoc">Associating Lines and Assemblies</a>.</p>
+</li>
+<li>
+<p>Select the schedule Status.</p>
+<p>When you define a repetitive schedule, its default status is Unreleased but can be changed to Released or On Hold. See: <a href="T228107T228119.htm#I_rx2Drepstat">Repetitive Schedule Statuses</a>.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e24669" id="d0e24669"></a><a name="d0e24673" id="d0e24673"></a>Daily Quantity for the repetitive schedule.</p>
+<p>If you do not enter the daily quantity, enter the number of processing days and the total quantity.</p>
+<p>The number of completed assemblies you plan to produce on the schedule each day. This quantity is effective from the schedule start date to the schedule end date.</p>
+</li>
+<li>
+<p>Enter the number of <a name="d0e24688" id="d0e24688"></a>Days for the repetitive schedule. Use decimal numbers to indicate partial days (up to 6 decimal places).</p>
+<p>This is the number of days that the repetitive schedule requires, from the first assembly completion date through the last assembly completion date, to manufacture the total number of assemblies.</p>
+<p>If you enter the number of days, the total quantity is automatically calculated based on the daily quantity. If you do not enter the number of days, enter the daily quantity and total quantity.</p>
+</li>
+<li>
+<p>Enter the Total Quantity of assemblies that you plan to manufacture with this schedule.</p>
+<p>If you enter the total quantity, the processing days are calculated based on the daily quantity. If you do not enter the total quantity, enter the daily quantity and number of processing days.</p>
+</li>
+<li>
+<p>Select the <a name="d0e24709" id="d0e24709"></a>Demand Class.</p>
+<p>You can select any enabled and active demand class. Demand classes are not required. See: Overview of Demand Classes, <i>Oracle MRP User's Guide</i> and Creating Demand Classes, <i>Oracle MRP User's Guide</i>.</p>
+</li>
+<li>
+<p>Check the <a name="d0e24728" id="d0e24728"></a><a name="d0e24734" id="d0e24734"></a>Firm check box to firm your schedule.</p>
+<p>Firming repetitive schedules prevents MRP from suggesting rescheduling and replanning recommendations when changes to supply or demand occur. Firming a repetitive schedule locks in that schedule's daily quantity as the recommended daily quantity for future schedules using that line/assembly association. See: Firm Order Planning, <i>Oracle MRP User's Guide</i>.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e24750" id="d0e24750"></a>Description.</p>
+<p>Descriptions can be used to identify repetitive schedules on standard reports. They can be up to 240 characters of alpha numeric text. They are not required.</p>
+</li>
+</ol>
+<p><b>To schedule a repetitive schedule with a routing or a fixed lead time repetitive schedule without a routing</b></p>
+<ol>
+<li>
+<p>Select a <a name="d0e24766" id="d0e24766"></a><a name="d0e24772" id="d0e24772"></a><a name="d0e24778" id="d0e24778"></a>First Unit Start Date (FUSD) or <a name="d0e24783" id="d0e24783"></a><a name="d0e24789" id="d0e24789"></a>First Unit Complete Date (FUCD) or a <a name="d0e24794" id="d0e24794"></a><a name="d0e24800" id="d0e24800"></a>Last Unit Start Date (LUSD) or <a name="d0e24805" id="d0e24805"></a><a name="d0e24811" id="d0e24811"></a>Last Unit Complete Date (LUCD).</p>
+<p>Only one date (FUSD, FUCD, LUSD, or LUCD) is required for repetitive assemblies with routings and repetitive assemblies without routings that are associated with production lines that have Fixed lead time. The repetitive schedule is automatically forward or backward scheduled based upon the dates entered.</p>
+</li>
+</ol>
+<p><b>To schedule a repetitive schedule without a routing that has a routing-based lead time</b></p>
+<ol>
+<li>
+<p>Select the FUSD and FUCD or select the LUSD and LUCD.</p>
+<p>A set of start or completion dates is required for repetitive schedules without routings that are associated with production lines that have Routing-based lead times. The system uses the processing days to schedule the dates not entered.</p>
+</li>
+</ol>
+<p><b>To assign bill of material and routing revisions and dates</b></p>
+<ol>
+<li>
+<p>Select the bill of material <a name="d0e24834" id="d0e24834"></a>Revision.</p>
+<p>The bill of material defaults based on the repetitive line and assembly selected. You can however, select an alternate revision and revision date and time if alternates have been defined.</p>
+<p>You can update the bill revision as long as the repetitive schedule remains unreleased. You can update the revision for standard bills or alternate bills. See: Item and Routing Revisions, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p>You can explode item revisions that have associated ECOs with Release, Schedule, and Implement statuses. If you set the <i>WIP</i>:<i>Exclude ECOs</i> profile option to None, you can also explode revisions for ECOs that have an Open status. See: Implementing ECOs in the Oracle Engineering User's Guide..</p>
+</li>
+<li>
+<p>Select the bill <a name="d0e24860" id="d0e24860"></a>Revision Date and time.</p>
+<p>You can update the bill revision date for standard bills or alternate bills. You can update the bill revision date as long as the repetitive schedule remains unreleased.</p>
+</li>
+<li>
+<p>Select the routing <a name="d0e24873" id="d0e24873"></a>Revision.</p>
+<p>The routing defaults based on the repetitive line and assembly selected. You can, however, update the routing revision as long as the schedule remains unreleased. See: Item and Routing Revisions, <i>Oracle Bills of Material User's Guide</i></p>
+</li>
+<li>
+<p>Select the routing <a name="d0e24888" id="d0e24888"></a>Revision Date and time.</p>
+<p>You can update routing revision dates for standard and alternate routings. You can update the routing revision date as long as the schedule remains unreleased. If you do not enter a revision date, the system uses the first unit start date (FUSD).</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To view outside processing workflows</b></p>
+<ol>
+<li>
+<p>See: <a href="T228107T228118.htm#I_ospwkflw">Outside Processing Workflows</a></p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228114.htm#I_cx2Drmsu">Repetitive Manufacturing Setup</a></p>
+<p><a href="T228107T228114.htm#I_tx2Dchgrs">Changing Repetitive Schedules</a></p>
+<p><a href="T228107T228121.htm#I_cx2Dreplsch">Repetitive Line Scheduling</a></p>
+<p><a href="T228107T228114.htm#I_tx2Drsrs">Rescheduling Repetitive Schedules</a></p>
+<h2><a name="1034515"></a><a id="T228894"></a><b>Overview of Building Repetitive Schedules</b></h2>
+<p><a name="d0e24932" id="d0e24932"></a><a name="I_cx2Dovbbldrs" id="I_cx2Dovbbldrs"></a>Steps involved in building repetitive schedules include:</p>
+<ul>
+<li>
+<p>Releasing repetitive schedules to production. See: <a href="T228107T228114.htm#I_tx2Drsrelsg">Releasing Repetitive Schedules</a>.</p>
+</li>
+<li>
+<p>Issuing components to repetitive schedules and, if necessary, returning them back to inventory. See: <a href="T228107T228115.htm#I_tx2Dpush">Issuing and Returning Specific Components</a> and <a href="T228107T228115.htm#I_tx2Dpshretall">Issuing and Returning All Push Components</a>.</p>
+</li>
+<li>
+<p>Using Shop Floor Control to coordinate, on an as required basis, the following:</p>
+<ul>
+<li>
+<p>Moving assemblies between routing operations and intraoperation steps as required. See: <a href="T228107T228116.htm#I_cx2Dplines">Production Line Moves</a>.</p>
+</li>
+<li>
+<p>Scrapping assemblies. See: <a href="T228107T228116.htm#I_tx2Dscraptx78g">Scrapping Assemblies</a>.</p>
+</li>
+<li>
+<p>Backflushing or issuing and returning operation pull and assembly pull components automatically with move transactions.</p>
+</li>
+<li>
+<p>Charging resources. See: <a href="T228107T228117.htm#I_tx2Dmvrestx78n">Charging Resources with Move Transactions</a> and <a href="T228107T228117.htm#I_tx2Drestx78add">Charging Resources Manually</a>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Changing repetitive schedules to accommodate changes in production. See: <a href="T228107T228114.htm#I_tx2Dchgrs">Changing Repetitive Schedules</a> and <a href="T228107T228114.htm#I_tx2Drsstupdg">Mass Changing Repetitive Schedule Statuses</a>.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228115.htm#I_cx2Dovwmctl">Overview of Material Control</a></p>
+<p><a href="T228107T228116.htm#I_cx2Dovwsfc">Overview of Shop Floor Control</a></p>
+<p><a href="T228107T228115.htm#I_cx2Drplin">Repetitive Component Issues and Returns</a></p>
+<p><a href="T228107T228115.htm#I_cx2Drplines">Repetitive Production Line Backflushes</a></p>
+<h2><a name="1034516"></a><a id="T228895"></a><b>Finding Repetitive Schedules</b></h2>
+<p><a name="I_tx2Drsfndg" id="I_tx2Drsfndg"></a><a name="WIPREMDF.sched_qf" id="WIPREMDF.sched_qf"></a><a name="WIPREMAL.QUERY_FIND" id="WIPREMAL.QUERY_FIND"></a>You can find then view, release, change, and reschedule repetitive schedules. You can also find then purge information associated with repetitive schedules.</p>
+<p><b>To find one or several repetitive schedules to view, release, change, or reschedule</b></p>
+<ol>
+<li>
+<p>When the Find Repetitive Schedules window appears, enter your search criteria.</p>
+<p>You can query by assembly Line and Assembly, a range of First Unit Start Dates, a range of First Unit Completion Dates, and Status. You can combine or omit criteria as required.</p>
+<p><img width="629" height="336" src="./img/wip_wip_fndrepsc.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> Querying to find repetitive schedules does not validate the records returned. For example, querying to find a range of schedules to release does not return only those jobs in that range that can be released.</p>
+</li>
+<li>
+<p>Choose the Find button.</p>
+</li>
+</ol>
+<p><b>To find one or several repetitive schedules to include in your purge</b></p>
+<ol>
+<li>
+<p>When the Find Repetitive Schedules window appears, enter your search criteria.</p>
+<p>You can query by assembly Line and Assembly, a range of First Unit Start Dates, or a range of First Unit Completion Dates.</p>
+<p><img width="629" height="336" src="./img/wip_wip_fndreprg.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select an accounting Period or enter a Cutoff Date for the purge.</p>
+<p>You can query by closed accounting Period. When you select an accounting period, the end date of that period is defaulted as the purge Cutoff date and cannot be overridden.</p>
+<p>If you do not select an accounting Period, the cutoff date of the most recently closed accounting period is defaulted. You can override this date with any date in a closed period.</p>
+<p><strong><span>Note:</span></strong> When purging repetitive schedules, the date a repetitive schedule was changed to Complete-No Charges or Cancelled is compared to the purge cutoff date. Only repetitive schedules that were set to Complete-No Charges or Cancelled on or before the cutoff date are purged.</p>
+<p><strong><span>Note:</span></strong> If you enter a cutoff date that is earlier than the date a repetitive schedule was changed to Complete-No Charges or Cancelled, the system purges only the repetitive schedule detail and transaction information up to the date you enter.</p>
+</li>
+<li>
+<p>Choose the Find button.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Searching for Information, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1034519"></a><a id="T228896"></a><b>Releasing Repetitive Schedules</b></h2>
+<p><a name="d0e25084" id="d0e25084"></a><a name="I_tx2Drsrelsg" id="I_tx2Drsrelsg"></a>You must release a repetitive schedule to production before transacting against it. Releasing a repetitive schedule with a routing automatically loads the total number of assemblies to be built for the repetitive schedule into the Queue intraoperation step of the first operation. If PO Move or PO Receipt resource requirements exist at the first operation, purchase requisitions are automatically generated for these resources.</p>
+<p><b>To release a single repetitive schedule</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e25101" id="d0e25101"></a>Repetitive Schedules window. The Repetitive Schedules Summary window appears.</p>
+</li>
+<li>
+<p>Find a repetitive schedule. See: <a href="T228107T228114.htm#I_tx2Drsfndg">Finding Repetitive Schedules</a>.</p>
+<p>The Repetitive Schedules Summary window appears with the results of the query.</p>
+</li>
+<li>
+<p>Change the selected schedule's status to Released. See: <a href="T228107T228119.htm#I_rx2Drepstat">Repetitive Schedule Statuses</a>.</p>
+<p><strong><span>Note:</span></strong> You can release repetitive schedules in either the Repetitive Schedules Summary or the Repetitive Schedules window. See: .</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To release several repetitive schedules</b></p>
+<ol>
+<li>
+<p>See: <a href="T228107T228114.htm#I_tx2Drsstupdg">Changing Repetitive Schedule Statuses</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228119.htm#I_cx2Dchgstat">Job and Repetitive Schedule Status Changes</a></p>
+<p><a href="T228107T228119.htm#I_cx2Drepstctl">Repetitive Schedule Status Control</a></p>
+<h2><a name="1034522"></a><a id="T228897"></a><b>Printing Reports for Current Repetitive Schedules</b></h2>
+<p><a name="d0e25154" id="d0e25154"></a><a name="I_tx2Drsprintg" id="I_tx2Drsprintg"></a>If you are in the Repetitive Schedules, Purge Repetitive Schedules, or View Repetitive Schedules window, you can print selected reports for the 'active' or current schedule. See: Current Record Indicator, <i>Oracle Applications User's Guide</i>.</p>
+<p>You can print any one of the following reports:</p>
+<ul>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwiprertg">Repetitive Routing Sheet</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwiprepck">Repetitive Pick List Report</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwiprelin">Repetitive Line Report</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwipreorq">Repetitive Schedule Shortage Report</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwipredat">Repetitive Schedule Data Report</a></p>
+</li>
+</ul>
+<p><b>To print a report for the current repetitive schedule</b></p>
+<ol>
+<li>
+<p>From the Repetitive Schedules or View Repetitive Schedules window choose <i>Print Reports</i> from the <a name="d0e25200" id="d0e25200"></a><a name="d0e25206" id="d0e25206"></a>Tools menu. .</p>
+<p>The Print window appears.</p>
+<p><img width="293" height="309" src="./img/wip_wip_prnrepor.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the name of the report and choose OK</p>
+<p>When you choose OK, a concurrent request to print the report is submitted. You can view the status of concurrent requests. See: Using the Concurrent Requests Window, <i>Oracle E-Business Suite User's Guide</i>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1034524"></a><a id="T228898"></a><b>Overview of Viewing Repetitive Schedules</b></h2>
+<p><a name="I_cx2Dovrsvw" id="I_cx2Dovrsvw"></a>To view repetitive schedule information see:</p>
+<ul>
+<li>
+<p><a href="T228107T228114.htm#I_tx2Dvwrs">Viewing Repetitive Schedule Information</a></p>
+</li>
+<li>
+<p><a href="T228107T228115.htm#I_tx2Dvwmreqs">Viewing Material Requirements</a> and <a href="T228107T228115.htm#I_tx2Dcreqvwg">Viewing Component Requirements</a></p>
+</li>
+<li>
+<p><a href="T228107T228116.htm#I_tx2Dvwops">Viewing Operations</a> and <a href="T228107T228116.htm#I_tx2Djsopsvwg">Viewing Job and Schedule Operations</a></p>
+</li>
+<li>
+<p><a href="T228107T228117.htm#I_tx2Dresrqvwg">Viewing Resource Requirements</a></p>
+</li>
+</ul>
+<p>You can also print a variety of repetitive schedule reports.</p>
+<h2><a name="1034525"></a><a id="T228899"></a><b>Viewing Repetitive Schedule Information</b></h2>
+<p><a name="I_tx2Dvwrs" id="I_tx2Dvwrs"></a>You can view information for repetitive schedules of any status, including schedules that are closed, cancelled, or on hold. You can view one schedule or several. You can also view operation, material requirement, and resource requirement information associated with repetitive schedules. You can view repetitive schedule information in summary or detail. .</p>
+<p><b>To view repetitive schedule information</b></p>
+<ol>
+<li>
+<p>Navigate to <a name="d0e25282" id="d0e25282"></a>View Repetitive Schedules window. When the Find Repetitive Schedules window appears, enter your search criteria. See: <a href="T228107T228114.htm#I_tx2Drsfndg">Finding Repetitive Schedules</a>.</p>
+<p>Repetitive schedules are automatically displayed in the <a name="d0e25294" id="d0e25294"></a>View Repetitive Schedules Summary window. Using the Summary/Detail option from the Go Menu, you can switch to the View Repetitive Schedules window to view all information for a selected schedule. You can optionally navigate to the View Repetitive Schedules window by choosing the Open button from the <i>View Repetitive Schedules Summary window.</i></p>
+<p><img width="755" height="503" src="./img/wip_vwrepsch.gif" alt="the picture is described in the document text"></p>
+<p>By tabbed region, all of the following information can be viewed in View Repetitive Schedules Summary window:</p>
+<p><i>Status region:</i> Line, Assembly, Status, Date Released</p>
+<p><i>Quantities region:</i> Daily Quantity, Days, Total Quantity, Quantity Completed</p>
+<p><i>Start Dates region:</i> First and Last Unit Start Dates</p>
+<p><i>Completions Dates region:</i> First and Last Unit Completion Dates</p>
+<p><i>Bill Information region:</i> Alternate Bill, Revision, Revision Date, and Supply Type</p>
+<p><i>Routing region:</i> Alternate Routing, Routing Revision, and Revision Date</p>
+<p><i>Planning, Description region:</i> Firm plan option, Demand Class and Description</p>
+<p><i>Current Progress region:</i> Quantity Completed, Quantity Scrapped, and Quantity Ahead, and Days Ahead</p>
+</li>
+</ol>
+<p><b>To view repetitive schedule operations</b></p>
+<ol>
+<li>
+<p>From either the View Repetitive Schedules window or the View Repetitive Schedules Summary window, choose the Operations button. The Operation window appears displaying the repetitive schedules's operations. You can optionally view the components required at a selected operation using the Components button. See: <a href="T228107T228116.htm#I_tx2Djsopsvwg">Viewing Job and Schedule Operations</a>.</p>
+</li>
+</ol>
+<p><b>To view repetitive schedule component requirements</b></p>
+<ol>
+<li>
+<p>From either the View Repetitive Schedules window or the View Repetitive Schedules Summary window, choose the Components button. The Material Requirements window appears and the repetitive schedule's components are displayed. See: <a href="T228107T228115.htm#I_tx2Dcreqvwg">Viewing Component Requirements</a></p>
+</li>
+</ol>
+<p><b>To print reports for a repetitive schedule</b></p>
+<ol>
+<li>
+<p>You can print selected reports for the 'active' or current schedule See: <a href="T228107T228114.htm#I_tx2Drsprintg">Printing Reports for Current Repetitive Schedules</a>.</p>
+</li>
+</ol>
+<p><b>To view outside processing workflows</b></p>
+<ol>
+<li>
+<p>See: <a href="T228107T228118.htm#I_ospwkflw">Outside Processing Workflows</a></p>
+<p>Work in Process provides workflows to track outside processing of repetitive schedules. If you want to activate workflow notifications, you must have your system administrator set up the WIP:Enable Outside Processing Workflows profile option.</p>
+</li>
+</ol>
+<h2><a name="1034531"></a><a id="T228900"></a><b>Overview of Changing Repetitive Schedules</b></h2>
+<p><a name="I_cx2Dovchgrs" id="I_cx2Dovchgrs"></a>You can make the following changes to your repetitive schedules:</p>
+<ul>
+<li>
+<p>Change dates, quantities, bills, statuses, and routings. See: <a href="T228107T228114.htm#I_tx2Dchgrs">Changing Repetitive Schedules</a> and <a href="T228107T228114.htm#I_tx2Drsrs">Rescheduling Repetitive Schedules</a>.</p>
+</li>
+<li>
+<p>Add, update, and delete operations. See: <a href="T228107T228116.htm#I_tx2Dupops">Adding and Updating Operations</a> and <a href="T228107T228116.htm#I_tx2Dopsdeltg">Deleting Operations</a>.</p>
+</li>
+<li>
+<p>Add, update, and delete material requirements. See: <a href="T228107T228115.htm#I_tx2Dupdmrqs">Adding and Updating Material Requirements</a> and <a href="T228107T228115.htm#I_tx2Dmtldeltg">Deleting Material Requirements</a>.</p>
+</li>
+<li>
+<p>Add, change, and delete resource requirements. See: <a href="T228107T228117.htm#I_tx2Drraddg">Adding and Updating Resource Requirements</a> and <a href="T228107T228117.htm#I_tx2Drrdeltg">Deleting Resource Requirements</a>.</p>
+</li>
+<li>
+<p>Implement engineering change orders in Oracle Engineering. See: Implementing engineering change orders Oracle Engineering.</p>
+</li>
+<li>
+<p>Add, change, and delete WIP Attachments. See: <a href="T228107T228128.htm#I_tx2Dattach">Attaching Files to Jobs, Schedules, and Operations</a>.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228119.htm#I_cx2Drepstctl">Repetitive Schedule Status Control</a></p>
+<p><a href="T228107T228119.htm#I_cx2Dchgstat">Job and Repetitive Schedule Status Changes</a></p>
+<h2><a name="1034532"></a><a id="T228901"></a><b>Changing Repetitive Schedules</b></h2>
+<p><a name="d0e25451" id="d0e25451"></a><a name="I_tx2Dchgrs" id="I_tx2Dchgrs"></a>You can change repetitive schedules using the Repetitive Schedules and Repetitive Schedules Summary windows. The status of the schedule determines if and what information can be changed. See: <a href="T228107T228119.htm#I_cx2Drepstctl">Repetitive Schedule Status Control</a>.</p>
+<p><b>Quantities</b></p>
+<p>You can update the daily production quantity, the number of processing days and the total quantity of a repetitive schedule. You can reduce or increase the schedule quantity. Changing the daily production rate on a repetitive schedule causes the total quantity to change accordingly based on the processing days. Changing the processing days causes the total quantity to change according to the daily quantity. Changing the total quantity on a schedule does not impact the daily quantity. Instead increasing the total quantity causes the processing days to increase. Conversely, reducing the total quantity decreases the processing days.</p>
+<p>Once the repetitive schedule is released and work has begun on the assembly, you cannot decrease the total quantity lower than the number of assemblies that have already passed the Queue intraoperation step of the first operation. The material requirements and schedule dates are automatically adjusted based upon the quantity change. If the schedule's assembly is an MPS-planned item, the update process automatically adjusts the MPS relief quantity.</p>
+<p><b>Dates</b></p>
+<p>You can change the dates and times on a repetitive schedule. If you change the first unit start date, first unit completion date, last unit start date, or last unit completion date, Work in Process reschedules the repetitive schedule to adjust the remaining start and completion dates. Changing any of the four start and completion dates does not impact the processing days, total quantity, daily quantity, or lead time. Work in Process does not allow you to change dates and times to cause overlapping of schedules for the same assembly on the same line. See: <a href="T228107T228114.htm#I_tx2Drsrs">Rescheduling Repetitive Schedules</a>.</p>
+<p><b>Statuses</b></p>
+<p>You can change the status of a repetitive schedule although some changes from one status to another are disallowed and others are conditional. See: <a href="T228107T228119.htm#I_cx2Dchgstat">Job and Repetitive Schedule Status Changes</a>.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define at least one repetitive schedule. See: <a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a>.</li>
+</ul>
+<p><b>To change repetitive schedules</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e25501" id="d0e25501"></a>Repetitive Schedules window. The <a name="d0e25508" id="d0e25508"></a>Repetitive Schedules Summary window appears.</p>
+</li>
+<li>
+<p>Choose Find from the Query Menu. See: <a href="T228107T228114.htm#I_tx2Drsfndg">Finding Repetitive Schedules</a>.</p>
+</li>
+<li>
+<p>Change repetitive schedules in either the Repetitive Schedules or Repetitive Schedules Summary windows. From the Repetitive Schedules Summary window, you can choose the Open button to navigate to the Repetitive Schedules window.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a></p>
+<p><a href="T228107T228114.htm#I_tx2Drsstupdg">Mass Changing Repetitive Schedules Statuses</a></p>
+<p><a href="T228107T228114.htm#I_tx2Drsrs">Rescheduling Repetitive Schedules</a></p>
+<p><a href="T228107T228128.htm#I_tx2Dattach">Attaching Files to Jobs, Schedules, and Operations</a></p>
+<h2><a name="1034535"></a><a id="T228902"></a><b>Rescheduling Repetitive Schedules</b></h2>
+<p><a name="d0e25547" id="d0e25547"></a><a name="d0e25553" id="d0e25553"></a><a name="I_tx2Drsrs" id="I_tx2Drsrs"></a>You can reschedule repetitive schedules with and without routings. When you change a repetitive schedule quantity, the system automatically prompts you to choose the date around which you want to reschedule. The number of processing days increases/decreases to reflect the quantity change.</p>
+<p>When you update the number of workdays, you must choose the date around which you want to reschedule. The current schedule is rescheduled around the date you specify.</p>
+<p>You can enter first unit/last unit start (FUCD/LUSD) and first unit/last unit completion (FUCD/LUCD) dates and times earlier than the current date and time to maintain relative date priorities for department schedules and material requirements.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define at least one repetitive schedule with a status of Released or Complete. See: <a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a>.</li>
+</ul>
+<p><b>To reschedule a repetitive schedule with a routing or a fixed lead time repetitive schedule without a routing</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e25581" id="d0e25581"></a>Repetitive Schedules window. The <a name="d0e25588" id="d0e25588"></a>Repetitive Schedule Summary window appears.</p>
+</li>
+<li>
+<p>Choose the New button to navigate to the Repetitive Schedules window.</p>
+</li>
+<li>
+<p>Select the production Line and Assembly.</p>
+</li>
+<li>
+<p>Select a FUSD or FUCD or a LUSD or LUCD.</p>
+<p>Only one date (FUSD, FUCD, LUSD, or LUCD) is required for repetitive assemblies with routings and repetitive assemblies without routings that are associated with production lines that have Fixed lead time. The repetitive schedule is automatically forward or backward scheduled based upon the dates entered.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To reschedule a repetitive schedule without a routing that has a routing-based lead time</b></p>
+<ol>
+<li>
+<p>Navigate to the Repetitive Schedules window.</p>
+</li>
+<li>
+<p>Select the production Line.</p>
+</li>
+<li>
+<p>Select the repetitive Assembly.</p>
+</li>
+<li>
+<p>Select the FUSD and FUCD or select the LUSD and LUCD.</p>
+<p>A set of start or completion dates is required for repetitive schedules without routings that are associated with production lines that have Routing-based lead times. The system uses the processing days to schedule the dates not entered.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e25641" id="d0e25641"></a>reschedule a repetitive schedule after changing the daily quantity, the processing days, or the total quantity</b></p>
+<ol>
+<li>
+<p>After changing the Daily quantity, which updates the Total Quantity based on the number of processing Days; changing the number of processing Days, which updates the Total Quantity based on the Daily Quantity; or changing the Total Quantity, which updates the number of processing Days but does not update the Daily Quantity; and saving your work, the Reschedule Repetitive Schedule window appears.</p>
+<p><img width="394" height="216" src="./img/wip_reschrep.gif" alt="the picture is described in the document text"></p>
+<p>Select a reschedule point option:</p>
+<p><i>First Unit Start Date:</i> All other dates and times are cleared and the schedule is forward scheduled using the FUSD and time.</p>
+<p><i>First Unit Completion Date:</i> All other dates and times are cleared and the schedule is forward scheduled using FUCD and time.</p>
+<p><i>Last Unit Start Date:</i> All other dates and times are cleared and the schedule is backward scheduled using the LUSD and time.</p>
+<p><i>Last Unit Completion Date:</i> All other dates and times are cleared and the schedule is backward scheduled using the LUCD and time.</p>
+</li>
+<li>
+<p>Choose the Reschedule button.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a></p>
+<p><a href="T228107T228114.htm#I_tx2Dchgrs">Changing Repetitive Schedules</a></p>
+<p><a href="T228107T228121.htm#I_cx2Dreplsch">Repetitive Line Scheduling</a></p>
+<h2><a name="1034540"></a><a id="T228903"></a><b>Mass Changing Repetitive Schedule Statuses</b></h2>
+<p><a name="d0e25696" id="d0e25696"></a><a name="I_tx2Drsstupdg" id="I_tx2Drsstupdg"></a><a name="WIPREMDF.MASS_STATUS" id="WIPREMDF.MASS_STATUS"></a>You can change the statuses of repetitive schedules using the <i>Change Status</i> option from the Tools menu. This mass change capability can be used for a variety of purposes such as releasing schedules to production and putting schedules on hold.</p>
+<p><b>To change the status of several repetitive schedules</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e25717" id="d0e25717"></a>Repetitive Schedules window. The <a name="d0e25724" id="d0e25724"></a>Repetitive Schedules Summary window appears.</p>
+</li>
+<li>
+<p>Choose Find from the Query Menu. See: <a href="T228107T228114.htm#I_tx2Drsfndg">Finding Repetitive Schedules</a>.</p>
+<p>The Repetitive Schedules Summary window appears with the results of the query.</p>
+</li>
+<li>
+<p>In the Repetitive Schedules Summary window, select and deselect schedules as required.</p>
+</li>
+<li>
+<p>Choose Change Status from the <a name="d0e25748" id="d0e25748"></a><i>Tools menu.</i> .</p>
+<p>The Change Repetitive Schedules Status window appears.</p>
+<p><img width="292" height="287" src="./img/wip_wip_chngreps.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Choose a Status. See: <a href="T228107T228119.htm#I_rx2Drepstat">Repetitive Schedules Statuses</a> and <a href="T228107T228119.htm#I_cx2Dchgstat">Discrete Job and Repetitive Schedule Status Changes</a>.</p>
+</li>
+<li>
+<p>Choose OK to save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228114.htm#I_tx2Dchgrs">Changing Repetitive Schedules</a></p>
+<p><a href="T228107T228119.htm#I_cx2Drepstctl">Repetitive Schedule Status Control</a></p>
+<h2><a name="1034542"></a><a id="I_tx2Dcomprs"></a><b>Completing Repetitive Schedules</b></h2>
+<p><a name="d0e25791" id="d0e25791"></a><a name="d0e25797" id="d0e25797"></a>You can complete repetitive assemblies from repetitive schedules into inventory using the Completion Transactions and Move Transactions windows. You can also return completed assemblies back to schedules using these windows.</p>
+<p><strong><span>Note:</span></strong> You can also complete WIP assemblies using the Inventory Transaction Interface and the Open Move Transaction Interface.</p>
+<p><strong><span>Note:</span></strong> Set the profile option WIP:Validate Push Components at WIP Completion to Yes if you want all push type components issued to the schedule in order to perform the completion transactions. See: <a href="T228107T228110.htm#valpush">WIP:Validate Push Components at WIP Completion</a></p>
+<p><b>Over-completions</b></p>
+<p>If the repetitive schedule is over-completion enabled, you can complete a quantity of assemblies greater than the total quantity on the schedule, whether or not the schedule has a routing. This feature is useful when the production process yields more assemblies than planned. Since all over-completed quantities are allocated to the last open schedule, you can over-complete assembly quantities up to the tolerance limit of that schedule.</p>
+<p>To enable over-completion for assemblies on Repetitive schedules, you must:</p>
+<ul>
+<li>
+<p>Set up a tolerance level to control the number of assemblies that can be over-completed</p>
+</li>
+<li>
+<p>Enable the over-completion feature by checking the Over-completion check box on the Completion Transaction or Move Transaction windows when completing assemblies</p>
+</li>
+</ul>
+<p>When you over-complete assemblies to Repetitive schedules, all resources are charged and any backflush components are backflushed.</p>
+<p><i>Over-completion Tolerance</i></p>
+<p>You must set up a tolerance level for the quantity of assemblies that can be over-completed. The tolerance level, which is either a number or a percent, is used to validate the quantities. If an over-completed quantity is greater than the tolerance allows, the transaction will fail.</p>
+<p>You can set up tolerances item by item, or you can set a parameter at the organization level that sets the default over-completion tolerance percent for all items. When you set the tolerance at the organization level, you also are setting the default that will be used to validate over-completion assembly quantities when no tolerance level has been set at either the item or job or schedule levels.</p>
+<p>If you do not set a tolerance level, the default over-completion tolerance percent defaults to zero. If you then try to over-complete assemblies, you will receive a message telling you that you cannot over-complete because there is no tolerance. For more information on over-completion tolerance levels, see: <a href="T228107T228115.htm#I_cx2Dovrcom">Assembly Over-completions</a></p>
+<p><i>Over-Completions from the Completion Transaction and Move Transaction windows</i></p>
+<p>Once you set up tolerance levels, you enable over-completion on the Completion Transaction and Move Transaction windows by selecting the Over-Completion check box before performing the transaction. For instructions, see: <a href="T228107T228115.htm#I_tx2Dcawi">Completing and Returning Assemblies</a> and <a href="T228107T228116.htm#I_tx2Deasycomp">Performing Move Completion/Return Transactions</a>.</p>
+<p>If there is an open schedule for the same repetitive assembly being built on the same line, you also can optionally increase the assembly quantity by increasing the total quantity, the daily quantity, or the number of processing days. You can then move these additional assemblies from the Queue intraoperation step of the first operation sequence to the To Move intraoperation step of the last operation sequence. You then will have sufficient quantity in the To Move intraoperation step of the last operation sequence to complete from the schedule without having to over-complete assemblies. You can optionally define an additional schedule so you can complete from the line without over-completing from any schedule.</p>
+<p><b>Over-returns</b></p>
+<p>You can return more assemblies to repetitive schedules than you completed into inventory. Any excess quantities are allocated to the first open schedule.</p>
+<p><b>Routings</b></p>
+<p>When you complete an assembly from a Repetitive schedule with a routing, it is transacted from the To Move intraoperation step in the last operation of the schedule into the completion subinventory, and if required, the locator for the line. If you did not specify a completion subinventory and locator for the line, then you must specify a subinventory and possibly a locator when you perform the completion transactions.</p>
+<p><b>Complete versus Complete-No Charges</b></p>
+<p>When the number of assemblies completed equals the number of planned assemblies, the schedule is complete and the status of the schedule changes to either Complete or Complete-No Charges. The difference between these two statuses depends upon whether a future schedule exists. The end date of the schedule does not determine when a schedule is complete, and a repetitive schedule can be active after its end date.</p>
+<p>If there is a subsequent schedule with a status of Unreleased within the autorelease days time fence, or a schedule with a status of Released, Complete,or On Hold, then the status of the current schedule changes toComplete-No Charges and is automatically released the next schedule if appropriate. If there is no subsequent schedule that meets this requirement, then the status of the current schedule changes to Complete. This keeps the current schedule active so that you can transact any unused or excess material and perform delayed resource and material transactions.</p>
+<p><b>Multiple Schedules</b></p>
+<p><a name="d0e25876" id="d0e25876"></a>When you have more than one active schedule open for an assembly on a line at one time, the completion transactions automatically allocate the correct completion quantity to each schedule starting with the oldest schedules.</p>
+<p>For example, a repetitive schedule is scheduled to complete 100 assemblies on 10-JAN and 200 assemblies on 11-JAN. On 11-JAN when you complete 200 assemblies, the transaction completes 100 assemblies to the first schedule and the remaining 100 assemblies to the second schedule.</p>
+<p><b>Rolling Material Forward</b></p>
+<p><a name="d0e25887" id="d0e25887"></a><a name="d0e25893" id="d0e25893"></a>When the number of assemblies completed plus the assemblies in the Scrap intraoperation steps equals the number of assemblies planned, the schedule is checked for any excess material. Over-issuing results in excess material. This can occur as a result of pushing too much material to the schedule or from reducing the total quantity of the schedule.</p>
+<p>If there is any excess material, the system checks to see if there is a future schedule with a status of Unreleased within the autorelease days time frame, or a schedule with a status of Released Complete, or On Hold following the newly completed schedule. If so, this excess material charge rolls forward to the next schedule, the next schedule is released (if appropriate), and the status of the completed schedule changes to Complete-No Charges. If an appropriate schedule is not found, the status changes to Complete and the excess material charges do not roll forward. You can then analyze the schedule and transact the excess material.</p>
+<p>Roll forward also occurs if you cancel a schedule and there is an existing Unreleased schedule within the time fence specified by the <i>Repetitive Autorelease Days Parameter.</i> See: <a href="T228107T228110.htm#I_cx2Dparmrm">Repetitive Manufacturing Parameters</a>.</p>
+<p>Determines the time period within which the system automatically releases the next Unreleased schedule.</p>
+<p>When you complete a repetitive schedule, the system searches within the autorelease time frame for an Unreleased schedule, or for a schedule with a status of Released, Complete, or On Hold. If one exists, the status of the newly completed schedule changes to Complete-No Charges and the future schedule is automatically released. If no such schedule exists, the status of the schedule changes to Complete. If more than one schedule exists within the autorelease time frame, only one schedule is released.</p>
+<p><b>Stopping Repetitive Schedule</b>s</p>
+<p><a name="d0e25919" id="d0e25919"></a>Repetitive schedules stop when the number of assemblies completed plus the assemblies in the Scrap intraoperation steps equals the number of planned assemblies. No further action is needed. You do not close repetitive schedules. To prevent accidental charges, change the status of any Complete schedules to Cancelled or Complete-No Charges.</p>
+<p><b>Serial Number Validations for Assembly Completions and Returns</b></p>
+<p>For a serialized item returned to stock, validations occur to prevent re-issuing to a different repetitive schedule. At the time of completion, serialized assemblies and components for repetitive schedules are available from stock if they have the following values set in the Serial Numbers window in Oracle Inventory:</p>
+<ul>
+<li>
+<p>State value: Defined but not used.</p>
+</li>
+<li>
+<p>State value: Issued out of stores. This is restricted to serial numbers that were previously returned to the same repetitive schedule that you are completing.</p>
+</li>
+</ul>
+<p><a href="T228107T228115.htm#I_serialrc">Serial Number Validations for Component Returns and Assembly Completions</a></p>
+<p><b>Sales Orders and Outside Processing Operations</b></p>
+<p>When a schedule with outside processing operations is changed to complete, closed, or canceled status - an informational warning message displays if open purchase orders or requisitions exist for any of the operations.</p>
+<p>Changing a schedule status to completed, closed, or canceled is prevented if open reservations exist. If you attempt one of these transactions for a schedule linked to a sales order, an error message displays. You can unlink the reservations, or reduce the schedule quantity to equal the completed quantity. See: <a href="T228107T228111.htm#I_tx2Datodj">Linking ATO Sales Orders and Discrete Jobs</a></p>
+<p><b>Label Printing at Completion</b></p>
+<p>Label printing capabilities are available at the time of completion. This provides the ability to create labels for any descriptive information or customer requirements. See: <a href="T228107T228115.htm#I_comlabel">Label Printing at Completion</a></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_rx2Dmvtx78ntyp">Move Transaction Types</a></p>
+<p><a href="T228107T228115.htm#I_cx2Dovrcom">Assembly Over-completions and Over-returns</a></p>
+<p><a href="T228107T228115.htm#I_tx2Dcawi">Completing and Returning Assemblies</a></p>
+<p>Overview of Period Close, <i>Oracle Cost Management User's Guide</i></p>
+<h2><a name="1034543"></a><a id="T228235"></a><b>Overview of Repetitive Schedule Purge</b></h2>
+<p><a name="d0e25981" id="d0e25981"></a><a name="d0e25987" id="d0e25987"></a><a name="I_cx2Dovrspurg" id="I_cx2Dovrspurg"></a>You can purge repetitive schedule information using Purge Repetitive Schedules window and Purge Repetitive Schedules (SRS). You can purge all information associated with repetitive schedules including their schedule header records and schedule detail and transaction information. You can also selectively purge the following repetitive schedule information: schedule details (material requirements, resource requirements, and operations), move transactions, and resource cost transactions. Selective purging allows you to retain pertinent historical information. For example, you can retain operation information but purge move transactions associated with these operations.</p>
+<h3><b>Purge Rules</b></h3>
+<p><a name="d0e26000" id="d0e26000"></a><a name="d0e26006" id="d0e26006"></a>A repetitive schedule may not purge if the any of the following information still exists:</p>
+<ul>
+<li>
+<p>Material transactions that reference the repetitive schedule.</p>
+<p>You can purge material and completion transaction information associated with repetitive schedules in Oracle Inventory. See: Purge Transactions, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Purchase transactions, purchase requisitions, or purchase orders that reference the repetitive schedule in Oracle Purchasing.</p>
+</li>
+<li>
+<p>Quality results records that reference the repetitive schedule .</p>
+<p>You can delete quality results records associated with repetitive schedules in the Oracle Quality. See: Updating and Deleting Quality Results, <i>Oracle Quality User's Guide</i>.</p>
+</li>
+</ul>
+<h3><b>Reporting</b></h3>
+<p><a name="d0e26037" id="d0e26037"></a><a name="d0e26043" id="d0e26043"></a>You can submit a request to print a Purge Report as you purge repetitive schedules. When you print a report as part of the purge process, the output of the report is determined by the defaulted purge parameters used and the level of detail choosen (Full, Summary, or Excepting) in the Purge Options window.</p>
+<p>The Purge Report can also be submitted independently of the purge process using the Submit Requests window. When submitted independently of the purge process, only the jobs and/or schedules that failed to purge are listed.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228114.htm#I_tx2Drspurg">Purging Repetitive Schedules</a></p>
+<p><a href="T228107T228111.htm#I_tx2Dprgoptg">Specifying Purge Options</a></p>
+<p><a href="T228107T228123.htm#I_tx2Dpurge">Purging Jobs and Schedules</a></p>
+<h2><a name="1034546"></a><a id="T228904"></a><b>Purging Repetitive Schedules</b></h2>
+<p><a name="d0e26070" id="d0e26070"></a><a name="d0e26074" id="d0e26074"></a><a name="d0e26080" id="d0e26080"></a><a name="I_tx2Drspurg" id="I_tx2Drspurg"></a>You can use the Purge Repetitive Schedules window to purge information associated with Cancelled and Complete-No Charges repetitive schedules. You can purge all repetitive schedule information or just selected information: details (material requirements, resource requirements, and operations), or associated move and/or resource cost transactions.</p>
+<p>Before purging a repetitive schedule, you can view detail information for that schedule. You can also print one or all of the reports in the Repetitive Schedule Packet for the schedule. See: Current Record Indicator, <i>Oracle E-Business Suite User's Guide</i> and <a href="T228107T228123.htm#I_rx2Drspckt">Repetitive Shop Packet</a> <a href="T228107T228123.htm#I_rx2Ddjpckt">Discrete Shop Packet</a>.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>You must have at least one closed period for your organization. See: Overview of Period Close, <i>Oracle Cost Management User's Guide</i>.</li>
+</ul>
+<p><b>To find repetitive schedules to purge</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e26115" id="d0e26115"></a>Purge Repetitive Schedules window. The Find Repetitive Schedules window appears.</p>
+<p><img width="629" height="336" src="./img/wip_wip_fndreprg.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Query to find one or more repetitive schedules. See: <a href="T228107T228114.htm#I_tx2Drsfndg">Finding Repetitive Schedules</a>.</p>
+<p>The Purge Repetitive Schedules Summary<a name="d0e26136" id="d0e26136"></a> window appears with the results of your query.</p>
+<p><img width="754" height="503" src="./img/wip_wip_prgrepsc.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To print reports for the queried records</b></p>
+<ol>
+<li>
+<p><a href="T228107T228114.htm#I_tx2Drsprintg">Printing Reports for Current Repetitive Schedules</a>.</p>
+</li>
+</ol>
+<p><b>To view operations and operation requirements for a selected repetitive schedule</b></p>
+<ol>
+<li>
+<p>From either the Purge Repetitive Schedules or Purge Repetitive Schedules Summary window choose the Operations button.</p>
+<p>The operations, if any, required for the schedule are displayed. See: <a href="T228107T228116.htm#I_tx2Djsopsvwg">Viewing Job and Schedule Operations</a>.</p>
+</li>
+</ol>
+<p><b>To view component requirements for a selected repetitive schedule</b></p>
+<ol>
+<li>
+<p>From either the Purge Repetitive Schedules or Purge Repetitive Schedules Summary windows choose the Components button.</p>
+<p>The component materials, if any, required the schedule are displayed. See: <a href="T228107T228115.htm#I_tx2Dcreqvwg">Viewing Component Requirements</a>.</p>
+<p><strong><span>Note:</span></strong> When no routing exists, all components default to operation sequence of 1.</p>
+</li>
+</ol>
+<p><b>To select which repetitive schedules to purge and/or report</b></p>
+<ol>
+<li>
+<p>From the schedules displayed, select which to include in the purge. .</p>
+</li>
+<li>
+<p>Choose <i>Purge</i> from the <a name="d0e26198" id="d0e26198"></a>Tools menu. .</p>
+<p>The Purge Options window appears. See: <a href="T228107T228111.htm#I_tx2Dprgoptg">Specifying Purge Options</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228123.htm#I_rx2Dwippurge">Purge Report</a></p>
+<p><a href="T228107T228119.htm#I_cx2Dsttnx78ctl">Transaction Control by Status</a></p>
+<p><a href="T228107T228114.htm#I_tx2Dchgrs">Changing Repetitive Schedules</a></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

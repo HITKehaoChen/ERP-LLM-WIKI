@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Using Oracle Workflow in Oracle Order Management</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Using Oracle Workflow in Oracle Order Management Guide">
+<meta name="dcterms.identifier" content="E48844-08">
+<meta name="dcterms.isVersionOf" content="OMOWF">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T393423T393433.htm" title="Previous" type="text/html">
+<link rel="Next" href="index.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Using Oracle Workflow in Oracle Order Management","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">15/16</span> <!-- End Header -->
+<h1>Glossary</h1>
+<h2>Glossary</h2>
+<dl>
+<dt><b>A</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>access level</b></dt>
+<dd>A numeric value ranging from 0 to 100 that represents who the data is protected from for modification. When workflow data is defined, it can either be set to customizable (1000), meaning anyone can modify it or it can be assigned a protection level that is equal to the access level of the user defining the data. In the latter case, only users operating at an access level equal to or lower than the data's protection level can modify the data.</dd>
+</dl>
+<dl>
+<dt><b>activity</b></dt>
+<dd>A unit of work performed during a business process.</dd>
+</dl>
+<dl>
+<dt><b>activity attribute</b></dt>
+<dd>A parameter for an Oracle Workflow function activity that controls how the function activity operates. You define an activity attribute by displaying the activity's Attributes properties page in the Activities window of Oracle Workflow Builder. You assign a value to an activity attribute by displaying the activity node's Attribute Values properties page in the Process window.</dd>
+</dl>
+<dl>
+<dt><b>activity (item type, name, version)</b></dt>
+<dd>An Activity is the definition of a unit of work performed in the course of a business process. All activities are associated with an Item Type, and are identified by name. Rows in this table represent the reusable portion of the activity definition. Additional properties are associated with activities per usage in a process. Multiple versions of an activity definition are maintained in this table, which enable definitions to be updated without disturbing processes that are in progress. Activities must be one of three types: function, notification, or process. Function Activities are defined by a PL/SQL function executed directly by the workflow engine. Function activities are used to perform fully automated steps in the process. The defining PL/SQL functions accept standard arguments and return a completion result. Functions have a cost which indicates the amount of work the function represents. Notification Activities are completed by some external entity (e.g. human). These activities have a &ldquo;notification function&rdquo; which is run to signal the external entity of its need to perform a task. Human notifications are associated with a Message defined in the Notification system. All notification activities may have a time-out limit within which the activity must be performed. Process Definitions are also modeled as activities, which can then be referenced by other processes. The network of activities and transitions that define the process are maintained by in the Process Activities and Activity Transitions tables.</dd>
+</dl>
+<dl>
+<dt><b>approval</b></dt>
+<dd>A positive response to a notification.</dd>
+</dl>
+<dl>
+<dt><b>archive</b></dt>
+<dd>Data Repository for non-live orders. Historical data that is independent from the live standing and transaction data.</dd>
+</dl>
+<dl>
+<dt><b>assemble-to-order (ATO)</b></dt>
+<dd>An environment where you open a final assembly order to assemble items that customers order. Assemble-to-order is also an item attribute that you can apply to standard, model, and option class items.</dd>
+</dl>
+<dl>
+<dt><b>assemble-to-order (ATO) item</b></dt>
+<dd>An item you make in response to a customer order.</dd>
+</dl>
+<dl>
+<dt><b>assemble-to-order (ATO) model</b></dt>
+<dd>A configuration you create for customer order that includes optional items.</dd>
+</dl>
+<dl>
+<dt><b>assembly</b></dt>
+<dd>An item that has a bill of materials. You can purchase or manufacture an assembly item. <i>See</i><b>assemble-to-order, bill of materials.</b></dd>
+</dl>
+<dl>
+<dt><b>ATO</b></dt>
+<dd><i>See</i> <b>assemble-to-order.</b></dd>
+</dl>
+<dl>
+<dt><b>ATO item</b></dt>
+<dd>See <b>assemble-to-order item.</b></dd>
+</dl>
+<dl>
+<dt><b>ATO model</b></dt>
+<dd><i>See</i> <b>assemble-to-order model.</b></dd>
+</dl>
+<dl>
+<dt><b>ATP</b></dt>
+<dd><i>See</i> <b>available to promise.</b></dd>
+</dl>
+<dl>
+<dt><b>attribute</b></dt>
+<dd>See <b>activity attribute, item type attribute, or message attribute</b>.</dd>
+</dl>
+<dl>
+<dt><b>authorization</b></dt>
+<dd>The act of marking a notification as approved or not approved. This would release or confirm a hold on an Order.</dd>
+</dl>
+<dl>
+<dt><b>authorized quantity</b></dt>
+<dd>The authorized quantity is how many of an item that can be sent back to the warehouse from the customer. This is the booked quantity.</dd>
+</dl>
+<dl>
+<dt><b>AutoInvoice</b></dt>
+<dd>A program that imports invoices, credit memos, and on account credits from other systems to Oracle Receivables.</dd>
+</dl>
+<dl>
+<dt><b>Available To Promise (ATP)</b></dt>
+<dd>The quantity of on-hand stock, outstanding receipts and planned production which are not committed through a reservation or placing demand. In Oracle Inventory, you define the types of supply and demand that should be included in your ATP calculation.</dd>
+</dl>
+<dl>
+<dt><b>B</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>background engine</b></dt>
+<dd>A supplemental Oracle Workflow engine that processes deferred or timed out activities.</dd>
+</dl>
+<dl>
+<dt><b>bill of materials</b></dt>
+<dd>A list of component items associated with a parent item and information about how each item relates to the parent item. Oracle Manufacturing supports standard, model, option class, and planning bills. The item information on a bill depends on the item type and bill type. The most common type of bill is a standard bill of material. A standard bill of material lists the components associated with a product or subassembly. It specifies the required quantity for each component plus other information to control work in process, material planning, and other Oracle Manufacturing functions.</dd>
+</dl>
+<dl>
+<dt><b>booking</b></dt>
+<dd>An action on an order signifying that the order has all the necessary information to be processed through its order flow.</dd>
+</dl>
+<dl>
+<dt><b>C</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>closed order</b></dt>
+<dd>An order and its order lines that have completed all activities in its process flow and for which the close activity is complete.</dd>
+</dl>
+<dl>
+<dt><b>concurrent process</b></dt>
+<dd>A task in the process of completing. Each time you submit a task, you create a new concurrent process. A concurrent process runs simultaneously with other concurrent processes to help you complete multiple tasks at once with no interruptions to your terminal.</dd>
+</dl>
+<dl>
+<dt><b>config item</b></dt>
+<dd>An item which represents a unique configuration of model (ATO) and it's classes and options. A customer will enter his choice of classes and options for a given ATO model. This valid configuration of selected items is represented by a config item. A config item goes through the manufacturing process cycle, and is a shippable item.</dd>
+</dl>
+<dl>
+<dt><b>configuration</b></dt>
+<dd>A product a customer orders by choosing a base model and a list of options. It can be shipped as individual pieces as a set (kit) or as an assembly (configuration item).</dd>
+</dl>
+<dl>
+<dt><b>configuration bill of materials</b></dt>
+<dd>The bill of materials for a configuration item.</dd>
+</dl>
+<dl>
+<dt><b>configuration item</b></dt>
+<dd>An item that corresponds to a base model and a specific list of options. Bills of Materials create configuration items for assemble-to-order models.</dd>
+</dl>
+<dl>
+<dt><b>configurator</b></dt>
+<dd>A window that enables you to choose options available for a particular model to define a particular configuration for the model.</dd>
+</dl>
+<dl>
+<dt><b>configure-to-order (CTO)</b></dt>
+<dd>An environment where you enter customer orders by choosing a base model and then selecting options from a list of choices.</dd>
+</dl>
+<dl>
+<dt><b>cost</b></dt>
+<dd>A relative value that you can assign to a function or notification activity to inform the Workflow Engine how much processing is required to complete the activity. Assign a higher cost to longer running, complex activities. The Workflow Engine can be set to operate with a threshold cost. Any activity with a cost above the Workflow Engine threshold cost gets set to Deferred and is not processed. A background engine can be set up to poll for and process deferred activities.</dd>
+</dl>
+<dl>
+<dt><b>credit check</b></dt>
+<dd>A process that enables you to control the risk incurred when generating orders for your customers. Credit Checking is a feature of Oracle Receivables that enables Order Management to automatically checks a customer order total against pre&shy;defined order and total order limits. If an order exceeds either limit, Oracle Order Management places the order on hold for review.</dd>
+</dl>
+<dl>
+<dt><b>credit order type</b></dt>
+<dd>This is any header level transaction type that allows for return lines. The type is used to specify defaulting values for this credit order and an associated workflow.</dd>
+</dl>
+<dl>
+<dt><b>D</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>delivery</b></dt>
+<dd>A set of order lines to be shipped to a customer's ship-to location on a given date in a given vehicle. Multiple deliveries can be grouped into a single departure. A single delivery may include items from different sales orders and may include back orders as well as regular orders.</dd>
+</dl>
+<dl>
+<dt><b>delivery date</b></dt>
+<dd>The date on which the product is to arrive at the Ship-To Location. This date is either specified by the customer on a delivery-based demand transaction, or calculated by applying in-transit lead time to a customer-specified Shipment Date.</dd>
+</dl>
+<dl>
+<dt><b>delivery detail</b></dt>
+<dd>Contains items to be shipped out of a warehouse. This may be a sales order line, an RMA line, a WIP line or a PO line. They can be referred to as deliverables.</dd>
+</dl>
+<dl>
+<dt><b>delivery lead time</b></dt>
+<dd>Time (in days) is takes for items to reach the customer once it is shipped. It accounts for any non-working days in between.</dd>
+</dl>
+<dl>
+<dt><b>delivery line</b></dt>
+<dd>A shippable and booked line from the planning pool which has been allocated to a delivery. After allocation, the line is no longer available in the planning pool. After the delivery is closed, the delivery line will also be considered closed.</dd>
+</dl>
+<dl>
+<dt><b>directory services</b></dt>
+<dd>A mapping of Oracle Workflow users and roles to a site's directory repository.</dd>
+</dl>
+<dl>
+<dt><b>drop shipment</b></dt>
+<dd>A method of fulfilling sales orders by selling products without handling, stocking, or delivering them. The selling company buys a product from a supplier and has the supplier ship the product directly to customers.</dd>
+</dl>
+<dl>
+<dt><b>drop ship item</b></dt>
+<dd>An item to be sourced externally from the vendor directly to a customer.</dd>
+</dl>
+<dl>
+<dt><b>E</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>export licenses</b></dt>
+<dd>A government license to supply certain products to certain countries that would otherwise be restricted.</dd>
+</dl>
+<dl>
+<dt><b>export paper</b></dt>
+<dd>A document required by governmental agencies that provides information on goods shipped out of or into a country.</dd>
+</dl>
+<dl>
+<dt><b>external functions</b></dt>
+<dd>Programs that are executed outside of Oracle8.</dd>
+</dl>
+<dl>
+<dt><b>F</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>fulfillment</b></dt>
+<dd>Fulfilled sales order lines have successfully completed all Oracle Workflow processing activities up to eligibility for invoicing.</dd>
+</dl>
+<dl>
+<dt><b>fulfillment activity</b></dt>
+<dd>The synchronization point or gate in the workflow process at which lines wait for other lines to be fulfilled.</dd>
+</dl>
+<dl>
+<dt><b>fulfillment set</b></dt>
+<dd>Items in a fulfillment set will be available for scheduling and shipping only when all the items are available and ready to be scheduled/shipped. Fulfillment sets can be complete only, or partially allowed but in proportions. ATO model, and a PTO Ship model Complete will be in a fulfillment set.</dd>
+</dl>
+<dl>
+<dt><b>function</b></dt>
+<dd>A PL/SQL stored procedure referenced by an Oracle Workflow function activity that can enforce business rules, perform automated tasks within an application, or retrieve application information. The stored procedure accepts standard arguments and returns a completion result.</dd>
+</dl>
+<dl>
+<dt><b>function activity</b></dt>
+<dd>An automated Oracle Workflow unit of work that is defined by a PL/SQL stored procedure. see function</dd>
+</dl>
+<dl>
+<dt><b>H</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>hold</b></dt>
+<dd>A feature that prevents an order or order line from progressing through the order cycle. You can place a hold on any order or order line.</dd>
+</dl>
+<dl>
+<dt><b>hold criteria</b></dt>
+<dd>Criteria used to place a hold on an order or order line. A hold criteria can include customers, customer sites, orders, and items.</dd>
+</dl>
+<dl>
+<dt><b>hold source</b></dt>
+<dd>An instruction for Oracle Order Management to place a hold on all orders or lines that meet criteria you specify. Create a hold source when you want to put all current and future orders for a particular customer or for a particular item on automatic hold. Oracle Order Management gives you the power to release holds for specific orders or order lines, while still maintaining the hold source. Oracle Order Management holds all new and existing orders for the customer or item in your hold source until you remove the hold source.</dd>
+</dl>
+<dl>
+<dt><b>hold type</b></dt>
+<dd>Indicates the kind of hold you place on an order or order line.</dd>
+</dl>
+<dl>
+<dt><b>I</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>inbound/outbound Lines</b></dt>
+<dd>In the Oracle Order Management, lines on a header are either outbound (sales order lines in which material on the header is leaving the warehouse to go to a customer) or inbound (return lines in which material on the header is arriving at the warehouse to be credited back to the customer). In Order Management, headers can be Return (all inbound), Order (all outbound), or Mixed (both inbound and outbound lines).</dd>
+</dl>
+<dl>
+<dt><b>invoice</b></dt>
+<dd>A document you create in Oracle Receivables that lists amounts owed for the purchases of goods or services. This document may list any tax and freight charges. A summarized list of charges, including payment terms, invoice item information, and other information that is sent to a customer for payment.</dd>
+</dl>
+<dl>
+<dt><b>item</b></dt>
+<dd>A specific process, document, or transaction that is managed by a workflow process. Anything you make, purchase, or sell, including components, subassemblies, finished products, or supplies. Oracle Manufacturing also uses items to represent planning items that you can forecast, standard lines that you can include on invoices, and option classes you can use to group options in model and option class bills.</dd>
+</dl>
+<dl>
+<dt><b>item attribute</b></dt>
+<dd>See Item Type Attribute.</dd>
+</dl>
+<dl>
+<dt><b>item type</b></dt>
+<dd>A grouping of all items of a particular category that share the same set of item attributes. For example, PO Requisition is an item type used to group all requisitions created by Oracle Internet Commerce's Web Requisitions page. Item type is also used as a high level grouping for processes.</dd>
+</dl>
+<dl>
+<dt><b>item type attribute</b></dt>
+<dd>A feature associated with a particular item type, also known as an item attribute. An item type attribute is defined as a variable whose value can be looked up and set by the application that maintains the item. An item type attribute and its value is available to all activities in a process.</dd>
+</dl>
+<dl>
+<dt><b>L</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>lead time line</b></dt>
+<dd>The production line Oracle Bills of Material uses to calculate the processing lead time for a particular repetitive assembly, since lead times may vary on different production lines.</dd>
+</dl>
+<dl>
+<dt><b>lead time rollup</b></dt>
+<dd>An Oracle Bills of Material program that computes cumulative lead times for items.</dd>
+</dl>
+<dl>
+<dt><b>line lead time</b></dt>
+<dd>The time required to complete the first assembly on a production line.</dd>
+</dl>
+<dl>
+<dt><b>Lookup</b></dt>
+<dd>Attributes are validated by a lookup type. The lookup code is stored in the attribute, but the code's translated meaning is displayed whenever the attribute value is viewed by an end user.</dd>
+</dl>
+<dl>
+<dt><b>lookup code</b></dt>
+<dd>The internal name of a value defined in an Oracle Workflow lookup type. see lookup type.</dd>
+</dl>
+<dl>
+<dt><b>lookup type</b></dt>
+<dd>An Oracle Workflow predefined list of values. Each value in a lookup type has an internal and a display name.</dd>
+</dl>
+<dl>
+<dt><b>M</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>message</b></dt>
+<dd>The information that is sent by a notification activity. A message must be defined before it can be associated with a notification activity. A message contains a subject, a priority, a body, and possibly one or more message attributes.</dd>
+</dl>
+<dl>
+<dt><b>message attribute</b></dt>
+<dd>A variable that you define for a particular message to either provide information or prompt for a response when the message is sent in a notification. You can use a predefine item type attribute as a message attribute. Defined as a Send source, a message attribute gets replaced with a runtime value when the message is sent. Defined as a Respond source, a message attribute prompts a user for a response when the message is sent.</dd>
+</dl>
+<dl>
+<dt><b>model</b></dt>
+<dd>An item whose bill of material lists options and option classes available when you place an order for the model item.</dd>
+</dl>
+<dl>
+<dt><b>N</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>node</b></dt>
+<dd>An instance of an activity in a process diagram as shown in the Process window.</dd>
+</dl>
+<dl>
+<dt><b>notification</b></dt>
+<dd>An instance of a message delivered to a user.</dd>
+</dl>
+<dl>
+<dt><b>notification activity</b></dt>
+<dd>A unit of work that requires human intervention. A notification activity sends a message to a user containing the information necessary to complete the work.</dd>
+</dl>
+<dl>
+<dt><b>notification mailer</b></dt>
+<dd>A concurrent program that sends e-mail notifications to users via a mail application, and processes e-mail responses.</dd>
+</dl>
+<dl>
+<dt><b>notification web page</b></dt>
+<dd>A web page that you can view from any web browser to query and respond to workflow notifications.</dd>
+</dl>
+<dl>
+<dt><b>O</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>order category</b></dt>
+<dd>An Order Transaction Type can exist for any of the following order categories: Order, Return or Mixed. Line Transaction Types can be for any of the categories: Order or Return. When an order is created with a particular Transaction Type, the Order Category code determines which lines are permitted for that order. If the category code is Order, then the order can have only regular lines. If the category code is Return, then the order can have only return lines. If the category code is Mixed, then the order can have both kinds of lines.</dd>
+</dl>
+<dl>
+<dt><b>order scheduling</b></dt>
+<dd><i>See</i> <b>scheduling</b></dd>
+</dl>
+<dl>
+<dt><b>order type</b></dt>
+<dd>Classification of an order. In Oracle Order Management, this controls an order's workflow activity, order number sequence, credit check point, and transaction type.</dd>
+</dl>
+<dl>
+<dt><b>P</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>parameter</b></dt>
+<dd>A variable used to restrict information in a report, or determine the form of a report. For example, you may want to limit your report to the current month, or display information by supplier number instead of supplier name.</dd>
+</dl>
+<dl>
+<dt><b>performer</b></dt>
+<dd>A user or role assigned to perform a human activity (notification). Notification activities that are included in a process must be assigned to a performer.</dd>
+</dl>
+<dl>
+<dt><b>pick-to-order</b></dt>
+<dd>A configure-to-order environment where the options and included items in a model appear on pick slips and order pickers gather the options when they ship the order. Alternative to manufacturing the parent item on a work order and then shipping it. Pick-to-order is also an item attribute that you can apply to standard, model, and option class items.</dd>
+</dl>
+<dl>
+<dt><b>pick-to-order (PTO) item</b></dt>
+<dd>A predefined configuration order pickers gather as separately finished included items just before they ship the order.</dd>
+</dl>
+<dl>
+<dt><b>pick-to-order (PTO) model</b></dt>
+<dd>An item with an associated bill of material with optional and included items. At order entry, the configurator is used to choose the optional items to include for the order. The order picker gets a detailed list of the chosen options and included items to gather as separately finished items just before the order is shipped.</dd>
+</dl>
+<dl>
+<dt><b>picking</b></dt>
+<dd>The process of withdrawing items from inventory to be shipped to a customer.</dd>
+</dl>
+<dl>
+<dt><b>PO</b></dt>
+<dd><i>See</i> <b>purchase order.</b></dd>
+</dl>
+<dl>
+<dt><b>process</b></dt>
+<dd>A set of Oracle Workflow activities that need to be performed to accomplish a business goal.</dd>
+</dl>
+<dl>
+<dt><b>process activity</b></dt>
+<dd>A process modeled as an activity so that it can be referenced by other processes.A process activity represents an activity that is referenced by a process. Each row specifies the usage of an activity as the child of a process. These instances are marked with machine-generated ID's to uniquely identify multiple instances of the same activity in the same process.</dd>
+</dl>
+<dl>
+<dt><b>process definition</b></dt>
+<dd>An Oracle Workflow process as defined in the Oracle Workflow Builder. <b>See</b> <b>process</b></dd>
+</dl>
+<dl>
+<dt><b>process item type</b></dt>
+<dd>Oracle Workflow processes can exist for different process item types. A header flow will have a workflow process item type OEOH and a line flow will have a workflow process item type OEOL. Process item types enable high level grouping of Oracle Workflow Processes.</dd>
+</dl>
+<dl>
+<dt><b>profile option</b></dt>
+<dd>A set of changeable options that affect the way your applications run. In general, profile options can be set at one or more of the following levels: site, application, responsibility, and user.</dd>
+</dl>
+<dl>
+<dt><b>protection level</b></dt>
+<dd><i>see</i> <b>access level.</b></dd>
+</dl>
+<dl>
+<dt><b>PTO item</b></dt>
+<dd><i>See</i> <b>pick-to-order item.</b></dd>
+</dl>
+<dl>
+<dt><b>PTO model</b></dt>
+<dd><i>See</i><b>pick-to-order model.</b></dd>
+</dl>
+<dl>
+<dt><b>purchase order</b></dt>
+<dd>A type of purchase order you issue when you request delivery of goods or services for specific dates and locations. You can order multiple items for each planned or standard purchase order. Each purchase order line can have multiple shipments and you can distribute each shipment across multiple accounts.</dd>
+</dl>
+<dl>
+<dt><b>Purchase Order (PO) / Sales Order (SO)</b></dt>
+<dd>The term Purchase Order represents the order as defined in Oracle Purchasing. The term Sales Order represents the order data as defined in Oracle Order Management.</dd>
+</dl>
+<dl>
+<dt><b>R</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>received quantity</b></dt>
+<dd>The quantity of an inventory item returned by a customer for which you are not issuing a credit. Sometimes this is temporary, while you evaluate the condition of the item; at other times you return the items to the customer, or keep them but do not allow a credit.</dd>
+</dl>
+<dl>
+<dt><b>receiving</b></dt>
+<dd>Ad dock at the receiving facility to receive goods from suppliers or customers.</dd>
+</dl>
+<dl>
+<dt><b>receiving and inspection</b></dt>
+<dd>A condition of a returned inventory item signifying it has been received but is being inspected for damage. If in acceptable condition, the items are transferred to stock and a credit can be issued. If unacceptable, the items can be returned to the customer or scrapped.</dd>
+</dl>
+<dl>
+<dt><b>release</b></dt>
+<dd>An actual order of goods and services you issue against a blanket purchase agreement. The blanket purchase agreement determines the characteristics and the prices of the items. The release specifies the actual quantities and dates ordered for the items. You identify a release by the combination of blanket purchase agreement number and release number.</dd>
+</dl>
+<dl>
+<dt><b>release of hold</b></dt>
+<dd>The action of removing the hold on an order.</dd>
+</dl>
+<dl>
+<dt><b>release reason</b></dt>
+<dd>Justification for removing a hold on an order or order line.</dd>
+</dl>
+<dl>
+<dt><b>repricing</b></dt>
+<dd>Repricing is the ability to automatically, or through a workflow activity, cause the recalculation of the base price of an order line or for the entire order. Certain attribute changes to an order line can trigger automatic reprice. You can also insert the workflow. Reprice activity within your order line workflow to force a order or line reprice at a particular point in time, according to your business practices.</dd>
+</dl>
+<dl>
+<dt><b>reservation</b></dt>
+<dd>A guaranteed allotment of product to a specific sales order. A hold is placed on specific terms that assures that a certain quantity of an item is available on a certain date when transacted against a particular charge entity. Once reserved, the product cannot be allocated to another sales order or transferred in inventory. Oracle Order Management checks ATR (Available to Reserve) to verify an attempted reservation. Also known as <b>hard reservation.</b></dd>
+</dl>
+<dl>
+<dt><b>result code</b></dt>
+<dd>The internal name of a result value, as defined by the result type.</dd>
+</dl>
+<dl>
+<dt><b>result type</b></dt>
+<dd>The name of the lookup type that contains an activity's possible result values.</dd>
+</dl>
+<dl>
+<dt><b>result value</b></dt>
+<dd>The value returned by a completed activity.</dd>
+</dl>
+<dl>
+<dt><b>return</b></dt>
+<dd>In Oracle Purchasing, an AutoCreate option that lets a buyer return a requisition line and all other unpurchased requisition lines on the same requisition to the requisition preparer. In Order Management, it is the opposite of a sales order. It involves receipt of goods previously sold to a customer, credit to a customer, and possibly replacement with an identical or similar product.</dd>
+</dl>
+<dl>
+<dt><b>role</b></dt>
+<dd>One or more users grouped by a common responsibility or position.</dd>
+</dl>
+<dl>
+<dt><b>S</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>scheduling</b></dt>
+<dd>Order scheduling includes assigning demand or reservations, warehouses, shipment dates, and lots or sub inventories to an order line.</dd>
+</dl>
+<dl>
+<dt><b>service item</b></dt>
+<dd>An inventory item used to define a service program or warranty. Service items can be recorded against serviceable products. A synonym for serviceable item is a serviceable product.</dd>
+</dl>
+<dl>
+<dt><b>service order</b></dt>
+<dd>An order containing service order lines. Service may be for new products or for existing, previously ordered products.</dd>
+</dl>
+<dl>
+<dt><b>ship confirm</b></dt>
+<dd>A process in Shipping Execution which allows you to identify shipped quantities, assign inventory control information for released lines, assign freight charges, and specify whether or not to back order unfulfilled quantities of released line items.</dd>
+</dl>
+<dl>
+<dt><b>shippable item</b></dt>
+<dd>An item with the shippable inventory item attribute set to Yes, indicating that this item will appear on pick slips and pack slips.</dd>
+</dl>
+<dl>
+<dt><b>supply</b></dt>
+<dd>A quantity of materials available for use. Supply is replenished in response to demand or anticipated demand.</dd>
+</dl>
+<dl>
+<dt><b>supply type</b></dt>
+<dd>A bill of material component field that controls issue transactions from inventory to work in process.</dd>
+</dl>
+<dl>
+<dt><b>T</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>transaction type</b></dt>
+<dd>A feature that allows you to specify default values for orders and order lines including the customer, the ship-to location, and internal or external orders.</dd>
+</dl>
+<dl>
+<dt><b>timeout</b></dt>
+<dd>The amount of time during which a notification activity must be performed before the Workflow Engine transitions to an error process or an alternate activity if one is defined.</dd>
+</dl>
+<dl>
+<dt><b>transition</b></dt>
+<dd>The relationship that defines the completion of one activity and the activation of another activity within a process. In a process diagram, the arrow drawn between two activities represents a transition.</dd>
+</dl>
+<dl>
+<dt><b>W</b></dt>
+<dd></dd>
+</dl>
+<dl>
+<dt><b>WIP</b></dt>
+<dd><i>See</i> <b>work in process.</b></dd>
+</dl>
+<dl>
+<dt><b>workflow definitions loader</b></dt>
+<dd>A concurrent program that lets you upload and download workflow definitions between a flat file and a database.</dd>
+</dl>
+<dl>
+<dt><b>workflow engine</b></dt>
+<dd>The Oracle Workflow component that implements a workflow process definition. The Workflow Engine manages the state of all activities for an item, automatically executes functions and sends notifications, maintains a history of completed activities, and detects error conditions and starts error processes. The Workflow Engine is implemented in server PL/SQL and activated when a call to an engine API is made.</dd>
+</dl>
+<dl>
+<dt><b>Workflow Process</b></dt>
+<dd>This determines the header flow for an order transaction type or line flows possible for a line transaction type. There can be only one header flow associated with an order transaction type but a line transaction type can be coupled with different order types and item types and there can be different flow couplings for the permitted transaction type, item type combinations.</dd>
+</dl>
+<dl>
+<dt><b>work in process</b></dt>
+<dd>An item in various phases of production in a manufacturing plant. This includes raw material awaiting processing up to final assemblies ready to be received into inventory.</dd>
+</dl>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

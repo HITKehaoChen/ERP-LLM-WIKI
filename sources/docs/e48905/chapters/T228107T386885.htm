@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T228131.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107glossary.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">29/31</span> <!-- End Header -->
+<h1>Backflush Component Lot and Revision Selection</h1>
+<h2><a name="6896730"></a><a id="T613269"></a><b>Backflush Lot and Component Selection</b></h2>
+<p><a name="d0e56216" id="d0e56216"></a><a name="d0e56222" id="d0e56222"></a><a name="expresslotselect" id="expresslotselect"></a>The Move - Backflush Component Lot Selection client extension enables custom logic to derive the component lot numbers for backflush transactions during move, and move and complete transactions when using the Express Transact Components page. If the program does not return a value, the logic derives the lot number.</p>
+<p>A PL/SQL package: <b>WIP_WS_CUSTOM</b>, contains the custom programming instructions invoked.</p>
+<p>Procedure: <b>LOT_HOOK</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Parameter</b></th>
+<th scope="col"><b>IN/OUT</b></th>
+<th scope="col"><b>Type</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>org_id</td>
+<td>IN</td>
+<td>NUMBER</td>
+<td>Identification of the organization.</td>
+</tr>
+<tr valign="top">
+<td>wip_entity_id</td>
+<td>IN</td>
+<td>NUMBER</td>
+<td>WIP entity identification of the job.</td>
+</tr>
+<tr valign="top">
+<td>operation_seq_num</td>
+<td>IN</td>
+<td>NUMBER</td>
+<td>Operation sequence number of the operation.</td>
+</tr>
+<tr valign="top">
+<td>repetitive_schedule_id</td>
+<td>IN</td>
+<td>NUMBER</td>
+<td>Identification of the repetitive schedule.</td>
+</tr>
+<tr valign="top">
+<td>inventory_item_id</td>
+<td>IN</td>
+<td>NUMBER</td>
+<td>Identification of the component.</td>
+</tr>
+<tr valign="top">
+<td>supply_subinv</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+<td>Supply subinventory.</td>
+</tr>
+<tr valign="top">
+<td>supply_locator_id</td>
+<td>IN</td>
+<td>NUMBER</td>
+<td>Supply locator.</td>
+</tr>
+<tr valign="top">
+<td>revision</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+<td>Revision of the assembly.</td>
+</tr>
+<tr valign="top">
+<td>primary_qty</td>
+<td>IN</td>
+<td>NUMBER</td>
+<td>Quantity moved.</td>
+</tr>
+<tr valign="top">
+<td>lot_number</td>
+<td>IN OUT</td>
+<td>VARCHAR2</td>
+<td>Lot number derived by the program.</td>
+</tr>
+<tr valign="top">
+<td>return_status</td>
+<td>OUT</td>
+<td>VARCHAR2</td>
+<td>Value indicating performance status, choices are:
+<ul>
+<li>
+<p>E: Error</p>
+</li>
+<li>
+<p>S: Success</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>return_message</td>
+<td>OUT</td>
+<td>VARCHAR2</td>
+<td>Error string the program returns.</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T386885.htm#lotdefaultex">Examples for Lot Selection Defaulting during Backflush Transactions</a></p>
+<h2><a name="3125734"></a><a id="derivedlot_organizingconcept"></a><b>Examples for Lot Selection Defaulting during Backflush Transactions</b></h2>
+<p><a name="lotdefaultex" id="lotdefaultex"></a>When there are multiple backflush transactions for the same component, on the same job&mdash;you can set the selection method for defaulting lot numbers used in the previous transactions. The following examples demonstrate how transactions and parameter setup determine the lot selection. See: <a href="T228107T228110.htm#I_cx2Dparmbf">Material Parameters</a></p>
+<p><b>No Existing Previous Backflush Transactions</b></p>
+<ul>
+<li>
+<p>Lots cannot be derived because there is no backflush transaction history</p>
+</li>
+<li>
+<p>Lot Selection Method&mdash;Transaction History</p>
+</li>
+<li>
+<p>Alternate Lot Selection Method&mdash;Receipt Date</p>
+</li>
+<li>
+<p>JobA is created to create AssemblyA with the following bill of material:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Operation Sequence</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Supply Type</b></th>
+<th scope="col"><b>Assembly Quantity</b></th>
+</tr>
+<tr valign="top">
+<td>10</td>
+<td>A123</td>
+<td>operation pull</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>20</td>
+<td>B345</td>
+<td>operation pull</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>30</td>
+<td>A123</td>
+<td>push</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>40</td>
+<td>B345</td>
+<td>assembly pull</td>
+<td>1</td>
+</tr>
+</table>
+</li>
+<li>
+<p>On-hand quantity for the following lot receipt dates:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receipt Date</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>A123</td>
+<td>10</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>B345</td>
+<td>2</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 2</td>
+<td>A123</td>
+<td>5</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 4</td>
+<td>B345</td>
+<td>20</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 5</td>
+<td>A123</td>
+<td>8</td>
+<td>C</td>
+</tr>
+</table>
+</li>
+<li>
+<p>When a quantity of 2 is moved from 10 Queue to 30 Queue:</p>
+<ul>
+<li>
+<p>Two each of A123, and two each of B345 are backflushed.</p>
+</li>
+<li>
+<p>Since there is no previous backflush transaction, Lot A is defaulted based on receipt date for both components.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><b>Manual Push Transactions</b></p>
+<p>In this example, the Work in Process Parameter setup is:</p>
+<ul>
+<li>
+<p>Lots cannot be derived because default logic does not apply to manual push transactions</p>
+</li>
+<li>
+<p>Lot Selection Method&mdash;Manual</p>
+</li>
+<li>
+<p>The current backflush transaction history:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Reference</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+<th scope="col"><b>Transaction Type</b></th>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>B345</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+</table>
+</li>
+<li>
+<p>On-hand quantity for the following lot receipt dates:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receipt Date</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>A123</td>
+<td>8</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>B345</td>
+<td>0</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 2</td>
+<td>A123</td>
+<td>5</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 4</td>
+<td>B345</td>
+<td>20</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 5</td>
+<td>A123</td>
+<td>8</td>
+<td>C</td>
+</tr>
+</table>
+</li>
+<li>
+<p>A quantity of three A123 is manually pushed from Lot C into the job to fulfill Operation 30 requirements&mdash;default logic does not apply to manual push transactions.</p>
+</li>
+</ul>
+<p><b>Previous Backflush Transaction History, No Alternate Lot Selection Method</b></p>
+<ul>
+<li>
+<p>Lot Selection Method&mdash;Transaction History</p>
+</li>
+<li>
+<p>Alternate Lot Selection Method&mdash;Null</p>
+</li>
+<li>
+<p>The current backflush transaction history:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Reference</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+<th scope="col"><b>Transaction Type</b></th>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>B345</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>3</td>
+<td>C</td>
+<td>Manual Push</td>
+</tr>
+</table>
+</li>
+<li>
+<p>On-hand quantity for the following lot receipt dates:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receipt Date</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>A123</td>
+<td>8</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>B345</td>
+<td>0</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 2</td>
+<td>A123</td>
+<td>5</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 4</td>
+<td>B345</td>
+<td>20</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 5</td>
+<td>A123</td>
+<td>5</td>
+<td>C</td>
+</tr>
+</table>
+</li>
+<li>
+<p>When a quantity of 4 is moved from 10 Queue to 10 To Move:</p>
+<ul>
+<li>
+<p>Four each of A123 are backflushed.</p>
+</li>
+<li>
+<p>The lots are defaulted from the last backflush transaction, so Lot A is defaulted based on receipt date for the component.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><b>Previous Backflush Transaction History with Alternate Lot Selection Method</b></p>
+<ul>
+<li>
+<p>Lot Selection Method&mdash;Transaction History</p>
+</li>
+<li>
+<p>Alternate Lot Selection Method</p>
+</li>
+<li>
+<p>The current backflush transaction history:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Reference</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+<th scope="col"><b>Transaction Type</b></th>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>B345</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>3</td>
+<td>C</td>
+<td>Manual Push</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>4</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+</table>
+</li>
+<li>
+<p>When a quantity of 5 is moved from 10 Queue to 20 Queue:</p>
+<ul>
+<li>
+<p>The lot is defaulted from the last backflush transaction, if there is existing on-hand quantity in the lot.</p>
+</li>
+<li>
+<p>Five each of A123 are backflushed, however only a default quantity of 4 is displayed in the Backflush window.</p>
+</li>
+<li>
+<p>For the remaining quantity of 1, Lot B also displays as a quantity of 1 in the Backflush window.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><b>Alternate Lot Selection Method with No On-hand Lot Quantity</b></p>
+<ul>
+<li>
+<p>Lot Selection Method&mdash;Transaction History</p>
+</li>
+<li>
+<p>Alternate Lot Selection Method&mdash;Receipt Date</p>
+</li>
+<li>
+<p>The current backflush transaction history:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Reference</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+<th scope="col"><b>Transaction Type</b></th>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>B345</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>3</td>
+<td>C</td>
+<td>Manual Push</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>4</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>4</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>1</td>
+<td>B</td>
+<td>Operation Backflush</td>
+</tr>
+</table>
+</li>
+<li>
+<p>On-hand quantity for the following lot receipt dates:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receipt Date</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>A123</td>
+<td>0</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>B345</td>
+<td>0</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 2</td>
+<td>A123</td>
+<td>4</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 4</td>
+<td>B345</td>
+<td>20</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 5</td>
+<td>A123</td>
+<td>5</td>
+<td>C</td>
+</tr>
+</table>
+</li>
+<li>
+<p>When a quantity of 1 is moved from 20 Queue to 20 To Move:</p>
+<ul>
+<li>
+<p>One B345 is backflushed.</p>
+</li>
+<li>
+<p>Lot A defaulted would be used as the default, however it contains 0 on-hand quantity.</p>
+</li>
+<li>
+<p>The system considers the previous backflush transaction receipt date, and uses Lot B for the current backflush transaction.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><b>All Backflush Transactions Considered as Transaction History</b></p>
+<ul>
+<li>
+<p>This includes assembly pull and operation pull</p>
+</li>
+<li>
+<p>Lot Selection Method&mdash;Transaction History</p>
+</li>
+<li>
+<p>Alternate Lot Selection Method&mdash;Receipt Date</p>
+</li>
+<li>
+<p>The current backflush transaction history:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Reference</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+<th scope="col"><b>Transaction Type</b></th>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>B345</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>3</td>
+<td>C</td>
+<td>Manual Push</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>4</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>4</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>1</td>
+<td>B</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>B345</td>
+<td>1</td>
+<td>B</td>
+<td>Operation Backflush</td>
+</tr>
+</table>
+</li>
+<li>
+<p>On-hand quantity for the following lot receipt dates:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receipt Date</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>A123</td>
+<td>0</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>B345</td>
+<td>0</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 2</td>
+<td>A123</td>
+<td>4</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 4</td>
+<td>B345</td>
+<td>19</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 5</td>
+<td>A123</td>
+<td>5</td>
+<td>C</td>
+</tr>
+</table>
+</li>
+<li>
+<p>When a quantity of 1 is completed</p>
+<ul>
+<li>
+<p>One of B345 is backflushed at Operation 40</p>
+</li>
+<li>
+<p>Transaction history determines that Lot B is defaulted</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><b>Backflush History Does Not Span Across Jobs</b></p>
+<ul>
+<li>
+<p>Lot Selection Method&mdash;Transaction History</p>
+</li>
+<li>
+<p>Alternate Lot Selection Method&mdash;Receipt Date</p>
+</li>
+<li>
+<p>The current backflush transaction history:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Reference</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+<th scope="col"><b>Transaction Type</b></th>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>B345</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>3</td>
+<td>C</td>
+<td>Manual Push</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>4</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>4</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>B345</td>
+<td>1</td>
+<td>B</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>B345</td>
+<td>1</td>
+<td>B</td>
+<td>Assembly Backflush</td>
+</tr>
+</table>
+</li>
+<li>
+<p>On-hand quantity for the following lot receipt dates:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receipt Date</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>A123</td>
+<td>0</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>B345</td>
+<td>0</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 2</td>
+<td>A123</td>
+<td>4</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 4</td>
+<td>B345</td>
+<td>18</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 5</td>
+<td>A123</td>
+<td>4</td>
+<td>C</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Another job, JobB, has a quantity of 3 moved from 10 Queue to 10 To Move:</p>
+<ul>
+<li>
+<p>Three each of A123 are backflushed.</p>
+</li>
+<li>
+<p>Transaction history does not exist for this job.</p>
+</li>
+<li>
+<p>Alternate Lot Selection Method parameter determines that the quantity is defaulted from Lot B. You can override this default with a manual entry.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><b>Backflush Transaction History Includes Multiple Lots with On-hand Quantity</b></p>
+<ul>
+<li>
+<p>Lot Selection Method&mdash;Transaction History</p>
+</li>
+<li>
+<p>Alternate Lot Selection Method&mdash;Receipt Date</p>
+</li>
+<li>
+<p>The current backflush transaction history:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Reference</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+<th scope="col"><b>Transaction Type</b></th>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>B345</td>
+<td>2</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>3</td>
+<td>C</td>
+<td>Manual Push</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>4</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>4</td>
+<td>A</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>A123</td>
+<td>1</td>
+<td>B</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>B345</td>
+<td>1</td>
+<td>B</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobA</td>
+<td>B345</td>
+<td>1</td>
+<td>B</td>
+<td>Assembly Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobB</td>
+<td>A123</td>
+<td>2</td>
+<td>B</td>
+<td>Operation Backflush</td>
+</tr>
+<tr valign="top">
+<td>JobB</td>
+<td>A123</td>
+<td>1</td>
+<td>C</td>
+<td>Operation Backflush</td>
+</tr>
+</table>
+</li>
+<li>
+<p>On-hand quantity for the following lot receipt dates:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receipt Date</b></th>
+<th scope="col"><b>Component</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Lot</b></th>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>A123</td>
+<td>0</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 1</td>
+<td>B345</td>
+<td>0</td>
+<td>A</td>
+</tr>
+<tr valign="top">
+<td>Day 2</td>
+<td>A123</td>
+<td>2</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 4</td>
+<td>B345</td>
+<td>18</td>
+<td>B</td>
+</tr>
+<tr valign="top">
+<td>Day 5</td>
+<td>A123</td>
+<td>3</td>
+<td>C</td>
+</tr>
+</table>
+</li>
+<li>
+<p>JobB has a quantity of 2 moved from 10 Queue to 10 To Move:</p>
+<ul>
+<li>
+<p>Two each of A123 are backflushed.</p>
+</li>
+<li>
+<p>In the transaction history, Lot B and Lot C were the last transactions.</p>
+</li>
+<li>
+<p>Both lots have on-hand quantity&mdash;lot default is then based on the lot number in numerical sequence. Therefore, Lot B is defaulted. Lot C is only used if there is not sufficient quantity in Lot B.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a name="8698248"></a><a id="T674368"></a><b>Component Revision Default During Backflush</b></h2>
+<p><a name="d0e58134" id="d0e58134"></a><a name="d0e58140" id="d0e58140"></a><a name="backcomprevision" id="backcomprevision"></a>The following procedure contains the file of wipwsctb.pls to provide the client extension to default the component revision during backflush moves. You can insert your revision change code in this program.</p>
+<p><img width="690" height="417" src="./img/wip_backflushcomprev.gif" alt="the picture is described in the document text"></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

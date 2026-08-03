@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T228116.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107T228117.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">15/31</span> <!-- End Header -->
+<h1>Job and Resource Workbenches</h1>
+<p>This chapter describes the Job Workbench and Resource Workbench, two graphical displays enabling you to view and reschedule jobs and resources.</p>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#sched_resource_conceptual_overview">Overview of the Job Workbench and Resource Workbench</a></li>
+<li><a href="#setup_organizing_concept">Setup</a></li>
+<li><a href="#jo_workbench_procedure">Using the Job Workbench</a></li>
+<li><a href="#schedulerfilter_procedure">Filtering Job Workbench Information</a></li>
+<li><a href="#setpref_procedure">Setting Job Workbench Display Preferences</a></li>
+<li><a href="#navigating_resource_organizaing_concept">Using the Resource Workbench</a></li>
+<li><a href="#resourceprefer_procedure">Setting Resource Workbench Display Preferences</a></li>
+<li><a href="#resourceload_organizing_concept">Viewing Resource Load</a></li>
+<li><a href="#adjusting_resource_procedure">Adjusting Resource Capacity</a></li>
+<li><a href="#scheduling_procedure">Rescheduling on the Job and Resource Workbenches</a></li>
+<li><a href="#T464728">Printing Your Gantt Chart</a></li>
+</ul>
+<h2><a name="1333662"></a><a id="sched_resource_conceptual_overview"></a><b>Overview of the Job Workbench and Resource Workbench</b></h2>
+<p><a name="d0e36563" id="d0e36563"></a><a name="wboverview" id="wboverview"></a>Scheduling enables you to produce jobs using resources, materials, and customer requirements according to expected dates and times. You can view job and operation schedules, and resource load compared to capacity through two graphical displays: the Job Workbench and the Resource Workbench. The Job Workbench enables you to view and reschedule jobs and operations, providing a visual job oriented display of work on the shop floor. You can interactively reschedule jobs, operations, and resources. You can manually control the rescheduling or let the system automatically schedule.</p>
+<p><strong><span>Note:</span></strong> Oracle Work in Process uses the infinite scheduling mode&mdash; assuming infinite capacity. Schedule times shown in the Gantt chart can be a result of constrained scheduling in Advanced Planning, or unconstrained scheduling in manufacturing.</p>
+<p>The Resource Workbench provides a visual display of work on the shop floor by performing resource. This enables you to monitor resources, assign alternate resour, or change scheduling. Features in both workbenches include:</p>
+<ul>
+<li>
+<p>Gantt chart showing a visual display of work and resources on the shop floor</p>
+</li>
+<li>
+<p>Ability to set a customized display</p>
+</li>
+<li>
+<p>Drag and drop functionality for jobs and resources for rescheduling</p>
+</li>
+<li>
+<p>Ability to reschedule jobs based on available resources and material</p>
+</li>
+<li>
+<p>Adjustable bucket sizing for the Gantt chart and resource panes</p>
+</li>
+<li>
+<p>Simultaneous and alternate resources invoked during high demand, or when a resource is unavailable</p>
+</li>
+<li>
+<p>Display of job related sales order and customer information</p>
+</li>
+<li>
+<p>Ability to dispatch jobs to instances of machines</p>
+</li>
+<li>
+<p>Gantt chart printing enabling a shop floor hard copy reference</p>
+</li>
+</ul>
+<h3><b>Workbench Panes</b></h3>
+<p>Both workbenches display a tree hierarchy with a table view, the Gantt Chart, and panes for Resource Load, Select Resource and Resource Load Versus Capacity. The status bar indicates the current scheduling mode and displays messages.</p>
+<ul>
+<li>
+<p><b>Tree Hierarchy:</b>The Job Workbench tree displays your shop floor work in job, operation, and resource order. The Resource Workbench tree displays resources and resource instances. You can expand and collapse records. The Gantt Chart pane displays the corresponding records. Display preferences are selected in the Preference window.</p>
+</li>
+<li>
+<p><b>Gantt Chart Pane:</b> Consists of a time line in a horizontal bar chart for information on the tree. The time line represents a time bucket for the chart.</p>
+</li>
+<li>
+<p><b>Select Resource Pane:</b> Used to select the available resources to display in the Resource Load Versus Capacity pane.</p>
+</li>
+<li>
+<p><b>Resource Load Versus Capacity Pane:</b> Displays the required resource load, compared to the available resource capacity and resource instances. This pane shares the same time line as the Gantt Chart and reflects rescheduling activity. You can set preferences to see the resulting changes, as you make them, on resource loads before saving your work.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> Resource load includes all shop floor demand, not just demand displayed on the workbench.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T329778.htm#setwbjob">Setup</a></p>
+<p><a href="T228107T329778.htm#jobworknav">Using the Job Workbench</a></p>
+<p><a href="T228107T329778.htm#jobfilter">Filtering Job Workbench Information</a></p>
+<p><a href="T228107T329778.htm#jobpref">Setting Job Workbench Display Preferences</a></p>
+<p><a href="T228107T329778.htm#resourcenav">Using the Resource Workbench</a></p>
+<p><a href="T228107T329778.htm#propwin">Properties Windows</a></p>
+<p><a href="T228107T329778.htm#resprefwin">Setting Resource Workbench Display Preferences</a></p>
+<p><a href="T228107T329778.htm#resloadpane">Viewing Resource Load</a></p>
+<p><a href="T228107T329778.htm#adjustcap">Adjusting Resource Capacity</a></p>
+<p><a href="T228107T329778.htm#rescwk">Rescheduling on the Job and Resource Workbenches</a></p>
+<p><a href="T228107T329778.htm#ganttprint">Printing Your Gantt Chart</a></p>
+<h2><a name="1333664"></a><a id="setup_organizing_concept"></a><b>Setup</b></h2>
+<p><a name="d0e36684" id="d0e36684"></a><a name="setwbjob" id="setwbjob"></a>You first define work in process scheduling and resource information to use the Job Workbench and Resource Workbench features. This includes defining:</p>
+<ul>
+<li>
+<p>Work in Process scheduling parameters: These parameters set resource factors in scheduling calculations, simultaneous resources, 24 hour resources, and utilization and efficiency factors. See: <a href="T228107T228110.htm#I_cx2Dwipparams">WIP Parameters</a></p>
+</li>
+<li>
+<p>Bills of Material information: Scheduling is based on the calendars, shifts, departments, resources, routing, and planning defined in Oracle Bills of Material. See: <a href="T228107T228121.htm#I_cx2Dwipschov">Overview of Work in Process Scheduling</a></p>
+</li>
+<li>
+<p>Resource information: See: <a href="T228107T228117.htm#I_rx2Dresreqs">Resource Requirements</a></p>
+</li>
+</ul>
+<h2><a name="1333665"></a><a id="jo_workbench_procedure"></a><b>Using the Job Workbench</b></h2>
+<p><a name="d0e36712" id="d0e36712"></a><a name="WIPZJBWB" id="WIPZJBWB"></a><a name="jobworknav" id="jobworknav"></a><a name="WIPZJBWB_MAIN_NOPARAM" id="WIPZJBWB_MAIN_NOPARAM"></a>When you initially launch the Job Workbench, jobs are displayed that fit the filtering criteria set in the Startup filter. You can:</p>
+<ul>
+<li>
+<p>Select session filtering criteria to display other jobs and resources</p>
+</li>
+<li>
+<p>Expand or collapse jobs and operations in the tree</p>
+</li>
+<li>
+<p>Display resources and view resource capacity and load</p>
+</li>
+<li>
+<p>Change the column spacing size on the pane by moving the arrow on the Adjust Unit Width box</p>
+</li>
+<li>
+<p>Change the date horizon displayed by entering a date in the Go to box, and selecting Enter</p>
+</li>
+<li>
+<p>Return to the system date by choosing the Go To Today icon</p>
+</li>
+</ul>
+<p><b>Restore Customized View</b></p>
+<p>The workbench automatically restores the last-worked customized view at startup. When you create a preferred view through pane sizing, time bucket selection, and row height adjustment&mdash;that view displays in the next launch of the workbench. This eliminates readjusting the view each time the workbench is opened.</p>
+<p><img width="958" height="650" src="./img/wip_schedwork.gif" alt="the picture is described in the document text"></p>
+<h3><b>Menus and Toolbar</b></h3>
+<p>The Job Workbench toolbar provides the following choices:</p>
+<ul>
+<li>
+<p><b>Save:</b> Saves latest changes to the database</p>
+</li>
+<li>
+<p><b>Revert:</b> Restores last database change and view</p>
+</li>
+<li>
+<p><b>Refresh:</b> Repaints the workbench view with changes from other simultaneous users</p>
+</li>
+<li>
+<p><b>Automatic/Manual Scheduling:</b> Invokes manual or automatic job scheduling mode</p>
+</li>
+<li>
+<p><b>Show/Hide Resource Load:</b> Displays or hides the Select Resources, and Resource Load Versus Capacity panes</p>
+</li>
+<li>
+<p><b>Refresh Resource Load:</b> Refreshes Resource Load Versus Capacity pane with latest changes</p>
+</li>
+</ul>
+<p>The workbench menus provide the following choices:</p>
+<ul>
+<li>
+<p><b>File</b></p>
+<ul>
+<li>
+<p>Print: Enables Gantt chart printing. See: <a href="T228107T329778.htm#ganttprint">Printing Your Gantt Chart</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>View</b></p>
+<ul>
+<li>
+<p>Resource Load: Check box enables or hides the Select Resource, and Resource Load Versus Capacity panes.</p>
+</li>
+<li>
+<p>Refresh Resource Load: Refreshes Resource Load Versus Capacity pane with latest changes</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>Tools</b></p>
+<ul>
+<li>
+<p>WIP Parameters: Accesses the Work in Process Parameters window, see: <a href="T228107T228110.htm#I_cx2Dwipparams">WIP Parameters</a></p>
+</li>
+<li>
+<p>Create/Modify Jobs: Accesses Discrete Jobs window to create or modify jobs, see: <a href="T228107T228111.htm#I_tx2Ddefdj">Defining Discrete Jobs Manually</a></p>
+</li>
+<li>
+<p>Startup Filter: Sets the initial display each time you open the workbench</p>
+</li>
+<li>
+<p>Adjust Resource Capacity: Accesses the Resource Load Versus Capacity pane to modify the required resource</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><b>Tool Tip Windows</b></h3>
+<p><a name="d0e36837" id="d0e36837"></a>Tool tip windows provide an ease of use mechanism for displaying start and end date information about jobs. They are displayed by rolling your cursor over the appropriate bar on the Gantt chart. For more detailed information, you can access the Properties windows.</p>
+<p><b>Job Tool Tip</b></p>
+<p>The Job tool tip window displays the following information: Job name, Job Description, Progress percentage of completed operations, Assembly Description, Requested Start Date, Start date, Requested Due Date, End date, Customer, and Sales Order.</p>
+<p><img width="492" height="236" src="./img/wip_workjobtip.gif" alt="the picture is described in the document text"></p>
+<p><b>Job Operation Tool Tip</b></p>
+<p>The Job Operation tool tip window displays the following information: Operation number, operation Sequence, Operation Description, Scheduled Quantity, Scrap, Completed Quantity, Progress percentage of completed operations, Start date, and End date. Also displayed are the quantities in Queue, Run, To Move, and Reject.</p>
+<p><img width="409" height="282" src="./img/wip_workoptip.gif" alt="the picture is described in the document text"></p>
+<p><b>Job Resource Tool Tip</b></p>
+<p>The Job Resource tool tip window displays the following information: Resource name, resource Sequence, Resource Description, Replacement Group, Start date, and End date.</p>
+<p><img width="534" height="272" src="./img/wip_workrestip.gif" alt="the picture is described in the document text"></p>
+<p><b>Bar Inspector Tool Tip</b></p>
+<p>The Bar Inspector tool tip window provides scheduling accuracy by displaying start date and end date information during a drag and drop action. This tool tip is available for job, operation, and resource bars on the Job Workbench.</p>
+<p><img width="467" height="131" src="./img/wip_resbar.gif" alt="the picture is described in the document text"></p>
+<h3><b>Properties Windows<a name="propwin" id="propwin"></a></b></h3>
+<p><a name="d0e36891" id="d0e36891"></a>Information for each job, operation, and resource on the Job Workbench is displayed in Properties windows. These windows contain information about dates, quantities, descriptions of the scheduling data, and sales order and customer information.</p>
+<p><b>To view a property window</b></p>
+<ol>
+<li>
+<p>Right-click on a job, operation, or resource in the tree hierarchy or Gantt Chart pane. A drop-down menu appears.</p>
+</li>
+<li>
+<p>Choose Properties. The property window for the respective job, operation, or resource appears.</p>
+</li>
+<li>
+<p>Choose OK to close the window.</p>
+<p><b>Job Properties Window</b></p>
+<p>Job information is on three tabbed areas: General, Sales Order Lines, and Components. The data on the General tab originates from the Discrete Jobs window when you create the job, or derives through job transactions such as status and revision changes. This includes job and assembly number, description, dates, and quantity data. The progress bar displays a value that is calculated by the percent completed of all operations based on the time of each operation.</p>
+<p>The Sales Order Lines tab displays information about all sales order lines linked to this job. This includes customer, status, and due date information.</p>
+<p>The Components tab displays the component detail information for each operation sequence. This includes item master details, bill of material requirements, and quantity information derived through job transactions. You can update this view to display current transactions by choosing Refresh.</p>
+<p>See: <a href="T228107T228111.htm#I_tx2Ddefdj">Defining Discrete Jobs Manually</a></p>
+<p><img width="800" height="480" src="./img/wip_jobpropwb.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>Job Resource Properties Window</b></p>
+<p>The Resource Properties window consists of two tabbed areas. The information on the Resource Properties window displays resources assigned to a particular job operation. The data on the General tab originates from the Resource Requirements window when you assign a resource to an operation. The Instances tab displays the resource name, the type of instance, the instance names, and the number of assigned instances.</p>
+<p>See: <a href="T228107T228117.htm#I_tx2Drraddg">Adding and Updating Resource Requirements</a></p>
+<p><img width="343" height="467" src="./img/wip_rjobprop.gif" alt="the picture is described in the document text"></p>
+<p><img width="549" height="390" src="./img/wip_rjobprop2.gif" alt="the picture is described in the document text"></p>
+<p><b>Assigning Resource Instances</b></p>
+<p><a name="d0e36974" id="d0e36974"></a>You can assign resource instances to a job on the Job Workbench. Resource instances are defined on the Resource Instance window, and viewable in the Properties windows.</p>
+<ol>
+<li>
+<p>Select a resource on the tree or Gantt chart, and right-click with your cursor to display the popup menu.</p>
+</li>
+<li>
+<p>Choose Assign to Instance to display the Assign Instance window.</p>
+<p><img width="160" height="180" src="./img/wip_jwkinstance.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the instances you want to assign to this resource.</p>
+</li>
+<li>
+<p>Choose OK to save your work.</p>
+</li>
+</ol>
+<h3><b>Firming Jobs or Schedules</b></h3>
+<p><a name="d0e37006" id="d0e37006"></a>You can firm plan jobs or schedules on the Job Workbench. Firming a job prevents Planning from suggesting rescheduling and replanning recommendations when changes to supply or demand occur. If replanning is required, the planning process creates new jobs or schedules to cover the new demand. This value is derived from the specific window where you create a job or schedule.</p>
+<p><b>To firm a job or schedule on the Job Workbench</b></p>
+<ol>
+<li>
+<p>Select a job from the tree or Gantt chart, and right-click on the record to display the popup menu.</p>
+</li>
+<li>
+<p>Enable the Firm check box.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="1333679"></a><a id="schedulerfilter_procedure"></a><b>Filtering Job Workbench Information</b></h2>
+<p><a name="d0e37033" id="d0e37033"></a><a name="jobfilter" id="jobfilter"></a>The Session Filter and the Startup Filter windows enable you to display specific jobs in the tree hierarchy and Gantt Chart, and eliminate jobs that do not meet your criteria. The Startup filter sets the initial display each time you open the workbench, the Session filter is used to change settings in a specific session.</p>
+<p><b>To set job filter settings when opening the workbench</b></p>
+<ol>
+<li>
+<p>Select Startup Filter from the Tools menu to display the window.</p>
+</li>
+<li>
+<p>You can select a department and resource. Only departments with jobs already defined display in this field.</p>
+</li>
+<li>
+<p>If you select a department or resource, you can choose dispatch information, the values are:</p>
+<ul>
+<li>
+<p><i>Immediate Dispatch:</i> Includes all job operations ready for production in the specified department or defined resource.</p>
+</li>
+<li>
+<p><i>Upstream Dispatch:</i> Includes all job operations that will be ready in the near future for production in the specified department or defined resource. This indicates a quantity of assemblies ready to be moved in the previous operation.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the Job Status region, select the job status types to display on the workbench. Your choices are:</p>
+<ul>
+<li>
+<p><i>Released:</i> The job is transactable</p>
+</li>
+<li>
+<p><i>Unreleased:</i> The job is planned but not released for work and not yet transactable</p>
+</li>
+<li>
+<p><i>On Hold:</i> The job is prevented from progressing through the production cycle</p>
+</li>
+<li>
+<p><i>Complete:</i> The job is complete and charges are allowed</p>
+</li>
+<li>
+<p><i>Complete No Charges:</i> The job is complete but charges are not allowed</p>
+</li>
+</ul>
+<p><img width="513" height="350" src="./img/wip_startupfil.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>You can specify Assembly and Component criteria information.</p>
+</li>
+<li>
+<p>Use the Filter By Time region to use offset days in your criteria. Check Enable Date to enable the Offset days from today date fields.</p>
+<p>Enter values, in days, to create the time period window around your system date for filtering. Jobs falling within this time period, in conjunction with other criteria, display. Jobs that overlap this time period display if part of the job is in the selected time window.</p>
+</li>
+<li>
+<p>If you want to display jobs without attached operations or resources, check the Show jobs with no operations or resources box.</p>
+<p>This box is disabled if you are filtering by department or resource. Departments identify which group is performing the operation, and are also used for charging resources at an operation. Therefore, these jobs would always have operations and resources defined.</p>
+</li>
+<li>
+<p>Choose OK to save your filter criteria.</p>
+</li>
+</ol>
+<p><b>To filter job information for your session</b></p>
+<ol>
+<li>
+<p>Choose Filter from the tree pane to display the Session Filter window.</p>
+<p><img width="512" height="442" src="./img/wip_schedfilter.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>You can select a department and resource. Only departments with jobs already defined will display in this field.</p>
+</li>
+<li>
+<p>If you select a department or resource, you can choose dispatch information, the values are:</p>
+<ul>
+<li>
+<p><i>Immediate Dispatch:</i> Includes all job operations ready for production in the specified department or defined resource.</p>
+</li>
+<li>
+<p><i>Upstream Dispatch:</i> Includes all job operations that will be ready in the near future for production in the specified department or defined resource.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Optionally, you can select a customer or sales order.</p>
+</li>
+<li>
+<p>You can specify Job, Assembly, Component, Project, and Task criteria information.</p>
+</li>
+<li>
+<p>In the Job Status region, indicate the job status types to display on the workbench: Your choices are:</p>
+<ul>
+<li>
+<p><i>Released</i></p>
+</li>
+<li>
+<p><i>Unreleased</i></p>
+</li>
+<li>
+<p><i>On Hold</i></p>
+</li>
+<li>
+<p><i>Complete</i></p>
+</li>
+<li>
+<p><i>Complete No Charges</i></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Use the Filter By Time region to select date and time criteria. You can filter by either date or offset days. Check the Enable Date check box to enable these fields.</p>
+<p>If you choose Date, select values in the Start and End date and time fields. Jobs falling within this time period, in conjunction with other criteria, display. Jobs that overlap this time period window can display if part of the job is in the selected time window.</p>
+<p>If you choose Offset days from today, enter the number of days used to create the time period window around your system date. For example, if you enter 3 in the Start field, and 2 in the End field&mdash;jobs are filtered using a time period window of 5 days. That is 3 days before today&rsquo;s date, added to 2 days after today&rsquo;s date.</p>
+</li>
+<li>
+<p>If you want to display jobs without attached operations or resources, check the Show jobs with no operations or resources box.</p>
+<p>This box is disabled if you are filtering by department or resource.</p>
+</li>
+<li>
+<p>Choose OK to save your filter criteria. The Job Workbench refreshes and shows the selected jobs associated with the information entered.</p>
+</li>
+</ol>
+<h2><a name="1333682"></a><a id="setpref_procedure"></a><b>Setting Job Workbench Display Preferences</b></h2>
+<p><a name="d0e37210" id="d0e37210"></a><a name="jobpref" id="jobpref"></a>Data display on the workbench is controlled by preferences selected in the Preference window. You can select options for the tree display, bar display, and scheduling behavior.</p>
+<p><b>To set display features on the Job Workbench</b></p>
+<ol>
+<li>
+<p>Choose Preference from the tree pane to display the Preference window.</p>
+</li>
+<li>
+<p>In the Tree Columns region, select job fields you want to display on the workbench from the Unselected column, and move them to the Selected column.</p>
+<p>The field values include</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>End Date</td>
+<td>Sales Order</td>
+<td>To Move Quantity</td>
+</tr>
+<tr valign="top">
+<td>Start Date</td>
+<td>Scheduled Quantity</td>
+<td>Assigned Units</td>
+</tr>
+<tr valign="top">
+<td>Assembly</td>
+<td>Department</td>
+<td>Available 24 Hours</td>
+</tr>
+<tr valign="top">
+<td>Assembly Description</td>
+<td>Minimum Transfer Quantity</td>
+<td>Basis</td>
+</tr>
+<tr valign="top">
+<td>Completed Quantity</td>
+<td>Queue Quantity</td>
+<td>Resource Description</td>
+</tr>
+<tr valign="top">
+<td>Customer</td>
+<td>Reject Quantity</td>
+<td>Resource Type</td>
+</tr>
+<tr valign="top">
+<td>Requested Completion Date</td>
+<td>Run Quantity</td>
+<td>Setup</td>
+</tr>
+<tr valign="top">
+<td>Requested Start Date</td>
+<td>Scrap Quantity</td>
+<td>UOM</td>
+</tr>
+<tr valign="top">
+<td>Usage Rate</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+<p><img width="489" height="541" src="./img/wip_schedpref.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>The Visual Attributes region is used to select default bucket size, row height, and text display. In the Default Scale at Startup field, select the time line bucket size to display when you initialize the workbench. Your choices are Months, Weeks, Days, hours, 30 Minutes, and 15 Minutes.</p>
+</li>
+<li>
+<p>In the Row Height field, select a value, in pixels, for the height of the row on the Gantt chart.</p>
+<p><strong><span>Note:</span></strong> Larger row height is optimal, visually, if you have overlapping resources.</p>
+</li>
+<li>
+<p>The Job Bar Text, Operation Bar Text, and Resource Bar Text fields enable you to select the descriptive text displayed for the particular bar type. To select descriptive text, choose Edit to display the Bar Text window.</p>
+<ul>
+<li>
+<p>For Job Bar Text, select Job, Assembly, or Job Quantity.</p>
+</li>
+<li>
+<p>For Operation Bar Text, select Operation Sequence, Department, or Standard Operation Code</p>
+</li>
+<li>
+<p>For Resource Bar Text, select Resource Sequence or Resource Code</p>
+</li>
+</ul>
+<p><img width="321" height="245" src="./img/wip_bartext.gif" alt="the picture is described in the document text"></p>
+<p>Select a category in the Unselected column, and use the arrow key to move to the Selected column. You can order the list by using the vertical arrow keys next to the Selected column.</p>
+</li>
+<li>
+<p>Choose OK to save your work, and display the Preference window.</p>
+</li>
+<li>
+<p>Set the default automatic scheduling option in the Behavior Default region. Set the scheduling method in the Include in Scheduling box. Your choices are:</p>
+<ul>
+<li>
+<p><i>Both directions from operation (Midpoint):</i> Reschedules all prior and next operations when a time slot is found for the operation. Prior operations are backward scheduled. Next operations are forward scheduled.</p>
+</li>
+<li>
+<p><i>Forward from operation (Midpoint Forward):</i> Moves only the selected and next operations, keeping them in sequence, when a time slot is located to move this specified operation. Prior operations will not be rescheduled.</p>
+</li>
+<li>
+<p><i>Backward from operation (Midpoint Backward).</i> Moves only the selected and prior operations, keeping them in sequence, when a time slot is located to move this specified operation. Next operations will not be rescheduled.</p>
+</li>
+<li>
+<p><i>Operation Only:</i>Only the operation that is selected will be scheduled. Prior and next operations will not be rescheduled.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Check Refresh Resource Load Automatically if you want to display the immediate results of resource updates as you are working. If this box is not checked, you must select Refresh Resource Load from the menu or toolbar to view the updates in your session.</p>
+</li>
+<li>
+<p>Check make Changes Permanent if you want to save these settings for each time you initialize the workbench.</p>
+</li>
+<li>
+<p>Choose OK to save your work.</p>
+</li>
+</ol>
+<h2><a name="1333684"></a><a id="navigating_resource_organizaing_concept"></a><b>Using the Resource Workbench</b></h2>
+<p><a name="d0e37412" id="d0e37412"></a><a name="WIPZRSWB" id="WIPZRSWB"></a><a name="resourcenav" id="resourcenav"></a><a name="WIPZRSWB_MAIN_NOPARAM" id="WIPZRSWB_MAIN_NOPARAM"></a>When you initially launch the Resource workbench, it displays resources set in the Preference window. The selected resources and corresponding departments display in the tree hierarchy, and the current scheduling information is viewed on the Gantt chart. If settings are not defined in the Preference window, you must define your view to display records for the current session.</p>
+<p><b>Restore Customized View</b></p>
+<p>The workbench automatically restores the last-worked customized view at startup. When you create a preferred view through pane sizing, time bucket selection, and row height adjustment&mdash;that view displays in the next launch of the workbench. This eliminates readjusting the view each time the workbench is opened.</p>
+<p><img width="600" height="409" src="./img/wip_reswork.gif" alt="the picture is described in the document text"></p>
+<h3><b>Menus and Toolbar</b></h3>
+<p>The workbench toolbar provides the following choices:</p>
+<ul>
+<li>
+<p><b>Save:</b> Saves latest changes to the database</p>
+</li>
+<li>
+<p><b>Revert:</b> Restores last database change and view</p>
+</li>
+<li>
+<p><b>Refresh:</b> Repaints the workbench view with changes from other simultaneous users</p>
+</li>
+<li>
+<p><b>Automatic/Manual Scheduling:</b> Invokes manual or automatic job scheduling mode</p>
+</li>
+<li>
+<p><b>Show/Hide Resource Load:</b> Displays the Select Resources, and Resource Load Versus Capacity panes</p>
+</li>
+<li>
+<p><b>Refresh Resource Load:</b> Refreshes Resource Load Versus Capacity pane with latest changes</p>
+</li>
+</ul>
+<p>The workbench menus provide the following choices:</p>
+<ul>
+<li>
+<p><b>File</b></p>
+<ul>
+<li>
+<p>Print: Enables Gantt charts printing. See: <a href="T228107T329778.htm#ganttprint">Printing Your Gantt Chart</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>View</b></p>
+<ul>
+<li>
+<p>Resource Load: Enables or hides the Select Resource, and Resource Load Versus Capacity panes.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>Schedule</b></p>
+<ul>
+<li>
+<p>Manual/Automatic: Invokes manual or automatic job scheduling mode</p>
+</li>
+<li>
+<p>Adjust Resource Capacity: Accesses the Capacity Changes window, see: <a href="T228107T329778.htm#adjustrc">Adjusting Resource Capacity</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>Tools</b></p>
+<ul>
+<li>
+<p>WIP Parameters: Accesses the Work in Process Parameters window, see: <a href="T228107T228110.htm#I_cx2Dwipparams">WIP Parameters</a></p>
+</li>
+<li>
+<p>Create/Modify Work Orders: Accesses Discrete Jobs window to create or modify jobs, see: <a href="T228107T228111.htm#I_tx2Ddefdj">Defining Discrete Jobs Manually</a></p>
+</li>
+<li>
+<p>View Item Supply/Demand: Accessing the Supply/Demand Detail window to display demand information, see: Viewing Item Supply/Demand Information, <i>Oracle Inventory User's Guide</i></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><b>Tool Tip Windows</b></h3>
+<p><a name="d0e37527" id="d0e37527"></a>Tool tip windows provide an ease of use mechanism for displaying start and end date information. The window is displayed by rolling your cursor over the appropriate resource bar on the Gantt chart. For more detailed information, you can access the Properties window.</p>
+<p><b>Resource Tool Tip</b></p>
+<p>The Resource tool tip window displays the following data: job name and description, operation, operation code, resource sequence, department, assembly name and description, quantity information, start date, and end date information.</p>
+<p><img width="418" height="332" src="./img/wip_resttop.gif" alt="the picture is described in the document text"></p>
+<p><b>Bar Inspector Tool Tip</b></p>
+<p>The Bar Inspector tool tip window provides scheduling accuracy by displaying start date and end date information during a drag and drop action. This tool tip is available for job, operation, and resource instance bars on the Resource Workbench.</p>
+<p><img width="467" height="131" src="./img/wip_resbar.gif" alt="the picture is described in the document text"></p>
+<h3><b>Resource Properties Windows</b></h3>
+<p><a name="d0e37560" id="d0e37560"></a>Information for each job and resource is displayed in Properties windows. These windows contain information about dates, quantities, assembly descriptions, sales orders, and customers. See: <a href="T228107T329778.htm#propwin">Properties Windows</a></p>
+<p><b>Resource Properties Windows</b></p>
+<p>The Resource Properties window displays information about a specific resource assigned to a particular department. You access this window by right-clicking on a specific resource in the tree. This window displays department, and resource name, type, serial number. It also displays resource factors such as utilization, availability, instance, and batch information.</p>
+<p><img width="298" height="470" src="./img/wip_resbprop.gif" alt="the picture is described in the document text"></p>
+<p><b>Resource Properties for Job Operation Window</b></p>
+<p>The Resource Properties window for the job operation is accessed by right-clicking on a job on the Gantt chart. It has four tabbed regions&mdash;General, Operation Quantities, Components, and Sales Order Lines. This window displays the same information as the Job Properties and Operation Properties windows on the Job Workbench, see: <a href="T228107T329778.htm#propwin">Properties Windows</a></p>
+<p><img width="525" height="800" src="./img/wip_jobresop.gif" alt="the picture is described in the document text"></p>
+<h3><b>View Job Information Pane</b></h3>
+<p>You can view an entire job and all its operations and resources by accessing the View Job Information pane</p>
+<p><b>To display the Job Information pane</b></p>
+<ol>
+<li>
+<p>Select a job on the Gantt chart, and right-click with your cursor to display the popup menu.</p>
+</li>
+<li>
+<p>Choose View Job Information.</p>
+<p>This pane displays the job name, assembly number, and all operations and resources for the selected job.</p>
+<p><img width="525" height="44" src="./img/wip_jobinfo.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>To view resource information, select an operation bar and right click to display the popup menu</p>
+</li>
+<li>
+<p>Choose Properties, and select the Resources tabbed region in the Resource Properties for Job Operation window:</p>
+<p>The Resources region lists all resources used for this operation.</p>
+</li>
+<li>
+<p>Choose the Close box to close this pane.</p>
+</li>
+</ol>
+<h2><a name="1333692"></a><a id="resourceprefer_procedure"></a><b>Setting Resource Workbench Display Preferences</b></h2>
+<p><a name="d0e37635" id="d0e37635"></a><a name="resprefwin" id="resprefwin"></a>Data display on the workbench is controlled by preferences selected in the Preference window. You can select options for the tree display, bar display, and scheduling default.</p>
+<p><b>To set display features on the Resource Workbench</b></p>
+<ol>
+<li>
+<p>Choose Preference from the tree pane to display the Preference window.</p>
+</li>
+<li>
+<p>You can search for a resource by entering text in the Find field, and choosing Find.</p>
+<p>The window moves to the section of the resource tree where your search string result is located.</p>
+</li>
+<li>
+<p>In the Tree Columns region, select resources you want to display from the Unselected column, and move them using the arrow key, to the My Resources column. You can order the list by using the vertical arrow keys next to the My Resources column.</p>
+<p><img width="504" height="593" src="./img/wip_resbpre.gif" alt="the picture is described in the document text"></p>
+<h3><b>Resource Instances</b></h3>
+<p><a name="d0e37670" id="d0e37670"></a>You can define specific machines to machine type resources, and specific employees to labor type resources. You can assign or override the resource instances assigned to the job.</p>
+<p>Instances are defined on the Resource Instance window, and viewable in the Properties windows. You can assign resource instances on the Job Workbench, but you must navigate to the Resource Requirements window to unassign the instance.</p>
+<p><b>To assign a resource instance on the Resource Workbench</b></p>
+<ol>
+<li>
+<p>Select a resource instance on the tree, for a specific resource.</p>
+</li>
+<li>
+<p>Use your cursor to drag the instance to the instance rows for that specific resource.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T329778.htm#propwin">Properties Windows</a></p>
+<h2><a name="1333695"></a><a id="resourceload_organizing_concept"></a><b>Viewing Resource Load</b></h2>
+<p><a name="d0e37704" id="d0e37704"></a><a name="d0e37710" id="d0e37710"></a><a name="resloadpane" id="resloadpane"></a>Both workbenches contain the Select Resource window, and the Resource Load pane to display your shop floor resources. Choose Resource Load from the menu, toolbar, or popup menus to display these windows.</p>
+<h3><b>Resource Load Pane</b></h3>
+<p>The load for each resource selected is displayed on this bar or table view graph. Resource load includes all shop floor demand, not just demand displayed on the workbench.</p>
+<p><img width="525" height="76" src="./img/wip_resvscap.gif" alt="the picture is described in the document text"></p>
+<p>The Resource Load pane displays the resources specifying them as Required, Available, Shared, and Overloaded.</p>
+<p><img width="525" height="89" src="./img/wip_resvscap2.gif" alt="the picture is described in the document text"></p>
+<p><b>Load and Usage Information</b></p>
+<p>When the job is scheduled using the infinite scheduler, there are usage records for the operation resources. The load graph uses these usage records to display the load used by the resource. The usage rate and the start and end times of the operation resources correspond to each other. For example, if the usage rate for a resource was 0.5 hours, and the job quantity is 10, then the resource would require 5 hours to complete, spanning a time period from 8:00 &ndash; 13:00. For example:</p>
+<ul>
+<li>
+<p>If the work week is Monday through Friday, and the resource is scheduled to be used from Friday to Monday&mdash;usage is not reported during the unavailable hours on Saturday and Sunday.</p>
+</li>
+<li>
+<p>If a job operation resource is dragged from the Friday to Monday schedule, to Monday through Thursday schedule&mdash;resource usage is 8 hours for each day because that is the available time on each daye.</p>
+</li>
+</ul>
+<h3><b>Selecting Resources for Display</b></h3>
+<p>The first level nodes on the Select Resource window contain departments, with a secondary level of any resources that are owned or borrowed (shared) by that department. If resource instances exist, they are displayed in the next level.</p>
+<p>The Show Shared Resource check box enables you to display the shared resources in the Unselected list, otherwise they will not appear. This check box is used for load calculation: If it is not enabled, load usage is aggregated up to the owning department level for the resource.</p>
+<p><strong><span>Note:</span></strong> Borrowed resources, and any instances for that resourc, e display in italic font.</p>
+<p><b>To select resources for display on the workbench</b></p>
+<ol>
+<li>
+<p>Navigate to the Job Workbench or Resource Workbench.</p>
+</li>
+<li>
+<p>Choose Select Resource Load from the menu, toolbar, or popup menus to display the Select Resource and Resource Load panes.</p>
+</li>
+<li>
+<p>Choose Select Resource to display the Select Resource window.</p>
+<p><img width="399" height="400" src="./img/wip_selectres.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>You can search for a resource by entering text in the Find field, and choosing Find.</p>
+<p>The window moves to the section of the resource tree where your search string result is located.</p>
+</li>
+<li>
+<p>Select records in the Available Resources column, and use the arrow key to move records to the Selected Resources column.</p>
+<p>If you select a department, all resources in that department are moved to the Selected Resources column.</p>
+</li>
+<li>
+<p>Enable the Show Borrowed Resources box if you want to display shared resources on the Resource Load graph.</p>
+<p>The resources viewable in the Select Resource window are shown by owning department. Shared resources display on a separate line in the Resource Load graph. When resources are shared across departments, the resource availability is taken from the owning department.</p>
+</li>
+<li>
+<p>Choose OK to save your work.</p>
+</li>
+</ol>
+<h2><a name="1333700"></a><a id="adjusting_resource_procedure"></a><b>Adjusting Resource Capacity</b></h2>
+<p><a name="d0e37805" id="d0e37805"></a><a name="adjustcap" id="adjustcap"></a>You can adjust resource capacity to respond to machine or personnel availability. This includes: .</p>
+<ul>
+<li>
+<p>Delete or add a day of capacity, adjusting for overtime shifts or shop closures</p>
+</li>
+<li>
+<p>Add or delete resource units when either extra resources are obtainable or resources are unavailable</p>
+</li>
+<li>
+<p>Adjust Assigned Units or Usage Rate for the resource on the job routing</p>
+</li>
+</ul>
+<p>Simulation sets are used to link resource changes to available resource capacity. If the Use in Scheduling field is enabled on the Simulation Sets window for particular simulation sets, capacity modifications associated with that set are used when scheduling jobs. Simulation sets are defined, associated to resources in Oracle Bills of Material, and linked to Work in Process scheduling in Work in Process Parameters window. When you assign resources to departments, you can use simulation sets for capacity modifications by defining them on the Capacity Changes window in Oracle Bills of Material. See: Assigning Resources to a Department, <i>Oracle Bills of Material User's Guide</i> and <a href="T228107T228110.htm#I_cx2Dwipparams">WIP Parameters</a></p>
+<h3><b>Changing Capacity<a name="adjustrc" id="adjustrc"></a></b></h3>
+<p>There are two methods for adjusting resource capacity: You can change capacity in Oracle Bills of Material, or directly on the workbench.</p>
+<p><b>To adjust capacity in Bills of Material</b></p>
+<ol>
+<li>
+<p>Navigate to the Departments window, see: Defining a Department, <i>Oracle Bills of Material User's Guide</i></p>
+</li>
+<li>
+<p>Choose Resources to navigate to the Resources window.</p>
+</li>
+<li>
+<p>Select a resource, then choose Shifts to display the Shifts window.</p>
+</li>
+<li>
+<p>Select a shift, and choose Capacity Changes to define capacity changes for a shift. The Capacity Changes window displays. See: Assigning Resources to a Department, <i>Oracle Bills of Material User's Guide</i>.</p>
+</li>
+</ol>
+<p><b>To adjust capacity in the Job or Resource Workbench</b></p>
+<ol>
+<li>
+<p>Select Adjust Resource Capacity from the tools menu, or right-click on a resource, and select Change Capacity from the popup menu.</p>
+<p>The Capacity Changes window displays.</p>
+<p><strong><span>Note:</span></strong> A resource must be assigned to a department and a shift to display this window.</p>
+<p>This window displays the resource name and the department assigned, the simulation set used to link resource changes to available capacity, and any specified instances. In the Capacity Changes region, change or add information depending on the resource definition. If you selected a resource scheduled by instance, the only available value in the Action field is Delete a Day. For these resources, access the instance to adjust capacity.</p>
+<p><img width="737" height="371" src="./img/wip_capchange.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Shift field, select available shifts from the list of values. Shifts are defined on the Shifts window when you are assigning a resource to a department.</p>
+</li>
+<li>
+<p>Select the action you want to perform. The choices are Add Capacity, Delete a Day, Reduce Capacity, or Add a Day. You can only delete work days, and only add non-work days.</p>
+</li>
+<li>
+<p>If you are adding or reducing capacity, select the capacity units you want to change.</p>
+</li>
+<li>
+<p>In the Date fields, From and To, select the dates for this capacity action to occur.</p>
+</li>
+<li>
+<p>In the Time fields, From and To, the values default from the shift information, but can be changed.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h3><b>Alternate Resources</b></h3>
+<p>You can set alternate resources from the Job or Resource Workbenches if they are defined on the Resource Requirements window. Alternate resources consist of other resources&mdash;or groups of resources&mdash;used instead of the primary resource in the job operation. When rescheduling jobs, the alternate resource is invoked if the primary resource cannot complete the job or schedule by the Requested Due Date.</p>
+<ul>
+<li>
+<p>If you are in the manual scheduling mode, you can only use alternate resources for operation type resources. In this case, no other operations will use the alternate resource. The resource is automatically scheduled when the resource is exchanged with the alternate.</p>
+</li>
+<li>
+<p>If you are in the automatic scheduling mode, the Automatic Reschedule window displays when the alternate resource is selected.</p>
+<p><strong><span>Note:</span></strong> For automatic rescheduling, Oracle recommends first expanding the Work Order node and then rescheduling.</p>
+</li>
+</ul>
+<p>See: <a href="T228107T228117.htm#I_tx2Drraddg">Adding and Updating Resource Requirements</a></p>
+<p><b>To select an alternate resource in manual scheduling mode</b></p>
+<ol>
+<li>
+<p>Right-click on a resource, and select Choose Alternate Resource from the popup menu.</p>
+<p>The Alternate Resource window displays.</p>
+</li>
+<li>
+<p>Select a resource group listed on the window.</p>
+<p><img width="156" height="280" src="./img/wip_wbalternate.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Choose OK to save your work.</p>
+<p>The operation is rescheduled using the new resource information.</p>
+</li>
+</ol>
+<p><b>To select an alternate resource in automatic scheduling mode</b></p>
+<ol>
+<li>
+<p>Expand the Work Order node. Right-click on a resource, and select Choose Alternate Resource from the popup menu.</p>
+<p>The Alternate Resource window displays.</p>
+</li>
+<li>
+<p>You can select the Flashlight icon to locate the corresponding resource on the workbench. If the resource is not already displaying, this action loads that resource on the workbench. This enables you to view the capacity of that resource.</p>
+</li>
+<li>
+<p>Select a resource group listed on the window.</p>
+</li>
+<li>
+<p>Choose OK to submit your resource selection.</p>
+<p>The Automatic Reschedule window displays.</p>
+</li>
+<li>
+<p>Select scheduling information, see <a href="T228107T329778.htm#autostartend">Automatically Rescheduling Start and End Dates</a></p>
+</li>
+</ol>
+<h2><a name="1333706"></a><a id="scheduling_procedure"></a><b>Rescheduling on the Job and Resource Workbenches</b></h2>
+<p><a name="rescwk" id="rescwk"></a>You can manually or automatically reschedule the start and end dates of a job, operation, or resource. The manual or automatic scheduling modes are accessed from the menu, toolbar, and popup menus. You also have the option on the Resource Workbench to schedule consecutive resources without interruption between the scheduling times.</p>
+<h3><b>Manually Rescheduling Start and End Dates</b></h3>
+<p>You can manually reschedule any job, operation, or resource without regard for scheduling rules. Invoke the manual mode from the menu, toolbar, or popup menus.</p>
+<p><b>To manually forward or backward reschedule by dragging and dropping</b></p>
+<ol>
+<li>
+<p>Select a record to reschedule on the Gantt chart.</p>
+</li>
+<li>
+<p>Position your cursor at the start or end of a job, operation, or resource bar.</p>
+</li>
+<li>
+<p>Grab and drag forward or backward. The beginning or end of the bar moves respective to the direction.</p>
+<p>The Bar Inspector window displays, showing the Start and End Dates, as you are moving the bar.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To reschedule consecutive resources on the Resource Workbench</b></p>
+<ol>
+<li>
+<p>Select a resource to reschedule on the Gantt chart, and right-click to display the popup menu.</p>
+</li>
+<li>
+<p>You have two choices for moving resources:</p>
+<ul>
+<li>
+<p>Snap Left moves the resource to the end date and time of the prior scheduled resource</p>
+</li>
+<li>
+<p>Snap Right moves the resource to the beginning of the next scheduled resource</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To manually forward or backward reschedule using the editor</b></p>
+<ol>
+<li>
+<p>Select a record to reschedule on the tree or Gantt chart, and right-click to display the popup menu.</p>
+</li>
+<li>
+<p>Choose Manual Reschedule to display the Edit Schedule window.</p>
+</li>
+<li>
+<p>If you have accessed this window from the Job Workbench, expand the job tree to display all operations and resources.</p>
+<p><img width="602" height="395" src="./img/wip_editsched.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Start Date and End Date fields, enter the new dates for the specific job, operation, or resource.</p>
+</li>
+<li>
+<p>Choose Apply to save your work. Or choose OK to save your work and close this window.</p>
+<p>The bar moves to the new date when the Gantt chart is refreshed.</p>
+</li>
+<li>
+<p>If you have accessed this window from the Resource Workbench, enter new dates in the Start Date and End Date fields.</p>
+<p><img width="501" height="97" src="./img/wip_resedit.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Choose Schedule to save your work. The bar moves to the new date when the Gantt chart is refreshed.</p>
+</li>
+</ol>
+<h3><b>Automatically Rescheduling Start and End Dates<a name="autostartend" id="autostartend"></a></b></h3>
+<p>You can automatically reschedule, the required resource and material are used as the determining factor. You can initiate automatic rescheduling by moving jobs, operations, and resources, or through the Automatic Reschedule window. The job is moved forward or backward.</p>
+<p><b>To automatically forward or backward reschedule by dragging and dropping</b></p>
+<ol>
+<li>
+<p>Toggle or select Automatic Scheduling from the menu or toolbar.</p>
+</li>
+<li>
+<p>Expand the Work Order node, and then expand the job tree to display all operations and resources.</p>
+<p>Oracle recommends expanding the Work Order node for automatic rescheduling.</p>
+</li>
+<li>
+<p>Select a record to reschedule on the Gantt chart.</p>
+</li>
+<li>
+<p>Position your cursor at the start or end of a job, operation, or resource bar.</p>
+</li>
+<li>
+<p>Grab and drag forward or backward.</p>
+<p>The beginning or end of the bar moves respective to the direction, and he Automatic Reschedule window displays.</p>
+</li>
+<li>
+<p>Choose Schedule on the Automatic Reschedule window to generate new scheduling data.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To automatically forward or backward reschedule using the automatic rescheduler</b></p>
+<ol>
+<li>
+<p>To automatically schedule all records on the workbench, toggle or select Automatic Scheduling from the menu, toolbar, or popup menus.</p>
+</li>
+<li>
+<p>Expand the Work Order node.</p>
+</li>
+<li>
+<p>To automatically schedule individual records&mdash;select a record to reschedule on the tree or Gantt chart.</p>
+<p><img width="534" height="83" src="./img/wip_autosched.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Right-click to display the popup menu.</p>
+</li>
+<li>
+<p>Choose Automatically Reschedule to display the Automatic Reschedule window.</p>
+<p>You can also place your cursor on the forward or backward portion of a record, and drag the record to display the Automatic Reschedule window.</p>
+</li>
+<li>
+<p>In the Work Orders Scheduling Direction box, select your scheduling direction. Your choices are Forward or Backward.</p>
+</li>
+<li>
+<p>Enter a scheduling date.</p>
+<p>For Forward scheduling, enter From Start Date. For Backward scheduling, enter From End date.</p>
+</li>
+<li>
+<p>Choose Schedule on the Automatic Reschedule window to generate new scheduling data.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="4215817"></a><a id="T464728"></a><b>Printing Your Gantt Chart</b></h2>
+<p><a name="d0e38169" id="d0e38169"></a><a name="d0e38175" id="d0e38175"></a><a name="ganttprint" id="ganttprint"></a>You have the ability to print Gantt charts to use as referable hard copies on the production shop floor. This feature supports customizing the format and content, and offers a print preview. You can specify:</p>
+<ul>
+<li>
+<p>Date and time range</p>
+</li>
+<li>
+<p>The level of job and operation details, or resource levels</p>
+</li>
+<li>
+<p>Snapshot view of the Gantt chart</p>
+</li>
+<li>
+<p>Number of jobs or resources to avoid a cluttered display.</p>
+</li>
+</ul>
+<p><b>To print a Gantt chart directly from the Job or Resource Workbench</b></p>
+<ol>
+<li>
+<p>Select Print from the File menu to display the Print window.</p>
+<p>This window contains two tabbed areas: one for Print options and one for Page Setup.</p>
+</li>
+<li>
+<p>In the Print Option tab, choose one of the options:</p>
+<ul>
+<li>
+<p><b>Screen snapshot:</b> Prints the view exactly as it appears on the visible area of the screen.</p>
+</li>
+<li>
+<p><b>Print options:</b> Options are provided to print the number of records, level of detail, and time line.</p>
+</li>
+</ul>
+<p><img width="415" height="371" src="./img/wip_wbprint.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>If you chose Print options, you have the option to enter a value for the number of records printed.</p>
+<ul>
+<li>
+<p>For the Job Workbench, enter a value in the Number of Jobs box. Printing begins with the first job displayed on the Gantt chart.</p>
+</li>
+<li>
+<p>For the Resource Workbench, select either All selected resources&mdash;or enter a value in the Number of Resources box. Printing begins with the first resource displayed on the Gantt chart.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the Expand Level box, select the level of detail you want on the output.</p>
+<ul>
+<li>
+<p>For the Job Workbench, the levels are:</p>
+<ul>
+<li>
+<p>Collapse all: Displayed jobs are not expanded to other levels.</p>
+</li>
+<li>
+<p>Expand all to Operations level: Jobs are expanded to the operation level.</p>
+</li>
+<li>
+<p>Expand all to Resource level: Jobs are expanded down to the operation and resource levels.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For the Resource Workbench, the levels are:</p>
+<ul>
+<li>
+<p>Collapse all: Displayed resources are not expanded to other levels.</p>
+</li>
+<li>
+<p>Expand all to Resource Instance level: Resources are expanded down to the resource instance level.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose a time line for the data on this report. Choices are:</p>
+<ul>
+<li>
+<p>Months</p>
+</li>
+<li>
+<p>Weeks</p>
+</li>
+<li>
+<p>Days</p>
+</li>
+<li>
+<p>Hours</p>
+</li>
+<li>
+<p>30 Minutes</p>
+</li>
+<li>
+<p>15 Minutes</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you are printing the Gantt chart from the Resource Workbench, in the Date Range region, select Enable Date Selection to consider dates in your print version.</p>
+</li>
+<li>
+<p>Choose one of the date options:</p>
+<ul>
+<li>
+<p>Number of days forward: Enables you to enter days forward from the current date to consider in the print output.</p>
+</li>
+<li>
+<p>Date: Enables you to enter a date range in the Start and End date fields.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the Page Setup tab, select the paper format orientation. Choices are Portrait or Landscape.</p>
+<p><img width="414" height="372" src="./img/wip_wbprint2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Paper Size for preview box, select a paper size for the Preview print option.</p>
+</li>
+<li>
+<p>In the Manual scaling box, you can scale your Gantt chart printing by selecting a size of the original chart. This can be useful when charts contain great amounts of data, and you want to print on one paper size. You can:</p>
+<ul>
+<li>
+<p>Fit to page width</p>
+</li>
+<li>
+<p>Fit to page height</p>
+</li>
+<li>
+<p>Choose a value from 10% to 500% of the original chart</p>
+</li>
+</ul>
+</li>
+<li>
+<p>You can choose a print order for Gantt charts spanning multiple pages. Choices are:</p>
+<ul>
+<li>
+<p>Print rows first: Divide the output by printing all the rows first, then the corresponding columns</p>
+</li>
+<li>
+<p>Print columns first: Divide the output by printing all the columns first, then corresponding rows</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose Preview to access the Print Preview window. This enables you to view on screen your the result of your print selections, and return to the Print window to change settings.</p>
+</li>
+<li>
+<p>Choose Print to print your Gantt chart.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

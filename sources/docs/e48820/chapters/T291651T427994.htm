@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T427993.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T439508.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">14/31</span> <!-- End Header -->
+<h1>Serial Control</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T298856">Serial Number Control</a></li>
+<li><a href="#T292019">Serial Number Restrictions for Transferring Between Organizations</a></li>
+<li><a href="#T298892">Setting Up Serial Number Control</a></li>
+<li><a href="#T298893">Generating Serial Numbers</a></li>
+<li><a href="#T298857">Serial Number Assignment</a></li>
+<li><a href="#T573426">Overview of Serial Tagging Assignments</a></li>
+<li><a href="#T573392">Setting Up Serial Tagging Assignments</a></li>
+<li><a href="#T656871">Serial Tagging API</a></li>
+<li><a href="#T292076">Assigning Serial Numbers</a></li>
+<li><a href="#T298894">Maintaining Serial Number Information</a></li>
+<li><a href="#T292101">Viewing Serial Genealogy</a></li>
+<li><a href="#T298858">Serial Number Control Reports</a></li>
+</ul>
+<h2><a name="2063101"></a><a id="T298856"></a><b>Serial Number Control</b></h2>
+<p><a name="d0e70655" id="d0e70655"></a><a name="d0e70662" id="d0e70662"></a><a name="I_c_sercntrl" id="I_c_sercntrl"></a>Oracle Inventory provides complete serial number support for inventory transactions. You can enable serial number control for specific items. For items that are under serial number control, you assign unique serial numbers to individual units and reference the same serial numbers each time you perform a transaction on an individual unit. This enables you to have tight control over every unit of every item in your inventory. If you set up serial control at sales order issue, then at sales order issue, you can assign serial numbers only when you perform a shipment transaction in Oracle Shipping Execution.</p>
+<h3><a id="T298866"></a> <b>Serial Number Validation<a name="d0e70675" id="d0e70675"></a></b></h3>
+<p>Oracle Inventory provides the profile option INV: Restrict Receipt of Serials to control the following validations for serial numbers that are used in Oracle Work in Process:</p>
+<ul>
+<li>
+<p>Validation of serialized components:</p>
+<p>If you enable the profile option, then you cannot receive the serial number through purchase order receipt, miscellaneous receipt, or account alias receipt, if that same serial number has been issued to Oracle Work In Process.</p>
+</li>
+<li>
+<p>Validation of serialized end-assemblies:</p>
+<p>If you enable the profile option, then you cannot complete an end assembly item into Oracle Inventory, for a discrete job, repetitive schedule, flow schedule, and work order-less completion, if that same serial number has a state of issued out of stores.</p>
+</li>
+</ul>
+<h3><a id="T298867"></a> <b>Maintaining Serial Number<a name="d0e70712" id="d0e70712"></a></b></h3>
+<p>You can use the Serial Numbers window to update supplier information that is associated with your serial numbers. You can view all serial numbers that you created in your current organization and the state and supplier lot information that is associated with your serial numbers. See <a href="T291651T427994.htm#I_t_mntsernum">Maintaining Serial Number Information</a>.</p>
+<h3><a id="T298868"></a> <b>Issuing Material from Inventory<a name="d0e70731" id="d0e70731"></a></b></h3>
+<p>If you issue items with a serial number control type of dynamic entry at inventory receipt or predefined, then you must choose from the list of serialized units that you have already received into inventory. If you issue items with a serial number control type of dynamic entry at sales order issue, then you must assign serial numbers when you ship the item against a sales order. See <a href="T291651T427994.htm#I_t_enterser">Assigning Serial Numbers</a>, Overview of Material Control, <i>Oracle Work in Process User's Guide</i>, and Overview of Shop Floor Control, <i>Oracle Work in Process User's Guide</i>.</p>
+<h3><a id="T298869"></a> <b>Cycle Counting<a name="d0e70756" id="d0e70756"></a><a name="d0e70761" id="d0e70761"></a></b></h3>
+<p>Oracle Inventory supports cycle counting of items under serial number control.</p>
+<h3><a id="T298870"></a> <b>Performing Physical Inventories<a name="d0e70777" id="d0e70777"></a><a name="d0e70782" id="d0e70782"></a></b></h3>
+<p>Oracle Inventory includes the serial numbers of the items to count in your physical inventory when it generates tags. You must assign serial numbers to all items under serial number control for which you enter counts in the Physical Inventory Tag Counts window. See <a href="T291651T292528.htm#I_invadpte">Entering and Voiding Physical Inventory Tag Counts</a>.</p>
+<h3><a id="T627679"></a><b>Pick Releasing Sales Orders with Serial Controlled Items</b></h3>
+<p><strong><span>Note:</span></strong> The following behavior is valid only for serial controlled items whose serial control generation is defined as <i>At Receipt</i> or <i>Predefined</i>. (These values are set on the Master Item window &gt; Inventory tab.)</p>
+<p>In Oracle Inventory, suppose you have a sales order with multiple lines including a line with a serial-controlled item. (Also, at the organization level, the parameter Allocate Serial Numbers is set to No. This value is set on the Organization Parameters window &gt; Revision, Lot, Serial And LPN tab.) If pick release is run with auto allocate and auto pick confirm set to Yes, then the pick release completes with a warning. All the lines will be processed except the line containing the serial control item. An error message appears in the pick release log. For the serial records, you then need to manually allocate the serial number in the Transact Move Orders window and then transact the move order line.</p>
+<h3><a id="T298871"></a> <b>Assigning Serial Numbers to Assemblies<a name="d0e70824" id="d0e70824"></a></b></h3>
+<p>When you receive into inventory a completed assembly with a serial number control type of dynamic entry at inventory receipt or predefined, then you must assign a serial number in the WIP Completion Transaction window in Oracle Work in Process. You either accept the default serial number or enter another valid one. See Overview of Assembly Completions and Returns, <i>Oracle Work in Process User's Guide</i>.</p>
+<h3><a id="T298872"></a> <b>Returning Serialized Units to Suppliers<a name="d0e70845" id="d0e70845"></a><a name="d0e70852" id="d0e70852"></a></b></h3>
+<p>You can return serialized units to the supplier in the Enter Returns and Adjustments window. Oracle Inventory updates the serial number information with the purchase order number and transaction date of the return so that the location of the serialized unit is known.</p>
+<p>When you receive replacement units, you can issue new serial numbers. When you receive repaired units, you should reference the original serial numbers so that Oracle Inventory can properly update the existing serial numbers. See Entering Returns, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><a id="T298873"></a> <b>Purging Serial Number Transactions<a name="d0e70876" id="d0e70876"></a></b></h3>
+<p>You can purge all transaction information about serial numbers from your current organization. Note that the transactions must occur within closed accounting periods. See <a href="T291651T292013.htm#I_t_purgetx78n">Purging Transaction History</a>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a></p>
+<p><a href="T291651T427994.htm#I_t_sersetup">Setting Up Serial Number Control</a></p>
+<h2><a name="1755760"></a><a id="T292019"></a><b>Serial Number Restrictions for Transferring Between Organizations</b></h2>
+<p><a name="t_serres" id="t_serres"></a>The system places certain restrictions on serial controlled items that you transfer between organizations where the serial control in the source and destination organizations is different. The following tables explain the expected results.</p>
+<h3><a id="T428033"></a> <b>Direct Inter organization Shipment</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Source Org / Destination Org</b></th>
+<th scope="col"><b>At Receipt or Predefined</b></th>
+<th scope="col"><b>At Sales Order Issue</b></th>
+<th scope="col"><b>None</b></th>
+</tr>
+<tr valign="top">
+<td>At Receipt of Predefined</td>
+<td>Allowed, serial moved to destination.</td>
+<td>Allowed, serial number created as sales order issue.</td>
+<td>Allowed, serial entered at issue and set to issued from stores in source organization. No serial received in destination organization.</td>
+</tr>
+<tr valign="top">
+<td>At Sales Order Issue</td>
+<td>Not allowed.</td>
+<td>Allowed, serial number dynamic entered at issue.</td>
+<td>Allowed, no serial created or moved.</td>
+</tr>
+<tr valign="top">
+<td>None</td>
+<td>Not allowed.</td>
+<td>Allowed, serial number created at sales order issue.</td>
+<td>Allowed, no serial created or moved.</td>
+</tr>
+</table>
+<h3><a id="T428034"></a> <b>Intransit Inter organization Shipment</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Source Org / Destination Org</b></th>
+<th scope="col"><b>At Receipt or Predefined</b></th>
+<th scope="col"><b>At Sales Order Issue</b></th>
+<th scope="col"><b>None</b></th>
+</tr>
+<tr valign="top">
+<td>At Receipt or Predefined</td>
+<td>Allowed, user prompted for serial at receipt from the list of values of shipped serials, serials received to destination location.</td>
+<td>Allowed, user prompted for serial at receipt from LOV of shipped materials, serial received to destination organization but set to defined but not used.</td>
+<td>Allowed, serial entered at issue and set to issued from stores in source organization. No serial received in destination.</td>
+</tr>
+<tr valign="top">
+<td>At Sales Order Issue</td>
+<td>Allowed, no serials issued. New serials generated at receipt.</td>
+<td>Allowed, no serials issued or received.</td>
+<td>Allowed, no serials issued or received.</td>
+</tr>
+<tr valign="top">
+<td>None</td>
+<td>Allowed, no serials issued. New serials generated at receipt.</td>
+<td>Allowed, no serials issued or received.</td>
+<td>Allowed, no serials issued or received.</td>
+</tr>
+</table>
+<h3><a id="T428035"></a> <b>Direct Internal Requisition</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Source Org / Destination Org</b></th>
+<th scope="col"><b>At Receipt or Predefined</b></th>
+<th scope="col"><b>At Sales Order Issue</b></th>
+<th scope="col"><b>None</b></th>
+</tr>
+<tr valign="top">
+<td>At Receipt or Predefined</td>
+<td>Allowed, serial moved to destination.</td>
+<td>Allowed, set serial to defined but not used in destination organization.</td>
+<td>Allowed, serial set at issued from stores in source organization.</td>
+</tr>
+<tr valign="top">
+<td>At Sales Order Issue</td>
+<td>Not allowed.</td>
+<td>Allowed, serial moved to destination organization but set to defined but not used.</td>
+<td>Allowed, serial set at issued from stores in source organization.</td>
+</tr>
+<tr valign="top">
+<td>None</td>
+<td>Not allowed.</td>
+<td>Allowed, not serial created or moved.</td>
+<td>Allowed, no serial created or moved.</td>
+</tr>
+</table>
+<h3><a id="T428036"></a> <b>In transit Internal Requisition</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Source Org / Destination Org</b></th>
+<th scope="col"><b>At Receipt or Predefined</b></th>
+<th scope="col"><b>At Sales Order Issue</b></th>
+<th scope="col"><b>None</b></th>
+</tr>
+<tr valign="top">
+<td>At Receipt or Predefined</td>
+<td>Allowed, user prompted for serial at receipt from LOV or shipped serials, serial received to destination location.</td>
+<td>Allowed, user prompted for serial at receipt from LOV of shipped serials, serial received to destination organization, but set to defined but not used.</td>
+<td>Allowed, serial set at issued from stores in source organization, user not prompted for serial at receipt.</td>
+</tr>
+<tr valign="top">
+<td>At Sales Order Issue</td>
+<td>Allowed, user prompted for serial at receipt from LOV of shipped serials, serial received to destination location.</td>
+<td>Allowed, user prompted for serial at receipt from LOV of shipped serials, serial received to destination organization, but set to defined but not used.</td>
+<td>Allowed, serial set at issued from stores in source organization, user not prompted for serial at receipt.</td>
+</tr>
+<tr valign="top">
+<td>None</td>
+<td>Allowed, serials generated at receipt.</td>
+<td>Allowed, no serial issued or received.</td>
+<td>Allowed, no serial issued or received.</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292013.htm#c_iorgtrxn">Inter-organization Transfers</a></p>
+<p>Customizing the Presentation of Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="2174204"></a><a id="T298892"></a><b>Setting Up Serial Number Control</b></h2>
+<p><a name="d0e71467" id="d0e71467"></a><a name="d0e71474" id="d0e71474"></a><a name="d0e71481" id="d0e71481"></a><a name="d0e71486" id="d0e71486"></a><a name="I_t_sersetup" id="I_t_sersetup"></a>Before you can use serial number control, you must set the item attributes and organization parameters:</p>
+<p><b>To set up serial number control</b></p>
+<ol>
+<li>
+<p>You define serial number control and other item attributes for an inventory item on the Item Master window. You can choose from No control, Predefined, At inventory receipt, or At sales order issue. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>.</p>
+<p><strong><span>Important:</span></strong> If you select Predefined as the serial number control type for an item, use the Generate Serial Numbers window to define serial numbers for the item. If you specified entry at inventory receipt or at sales order issue, then you can optionally predefine serial numbers for the item. Oracle Inventory uses the starting serial number prefix and the starting serial number that you specify in the Item Master to create predefined serial numbers. You can create as many serial numbers as you want for any item under serial number control.</p>
+</li>
+<li>
+<p>Define the serial control parameters for the organization on the Revision, Lot, Serial And LPN tab on the Organization Parameters window. For more information, see <a href="T291651T291796.htm#t_rpara">Defining Revision, Lot, Serial, and LPN Parameters</a>.</p>
+<p>Material classification code tagged items and serial controlled items with the At Receipt and Pre-defined options are mutually exclusive.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#t_rpara">Defining Revision, Lot, Serial, and LPN Parameters</a></p>
+<p><a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a></p>
+<p><a href="T291651T427994.htm#I_c_sercntrl">Serial Number Control</a></p>
+<p><a href="T291651T427994.htm#I_t_enterser">Assigning Serial Numbers</a></p>
+<p><a href="T291651T427994.htm#I_t_gensernum">Generating Serial Numbers</a></p>
+<p><a href="T291651T427994.htm#I_t_mntsernum">Maintaining Serial Number Information</a></p>
+<h2><a name="2189080"></a><a id="T298893"></a><b>Generating Serial Numbers</b></h2>
+<p><a name="d0e71548" id="d0e71548"></a><a name="srs.inctsn_srs" id="srs.inctsn_srs"></a><a name="I_t_gensernum" id="I_t_gensernum"></a>If you specified predefined as the serial number control type for an item, you must predefine serial numbers for the item. If you specified entry at inventory receipt or at sales order issue, you can optionally predefine serial numbers for the item. If you are generating serial numbers for serial tagged items, the newly-created serial numbers will be in the status <i>Defined but not used</i>.</p>
+<p>The process of generating serial numbers does not assign serial numbers to units in inventory, but reserves specific serial numbers for an item, for later use. When you run the serial generation program, if you have the same serial prefix number across organizations, the concurrent program searches across the organizations, and generates serial numbers using the highest start number across the organizations.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Establish serial control for an item. See <a href="T291651T298833.htm#I_t_ditems">Defining Items</a> and <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a> for information on creating items and establishing serial number control.</li>
+</ul>
+<p><b>To generate serial numbers</b></p>
+<ol>
+<li>
+<p>Navigate to the Generate Serial Numbers window or All Reports window.</p>
+<p><img width="1010" height="619" src="./img/invug_generate_serial.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter <i>Serial Generation</i> in the Name field. The Parameters window opens.</p>
+</li>
+<li>
+<p>Enter an item that is under serial number control.</p>
+</li>
+<li>
+<p>Enter a quantity of serial numbers to define and reserve for the item. The quantity must be a positive integer.</p>
+</li>
+<li>
+<p>Click Submit to launch the process.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#t_rpara">Defining Revision, Lot, Serial, and LPN Parameters</a></p>
+<p><a href="T291651T427994.htm#I_c_sercntrl">Serial Number Control</a></p>
+<p><a href="T291651T427994.htm#I_c_serassign">Serial Number Assignment</a></p>
+<h2><a name="2189261"></a><a id="T298857"></a><b>Serial Number Assignment</b></h2>
+<p><a name="d0e71623" id="d0e71623"></a><a name="I_c_serassign" id="I_c_serassign"></a>You must assign serial numbers whenever you receive items under serial number control into inventory. If an item is under Predefined control, you can choose from the list of predefined serial numbers for that item. If an item is under dynamic entry, then at inventory receipt, you can choose from a predefined list of serial numbers or enter any serial number, depending on the uniqueness control for your organization. You can create and assign serial numbers individually or as a range to speed up data entry. If your item is under dynamic entry At sales order issue, you can assign serial numbers only when you perform a shipment transaction in Oracle Shipping Execution.</p>
+<p>Once you assign a serial number to an item, the combination of the serial number and the item is an entity known as a serialized unit. From that point on, Oracle Inventory tracks all movements and maintains the following information for each serialized unit:</p>
+<ul>
+<li>
+<p>Receipt or Ship Date: The date on which you last performed a material transaction for your serialized unit. Material transactions update this information when you move your serialized unit.</p>
+</li>
+<li>
+<p>Serial State: Oracle Inventory assigns one of the following states to your serialized unit:</p>
+<ul>
+<li>
+<p>Defined but not used</p>
+</li>
+<li>
+<p>Resides in inventory</p>
+</li>
+<li>
+<p>Issued out of inventory</p>
+</li>
+<li>
+<p>Resides intransit</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Location: The organization, subinventory, and locator in which the serialized unit currently resides. Material transactions update this information when you transfer the serialized unit.</p>
+</li>
+<li>
+<p>Revision Level: The revision of the item when you assign the serial number to the unit.</p>
+</li>
+<li>
+<p>Lot Number: During material transactions, you first specify the lot number and then the serial number. Oracle Inventory tracks the lot from which a specific serialized unit originates.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T427994.htm#I_c_sercntrl">Serial Number Control</a></p>
+<p><a href="T291651T427994.htm#I_t_gensernum">Generating Serial Numbers</a></p>
+<p><a href="T291651T427994.htm#I_t_enterser">Assigning Serial Numbers</a></p>
+<p><a href="T291651T292013.htm#I_c_trnx78ov">Overview of Inventory Transactions</a></p>
+<h2><a name="5997847"></a><a id="T573426"></a><b>Overview of Serial Tagging Assignments</b></h2>
+<p><a name="d0e71686" id="d0e71686"></a><a name="sertagov" id="sertagov"></a>Serial tagging enables you to assign and track serial numbers when issuing and receiving material at the organization level. Serial tagging provides additional control and productivity by enabling serial tracking at material issue for the following transaction types:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Type</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Issue</td>
+<td>WIP (work in process) Issue</td>
+</tr>
+<tr valign="top">
+<td>Return to vendor</td>
+<td>Return to vendor from stores.</td>
+</tr>
+<tr valign="top">
+<td>Sales Order Pick</td>
+<td>Staging transfer on a sales order.</td>
+</tr>
+<tr valign="top">
+<td>Internal Order Pick</td>
+<td>Staging transfer on an internal order.</td>
+</tr>
+<tr valign="top">
+<td>Field service usage</td>
+<td>Field service usage.</td>
+</tr>
+</table>
+<p>Serial numbers for serial tagged transactions can be entered for the following transactions in forms and mobile user interfaces (UI):</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Type</b></th>
+<th scope="col"><b>Serial Tagging in Forms and Mobile UIs</b></th>
+<th scope="col"><b>Serial Tagging for APIs/Open Interface</b></th>
+</tr>
+<tr valign="top">
+<td>Internal requisition receipt</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>RMA Receipt</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Sales order /internal sales order picking</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> Serial tagging will be supported for seeded (system-provided) transaction types only.</p>
+<p>Serial tagging is a complementary component of serial control, and depending on your business needs, enables you to define serial control for some items and serial tagging for others.</p>
+<p>Serial tagging is used in industries (such as semiconductor industries) that need to assign and track the serial numbers when the components are issued (for example, to the WIP job), rather than tracking on-hand material.</p>
+<p>For example, for an item that is serial tagged for WIP Issue, the system will prompt the operator during a WIP Issue transaction to enter a serial number which is then recorded in the serial history.</p>
+<p>Serial tagging assignments can be accessed from the following windows:</p>
+<ul>
+<li>
+<p>Master Item</p>
+</li>
+<li>
+<p>Organization Item</p>
+</li>
+<li>
+<p>Item Template</p>
+</li>
+</ul>
+<p><b>Restrictions</b></p>
+<ul>
+<li>
+<p>If any of the following applications is enabled for an organization (in the Organization Parameters window), then serial tagging is NOT applicable for all transactions in that organization: Oracle Shop Floor Management (OSFM) and Oracle Enterprise Asset Management (Oracle eAM).</p>
+</li>
+</ul>
+<h3><a id="T573427"></a><b>Returning Material to Inventory</b></h3>
+<p>When material from inventory is issued in a serial-tagged transaction, the serial numbers are recorded in the serial history. When the material is returned to inventory with reference to the original issue transactions, then the system requires that you return the same serial numbers that were issued.</p>
+<h3><a id="T575705"></a><b>Serial Tagged Items and Serial States</b></h3>
+<p>When items are serial tagged, their serial states will alternate between <i>Defined but not Used</i> and <i>Issued Out of Stores</i>. When an issue transaction occurs for a serial tagged item, its status changes to <i>Issued Out of Stores</i>, whereas the corresponding return/receipt transactions changes the status back to <i>Defined but not Used</i>. Therefore, while the serial remains in inventory, the status of the serial stays as <i>Defined but not Used</i>.</p>
+<p>The following diagram demonstrates how the serial state changes from <i>Defined but Not Used</i> to <i>Issued Out of Stores</i> when an issue or return/receipt transaction is performed.</p>
+<p><img width="422" height="227" src="./img/invug_sertagagnvsd.gif" alt="the picture is described in the document text"></p>
+<p>The following diagram shows the changes in serial status for serial numbers generated <i>prior</i> to component issue and those generated <i>during</i> component issue. For each activity listed beneath the Activity column, you can identify its corresponding serial status (and flow) by the small circle listed under the Serial Status row; for example, for the activity of <i>Generate Serial</i> the corresponding status is <i>Defined but not Used</i> (the corresponding flow is indicated by the directional arrow):</p>
+<p><img width="674" height="349" src="./img/invug_serstatus.gif" alt="the picture is described in the document text"></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T427994.htm#sertagsetup">Setting Up Serial Tagging Assignments</a></p>
+<h2><a name="5997272"></a><a id="T573392"></a><b>Setting Up Serial Tagging Assignments</b></h2>
+<p><a name="d0e71909" id="d0e71909"></a><a name="d0e71914" id="d0e71914"></a><a name="INVIDITM_O_SERIALTAG_WIN" id="INVIDITM_O_SERIALTAG_WIN"></a><a name="INVIDITM_M_SERIALTAG_WIN" id="INVIDITM_M_SERIALTAG_WIN"></a><a name="sertagsetup" id="sertagsetup"></a><a name="INVIDSNT_SERIALTAG_WIN" id="INVIDSNT_SERIALTAG_WIN"></a>Serial tagging assignments provide better control and improve productivity by enabling serial tracking only at material issues for the following transaction types: WIP issue, return to vendor, and field service usage. You can assign serial tagging for an item (typically when you create or update an item) in the Serial Tagging Assignments window. Serial tagging assignments can be defined at the following levels:</p>
+<ul>
+<li>
+<p>Master item</p>
+</li>
+<li>
+<p>Organization item</p>
+</li>
+<li>
+<p>Item template</p>
+</li>
+</ul>
+<p>After an item is serial tagged, whenever an eligible transaction for that item occurs such as a return to vendor issue, the system prompts the operator to enter the serial number for the item.</p>
+<p><strong><span>Note:</span></strong> After an item is set up for serial tagging transactions, the <i>Serial tagging at Issue</i> check box (a display-only field) appears as selected on the Inventory tab of the Master Item window.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>When enabling serial tagging assignments at either the Master Item or Organization Item levels, either <i>No Control</i> or <i>At Sales Order Issue</i> must be selected in the Generation field (Serial region) on the Inventory tab (select the Inventory tab on the Master Item window or the Organization Item window).</li>
+</ul>
+<p><b>To set up serial tagging assignments</b></p>
+<ol>
+<li>
+<p>Navigate to the Serial Tagging Assignments window.</p>
+<p><img width="395" height="342" src="./img/invug_sertagasign.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the transaction type to identify when serial number tagging occurs for the selected item:</p>
+<ul>
+<li>
+<p>WIP Issue</p>
+<p>When WIP issue is serial tagged for an item, during WIP issue, the system will prompt you to enter serial numbers and the same numbers will be recorded in the serial history. If returning the material back to inventory (with reference to the original issue transactions), the original serial numbers need to be returned as well.</p>
+</li>
+<li>
+<p>Return to Vendor</p>
+<p>Enables you to tag serial numbers only at the time of returning the goods to supplier and not at receipt.</p>
+</li>
+<li>
+<p>Sales Order Pick: Enables serial tagging for a staging transfer on a sales order.</p>
+</li>
+<li>
+<p>Internal Order Pick: Enables serial tagging for a staging transfer on an internal order.</p>
+</li>
+<li>
+<p>Field Service Usage</p>
+<p>Enables you to set the serial tagging at field service issue for the items with serial control.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click Save to save the serial tagging assignment(s).</p>
+<ul>
+<li>
+<p>Serial tagging will be supported for seeded (system) transaction types only.</p>
+</li>
+<li>
+<p>Oracle Project Manufacturing, Unit Number control is not supported.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To copy serial tagging assignments</b></p>
+<p>Use the following procedures to copy items and their serial tagging assignments:</p>
+<ul>
+<li>
+<p>Copying item templates using the Copy From window.</p>
+</li>
+<li>
+<p>Copying items /attributes using the Item Attribute Copy window.</p>
+</li>
+</ul>
+<p>The serial tagging feature is applicable only to the non-EAM (Oracle Enterprise Asset Management) organizations. For release 12.2.5 and later, the serial tagging feature is applicable to the WMS-enabled, OPM-enabled, and PJM-enabled organizations.</p>
+<h2><a name="8196789"></a><a id="T656871"></a><b>Serial Tagging API</b></h2>
+<p><a name="d0e72023" id="d0e72023"></a>To support serial tagging, Oracle Inventory provides the following packages that contain public application program interfaces (APIs):</p>
+<p><strong><span>Note:</span></strong> For more information about APIs and specific parameters, see the Oracle Integration Repository. Public APIs and related details are maintained in the Oracle Integration Repository and are available from the Oracle E-Business Suite instance. The Oracle Integration Repository is an integral part of Oracle E-Business Suite, and provides a catalog of Oracle E-Business suite's business service interfaces.</p>
+<h3><a id="T656872"></a><b>Package: INV_SERIAL_NUMBER_PUB APIs (INVPSNB.pls)</b></h3>
+<p>This package includes the following APIs for serial tagging:</p>
+<ul>
+<li>
+<p>is_serial_controlled(&hellip;): Determines whether the transaction requires serial numbers to be entered or processed. If the system has already retrieved the serial number control code, then it is passed as p_serial_control. If not retrieved, the API queries mtl_system_items_b to retrieve it. If the transaction requires serial tagging, then the API returns the value of 2 for x_return_status. Otherwise, it returns the value of 1.</p>
+</li>
+<li>
+<p>is_serial_tagged(&hellip;): Receives input parameters as inventory_item_id and organization_id. If serial tagging assignments already exist for the item, then the value of 2 is returned, otherwise the value of 1 is returned.</p>
+</li>
+<li>
+<p>copy_serial_tag_assignments (&hellip;): This API copies serial tagging assignments from the source item-organization combination or template to the destination item- organization combination or template.</p>
+</li>
+</ul>
+<h3><a id="T656873"></a><b>Package: INV_MO_LINE_DETAIL_UTIL APIs (INVUTLDB.pls)</b></h3>
+<p>This package includes the ARE_ALLOCATION_COMPLETE (&hellip;) API. If you press the Transact button and serials have not been allocated to a serial tagged item, then this API raises an error message and does not submit the transaction to the transaction manager.</p>
+<h3><a id="T656874"></a><b>Package: INV_TRANSFER_ORDER_PVT (INVVTROB.pls)</b></h3>
+<p>This package includes the FINALIZE_PICK_CONFIRM (&hellip;) API that ensures a serial number is assigned when an item is serial tagged.</p>
+<h3><a id="T656875"></a><b>Package: INV_CACHE APIs (INVCACHB.pls)</b></h3>
+<p>This package includes the RMA: GET_SERIAL_TAGGED (&hellip;) API to check serial tagging for RMAs.</p>
+<h2><a name="1755767"></a><a id="T292076"></a><b>Assigning Serial Numbers</b></h2>
+<p><a name="d0e72101" id="d0e72101"></a><a name="d0e72108" id="d0e72108"></a><a name="INVTTESR.serial_entry" id="INVTTESR.serial_entry"></a><a name="INVTVTMP.serial_entry" id="INVTVTMP.serial_entry"></a><a name="MISC_TRX_SERIAL_ENTRY" id="MISC_TRX_SERIAL_ENTRY"></a><a name="INVTOTRX_SERIAL_ENTRY" id="INVTOTRX_SERIAL_ENTRY"></a><a name="I_t_enterser" id="I_t_enterser"></a>Under serial number control, you must specify a serial number to each item that you issue or receive. In the Serial Number Entry window, you choose serial numbers for the item quantity to issue or receive. You can view this window only when you establish serial number control for the item that you issue or receive.</p>
+<p><b>To assign serial numbers to the item quantity to issue or receive</b></p>
+<ol>
+<li>
+<p>Click the Lot/Serial button from a transaction window. The Serial Number Entry window appears displaying the item and transaction information.</p>
+<p><strong><span>Note:</span></strong> If the lot is under lot and serial control, you must enter the lot information before you can assign serial numbers.</p>
+<p><img width="681" height="512" src="./img/invug_serentry.gif" alt="the picture is described in the document text"></p>
+<p>The Serial Entry window displays the item, revision, lot, subinventory, locator, UOM, quantity, and quantity entered. The Quantity field displays the total transaction quantity, and the Quantity Entered field displays the item quantity you have assigned to serial numbers.</p>
+</li>
+<li>
+<p>Indicate whether to enter a range of serial numbers, or individual serial numbers for each item or lot quantity.</p>
+<p>If you select a range of serial numbers, the system assigns each item in the line item or lot quantity to a serial number within the range.</p>
+<p><strong><span>Note:</span></strong> You can enter a range of serial numbers only if the serial number ends in a number. If the serial number ends in a character, you must enter each serial number individually.</p>
+</li>
+<li>
+<p>Enter a serial number for an individual item, or a beginning serial number for the range.</p>
+</li>
+<li>
+<p>If you are using a serial number range, enter an ending serial number for the range. The default is the last serial number that was calculated from the starting serial number and transaction quantity.</p>
+<p><strong><span>Note:</span></strong> The system automatically calculates the maximum valid contiguous serial number for the range. If a serial number within the range is already assigned to an item, then the system stops the range before that item, and you must enter a new beginning and ending range for the remaining quantity.</p>
+</li>
+<li>
+<p>If you selected Individual for the serial number entry mode, enter the desired serial numbers.</p>
+</li>
+<li>
+<p>Click Done to return to the Transaction Lines window.</p>
+</li>
+</ol>
+<h2><a name="2095733"></a><a id="T298894"></a><b>Maintaining Serial Number Information</b></h2>
+<p><a name="d0e72170" id="d0e72170"></a><a name="I_t_mntsernum" id="I_t_mntsernum"></a><a name="INVITSNU.serial_find" id="INVITSNU.serial_find"></a><a name="INVITSNU.mtl_serial_numbers" id="INVITSNU.mtl_serial_numbers"></a>You can view location, job, and serial state information, as well as update supplier information that is associated with your serialized units. You can also query by serial numbers to find serial tagged items.</p>
+<p><b>To display serial number information</b></p>
+<ol>
+<li>
+<p>Navigate to the Serial Numbers window. The Find Serials window appears.</p>
+</li>
+<li>
+<p>Enter your search criteria. If no search criteria is entered, then the system queries for all serial numbers.</p>
+<p><strong><span>Important:</span></strong> To view serial numbers across organizations, deselect the Organization column.</p>
+</li>
+<li>
+<p>Click Find to display the serial number and item information in the Serial Numbers window.</p>
+<p><img width="690" height="504" src="./img/invug_maintainserial.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To view location and job information</b></p>
+<ol>
+<li>
+<p>Click the Subinventory / Job tab.</p>
+<p>This region contains the serial number, item number, current organization, revision, subinventory, locator, job, current operation, current step, and lot. You cannot edit these fields.</p>
+<p><strong><span>Important:</span></strong> The Job field displays only open jobs that are currently in the process of building the serial unit.</p>
+</li>
+</ol>
+<p><b>To view the serial information</b></p>
+<ol>
+<li>
+<p>Click the Serial Info tab.</p>
+<p>This region contains the serial state, status, receipt date, ship state, and associated attributes.</p>
+<p>The inventory state of the serialized unit can be: defined but not used, resides in stores, issued out of stores, or resides in intransit.</p>
+</li>
+<li>
+<p>Modify the status if needed. The available choices are:</p>
+<ul>
+<li>
+<p>Active</p>
+</li>
+<li>
+<p>QC Hold</p>
+</li>
+<li>
+<p>Quarantine</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To update supplier information</b></p>
+<ol>
+<li>
+<p>Click the Supplier tab.</p>
+</li>
+<li>
+<p>Enter the supplier name, lot number, and serial number information.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To view the unit number of a serialized item</b></p>
+<ol>
+<li>
+<p>If Oracle Project Manufacturing is installed, and you enabled end item model/unit effectivity, then you can click the Unit Number tab to view the unit number of a serialized item. See Model/Unit Effectivity, <i>Oracle Project Manufacturing Implementation Manual</i>.</p>
+</li>
+</ol>
+<p><b>To view the serial genealogy of a serialized item</b></p>
+<ol>
+<li>
+<p>Click View Genealogy. See <a href="T291651T427994.htm#I_vwsergen">Viewing Serial Genealogy</a>.</p>
+</li>
+</ol>
+<p><b>To view material transactions for a serialized unit</b></p>
+<ol>
+<li>
+<p>Select a serialized item.</p>
+</li>
+<li>
+<p>Click Transactions. See <a href="T291651T292013.htm#I_t_vwtrx78ns">Viewing Material Transactions</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T427994.htm#I_c_sercntrl">Serial Number Control</a></p>
+<p><a href="T291651T427994.htm#I_t_enterser">Assigning Serial Numbers</a></p>
+<p><a href="T291651T292013.htm#I_t_vwtx78nsum">Viewing Transaction Summaries</a></p>
+<p>Overview of Creating Discrete Jobs, <i>Oracle Work in Process User's Guide</i></p>
+<h2><a name="1755903"></a><a id="T292101"></a><b>Viewing Serial Genealogy</b></h2>
+<p><a name="d0e72313" id="d0e72313"></a><a name="INVITSNU.GENEALOGY_WINDOW" id="INVITSNU.GENEALOGY_WINDOW"></a><a name="INVOBGEN.GENEALOGY_WINDOW" id="INVOBGEN.GENEALOGY_WINDOW"></a><a name="I_vwsergen" id="I_vwsergen"></a>Serial genealogy tracks the transaction and multilevel composition history of any serial-controlled item from receipt to customer sale. The composition genealogy is captured through material transactions in Oracle Work in Process and Oracle Process Manufacturing.</p>
+<p>The serial genealogy appears in a graphical display, and you can trace an assembly down through all of its components or from the component to an assembly. This genealogy tracing enables you to expedite problem isolation and improve customer response times. Serial genealogy also helps you to track and regulate supplier performance and quality.</p>
+<p>You can view the transaction history of the serial across all organizations and view the current organization where the serial resides.</p>
+<p>When issuing serialized components to serial controlled assemblies, you must associate the component serial number with the assembly serial number. See Issuing and Returning Specific Components, <i>Oracle Work in Process User's Guide</i>.</p>
+<p><strong><span>Note:</span></strong> If the component has a supply type of Push, the association occurs at WIP Issue. If the component has a supply type of Operation Pull, the association occurs at WIP Move. If the component has a supply type of Assembly Pull, the association occurs at WIP Completion.</p>
+<p>If the item is under lot control, then you can also view the lot genealogy for the same item. When you view the genealogy of the item, the system lists the item number, followed by the lot number, and finally the serial number.</p>
+<p>For the process manufacturing production batches, serial genealogy enables you to view particular ingredient serial numbers consumed for specific products based on the manual mapping of ingredient serial numbers with products. For more information, see Linking Ingredient and Product Lots or Serial Numbers, <i>Oracle Process Manufacturing Process Execution User's Guide</i>.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define Serial Generation attribute</li>
+<p>You must set the Serial Generation attribute in the Item Master window to at receipt or predefined for the component items.</p>
+<p>For assembly items, you must set the Serial Generation attribute in the Item Master window to <i>Predefined.</i> Before you issue material to WIP, you must generate the serial numbers. See <a href="T291651T427994.htm#I_t_gensernum">Generating Serial Numbers</a>.</p>
+<p>This rule includes any subassemblies for which you want to track the genealogy. See <a href="T291651T298833.htm#I_t_updattr">Updating Organization Level Items</a> and <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>.</p>
+</ul>
+<p><b>To view the serial genealogy of a serialized item</b></p>
+<ol>
+<li>
+<p>Navigate to the Serial Numbers window. The Find Serial Numbers window appears.</p>
+</li>
+<li>
+<p>Enter search criteria to locate the item or items for which you want to view the serial genealogy.</p>
+</li>
+<li>
+<p>Click Find to display the serial number and item information in the Serial Numbers window.</p>
+</li>
+<li>
+<p>Select the item serial number for which you want to view the serial genealogy.</p>
+</li>
+<li>
+<p>Click View Genealogy. The Object Genealogy window appears. The source tab appears.</p>
+</li>
+<li>
+<p>Click Genealogy to display the genealogy.</p>
+<p>The Genealogy window appears. The genealogy appears in a graphical display, allowing you to trace the serial history. The left pane is in a tree format containing two tabs for different views:</p>
+<ul>
+<li>
+<p>Source displays the source of the record that you are viewing. It is designated by assembly name, appended by the job name, at the top node of the tree. For example, you may be producing a specific job from components of a particular serial. Material used in this assembly-job combination is expanded under the top node.</p>
+</li>
+<li>
+<p>Where Used displays the assembly where this material is used. It is designated by assembly name, appended by the job name, at the top node of the tree. The assembly and job combinations using this top record are expanded below it.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If the item is lot and serial controlled, then the system displays the lot and the associated serial number in the tree. The Item Details alternative region contains information about the item, such as the item number and organization where the item resides. The Serial Details alternative region contains information about the particular serial number such as the serial state, serial material status, current lot if the serial is under lot control, and WIP job information if the serial is part of a WIP job.</p>
+<p><img width="843" height="566" src="./img/invug_serial_detail.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Lot Attributes tab if the serial is under lot control. The Item Details alternative region displays details about the item, and the Lot alternative region displays information about the lot. It provides you with the lot number, and other associated lot information such as the lot grade and lot material status. The Origination alternative region provides you with information about where the lot was created, and the type of transaction you used to receive it in to inventory. It also provides you with the document type used to receive it in to inventory.</p>
+<p><img width="843" height="567" src="./img/invug_serialgen_lot.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Work Order details tab if the serial is associated with a WIP job. If the serial is not associated with a WIP job, then you cannot click the tab. The Work Order details alternative region displays information about the job, such as the job status and when it was released and completed. It also contains the job quantity, the scrapped quantity, and the remaining quantity to complete. The Product Details alternative region contains information about the product, such as the product name, description, and quantity planned for the job.</p>
+</li>
+<li>
+<p>Click the Material Transactions tab to view the material transactions that are associated with the serial. The Item Details alternative region displays information about the item. The Transaction Details alternative region displays item transactional information, such as the transaction date, subinventory, and transaction type.</p>
+<p><img width="843" height="566" src="./img/invug_serialgen_mattran.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Pending Transactions tab to view pending transactions for the serial. Pending transactions are actions that you performed on the serial, but are not completed by the transaction manager. The Item Details alternative region displays information about the item. The Transaction Details alternative region displays item transactional information, such as the transaction date, subinventory, and transaction type.</p>
+<p><img width="843" height="566" src="./img/invug_serialgen_pending.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Components tab to see the components used in the item production with their associated quantities. You can click this tab only if you view by Source. You can also restrict the Components tab to honor formula security. You can restrict formula security by user or responsibility. Three levels of security are available: Update, View-Only, and Hidden. When a user tries to access the genealogy of serial to which he or she does not have formula access, the system displays a warning message.</p>
+<p>The Item Details alternative region displays information about the item, such as the item number and organization where the item resides. The Component Details alternative region contains detailed component information, such as the associated job or batch if applicable, and the component item number and description.</p>
+<p><img width="842" height="566" src="./img/invug_serialgen_component.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Products tab to view the products manufactured with this serial as an ingredient. You can click this tab only if you view by Where Used. The Item Details alternative region contains information about the item, such as the item description and the current organization where it resides. The Product Details alternative region displays details about the product manufactured with this serial as an ingredient, such as the product name and description.</p>
+<p><img width="843" height="565" src="./img/invug_serialgen_product.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Quality Sample tab to view process manufacturing quality information. You enable process quality on the Item Master. The Item Details alternative region displays information about the item, such as the item number and the current organization where the item resides. The Quality Data alternative region displays information, such as the sample number, sample source, and quality results</p>
+</li>
+<li>
+<p>If you have Oracle Quality installed, you can define serial number as a collection element. If the serial is not associated with the quality data, you cannot see it in the Quality Collections tab. The Item Details alternative region displays information about the item, such as the item number and the organization where the item currently resides. The Quality Data alternative region displays information about the quality collection plan.</p>
+<p><img width="843" height="564" src="./img/invug_serialgen_collection.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>If you have Oracle Shop Floor Management installed, you can see the Lot Based Job Transactions tab. The Lot Based Job Transactions tab displays the Oracle Shop Floor Management transactions, such as splitting, merging, bonus lots, and updating assemblies. It displays the previous values for WIP Lot Name, Start Quantity, and Assembly Number, and the resulting values after the transaction.</p>
+<p><img width="841" height="568" src="./img/invug_serialgen_lotbasedjob.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T427994.htm#I_t_mntsernum">Maintaining Serial Number Information</a>.</p>
+<h2><a name="2188838"></a><a id="T298858"></a><b>Serial Number Control Reports</b></h2>
+<p><a name="d0e72493" id="d0e72493"></a><a name="d0e72498" id="d0e72498"></a><a name="I_r_serrpts" id="I_r_serrpts"></a>Oracle Inventory provides the following inquiries and reports for tracking serial numbers.</p>
+<h3><a id="T578677"></a><b>Serial Number Transactions Register</b></h3>
+<p>You can use the Serial Number Transactions Register to report comprehensive details about material transactions for serial numbers within a specific date range. You can run the report for a range of serial numbers, items, transaction types, transaction reasons, and subinventories. You can also specify a specific category set and display transaction quantities in the primary or transacted unit of measure. See <a href="T291651T295121.htm#I_rx2Dinvtrsnt">Serial Number Transaction Register</a>.</p>
+<h3><a id="T578678"></a><b>Serial Number Detail Reports</b></h3>
+<p>You can use the Serial Number Detail Reports to report on information about current serialized units in your organization for a specific source type, serialized unit state, or both. Oracle Inventory lets you run the report for a range of serial numbers, items, suppliers, and supplier serial numbers. See <a href="T291651T295121.htm#I_rx2Dinvirsno">Serial Number Detail</a>.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

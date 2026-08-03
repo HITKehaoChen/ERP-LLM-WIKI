@@ -1,0 +1,165 @@
+"""Knowledge layer: loads wiki + raw chapter indexes and answers local queries."""
+
+from __future__ import annotations
+
+import json
+import re
+from datetime import date
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+WIKI = ROOT / "wiki"
+SOURCES = ROOT / "sources"
+INBOX = SOURCES / "inbox"
+WIKI_INDEX = WIKI / "search-index.json"
+RAW_INDEX = SOURCES / "catalog" / "raw_index.json"
+
+STOP = {
+    "the", "a", "an", "of", "in", "on", "to", "for", "and", "or", "is", "are",
+    "的", "了", "与", "和", "在", "是", "等", "及",
+}
+
+
+def tokens(text: str) -> list[str]:
+    return [t for t in re.findall(r"[\w\u4e00-\u9fff]+", text.lower()) if t not in STOP]
+
+
+def load_wiki_index() -> list[dict]:
+    if not WIKI_INDEX.exists():
+        return []
+    return json.loads(WIKI_INDEX.read_text(encoding="utf-8"))
+
+
+def load_raw_index() -> list[dict]:
+    if not RAW_INDEX.exists():
+        return []
+    return json.loads(RAW_INDEX.read_text(encoding="utf-8"))
+
+
+def _score(entry: dict, q_tokens: list[str]) -> tuple[float, str]:
+    title = entry.get("title", "")
+    body = entry.get("body", "")
+    score = 0.0
+    for t in q_tokens:
+        if t in title.lower():
+            score += 8
+        score += body.lower().count(t)
+    if score <= 0:
+        return 0.0, ""
+    low = body.lower()
+    first = min((low.find(t) for t in q_tokens if low.find(t) >= 0), default=-1)
+    snippet = body[max(0, first - 100) : first + 240].replace("\n", " ").strip()
+    return score, snippet
+
+
+def search(query: str, raw: bool = False, top: int = 8) -> list[dict]:
+    q = tokens(query)
+    if not q:
+        return []
+    results = []
+    for entry in load_wiki_index():
+        score, snippet = _score(entry, q)
+        if score > 0:
+            results.append(
+                {
+                    "score": round(score, 1),
+                    "path": entry.get("path"),
+                    "title": entry.get("title"),
+                    "type": entry.get("type", ""),
+                    "kind": "wiki",
+                    "snippet": snippet,
+                }
+            )
+    if raw:
+        for entry in load_raw_index():
+            score, snippet = _score(entry, q)
+            if score > 0:
+                results.append(
+                    {
+                        "score": round(score, 1),
+                        "path": entry.get("path"),
+                        "title": entry.get("title"),
+                        "type": "raw",
+                        "kind": "raw",
+                        "snippet": snippet,
+                    }
+                )
+    results.sort(key=lambda r: -r["score"])
+    return results[:top]
+
+
+def page_markdown(path: str) -> str | None:
+    """Return markdown for a repo-relative .md path (wiki or inbox or sources)."""
+    target = (ROOT / path).resolve()
+    if not str(target).startswith(str(ROOT.resolve())) or target.suffix != ".md":
+        return None
+    if not target.exists():
+        return None
+    return target.read_text(encoding="utf-8", errors="ignore")
+
+
+def ingest(title: str, content: str, source_url: str = "", dry_run: bool = False) -> dict:
+    if not title.strip() or not content.strip():
+        raise ValueError("标题与内容不能为空")
+    INBOX.mkdir(parents=True, exist_ok=True)
+    slug = re.sub(r"[^\w\u4e00-\u9fff]+", "-", title.strip()).strip("-").lower() or "untitled"
+    fname = f"{date.today().isoformat()}-{slug[:60]}.md"
+    path = INBOX / fname
+    fm = [
+        "---",
+        f"title: \"{title.strip()}\"",
+        "type: inbox",
+        "status: pending-ingest",
+        f"source_url: \"{source_url.strip()}\"",
+        f"created: {date.today().isoformat()}",
+        "---",
+        "",
+    ]
+    body = content.strip()
+    markdown = "\n".join(fm) + body + "\n"
+    log_line = (
+        f"## [{date.today().isoformat()}] ingest-inbox | {title.strip()}\n"
+        f"- 通过网页补充：`{path.relative_to(ROOT).as_posix()}`"
+        + (f"（来源：{source_url.strip()}）" if source_url.strip() else "")
+        + "\n"
+    )
+    if dry_run:
+        return {"path": path.relative_to(ROOT).as_posix(), "log_line": log_line, "dry_run": True}
+    path.write_text(markdown, encoding="utf-8")
+    log = WIKI / "log.md"
+    with log.open("a", encoding="utf-8") as fh:
+        fh.write("\n" + log_line)
+    return {"path": path.relative_to(ROOT).as_posix(), "log_line": log_line, "dry_run": False}
+
+
+def list_inbox() -> list[dict]:
+    if not INBOX.exists():
+        return []
+    items = []
+    for p in sorted(INBOX.glob("*.md")):
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        fm, _ = _split_fm(text)
+        items.append(
+            {
+                "path": p.relative_to(ROOT).as_posix(),
+                "title": fm.get("title", p.stem),
+                "status": fm.get("status", ""),
+                "source_url": fm.get("source_url", ""),
+                "created": fm.get("created", ""),
+            }
+        )
+    return items
+
+
+def _split_fm(md: str) -> tuple[dict, str]:
+    fm: dict[str, str] = {}
+    if not md.startswith("---"):
+        return fm, md
+    end = md.find("\n---", 3)
+    if end < 0:
+        return fm, md
+    for line in md[4:end].splitlines():
+        if ":" in line:
+            k, v = line.split(":", 1)
+            fm[k.strip()] = v.strip().strip('"').strip("[]")
+    return fm, md[end + 4 :]

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T377074.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T377247.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">14/36</span> <!-- End Header -->
+<h1>Items</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T377124">Item Usage in Order Management</a></li>
+<li><a href="#T377125">Related Items and Manual Substitution</a></li>
+</ul>
+<h2><a name="3004770"></a><a id="T377124"></a><b>Item Usage in Order Management</b></h2>
+<a name="d0e51951" id="d0e51951"></a><a name="t_items" id="t_items"></a>
+<h3><a id="T377137"></a><b>Advanced Item Search<a name="d0e51959" id="d0e51959"></a></b></h3>
+<h3><a id="T377138"></a><b>Overview</b></h3>
+<p>Advanced Item Search provides an additional, expanded item search capability within the Sales Order form and the Quick Sales Order window. You can search for items using criteria such as item description, category, catalog information, etc. This enables the user to select items by characteristics that vary frequently. For example a distributor of CDs, DVDs or Videos may take orders by Current Chart Position as well as Catalogue number, Artist, Title, etc. Once the search is complete and the item selected, that item is added to the sales order. Note that this search does not replace the current Item LOV, but adds the ability to search for items based upon item attributes.</p>
+<h3><a id="T377139"></a><b>Catch Weight Support<a name="d0e51980" id="d0e51980"></a></b></h3>
+<p>Catch weight support allows the user to specify a secondary quantity and secondary UOM at the time of shipping and to reprice and invoice the order based on that quantity. Catch weight support in Oracle Order Management has been available only for Inventory Organizations which are enabled for Process Manufacturing.</p>
+<p>Now any catch weight enabled item, which is shipped from a Warehouse Management System (WMS) inventory organization, can capture the secondary quantity and secondary UOM at time of shipping. This actual quantity is used to determine the extended price for the order line and this price is prorated to determine the selling price for the primary quantity.</p>
+<h3><a id="T377140"></a><b>Setup</b></h3>
+<p>To use catch weight, you must define the item as a catch weight item in Oracle Inventory. Otherwise, the secondary quantity and secondary UOM is not used for pricing. The Pricing UOM is an additional field on the Item Master used in pricing calculations for catch weight items. You can specify which unit of measure is used for pricing these items. Unit of measure conversions must be established if they do not already exist between the two units of measure for the catch weight item.</p>
+<p>The discrete inventory organizations needing catch weight functionality must be flagged as WMS enabled.</p>
+<h2><a name="3004775"></a><a id="T377125"></a><b>Related Items and Manual Substitution</b></h2>
+<a name="d0e52011" id="d0e52011"></a>
+<h3><a id="T377141"></a><b>Overview</b></h3>
+<p>Related Items and Manual Substitutions defines relationships between sales items which enable you to perform, in part, up-selling, manual substitution, and cross-selling of items. These item relationships are defined within Oracle Inventory. The Related Items window shows you the item relationships of the ordered item. This feature enables:</p>
+<h4><a id="T377142"></a><b>Cross-selling<a name="d0e52029" id="d0e52029"></a></b></h4>
+<p>Enables you to suggest additional items to a customer who is placing an order.</p>
+<h4><a id="T377143"></a><b>Manual Substitution</b></h4>
+<p>Substitution is the capability to suggest equivalent items.</p>
+<h4><a id="T377144"></a><b>Supercession<a name="d0e52058" id="d0e52058"></a></b></h4>
+<p>This occurs when a product is replaced (superseded) by another product.</p>
+<h4><a id="T377145"></a><b>Up-selling<a name="d0e52075" id="d0e52075"></a></b></h4>
+<p>Allows the user to suggest a better item to a customer who is placing an order.</p>
+<p>Usability features included in this release include:</p>
+<ul>
+<li>
+<p>The ability to optionally show Selling Price and Availability for Related Items.</p>
+</li>
+<li>
+<p>The ability to view the Original Ordered Item and the Relationship Type used on sales order line.</p>
+</li>
+<li>
+<p>Notification of the existence of related items by a color change on the ordered item and a message hint.</p>
+</li>
+<li>
+<p>The ability to have the Related Items window open automatically if desired.</p>
+</li>
+</ul>
+<h3><a id="T377146"></a><b>Setup</b></h3>
+<p>You must ensure that the appropriate item relationships are set up in Oracle Inventory to enable Manual Substitution functionality.</p>
+<h4><a id="T377147"></a><b>Profile Options</b></h4>
+<h4><a id="T377148"></a><b>OM: Enable Related Items and Manual Substitutions</b></h4>
+<p>This profile option enables the Related Items and Manual Substitution feature. Set to Yes, Related Items and Manual Substitution is enabled. The default value is set to No, which disables this feature.</p>
+<h4><a id="T377149"></a><b>OM: Automatically open Related Items Window</b></h4>
+<p>This profile option enables automatic opening of the Related Items Window from a quantity field on the Sales Order window and Quick Sales Order window. Set to Yes, the Related Items Window will automatically open. The default value is set to No, which disables this feature. This profile is viewable and updateable at all levels.</p>
+<h4><a id="T377150"></a><b>OM: View Pricing/Availability Information in Related Items</b></h4>
+<p>This profile option sets the detail of information displayed in the Related Items Window. Available option are Pricing Information Only, Availability Information Only, Both, None. The default value is set to None. If the Related Items Window causes a negative performance impact, this profile can turn off the display. This profile can also be used to determine if you have viewing authority for the Pricing and Availability Information on Related Items window. This profile is viewable and updateable at all levels.</p>
+<p><strong>Related Topics</strong></p>
+<p><i>Oracle Inventory Users Guide</i></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

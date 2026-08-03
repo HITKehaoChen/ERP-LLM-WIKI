@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T374215.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T374816.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">7/36</span> <!-- End Header -->
+<h1>Oracle Order Management Command Center Setup</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T2008315">Setting Up Order Management Command Center</a></li>
+<li><a href="#T2008316">Setup and Configuration Steps for Order Management Command Center</a></li>
+<li><a href="#T2008317">Profile Options for Order Management Command Center</a></li>
+<li><a href="#T2008318">Defining Rules for Assigning Customer Service Representatives to Orders</a></li>
+<li><a href="#T2008319">Using an API User Hook to Assign CSRs to Orders</a></li>
+<li><a href="#T2008320">Running the Assign Customer Service Rep Program</a></li>
+<li><a href="#T2008321">Configuring Descriptive Flexfields for Search</a></li>
+<li><a href="#T2008322">Loading Order Management Data</a></li>
+<li><a href="#T2009110">Loading Data for Credit Check Analyzer</a></li>
+<li><a href="#T2008323">Loading Data for 360 View</a></li>
+<li><a href="#T2008324">Loading Returns Data</a></li>
+<li><a href="#T2010453">Loading Quotes Data</a></li>
+</ul>
+<h3>Order Management Command Center Configuration</h3>
+<h2><a name="30067597"></a><a id="T2008315"></a><b>Setting Up Order Management Command Center</b></h2>
+<p><a name="d0e24973" id="d0e24973"></a><a name="d0e24982" id="d0e24982"></a><a name="ecc_omcc_setup" id="ecc_omcc_setup"></a>See Order Management Command Center Overview, <i>Oracle Order Management User's Guide</i>.</p>
+<p>The Order Management Command Center configuration setup must be completed after the installation and common configurations are completed as described in My Oracle Support Knowledge Document 2495053.1, <i>Installing Oracle Enterprise Command Center Framework, Release 12.2</i>.</p>
+<p><strong><span>Important:</span></strong> If you plan to use the 360 View Dashboard, <i>Oracle Order Management User's Guide</i> of the Order Management Command Center, then you must add the <i>Order Management ECC 360 View Role (UMX|ONT_ECC_360VIEW_ROLE)</i> to the designated command center responsibility, which is typically <b>Order Management, HTML User Interface</b>.</p>
+<p>See <a href="T373258T672049.htm#ecc_omcc_setconfig">Setup and Configuration Steps for Order Management Command Center</a>.</p>
+<h2><a name="30067598"></a><a id="T2008316"></a><b>Setup and Configuration Steps for Order Management Command Center</b></h2>
+<p><a name="d0e25040" id="d0e25040"></a><a name="ecc_omcc_setconfig" id="ecc_omcc_setconfig"></a>See Order Management Command Center Overview, <i>Oracle Order Management User's Guide</i>.</p>
+<p>To set up Order Management Command Center:</p>
+<ol>
+<li>
+<p><a href="T373258T672049.htm#omcc_profiles">Set profile options for Order Management Command Center</a>.</p>
+</li>
+<li>
+<p><a href="T373258T672049.htm#ecc_om_def_rules">Define rules for assigning customer service representatives to orders</a>.</p>
+</li>
+<li>
+<p><a href="T373258T672049.htm#eccomdffconfig">Configure descriptive flexfields for search</a>.</p>
+</li>
+<li>
+<p><a href="T373258T672049.htm#omcc_loadomdata">Load Order Management data</a>.</p>
+<p><b>Prerequisite Step</b>: You can sequentially load data for each operating unit using the Operating Unit parameter of the <i>OM Command Center Data Load</i>. Before you run the sequential load, ensure that the <i>FND: ECC Sequential Data Load Per Data Set Language</i> profile option does not contain the OM data sets ont-headers (Orders), ont-lines (Order Lines), or the keyword ALL. This is to avoid loading data sequentially by both operating unit and language, which is not recommended.</p>
+</li>
+<li>
+<p><a href="T373258T672049.htm#ontomcredchkanlyzerdl">Load data for Credit Check Analyzer</a>.</p>
+<p><b>Prerequisite Step</b>: To view credit check hold analysis data, the Credit Checking feature must be set up. For more information, see My Oracle Support Knowledge Document 744642.1, <i>Credit Checking Setup in Order Management</i>.</p>
+</li>
+<li>
+<p><a href="T373258T672049.htm#ont360viewlddatasets">Load data to view the supply status of sales orders on the 360 View dashboard</a>.</p>
+</li>
+<li>
+<p><a href="T373258T672049.htm#peccomreturnsdl">Load returns data</a>.</p>
+<p><b>Prerequisite Step</b>: You must set the mandatory profile option <i>OM: ECC Currency for Returns</i> before loading the returns data.</p>
+</li>
+<li>
+<p><a href="T373258T672049.htm#eccontquotesdl">Load quotes data</a>.</p>
+</li>
+<li>
+<p>To facilitate managing backorders by transferring demand on the Transfer Demand and Search Reservations pages of Oracle Inventory, ensure that users of Orders Dashboard can access the relevant inventory organizations. See Managing Backorders, <i>Oracle Order Management User's Guide</i> and Defining Organization Access, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+</ol>
+<h2><a name="30067599"></a><a id="T2008317"></a><b>Profile Options for Order Management Command Center</b></h2>
+<p><a name="d0e25204" id="d0e25204"></a><a name="omcc_profiles" id="omcc_profiles"></a>See Order Management Command Center Overview, <i>Oracle Order Management User's Guide</i> and <a href="T373258T672049.htm#ecc_omcc_setconfig">Setup and Configuration Steps for Order Management Command Center</a>.</p>
+<p>The profile category <b>ECC Profiles</b> available in Oracle Order Management stores the following profile options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Profile Option Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>OM: ECC Bulk Load Size</b></td>
+<td>This site-level profile determines the number of records that the following data load programs process in memory at one time.
+<ul>
+<li>
+<p>OM Command Center Data Load</p>
+</li>
+<li>
+<p>OM Command Center Quote Data Load</p>
+</li>
+<li>
+<p>OM Command Center Returns Data</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td><b>OM: ECC Display Currency</b></td>
+<td>This optional site-level profile option controls the conversion of the transaction amounts for all orders and quotes into the specified currency. The Orders Dashboard and Quotes Dashboard display this information as the Currency tip text. If you specify a currency in this optional profile option, then the application converts (if required) the transaction amount for all orders and quotes into the specified currency. If a currency is not specified in this profile option, then the application converts (if required) the transaction amounts for all orders and quotes into the functional currency of the legal entity.
+<p><strong><span>Note:</span></strong> You can specify a currency in this profile option if you have access to orders created in legal entities with different functional currencies. Once you select a currency, the application converts order amounts to the selected currency at the exchange rate available in Oracle General Ledger tables on the ordered date. If you have access to more than one operating unit, and each operating unit has its own functional currency, then you can set this profile option to the appropriate common currency according to your business requirements. If a currency is not specified in the profile option and there are multiple currencies available, then the tip text displays <b>Currency: Multiple</b>.</p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>OM: ECC Currency for Returns</b></td>
+<td>This mandatory site-level profile option controls the conversion of the transaction amounts for the <b>Return %</b> dimension (on the Returns dashboard) into the specified currency. To accurately calculate the Return %, you must set this profile option. Otherwise, the <i>OM Command Center Returns Data Load</i> program ends in error.</td>
+</tr>
+<tr valign="top">
+<td><b>OM: ECC Days for Full Data Load</b></td>
+<td>This site-level profile option specifies the age of closed outbound orders and returns selected by the Full Load. The application loads all the closed outbound and return lines more recently than the specified number of days. If you do not provide a value, the application uses 90 days.</td>
+</tr>
+<tr valign="top">
+<td><b>OM: ECC Show Return Orders in Orders Dashboard</b></td>
+<td>This site-level profile option determines the load of return lines by the <i>OM Command Center Data Load</i> program. If the profile value is set to Yes, then all return lines along with return-specific additional attributes are loaded. The default value is No. If the profile value is No, then only eligible outbound lines are loaded.</td>
+</tr>
+<tr valign="top">
+<td><b>OM: ECC Enable Push Updates</b><br>
+<b>OM: ECC Push Time Limit</b></td>
+<td>These profile options control the push of updated data from Oracle Order Management to the ECC data store to display real-time data on the Orders Dashboard. Push updates occur whenever customer service representatives (CSRs) initiate changes to orders from the dashboard.<br>
+For information about actions that CSRs can perform from the dashboard, see Orders Dashboard, <i>Oracle Order Management User's Guide</i>.<br>
+Define these profile options in the following sequence. You can set the profile options at site, application, responsibility, and user levels.
+<ol>
+<li>
+<p><b>OM: ECC Enable Push Updates</b>: This profile option determines whether to push updated data to the ECC data store by calling the ECC Push API when CSRs navigate from the Orders Dashboard to the Order Management HTML pages, and Sales Orders and Order Organizer windows.</p>
+<p>Set one of the following values:</p>
+<ul>
+<li>
+<p><b>Yes</b>: Select this value to synchronize Order Management updates to the ECC data store in real time.</p>
+</li>
+<li>
+<p><b>No</b>: Select this value if you do not want push updates to occur. No is the default value.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>OM: ECC Push Time Limit</b>: This profile option determines the wait time in seconds for the push update process to complete synchronously. This profile option is applicable only when you enable push updates.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> If push updates are pending completion or fail within the time specified in the <i>OM: ECC Push Time Limit</i> profile option, then these windows and pages display a warning message.</p>
+<br>
+For information about pages and windows from where push updates occur, see <a href="T373258T672049.htm#ompushupdtpos">Push Updates from Oracle Order Management to the ECC Data Store</a>.</td>
+</tr>
+<tr valign="top">
+<td><b>OM: ECC Months of Returns to Load</b></td>
+<td>This optional site-level profile option determines the age of return lines that the <i>OM Command Center Returns Data Load</i> program considers to load the returns data. If the profile value is not set, then the default value of 12 is considered.<br>
+For example, the profile value is set to 12 and you run the program on 25-November-2021. To load data, the program considers the closed return lines that are not canceled with the last update date (returned date) between 01-November-2020 and 31-October-2021 (current month minus 1).</td>
+</tr>
+<tr valign="top">
+<td><b>OM: ECC Months for Quote Load</b></td>
+<td>This optional site-level profile option defines the maximum age in months of both quotes and converted sales quotes (sales orders) that the <i>OM Command Center Quote Data Load</i> program's full load considers to load data. If this profile is not explicitly set, then the default value of 6 (months) is applied. The age of the quotes is determined using the "Quote Date" attribute. For example, if the full load is initiated on October 10th with a profile value of 6 months, then the program will include quotes and converted quotes from the last six months (April through September), along with the current month (till 10th October).<br>
+During full load, the following records are loaded based on the profile value:
+<ul>
+<li>
+<p>All quotes (open, expired, lost)</p>
+</li>
+<li>
+<p>Converted quotes (sales orders)</p>
+</li>
+</ul>
+<br>
+Note that quotes or orders that are older than the profile value will not be removed from the dashboard during incremental loads.</td>
+</tr>
+<tr valign="top">
+<td><b>OM: ECC Prefilter by CSR</b></td>
+<td>This profile option determines whether the (CSR) filter is applied by default on the <b>Orders Dashboard</b>.
+<ul>
+<li>
+<p>If the profile option is set to Yes or blank, then the prefilter is applied and the Orders Dashboard shows only the orders assigned to the user. To view all orders, the user must remove the <b>Customer Service Rep</b> filter in <b>Selected Refinements</b>.</p>
+</li>
+<li>
+<p>If the profile option is set to No, then the prefilter is not applied and the Orders Dashboard shows all orders that a user can access according to the security setup in the enterprise.</p>
+</li>
+</ul>
+<br>
+This profile can be set at the site, application, responsibility, and user levels.</td>
+</tr>
+<tr valign="top">
+<td><b>OM: ECC Rolling Sales Period</b></td>
+<td>This optional site-level profile option specifies the number of continuous months for the calculation of the average monthly sales in a month. If the profile value is not set, then the default value of 1 is considered.<br>
+For example, if the profile value is set to 3, then the average monthly sales for the completed month of October 2021 is calculated as: Sales for the months of (August + September + October) divided by 3.</td>
+</tr>
+<tr valign="top">
+<td><b>OM: Debug Level</b></td>
+<td>This profile option controls which debug messages get written to the debug log based on their assigned level. You can set this profile option at any level during the command center implementation. See <a href="T373258T374215.htm#t_defprofiles">Profile Options</a>.<br>
+Set this profile only when debugging of any issue is required. The following values are applicable to the command center:
+<ul>
+<li>
+<p>NULL: Leave the field <b>blank</b> to not print any debug messages.</p>
+</li>
+<li>
+<p><b>0</b>: Do no print any debug messages</p>
+</li>
+<li>
+<p><b>0.5</b>: Level 0.5; Print a limited subset of debug messages useful for performance related issues</p>
+</li>
+<li>
+<p><b>1</b>: Level 1; Print a limited subset of debug messages, including level 0.5</p>
+</li>
+<li>
+<p><b>3</b>: Level 3; Print a limited subset of debug messages, including levels 0.5, 1, 2</p>
+</li>
+<li>
+<p><b>4</b>: Level 4; Print a limited subset of debug messages, including levels 0.5, 1, 2, 3</p>
+</li>
+</ul>
+<br>
+When you run the <i>OM: Command Center Data Load</i> concurrent program using the Full Load and Incremental Load options, the program triggers two child requests of the OM: Command Center Data Load program, one for the Order Lines data set and one for the Orders data set.<br>
+For full and incremental loads, if the profile value is greater than zero, then the debug messages logged by the parent program are written to that program's log and the debug messages logged by the child concurrent programs will be logged to the file in the directory mentioned in the <i>OM: Debug Log Directory</i> profile option.<br>
+The debug file names are of the format <code>OM_ECC_&lt;parent request_id&gt;_&lt;dataset&gt;.dbg</code>.<br>
+Examples of file names:
+<ul>
+<li>
+<p><code>OM_ECC_50355924_LINES.dbg</code></p>
+</li>
+<li>
+<p><code>OM_ECC_50355924_HEADERS.dbg</code></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td><b>FND: ECC Disable Descriptive Flexfield</b>
+<p><strong><span>Note:</span></strong> This an Application Object Library profile option.</p>
+</td>
+<td>This profile option enables you to exclude descriptive flexfields from the data load in ECC. If you do not want to load data of DFFs, then set the profile option value to internal names of the descriptive flexfields (DFFs).<br>
+To exclude the data load of Oracle Order Management DFFs, set the following values. Specify multiple values using a comma-separated list.
+<ul>
+<li>
+<p><code>OE_HEADER_ATTRIBUTES</code>: Excludes the header DFF from the data load</p>
+</li>
+<li>
+<p><code>OE_LINE_ATTRIBUTES</code>: Excludes the line DFF from the data load</p>
+</li>
+<li>
+<p><code>OE_HEADER_ATTRIBUTES,OE_LINE_ATTRIBUTES</code>: Excludes both header and line DFFs from the data load</p>
+</li>
+</ul>
+<p><strong><span>Important:</span></strong> If you add or remove OE_HEADER_ATTRIBUTES or OE_LINE_ATTRIBUTES, or both values from the profile option, then you must run the <i>OM Command Center Data Load</i> program with the <b>Load Type</b> parameter set to <b>Full Load</b>.</p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>WSH: Days for Full Data Load of Shipped Details</b>
+<p><strong><span>Note:</span></strong> This is an Oracle Shipping Execution profile option.</p>
+</td>
+<td>This site-level profile option specifies the age of the shipped delivery details selected by the Full Load option of the <i>Delivery Details Data Load</i> program. The application loads all delivery details that were closed (shipped) no earlier than the specified number of days ago. If you do not provide a value, then the application uses zero (0) days, that is, the application loads the details shipped on the day of the load. Open delivery details are always loaded.
+<p><strong><span>Important:</span></strong> To load the delivery details associated with the shipped sales order lines on the 360 View dashboard, the value of the <i>WSH: Days for Full Data Load of Shipped Details</i> profile must be greater than the value of the <i>OM: ECC Days for Full Data Load</i> profile.</p>
+</td>
+</tr>
+<tr valign="top">
+<td><b>WIP: Single Organization ECC Dashboard</b>
+<p><strong><span>Note:</span></strong> This is an Oracle Discrete Manufacturing profile option.</p>
+</td>
+<td>This profile option sets access to single or multiple organizations. The default value is Yes. If the profile is set to Yes, then the Work Order nodes will not be displayed on the 360 View dashboard network viewer.
+<p><strong><span>Important:</span></strong> Set the profile value to No for the Order Management responsibility that is used to access the 360 View dashboard. See 360 View Dashboard, <i>Oracle Order Management User's Guide</i>.</p>
+</td>
+</tr>
+</table>
+<p><b><a name="ompushupdtpos" id="ompushupdtpos"></a>Push Updates from Oracle Order Management to the ECC Data Store</b></p>
+<p>If the OM: ECC Enable Push Updates and OM: ECC Push Time Limit profile options are set, then push updates occur from Oracle Order Management to the ECC data store.</p>
+<p>The following table lists the pages and windows where push updates occur and the actions that initiate push updates.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Page or Window</b></th>
+<th scope="col"><b>Actions that Initiate Push Update</b></th>
+</tr>
+<tr valign="top">
+<td><b>Order page</b></td>
+<td>
+<ul>
+<li>
+<p>Changes to the order header or line attributes including descriptive flexfield (DFF) attributes</p>
+</li>
+<li>
+<p>Order-level actions</p>
+<ul>
+<li>
+<p>Apply Holds</p>
+</li>
+<li>
+<p>Book</p>
+</li>
+<li>
+<p>Cancel</p>
+</li>
+<li>
+<p>Delete</p>
+</li>
+<li>
+<p>Progress</p>
+</li>
+<li>
+<p>Release Holds</p>
+</li>
+<li>
+<p>Retry Activities in Error</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Order line actions</p>
+<ul>
+<li>
+<p>Apply Holds</p>
+</li>
+<li>
+<p>Configure</p>
+</li>
+<li>
+<p>Cancel</p>
+</li>
+<li>
+<p>Delete</p>
+</li>
+<li>
+<p>Delink Config Item</p>
+</li>
+<li>
+<p>Drop Ship</p>
+</li>
+<li>
+<p>Fulfillment Acceptance</p>
+</li>
+<li>
+<p>Link Config Item</p>
+</li>
+<li>
+<p>Mass Change</p>
+</li>
+<li>
+<p>Price</p>
+</li>
+<li>
+<p>Price Adjustments</p>
+</li>
+<li>
+<p>Progress</p>
+</li>
+<li>
+<p>Release Holds</p>
+</li>
+<li>
+<p>Related Items</p>
+</li>
+<li>
+<p>Reserve</p>
+</li>
+<li>
+<p>Schedule</p>
+</li>
+<li>
+<p>Sets</p>
+</li>
+<li>
+<p>Split Line</p>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td><b>Line Details page</b></td>
+<td>
+<ul>
+<li>
+<p>Apply Holds</p>
+</li>
+<li>
+<p>Configure</p>
+</li>
+<li>
+<p>Cancel</p>
+</li>
+<li>
+<p>Delete</p>
+</li>
+<li>
+<p>Delink Config Item</p>
+</li>
+<li>
+<p>Fulfillment Acceptance</p>
+</li>
+<li>
+<p>Link Config Item</p>
+</li>
+<li>
+<p>Mass Change</p>
+</li>
+<li>
+<p>Price</p>
+</li>
+<li>
+<p>Price Adjustments</p>
+</li>
+<li>
+<p>Progress</p>
+</li>
+<li>
+<p>Release Holds</p>
+</li>
+<li>
+<p>Related Items</p>
+</li>
+<li>
+<p>Reserve</p>
+</li>
+<li>
+<p>Schedule</p>
+</li>
+<li>
+<p>Sets</p>
+</li>
+<li>
+<p>Split Line</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td><b>Orders page</b></td>
+<td>
+<ul>
+<li>
+<p>Apply Holds</p>
+</li>
+<li>
+<p>Book</p>
+</li>
+<li>
+<p>Cancel</p>
+</li>
+<li>
+<p>Delete</p>
+</li>
+<li>
+<p>Fulfillment Acceptance</p>
+</li>
+<li>
+<p>Mass Change</p>
+</li>
+<li>
+<p>Price</p>
+</li>
+<li>
+<p>Price Adjustments</p>
+</li>
+<li>
+<p>Progress</p>
+</li>
+<li>
+<p>Promotions</p>
+</li>
+<li>
+<p>Release Holds</p>
+</li>
+<li>
+<p>Retry Activities in Error</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td><b>Order Lines page</b></td>
+<td>
+<ul>
+<li>
+<p>Apply Holds</p>
+</li>
+<li>
+<p>Cancel</p>
+</li>
+<li>
+<p>Delete</p>
+</li>
+<li>
+<p>Fulfillment Acceptance</p>
+</li>
+<li>
+<p>Mass Change</p>
+</li>
+<li>
+<p>Price</p>
+</li>
+<li>
+<p>Price Adjustments</p>
+</li>
+<li>
+<p>Price Attributes</p>
+</li>
+<li>
+<p>Progress</p>
+</li>
+<li>
+<p>Promotions</p>
+</li>
+<li>
+<p>Release Holds</p>
+</li>
+<li>
+<p>Reserve</p>
+</li>
+<li>
+<p>Retry Activities in Error</p>
+</li>
+<li>
+<p>Schedule</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td><b>Sales Orders</b> window</td>
+<td>
+<ul>
+<li>
+<p>Changes to the order header or line attributes including descriptive flexfield (DFF) attributes</p>
+</li>
+<li>
+<p>Order-level actions</p>
+<ul>
+<li>
+<p>Apply Holds</p>
+</li>
+<li>
+<p>Book</p>
+</li>
+<li>
+<p>Cancel</p>
+</li>
+<li>
+<p>Delete</p>
+</li>
+<li>
+<p>Release Holds</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Order line actions</p>
+<ul>
+<li>
+<p>Apply Holds</p>
+</li>
+<li>
+<p>Cancel</p>
+</li>
+<li>
+<p>Delete</p>
+</li>
+<li>
+<p>Mass Change</p>
+</li>
+<li>
+<p>Release Holds</p>
+</li>
+<li>
+<p>Reserve</p>
+</li>
+<li>
+<p>Schedule</p>
+</li>
+<li>
+<p>Split Line</p>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Order Organizer window</td>
+<td>
+<ul>
+<li>
+<p>Apply Holds</p>
+</li>
+<li>
+<p>Cancel</p>
+</li>
+<li>
+<p>Mass Change</p>
+</li>
+<li>
+<p>Release Holds</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<h2><a name="30067601"></a><a id="T2008318"></a><b>Defining Rules for Assigning Customer Service Representatives to Orders</b></h2>
+<p><a name="d0e26567" id="d0e26567"></a><a name="d0e26576" id="d0e26576"></a><a name="ONT_ONTCsrAssignmentPG" id="ONT_ONTCsrAssignmentPG"></a><a name="ecc_om_def_rules" id="ecc_om_def_rules"></a>See Order Management Command Center Overview, <i>Oracle Order Management User's Guide</i> and <a href="T373258T672049.htm#ecc_omcc_setconfig">Setup and Configuration Steps for Order Management Command Center</a>.</p>
+<p>You can use the following methods to define rules for assigning customer service representatives (CSR):</p>
+<ul>
+<li>
+<p>Use the Customer Service Rep Assignment page to define rules, which are based on customer and item category. See <a href="T373258T672049.htm#ontcsrassignpage">Using the Customer Service Rep Assignment Page</a>.</p>
+</li>
+<li>
+<p>Use the API user hook OE_CSR_HOOK.CUSTOM_CSR_ID to derive the customer service representatives to be assigned to sales orders. The logic by which a CSR is assigned is to be coded in this hook by implementers. See <a href="T373258T672049.htm#eccomccapihk">Using an API User Hook to Assign CSRs to Orders</a>.</p>
+</li>
+</ul>
+<p><b>Using the Customer Service Rep Assignment Page<a name="ontcsrassignpage" id="ontcsrassignpage"></a></b></p>
+<p>Use the <b>Customer Service Rep Assignment</b> page to define CSR assignment rules. The application uses these rules to assign the CSR to an order when the first sales order line is created for the order.</p>
+<p>These assignment rules apply to orders created through:</p>
+<ul>
+<li>
+<p>The Sales Orders window</p>
+</li>
+<li>
+<p>The Quick Sales Orders window</p>
+</li>
+<li>
+<p>The Order Management HTML User Interface</p>
+</li>
+<li>
+<p>The Process Order API</p>
+</li>
+<li>
+<p>Order Import</p>
+</li>
+</ul>
+<p>Access the <b>Customer Service Rep Assignment</b> page using the standard Order Management responsibility.</p>
+<p>(N) <b>Order Management</b> &gt; <b>Setup</b> &gt; <b>Rules</b> &gt; <b>Customer Service Rep Assignment</b></p>
+<p><b>Customer Service Rep Assignment Page</b></p>
+<p><img width="1261" height="398" src="./img/ecc_om_csrpage.gif" alt="the picture is described in the document text"></p>
+<p><b>To define assignment rules</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Customer Service Rep Assignment</b> page.</p>
+</li>
+<li>
+<p>Select a customer, an item category, and a customer service representative. You can define only one rule for each combination of customer and item category.</p>
+<p><b>How CSR Assignment Rules Work:</b></p>
+<p>When the first line of an order is created, if the customer and item category combination in that line is associated (by a CSR assignment rule) with a particular CSR, then that CSR is assigned. If no rule exists for the customer and item category combination, then the CSR associated with the customer is assigned.</p>
+<p>The following CSR assignment rules are used in the examples below.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Rule</b></th>
+<th scope="col"><b>Customer</b></th>
+<th scope="col"><b>Item Category</b></th>
+<th scope="col"><b>Customer Service Rep</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Company 1</td>
+<td>Finished Goods</td>
+<td>Rep, Mr One</td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>Company 1</td>
+<td><i>this field is blank</i></td>
+<td>Rep, Ms Two</td>
+</tr>
+</table>
+<ul>
+<li>
+<p>If the first line of an order for finished goods is created for Company 1 and Item AS54888 (item category is finished goods), then Mr. One Rep is assigned as the CSR. In this case, the rule with the customer and item category combination exists.</p>
+</li>
+<li>
+<p>If the first line of an order is created for Company 1 and item OM-ATO-Model (item category is not finished goods), then Rep Ms. Two is assigned as the CSR. In this case, the CSR associated with the customer is assigned as no rule exists for the customer and item category combination.</p>
+</li>
+</ul>
+<p><b>To change the CSR for an order</b></p>
+<p><b>Sales Order View Page</b></p>
+<p><img width="1268" height="869" src="./img/ecc_om_change_csr.gif" alt="the picture is described in the document text"></p>
+<p>To add, change, or remove the CSR assigned to a sales order, use the <b>Order Management HTML User Interface</b> page.</p>
+<p><strong><span>Note:</span></strong> The <b>Customer Service Rep</b> field is not shown by default. You must personalize the page to render it.</p>
+<p><b>Updating assignment rules:</b></p>
+<p>After CSRs are assigned to orders, certain business scenarios may require you to change the assignment rules. For example, if the CSR assigned to an order is no longer with your organization, then you need to identify a new CSR for that order. To address such business requirements, you can update existing assignment rules.</p>
+<p><b>To update assignment rules:</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Customer Service Rep Assignment</b> page.</p>
+</li>
+<li>
+<p>Search for the rule that you want to update.</p>
+</li>
+<li>
+<p>Update the CSR rules as required.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><b>What Next</b>:</p>
+<p>After updating assignment rules, run these concurrent programs in the following order.</p>
+<ol>
+<li>
+<p>Assign Customer Service Rep: This program reassigns CSRs to open sales orders based on the latest assignment rules. See <a href="T373258T672049.htm#eccomecccsr">Running the Assign Customer Service Rep Program</a>.</p>
+</li>
+<li>
+<p>OM Command Center Data Load: This program loads CSRs assigned to sales orders into the ECC data store along with other sales order data. See <a href="T373258T672049.htm#omcc_loadomdata">Loading Order Management Data</a>.</p>
+</li>
+</ol>
+<h2><a name="30067610"></a><a id="T2008319"></a><b>Using an API User Hook to Assign CSRs to Orders</b></h2>
+<p><a name="d0e27012" id="d0e27012"></a><a name="eccomccapihk" id="eccomccapihk"></a>See Order Management Command Center Overview, <i>Oracle Order Management User's Guide</i> and <a href="T373258T672049.htm#ecc_omcc_setconfig">Setup and Configuration Steps for Order Management Command Center</a>.</p>
+<p>The API user hook OE_CSR_HOOK.CUSTOM_CSR_ID enables you to write custom logic using customer (sold_to_org_id) and item ID, order, and line attributes to derive a valid customer service representative (CSR). The application uses the custom hook rules to assign the CSR to an order when the first sales order line is created for the order.</p>
+<p>Details for the API user hook:</p>
+<ul>
+<li>
+<p>Filename: OEXHCSRB.pls</p>
+</li>
+<li>
+<p>Package: OE_CSR_HOOK</p>
+</li>
+<li>
+<p>Function: CUSTOM_CSR_ID</p>
+</li>
+</ul>
+<p>To return a valid CSR user ID (FND user ID), you can write logic based on the IN parameters in the following table or write logic that queries columns from the IN parameters. For example, to write rules based on header details, use the p_header_id IN parameter to query columns from the OE_ORDER_HEADERS_ALL (OE_ORDER_HEADERS) table.</p>
+<p>The following table describes the function parameters:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Parameter Name</b></th>
+<th scope="col"><b>IN or RETURN</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>p_sold_to_org_id</td>
+<td>IN</td>
+<td>Customer account ID</td>
+</tr>
+<tr valign="top">
+<td>p_inventory_item_id</td>
+<td>IN</td>
+<td>Item ID in Oracle Inventory</td>
+</tr>
+<tr valign="top">
+<td>p_header_id</td>
+<td>IN</td>
+<td>Header ID of the sales order</td>
+</tr>
+<tr valign="top">
+<td>p_first_line_id</td>
+<td>IN</td>
+<td>ID of the first line of the sales order</td>
+</tr>
+<tr valign="top">
+<td>l_csr_user_id</td>
+<td>RETURN</td>
+<td>ID of the customer that you want to assign to a sales order</td>
+</tr>
+</table>
+<p><b>How the API User Hook Works</b></p>
+<p>When the first line for an order is created, the application calls the OE_CSR_HOOK.CUSTOM_CSR_ID hook. This is how the application assigns a CSR:</p>
+<ul>
+<li>
+<p>If the custom hook returns a valid CSR ID (FND user ID), then the CSR is assigned to the order. For that customer and category, if rules are already defined using the <b>Customer Service Rep Assignment</b> page, then the application ignores those rules.</p>
+</li>
+<li>
+<p>If the custom hook returns an invalid user ID or the ID is null, then the Customer Service Rep Assignment page rules are applied.</p>
+</li>
+<li>
+<p>If you do not define assignment rules on the <b>Customer Service Rep Assignment</b> page or in the custom hook, then no CSR is assigned to the sales order.</p>
+</li>
+<li>
+<p>The application also calls the OE_CSR_HOOK.CUSTOM_CSR_ID hook, when the <i>Assign Customer Service Rep</i> concurrent program is submitted.</p>
+</li>
+</ul>
+<p><b>Sample Script</b></p>
+<p>The following section provides a sample script that you can use to customize the API user hook. For example, if you need to assign a CSR based on the ship-to location and the customer, then you can write conditions to return a valid CSR user ID.</p>
+<pre>CREATE OR REPLACE PACKAGE BODY oe_csr_hook AS
+    FUNCTION custom_csr_id (
+        p_sold_to_org_id      IN NUMBER,
+        p_inventory_item_id   IN NUMBER,
+        p_header_id           IN NUMBER,
+        p_first_line_id         IN NUMBER
+    ) RETURN NUMBER IS
+          l_ship_to_org_id            NUMBER;
+        l_csr_user_id               NUMBER := NULL;
+        l_debug_level     CONSTANT  NUMBER := oe_debug_pub.g_debug_level;
+    BEGIN
+        IF l_debug_level &gt; 0 THEN
+             oe_debug_pub.add('Entering OE_CSR_HOOK.CUSTOM_CSR_ID  ');
+        END IF; 
+     /*Sample code for getting ship_to_org_id from oe_order_headers using p_header_id */
+            SELECT
+            ship_to_org_id
+        INTO
+            l_ship_to_org_id
+        FROM
+            oe_order_headers
+        WHERE
+            header_id = p_header_id;
+         /* Sample Code for writing conditions using ship to org id, sold to org id */ 
+        IF
+            l_ship_to_org_id = 1425 AND p_sold_to_org_id = 1290
+        THEN
+            l_csr_user_id := 2816; -- Michaels,Mr. Douglas
+        ELSIF 
+            l_ship_to_org_id = 1018 AND p_sold_to_org_id = 1004 THEN
+            select user_id 
+            into l_csr_user_id 
+            from fnd_user 
+            where user_name = 'OPERATIONS';
+            END IF; 
+            IF l_debug_level &gt; 0 THEN
+                oe_debug_pub.add('Exiting OE_CSR_HOOK.CUSTOM_CSR_ID with l_csr_user_id '|| l_csr_user_id);  
+        END IF; 
+        RETURN l_csr_user_id; 
+            EXCEPTION
+        WHEN OTHERS THEN
+          IF oe_msg_pub.Check_Msg_Level(oe_msg_pub.G_MSG_LVL_UNEXP_ERROR) THEN
+                oe_msg_pub.Add_Exc_Msg('OE_CSR_HOOK.CUSTOM_CSR_ID','CUSTOM_CSR_ID');
+          END IF;
+    END;
+END oe_csr_hook;
+/
+COMMIT;
+EXIT;
+</pre>
+<h2><a name="30067613"></a><a id="T2008320"></a><b>Running the Assign Customer Service Rep Program</b></h2>
+<p><a name="d0e27287" id="d0e27287"></a><a name="SRS.OMECCCSR" id="SRS.OMECCCSR"></a><a name="eccomecccsr" id="eccomecccsr"></a>See Order Management Command Center Overview, <i>Oracle Order Management User's Guide</i> and <a href="T373258T672049.htm#ecc_omcc_setconfig">Setup and Configuration Steps for Order Management Command Center</a>.</p>
+<p>Run the <i>Assign Customer Service Rep</i> program after you update CSR assignment rules in the <a href="T373258T672049.htm#ecc_om_def_rules">Customer Service Rep Assignment</a> page. You can use this program to bulk assign or reassign CSRs to multiple orders at a time for given parameters.</p>
+<p><strong><span>Note:</span></strong> This program will not assign CSRs to closed orders.</p>
+<p>If you have implemented the API user hook OE_CSR_HOOK.CUSTOM_CSR_ID to derive CSRs, then the application calls this user hook when you submit the <i>Assign Customer Service Rep</i> program. See <a href="T373258T672049.htm#eccomccapihk">Using an API User Hook to Assign CSRs to Orders</a>.</p>
+<p>Access the program from the standard <b>Order Management</b> responsibility.</p>
+<p>(N) <b>Order Management</b> &gt; <b>Reports, Requests</b> &gt; <b>Run Requests</b></p>
+<p>The <i>Assign Customer Service Rep</i> concurrent program is available to the responsibilities that are assigned the request group OM Concurrent Programs.</p>
+<p>Run the program from the <b>Submit Request</b> window.</p>
+<p><b>Assign Customer Service Rep Request</b></p>
+<p><img width="710" height="627" src="./img/om_ecc_assigncsr_v3.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Assign Customer Service Rep program:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Assign Customer Service Rep</b>.</p>
+</li>
+<li>
+<p>In the <b>Customer</b> field, select the customer for whom you want to assign CSRs. This field is optional. If you select a customer, then the program assigns or reassigns CSRs to all open sales orders for that particular customer.</p>
+</li>
+<li>
+<p>The <b>Customer Service Rep</b> field is optional. If you select a CSR and <b>Override Existing Assignment</b> is Yes, then the orders assigned to the given CSR are overridden as per the latest CSR assignment rules.</p>
+<p><strong><span>Note:</span></strong> If you leave the Customer and Customer Service Rep fields blank, then the program bulk assigns CSRs based on the latest assignment rules.</p>
+</li>
+<li>
+<p>In the <b>Override Existing Assignment</b> field, select Yes to reassign a CSR as specified in the latest assignment rule. The default value is No. When the override value is No, the concurrent program assigns CSRs to open sales orders (that do not have any CSRs assigned). If you select No in this field after selecting a CSR, then the program will not process any records and ends in an error.</p>
+</li>
+<li>
+<p>Submit the request.</p>
+</li>
+</ol>
+<p>What Next:</p>
+<p>Run the <i>OM Command Center Data Load</i> concurrent program. See <a href="T373258T672049.htm#omcc_loadomdata">Loading Order Management Data</a>. CSRs assigned to sales orders will be loaded into the ECC data store along with other sales order data. To access reassigned orders, CSRs can log in to the Orders Dashboard. To view reassigned CSRs for orders, administrators can use the Order Management HTML User Interface page.</p>
+<h2><a name="30067616"></a><a id="T2008321"></a><b>Configuring Descriptive Flexfields for Search</b></h2>
+<p><a name="d0e27484" id="d0e27484"></a><a name="eccomdffconfig" id="eccomdffconfig"></a>See Order Management Command Center Overview, <i>Oracle Order Management User's Guide</i> and <a href="T373258T672049.htm#ecc_omcc_setconfig">Setup and Configuration Steps for Order Management Command Center</a>.</p>
+<p>Enterprise command centers support searching on descriptive flexfield (DFF) attributes. After you configure DFFs, you must run the data load process to make the DFF attributes available in the command center.</p>
+<p><strong><span>Note:</span></strong> To exclude descriptive flexfields from the data load, define the <i>FND: ECC Disable Descriptive Flexfield</i> profile option. See <a href="T373258T672049.htm#omcc_profiles">Profile Options for Order Management Command Center</a>.</p>
+<p>For additional information about configuring and customizing flexfields, see <i>Oracle E-Business Suite Flexfields Guide</i> and My Oracle Support Knowledge Document 2495053.1, <i>Installing Oracle Enterprise Command Center Framework, Release 12.2.</i></p>
+<p>The following table describes the DFFs that are available in the Orders Dashboard:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Data Set</b></th>
+<th scope="col"><b>DFF Title</b></th>
+<th scope="col"><b>DFF Name</b></th>
+<th scope="col"><b>DFF Attribute Group Name</b></th>
+<th scope="col"><b>Displayed in</b></th>
+</tr>
+<tr valign="top">
+<td>ont-headers</td>
+<td>Additional Header Information</td>
+<td>OE_HEADER_ATTRIBUTES</td>
+<td>Additional Header Information</td>
+<td>Available Refinements, Orders results table</td>
+</tr>
+<tr valign="top">
+<td>ont-lines</td>
+<td>Additional Line Attribute Information</td>
+<td>OE_HEADER_ATTRIBUTES</td>
+<td>Additional Header Information</td>
+<td>Available Refinements, Order Lines results table</td>
+</tr>
+<tr valign="top">
+<td>ont-lines</td>
+<td>Additional Line Attribute Information</td>
+<td>OE_LINE_ATTRIBUTES</td>
+<td>Additional Line Attribute Information</td>
+<td>Available Refinements, Order Lines results table</td>
+</tr>
+<tr valign="top">
+<td>ont-lines</td>
+<td>Additional Line Return Information</td>
+<td>OE_LINE_RETURN_ATTRIBUTE</td>
+<td>Additional Line Return Information</td>
+<td>Available Refinements, Order Lines results table
+<p><strong><span>Note:</span></strong> This DFF is displayed as <b>Return Information</b> attribute group.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>ont-qheaders</td>
+<td>Additional Header Information</td>
+<td>OE_HEADER_ATTRIBUTES</td>
+<td>Additional Header Information</td>
+<td>Available Refinements, Quotes results table</td>
+</tr>
+<tr valign="top">
+<td>ont-qlines</td>
+<td>Additional Line Attribute Information</td>
+<td>OE_LINE_ATTRIBUTES</td>
+<td>Additional Line Attribute Information</td>
+<td>Available Refinements, Quote Lines results table</td>
+</tr>
+</table>
+<h2><a name="30067617"></a><a id="T2008322"></a><b>Loading Order Management Data</b></h2>
+<p><a name="d0e27804" id="d0e27804"></a><a name="SRS.OMECCRUN" id="SRS.OMECCRUN"></a><a name="omcc_loadomdata" id="omcc_loadomdata"></a>See Order Management Command Center Overview, <i>Oracle Order Management User's Guide</i> and <a href="T373258T672049.htm#ecc_omcc_setconfig">Setup and Configuration Steps for Order Management Command Center</a>.</p>
+<p>To process and load data for the Orders Dashboard from Oracle E-Business Suite to the Order Management Command Center, run the concurrent program <i>OM Command Center Data Load</i>, which is located under the standard <b>Order Management</b> responsibility &gt; <b>Reports, Requests</b> &gt; <b>Run Requests</b>.</p>
+<p>Run this program from the <b>Submit Request</b> window.</p>
+<p><b>OM Command Center Data Load</b></p>
+<p><img width="924" height="540" src="./img/omccdl_v8.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the OM Command Center Data Load</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>OM Command Center Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type</p>
+<ul>
+<li>
+<p><b>Full Load</b>: Loads all orders data and is required to be run for the first data load. The full data load process also includes metadata load. If you run a full load for subsequent requests, then this program clears all orders data from ECC and loads fresh data.</p>
+<p>During a full load all of the open and closed orders (which are closed within the numbers of days specified in the profile option <i>OM:ECC Days for Full Data Load</i>) are considered for processing.</p>
+<p>If the profile <i>OM: ECC Show Return Orders in Orders Dashboard</i> is set to Yes, then both outbound and inbound (return) order lines are loaded. Otherwise, only outbound order lines are loaded.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: Loads only the data that has been modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current. Note that the <i>Reset Data</i> parameter is not applicable to incremental load.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: Loads Descriptive Flexfield (DFF) metadata. If there are any changes to the DFF definition, then you must run the program first with the Metadata Load option and then the Full Load option so that the DFF changes are displayed in the command center. The Operating Unit and Reset Data parameters are not applicable to metadata load.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Language Codes</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If this field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Select the operating unit for which you want to load data. You can sequentially load data for each operating unit using this parameter.</p>
+<p>The following rules apply to the Operating Unit parameter:</p>
+<ul>
+<li>
+<p>If this field is blank, then during a full load, the program loads all of the open and closed orders, which are closed within the numbers of days specified in the <i>OM: ECC Days for Full Data Load</i> profile option.</p>
+</li>
+<li>
+<p>If you select a value in this field and <b>Reset Data</b> is TRUE, then the program deletes the existing orders in the ECC data store and loads the orders of the selected operating unit.</p>
+</li>
+<li>
+<p>If you select a value in this field and <b>Reset Data</b> is FALSE, then the program along with retaining the existing orders, loads the orders of the selected operating unit to the ECC data store.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Use the <b>Reset Data</b> parameter with caution. The default value is FALSE. If you run full load for the first time or want to reset the data, then set the parameter value to TRUE. If set to TRUE, this action wipes out all the data that was loaded earlier, and loads the new data for the selected operating unit. After the completion of full load, data of only one operating unit will be available in the ECC data store.</p>
+<ul>
+<li>
+<p>For subsequent full loads, to append the new data to the data set, set this value to FALSE.</p>
+</li>
+<li>
+<p>For incremental loads, this parameter is not applicable.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30086440"></a><a id="T2009110"></a><b>Loading Data for Credit Check Analyzer</b></h2>
+<p><a name="d0e28086" id="d0e28086"></a><a name="SRS.OMECCCREDITRUN" id="SRS.OMECCCREDITRUN"></a><a name="ontomcredchkanlyzerdl" id="ontomcredchkanlyzerdl"></a>See Order Management Command Center Overview, <i>Oracle Order Management User's Guide</i> and <a href="T373258T672049.htm#ecc_omcc_setconfig">Setup and Configuration Steps for Order Management Command Center</a>.</p>
+<p>To process and load credit check data for the "Credit Check Hold Analysis" page from Oracle E-Business Suite to the Order Management Command Center, run the concurrent program <i>OM Command Center Credit Check Data Load</i>, which is located under the standard <b>Order Management</b> responsibility &gt; <b>Reports, Requests</b> &gt; <b>Run Requests</b>.</p>
+<p>This program extracts the data of sales orders and sales order lines on credit check failure hold and loads the corresponding credit limits, calculated exposure amounts, and credit check rule definitions along with the transaction details.</p>
+<p>The <i>OM Command Center Credit Check Data Load</i> program loads data to the following data sets:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Data Sets for the OM Command Center Credit Check Data Load</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Key</b></th>
+<th scope="col"><b>Display Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>ont-cc-hold-details</td>
+<td>Credit Check Hold Details</td>
+<td>This data set contains data to display in the following results grids of the Credit Limit and Exposure tab:
+<ul>
+<li>
+<p>Hold Details</p>
+</li>
+<li>
+<p>Order Credit Limit and Exposure</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>ont-cc-rules</td>
+<td>Credit Check Rules</td>
+<td>This data set contains data to display in the Credit Check Rule tab.</td>
+</tr>
+<tr valign="top">
+<td>ont-cc-exposure</td>
+<td>Credit Limits and Exposure</td>
+<td>This data set contains data to display in the Credit Limit and Exposure (tab), Overall Credit Limit and Exposure results grid.</td>
+</tr>
+<tr valign="top">
+<td>ont-cc-so-expdetails</td>
+<td>Credit Exposure Details from Oracle Order Management</td>
+<td>This data set contains data to display in the following results tables of the Exposure Details tabbed region:
+<ul>
+<li>
+<p>Sales Orders</p>
+</li>
+<li>
+<p>Commitments Applied</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>ont-cc-ar-expdetails</td>
+<td>Credit Exposure Details from Oracle Receivables</td>
+<td>This data set contains data to display in the following results tables of the Exposure Details tabbed region:
+<ul>
+<li>
+<p>Invoices</p>
+</li>
+<li>
+<p>Receipts</p>
+</li>
+<li>
+<p>Past-Due Invoices</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p><b>Prerequisite</b>: Before you run the OM Command Center Credit Check Data Load program, ensure that the "<i>Initialize Credit Summaries Table</i>" program is run, which calculates the exposure amounts, based upon the exposure setup for each credit check rule defined and stores them in a summary table.</p>
+<p><b>Recommendation</b>: Run the concurrent program <i>OM Command Center Credit Check Data Load</i> after every successful run of "Initialize Credit Summaries Table" to view the up-to-date credit exposures on the Credit Check Hold Analysis page.</p>
+<p><b>OM Command Center Credit Check Data Load</b></p>
+<p><img width="936" height="655" src="./img/ontv12creditcheckdataload.gif" alt="the picture is described in the document text"></p>
+<p>Run this program from the <b>Submit Request</b> window.</p>
+<p><b>To run the OM Command Center Credit Check Data Load</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>OM Command Center Credit Check Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: Loads all credit check data and is required to be run for the first data load. If you run a full load for subsequent requests, then this program clears all credit check data from ECC and loads fresh data.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: Loads only the data that has been modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Language Codes</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If this field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30067620"></a><a id="T2008323"></a><b>Loading Data for 360 View</b></h2>
+<p><a name="d0e28502" id="d0e28502"></a><a name="ont360viewlddatasets" id="ont360viewlddatasets"></a>See Order Management Command Center Overview, <i>Oracle Order Management User's Guide</i> and <a href="T373258T672049.htm#ecc_omcc_setconfig">Setup and Configuration Steps for Order Management Command Center</a>.</p>
+<p>The network diagram on the 360 View Dashboard, <i>Oracle Order Management User's Guide</i> displays the following network nodes:</p>
+<ul>
+<li>
+<p>Order</p>
+</li>
+<li>
+<p>Order Line</p>
+</li>
+<li>
+<p>Reservation</p>
+</li>
+<li>
+<p>Delivery Detail</p>
+</li>
+<li>
+<p>Delivery</p>
+</li>
+<li>
+<p>Requisition</p>
+</li>
+<li>
+<p>Internal Requisition</p>
+</li>
+<li>
+<p>Drop-Ship Requisition</p>
+</li>
+<li>
+<p>Purchase Order</p>
+</li>
+<li>
+<p>Work Order</p>
+</li>
+<li>
+<p>Payment History</p>
+</li>
+<li>
+<p>Receivables</p>
+</li>
+</ul>
+<p>To display the corresponding product nodes on the 360 View dashboard, you must run the data load concurrent programs listed in the following table.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Data Load Concurrent Programs for the 360 View Dashboard</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Data Set Name (Data Set Key)</b></th>
+<th scope="col"><b>Data Load Concurrent Program</b></th>
+</tr>
+<tr valign="top">
+<td>Reservations (inv-reservations)</td>
+<td>Inventory Reservations Data Load<br>
+See Loading Inventory Management Data - Inventory Reservations, <i>Oracle Inventory User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>Shipping Delivery Detail (delivery_details)</td>
+<td>Delivery Details Data Load<br>
+See Load Inventory Management data - Delivery Details, <i>Oracle Inventory User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>Work Orders (wip-wodetails)</td>
+<td>WIP ECC Data Load<br>
+See Loading WIP ECC Data, <i>Oracle Work in Process User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>Purchase Orders (po-pcc-orders)<br>
+Requisitions (po-pcc-requisitions)</td>
+<td>PO PCC ECC Data Load<br>
+See Loading Procurement Data, <i>Oracle Purchasing User's Guide</i></td>
+</tr>
+<tr valign="top">
+<td>Outstanding Receivables (ar-trx)<br>
+Payment History (ar-history)</td>
+<td>Receivables Command Center Data Load<br>
+See Loading Receivables Command Center Data, <i>Oracle Receivables Implementation Guide</i></td>
+</tr>
+</table>
+<h2><a name="30067622"></a><a id="T2008324"></a><b>Loading Returns Data</b></h2>
+<p><a name="d0e28758" id="d0e28758"></a><a name="SRS.OMECCRMARUN" id="SRS.OMECCRMARUN"></a><a name="peccomreturnsdl" id="peccomreturnsdl"></a>See Order Management Command Center Overview, <i>Oracle Order Management User's Guide</i> and <a href="T373258T672049.htm#ecc_omcc_setconfig">Setup and Configuration Steps for Order Management Command Center</a>.</p>
+<p><b>Prerequisite Step</b>: You must set the mandatory profile option <i>OM: ECC Currency for Returns</i> before loading the returns data.</p>
+<p>To process and load data of return lines from Oracle E-Business Suite to the Order Management Command Center, run the <i>OM Command Center Returns Data Load</i> concurrent program, which is located under the standard <b>Order Management</b> responsibility &gt; <b>Reports, Requests</b> &gt; <b>Run Requests</b>.</p>
+<p>This program:</p>
+<ul>
+<li>
+<p>Loads only the closed return lines that are not canceled. Open lines are not loaded.</p>
+</li>
+<li>
+<p>Calculates the outbound sales for the Returns % dimension. See Returns Dashboard, <i>Oracle Order Management User's Guide</i>.</p>
+</li>
+</ul>
+<p>Run this program from the <b>Submit Request</b> window.</p>
+<p><b>OM Command Center Returns Data Load</b></p>
+<p><img width="838" height="504" src="./img/omccreturnsdl_v8.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the OM Command Center Returns Data Load</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>OM Command Center Returns Data Load</b>.</p>
+</li>
+<li>
+<p>In the <b>Month Returned</b> field, select the month for which you want to load the return lines data. If you do not select a month, then the program loads the return lines data for all the listed months. Note that the <i>OM: ECC Months of Returns to Load</i> profile option value determines the list of values in this field.</p>
+</li>
+<li>
+<p>In the <b>Language Codes</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If this field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30105535"></a><a id="T2010453"></a><b>Loading Quotes Data</b></h2>
+<p><a name="d0e28964" id="d0e28964"></a><a name="SRS.OMECCQUTRUN" id="SRS.OMECCQUTRUN"></a><a name="eccontquotesdl" id="eccontquotesdl"></a>See Order Management Command Center Overview, <i>Oracle Order Management User's Guide</i> and <a href="T373258T672049.htm#ecc_omcc_setconfig">Setup and Configuration Steps for Order Management Command Center</a>.</p>
+<p>To process and load data for the Quotes Dashboard from Oracle E-Business Suite to the Order Management Command Center, run the concurrent program <i>OM Command Center Quote Data Load</i>, which is located under the standard <b>Order Management</b> responsibility &gt; <b>Reports</b>, <b>Requests</b> &gt; <b>Run Requests</b>.</p>
+<p>Run this program from the <b>Submit Request</b> window.</p>
+<p>The data load program loads data to the following data sets:</p>
+<ul>
+<li>
+<p>Quotes (ont-qheaders)</p>
+</li>
+<li>
+<p>Quote Lines (ont-qlines)</p>
+</li>
+</ul>
+<p><b>Optional Step</b></p>
+<p>Review the <i>OM: ECC Months for Quote Load</i> profile option before running the data load. If this profile is not set, then the default value of 6 months is applied.</p>
+<p><b>OM Command Center Quote Data Load</b></p>
+<p><img width="691" height="447" src="./img/ontv14quotesdl.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the OM Command Center Quote Data Load</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>OM Command Center Quote Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: Loads all quotes data according to the profile OM: ECC Months for Quote Load setup and is required to be run for the first data load. The full data load process also includes metadata load. If you run a full load for subsequent requests, then this program clears all quotes data from ECC and loads fresh data.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: Loads only the data that has been modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: Loads Descriptive Flexfield (DFF) metadata. If there are any changes to the DFF definition, then you must run the program first with the Metadata Load option and then the Full Load option so that the DFF changes are displayed in the command center.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

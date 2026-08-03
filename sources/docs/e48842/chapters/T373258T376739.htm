@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T376738.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T376984.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">31/36</span> <!-- End Header -->
+<h1>Lookups</h1>
+<p>This appendix covers the following topics:</p>
+<ul>
+<li><a href="#T376785">Advanced Pricing Lookups</a></li>
+<li><a href="#T376786">Shipping Execution Lookups</a></li>
+<li><a href="#T447280">Header to Line Cascade Attributes Lookup</a></li>
+</ul>
+<h2><a name="2998948"></a><a id="T376785"></a><b>Advanced Pricing Lookups</b></h2>
+<p><a name="t_look" id="t_look"></a><a name="lo_ups" id="lo_ups"></a>This appendix lists the predefined Oracle Pricing Lookups.</p>
+<h3><b>Agreement Type</b></h3>
+<p><i>Access Level: Extensible</i></p>
+<p>Allows the user to optionally categorize agreements by defining unique agreement types. For example, the user could setup an agreement type per contract type, or use the categorization for reporting purposes. An agreement type is optional on a pricing agreement.</p>
+<p>The user can choose to use the seeded agreement types or add new types.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Seeded Agreement Types</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>GSA</td>
+<td>Government Services Agreement</td>
+<td>Used to categorize pricing agreements.</td>
+</tr>
+<tr valign="top">
+<td>STANDARD</td>
+<td>Standard Terms and Conditions</td>
+<td>Used to categorize pricing agreements.</td>
+</tr>
+<tr valign="top">
+<td>VPA</td>
+<td>Volume Purchase Agreement</td>
+<td>Used to categorize pricing agreements.</td>
+</tr>
+</table>
+<h3><b>Arithmetic Operator</b></h3>
+<p><i>Access Level: System</i></p>
+<p>The method by which a price or modifier is calculated. Used in the Price List and Modifier Setup U.I.s.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Arithmetic Operator</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>%</td>
+<td>Percent</td>
+<td>Modifier value is calculated as a per unit percentage of the List Price.</td>
+</tr>
+<tr valign="top">
+<td>AMT</td>
+<td>Amount</td>
+<td>Modifier value is calculated as per unit amount +/- the List Price.</td>
+</tr>
+<tr valign="top">
+<td>LUMPSUM</td>
+<td>Lump Sum</td>
+<td>Modifier value is a fixed amount, i.e. is not per unit.</td>
+</tr>
+<tr valign="top">
+<td>NEW PRICE</td>
+<td>New Price</td>
+<td>Modifier value overrides the selling price.</td>
+</tr>
+<tr valign="top">
+<td>PERCENT PRICE</td>
+<td>Percent Price</td>
+<td>List Price is derived as a percentage of an associated item.</td>
+</tr>
+<tr valign="top">
+<td>UNIT PRICE</td>
+<td>Unit Price</td>
+<td>List Price is a per unit price.</td>
+</tr>
+</table>
+<h3><b>Comparison Operator</b></h3>
+<p><i>Access Level: System</i></p>
+<p>Used when setting up Qualifiers and Pricing Attributes to define the rule as to how the search engine should evaluate the attribute on the request line.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Comparison Operator</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>=</td>
+<td>Equals</td>
+<td>Qualifier/Pricing Attribute value on the incoming request should match the Qualifier/Pricing Attribute value.</td>
+</tr>
+<tr valign="top">
+<td>BETWEEN</td>
+<td>Between</td>
+<td>Qualifier/Pricing Attribute value on the incoming request should be in the range defined by the Qualifier / Pricing Attributes.</td>
+</tr>
+<tr valign="top">
+<td>Not =</td>
+<td>Not Equal</td>
+<td>Qualifier Attribute value on the incoming request should NOT match the Qualifier Attribute value.</td>
+</tr>
+</table>
+<h3><b>Currency Precision Type</b></h3>
+<p><i>Access Level: System</i></p>
+<p>Valid values for the profile option QP: Unit Price Precision Type. Indicates whether the currencies standard or extended precision should be used.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Currency Precision Type</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Precision Type</b></th>
+<th scope="col"><b>Rounding Factor</b></th>
+</tr>
+<tr valign="top">
+<td>Extended</td>
+<td>Rounding Factor is defaulted to the currencies extended precision</td>
+</tr>
+<tr valign="top">
+<td>Standard</td>
+<td>Rounding Factor is defaulted to the currencies standard precision</td>
+</tr>
+</table>
+<h3><b>Effective Date Types</b></h3>
+<p><i>Access Level: System</i></p>
+<p>Effective date ranges of these types can optionally be defined on some types of Modifier Lists. The Search Engine will use these dates, if passed by the calling application, in addition to the pricing effective date to determine which Modifier Lists are eligible.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Effective Date Types</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>ORD</td>
+<td>Order Date</td>
+<td>Order Date must be within the date range.</td>
+</tr>
+<tr valign="top">
+<td>SHIP</td>
+<td>Requested Ship Date</td>
+<td>Customer requested Ship Date must be within the date range.</td>
+</tr>
+</table>
+<h3><b>Incompatibility Groups</b></h3>
+<p><i>Access Level: Extensible</i></p>
+<p>Incompatibility Groups allow the user to define which Modifiers cannot be applied to a request line with which other Modifiers, i.e. are incompatible, and which Modifiers cannot be applied to a request line with any other Modifier, i.e. are exclusive.</p>
+<p>All Modifiers in a Phase which are incompatible should be assigned to the same Incompatibility Groups, LVL1 - LVL3, and any Modifier in a Phase which is exclusive should be placed in the EXCL - Exclusive Group.</p>
+<p>Users may define additional incompatibility groups, but only the seeded EXCL - Exclusive group is treated as incompatible with ALL.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Incompatibility Groups</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>EXCL</td>
+<td>Exclusive group</td>
+<td>Incompatible with all other Modifiers in a Phase.</td>
+</tr>
+<tr valign="top">
+<td>LVL1</td>
+<td>Level 1 Incompatibility</td>
+<td>Incompatible with other Modifiers in this incompatibility group in a Phase.</td>
+</tr>
+<tr valign="top">
+<td>LVL2</td>
+<td>Level 2 Incompatibility</td>
+<td>Incompatible with other Modifiers in this incompatibility group in a Phase.</td>
+</tr>
+<tr valign="top">
+<td>LVL3</td>
+<td>Level 3 Incompatibility</td>
+<td>Incompatible with other Modifiers in this incompatibility group in a Phase.</td>
+</tr>
+</table>
+<h3><b>Incompatibility Resolution Code</b></h3>
+<p><i>Access Level: System</i></p>
+<p>Methods of deciding which Modifier should be selected when multiple Modifiers in the same incompatibility group are eligible to be applied to a request line in the same pricing phase. The method for resolving incompatibility is specified by pricing phase when maintaining pricing phases in the Event to Phase Mapping Setup Up.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Incompatibility Resolution Code</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>BEST PRICE</td>
+<td>Best Price</td>
+<td>Search Engine selects the Modifier which gives the lowest price to the customer.</td>
+</tr>
+<tr valign="top">
+<td>PRECEDENCE</td>
+<td>PRECEDENCE</td>
+<td>Search Engine selects the Modifier with the lowest precedence, i.e. the highest specificity.</td>
+</tr>
+</table>
+<h3><b>List Line Type Code</b></h3>
+<p><i>Access Level: System</i></p>
+<p>Defines the behavior of a List Line; a List Line maybe a Price List Line or a type of Modifier, i.e. price adjustment, benefit or charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>List Line Type Code</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>PLL</td>
+<td>Price List Line</td>
+<td>Sets the base price of an item or level in product hierarchy.</td>
+</tr>
+<tr valign="top">
+<td>PBH</td>
+<td>Price Break Header</td>
+<td>A series of base price or price adjustments which are eligible for application to the pricing request according to a delimited break unit range and the rules of the break type.</td>
+</tr>
+<tr valign="top">
+<td>PMR</td>
+<td>Price Modifier</td>
+<td>One or more pricing attributes, whose value or range of values is used to derive a factor on a formula line.</td>
+</tr>
+<tr valign="top">
+<td>DIS</td>
+<td>Discount</td>
+<td>Reduces the list price, or selling of the previous pricing bucket, according to the calculation rules of the arithmetic operator.</td>
+</tr>
+<tr valign="top">
+<td>SUR</td>
+<td>Surcharge</td>
+<td>Increases the list price, or selling of the previous pricing bucket, according to the calculation rules of the arithmetic operator.</td>
+</tr>
+<tr valign="top">
+<td>OID</td>
+<td>Other item Discount</td>
+<td>A discount for which eligibility can be qualified by one or more request lines, but is applied to the same or different request line/s which are on the request.</td>
+</tr>
+<tr valign="top">
+<td>PMG</td>
+<td>Promotional Goods</td>
+<td>A discount for which eligibility can be qualified by one or more request lines, but for which a new request line is created for the discounted item.</td>
+</tr>
+<tr valign="top">
+<td>CIE</td>
+<td>Coupon Issue</td>
+<td>Creation of a coupon which qualifies for a discount or promotional goods on a future request.</td>
+</tr>
+<tr valign="top">
+<td>IUE</td>
+<td>Item Upgrade</td>
+<td>Substitution of one item for another on a request line, according to the pre-defined promotional Upgrade relationship between the two items.</td>
+</tr>
+<tr valign="top">
+<td>TSN</td>
+<td>Terms Substitution</td>
+<td>Changing value of qualifier attribute in terms context on request line. Seeded qualifier attributes in terms context are Freight, Shipping, and Payment Terms.</td>
+</tr>
+<tr valign="top">
+<td>Freight Charges</td>
+<td>Freight and Special Charges</td>
+<td>Monetary charges which are calculated based on attributes of a request line, but which do not effect the selling price on the request line.</td>
+</tr>
+</table>
+<h3><b>List Type Code</b></h3>
+<p><i>Access Level: System</i></p>
+<p>Used to categorize the type of list which groups price list lines or modifiers. Used for validation, including which types of lines can be included on the list, and reporting purposes.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>List Type Code</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Modifier Line Types</b></th>
+<th scope="col"><b>Price List</b></th>
+<th scope="col"><b>Discount</b></th>
+<th scope="col"><b>Surcharge</b></th>
+<th scope="col"><b>F&amp;S</b></th>
+<th scope="col"><b>Promotion</b></th>
+<th scope="col"><b>Deal</b></th>
+<th scope="col"><b>Price Modifier</b></th>
+</tr>
+<tr valign="top">
+<td>Price List</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Discount</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Surcharge</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Freight Charge</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Price Break Header</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Item Upgrades</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Other Item Discount</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Terms Substitution</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Promotional Goods</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Coupon Issue</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Price Modifier</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+</tr>
+</table>
+<h3><b>Modifier Level Code</b></h3>
+<p><i>Access Level: System</i></p>
+<p>Determines what qualifiers and pricing attributes are considered by the search engine when deciding if a request line qualifies for a modifier. This code also determines at what level, i.e. individual line or summary, a modifier should be applied to the request.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Modifier Level Code</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>Line</td>
+<td>Line</td>
+<td>Line Group</td>
+</tr>
+<tr valign="top">
+<td>Line Group</td>
+<td>Group of lines</td>
+<td>The quantity, in the pricing UOM, and amount spent on an item is summed across all request lines. Hence the total item quantity and amount, on the request, or total quantity and amount at a level in the product hierarchy, is considered by the search engine when deciding if a modifier is qualified or not.Modifier application is at the request line level.</td>
+</tr>
+<tr valign="top">
+<td>Order</td>
+<td>Order</td>
+<td>Only qualifiers or pricing attributes of the summary request line, or header, are considered by the search engine when deciding if a modifier is qualified. Note: it is not possible for a header level modifier to be qualified by a request line.Modifier application is at the summary request line, or header level.</td>
+</tr>
+</table>
+<h3><b>Price Break Type Code</b></h3>
+<p><i>Access Level: System</i></p>
+<p>Rules which determine which delimited break unit range/s the qualifying break unit quantity falls into.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Price Break Type Code</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>POINT</td>
+<td>Point</td>
+<td>Volume break in which each volume of break unit gets price/discount in the break range into which it falls.</td>
+</tr>
+<tr valign="top">
+<td>RANGE</td>
+<td>Range</td>
+<td>Volume break in which each volume of break unit gets base price/modifier in the break range within which the <i>total</i> volume falls.</td>
+</tr>
+<tr valign="top">
+<td>RECURRING</td>
+<td>Recurring</td>
+<td>Volume break in which the modifier is given <i>for each</i> volume of break unit that falls into the break range.<br>
+Used for modifiers only.</td>
+</tr>
+</table>
+<h3><b>Price Formula Line Type Code</b></h3>
+<p><i>Access Level: System</i></p>
+<p>Defines the behavior of a formula line. are the defined lookups for basic pricing in OM, and are the lookups defined for Oracle Pricing.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Price Formula Line Type Code</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Meaning</b></th>
+</tr>
+<tr valign="top">
+<td>ML</td>
+<td>Factor List</td>
+<td>Formula uses a price modifier list to derive the value for the formula line.<br>
+A price modifier list is a grouping of price modifier lines, each line having one or more pricing attributes, whose value or range of values is used to derive a factor.</td>
+</tr>
+<tr valign="top">
+<td>NUM</td>
+<td>Numeric Constant</td>
+<td>Fixed value</td>
+</tr>
+<tr valign="top">
+<td>PRA</td>
+<td>Pricing Attributes</td>
+<td>Formula takes as input the pricing attribute for the item referenced by the formula line.</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Meaning</b></th>
+</tr>
+<tr valign="top">
+<td>FUNC</td>
+<td>Function</td>
+<td>Formula uses a function to derive the value for the formula line</td>
+</tr>
+<tr valign="top">
+<td>LP</td>
+<td>Price List Line</td>
+<td>Formula takes as input the list price of the price list line to which it is attached</td>
+</tr>
+<tr valign="top">
+<td>PLL</td>
+<td>Price List Line</td>
+<td>Formula takes as input the list price from the price list line (any price list line) referenced by the formula line.</td>
+</tr>
+<tr valign="top">
+<td>PRA</td>
+<td>Pricing Attribute</td>
+<td>Formula takes as input the pricing attribute for the item referenced by the formula line.</td>
+</tr>
+<tr valign="top">
+<td>ML</td>
+<td>Factor List</td>
+<td>Formula uses a price modifier list to derive the value for the formula line.<br>
+A price modifier list is a grouping of price modifier lines, each line having one or more pricing attributes, whose value or range of values is used to derive a factor.</td>
+</tr>
+<tr valign="top">
+<td>NUM</td>
+<td>Numeric Constant</td>
+<td>Fixed value</td>
+</tr>
+</table>
+<h3><b>Pricing Events</b></h3>
+<p><i>Access Level: System</i></p>
+<p>A point in the process flow of the transaction system/calling application at which a call is made to the Pricing Engine (analogous to a Workflow Event).</p>
+<p>The following seeded lookup codes are for Oracle Order Management integration with pricing; each event represents a stage in the order cycle at which pricing is performed. The information returned by pricing; base prices, price adjustments, promotions, freight charges, etc. depends on the pricing phases which are processed for this event.</p>
+<p><b>Note:</b> in this release it is not possible to create new pricing events.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Pricing Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>PRICE</td>
+<td>Fetch List Price</td>
+<td>Calls pricing engine to get base price as user enters item, quantity and unit of measure on the order line.</td>
+</tr>
+<tr valign="top">
+<td>LINE</td>
+<td>Enter Order Line</td>
+<td>Calls pricing engine to get line level modifiers as user saves the order line.</td>
+</tr>
+<tr valign="top">
+<td>ORDER</td>
+<td>Save Order Event</td>
+<td>Calls pricing engine, as user saves order, to get order level modifiers and other benefits which depend on multiple order lines.</td>
+</tr>
+<tr valign="top">
+<td>BOOK</td>
+<td>Book Order</td>
+<td>Calls pricing engine as order is booked.</td>
+</tr>
+<tr valign="top">
+<td>SHIP</td>
+<td>Enter Shipments</td>
+<td>Calls pricing engine as order is shipped.</td>
+</tr>
+<tr valign="top">
+<td>BATCH</td>
+<td>Batch Processing</td>
+<td>Calls pricing engine when orders are processed in batch, replaces &lsquo;Line' and &lsquo;Order' events.</td>
+</tr>
+</table>
+<h3><b>Pricing Group Sequence</b></h3>
+<p><i>Access Level: Extensible</i></p>
+<p>A Pricing Group Sequence is a mechanism to control the application order of price adjustments and retrospective discounts, i.e. accruals. The sequence of application of these modifiers becomes important when the adjustment or accrual value is derived from the selling price (the price resulting from applying prior price adjustments) rather than the list price. This is known as discounts on discounts or cascading discounts. The sequence number of the group determines which order the calculation engine will apply the modifiers.</p>
+<p>The pricing group sequence allows the user to place all price adjustments and retrospective discounts in a pricing bucket; all modifiers in a bucket are additive, i.e. the adjustment amount for all modifiers in a bucket is calculated off the final selling price, or subtotal of the previous bucket.</p>
+<p>The user can add additional pricing group sequences / buckets if they require further subtotals or cascading of modifiers. Pricing Group Sequence 0 is reserved for base price calculation.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Pricing Group Sequence</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>0</td>
+<td>Base Price</td>
+<td>Base Price calculation</td>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Price Adjustments Bucket 1</td>
+<td>First modifier subtotal</td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>Price Adjustments Bucket 2</td>
+<td>Second modifier subtotal</td>
+</tr>
+<tr valign="top">
+<td>3</td>
+<td>Price Adjustments Bucket 3</td>
+<td>Third modifier subtotal</td>
+</tr>
+</table>
+<h3><b>Related Modifier Group Type</b></h3>
+<p><i>Access Level: System</i></p>
+<p>Used by Oracle Pricing internally to identify relationships between, and functional groupings, of modifiers.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Related Modifier Group Type</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>QUALIFIER</td>
+<td>Qualifier</td>
+<td>Identifies those modifiers which the request must qualify for in order to get a benefit.</td>
+</tr>
+<tr valign="top">
+<td>BENEFIT</td>
+<td>Benefit</td>
+<td>Identifies those modifiers which are given as a benefit once the qualification criteria has been met.</td>
+</tr>
+<tr valign="top">
+<td>COUPON</td>
+<td>Coupon</td>
+<td>Identifies the benefit which is given for a Coupon Issue.</td>
+</tr>
+<tr valign="top">
+<td>PRICE BREAK</td>
+<td>Price Break</td>
+<td>Records which modifiers are price break lines for a price break.</td>
+</tr>
+</table>
+<h3><b>Request Type</b></h3>
+<p><i>Access Level: Extensible</i></p>
+<p>A Request Type indicates to the pricing engine the type of transaction being priced. This is important to pricing, as the engine will use this information to only consider data created specifically to price this particular type of transaction.</p>
+<p>The following seeded lookup codes are for Oracle Order Management integration with pricing. Any application which wishes to use Oracle Pricing should create a request type lookup code to identify their transaction.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Request Type</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>ONT</td>
+<td>Order Management Order</td>
+<td>Used to price an Order Management Order.</td>
+</tr>
+</table>
+<h3><b>Source System</b></h3>
+<p><i>Access Level: Extensible</i></p>
+<p>The Source System is used to identify the origin of the pricing data. The pricing engine will use this information to restrict it's search to pricing information which originated from a particular application depending on the Request Type to Source System Setup.</p>
+<p>Any application which wishes to use create pricing information should create a source system lookup code to identify their pricing data.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Source System</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Function</b></th>
+</tr>
+<tr valign="top">
+<td>QP</td>
+<td>Oracle Pricing</td>
+<td>Use Oracle Pricing tables as data origin.</td>
+</tr>
+</table>
+<h2><a name="2998983"></a><a id="T376786"></a><b>Shipping Execution Lookups</b></h2>
+<p>This section lists the key lookups in Oracle Shipping Execution. Consult the Oracle Shipping Execution Lookups form (Setup &gt; Lookups) for complete information on all of the lookups.</p>
+<h3><b>Key Lookups</b></h3>
+<p>DELIVERY_STATUS: Delivery status</p>
+<p>DOCUMENT_TYPE: Shipping document types</p>
+<p>EXCEPTION_SEVERITY: Exception severity</p>
+<p>EXCEPTION_STATUS: Exception status</p>
+<p>EXCEPTION_TYPE: Exception type</p>
+<p>FREIGHT_COST_TYPE: Freight cost type lookups</p>
+<p>INSPECTION_STATUS: Inspection status</p>
+<p>LOGGING_ENTITY: Exception logging entity</p>
+<p>OPN_SORT_BY: Sort Order for Open Deliveries Report</p>
+<p>PACK_PRINT_ALL: Packing slip print all option values</p>
+<p>PACK_SORT: Packing slip print sort option values</p>
+<p>PACK_TYPE: Packing slip types</p>
+<p>PICK_STATUS: Pick status</p>
+<p>REPORT_USAGE: Report usage</p>
+<p>SECURITY_PRIVILEGE: Security privileges in shipping transactions</p>
+<p>SOURCE_SYSTEM: Source system from which delivery details are imported</p>
+<p>TRIP_STATUS: Trip status</p>
+<p>TRIP_STOP_STATUS: Trip stop status</p>
+<p>UPS: UPS service levels</p>
+<h2><a name="4033862"></a><a id="T447280"></a><b>Header to Line Cascade Attributes Lookup</b></h2>
+<p><a name="d0e76172" id="d0e76172"></a><a name="t_casclookup" id="t_casclookup"></a>The following attributes are in the Lookup OM_Header_To_Line_Cascade:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Name</b></th>
+<th scope="col"><b>Enabled by Default</b></th>
+</tr>
+<tr valign="top">
+<td>Accounting Rule</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Agreement</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Customer PO</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Blanket Number</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Deliver To Contact</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Deliver To</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Demand Class</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>FOB Point</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Freight Terms</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Bill To Contact</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Bill To</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Invoicing Rule</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Order Firmed Date</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Payment Term</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Price List</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Pricing Date</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Request Date</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Return Reason</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Sales Person</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Shipment Priority</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Shipping Method</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Warehouse</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Ship To Contact</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Ship To</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Customer</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Tax Exempt</td>
+<td>No</td>
+</tr>
+</table>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

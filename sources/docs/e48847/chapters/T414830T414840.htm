@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Shipping Execution User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Shipping Execution User's Guide">
+<meta name="dcterms.identifier" content="E48847-15">
+<meta name="dcterms.isVersionOf" content="WSHUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T414830T414839.htm" title="Previous" type="text/html">
+<link rel="Next" href="T414830T414841.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Shipping Execution User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">12/23</span> <!-- End Header -->
+<h1>Pick Release</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T414864">Overview of Pick Release</a></li>
+<li><a href="#T581109">Defining Pick Slip Grouping Rules</a></li>
+<li><a href="#T414877">Releasing Sales Orders for Picking</a></li>
+<li><a href="#T414878">Credit Checking and Holds</a></li>
+<li><a href="#T414879">Pick Releasing From the Shipping Transactions Window</a></li>
+<li><a href="#T661719">Pick Releasing From the Shipping Execution Simplified User Interface</a></li>
+</ul>
+<h2><a name="3573733"></a><a id="T414864"></a><b>Overview of Pick Release</b></h2>
+<p><a name="d0e14744" id="d0e14744"></a><a name="o_prel" id="o_prel"></a><a name="ovrpr" id="ovrpr"></a>Pick Release finds and releases eligible delivery lines that meet the release criteria, and creates move orders. You can pick release by order, trip, stop, container, delivery, warehouse, customer, scheduled or requested dates, shipment priority, or combinations of the above criteria. The default release criteria is set up in Shipping Parameters, but you can override the default criteria in the Release Sales Order window at pick release.</p>
+<p>The process of transacting move orders creates a reservation and determines the inventory source subinventory. Pick Slips can be created after the detailing process completes, and the quantity and source can be manually verified at pick confirm. Detailing and pick confirmation can be manually transacted through Oracle Inventory or set up in Shipping Parameters to occur automatically at pick release.</p>
+<p>See <i>Oracle Order Management Implementation Manual</i> for information on Shipping Parameters.</p>
+<p>You can run one or more releases and customize release criteria to meet your requirements. You can define:</p>
+<ul>
+<li>
+<p>Release Rules to specify the picking criteria and set the default Release Rule through Shipping Parameters Pick Release tab.</p>
+</li>
+<li>
+<p>Release Sequence Rules to specify the order in which eligible delivery lines are allocated during pick release.</p>
+</li>
+<li>
+<p>Pick Slip Grouping Rules to determine how released move order lines are grouped into pick slips.</p>
+</li>
+</ul>
+<p>Pick Release can be run using the following methods:</p>
+<ul>
+<li>
+<p>On-line: You can pick release one order immediately, thereby eliminating time spent waiting for the order to process through the concurrent manager queue. This is performed in the Release Sales Orders for Picking window. This window can also be accessed from the Tools menu in the Shipping Transactions window.</p>
+</li>
+<li>
+<p>Concurrent: You can run pick release in the background, enabling you to run other processes simultaneously. This is performed in the Release Sales Orders for Picking window. This window can also be accessed from the Tools menu in the Shipping Transactions window.</p>
+</li>
+<li>
+<p>Standard Report Submission (SRS): You can run a specific release at the same time every day. SRS runs pick release in the background and the program can be run multiple times daily. This is done in the Release Sales Orders for Picking SRS window.</p>
+</li>
+<li>
+<p>Shipping Transactions window: You can run pick release in the Shipping Transactions window by selecting Launch Pick Release from the Actions menu.</p>
+</li>
+<li>
+<p>Shipping Execution Simplified User Interface: You can run pick release in the Shipping Execution Simplified User Interface by selecting Launch Pick Release from the Actions menu.</p>
+</li>
+<li>
+<p>Pick Release Application Program Interface (API): You can run pick release using this API. For more information about the API, see <i>Oracle Integration Repository</i>.</p>
+</li>
+</ul>
+<p>To enable the application to select matching records for pick release, you can specify the criteria. During the Pick Release process, if no eligible or matching records exist for the specified criteria and you want the process to complete with a warning status and log an exception, then set the profile <i>WSH: Warn When No Eligible Record Exists for Pick Release</i> value to <b>Yes</b>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414838.htm#viewstat">Viewing the Status of a Delivery Line</a>.</p>
+<h2><a name="3573734"></a><a id="T414865"></a><b>Move Orders</b></h2>
+<p><a name="d0e14816" id="d0e14816"></a><a name="d0e14820" id="d0e14820"></a><a name="t_mvord" id="t_mvord"></a>A move order is a request for a subinventory transfer or account issue. The pick release process creates move orders which are pre-approved requests for subinventory transfers to bring material from its source locations in the warehouse to a staging subinventory.</p>
+<p>The material can also be moved back from the staging subinventory to the source subinventory during the ship or trip confirmation processes. This back ordering automatically creates and allocates the move orders to transfer the material. One move order header is created per organization. A backorder reason is available to understand the reason to backorder the material.</p>
+<p>In the <b>Shipping Transaction</b> tab of the <b>Shipping Parameters</b> window select a value for the <b>Automate Backorder Move</b> list. For WMS-enabled organizations, the possible values are Auto Allocate and None. For organization that are not WMS enabled, the possible values are Auto Allocate, Auto Transact, and None. The concurrent program Process Move Order for Backordered Materials processes move orders for the backordered material. You cannot create automated move orders for nontransactable or nonreservable items. When the profile option WSH: Retain ATO Reservations is set to Yes, you cannot create automated move orders for ATO items.</p>
+<p><strong><span>Note:</span></strong> In an Oracle Warehouse Management enabled organization, you must specify the staging subinventory and locator within the pick release criteria. If you fail to specify the staging subinventory and locator, then the line(s) are backordered.</p>
+<h2><a name="3573735"></a><a id="T414866"></a><b>Picking Rules</b></h2>
+<p><a name="d0e14850" id="d0e14850"></a><a name="d0e14856" id="d0e14856"></a><a name="t_mopr" id="t_mopr"></a>Move orders use the picking rules set up in Oracle Inventory to locate the material required to fulfill the move order line. Together with item-subinventory defaults (required if the staging sub inventory is locator controlled), the picking rules suggest the staging transfer transaction lines with appropriate source information that will be required to obtain enough material in the staging location for the delivery. The process where the Picking Engine generates these transaction line suggestions is called allocating.</p>
+<p>See <i>Oracle Inventory User's Guide</i></p>
+<h2><a name="3573736"></a><a id="T414867"></a><b>Staging Locations</b></h2>
+<p><a name="d0e14874" id="d0e14874"></a><a name="t_mosl" id="t_mosl"></a>The destination subinventory for a pick wave move order is the staging location into which the picked material should be deposited. Each organization should designate at least one staging sub inventory. Staging subinventories must be reservable. Each batch created at pick release will have the same destination staging subinventory. The default staging subinventory and locator to be used for all pick wave move orders are specified through Oracle Shipping Executions Shipping Parameters window. This location can be changed at pick release. To model different staging lanes within the staging area, facilities may choose to either create different subinventories or designate staging lane locators within one staging subinventory.</p>
+<h3><a id="T414924"></a><b>Configuring the Picking Process:</b></h3>
+<p>You can determine the number of pick release steps the system prompts to move material from pick release to ship confirmation. These steps are:</p>
+<ol>
+<li>
+<p>Pick Release</p>
+</li>
+<li>
+<p>Move Order Line Allocation (detailing)</p>
+</li>
+<li>
+<p>Move Order Line Pick Confirmation</p>
+</li>
+<li>
+<p>Ship Confirmation</p>
+</li>
+</ol>
+<h2><a name="3573738"></a><a id="T414868"></a><b>Pick Release</b></h2>
+<p><a name="d0e14905" id="d0e14905"></a><a name="d0e14911" id="d0e14911"></a><a name="t_moprel" id="t_moprel"></a>Oracle Shipping Executions Pick Release process creates move orders. One move order line is generated for each order line included in the picking batch. That move order line includes the item, quantity, the staging location (the destination subinventory and locator) and a source subinventory and locator if one was specified on the sales order line or on the Release Sales Orders window.</p>
+<p>For non-transactable items, pick release does not use the values of Enforce Ship Sets and Ship Models fields in the shipping parameters; however, ship confirm does validate non-transactable items for broken ship sets and ship models.</p>
+<p><strong><span>Note:</span></strong> The Enforce Ship Sets and Ship Models parameter, within the Pick Release tab on the Shipping Parameters window, enables you to control where ship sets and models are enforced, at picking or at shipping. For more information on this parameter, refer to the <i>Oracle Order Management Implementation Manual</i>.</p>
+<p>The allocation and pick release process executes for non-reservable items; however, suggestions are not created during pick release, and pick confirm will not run for the item. You can print pick slips; however, the pick slips will not be detailed with Subinventory and Locator to pick from. The pick slip will, however, list the item and quantity to be picked. Auto-allocate should be Yes and Auto Pick Confirm can be set to any value.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414841.htm#nresitem">Non-Reservable Items</a></p>
+<h2><a name="3573739"></a><a id="T414869"></a><b>Detail Line Allocation (Detailing)</b></h2>
+<p><a name="d0e14940" id="d0e14940"></a><a name="t_moalloc" id="t_moalloc"></a>To release the move order lines created at Pick Release to the warehouse and to print pick slips, the lines must be allocated. The allocation process for a pick wave move order line also creates a high level (organization level) reservation for the item(s) if no previous reservations exist for them. You can choose to do this immediately after the move order lines are created or to postpone this step until a later point in time. Once the lines are allocated, they have a status of Released to Warehouse.</p>
+<p>Postponing the detailing process might be employed by organizations that pick release across multiple warehouses but prefer to enable each warehouse to determine when to release their order lines to the floor. Detailing the order lines immediately after they are created is called auto-detailing. Postponing the detailing process is referred to as manual-detail. You can set up a default detailing mode in the Shipping Parameters window. This default can be overridden at each Pick Release through the Release Sales Orders window.</p>
+<h2><a name="3573740"></a><a id="T414870"></a><b>Pick Confirmation</b></h2>
+<p><a name="d0e14956" id="d0e14956"></a><a name="d0e14962" id="d0e14962"></a><a name="t_mopkcon" id="t_mopkcon"></a>The move order line details must be transacted (in Inventory) to confirm the material drop-off in staging. Pick confirmation executes the sub inventory transfer that systematically moves the material from its source location in the warehouse to the staging location. Pick Confirmation automatically transfers the high level reservation to a allocated reservation (including lots, sub inventory and locators) in the staging location.</p>
+<p>Inventory updates Shipping Execution with the results of the pick confirm:</p>
+<ul>
+<li>
+<p>Pick Confirmed quantity is assigned a status of Staged/Pick Confirmed.</p>
+</li>
+<li>
+<p>Unconfirmed quantity changes to the status Backordered.</p>
+</li>
+</ul>
+<p>At pick confirmation, you can report a missing quantity or change information if material is picked from a different lot, serial, locator, or sub inventory. Auto pick confirm can be set up as the default to occur immediately after the lines are detailed if an organization's picks rarely deviate from the suggested picking lines or the overhead of requiring a Pick Confirmation is unmanageable. You can set up a default Pick Confirm policy in the Inventory organization parameters. This default can be overridden at each Pick Release.</p>
+<p>Pick confirmation follows the allocation and reservation process automatically if both the Auto Allocate and Auto Pick Confirm options are selected in the Release Rules window. Pick Confirm always follows the detailing and reservation process. If Auto Allocate is not chosen, it is not possible to Auto Pick Confirm.</p>
+<p>Manual Pick Confirmation is required if you have Oracle Warehouse Management installed.</p>
+<p><strong><span>Note:</span></strong> Even if automatic pick confirm is used, the material is only transacted to the staging subinventory and reserved. You can still manage any discrepancies found by deleting the reservation and transacting the material back to its original subinventory.</p>
+<p>If mobile devices, such as bar code scanners, are used to perform inventory transactions, it is suggested that you use manual pick confirmation for greatest inventory accuracy and control.</p>
+<p>After you perform a partial move transaction on a move order, the delivery detail shipped quantity is usually blank. However, the application populates the shipped quantity for a WMS enabled organization when serial control is at sales order issue. For non-WMS enabled organizations, you must enter the shipped quantity and serial number manually, when serial control is at sales order issue. Generally, the requested quantity of a staged delivery detail is the shipped quantity because the non-shipped quantity is split into separate backorder delivery lines.</p>
+<h2><a name="3573741"></a><a id="T414871"></a><b>Overpicking</b></h2>
+<p><a name="d0e14998" id="d0e14998"></a><a name="d0e15002" id="d0e15002"></a><a name="t_moop" id="t_moop"></a>Overpicking is using the pick confirm transaction to pick more than the requested quantity of a delivery line, up to the overshipment tolerance. In addition, you can prevent LPNs and lots from breaking into small amounts only because delivery detail and lot quantities do not match.</p>
+<p>To overpick, you must pick release with the Auto-pick Confirm parameter set to No, then Pick Confirm manually using the Oracle Inventory Transact Move Order form.</p>
+<p>A delivery line with zero requested quantity is created for over picked quantities. Delivery lines with zero requested quantity cannot be ship confirmed alone or left behind by ship confirmation of the last delivery lines with non-zero requested quantities.</p>
+<p>The error WSH_REQ_ZERO_INSIDE_ERROR will be generated if the total requested quantity of delivery details inside the delivery, for one source line, is zero. The solution to this error is to assign the delivery detail with a non-zero requested quantity for that source line, to the delivery.</p>
+<p>The error WSH_REQ_ZERO_OUTSIDE_ERROR will be generated if the total requested quantity of delivery details outside of the delivery for one source line is zero. There are three possible actions that you can take to avoid this error, including the following:</p>
+<ul>
+<li>
+<p>Assign all of the delivery details for the source line to the delivery</p>
+</li>
+<li>
+<p>Unassign at least one delivery detail for the source line from the delivery</p>
+</li>
+<li>
+<p>Completely back order or cycle count all of the delivery details for the source line outside of the delivery</p>
+</li>
+</ul>
+<h3><a id="T414925"></a><b><a name="d0e15032" id="d0e15032"></a><a name="d0e15038" id="d0e15038"></a>Overpicking Processing</b></h3>
+<p>The overpicking process calculates the following quantities and uses zero when the calculation results in a negative number:</p>
+<ul>
+<li>
+<p>Excess Pick Quantity = Picked Qty - Shipped Qty - Backordered Qty - Staged Qty</p>
+</li>
+<li>
+<p>Backordered Quantity = Requested Qty - Shipped Qty - Staged Qty</p>
+</li>
+<li>
+<p>Staged Quantity = Requested Qty - Shipped Qty - Backordered Qty: You cannot stage in excess of this quantity.</p>
+</li>
+<li>
+<p>Quantity to Backorder = Requested Qty - Shipped Qty: You cannot backorder in excess of this quantity.</p>
+</li>
+</ul>
+<p>After you pick confirm, Oracle Inventory passes the following information to Oracle Shipping Execution:</p>
+<ul>
+<li>
+<p>Quantity pick confirmed.</p>
+</li>
+<li>
+<p>Quantity of allocations pending pick confirm: The sum of quantities of allocations pending pick confirm transactions. You cannot create allocations in the pick confirm transaction.</p>
+</li>
+<li>
+<p>After pick confirm, Picked Quantity is the same as or more then Requested Quantity.</p>
+</li>
+</ul>
+<p>If you pick less than the Requested Quantity, pick confirm splits the delivery line:</p>
+<ul>
+<li>
+<p>The original line quantity is the detailed quantity. Its released status progresses to Staged/Pick Confirmed.</p>
+</li>
+<li>
+<p>The new line quantity is the difference between the requested quantity and the detailed quantity. Its released status is Backorder.</p>
+</li>
+</ul>
+<p>When there is a pending quantity, Oracle Shipping Execution processes the delivery detail differently, depending on whether the overpick:</p>
+<ul>
+<li>
+<p>Satisfies the delivery line requested quantity: It creates an overpick-pending delivery line with Requested Quantity of zero and Picked Quantity of the quantity that remains to be pick confirmed.</p>
+</li>
+<li>
+<p>Results in a pending quantity: It creates a normal delivery line to await subsequent pick confirm transactions. It has status Released to Warehouse and has a Requested Quantity.</p>
+</li>
+</ul>
+<p>When either the Picked Quantity or the Pending Quantity is blank, pick confirm:</p>
+<ul>
+<li>
+<p>Backorders the delivery line if its Picked Quantity is null and the Requested Quantity is greater than zero.</p>
+</li>
+<li>
+<p>Delete the delivery line if its Requested Quantity is null and the Picked Quantity is greater than zero.</p>
+</li>
+</ul>
+<p>If there is at least one allocation pending, there will be a delivery line with status Released to Warehouse that may be pending overpick. If a delivery line is fulfilled by the Picked Quantity and there is a Pending Quantity, pick confirm creates a new delivery line pending overpick.</p>
+<p>The unshipped, picked quantity in excess of the requested quantity is removed at ship confirm; it cannot be staged or backordered.</p>
+<p>If a move order line quantity is reduced because the order line quantity is reduced, you cannot overpick the move order line in excess of the original allocated quantity.</p>
+<ul>
+<li>
+<p>When you overpick, the requested quantity not yet staged is reduced accordingly. The move order line can be partially canceled. Although you sometimes have to overpick, you do not have to overship.</p>
+</li>
+</ul>
+<p>You can find the following fields that pertain to overpicking on the Shipping Transactions form, Lines/LPN tab:</p>
+<ul>
+<li>
+<p>Picked Quantity</p>
+</li>
+<li>
+<p>Secondary Picked Quantity</p>
+</li>
+<li>
+<p>Pending Overpick check box</p>
+</li>
+</ul>
+<h2><a name="3573743"></a><a id="T414872"></a><b>Overshipping</b></h2>
+<p><a name="d0e15126" id="d0e15126"></a><a name="d0e15132" id="d0e15132"></a><a name="t_moosh" id="t_moosh"></a>If you pick the requested quantity of a delivery detail, you can overship within the overship tolerance.</p>
+<p>If you overpick the requested quantity of a delivery detail, you cannot overship that delivery detail but you can overship the cumulative line (the sum of all the split lines) within the overship tolerance. However, you cannot ship confirm a greater quantity than the quantity that you picked, regardless of the overship tolerance.</p>
+<p>You can overpick a ship set and you can overship items in the ship set as long as the amount shipped does not break the ship set.</p>
+<p>The shipped quantity validation is executed at Ship Confirmation, enabling you to overship based on your overship tolerance. You can overship one delivery line or split the overshipment between delivery lines.</p>
+<p>In the following example, assume all three lines were split from the same delivery line. If the overship tolerance is 50%, then the maximum total quantity that can be shipped for these three lines together is 15. Since lines two and three have a total shipped quantity of 5, then line one can have an overshipment of quantity 5. The table illustrates the outcome of the overship based on the three delivery lines:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Overshipping Example</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Detail</b></th>
+<th scope="col"><b>Requested</b></th>
+<th scope="col"><b>Shipped</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>5</td>
+<td>10</td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr valign="top">
+<td>3</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</table>
+<h2><a name="3573745"></a><a id="T414873"></a><b>Ship Confirmation</b></h2>
+<p><a name="d0e15203" id="d0e15203"></a><a name="d0e15209" id="d0e15209"></a><a name="t_moshconfirm" id="t_moshconfirm"></a>Ship Confirming the items removes the existing reservations and performs the sales order issue transaction. You may choose to ship confirm only part of the sales order quantity. In this case, the balance of the sales order may be backordered. Backordering at Ship Confirm automatically splits the sales order into two lines. The first line represents the shipped quantity, and the second line represents the backordered quantity.</p>
+<p>You have the following options if the partial inventory quantity shipped is less than the requested quantity:</p>
+<ul>
+<li>
+<p>When the partial quantity is not available due to inventory discrepancy or damage, then you can select Action, Cycle Count. Cycle count the missing or damaged quantity and click OK. The quantity transferred to cycle count defaults to the backorder field on the split line. Upon ship confirmation, the reservation is transferred to cycle count so the discrepant amount is not available to pick.</p>
+</li>
+<li>
+<p>You can enter the shipped quantity on the line, then enter the partial quantity in the Stage Quantity field on the line. The partial quantity remains in the staging subinventory with the reservation intact.</p>
+</li>
+</ul>
+<p>If a backorder reason is not entered for the delivery line, specify the reason to backorder material from the staging subinventory to the source subinventory by selecting a <b>Backorder Reason</b> for the <b>Ship Entered Quantities</b> option or for the <b>Backorder All</b> option. To transfer the material, a move order is automatically generated and the Process Move Order for Backordered Materials concurrent program is triggered.</p>
+<h2><a name="3573746"></a><a id="T414874"></a><b>Shortages and Backorders</b></h2>
+<p><a name="d0e15243" id="d0e15243"></a><a name="t_moshbo" id="t_moshbo"></a>During detailing, if the quantity requested is greater than the quantity allocated on the move order line (shortage), pick release performs auto-backordering. It:</p>
+<ul>
+<li>
+<p>Splits the delivery line as follows:</p>
+<ul>
+<li>
+<p>The original line quantity is the detailed quantity. Its released status progresses-- Ready to Release becomes Released to Warehouse (or Staged/Pick Confirmed if pick release auto pick confirms).</p>
+</li>
+<li>
+<p>The new line quantity is the difference between the requested quantity and the detailed quantity. Its released status is Backordered. It has no move order line reference; it will have one after you pick release it.</p>
+</li>
+<li>
+<p>Consolidates backordered delivery details into one (if your organization has Consolidate Backorders enabled.)</p>
+<p>See <a href="T414830T414841.htm#con_bo">Consolidating Backorders</a></p>
+</li>
+<li>
+<p>Updates the move order line that is associated with the original delivery detail: Oracle Inventory changes the requested quantity on the move order line to the detailed quantity.</p>
+</li>
+<li>
+<p>Notifies Oracle Order Management to update the sales order line and to change its status to Backordered.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Unassigns the delivery line from the delivery.</p>
+</li>
+<li>
+<p>If the delivery line is assigned to containers, unassigns the delivery line from the containers and unassigns the empty containers from the delivery.</p>
+</li>
+</ul>
+<h3><a id="T414926"></a><b>Example: Shortage at Detailing</b></h3>
+<p>You book and release a sales order line for 10 units of item A. Pick release finds 7 available for allocation. The following occurs:</p>
+<ul>
+<li>
+<p>Oracle Inventory updates Oracle Shipping Execution with the detailing results.</p>
+</li>
+<li>
+<p>Auto-backorder splits the delivery line.</p>
+</li>
+<li>
+<p>The backorder is consolidated with other backordered delivery details (if applicable.)</p>
+<p>See <a href="T414830T414841.htm#con_bo">Consolidating Backorders</a></p>
+</li>
+<li>
+<p>Auto-backorder notifies Oracle Order Management to split the sales order line.</p>
+</li>
+<li>
+<p>Oracle Shipping Execution reduces the requested quantity on the move order line.</p>
+</li>
+</ul>
+<p>The sales order lines appear as follows:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Shortage at Detailing Sales Order Line</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>Quantity</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>A</td>
+<td>7</td>
+</tr>
+<tr valign="top">
+<td>1.1</td>
+<td>A</td>
+<td>3</td>
+</tr>
+</table>
+<p>The delivery details appear as follows:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Shortage at Detailing Delivery Details</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>SO Line</b></th>
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Status</b></th>
+<th scope="col"><b>MO Line</b></th>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>1</td>
+<td>A</td>
+<td>7</td>
+<td>Released</td>
+<td>1000</td>
+</tr>
+<tr valign="top">
+<td>101</td>
+<td>1.1</td>
+<td>A</td>
+<td>3</td>
+<td>Backordered</td>
+<td>-</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> If your organization consolidates backorders, and this delivery line already has an existing backorder, then Line 101 would be deleted and the quantity would be consolidated with the existing backorder. See <a href="T414830T414841.htm#con_bo">Consolidating Backorders</a>.</p>
+<p>The move order line appears as: Line: 1000; Required Quantity: 7; Detailed Quantity: 7</p>
+<p>The move order line detail appears as Line: 10000; Move Order Line: 1000; Quantity: 7; From Location: Stores; To Location: Staged</p>
+<p>At pick confirm, since the move order line was changed at detailing, it closes the move order line even though all 10 units were not found. The move order line appears as Line: 1000; Required Quantity: 7; Detailed Quantity: 7; Complete Quantity: 7. It removes the move order line detail.</p>
+<p>At ship confirm, the delivery details appear as Line: 100; Sales Order Line: 1; Item: A; Quantity: 7; Status: Shipped. It removes the move order line even though all 10 units were not found.</p>
+<h3><a id="T414927"></a><b>Example: Shortage at Pick Confirmation</b></h3>
+<p>You book and release a sales order line for 10 units of item A.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Shortage at Pick Confirm Sales Order Line</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>Quantity</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>A</td>
+<td>10</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Shortage at Pick Confirm Delivery Details</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>SO Line</b></th>
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Status</b></th>
+<th scope="col"><b>MO Line</b></th>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>1</td>
+<td>A</td>
+<td>10</td>
+<td>Released</td>
+<td>1000</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Shortage at Pick Confirm Move Order Line</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>Required Qty.</b></th>
+<th scope="col"><b>Detailed Qty.</b></th>
+</tr>
+<tr valign="top">
+<td>1000</td>
+<td>10</td>
+<td>10</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Shortage at Pick Confirm Delivery Details</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>From Loc.</b></th>
+<th scope="col"><b>To Loc.</b></th>
+</tr>
+<tr valign="top">
+<td>10000</td>
+<td>1000</td>
+<td>10</td>
+<td>Stores</td>
+<td>Staged</td>
+</tr>
+</table>
+<p>At pick confirm, the picker can only find seven units, requests Oracle Shipping Execution to redetail the balance, and the detailing process cannot find more of the item. The following occurs:</p>
+<ul>
+<li>
+<p>Oracle Inventory updates Oracle Shipping Execution with the detailing results.</p>
+</li>
+<li>
+<p>Auto-backorder splits the delivery line.</p>
+</li>
+<li>
+<p>Auto-backorder notifies Oracle Order Management to split the sales order line.</p>
+</li>
+<li>
+<p>The backorder is consolidated with other backordered delivery details (if applicable.) See <a href="T414830T414841.htm#con_bo">Consolidating Backorders</a></p>
+</li>
+<li>
+<p>Oracle Shipping Execution reduces the requested quantity on the move order line.</p>
+</li>
+</ul>
+<p>The sales order lines appear as follows:</p>
+<ul>
+<li>
+<p>Line: 1; Item: A; Quantity: 7</p>
+</li>
+<li>
+<p>Line: 1.1; Item: A; Quantity: 3</p>
+</li>
+</ul>
+<p>The delivery details appear as follows:</p>
+<ul>
+<li>
+<p>Line: 100; Sales Order Line: 1; Item: A; Quantity: 7; Status: Released; Move Order Line: 1000</p>
+</li>
+<li>
+<p>Line: 101; Sales Order Line: 1.1; Item: A; Quantity: 3; Status: Backordered</p>
+<p><strong><span>Note:</span></strong> If your organization consolidates backorders, and this delivery line already has an existing backorder, then Line 101 would be deleted and the quantity would be consolidated with the existing backorder. See <a href="T414830T414841.htm#con_bo">Consolidating Backorders</a></p>
+</li>
+</ul>
+<p>The move order line appears as: Line: 1000; Required Quantity: 7; Detailed Quantity: 7; Complete Quantity: 7. It removes the move order line detail.</p>
+<p>At ship confirm, the delivery details appear as Line: 100; Sales Order Line: 1; Item: A; Quantity: 7; Status: Shipped. It removes the move order line.</p>
+<h2><a name="3573755"></a><a id="T414875"></a><b>Serial Numbers</b></h2>
+<p><a name="d0e15643" id="d0e15643"></a><a name="d0e15649" id="d0e15649"></a><a name="t_mosn" id="t_mosn"></a>Detailing can suggest serial numbers to be transacted to fulfill the pick wave move order line. You can change the suggested (pre-specified) serial numbers if the picker chose different serials. Some organizations, however, may choose to not suggest serial numbers and require the pickers to enter the numbers they have selected. This option is enabled using the Allocate Serial Numbers check box on the Organization Parameters window. If you choose not to detail serial numbers, any pick wave move order line for a serialized item will not be automatically pick confirmed and the picker must enter the serial numbers before the material is transacted into staging and becomes eligible for Ship Confirmation.</p>
+<p>You can change serial numbers only for items with attribute Serial Generation At Sales Order Issue for Staged lines. For Serial Generation Predefined and At Receipt, you enter the serial numbers at pick confirm.</p>
+<p>When you change pre-specified serial numbers:</p>
+<ul>
+<li>
+<p>The list of values displays only serial numbers in the staging sub inventory. You must manually move the pre-specified serial number to the staging sub inventory. A serial controlled item that is not selected remains in the staging sub inventory</p>
+</li>
+<li>
+<p>Oracle Inventory marks pre specified serial numbers during pick confirm so that they cannot be used in a transaction for a different order.</p>
+</li>
+</ul>
+<p>If all orders must be automatically pick confirmed, then the Organization Parameter Pick Confirmation Required must be enabled (see: <i>Oracle Inventory User's Guide</i>). No reservations are placed on the specific serial numbers that are pick confirmed so if the picker chooses a serial number that was not recommended by the system, you can perform a subinventory transfer to move the correct serial number to the staging location and then perform another subinventory transfer to move the erroneous serial number back into the storage location.</p>
+<p>At Pick Confirmation, Oracle Shipping Execution collects the serial numbers that were transacted into staging and assigns them to the appropriate delivery line. It is not necessary to enter serial numbers at Ship Confirmation unless a change occurs.</p>
+<h2><a name="3573756"></a><a id="T414876"></a><b>Reservations</b></h2>
+<p><a name="d0e15679" id="d0e15679"></a><a name="d0e15685" id="d0e15685"></a><a name="t_moreserv" id="t_moreserv"></a>The material picking process also manages Supply Chain Reservations. If no reservation was created prior to pick release through Oracle Order Management or Oracle Inventory, a high level (organization wide) reservation is placed on the item for that sales order. When the move order is transacted at pick confirmation, that reservation is transferred to a detail level (including locators, lots, revisions, and the staging subinventory) reservation in the staging location. Staging subinventories must be reservable.</p>
+<h3><a id="T414928"></a><b>Identifying Potential Shortages<a name="d0e15696" id="d0e15696"></a></b></h3>
+<p>If the allocation process was unable to locate enough material to fulfill the move order line, a shortage situation exists. A short move order line can be re-detailed through the Move Order Transaction window to enable the picker to direct it to another location or by re-releasing the Sales Order through Pick Release.</p>
+<p>See Move Orders, <i>Oracle Inventory User's Guide</i></p>
+<h2><a name="6096826"></a><a id="T581109"></a><b>Defining Pick Slip Grouping Rules</b></h2>
+<p><a name="d0e15713" id="d0e15713"></a><a name="d0e15719" id="d0e15719"></a><a name="WSHFPGRP_PICK_SLIP_RULES" id="WSHFPGRP_PICK_SLIP_RULES"></a><a name="wshdpsgr" id="wshdpsgr"></a>You can create grouping rules to organize how picking lines for released sales orders and manufacturing tasks are grouped on pick slips. For example, if you select Delivery as a grouping criteria, all picking lines for the same delivery are grouped together on a pick slip.</p>
+<p>You can also select additional grouping attributes for your grouping rules. For example if you select Delivery and Carrier as grouping criteria, picking lines for the same delivery and carrier are grouped together on a pick slip.</p>
+<p><b>To Define Pick Slip Grouping Rules:<a name="d0e15735" id="d0e15735"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Pick Slip Grouping Rules window.</p>
+<p><b>Pick Slip Grouping Rules window</b></p>
+<p><img width="592" height="456" src="./img/wshug_pickslip.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a pick methodology.</p>
+<p>For more information, see Defining Pick Methodologies, <i>Oracle Warehouse Management Implementation Guide</i>.</p>
+</li>
+<li>
+<p>Enter a unique name in the Rule Name field.</p>
+</li>
+<li>
+<p>Enter a rule Description if desired.</p>
+</li>
+<li>
+<p>Enter an Effective Date range for the rule. The start date field populates automatically with the current date, you can change this if necessary. You can also enter an expiration date for the picking rule, however the expiration date must be after the start effective date.</p>
+</li>
+<li>
+<p>In the Group By alternative region, select the following applicable parameters:</p>
+<ul>
+<li>
+<p><i>Order Number</i>: Items assigned to this order number are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Customer</i>: Orders for this customer are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Ship To</i>: Orders addressed to the ship to address are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Carrier</i>: Orders for a particular freight carrier are assigned the same pick slip number.</p>
+</li>
+<li>
+<p><i>Trip Stop</i>: Orders within a shipping group of deliveries are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Delivery</i>: Orders within a particular delivery are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Shipment Priority</i>: Orders with the same shipment priority are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Source Subinventory</i>: Items with the same source subinventory are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Source Locator</i>: Items with the same source locator are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Item</i>: Items with the same part number are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Revision</i>: Items with the same revision number are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Destination Subinventory</i>: Items with the same destination subinventory are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Destination Locator</i>: Items with the same destination locator are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Project</i>: When project manufacturing is enabled, all items assigned to a project are assigned the same pick slip number.</p>
+</li>
+<li>
+<p><i>Task</i>: When project manufacturing is enabled, all items assigned to the same task are assigned to the same pick slip number.</p>
+</li>
+<li>
+<p><i>Job / Schedule</i>: All tasks you create for a job or schedule are assigned the same pick slip number.</p>
+</li>
+<li>
+<p><i>Operation</i>: All tasks you create for the same operation are assigned the same pick slip number.</p>
+</li>
+<li>
+<p><i>Department</i>: All tasks from the same department are assigned the same task type regardless of whether or not you select Job / Schedule.</p>
+</li>
+<li>
+<p><i>Push versus Pull</i>: All push tasks are assigned the same pick slip number, and all pull tasks are assigned the same pick slip number regardless of whether or not you select Job / Schedule.</p>
+<p><strong><span>Note:</span></strong> This is the supply subinventory defined on the Bill of Material.</p>
+<p>This applies only to manufacturing tasks with supply type of pull, and push components that specify a supply subinventory and locator. Enabling Supply Subinventory also groups push and pull tasks separately, because pull tasks are assigned to a subinventory, and push tasks are not assigned to a subinventory.</p>
+<p>This is more specific than enabling Push versus Pull because tasks that have different supply subinventories are grouped separately only if you include Supply Subinventory in the grouping criteria.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Select the desired Perform Bulk Picking option from the drop down list. The available choices are as follows:</p>
+<ul>
+<li>
+<p><i>For entire wave</i>: At pick release, every item in a pick wave is a candidate for bulk picking.</p>
+</li>
+<li>
+<p><i>Honor item/sub flag</i>: At pick release, only bulk picked enabled items and subinventories are candidates for bulk picking.</p>
+</li>
+<li>
+<p><i>No</i>: Disables bulk picking.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Component Picking, <i>Oracle Work in Process User's Guide</i></p>
+<h2><a name="3573758"></a><a id="T414877"></a><b>Releasing Sales Orders for Picking</b></h2>
+<p><a name="d0e15902" id="d0e15902"></a><a name="d0e15908" id="d0e15908"></a><a name="WSHFRREL.RELEASE" id="WSHFRREL.RELEASE"></a><a name="t_prelso" id="t_prelso"></a><a name="relsopkg" id="relsopkg"></a><a name="relsopk" id="relsopk"></a>The Release Sales Orders for Picking window specifies the criteria for releasing one or more order lines. You can select order lines based on a number of criteria such as warehouse, shipment request date, and item. Shipping Execution only releases delivery lines that have been booked and have met the prerequisites for pick release.</p>
+<p><strong><span>Note:</span></strong> A WARNING message is displayed if there is a risk of processing an unwanted high volume of delivery lines. To ensure that an unwanted number of delivery lines are not processed, define at least one of the following release criteria: Order Number, Ship Set, Trip, Delivery, Line/Container, Stop, Project, or Task.</p>
+<p>The Release Sales Orders for Picking window features three tabs containing multiple fields including the following:</p>
+<ul>
+<li>
+<p>Header:</p>
+<ul>
+<li>
+<p>Based On Rule</p>
+</li>
+<li>
+<p>Document Set</p>
+</li>
+<li>
+<p>Batch</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Order tab:</p>
+<ul>
+<li>
+<p>Orders: Select the status of the orders to be included in the release criteria. Select <i>Replenishment Completed</i> to enable pick release to be submitted for delivery lines with the status of Replenishment Completed.</p>
+<p><strong><span>Note:</span></strong> You cannot pick release delivery line with the status of <i>Replenishment Requested.</i> The shipping process evaluates these delivery lines like backordered delivery lines except delivery lines with a status of <i>Replenishment Requested</i> are not eligible to pick release.</p>
+</li>
+<li>
+<p>Operating Unit</p>
+</li>
+<li>
+<p>Order Number</p>
+</li>
+<li>
+<p>Prior Reservations Only</p>
+</li>
+<li>
+<p>Destination Type</p>
+</li>
+<li>
+<p>Customer</p>
+</li>
+<li>
+<p>Order Type</p>
+</li>
+<li>
+<p>Ship Set</p>
+</li>
+<li>
+<p>Ship To</p>
+</li>
+<li>
+<p>Item Category Set</p>
+</li>
+<li>
+<p>Item Number</p>
+</li>
+<li>
+<p>Item Category</p>
+</li>
+<li>
+<p>Scheduled Ship Dates To and From</p>
+</li>
+<li>
+<p>Requested Dates To and From</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Shipping tab:</p>
+<ul>
+<li>
+<p>Trip</p>
+</li>
+<li>
+<p>Delivery</p>
+</li>
+<li>
+<p>Ship Method</p>
+</li>
+<li>
+<p>Line/Container</p>
+</li>
+<li>
+<p>Release Sequence Rule</p>
+</li>
+<li>
+<p>Autocreate Delivery</p>
+</li>
+<li>
+<p>Auto Pick Confirm</p>
+</li>
+<li>
+<p>Ship Confirm Rule</p>
+</li>
+<li>
+<p>Actual Departure Date: The default value is the system date and time. If you need to reflect a date other than the current system date, you can enter the desired date.</p>
+<p>For example, if the picking and shipping physically took place yesterday and you update your system today, the inventory and shipping transactions resulting from the automated processes will reflect today's date (the system date). However, to reflect the actual date when the shipping actually occurred, enter that date in the Actual Departure Date field. The picking date is always the date on which you perform the process. You do not have the option to reflect the actual date when the picking actually occurred.</p>
+<p><strong><span>Note:</span></strong> You must select a ship confirm rule for the Actual Departure Date if the ship confirm needs to be completed as part of pick release. A ship confirm rule is required to run ship confirm during the pick release process.</p>
+</li>
+<li>
+<p>Stop</p>
+</li>
+<li>
+<p>Ship From</p>
+</li>
+<li>
+<p>Shipment Priority</p>
+</li>
+<li>
+<p>Include Assigned Lines</p>
+</li>
+<li>
+<p>Autocreate Delivery Criteria</p>
+</li>
+<li>
+<p>Autopack Delivery</p>
+</li>
+<li>
+<p>Append Deliveries</p>
+<p>With the profile option <i>WSH: Allow Append Delivery Within an Order During Pick Release</i> you can add delivery lines to a delivery that has lines belonging to the same sales order only.</p>
+<p>Set the profile value to <b>Yes</b> to select <b>Append Deliveries</b> as Yes when you select <b>Autocreate Delivery Criteria</b> as <b>Within an Order</b> in the <b>Shipping</b> tab of the <b>Release Sales Orders For Picking</b> window.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Inventory tab:</p>
+<ul>
+<li>
+<p>Warehouse (the organization code)</p>
+</li>
+<li>
+<p>Subinventory (sales order lines booked and scheduled with this particular subinventory specified will be selected for pick release)</p>
+</li>
+<li>
+<p>Project (used if Oracle Project Manufacturing is enabled)</p>
+</li>
+<li>
+<p>Task (used if Oracle Project Manufacturing is enabled)</p>
+</li>
+<li>
+<p>Pick Slip Grouping Rule</p>
+</li>
+<li>
+<p>Allocation Method</p>
+</li>
+<li>
+<p>Cross Dock Criteria</p>
+</li>
+<li>
+<p>Auto Allocate</p>
+</li>
+<li>
+<p>Plan Tasks (used if Oracle Warehouse Management is enabled)</p>
+</li>
+<li>
+<p>Task Priority (used if Oracle Warehouse Management is enabled)</p>
+</li>
+<li>
+<p>Pick From Subinventory and Locator (if the item is not in the specified Pick From Subinventory or Locator, the system will not specify another location)</p>
+</li>
+<li>
+<p>Default Stage Subinventory and Locator</p>
+<p><strong><span>Note:</span></strong> Select the <b>Include Assigned Lines</b> check box to select and pick the lines assigned to the delivery. If you do not select this check box, the lines assigned to the delivery are not selected or picked.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a id="T414929"></a><b>Running Pick Release</b></h3>
+<p>There are two methods for running Pick Release from this window. These methods are:</p>
+<ul>
+<li>
+<p>Execute Now:</p>
+<p>Releases an order, Trip, Trip Stop, or delivery immediately, thus eliminating time spent waiting to process through the Concurrent Manager queue. If this method is selected, however, you must wait until pick release completes prior to running other processes.</p>
+</li>
+<li>
+<p>Concurrent:</p>
+<p>Releases in the background for multiple orders, Trips, or deliveries, enabling you to run other processes simultaneously.</p>
+</li>
+</ul>
+<p>The source from which the material is allocated and the criteria used to allocate the material is determined by the Allocation Method and Cross Dock Criteria fields, located on the Inventory tab of the Release Sales Orders for Picking window:</p>
+<ul>
+<li>
+<p>Allocation Method: There are four modes to select from when selecting an Allocation Method:</p>
+<ul>
+<li>
+<p>Inventory Only (default): Pick release allocates inventory materials only</p>
+</li>
+<li>
+<p>Cross Dock Only: Pick release allocates cross docking materials only</p>
+</li>
+<li>
+<p>Prioritize Inventory: Pick release checks for inventory availability before all other sources, then allocates material from other sources if needed.</p>
+</li>
+<li>
+<p>Prioritize Cross Dock: Pick release checks for material available for cross docking from all other sources other than Inventory, then allocates materials from Inventory if needed.</p>
+</li>
+</ul>
+<p>Cross Dock Only and Prioritize Cross Dock are only applicable in a WMS Enabled organization.</p>
+<p><strong><span>Note:</span></strong> The check for prior reservations is applicable for the Inventory Only allocation method.</p>
+</li>
+<li>
+<p>Cross Dock Criteria: Enables a rule to be named, which limits the cross docking criteria. This field is disabled if the organization is not WMS Enabled, or the Allocation Method is Inventory Only.</p>
+<p>See: <i>Oracle Warehouse Management User's Guide</i></p>
+<p>See: <i>Oracle Inventory User's Guide</i></p>
+</li>
+</ul>
+<p>By selecting Yes in the Append Deliveries field, on the Shipping tab, you can optimize the creation of deliveries. This feature enables the system to check to see if the delivery line meeting the release criteria can be consolidated with an existing delivery based on your Delivery Grouping Rules and compatibility constraints, if applicable. By doing this, the system reduces the number of deliveries created. Appending Limit, within the Shipping Parameters window, must not be Do Not Append in order to Append Deliveries. Several conditions are required to use the appending limit to consolidate deliveries.</p>
+<p>When you release a partial quantity of a delivery line, Pick Release releases the available quantity and creates a new delivery line consisting of the remaining quantity. For example, if you wanted to release a delivery line consisting of 10 items but only 6 items were available to release, Pick Release would release the 6 items and create a backordered line consisting of the 4 remaining items.</p>
+<p>If reservations are not available for a particular item, Pick Release leaves the item as submitted to inventory. Pick Release uses item attributes you define in Oracle Inventory, such as lot and locator control, to determine which attributes must be maintained when an item is released. If you place a reservation for an item and include some of the necessary inventory attribute information, Pick Release verifies the existing reservations and adds the outstanding required information. For example, if you are releasing an item under lot and locator controls and you reserve the item online to the lot level, Pick Release uses the lot you reserved and automatically adds the locator to the reservation.</p>
+<p>Set the profile <i>WSH: Allow Append Delivery Within an Order During Pick Release</i> to Yes, to add delivery lines to a delivery that has lines belonging to the same sales order only. The values for this profile option are Yes and No. The default value is Null or No.</p>
+<p>Steps to append deliveries in an order:</p>
+<ol>
+<li>
+<p>In the <b>Profile Options</b> window, select <b>WSH: Allow Append Delivery Within an Order During Pick Release</b>, and set its value to <b>Yes</b>.</p>
+</li>
+<li>
+<p>Navigate to the <b>Release Sales Order For Picking</b> window.</p>
+</li>
+<li>
+<p>Click the <b>Shipping</b> tab.</p>
+</li>
+<li>
+<p>From the <b>Autocreate Delivery Criteria</b> drop-down list, select <b>Within an Order</b>.</p>
+</li>
+<li>
+<p>From the <b>Append Deliveries</b> drop-down list, select <b>Yes</b>.</p>
+</li>
+<li>
+<p>Click <b>Execute Now</b> or <b>Concurrent</b>.</p>
+</li>
+</ol>
+<p>See: <a href="T414830T414837.htm#condel">Consolidating Delivery Lines and Deliveries.</a></p>
+<p>Oracle Shipping Execution Setup chapter, <i>Oracle Order Management Implementation Manual</i>.</p>
+<h3><a id="T447925"></a><b>Parallel Pick Release</b></h3>
+<p>Parallel pick release enables multiple pick release processes to run simultaneously as child processes through the Pick Release SRS Parameters window and Release Sales Orders window through the concurrent mode. Parallel pick release is available when pick releasing from the Tools menu on the Shipping Transactions window through the concurrent mode.</p>
+<p>Parallel pick release enables you to set a default number of child processes by defining the profile option: WSH: Number of Pick Release Child Processes.</p>
+<p>See: Parallel Pick Release, <i>Oracle Order Management Implementation Manual</i>.</p>
+<p>Ship sets and ship models are processed first during pick release. They are included as part of the child processes.</p>
+<p>Parallel pick release can be run from the Shipping Transactions window Tools menu. It cannot, however, be executed from the Shipping Transactions window action Launch Pick Release. Parallel pick release does not run when Pick Release is executed Online.</p>
+<h3><a id="T414930"></a><b>Pick Release Rules</b></h3>
+<p>The following rules determine how Pick Release handles order lines and picking lines:</p>
+<p>A Pick Release Rule can be defined to determine which order lines are considered for picking and how pick release handles those lines.</p>
+<p>Release Rules provide a means of performing one-time setup of your picking criteria through the pick release parameters. Then, you are able to use the Pick Release Rule in the Release Sales Orders for Picking window and the Release Sales Orders SRS concurrent program. You can define multiple rules, if necessary.</p>
+<p>By using a Release Rule, you can avoid many repetitive steps normally performed during pick release.</p>
+<p>See Defining Release Rules, <i>Oracle Order Management Implementation Manual</i></p>
+<p><strong><span>Note:</span></strong> The date displayed depends on the relationship of the release rule date and the current date.</p>
+<ul>
+<li>
+<p>If the current date is later than the release rule date, the date that displays is the current date. For example, if the release rule date is 21-August and you launch pick release on 24-August, the date that displays is 24-August.</p>
+</li>
+<li>
+<p>If the release rule date is later than the current date, the date that displays is the date on the release rule. For example, if the release rule date is 29-August and you launch pick release on 24-August, the date that displays is 29-August.</p>
+<p><strong><span>Note:</span></strong> The timestamp display always shows the timestamp of the release rule, regardless of the time that you launch pick release.</p>
+</li>
+</ul>
+<p>For more information on Release Rules, refer to the Shipping Execution Setup chapter of the <i>Oracle Order Management Implementation Manual</i>.</p>
+<h3><a id="T435838"></a><b>Release Rules</b></h3>
+<p>Release Rules enable the definition of picking criteria before pick release is executed. When executing pick release, a release rule is selected, which contains the picking criteria. Multiple release rules can be defined for various business processes.</p>
+<h3><a id="T414931"></a><b>Release Sequence Rules</b></h3>
+<p>Release Sequence Rules specify the order in which eligible delivery lines are released. The order in which delivery lines are released using a Release Sequence Rule is based on the following attributes:</p>
+<ul>
+<li>
+<p>Order number</p>
+</li>
+<li>
+<p>Outstanding invoice value</p>
+</li>
+<li>
+<p>Scheduled date</p>
+</li>
+<li>
+<p>Departure date</p>
+</li>
+<li>
+<p>Shipment priority</p>
+<p>For example, if you wanted to ensure that delivery line items with the earliest Scheduled Ship Dates were released before any other similar items, you could create a Release Sequence Rule to perform this operation. You could then include the Release Sequence Rule when defining a Release Rule, or select the Release Sequence Rule in the Release Sales Orders for Picking window or the concurrent program.</p>
+</li>
+</ul>
+<p>For more information on Release Sequence Rules, refer to the Shipping Execution Setup chapter of the <i>Oracle Order Management Implementation Manual</i>.</p>
+<h3><a id="T414932"></a><b>Pick Slip Grouping Rules</b></h3>
+<p>Pick Slip Grouping Rules define how move order lines are grouped together on a pick slip. You must specify a Pick Slip Grouping Rule.</p>
+<p>To define a pick slip grouping rule, see <a href="T414830T414840.htm#wshdpsgr">Defining Pick Slip Grouping Rules</a>.</p>
+<h3><a id="T447924"></a><b>Pick Release SRS</b></h3>
+<p>Pick Release SRS enables you to run pick release (release sales orders for picking) concurrently as many times during the day as needed.</p>
+<p>Among other parameters, Pick Release SRS enables you to manually set the actual departure date and enables you to set the number of child processes for each batch (splitting the batch into smaller batches, thus speeding up the process as a whole).</p>
+<p>See <a href="T414830T414843.htm#t_pkrelrep">Pick Release SRS</a> in the Reports and Processes chapter.</p>
+<h3><a id="T683233"></a><b>Enabling Grants for Pick Release</b></h3>
+<p>You can use the profile option <i>WSH: Enable Grants for Picking</i> to grant roles for the pick release process. The profile option values are <b>Yes</b>, <b>No</b>, and <b>Null</b>. The default value is <b>Null</b>.</p>
+<p>If you set the profile option to <b>Yes</b>, when you pick release a sales order</p>
+<ul>
+<li>
+<p>From the <b>Release Sales Orders</b> window, you can select an <b>Organization</b> from the LOV.</p>
+</li>
+<li>
+<p>From the <b>Release Sales Order SRS</b> window, you can select the <b>Organization</b> parameter for the concurrent process <i>Pick Selection List Generation &ndash; SRS</i>.</p>
+</li>
+</ul>
+<p>If you set the profile option to <b>No</b> or <b>Null</b>, when you pick release a sales order</p>
+<ul>
+<li>
+<p>From the <b>Release Sales Orders</b> window, you can select an <b>Organization</b> on the <b>Inventory</b> tab.</p>
+</li>
+<li>
+<p>From the <b>Release Sales Order SRS</b> window, you cannot select an organization because the <b>Organization</b> parameter is disabled for the concurrent process <i>Pick Selection List Generation &ndash; SRS</i>.</p>
+</li>
+</ul>
+<h2><a name="3573763"></a><a id="T414878"></a><b>Credit Checking and Holds</b></h2>
+<p><a name="d0e16448" id="d0e16448"></a><a name="t_moccheck" id="t_moccheck"></a>Credit checking and holds prevent an eligible order line from releasing until the order line is reviewed and removed from hold. For example, you may have a hold on defective products received from your supplier. Shipping Execution prevents release of order lines, even if they have passed all the cycle prerequisites, until the hold is removed.</p>
+<p>Credit checking is activated in the Transaction Types window using Credit Check Rules that are assigned to any or all of the following:</p>
+<ul>
+<li>
+<p>Ordering</p>
+</li>
+<li>
+<p>Pick Release: The order is evaluated to see if it violates your credit checking policies at pick release. If it does, the order is placed on hold and the lines are not released. If an order was previously on credit hold but no longer violates your credit checking policies, Pick Release automatically releases the order from credit hold and processes the appropriate order lines</p>
+</li>
+<li>
+<p>Shipping: The order is evaluated to see if it violates your credit checking policies before it is shipped.</p>
+<p><strong><span>Note:</span></strong> It is not mandatory that you enforce Credit Checking. You can choose not to assign a Credit Check Rule in the Transaction Types window. Using this option ensures that the system does not run Credit Checking at any point.</p>
+</li>
+</ul>
+<p>Credit holds will be enforced from the supplier instance. If you utilize a third-party shipping warehouse, and a credit hold is enforced on an order, the shipment request will not be sent to your third-party shipping warehouse until the hold has been lifted.</p>
+<p>The only prerequisite is that you must book an order (order lines must be shippable and the line must have a shipping Workflow activity).</p>
+<p>See <i>Oracle Order Management Implementation Manual</i> and <i>Oracle Receivables User's Guide</i></p>
+<h2><a name="3573764"></a><a id="T414879"></a><b>Pick Releasing From the Shipping Transactions Window</b></h2>
+<p><a name="d0e16486" id="d0e16486"></a><a name="t_prel_lines" id="t_prel_lines"></a>From the Shipping Transactions window, you can pick release trips, stops, deliveries, containers (LPNs), and lines. You can run pick release in the Shipping Transactions window by selecting any of the following from the Actions menu:</p>
+<ul>
+<li>
+<p>Launch Pick Release</p>
+</li>
+<li>
+<p>Pick and Ship</p>
+</li>
+<li>
+<p>Pick, Pack, and Ship</p>
+</li>
+</ul>
+<p>For more information on Pick and Ship or Pick, Pack, and Ship, refer to the topic <a href="T414830T414837.htm#onestep">One Step Shipping</a>.</p>
+<p>You can pick release an entire trip independently. This is convenient if you want to pick release all deliveries and delivery lines.</p>
+<h3><a id="T414933"></a><b>To Pick Release All Delivery Lines for a Trip:<a name="d0e16516" id="d0e16516"></a></b></h3>
+<ol>
+<li>
+<p>Navigate to the Query Manager window and find the trip.</p>
+<p>The Shipping Transactions window appears displaying all of the trips that match the search criteria.</p>
+</li>
+<li>
+<p>Select the trip for which you want to pick release the delivery lines.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Launch Pick Release.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>Pick Release is launched and pick releases the deliveries and delivery lines for that trip.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+<li>
+<p>Save.</p>
+<p><strong><span>Note:</span></strong> Alternate Pick Release method from within the Shipping Transactions window:</p>
+<p>If you want to release only those delivery lines for a specific delivery within a trip, within the Delivery window, select Pick Release Form from the Tools menu or the action Launch Pick Release from the Shipping Transactions window.</p>
+</li>
+</ol>
+<h3><b>To Pick Release a Trip:<a name="d0e16560" id="d0e16560"></a></b></h3>
+<ol>
+<li>
+<p>Navigate to the Query Manager window and find the trip.</p>
+<p>The Shipping Transactions window appears displaying all of the trips that match the search criteria.</p>
+</li>
+<li>
+<p>Select a trip and click <b>Detail.</b></p>
+<p><b>Trip window</b></p>
+<p><img width="964" height="502" src="./img/wshug_trip.gif" alt="the picture is described in the document text"></p>
+<p>The Trip window appears displaying the detail information for the trip.</p>
+</li>
+<li>
+<p>From the Tools menu, select Pick Release Form.</p>
+</li>
+<li>
+<p>Complete your entries in the Release Sales Order for Picking window. Optionally, select a Based On Rule to automatically default the pick release criteria for the selected rule.</p>
+<p><strong><span>Note:</span></strong> If you have not created a release rule or do not want to use an existing release rule, do not select a Based on Rule.</p>
+<p>See Shipping Execution Setup, Defining Release Rules in <i>Oracle Order Management Implementation Manual</i>.</p>
+</li>
+<li>
+<p>Click <b>Concurrent</b> or <b>Execute Now</b> to pick release the deliveries and delivery lines for the trip.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="8344607"></a><a id="T661719"></a><b>Pick Releasing From the Shipping Execution Simplified User Interface</b></h2>
+<p><a name="d0e16616" id="d0e16616"></a><a name="pickrelhtmlui" id="pickrelhtmlui"></a>From the Shipping Execution Simplified User Interface, you can pick release trips, stops, deliveries, containers (LPNs), and lines. You can run pick release in the Shipping Execution Simplified User Interface by selecting any of these actions from the Actions menu:</p>
+<ul>
+<li>
+<p>Launch Pick Release</p>
+</li>
+<li>
+<p>Pick and Ship</p>
+</li>
+<li>
+<p>Pick, Pack, and Ship</p>
+</li>
+</ul>
+<p><b>To Pick Release All Delivery Lines for a Trip<a name="d0e16639" id="d0e16639"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Trips page in the Shipping Execution Simplified User Interface.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Trips page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the trips for which you want to pick release all delivery lines, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Select one trip by clicking the corresponding check box in the Select column of the search results table next to the trip.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Launch Pick Release.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>Pick Release is launched and pick releases the deliveries and deliver lines for that trip.</p>
+<p><strong><span>Note:</span></strong> You can also pick release only those delivery lines for a specific delivery within a trip in the Shipping Execution Simplified User Interface . To perform this action, navigate to the Delivery page and select Launch Pick Release from the Actions menu.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

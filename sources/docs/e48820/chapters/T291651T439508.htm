@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T427994.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T291655.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">15/31</span> <!-- End Header -->
+<h1>Material Status Control</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T439509">Overview of Material Status</a></li>
+<li><a href="#T439514">Setting Up Material Status Control</a></li>
+</ul>
+<h2><a name="3953485"></a><a id="T439509"></a><b>Overview of Material Status</b></h2>
+<p><a name="d0e72543" id="d0e72543"></a><a name="mat_stat" id="mat_stat"></a>Material status control restricts the movement and usage of portions of on-hand inventory. Using material status control enables you to control whether you can pick or ship an internal order or sales order, or issue material for a work order. You can also specify whether material needs to be quarantined until you inspect it. In addition, you can determine whether products with a particular status can be reserved, included in available to promise calculations, or netted in production planning. You assign material statuses at four levels: subinventory, locator, lot, and serial.</p>
+<p>You assign subinventory and locator statuses in the subinventory and locator windows. The location status applies to the material in the location and not the location itself. To assign a material status to a lot or serial, you must first enable the item attributes Lot Status Enabled, and Serial Status enabled on the item in the Item Master. You can also optionally assign a default lot or serial status to an item on the Item Master. When you receive the item, the system automatically assigns the default lot or serial status to the item. The lot or serial status remains the same through all inventory transactions including organization transfers. If necessary, you can change the material status at receipt, or use the material workbench or mobile status update page to modify the material status. For more information about setting up lot and serial statuses see <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>.</p>
+<p>You can track on-hand material status at the Subinventory, Locator, or Lot levels. You will also track by on-hand balance levels. After the on-hand status is activated, it will be always available to track and cannot be disabled for a status.</p>
+<p><strong><span>Note:</span></strong> After the status is enabled, it cannot be disabled or set to a null value. Also, after the status is set, the material status window for each status will have the on-hand status tracking activated, and this option cannot be deselected.</p>
+<p>When material status is tracked at the on-hand level for an organization, the material status that is assigned at the Subinventory, Locator, or Lot levels serves as the default value for the on-hand level material status (the on-hand material is associated with a status). To enable the On-hand Material Status tracking option, run the Activate Onhand Level Material Status Tracking concurrent request.</p>
+<h3><a id="T624328"></a><b>On-Hand Balance Material Status</b></h3>
+<p>Oracle Inventory enables you to assign the material status in the UI (user interface) to new receipt transactions so that the on-hand records have the material status you specify. Common material statuses include Active, Immature, Expired, Obsolete, Hold, Quarantine, and Rejected.</p>
+<p>You can assign a material status to on-hand records during the following receipt transactions:</p>
+<ul>
+<li>
+<p>Miscellaneous receipts and account alias receipts.</p>
+</li>
+<li>
+<p>Purchase order (PO) receipts.</p>
+</li>
+<li>
+<p>IOT/ISO Intransit receipt transactions.</p>
+</li>
+</ul>
+<p>The material status can be assigned when performing transactions from:</p>
+<ul>
+<li>
+<p>Oracle forms-based UI for receipt transactions for lot controlled items. Mobile-based UI for miscellaneous receipt and account alias receipt transactions for lot controlled items.</p>
+</li>
+<li>
+<p>Inventory interface table (mtl_transactions_interface)</p>
+</li>
+<li>
+<p>Oracle Mobile Supply Chain application (Inventory MSCA)</p>
+</li>
+<li>
+<p>Receiving Open Interface (ROI)</p>
+</li>
+</ul>
+<p>Assigning a material status during receipt provides the following benefits:</p>
+<ul>
+<li>
+<p>Put part of a lot that exists in a certain location on hold without having to place the entire lot on hold.</p>
+</li>
+<li>
+<p>Place holds on non-lot or serial controlled items without moving that material to a quarantine location.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> Oracle Warehouse Management also provides material status controls. For more information, see <i>Oracle Warehouse Management User's Guide</i>, Material Management.</p>
+<h3><a id="T454538"></a><b>Material Status Transactions</b></h3>
+<p>A material status is a combination of transactions and planning actions that you choose to disallow in a particular circumstance. Disallowed transactions and planning actions are cumulative. When you set up transaction types, you determine whether some transactions can be restricted by material status. The transactions for which you enable status control in the Transactions Types window appear in the Material Status Definition window. If you do not enable status control for a transaction type, then the transaction type is always allowed.</p>
+<p>You can also assign the planning attributes Allow Reservations, Include in ATP, and Nettable to the material statuses that you create. When you transact an item, the system checks all of the material statuses. If the system finds a status that disallows the transaction, whether at the serial, lot, locator, or subinventory level, then the transaction fails.</p>
+<p>The following table provides examples of material statuses that you might set up for your organization. In this example, each status either allows or disallows certain transactions. For example, the material status of Active allows all transactions and disallows no transactions. Conversely, the material status of Immature allows picking and shipping for internal customer orders, but disallows these transactions for external customer orders.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status</b></th>
+<th scope="col"><b>Transactions Allowed</b></th>
+<th scope="col"><b>Transactions Disallowed</b></th>
+</tr>
+<tr valign="top">
+<td>Active</td>
+<td>Everything</td>
+<td>Nothing</td>
+</tr>
+<tr valign="top">
+<td>Hold</td>
+<td>Subinventory transfers</td>
+<td>Picking, shipping, and production</td>
+</tr>
+<tr valign="top">
+<td>Immature</td>
+<td>Picking and shipping for internal customers</td>
+<td>Picking and shipping for external customers</td>
+</tr>
+<tr valign="top">
+<td>Almost Mature</td>
+<td>Picking for customer</td>
+<td>Shipping for customer</td>
+</tr>
+</table>
+<h2><a name="3953488"></a><a id="T439514"></a><b>Setting Up Material Status Control</b></h2>
+<p><a name="d0e72800" id="d0e72800"></a><a name="INVMSDEF_MATERIAL_STATUS_WIN" id="INVMSDEF_MATERIAL_STATUS_WIN"></a><a name="material_status_setup" id="material_status_setup"></a>Before you set up material status codes, you need to identify the transaction types to restrict.</p>
+<ol>
+<li>
+<p>Navigate to the <a href="T291651T471479.htm#c_menus">Material Status Definition</a> window.</p>
+<p><img width="657" height="586" src="./img/invug_Material_Status_form1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a name and a description for the material status.</p>
+</li>
+<li>
+<p>Verify that the Enabled check box is selected. Deselect the Enabled check box if you do not want to use the material status.</p>
+<p><strong><span>Note:</span></strong> You cannot disable a material status that the system currently uses. Verify the material status is correct before using it in transactions.</p>
+</li>
+<li>
+<p>Select Allow Reservations. If you select this check box, then you can view material associated with this status in the Item Reservations window. You can create a reservation against the material, and the system includes it in the available to reserve calculations. See <a href="T291651T292014.htm#I_t_itmresrv">Item Reservations</a> for more information.</p>
+</li>
+<li>
+<p>Select Include in ATP if you want material associated with this status to be eligible for available to promise. The system then includes material with this material status in available to promise calculations.</p>
+</li>
+<li>
+<p>Select Nettable to include material that is associated with this material status with main planning.</p>
+<p><strong><span>Note:</span></strong> You cannot apply a status that is non-reservable, non-nettable, or non-ATPable to serials.</p>
+</li>
+<li>
+<p>Indicate whether this status is used at the subinventory, locator, lot, serial, or on-hand level. Consider the following uses:</p>
+<ul>
+<li>
+<p>Subinventory: For example, if you select subinventory, the system enables you to assign the material status at the subinventory level.</p>
+</li>
+<li>
+<p>On-hand: Enables checking of material status at the on-hand level.</p>
+</li>
+</ul>
+<p><strong><span>Important:</span></strong> The material status for an inventory organization should be set up at either the on-hand level OR the subinventory/locator/lot level. For example, if the on-hand material status is used, and there is on-hand material for the specific SKU, then the system obeys only the on-hand status, not the subinventory/locator/lot status.</p>
+</li>
+<li>
+<p>In the Allowed Transaction column, select a transaction that you want to disallow and click the greater than button. To move a transaction from the Disallowed Transactions column to the Allowed Transactions column, select the transaction, and click the less than button.</p>
+</li>
+<li>
+<p>Repeat the previous step to disallow additional transaction types.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291655.htm#I_t_trntyp">Defining and Updating Transaction Types</a></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Shipping Execution User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Shipping Execution User's Guide">
+<meta name="dcterms.identifier" content="E48847-15">
+<meta name="dcterms.isVersionOf" content="WSHUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T414830T414838.htm" title="Previous" type="text/html">
+<link rel="Next" href="T414830T414840.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Shipping Execution User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">11/23</span> <!-- End Header -->
+<h1>Managing Containers</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T414861">Overview of Containers</a></li>
+<li><a href="#T435287">LPN Statuses</a></li>
+<li><a href="#T414982">Auto-Packing Delivery Lines Into Containers</a></li>
+<li><a href="#T414862">Creating a Container</a></li>
+<li><a href="#T414983">Naming Containers</a></li>
+<li><a href="#T414984">Manually Packing Delivery Lines Into Containers</a></li>
+<li><a href="#T414985">Assigning Freight Costs to a Container</a></li>
+<li><a href="#T435191">Purging Containers/LPNs</a></li>
+<li><a href="#T414863">Packing Workbench</a></li>
+<li><a href="#T414986">Using the Packing Calculator</a></li>
+<li><a href="#T414987">Assigning Containers to a Delivery</a></li>
+<li><a href="#T414988">Unassigning Containers From a Delivery</a></li>
+</ul>
+<h2><a name="3573697"></a><a id="T414861"></a><b>Overview of Containers</b></h2>
+<p><a name="d0e13202" id="d0e13202"></a><a name="o_cnt" id="o_cnt"></a><a name="hlpcont" id="hlpcont"></a><a name="LpnPG" id="LpnPG"></a>In the Shipping Transactions window and the Shipping Execution Simplified User Interface, you can create and manage containers (LPNs) at any point in the shipping process. If you are using the Auto-packing feature, containers can be automatically packed using the container-item relationships set up in the Container-Item Relationships window.</p>
+<p><strong><span>Note:</span></strong> LPN is an acronym for License Plate Number. A packing container has a license plate number for unit identification and reporting capability, so containers are also called LPNs in Oracle Shipping Execution.</p>
+<p>You can create containers without assigning them to a delivery. This is useful if you want to create multiple containers of the same type then pack them with unassigned delivery lines.</p>
+<p>Customer Items can be associated with containers within Oracle Inventory. See: <i>Oracle Inventory User's Guide.</i> This association is used when packing the Customer Item into a container in Oracle Shipping Execution. When the Customer Item is packed, the container associated with the Customer Item in Oracle Inventory is used as the default container.</p>
+<p>You can pack multiple containers with multiple lines using one of the following packing methods:</p>
+<ul>
+<li>
+<p><a href="T414830T414837.htm#autopk">Auto-packing</a></p>
+</li>
+<li>
+<p><a href="T414830T414839.htm#wkbench">Packing Workbench</a></p>
+<ul>
+<li>
+<p>Equal packing: splits the delivery lines equally between the selected LPNs. You cannot use this method with delivery lines of serial controlled items.</p>
+</li>
+<li>
+<p>Sequential packing: fully packs one container at a time to its capacity (weight, volume, or quantity) before packing the next selected container.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="T414830T414839.htm#manpak">Manual packing</a></p>
+</li>
+</ul>
+<p>You can complete the following tasks in container management:</p>
+<ul>
+<li>
+<p><a href="T414830T414839.htm#contain">Create containers</a></p>
+</li>
+<li>
+<p><a href="T414830T414839.htm#freight">Assign freight costs</a></p>
+</li>
+<li>
+<p><a href="T414830T414839.htm#contdel">Assign containers to deliveries</a></p>
+</li>
+<li>
+<p><a href="T414830T414839.htm#unassign">Unassign containers from deliveries</a></p>
+</li>
+</ul>
+<h3><b><a name="wmscon" id="wmscon"></a>Containers for Oracle Warehouse Management Enabled Organizations</b></h3>
+<p>The following container management conditions apply only if Oracle Warehouse Management (WMS) is enabled at the warehouse organization:</p>
+<ul>
+<li>
+<p>You must be in Warehouse Management to pack the contents before pick confirming or staging them. In Warehouse Management enabled organizations, Warehouse Management does the packing and passes the updated shipping information to Shipping Execution.</p>
+</li>
+<li>
+<p>If Oracle Warehouse Management is installed, you can only assign and unassign the topmost container from a delivery. For example, if you have detail LPNs packed into a master container, you can only assign/unassign the master container not the detail container.</p>
+</li>
+</ul>
+<h2><a name="3909527"></a><a id="T435287"></a><b>LPN Statuses</b></h2>
+<p><a name="d0e13282" id="d0e13282"></a><a name="t_lpnstat" id="t_lpnstat"></a>LPNs are used throughout Oracle Applications, including Oracle Shipping Execution. LPNs created in Oracle Warehouse Management are viewable in the Shipping Transactions window, Quick Ship window, and the Details page of the Shipping Execution Simplified User Interface. The entire LPN hierarchy is passed to Oracle Shipping Execution upon pick confirmation completion and are kept synchronized through the shipping processes.</p>
+<p><strong><span>Note:</span></strong> LPNs created in Oracle Warehouse Management have statuses specific to Oracle Warehouse Management.</p>
+<p>The following Oracle Warehouse Management statuses are visible in Oracle Shipping Execution:</p>
+<ul>
+<li>
+<p>Staged/Pick Confirmed</p>
+</li>
+<li>
+<p>Loaded to Dock</p>
+</li>
+<li>
+<p>Loaded in Staging</p>
+</li>
+</ul>
+<p>Certain fields on Oracle Warehouse Management generated LPNs can be modified through Oracle Shipping Execution, for example weight and volume. The Frozen Weight/Volume option is ignored for LPNs created by Oracle Warehouse Management. The weight and volume of these LPNs are kept synchronized with Oracle Warehouse Management.</p>
+<p>See: <i>Oracle Warehouse Management User's Guide</i></p>
+<h2><a name="3573699"></a><a id="T414982"></a><b>Auto-Packing Delivery Lines Into Containers</b></h2>
+<p><a name="d0e13315" id="d0e13315"></a><a name="d0e13321" id="d0e13321"></a><a name="d0e13327" id="d0e13327"></a><a name="t_cntautopk" id="t_cntautopk"></a><a name="autopak" id="autopak"></a>Auto-packing provides a convenient and quick way of automatically packing delivery lines into containers (LPNs). The delivery lines are packed into LPNs based on the container-item relationship set up in Oracle Shipping Execution or in Oracle Inventory (defined as a customer item) and the setting of the Shipping parameter Percent Fill Basis must be set to Quantity. The container-item relationship defines the container that is used for packing the delivery lines. If Percent Fill Basis is set to Quantity, then auto-pack will look at Container-Load Relationships set up for the item and the Detail Container.</p>
+<p>If multiple container-item relationships exist for the same item, the Preferred setting in the Container-Item Relationships window indicates the default container-item relationship used for that item.</p>
+<p>Auto-packing can also be performed for those items in Oracle Inventory that are defined as Customer Items.</p>
+<p>Naming of the LPNs depends on whether or not you specify naming defaults when setting up your Organization Parameters. If you specify LPN Name Generation defaults, then those parameters are used during auto-packing of delivery lines into containers.</p>
+<h3><b>Using the Auto-pack Master Option<a name="d0e13347" id="d0e13347"></a></b></h3>
+<ul>
+<li>
+<p>If you select Auto-pack, then only the detail LPNs are created and packed.</p>
+</li>
+<li>
+<p>If you select Auto-pack Master, the delivery lines are packed into the detail container, and the detail containers are packed into the parent/master container in one action:</p>
+<p>For example, a delivery line with a quantity of 12 of Item A has a container-load relationship set up so that 6 of Item A fits into Container A and 2 of Container A fits into Container B (the percent fill basis is set to quantity). If you run Auto-pack Master, the line is split into 2 lines of 6, the first line is packed into the first container, the second line is packed into the second container, and the two detail LPNs (2 Container As) are packed into Container B.</p>
+</li>
+<li>
+<p>The Auto-pack Master option is available from the Actions menu in the Lines/LPNs tab in the Shipping Transactions window, and from the Details page of the Shipping Execution Simplified User Interface. It is also available at the delivery level.</p>
+<p><strong><span>Note:</span></strong> Container-Item Relationships must be predefined between the item and the detail container and between the detail container and the master container.</p>
+<p>Naming of the LPNs depends on whether or not you specify naming defaults when setting up your Organization Parameters. If you specify LPN Name Generation defaults, then those parameters are used when auto-pack master is used.</p>
+<p><strong><span>Note:</span></strong> If your organization has Oracle Warehouse Management enabled, see <a href="T414830T414839.htm#wmscon">Containers for Oracle Warehouse Management (WMS) enabled Organizations</a></p>
+</li>
+</ul>
+<p><b>To Auto-Pack Delivery Lines Into Containers Using the Shipping Transactions Window<a name="d0e13376" id="d0e13376"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery lines.</p>
+<p><b>Shipping Transactions window - Lines/LPNs Tab</b></p>
+<p><img width="945" height="502" src="./img/wshug_cntln.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select one or more lines.</p>
+</li>
+<li>
+<p>From the Actions menu, choose one of the following:</p>
+<ul>
+<li>
+<p><b>Auto-pack</b></p>
+</li>
+<li>
+<p><b>Auto-pack Master</b></p>
+<p>Or, right-click and select Auto-pack, or create your own Auto-pack button using Folders, and click that button.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The lines are auto-packed into LPNs. If you selected Auto-pack Master, the lines are packed into LPNs and detail LPNs are packed into the parent/master LPNs.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p>See Shipping Execution Setup, Defining Container-Item Relationships in <i>Oracle Order Management Implementation Manual</i></p>
+</li>
+</ol>
+<p><b>To Auto-Pack Delivery Lines Into Containers Using Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e13433" id="d0e13433"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+</li>
+<li>
+<p>Find the delivery lines.</p>
+</li>
+<li>
+<p>Select one or more delivery lines by clicking the corresponding check boxes in the Select column of the search results table next to the delivery lines.</p>
+</li>
+<li>
+<p>From the Action menu, select one of these options:</p>
+<ul>
+<li>
+<p><b>Auto-pack</b></p>
+</li>
+<li>
+<p><b>Auto-pack Master</b></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The lines are auto-packed into LPNs. If you selected Auto-pack Master, the lines are packed into LPNs and detail LPNs are packed into the parent/master LPNs.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414837.htm#onestep">One-Step Shipping</a></p>
+<p><a href="T414830T414837.htm#autopk">Automated Packing</a></p>
+<h2><a name="3573703"></a><a id="T414862"></a><b>Creating a Container</b></h2>
+<p><a name="d0e13491" id="d0e13491"></a><a name="d0e13497" id="d0e13497"></a><a name="d0e13503" id="d0e13503"></a><a name="d0e13509" id="d0e13509"></a><a name="t_cnt_cre" id="t_cnt_cre"></a><a name="WSHFSTRX.CREATE_CONTAINERS" id="WSHFSTRX.CREATE_CONTAINERS"></a><a name="contain" id="contain"></a>You can create multiple instances of an existing container type and assign them to trips or deliveries, or use them in the future to pack delivery lines. This makes packing more flexible because you can plan and pack ahead of time or as needed. Once the container instances are created, they can be viewed in the Shipping Transactions window and on the Details page of the Shipping Execution Simplified User Interface.</p>
+<p>You can pack delivery lines into LPNs regardless of whether they are pick released or not pick released.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414839.htm#namecont">Naming Containers</a></p>
+<h2><a name="3573704"></a><a id="T414983"></a><b>Naming Containers</b></h2>
+<p><a name="d0e13532" id="d0e13532"></a><a name="d0e13538" id="d0e13538"></a><a name="t_cntname" id="t_cntname"></a><a name="namecont" id="namecont"></a>In the Create LPNs window and on the Create LPNs page in the Shipping Execution Simplified User Interface, you can assign names to identify and track individual LPNs. Naming of the LPNs depends on whether or not you specify naming defaults when setting up your Organization Parameters. If you specify LPN Name Generation defaults, then those parameters are used. Another option is to create your own container names or the system generates default container names based on your entries in the following Create LPNs window and page fields:</p>
+<ul>
+<li>
+<p>Name Prefix</p>
+</li>
+<li>
+<p>Starting Number</p>
+</li>
+<li>
+<p>Pad to Width</p>
+</li>
+<li>
+<p>UCC-128 Suffix</p>
+</li>
+<li>
+<p>Name Suffix</p>
+</li>
+</ul>
+<p>See: <i>Oracle Order Management Implementation Manual</i> for more information on creating LPNs.</p>
+<p>Example: In the following table, ten container instances named VIS100BOX and ending with VIS109BOX are created.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Container Example</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Prefix</b></th>
+<th scope="col"><b>Base Number</b></th>
+<th scope="col"><b>Quantity</b></th>
+<th scope="col"><b>Suffix</b></th>
+</tr>
+<tr valign="top">
+<td>VIS</td>
+<td>100</td>
+<td>10</td>
+<td>Box</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> To define a new container type rather than create an instance of an existing container (LPN), see Setting Up in the <i>Oracle Inventory User's Guide.</i></p>
+<p><b>To Create Containers Using the Shipping Transactions Window<a name="createlpn" id="createlpn"></a><a name="d0e13617" id="d0e13617"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions window, and find the Lines/LPNs.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Create LPNs.</b></p>
+</li>
+<li>
+<p>Click <b>Go</b> to display the Create LPNs window.</p>
+<p><b>Create LPNs Window</b></p>
+<p><img width="531" height="370" src="./img/wshug_cntcre.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the Organization for the container.</p>
+</li>
+<li>
+<p>Select the Container Item such as a box or pallet.</p>
+</li>
+<li>
+<p>Enter a Count for the number of container instances you want to create.</p>
+<p>For example, to create ten instances of the BX54888 Container, enter 10 in the Count field.</p>
+</li>
+<li>
+<p>Enter a Name Prefix for the container name.</p>
+<p>The Prefix is defaulted if you specify it in the Prefix field within the Organization Parameters window/Revision, Lot, Serial and LPN tab.</p>
+</li>
+<li>
+<p>Enter the Base Number for the container name.</p>
+<p>The numbering starts from the base number and increments by 1. For example, if you enter 100 as the base number for the first instance of a container, the second is numbered 101, the third 102, and so on.</p>
+<p>The Base Number is defaulted if you specify it in the Starting LPN Number field within the Organization Parameters window/Revision, Lot, Serial and LPN tab.</p>
+</li>
+<li>
+<p>Enter the Pad to Width.</p>
+<p>The default Pad to Width is the total number of digits in the base number. For example, the default Pad to Width for the container name VIS100BOX is 3.</p>
+</li>
+<li>
+<p>Select the UCC-128 Suffix option if you want to enable the Uniform Code Council, 128 ASCII character set suffix functionality.</p>
+<p>If you select the UCC-128 Suffix option (checked is Yes, unchecked is No), then you will not be able to specify the Name Suffix. The default suffix for UCC-128 is "No."</p>
+<p>The UCC-238 Suffix is defaulted if you enable it by selecting the UCC-128 Suffix (Modulo-10) check box within the Organization Parameters window/Revision, Lot, Serial and LPN tab.</p>
+</li>
+<li>
+<p>Enter a Name Suffix for the container name.</p>
+<p>The Name Suffix is defaulted if you specify it in the Suffix field within the Organization Parameters window/Revision, Lot, Serial and LPN tab.</p>
+</li>
+<li>
+<p>Click <b>OK</b> to create the container instances.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Create Containers Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e13709" id="d0e13709"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Create LPNs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><b>Create LPNs page</b></p>
+<p><img width="310" height="363" src="./img/wshug_scn_clpn.gif" alt="the picture is described in the document text"></p>
+<p>The Create LPNs page appears.</p>
+</li>
+<li>
+<p>Enter information for the LPN.</p>
+<p>For more information about how to create an LPN, see the <a href="T414830T414839.htm#createlpn">procedure: To Create Containers Using the Shipping Transactions Window</a>.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+<p>The container instance is created.</p>
+<p><strong><span>Note:</span></strong> You can also create containers by performing the steps above from the Details page when any infotile is selected.</p>
+</li>
+</ol>
+<h2><a name="3573708"></a><a id="T414984"></a><b>Manually Packing Delivery Lines Into Containers</b></h2>
+<p><a name="d0e13766" id="d0e13766"></a><a name="d0e13772" id="d0e13772"></a><a name="d0e13778" id="d0e13778"></a><a name="t_cntnmanpack" id="t_cntnmanpack"></a><a name="manpak" id="manpak"></a>You can manually pack containers if you have delivery lines you want to pack without using the auto-pack method. For example, to quickly pack delivery lines into a box.</p>
+<h3><b>Prerequisites</b></h3>
+<p>An LPN must be available for packing.</p>
+<p>The line(s) must not currently be assigned to another LPN.</p>
+<p><b>To Manually Pack Delivery Lines Into Containers Using the Shipping Transactions Window<a name="d0e13799" id="d0e13799"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions window, and find the delivery lines you want to pack.</p>
+</li>
+<li>
+<p>Select the delivery lines that you want to pack.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Pack.</b></p>
+</li>
+<li>
+<p>Click <b>Go</b> to display the LPNs Query window.</p>
+</li>
+<li>
+<p>Query a previously created LPN.</p>
+</li>
+<li>
+<p>Select the LPN.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+<p>You can only pack one container at a time.</p>
+</li>
+</ol>
+<p><b>To Manually Pack Delivery Lines Into Containers Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e13845" id="d0e13845"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines that you want to pack, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Manually Pack Delivery Lines Into Containers Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one delivery line by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Pack.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Pack page appears.</p>
+</li>
+<li>
+<p>Select the container in the Name field.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+<p><b>To Manually Pack Delivery Lines Into Containers Using the Line Details Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Details page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Pack.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Pack page appears.</p>
+</li>
+<li>
+<p>Select the container in the Name field.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573711"></a><a id="T414985"></a><b>Assigning Freight Costs to a Container</b></h2>
+<p><a name="d0e13935" id="d0e13935"></a><a name="d0e13941" id="d0e13941"></a><a name="t_cntfcost" id="t_cntfcost"></a><a name="freight" id="freight"></a>You can assign new freight costs, override the suggested amounts, or update existing freight costs for a container. For example, you may need to add additional costs like Duty Fee or Priority Handling for a particular container. A freight cost can also be assigned to a delivery, a stop, or a delivery detail.</p>
+<h3><b>Prerequisites</b></h3>
+<p>A LPN must be created.</p>
+<p><b>To Assign Freight Costs for a Container Using the Shipping Transactions Window<a name="d0e13960" id="d0e13960"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window.</p>
+</li>
+<li>
+<p>Find the LPN.</p>
+<p>The container displays in the Shipping Transactions window.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs</b> to manually assign your freight costs.</p>
+</li>
+<li>
+<p>Click <b>Go</b> to display the Freight Costs window.</p>
+<p><b>Freight Costs window</b></p>
+<p><img width="752" height="501" src="./img/wshug_frtcst.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the Name, Type, Currency Code, Amount, Conversion Type, Conversion Date, and Conversion Rate.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+<p><strong><span>Note:</span></strong> Costs assigned to an LPN can be interfaced to Oracle Order Management and Oracle Receivables for invoicing a consignee (that is, freight terms are Collect or Prepay & Add) if a pricing modifier is set up. See: Defining Freight and Special Charge Types in <i>Oracle Order Management Implementation Manual</i>.</p>
+<p>Costs assigned after ship confirmation are not passed as freight costs to Order Management; instead, they are stored in the shipping system for future reference.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Assign Freight Costs for a Container Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e14022" id="d0e14022"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the detail (container) for which you want to assign freight costs, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Assign Freight Costs for a Container Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one detail line (container) by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Freight Costs page appears.</p>
+</li>
+<li>
+<p>Click the <b>Create Freight Cost</b> icon (+ plus sign).</p>
+</li>
+<li>
+<p>Enter the Name, Type, Currency Code, Amount, Conversion Type, Conversion Date, and Conversion Rate.</p>
+</li>
+<li>
+<p>Click <b>Save</b> to save your work and to stay on the page.</p>
+<p>Click <b>Apply</b> to save your work and to return to the previous page.</p>
+</li>
+</ol>
+<p><b>To Assign Freight Costs for a Container Using the LPN Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for the container in the search results table of the Search Details page.</p>
+<p>The LPN page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Freight Costs page appears.</p>
+</li>
+<li>
+<p>Click the <b>Create Freight Cost</b> icon (+ plus sign).</p>
+</li>
+<li>
+<p>Enter the Name, Type, Currency Code, Amount, Conversion Type, Conversion Date, and Conversion Rate.</p>
+</li>
+<li>
+<p>Click <b>Save</b> to save your work and to stay on the page.</p>
+<p>Click <b>Apply</b> to save your work and to return to the previous page.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3908191"></a><a id="T435191"></a><b>Purging Containers/LPNs</b></h2>
+<p><a name="d0e14136" id="d0e14136"></a><a name="t_lpnprg" id="t_lpnprg"></a>Oracle Shipping Execution enables you to purge (permanently delete) containers/LPNs from the Oracle Shipping Execution tables.</p>
+<p>LPNs must be empty (no shipping entities included in the LPN) before purging. Warehouse Management generated LPNs cannot be purged through Shipping Purge.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414843.htm#t_shpprgrep">Shipping Purge Concurrent Process</a></p>
+<h2><a name="3573715"></a><a id="T414863"></a><b>Packing Workbench</b></h2>
+<p><a name="d0e14157" id="d0e14157"></a><a name="d0e14161" id="d0e14161"></a><a name="t_cnt_packw" id="t_cnt_packw"></a><a name="WSHFSTRX.PACK_DLVB" id="WSHFSTRX.PACK_DLVB"></a><a name="wkbench" id="wkbench"></a>You can use the Packing Workbench to split the delivery lines between containers or to pack sequentially one container at a time to its full capacity.</p>
+<p>The Packing Workbench window consists of the LPNs tab which displays the LPNs and the Lines tab which displays the delivery lines. The packing workbench displays the tare or filled weight and volume of LPNs and delivery lines that can help you determine the number of delivery lines and LPNs.</p>
+<h3><a id="T414923"></a><b>Prerequisite</b></h3>
+<p>Weight and/or volume values must be defined for the items and containers within Oracle Inventory.</p>
+<p><b>Packing Workbench window</b></p>
+<p><img width="723" height="502" src="./img/wshug_pkwkb.gif" alt="the picture is described in the document text"></p>
+<p>The LPNs and lines multi-record displays have check boxes next to each record to indicate whether a particular container or line has been selected for packing. As the LPNs are selected/deselected, the total available weight/volume is recalculated. Similarly when the delivery lines to be packed are selected/deselected, the total net weight/volume of all the lines is recalculated and displayed.</p>
+<p>By matching the total net weight/volume of all lines with the total available weight/volume of the LPNs, you can determine whether you can pack the selected delivery lines in the available number of LPNs. Matching weights and volume does not guarantee that all the selected lines will be packed into the selected LPNs. Due to incompatibilities or differences in grouping attributes of the different lines and LPNs, there could be lines that remain unpacked at the end of the packing operation.</p>
+<p>To assign/pack a number of lines into one or more LPNs, the packing can be performed using two different algorithms; one method is based on the sequential packing of the lines into the specified LPNs, and the other involves an equal packing of all the lines into the LPNs.</p>
+<p>The following process-enabled fields are available on the Packing Workbench window if you are using Order Management with Process Inventory. If the item specified on the delivery line is dual UOM controlled, and lot controlled, then you will see values in these fields. Otherwise, these fields will be blank. The process-enabled fields are display only and include the following:</p>
+<ul>
+<li>
+<p>Secondary Quantity: Displays the quantity to be shipped in the secondary UOM</p>
+</li>
+<li>
+<p>UOM: Displays the secondary UOM for the item for the delivery line</p>
+</li>
+</ul>
+<h2><a name="3573718"></a><a id="wshcnt1005794"></a><b>Equally Packing Delivery Lines Into Containers</b></h2>
+<p><a name="d0e14207" id="d0e14207"></a><a name="d0e14213" id="d0e14213"></a><a name="t_lines_eqpk" id="t_lines_eqpk"></a>You can split the delivery lines equally between the selected LPNs so that each of the resulting split lines (from every delivery line) is packed into each available container. This results in a packing in which every container is packed with items from every delivery line. Every container will have the same quantity of a particular delivery line item. This method of packing is useful if you have a number of lines (each with a different item) that are grouped together at shipment time: for example, packing different home computer components into one box for shipping purposes. You cannot use this method with delivery lines of serial controlled items.</p>
+<p>A selected delivery line is split equally by the number of LPNs and every line is packed into all the LPNs in a one to many relationship, provided the container grouping attributes are satisfied by the line. The preferred container specified on the delivery line or the container load-relationship is ignored. This method of packing could result in a gross over-packing or under-packing. If the LPNs are over-packed or under-packed, a warning appears. Again, this packing method could result in delivery lines that remain unpacked at the end of the packing operation because of incompatibilities in grouping attributes of lines and LPNs.</p>
+<p><strong><span>Note:</span></strong> If your organization has Oracle Warehouse Management enabled, see <a href="T414830T414839.htm#wmscon">Containers for Oracle Warehouse Management (WMS) enabled Organizations</a>.</p>
+<p><b>To Equally Pack Delivery Lines Into Containers<a name="d0e14234" id="d0e14234"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery lines and containers that you want to pack.</p>
+<p><b>Shipping Transactions window - Lines/LPNs tab</b></p>
+<p><img width="946" height="503" src="./img/wshug_contain.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>The delivery lines and LPNs display in the Shipping Transactions window.</p>
+</li>
+<li>
+<p>Select the delivery lines and LPNs.</p>
+<p><strong><span>Note:</span></strong> To select more than one, press and hold the CTRL key and select the lines and LPNs you want. To select multiple lines as a sequential group, place the cursor on the first line that you want and then press and hold Shift and then select the last line in the sequential group.</p>
+<p>Do not select delivery lines of serial controlled items.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Packing Workbench.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+<li>
+<p>Optionally, deselect any lines or containers that you do not want to include in the packing operation.</p>
+</li>
+<li>
+<p>In the Packing Mode region of the Packing Workbench window, select the Equal option.</p>
+</li>
+<li>
+<p>Click <b>Pack.</b></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="3573721"></a><a id="wshcnt1005822"></a><b>Sequentially Packing Delivery Lines Into Containers</b></h2>
+<p><a name="d0e14289" id="d0e14289"></a><a name="d0e14293" id="d0e14293"></a><a name="d0e14299" id="d0e14299"></a><a name="t_lines_pksq" id="t_lines_pksq"></a>You can fully pack one LPN and then proceed to pack the next LPN. When packing multiple lines into multiple LPNs, the packing is performed one container at a time. The first delivery line is packed into the first container until the container is full or the line is completely packed. If the line is completely packed, then the next line is packed into the same container until the container is full.</p>
+<p>If the LPN is fully packed before the line is completed (only partial quantity fits), then the line is split so that the split line now fills up the first container and the remaining quantity of the original line is packed into the next container. This is continued until all the lines have been packed or all the LPNs are full. If the LPNs are full before all the lines can be packed, the remaining lines are left unpacked. A warning will be issued to inform you that some lines were left unpacked.</p>
+<p><strong><span>Note:</span></strong> If Oracle Warehouse Management is enabled in your organization, see <a href="T414830T414839.htm#wmscon">Containers for Oracle Warehouse Management (WMS) enabled Organizations.</a></p>
+<p><b>To Sequentially Pack Delivery Lines Into Containers:<a name="d0e14319" id="d0e14319"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery lines and containers that you want to pack.</p>
+<p>The delivery lines and containers display in the Shipping Transactions window.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Packing Workbench.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Packing Workbench window displays the LPNs in the LPN tab.</p>
+</li>
+<li>
+<p>Select the Lines tab to display the lines.</p>
+</li>
+<li>
+<p>Select the delivery lines you want to pack into the LPNs.</p>
+</li>
+<li>
+<p>In the Packing Mode region, select the Full option.</p>
+</li>
+<li>
+<p>Click <b>Pack</b> to pack the lines into the containers.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p><strong><span>Note:</span></strong> To prevent unintended splitting of indivisible items during packing, the item must be defined as OM Indivisible within Oracle Inventory in the Master Items window, Physical Attributes tab.</p>
+</li>
+</ol>
+<h2><a name="3573723"></a><a id="T414986"></a><b>Using the Packing Calculator</b></h2>
+<p><a name="d0e14367" id="d0e14367"></a><a name="d0e14371" id="d0e14371"></a><a name="d0e14377" id="d0e14377"></a><a name="t_packcalc" id="t_packcalc"></a><a name="calculate" id="calculate"></a>When using the Packing Workbench, you can use the Packing Calculator to help plan the packing requirements. The Packing Calculator uses the default weight and volume values for items and containers as defined in Oracle Inventory to determine if the delivery lines fit into the selected LPNs.</p>
+<p>If you select or deselect lines or LPNs, you can recalculate the displayed values by clicking the Recalculate button</p>
+<p><strong><span>Note:</span></strong> If your organization has Oracle Warehouse Management enabled, see <a href="T414830T414839.htm#wmscon">Containers for Oracle Warehouse Management (WMS) enabled Organizations</a>.</p>
+<p><b>To Use the Packing Calculator<a name="d0e14399" id="d0e14399"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions window, and find the delivery lines and LPNs. Select the lines or LPNs.</p>
+</li>
+<li>
+<p>Click the vertical bar located on the right side of the Shipping Transactions window to display the packing calculator.</p>
+<p><b>Shipping Transactions window - Packing Calculator</b></p>
+<p><img width="943" height="501" src="./img/wshug_pkcalc.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click <b>Recalculate</b> to display the available capacity of the LPNs or the weight and volume totals for the items.</p>
+</li>
+<li>
+<p>Click the vertical bar again to close the Packing Calculator.</p>
+</li>
+</ol>
+<h2><a name="3573726"></a><a id="T414987"></a><b>Assigning Containers to a Delivery</b></h2>
+<p><a name="d0e14436" id="d0e14436"></a><a name="d0e14442" id="d0e14442"></a><a name="t_cntassdel" id="t_cntassdel"></a><a name="contdel" id="contdel"></a>You can assign an LPN (container) to an existing delivery by searching for the LPN and adding it to a delivery. If Oracle Warehouse Management System (WMS) is installed, you can only assign and unassign the topmost container to a delivery. For example, if you have detail LPNs packed into a master container, you can only assign the master container to a delivery.</p>
+<h3><b>Prerequisites</b></h3>
+<p>Delivery status must be set to Open.</p>
+<p>A delivery and container must already be created.</p>
+<p><strong><span>Note:</span></strong> If your organization has Oracle Warehouse Management enabled, see <a href="T414830T414839.htm#wmscon">Containers for Oracle Warehouse Management (WMS) enabled Organizations</a>.</p>
+<p><b>To Manually Assign Containers to a Delivery Using the Shipping Transactions Window<a name="d0e14469" id="d0e14469"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the container(s).</p>
+<p>The container(s) display in the Shipping Transactions window.</p>
+</li>
+<li>
+<p>Select the container(s) that you want to assign to the delivery.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign to Delivery.</b></p>
+</li>
+<li>
+<p>Click <b>Go</b> to display the Deliveries window.</p>
+</li>
+<li>
+<p>Select the Delivery to which you want to assign the LPN(s).</p>
+</li>
+<li>
+<p>Click <b>OK</b> to assign the LPN(s) to the delivery.</p>
+<p><strong><span>Note:</span></strong> Alternatively, you can select a delivery line assigned to a container, assign the line to a delivery, and the LPN is also assigned to the delivery.</p>
+</li>
+</ol>
+<p><b>To Manually Assign Containers to a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e14515" id="d0e14515"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the details (containers) you want to assign to a delivery, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Manually Assign Containers to a Delivery Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one or more detail lines (containers) by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign To Delivery.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Assign to Delivery page appears.</p>
+</li>
+<li>
+<p>Select the delivery you want to assign to the container in the Delivery Name field.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+<p><b>To Manually Assign a Container to a Delivery Using the LPN Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for the container in the search results table of the Search Details page.</p>
+<p>The LPN page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign To Delivery.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Assign to Delivery page appears.</p>
+</li>
+<li>
+<p>Select the delivery you want to assign to the container in the Delivery Name field.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573729"></a><a id="T414988"></a><b>Unassigning Containers From a Delivery</b></h2>
+<p><a name="d0e14605" id="d0e14605"></a><a name="d0e14611" id="d0e14611"></a><a name="t_cntuassdel" id="t_cntuassdel"></a><a name="unassign" id="unassign"></a>You can unassign an LPN (container) by searching for the LPN and unassigning it from a delivery. If Oracle Warehouse Management (WMS) is installed, you can only assign and unassign the topmost container from a delivery. For example, if you have detail LPNs packed into a master container, you can only unassign the master container from a delivery.</p>
+<p><strong><span>Note:</span></strong> If your organization has Oracle Warehouse Management enabled, see <a href="T414830T414839.htm#wmscon">Containers for Oracle Warehouse Management (WMS) enabled Organizations.</a></p>
+<p><strong><span>Note:</span></strong> Within a WMS enabled organization, unassigning a line from a delivery after LPN load will not prevent the line from being reassigned to the delivery during LPN drop.</p>
+<h3><b>Prerequisites</b></h3>
+<p>Delivery status must be set to Open.</p>
+<p><b>To Unassign a Container From a Delivery Using the Shipping Transactions Window<a name="d0e14638" id="d0e14638"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the LPN.</p>
+<p>The LPN(s) displays in the Shipping Transactions window.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unassign from Delivery.</b></p>
+</li>
+<li>
+<p>Click <b>Go</b> to unassign the container from the delivery.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Unassign a Container From a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e14670" id="d0e14670"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the details (containers) you want to unassign from a delivery, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Unassign a Container From a Delivery Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one or more detail lines (containers) by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unassign From Delivery.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+<p><b>To Unassign a Container From a Delivery Using the LPN Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link in the search results table of the Search Details page.</p>
+<p>The LPN page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unassign From Delivery.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T228121.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107T228122.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">21/31</span> <!-- End Header -->
+<h1>Integration with Oracle Time and Labor</h1>
+<p>This chapter provides information about how Oracle Work in Process integrates with Oracle Time and Labor to enable employees to enter their work hours information.</p>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T683171">Integration with Oracle Time and Labor Overview</a></li>
+<li><a href="#T683172">Setting Up OTL-WIP Integration</a></li>
+<li><a href="#T683173">Using Time and Expenses</a></li>
+<li><a href="#T683175">Entering Timecard Information</a></li>
+<li><a href="#T683176">Extracting OTL Information to Work in Process</a></li>
+<li><a href="#T683177">Executing the Cost Manager Process</a></li>
+</ul>
+<h2><a name="8749477"></a><a id="T683171"></a><b>Integration with Oracle Time and Labor Overview</b></h2>
+<p><a name="d0e48942" id="d0e48942"></a><a name="wipotl_01" id="wipotl_01"></a>Employees working in a particular organization can use Oracle Time and Labor (OTL) to enter information for their work hours. OTL is the repository for this timecard information. The integration with OTL enables the Oracle Work in Process (WIP) employees assigned to work orders, to use the OTL application to enter their start and stop times or enter the duration they have worked in hours. The information that is collected is then stored in OTL Time Store. WIP then extracts this information from the OTL Time Store and charges the WIP work orders according to the time employees have spent working on these work orders.</p>
+<p>Before you can use this functionality, complete the required setups. See: <a href="T228107T683170.htm#wipotl_02">Setting Up WIP-OTL Integration</a>.</p>
+<p><strong><span>Note:</span></strong> The WIP and OTL integration feature can be used only if both the Work in Process and Human Resources code level are at Release 12.2.11.</p>
+<p>The following steps are included in the OTL and WIP integration process flow:</p>
+<p><img width="800" height="152" src="./img/wip_otl_processflow_01.gif" alt="the picture is described in the document text"></p>
+<ol>
+<li>
+<p>Create a work order in Oracle Work in Process.</p>
+</li>
+<li>
+<p>Assign the employee resource instance to the work order in Oracle Work in Process.</p>
+</li>
+<li>
+<p>Create and enter timecard information for that specific work order within OTL Time Store.</p>
+</li>
+<li>
+<p>Review the timecard.</p>
+</li>
+<li>
+<p>Submit the timecard.</p>
+</li>
+<li>
+<p>Approve the timecard.</p>
+</li>
+<li>
+<p>Extract timecard information with the Approved status from OTL Time Store to Oracle Work in Process. This extraction dynamically creates a resource transaction within Oracle Work in Process.</p>
+</li>
+<li>
+<p>Execute the Cost Manager process. This process charges the resource transaction. You can then verify that the resource transaction is recorded and view the actual costs for the period that you charged, within the work order.</p>
+</li>
+</ol>
+<p>See:</p>
+<ul>
+<li>
+<p><a href="T228107T683170.htm#wipotl_02">Setting up WIP-OTL Integration</a></p>
+</li>
+<li>
+<p><a href="T228107T683170.htm#wipotl_03">Using Time and Expenses</a></p>
+</li>
+</ul>
+<h2><a name="8749478"></a><a id="T683172"></a><b>Setting Up OTL-WIP Integration</b></h2>
+<p><a name="wipotl_02" id="wipotl_02"></a>To set up the WIP and OTL integration, you must:</p>
+<ul>
+<li>
+<p>Define Persons as Users: Assign an employee defined as a person in Oracle Human Resources to a user in Oracle Work in Process.</p>
+</li>
+<li>
+<p>Define Preferences and Eligibility: Define preference hierarchies and preference values, and link them with eligibility criteria in Oracle Time and Labor.</p>
+</li>
+</ul>
+<p>See: <a href="T228107T228110.htm#wipotlsetup">Setting up Oracle Time and Labor Integration</a></p>
+<h2><a name="8749479"></a><a id="T683173"></a><b>Using Time and Expenses</b></h2>
+<p><a name="wipotl_03" id="wipotl_03"></a>There are multiple steps within the integration flow. First, the timecard information is entered for a specific work order, within Oracle Time Store (a part of Oracle Time and Labor). That information is then extracted from Oracle Time Store to Oracle Work in Process. This extraction dynamically creates a resource transaction within Oracle Work in Process. Finally, the Cost Manager process is executed. This process charges the resource transaction. After this process runs, you can view the actual costs for the period that you charged, within the work order.</p>
+<p>This section includes the following topics:</p>
+<ul>
+<li>
+<p><a href="T228107T683170.htm#wipotl_04">Entering Timecard Information</a></p>
+</li>
+<li>
+<p><a href="T228107T683170.htm#wipotl_05">Extracting OTL Information to Work in Process</a></p>
+</li>
+<li>
+<p><a href="T228107T683170.htm#wipotl_06">Executing the Cost Manager Process</a></p>
+</li>
+</ul>
+<h2><a name="8749522"></a><a id="T683175"></a><b>Entering Timecard Information</b></h2>
+<p><a name="wipotl_04" id="wipotl_04"></a>Use the Create Timecard tab in the Time page to enter timecard information for a work order, operation, and resource. When you enter the start and stop times or the duration in hours, the information is stored in OTL's Oracle Time Store. Oracle Work in Process (WIP) extracts this information and applies it to the appropriate work order and calculates the charges according to the time information that is entered.</p>
+<p><b>To enter timecard information</b></p>
+<ol>
+<li>
+<p>Navigate to the Create Timecard tab.</p>
+<p>From the WIP Self Service Time and Expenses responsibility, click Create Timecard.</p>
+<p><img width="800" height="416" src="./img/wip_entertimecard.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a Period. The current period defaults.</p>
+<p><strong><span>Note:</span></strong> You cannot submit time for a future period.</p>
+</li>
+<li>
+<p>In the Work Order field, select a discrete job from the list of values. Currently the WIP-OTL integration only supports discrete jobs. Work orders with a status of Released or Complete and that have operations assigned to a department which you are assigned to, are also available. If you are not assigned to a work order's operation but are a resource associated to the department on the work order's operation, you can see the work order in the list of values. After you charge time and submit the timecard and the retrieval process is executed, you are assigned to that work order's operation.</p>
+</li>
+<li>
+<p>In the Operation field, select an operation from the list of values. Operations associated with the selected work order are available.</p>
+</li>
+<li>
+<p>In the Resource field, select a resource from the list of values. You can choose from resources that are associated to the job's operation. You can also select ad hoc resources from the list of values.</p>
+</li>
+<li>
+<p>In the available fields in the date columns, directly enter the work duration hours or enter both the Start and Stop times against a work order, operation, and resource.</p>
+</li>
+<li>
+<p>In the Comment field, enter notes for the timecard.</p>
+</li>
+<li>
+<p>Click Add Another Row to select and add multiple work orders, operations, and resources and split the duration and time spent on a work.</p>
+</li>
+<li>
+<p>Optionally, click Recalculate to view the total hours calculated for both the period and the specific days.</p>
+</li>
+<li>
+<p>Optionally, click Cancel to remove the information you have entered.</p>
+</li>
+<li>
+<p>Optionally, click Save to review and submit the timecard later.</p>
+<p>Save enables you to save a timecard for later, and the timecard is given a Working status. Oracle Work in Process cannot extract the information for timecards with Working or Submitted status from Oracle Time and Labor.</p>
+</li>
+<li>
+<p>Click Continue, when you are ready to review and submit the timecard.</p>
+<p>The application checks and validates your entries like the status of your job, type of job, release dates, and start and stop times.</p>
+</li>
+<li>
+<p>Click Submit to submit the timecard. The current timecard has a Submitted status.</p>
+</li>
+<li>
+<p>Use the Recent Timecard tab to view submitted timecards. In this tab, you can select a timecard and click the:</p>
+<ul>
+<li>
+<p>Update icon to make changes for the selected timecard.</p>
+</li>
+<li>
+<p>Delete icon to delete the selected timecard.</p>
+</li>
+<li>
+<p>Details icon to view information for the selected timecard.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Use the Template tab to save timecard data and reuse it in the future. You can download the template data as a CSV file that you can use in a spreadsheet.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<ul>
+<li>
+<p><a href="T228107T683170.htm#wipotl_02">Setting up WIP-OTL Integration</a></p>
+</li>
+<li>
+<p><a href="T228107T683170.htm#wipotl_03">Using Time and Expenses</a></p>
+</li>
+</ul>
+<h2><a name="8749523"></a><a id="T683176"></a><b>Extracting OTL Information to Work in Process</b></h2>
+<p><a name="d0e49154" id="d0e49154"></a><a name="wipotl_05" id="wipotl_05"></a>You can extract all timecards in the Approved status from Oracle Time and Labor (OTL) to Oracle Work in Process (WIP). A concurrent process runs in the background and performs time charge extractions. After extraction, a resource transaction dynamically generates within WIP. Most organizations schedule this process to run automatically.</p>
+<p><b>To extract information from OTL to WIP</b></p>
+<ol>
+<li>
+<p>Navigate to the Submit Request window.</p>
+</li>
+<li>
+<p>In the Name field, select Retrieve Timecard Data from OTL to WIP.</p>
+<p><img width="799" height="457" src="./img/wip_extractOTLtoWIP.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Parameters window, enter information in the following fields if you would like to filter the timecard data to be extracted from OTL to WIP:</p>
+<ul>
+<li>
+<p>Start Date: Enter the start date specify the start date of the date range.</p>
+</li>
+<li>
+<p>End Date: Enter the end date to specify the end date of the date range.</p>
+</li>
+<li>
+<p>Organization: Select an organization.</p>
+</li>
+<li>
+<p>Resource: Select a resource.</p>
+</li>
+<li>
+<p>Employee: Select an employee.</p>
+</li>
+<li>
+<p>Department: Select a department.</p>
+</li>
+<li>
+<p>Work Order: Select a work order</p>
+</li>
+<li>
+<p>Operation: Select an operation.</p>
+</li>
+<li>
+<p>Process Code: Enter information to tag the timecard data you are about to extract. This helps you to identify the data if you need to retrieve it later.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click OK.</p>
+</li>
+<li>
+<p>Click Submit. The request ID displays.</p>
+</li>
+<li>
+<p>Click No to close the Decision window.</p>
+</li>
+<li>
+<p>Click Find in the Find Requests window and query for the request ID.</p>
+</li>
+<li>
+<p>Use the Requests page to ensure that the request is completed successfully.</p>
+</li>
+<li>
+<p>Click View Log to review the extracted timecard data.</p>
+</li>
+<li>
+<p>Navigate to the Pending Resource Transactions window and use the Transaction tab to view the timecard information you have extracted.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<ul>
+<li>
+<p><a href="T228107T683170.htm#wipotl_02">Setting up WIP-OTL Integration</a></p>
+</li>
+<li>
+<p><a href="T228107T683170.htm#wipotl_03">Using Time and Expenses</a></p>
+</li>
+</ul>
+<h2><a name="8749524"></a><a id="T683177"></a><b>Executing the Cost Manager Process</b></h2>
+<p><a name="d0e49255" id="d0e49255"></a><a name="wipotl_06" id="wipotl_06"></a>You must run the Cost Manager process to charge the resource transactions. Note that most organizations schedule this process to run automatically. After this process runs, you can see the actual costs for the period that you charged, within the work order.</p>
+<p><b>To execute the Cost Manager process</b></p>
+<ol>
+<li>
+<p>Navigate to the Submit Request window.</p>
+</li>
+<li>
+<p>In the Name field, select Cost Manager.</p>
+<p><img width="799" height="589" src="./img/wip_otlcost.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click Submit.</p>
+<p>The Cost Manager program processes the pending WIP resource transactions and once the request runs and completes successfully, the resource transactions are charged. These resource transaction costs are then available in the costing tables for costing purposes.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<ul>
+<li>
+<p><a href="T228107T683170.htm#wipotl_02">Setting up WIP-OTL Integration</a></p>
+</li>
+<li>
+<p><a href="T228107T683170.htm#wipotl_03">Using Time and Expenses</a></p>
+</li>
+</ul>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

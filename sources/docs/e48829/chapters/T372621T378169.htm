@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Cost Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Cost Management User's Guide">
+<meta name="dcterms.identifier" content="E48829-27">
+<meta name="dcterms.isVersionOf" content="CSTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T372621T435195.htm" title="Previous" type="text/html">
+<link rel="Next" href="T372621T378952.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Cost Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">13/29</span> <!-- End Header -->
+<h1>Project Manufacturing Costing</h1>
+<h2><a name="3015484"></a><a id="T452182"></a><b>Overview of Project Manufacturing</b></h2>
+<p><a name="d0e28848" id="d0e28848"></a><a name="c_ovwpmc" id="c_ovwpmc"></a>You can cost all project-related manufacturing transactions, then capture these costs and transfer them to Oracle Projects. You can associate items and manufacturing business processes with specific projects, and optionally tasks, to track quantity and cost information through these business processes. Project Manufacturing costing enables you to process and cost material, labor, and associated overheads against a specific project or a group of projects for a specific customer.</p>
+<h3><a id="T410777"></a><b>Work Breakdown Structure: Project and Tasks<a name="d0e28859" id="d0e28859"></a><a name="d0e28865" id="d0e28865"></a></b></h3>
+<p>Define projects and tasks in Oracle Projects. Project tasks make up the Work Breakdown Structure of a project. Projects and tasks can be referenced throughout Oracle Manufacturing Applications.</p>
+<p>See: Work Breakdown Structure, <i>Oracle Projects User's Guide</i> and Overview of Projects and Tasks, <i>Oracle Projects User's Guide</i>.</p>
+<h3><a id="T410778"></a><b>Cost Collector<a name="d0e28885" id="d0e28885"></a><a name="d0e28891" id="d0e28891"></a></b></h3>
+<p>You can use the Cost Collector to pass project-related costs from Oracle Manufacturing Applications to the Transaction Import Interface table in Oracle Projects. These transactions can then be imported from the interface table into Oracle Projects.</p>
+<p>The Cost Collector collects costs by project, task, expenditure type, expenditure organization, and expenditure date. See: <a href="T372621T378169.htm#c_projcst">Project Cost Collector</a>.</p>
+<h3><a id="T410779"></a><b>Task Auto Assignment<a name="d0e28908" id="d0e28908"></a><a name="d0e28914" id="d0e28914"></a></b></h3>
+<p>Task auto assignment assures that each project transaction has a task, if one has not already been assigned. Task Auto Assignment enables you to manage your manufacturing activities by project and collect manufacturing costs by different tasks.</p>
+<p>See: Task Auto Assignment Process, <i>Oracle Project Manufacturing User's Guide</i>.</p>
+<h3><a id="T410780"></a><b>Common Project<a name="d0e28931" id="d0e28931"></a><a name="d0e28937" id="d0e28937"></a></b></h3>
+<p>The cost collection manager updates the transaction information with a specified project, if required. See: Common Project Assignment, <i>Oracle Project Management User's Guide</i>.</p>
+<h3><a id="T410788"></a><b>Reports<a name="d0e28952" id="d0e28952"></a><a name="d0e28958" id="d0e28958"></a></b></h3>
+<p>Project Manufacturing makes use of all Cost Management reports.</p>
+<p>However, if there is more than one cost group in a Project Manufacturing average organization, you should not use the following valuation reports for reconciliation purposes:</p>
+<ul>
+<li>
+<p>Transaction Historical Summary Report</p>
+</li>
+<li>
+<p>Receiving Value Report</p>
+</li>
+<li>
+<p>All Inventories Value Report/ Inventory Value Report</p>
+</li>
+<li>
+<p>Elemental Inventory Value Report</p>
+</li>
+<li>
+<p>Subinventory Account Value Report</p>
+</li>
+<li>
+<p>Item Cost Report (also Item Cost window)</p>
+</li>
+</ul>
+<h3><a id="T410789"></a><b><a name="c_pcostmeth" id="c_pcostmeth"></a>Costing Methods<a name="d0e28992" id="d0e28992"></a><a name="d0e28998" id="d0e28998"></a></b></h3>
+<p>The four perpetual costing methods - Standard, Average, FIFO, and LIFO - are supported for Project Manufacturing. The cost group for all perpetual costing methods determines the inventory valuation accounts. Item unit costs are held at the cost group level for Average, FIFO, and LIFO methods. However, standard costs are held at the inventory organization level.</p>
+<h3><a id="T410790"></a><b><a name="c_pandnonp" id="c_pandnonp"></a>Project and Non-Project Manufacturing<a name="d0e29011" id="d0e29011"></a></b></h3>
+<p>You can cost both project referenced and non-project referenced (common) transactions in the same organization. For example, you can define and transact both non-project or 'common' discrete jobs as well as project jobs.</p>
+<p>For a listing of project-referenced transactions, see: <a href="T372621T378169.htm#c_pmfgtxns">Project Manufacturing Costing Transactions</a></p>
+<h4><a id="T410791"></a><b>Project Inventory</b></h4>
+<p>You can perform the following type of inventory transactions for project-referenced inventory:</p>
+<ul>
+<li>
+<p>Miscellaneous Issue</p>
+</li>
+<li>
+<p>Miscellaneous Receipt</p>
+</li>
+<li>
+<p>Project Transfer</p>
+</li>
+<li>
+<p>Borrow and Payback Transfers</p>
+</li>
+<li>
+<p>Inter-organization Transfer (Direct)</p>
+</li>
+<li>
+<p>Inter-Org Internal Orders (Instransit)</p>
+</li>
+<li>
+<p>Cycle Count Adjustment</p>
+</li>
+<li>
+<p>Physical Inventory Adjustment</p>
+</li>
+</ul>
+<p>Transactions between expense subinventories are not eligible for project cost collection.</p>
+<h4><a id="T410792"></a><b>Project Jobs</b></h4>
+<p>You can create project jobs by assigning project and task references to jobs in the Discrete Jobs window in Oracle Work in Process. You can also implement project jobs planned in Master Scheduling/MRP and Supply Chain Planning.</p>
+<p>You can define both standard and non-standard project jobs. You can assign different WIP accounting classes to project jobs. You can also define WIP accounting classes to be valid only for a specific cost group if you have associated the WIP class to the project cost group. Doing so makes it possible to keep the WIP costs of projects belonging to the same cost group in specific general ledger accounts. You can also track WIP resource and material transactions to the project job.</p>
+<h4><a id="T410793"></a><b>Project Purchasing and Receiving</b></h4>
+<p>You can create project purchase requisitions and project purchase orders directly in Oracle Purchasing. You can implement project purchase orders that are planned in Master Scheduling/MRP and Supply Chain Planning. You can receive items on project purchase orders, or inspect them, and deliver them to project inventory. You can also track the status of all purchase requisitions and purchase orders for a project.</p>
+<h3><a id="T410794"></a><b><a name="c_elesub" id="c_elesub"></a>Cost Elements and Subelements in Average, FIFO, and LIFO Organizations<a name="d0e29073" id="d0e29073"></a><a name="d0e29079" id="d0e29079"></a></b></h3>
+<p>Purchasing-related transactions are the only Project Manufacturing transactions that can capture project material costs at the cost subelement level. Resource and associated overheads charged to WIP are captured at the subelement level. All other material transactions are held at the cost element level.</p>
+<p>Cost subelement delineation makes it possible to analyze performance within labor, overhead, material, or other direct costs.</p>
+<p>See:</p>
+<p><a href="T372621T378169.htm#c_pmcsu">Setting Up Project Manufacturing Costing</a></p>
+<p><a href="T372621T378169.htm#c_subelems">Cost Elements, Subelements, and Expenditure Types</a></p>
+<p><a href="T372621T378169.htm#c_pmfgtxns">Project Manufacturing Transactions</a></p>
+<p><a href="T372621T378169.htm#c_pmcval">Project Manufacturing Inventory Valuation</a></p>
+<p><a href="T372621T378169.htm#c_pmcvar">Project Manufacturing Cost Variances</a></p>
+<h3><a id="T410795"></a><b><a name="c_borpay" id="c_borpay"></a>Borrow Payback<a name="d0e29116" id="d0e29116"></a><a name="d0e29122" id="d0e29122"></a></b></h3>
+<p>You can borrow material from one project and return it using the Project Borrow Payback transaction. The applicable unit cost is moved from the lending project to the borrowing project. Repayment is made to the lending project at the original (borrowed) cost when a replenishment order is received by the borrowing project. The borrowing project absorbs any cost difference between the original and replenished materials.</p>
+<p>See: Borrow Payback, <i>Oracle Project Manufacturing User's Guide</i>.</p>
+<h2><a name="3015497"></a><a id="T452183"></a><b>Setting Up Project Manufacturing Costing</b></h2>
+<p><a name="d0e29141" id="d0e29141"></a><a name="d0e29147" id="d0e29147"></a><a name="c_pmcsu" id="c_pmcsu"></a><strong>Prerequisites</strong></p>
+<ul>
+<li>Check the <i>Project Cost Collection Enabled</i> parameter in the Organization Parameters window in Oracle Inventory.</li>
+<p><strong><span>Note:</span></strong> This check box can be enabled if only Oracle Projects is installed. It has no relation to the <i>Project Reference Enabled</i> check box, and it does not depend on installation of Project Management.</p>
+</ul>
+<p><b>To set up Project Manufacturing costing</b></p>
+<ol>
+<li>
+<p>Associate Expenditure Types with Cost Subelements. See: <a href="T372621T372759.htm#t_exptypce">Associating Expenditure Types with Cost Elements</a>.</p>
+<p>See: Overview of Expenditure Classifications, <i>Oracle Projects User's Guide</i>.</p>
+</li>
+<li>
+<p>Associate expenditure types with cost subelements. See: <a href="T372621T372759.htm#t_fdmse">Defining Material Subelements</a> and <a href="T372621T372759.htm#t_fdovh">Defining Overhead</a> and Resources window in BOM.</p>
+</li>
+<li>
+<p>Define project cost groups and associate WIP accounting classes with each project cost group. Repeat for all new projects See: <a href="T372621T372759.htm#t_defcstgrp">Defining Project Cost Groups</a>.</p>
+</li>
+</ol>
+<h2><a name="3526562"></a><a id="T410797"></a><b>Cost Elements, Subelements, and Expenditure Types</b></h2>
+<p><a name="d0e29203" id="d0e29203"></a><a name="d0e29209" id="d0e29209"></a><a name="d0e29215" id="d0e29215"></a><a name="c_subelems" id="c_subelems"></a>Some Project Manufacturing transactions can capture project cost only at the cost element level. Other transactions support an unlimited number of user-defined cost subelements costs at the subelement level. Cost subelement delineation is required so that you can analyze performance in terms of labor, overhead, material, or other direct costs.</p>
+<p>The Cost Collector collects costs by project, task, and expenditure type. Associating expenditure types with cost subelements ensures that Project Manufacturing costs can be collected and transferred to Oracle Projects.</p>
+<h3><a id="T410798"></a><b>Subelement Correspondence to Expenditure Type</b></h3>
+<p>There is a many-to-one relationship between subelements in Manufacturing and expenditure types in Projects; you define these relationships at the organization level. As a result, for any resource, material, or other subelement that you use on multiple projects, the expenditure type is the same across projects. The same is true within the same project, so a resource or purchased item with two different uses in different tasks, for example, would carry the same expenditure type in both tasks. However, you may specify a different expenditure type for each subelement.</p>
+<p>To pass detailed data from Manufacturing to Projects, each cost subelement in Manufacturing must correspond to an expenditure type in Projects. This relationship is defined at the organization level on the Resource, Overhead, and Material Subelements windows in Cost Management, and is mandatory if you selected the <i>Project Cost Collection Enabled</i> parameter for this organization. When you define a cost subelement, you must associate it with an expenditure type. The Cost Collector uses this expenditure type to pass the subelement's transaction cost to the appropriate project and task in transactions that cross a project and task boundary.</p>
+<p>Cost visibility and reporting, down to the expenditure type level of detail, is available using Oracle Projects.</p>
+<h3><a id="T410799"></a><b>Elemental Cost Visibility in the General Ledger</b></h3>
+<p>You can charge cost elements of an item in a project job or locator either to different valuation accounts or all to the same account in Manufacturing. Because Manufacturing passes accounting entries to General Ledger, the account detail that you define determines the level of elemental detail that you are able to see in your General Ledger. Either way, elemental cost visibility is maintained in Manufacturing and that detail is passed to Projects using expenditure types.</p>
+<h3><a id="T410800"></a><b>Cost Element Correspondence to Expenditure Type</b></h3>
+<p>If project cost collection is enabled in your Inventory Organization parameters, a prerequisite to running the Cost Collector, each of the five cost elements must have two expenditure types linked to it. Users create these links in the Expenditure Types for Cost Elements window within Cost Management. These expenditure types are used when passing costs to Projects when any material transactions, except those related to purchasing, occur in Manufacturing.</p>
+<p>Of the two expenditure types for each cost element, one is used to hold the value of transfers out of projects, the other to hold the value of transfers into projects. Because expenditure types are for a specific use, you may want to choose those types types that are not associated with any cost subelement.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T372759.htm#t_fdmse">Defining Material Subelements</a></p>
+<p><a href="T372621T372759.htm#t_fdovh">Defining Overhead</a></p>
+<p><a href="T372621T372759.htm#t_exptypce">Associating Expenditure Types with Cost Elements</a></p>
+<p><a href="T372621T372759.htm#t_fdctp">Defining Cost Types</a></p>
+<p><a href="T372621T372805.htm#t_fdiac">Defining Item Costs</a></p>
+<h2><a name="3526575"></a><a id="T410802"></a><b>Project Manufacturing Valuations and Variances</b></h2>
+<a name="d0e29279" id="d0e29279"></a><a name="d0e29285" id="d0e29285"></a><a name="c_pmcval" id="c_pmcval"></a>
+<h3><a id="T410803"></a><b>Project Manufacturing Inventory Valuation<a name="d0e29295" id="d0e29295"></a><a name="d0e29301" id="d0e29301"></a></b></h3>
+<p>Inventory under Project Manufacturing costing is valued based on the organization's costing method.</p>
+<p>For further information about project cost groups and their function, see: <a href="T372621T372759.htm#c_cstgroup">Project Cost Groups</a> and <a href="T372621T372759.htm#t_defcstgrp">Defining Project Cost Groups</a>.</p>
+<h3><a id="T410804"></a><b><a name="c_pmcvar" id="c_pmcvar"></a>Project Manufacturing Cost Variances<a name="d0e29322" id="d0e29322"></a><a name="d0e29328" id="d0e29328"></a></b></h3>
+<h4><a id="T410805"></a><b>Average Cost Variances</b></h4>
+<p>Under Project Manufacturing costing, cost variances are generated in a similar fashion to costing for non-project related transactions. See: <a href="T372621T374058.htm#c_avar">Average Cost Variances</a>.</p>
+<p>There are, however, a couple of important differences. quantity in the specified inventory organization is driven negative. Under Project Manufacturing costing, cost variances are generated when the total item quantity across all subinventories in a project cost group is driven negative.</p>
+<p>Another difference - cost variances generated in non-Project Manufacturing organizations, the organization level Cost Variance account is used. Under Project Manufacturing costing, variances occurring in any project within a cost group are charged to a Cost Variance account defined for that cost group.</p>
+<h4><a id="T410806"></a><b>Borrow Payback Variance</b></h4>
+<p>Borrow payback variance accounts are set up in the Cost Group window to record variances generated by borrow payback transactions.</p>
+<p>See: Borrow Payback, <i>Oracle Project Manufacturing User's Guide</i>.</p>
+<h4><a id="T410810"></a><b>Invoice Price Variance (IPV)</b></h4>
+<p>Invoice Price Variance is the difference between the purchase price and the invoice price paid for a purchase order receipt. Invoice price variances are generated when the invoice is processed and matched to the PO line items. Upon invoice approval, Oracle Payables automatically records this variance to both the invoice price variance and exchange rate variance accounts. IPV is determined and recorded the same under project and non-project costing.</p>
+<p><strong><span>Note:</span></strong> The application prevents IPV transfers to Inventory Valuation for the Landed Cost Management (LCM) enabled parent PO receipts.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T378953.htm#p_period">Overview of Period Close</a></p>
+<p><a href="T372621T374058.htm#c_actx">Inventory Average Cost Transactions</a></p>
+<h2><a name="3526622"></a><a id="T410809"></a><b>Project Manufacturing Costing Transactions</b></h2>
+<p><a name="d0e29387" id="d0e29387"></a><a name="d0e29393" id="d0e29393"></a><a name="c_pmfgtxns" id="c_pmfgtxns"></a>In Oracle Project Manufacturing, you can have organizations which concurrently manufacture for projects and non-project customer orders. For proper management control purposes, item costs and charges for non-project orders are maintained and tracked distinctly separate from projects. Standard cost organizations have one item cost.</p>
+<h3><a id="T410811"></a><b>Project Cost Groups</b></h3>
+<p>Using Project Manufacturing, you can have many projects active at any one time. You can also have items in common (non-project) inventory at the same time. Using project cost groups, an item may have a different cost in different projects as well as a cost in common inventory, all within the same organization. Item costs can apply to a single project if each project belongs to a distinct cost group or apply to a group of projects assigned to the same cost group. Items in common inventory belong to the organization's default cost group. Items in the organization's default cost group are costed separately from items in projects.</p>
+<h3><a id="T410812"></a><b>Intransit Shipping</b></h3>
+<p>When internal order intransit shipments and internal requisition intransit receipts are performed, items are transferred using the cost from the sending cost group, not the organization's default cost group.</p>
+<h3><a id="T410813"></a><b>Transfer to Projects</b></h3>
+<p>The Project Cost Collector transfers the costs to the Transaction Import Interface table in Oracle Projects, for import into Oracle Projects when material transactions:</p>
+<ul>
+<li>
+<p>Cross a project boundary (i.e. from project to non-project, from non-project to project, and between two different projects)</p>
+</li>
+</ul>
+<p><i>or</i></p>
+<ul>
+<li>
+<p>Cross the task boundary of the same project</p>
+</li>
+</ul>
+<p>See: <a href="T372621T378169.htm#c_projcst">Project Cost Collector</a></p>
+<p>For transactions within the same project, if no specific task is entered, it is assumed to be a transaction within the same task, and hence transfer to Projects is not required.</p>
+<p>Upon transfer by the Project Cost Collector, Projects either:</p>
+<ul>
+<li>
+<p>Increments project cost when material is moved into a project-related entity from a non-project-related entity (e.g. locator, work order, etc.)</p>
+</li>
+<li>
+<p>Decrements project cost when material is moved out of a project-related entity into a non-project-related entity</p>
+</li>
+<li>
+<p>Decrements the From project and task and increments the To project and task when a transaction moves material between two projects or tasks</p>
+</li>
+</ul>
+<p>The following table summarizes some important transactions, whether they are or are not transferred to Oracle Projects, their respective debits and credits, and the cost used in the transaction:</p>
+<p>Unless otherwise stated, the cost specified for the debit side of the transaction applies also to the credit side.</p>
+<p><strong><span>Note:</span></strong> MOH stands for material overhead. For information on material overhead charges, see <a href="T372621T378169.htm#c_pmcmoh">Material Overhead Application</a>.</p>
+<p>The following tables present Purchasing, Inventory, or Order Management Project Referenced Transactions.</p>
+<p><strong><span>Note:</span></strong> The following accounts are the default accounts for Project Manufacturing Costing. If Subledger Accounting (SLA) is enabled and SLA rules are customized, then the default accounts are not used.</p>
+<h3><a id="T410814"></a><b>Purchase Order Receipt to Receiving Inspection</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Receiving Inspection at PO Cost</td>
+<td>XX</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Inventory A/P Accrual</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410815"></a><b>Delivery From Receiving Inspection To Inventory</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Material at PO Cost</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Receiving Inspection</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410816"></a><b>Purchase Order Receipt To Inventory</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Receiving Inspection at PO Cost</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Inventory A/P Accrual</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Material at PO Cost</td>
+<td>XX</td>
+<td>-</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Receiving Inspection</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410817"></a><b>Sales Order Shipments</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Cost of Goods Sold at Current Cost (in Cost Group)</td>
+<td>XX</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410818"></a><b>Miscellaneous Transactions</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receipt into Project Locator</b></th>
+<th scope="col"></th>
+<th scope="col"></th>
+<th scope="col"></th>
+</tr>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation at Current (in Project Cost Group) or User-specified Cost</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>User-specified account</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receipt from Project Locator</b></th>
+<th scope="col"><b>&nbsp;</b></th>
+<th scope="col"><b>&nbsp;</b></th>
+<th scope="col"></th>
+</tr>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>User Specified account at Current (in Project Cost Group) or User-specified Cost</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410819"></a><b><i>Project Transfer:</i> Expense to Expense Subinventory, from or to same or different Project</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>No entries</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+<h3><a id="T410820"></a><b><i>Project Transfer:</i> Different Project or Task, Asset to Asset Locator</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation (in Receiving Project) at Current Average Cost (in Cost Group of Sending Project)</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation or Expense (in Sending Project)</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410821"></a><b><i>Project Transfer:</i> Different Project or Task, Asset to Expense Subinventory or vice versa</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation or Expense (in Receiving Project) at Current Cost in Cost Group (of Sending Project)</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation (in Sending Project)</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410822"></a><b><i>Project Transfer:</i> Project to Non-project, Asset to Asset Subinventory</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Organization Valuation at Current Cost (in Project Cost Group)</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation (in Sending Project)</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410823"></a><b><i>Project Transfer:</i> Non-project to Project, Asset to Asset Locator</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation (in Sending Project) at Current Cost in default Cost Group</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Organization Valuation</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410824"></a><b><i>Cycle Count and Physical Inventory:</i> Count &lt; On hand</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Adjustment at Current Cost in Cost Group</td>
+<td>XX</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410825"></a><b><i>Cycle Count and Physical Inventory:</i> Count &gt; On hand</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation at Current Cost in Cost Group</td>
+<td>XX</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Inventory Adjustment</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410826"></a><b>Cost Update</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Transfer to Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation at User-Defined Cost Increase/Decrease</td>
+<td>XX</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Inventory Adjustment</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410827"></a><b>Project Referenced Manufacturing Transaction</b></h3>
+<h3><a id="T410828"></a><b><i>Component Issue and Return Transaction:</i> Issue Project Expense Job from Project Expense Locator</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Notify Projects</b></th>
+</tr>
+<tr valign="top">
+<td>No entries</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+</table>
+<h3><a id="T410829"></a><b><i>Component Issue and Return Transaction:</i> Issue (other than Expense to Expense) to Project Job from Project Locator; same Project or Task</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Notify Projects</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Inventory at Current Cost (in Project Cost Group)</td>
+<td>XX</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation or Expense</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410830"></a><b><i>Component Issue and Return Transaction:</i> Issue (other than Expense to Expense) to Project Job from Project Locator; same Project different Task</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Notify Projects</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Inventory at Current Cost (in Project Cost Group)</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation or Expense</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410831"></a><b><i>Component Issue and Return Transaction:</i> Issue (other than Expense to Expense) to Project Job from Common Subinventory</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Notify Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation at Cost</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Organization Valuation</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>WIP Inventory at Current Cost (in Project Cost Group)</td>
+<td>XX</td>
+<td>-</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410832"></a><b><i>Resource Charges:</i> Charge Labor Resource to Project Job</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Notify Projects</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Resource at Actual Employee Rate or User-Defined Cost</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Resource Absorption</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410833"></a><b><i>Resource Charges:</i> Charge Non-labor Resource to Job</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Notify Projects</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Resource at User-Defined Cost</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Resource Absorption</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410834"></a><b>Overhead Charges</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Notify Projects</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Overhead Valuation at User-Defined Cost or Rate</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Overhead Absorption</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410835"></a><b>Outside Processing Charges</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Notify Projects</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Outside Processing at Purchase Order Cost</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing Absorption</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> Notify Projects: Yes</p>
+<h3><a id="T410836"></a><b><i>Assembly Scrap Transaction:</i> Scrap</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Notify Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Scrap at Calculated Scrap Value</td>
+<td>XX</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>WIP Accounting Class Valuation</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410837"></a><b><i>Assembly Scrap Transaction:</i> Reverse Scrap</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Notify Projects</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Accounting Class Valuation</td>
+<td>XX</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Scrap at Calculated Scrap Value</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410838"></a><b><i>Assembly Completion Transaction:</i> Complete Assemblies from Project Job into Asset Project Locator</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Notify Projects</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation at User-Defined or System Calculated + MOH</td>
+<td>XX</td>
+<td>-</td>
+<td>Yes (for MOH amount only)</td>
+</tr>
+<tr valign="top">
+<td>WIP Accounting Class Valuation</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Material Overhead Absorption</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h3><a id="T410839"></a><b>Job Close Transactions</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account and Cost</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+<th scope="col"><b>Notify Projects</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Accounting Class Variance</td>
+<td>XX</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>WIP Accounting Class Valuation</td>
+<td>-</td>
+<td>XX</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h2><a name="3526663"></a><a id="T410841"></a><b><a name="T378231" id="T378231"></a>Material Overhead Application</b></h2>
+<p><a name="d0e30880" id="d0e30880"></a><a name="d0e30886" id="d0e30886"></a><a name="c_pmcmoh" id="c_pmcmoh"></a>Material overhead application is essentially the same for Project Manufacturing, with one difference in the accounting transaction. The account debited is for the project cost group, rather than the organization, as in non-project average costing.</p>
+<p>The accounting entry that follows applies to:</p>
+<ul>
+<li>
+<p>Material overhead on deliveries from receiving inspection</p>
+</li>
+<li>
+<p>Complete assemblies from WIP</p>
+</li>
+<li>
+<p>Receipt from Intransit (Standard or Project Org) into Project Org (FOB Receipt)</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Cost group MOH account @ MOH cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Material overhead absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+</li>
+</ul>
+<h3><a id="T410843"></a><b>Defining Material Overhead Subelements<a name="d0e30948" id="d0e30948"></a><a name="d0e30954" id="d0e30954"></a><a name="d0e30960" id="d0e30960"></a></b></h3>
+<p>Define material overhead subelements for projects in the same way as in non-project cost organizations. You can define as many material overhead subelements as desired and base their charging in a variety of ways: by item, activity, or lot, or based on total value.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T372759.htm#t_fdmod">Defining Material Overhead Defaults</a></p>
+<p><a href="T372621T372805.htm#t_fdiac">Defining Item Costs</a></p>
+<h2><a name="3526665"></a><a id="T410842"></a><b><a name="T378232" id="T378232"></a>Material Overhead Defaulting</b></h2>
+<p><a name="d0e30983" id="d0e30983"></a><a name="d0e30989" id="d0e30989"></a><a name="c_matovhdef" id="c_matovhdef"></a>You can define material overhead defaults without charge. Defaults may be created to apply at the organization level or at an item category level.</p>
+<h2><a name="3015542"></a><a id="T378185"></a><b>Project Cost Collector</b></h2>
+<p><a name="d0e31003" id="d0e31003"></a><a name="d0e31009" id="d0e31009"></a><a name="c_projcst" id="c_projcst"></a><a name="SRS.CMCCCM" id="SRS.CMCCCM"></a><a name="CMCCCM" id="CMCCCM"></a>The Project Cost Collector collects the costs of project-related organization's default cost group transactions, then passes these costs by project, task, and expenditure type to the Transaction Import Interface table in Oracle Projects. These transactions can then be imported into Oracle Projects.</p>
+<p>You can view and resubmit project transactions that fail to transfer using the Cost function View Material Transactions window.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Enable Project Manufacturing costing. See: <a href="T372621T378169.htm#c_pmcsu">Setting Up Project Manufacturing Costing</a>.</li>
+<p>Perform project-related cost transactions. See: <a href="T372621T378169.htm#c_pmfgtxns">Project Manufacturing Costing Transactions</a>.</p>
+</ul>
+<p><b><a name="T378233" id="T378233"></a>Currency Support<a name="d0e31039" id="d0e31039"></a><a name="d0e31045" id="d0e31045"></a></b></p>
+<p>When there is a separate reporting ledger, the Cost Collector collects both functional and reporting currency information. This information is passed to Projects and made available for reporting. A transaction (such as PO, Direct IO) created in a currency other than the functional currency of the organization, is transferred to Projects using the functional currency. For inventory and WIP transactions, the accounting currency is the same as the functional currency.</p>
+<p><b><a name="T378234" id="T378234"></a>Transferring Project Costs<a name="d0e31058" id="d0e31058"></a><a name="d0e31064" id="d0e31064"></a></b></p>
+<p>The Cost Collector collects all Project Manufacturing-related costs and inserts them into the Transaction Import Interface Table of Oracle Projects. Each of these records includes the project, task, and expenditure type reference required by Oracle Projects.</p>
+<p>The Cost Collector derives the accounting information from the manufacturing subledger unless the accounting extension is used to customize project accounts. See: <a href="T372621T406948.htm#r_clntexts">Client Extensions</a>.</p>
+<p><strong><span>Note:</span></strong> If you perform Inventory or other manufacturing transactions for a project owned by an operating unit other than the operating unit of the Inventory organization, then you must run the Cost Collector from a responsibility that has the profile option (MO: Operating Unit profile), set to the project owning operating unit.</p>
+<p>If <i>Cost Element to Expenditure Type Association</i> is not set up, and the profile option <i>Project Miscellellaneous Transaction Expenditure Type</i> is user defined, then cost collection will take place only for Project Miscellaneous transactions.</p>
+<p>Cost collection errors out for any organization that has the cost collection feature turned off. You can turn on Cost Collection if Oracle Projects is installed.</p>
+<p>Records in the Transaction Import Interface Table can then be imported into Oracle Projects using Transaction Import in Oracle Projects. See: Transaction Import, <i>Oracle Projects User's Guide</i>.</p>
+<p><b>To collect project related cost</b></p>
+<ol>
+<li>
+<p>Navigate to the Project Cost Transfer window. Submit a request for the Cost Collection Manager. The Parameters window appears.</p>
+<p><img width="356" height="158" src="./img/cst_prcstcpm.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Specify the project cost collection time fence, the Number of Days to Leave Costs Uncollected, by entering a whole number of days.</p>
+<p>For example, suppose today is Thursday and project costs were collected up through Friday of the previous week. If you enter 4 as the Number of Days, costs will be collected for Saturday and Sunday.</p>
+<p><img width="707" height="505" src="./img/cst_pjmcsttrans.gif" alt="the picture is described in the document text"></p>
+<p>If there are uncosted transaction records in the MTL_MATERIAL_TRANSACTIONS table within the specified time fence, then project costs for these transactions are not collected. You can check to see if transactions are uncosted, as indicated by the costed indicator, through the Material Transactions window. See: Viewing Material Transactions, <i>Oracle Inventory User's Guide</i>.</p>
+<p>Uncosted transactions and transactions that lack complete information are flagged <i>Error.</i></p>
+</li>
+<li>
+<p>Choose Submit to run the request.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Transaction Import, <i>Oracle Projects User's Guide</i>.</p>
+<h2><a name="3526838"></a><a id="T410861"></a><b>Applying Overhead Rate by Oracle Projects</b></h2>
+<p><a name="d0e31142" id="d0e31142"></a><a name="d0e31148" id="d0e31148"></a><a name="c_appovhrate" id="c_appovhrate"></a><a name="d0e31157" id="d0e31157"></a>You have the option, at the Inventory organization level, to post Project Manufacturing transactions to Oracle General Ledger, either from Oracle Manufacturing or from Oracle Projects. When you select the option to post the General Ledger in Oracle Projects, you can use Projects Burden Schedules to apply overhead to Project Manufacturing transactions. If you select this option, and continue to apply overhead in Manufacturing, then the overhead amount is imported into Projects as raw (not burden) cost.</p>
+<p>If you select the option to post the GL from Projects, then only the transactions that are cost collected are posted to the General Ledger. Transactions that are not cost collected include:</p>
+<ul>
+<li>
+<p>Sales order issues</p>
+</li>
+<li>
+<p>Work in Process component issues from the same project/task as the project/task on the WIP job</p>
+</li>
+<li>
+<p>Assembly completions</p>
+</li>
+<li>
+<p>Average and standard cost updates</p>
+</li>
+<li>
+<p>Job close and average cost variances</p>
+</li>
+<li>
+<p>Scrap transactions</p>
+</li>
+</ul>
+<h3><a id="T410863"></a><b>Setting Up</b></h3>
+<p>This feature is enabled at the Inventory organization level by setting parameters in the Project Manufacturing Parameters window in the Costing tabbed region. You can select these options for an existing Project Manufacturing organization if there are no cost transactions for the open period. Select one of the options for each parameter:</p>
+<h4><a id="T410864"></a><b>GL Posting Option</b></h4>
+<ul>
+<li>
+<p>Manufacturing: Transactions are transferred to Oracle Projects as GL accounted and burdened. Non-manufacturing transactions are posted to General Ledger from Oracle Projects.</p>
+</li>
+<li>
+<p>Projects: All Project Manufacturing and non-manufacturing project transactions are posted to General Ledger from Oracle Projects.</p>
+</li>
+</ul>
+<h4><a id="T410865"></a><b>Account Option</b></h4>
+<ul>
+<li>
+<p>Use AutoAccounting: All accounts are derived using the Accounting Rules Engine in Oracle Projects. Inventory transactions are transferred to Projects as Inventory with No Accounts. Work in Process transactions are transferred as WIP with No Accounts.</p>
+</li>
+<li>
+<p>Send Accounts to PA: Cost Group and WIP Accounting Class valuation accounts are transferred to Projects. Inventory transactions are transferred to Projects as Inventory with Accounts. Work in Process transactions are transferred as WIP with Accounts.</p>
+</li>
+</ul>
+<h2><a name="3526842"></a><a id="T410862"></a><b>Work in Process Resource Employee Transactions</b></h2>
+<p><a name="d0e31217" id="d0e31217"></a><a name="d0e31223" id="d0e31223"></a><a name="c_wipresemptx" id="c_wipresemptx"></a>You have the option at the Inventory organization level, to transfer WIP Resource employee transactions to Oracle Projects as WIP Straight Time. If you select this option, you can include WIP Straight Time hours in Oracle Projects summarization of hours for billing calculations.</p>
+<h3><a id="T410866"></a><b>Setting Up</b></h3>
+<p>You set up this feature at the Inventory organization level in the Project Manufacturing Parameters window in the Costing tabbed region. Enable this feature by checking the parameter box for:</p>
+<h4><a id="T410867"></a><b>WIP Person Resource as Straight Time</b></h4>
+<p>Additionally, if the Account Option parameter is set to one of the selections, the transaction source type has one of the following values:</p>
+<ul>
+<li>
+<p>Use AutoAccounting: WIP Resource transactions with employee name and number are transferred to Oracle Projects as WIP Straight Time with No Accounts.</p>
+</li>
+<li>
+<p>Send Accounts to PA: WIP Resource transactions with employee name and number are transferred to Oracle Projects as WIP Straight Time with Accounts.</p>
+</li>
+</ul>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T374217.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T376577.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">20/36</span> <!-- End Header -->
+<h1>Invoicing</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T376581">Overview</a></li>
+<li><a href="#T376582">Feature Functions and Basic Instruction</a></li>
+<li><a href="#T376583">Detail Instruction</a></li>
+<li><a href="#T376584">Tools/Techniques of Feature - API's, Workflow</a></li>
+<li><a href="#T376585">To Implement Invoicing</a></li>
+<li><a href="#T376586">Troubleshooting</a></li>
+<li><a href="#T421652">Vertex Integration</a></li>
+</ul>
+<h2><a name="2993876"></a><a id="T376581"></a><b><a name="invoice" id="invoice"></a>Overview</b></h2>
+<p><a name="t_invovr" id="t_invovr"></a>Invoicing in Oracle Order Management is the process by which data from Orders and Returns is communicated to Oracle Receivables to create invoices, credit memos, and credits on account, recognize revenue and manage sales credits.</p>
+<p>Invoicing Integration has been implemented as a workflow activity in Order Management. When it executes, it transfers fulfilled item information including quantities, selling prices, payment terms, and transaction dates to Oracle Receivables, which processes invoices for customers and accounts for revenue. Additionally, you can process credit memos and credits on accounts created from returns. Upon completion of the Invoicing workflow activity, you must submit AutoInvoice from Oracle Receivables to import the invoice and credit data into Oracle Receivables. The Invoicing Integration workflow activity can be part of the Order Header workflow, if you want the entire order to interface to Receivables simultaneously, or part of the Order Line workflow, which will interface each line or set of lines as they become eligible.</p>
+<p>See <i>Oracle Order Management User's Guide.</i></p>
+<h2><a name="2993877"></a><a id="T376582"></a><b>Feature Functions and Basic Instruction</b></h2>
+<p>The Invoicing workflow activity loads the Oracle Receivables Autoinvoice Interface tables with data from the order lines, price adjustments, sales credits and charges. The types of data interfaced are product information such as ordered item identifier, description, inventory item identifier, quantities and prices, currency, and payment terms. It can be run from the line workflow or the header workflow, depending on whether you want to invoice the lines as they are shipped or wait for the whole order to be invoiced.</p>
+<h3><b>Invoicing and Fulfillment</b></h3>
+<p>Oracle Order Management seeded workflows are designed so order lines are eligible to be Invoice Interfaced once they have completed the fulfillment workflow activity. The fulfillment concept, along with the use of fulfillment sets, enables you to group lines together for invoicing purposes. Typically, for shippable lines, shipping completes fulfillment. For non-shippable lines, booking completes fulfillment. If you want to hold up invoicing of a non-shippable line until an associated shippable line is shipped, put those lines together into a fulfillment set. None of the lines in the set progress past fulfillment to invoicing until all lines in the set are fulfilled.</p>
+<h3><b>Automatic Fulfillment Set Assignment</b></h3>
+<p>Oracle Order Management enhances Fulfillment Set functionality with seeded defaulting rules which will minimize the need for user action thus reducing error and keystrokes.</p>
+<p>Features include:</p>
+<ul>
+<li>
+<p>The ability to automatically assign all lines of an order to one Fulfillment Set.</p>
+</li>
+<li>
+<p>Defaulting of header level Fulfillment Set from Order Transaction Types allowed.</p>
+</li>
+<li>
+<p>Removal and addition of a line from Fulfillment sets from Order Import and Process Order API.</p>
+</li>
+</ul>
+<h3><b>Discounts</b></h3>
+<p>In Oracle Order Management, you have the option to send items and prices to Oracle Receivables minus any price adjustments or to send the list price and then send separate adjustment lines for each discount. This is controlled by the system parameter Show Discount Details on Invoice. If you choose to show discounts, they are sent as regular invoice lines to Receivables with a negative price, and are accounted for like the item to which they belong. The Description field for the discount lines is the name of the discount. This feature provides visibility to discounts for printing on invoices, but does not provide separate accounting for discounts.</p>
+<h3><b>Freight and Other Charges</b></h3>
+<p>In Oracle Order Management, all freight and special charges such as insurance, handling, and export charges are passed individually to Oracle Receivables as invoice header level charges. There is no grouping performed by the Invoicing Activity. However, Oracle Receivables will consolidate all the freight charge lines into one line for accounting and printing on the invoice. Oracle Order Management passes the details to Oracle Receivables to support differing charge accounting and printing in the future, once Receivables supports such functionality.</p>
+<p>Freight charges are applied at the header level. However if the customer uses line level invoicing, sometimes a part of the freight charge at the header level used to get invoiced. Moreover, if the freight charge used to get updated, this difference was not passed to invoice interface. The difference amount is populated in the invoice interface tables to indicate that a charge has to be credited and invoiced for the correct amount.</p>
+<h3><b>Over and Under Shipments</b></h3>
+<p>Overshipments are invoiced based on the setting of the <b>Overshipment Invoice Basis</b> system parameter and also corresponding attributes on the Customer and Bill-To site. Values for this parameter are <b>Ordered</b> or <b>Shipped</b>. If this value is <b>Ordered</b>, then the ordered quantity is invoiced, even if a larger amount was actually shipped. If this value is <b>Shipped</b>, then the actual shipped quantity up to the Overshipment Tolerance limit is used for billing. Undershipments are always invoiced as the amount shipped. You must set overshipment and under shipment tolerances to be able to overship or automatically close a line on an undershipment. You can set site-level shipping tolerances through a profile option. You can also specify exceptions for a customer, bill-to site, item or customer/item combination in the <b>Customer Standard</b> window, <b>Master Items</b> window, and an Oracle Order Management window for customer or item.</p>
+<p>You can calculate the freight charges based on the values specified for the system parameter Overshipment or Undershipment Invoice Basis for Charges. Specify whether to calculate based on the ordered quantity or on the shipped quantity. If the quantity shipped or received is within the tolerance specified on the sales order line, then the freight charge amount invoiced is calculated based on the value of this parameter for both undershipment and overshipment.</p>
+<p>In the Sales Orders window or in the Quick Sales Orders window, in the line level <b>Actions, Charges and Freight Costs</b> window, the fields <b>Quantity, UOM,</b> and <b>Charge</b> display the quantity, UOM, and freight charge amount calculated based on the value of this parameter.</p>
+<h3><b>Credit Cards</b></h3>
+<p>Credit card information is sent to Oracle Receivables if the Payment Type on the order or line is Credit Card. The data that is interfaced includes: Oracle Payments order number (transaction id), approval code, bank account id, credit card holder name, primary payment method. This information will allow Oracle Receivables to perform the necessary capture functions for the credit card. If an order or line that was paid with a credit card is returned with a reference, Oracle Receivables automatically creates a refund to the credit card rather than an on-account credit. Oracle Receivables has automated credit card refund processing. Oracle Order Management does not require any setup for this, it is performed in Oracle Receivables.</p>
+<h3><b>Customer Acceptance</b></h3>
+<p><a name="d0e65218" id="d0e65218"></a>In standard order fulfillment flows, the goods are shipped to the customer and are then invoiced and interfaced to Accounts Receivables. With Customer Acceptance, the flow includes an additional step, <b>customer acceptance</b>, where the customer accepts the goods either before or after billing takes place. The revenue recognition process is deferred and linked to the customers accepting the shipped goods during post-billing acceptance. The basic business need is to defer invoicing and revenue recognition for the shipped goods till the customer receives the shipment and accepts the material. Consequently, Cost of Good Sold (COGS) accounting is deferred till the customer communicates acceptance. In pre-billing acceptance, the customer accepts the goods first and then invoicing takes place. For pre-billing and post-billing acceptance, you can accept the goods explicitly or implicitly.</p>
+<p>For more information on using the Customer Acceptance feature, see <i>Oracle Order Management User's Guide</i>.</p>
+<p>Customer acceptance is set up in the Oracle Receivables Revenue Management module. At order entry, Oracle Order Management defaults the customer acceptance deferral reason and its attributes from Oracle Receivables onto the sales order line.</p>
+<p>To enable customer acceptance, set the system parameter <b>Enable Fulfillment Acceptance</b> to <b>Yes</b>. The default is <b>No</b>. This parameter is predefined in the <b>Generic Category</b> of System Parameters. Use this parameter to improve the performance because calling the Oracle Receivables API to invoke their rules engine on every order line results in slower performance.</p>
+<p><b>Setup for Customer Acceptance:</b></p>
+<ol>
+<li>
+<p>Enable customer acceptance.</p>
+<p>Customer acceptance is enabled at the Operating Unit level using the Oracle Order Management system parameter: Enable Fulfilment Acceptance. Values are Yes or No.</p>
+</li>
+<li>
+<p>Enable function security for the given responsibility performing customer acceptance for these options:</p>
+<ol>
+<li>
+<p><b>Sales Orders: Fulfillment Acceptance</b>: Enables you to select <i>Fulfilment Acceptance</i> Action in the Sales Orders window.</p>
+</li>
+<li>
+<p><b>Sales Orders : Update Acceptance Attributes</b>: Enables you to update the Acceptance Name and Acceptance Expire Days attributes.</p>
+</li>
+</ol>
+<p>Attach these functions to the sales order menu - ONT_ Sales_Order.</p>
+</li>
+<li>
+<p>Define processing constraints for customer acceptance.</p>
+<p>Using processing constraints, you can define when you can update contingency attributes (Contingency Name and Revenue Recognition Expiration Days). You can specify that these fields can only be updated until the sales order is booked or post booking until an order line is fulfilled. The processing constraint is enabled for Booking by default.</p>
+</li>
+<li>
+<p>Define Revenue Contingency and Rule.</p>
+<ol>
+<li>
+<p>Define Revenue Contingency (Deferral Reason) in Oracle Receivables Revenue Management.</p>
+<p>Navigation: Revenue Management Super User &gt; Revenue Contingencies &gt; Contingencies</p>
+<p>The Create Revenue Contingency HTML page appears.</p>
+<p>When defining a Pre-billing Acceptance, use the Contingency Removal Event of <i>Invoicing.</i></p>
+<p>When defining a Post-billing Acceptance, use the Contingency Removal Event of <i>Customer Acceptance.</i></p>
+<p>When defining an Implicit Acceptance, you need to define the optional time attributes: Event Attribute and Days Added to Event attribute.</p>
+<p>The value in the Days Added to Event Attribute field defaults into the Acceptance Expire Days field in the sales order line.</p>
+<p><strong><span>Note:</span></strong> Oracle Order Management supports only the Ship Confirm Date event attribute.</p>
+<p><strong><span>Note:</span></strong> The deferral reason defined in Oracle Receivables Revenue Management Create Revenue Contingency page is used as the Acceptance Name in Oracle Order Management.</p>
+</li>
+<li>
+<p>Define assignment rules to assign the contingency (deferral reason) to customer, site, item, and so on.</p>
+<p>You can add FOB Point and Shipping Method attributes as parameters to assignment rules that are used for customer acceptance. When you create a sales order for an item that requires customer acceptance and you change the FOB Point or Shipping Method the contingency attributes will re-default.</p>
+<p>When you define rules to default contingency based on FOB Point or Shipping Method, you must map FOB Point and Shipping Method to custom attributes. Oracle Order Management only ensures that FOB Point and Shipping Method initiate a call to the Accounts Receivable API, so that the Accounts Receivable engine can reevaluate the rules for defaulting contingency. You will still need to write a small piece of custom code to pass on the attributes FOB Point and Shipping Method to Accounts Receivable.</p>
+<p>For information on custom attribute setup using the Accounts Receivable Hook, see My Oracle Support (MOS) Doc ID 1505238.1.</p>
+</li>
+</ol>
+<p>For more information on setting up revenue contingencies and other features, see <i>Oracle Accounts Receivables User Guide.</i></p>
+</li>
+</ol>
+<p><b>Invoice Interface Workflow</b></p>
+<p>The Invoice Interface Workflow subprocesses handle sending the interface data to Oracle Receivables for invoice and credit memo creation. It is used to handle pre-billing customer acceptance. If an order line requires pre-billing customer acceptance, this sub-process prevents the order line from being interfaced to Oracle Receivables.</p>
+<p><img width="576" height="272" src="./img/ont_prebillingflow.gif" alt="the picture is described in the document text"></p>
+<p>Post-billing acceptance is handled in the Close-Line sub-process. Also, if an RMA line that references a pre-billing rejected quantity comes into this sub-process, it will not interface that line to Accounts Receivable.</p>
+<p><img width="483" height="280" src="./img/ont_postbillingflow.gif" alt="the picture is described in the document text"></p>
+<p>The Invoice Interface module performs the following:</p>
+<ol>
+<li>
+<p>Checks if pre-billing customer acceptance is required on the order line.</p>
+</li>
+<li>
+<p>If required, it waits until customer acceptance is recorded.</p>
+</li>
+<li>
+<p>After customer acceptance is recorded, it continues the invoice interface process.</p>
+</li>
+<li>
+<p>If pre-billing acceptance is not required, it continues the invoice interface process.</p>
+</li>
+<li>
+<p>Interfaces acceptance information and the contingency information to Oracle Receivables.</p>
+</li>
+<li>
+<p>Oracle Order Management changes Invoice Interface to not interface an RMA line to Accounts Receivable if it references pre-billing rejected quantity.</p>
+</li>
+</ol>
+<p>This sub-process does not communicate the event of acceptance recording to Accounts Receivable. Accounts Receivable is notified of the Customer Acceptance event in the Customer Acceptance Capture module.</p>
+<h3><b>Partial Pre-Billing Customer Acceptance</b></h3>
+<p><a name="d0e65369" id="d0e65369"></a>Oracle Order Management provides the Partial Acceptance feature that enables customers to accept or reject partial quantity after the fulfilment. This feature is enabled only for Pre-Billing Customer Acceptance. This capability is especially important in business models that require the customer's approval prior to generating an invoice.</p>
+<p>You can enable this feature by setting the profile option, <b>OM: Enable Partial Acceptance</b> to Yes. Select No to disable Partial Acceptance feature. The default option is No.</p>
+<p>You can enter partially accepted quantity in the Accepted Quantity field in the Customer Acceptance window. For the rejected quantity, select the Create RMA checkbox to automatically create an RMA. If you do not select the Create RMA checkbox, then the system does not create the automatic RMA and only partial accepted quantity is invoiced. Creating an RMA is optional.</p>
+<p>Partial Acceptance feature is enabled for the following line types:</p>
+<ul>
+<li>
+<p>Standard</p>
+</li>
+<li>
+<p>Bill Only. However, the automatic RMA creation option is not available.</p>
+</li>
+</ul>
+<p>Partial Acceptance feature is not enabled for Ship Only line types.</p>
+<p>Partial Acceptance feature is only enabled for Standard item types and not for Kits, Model, and Standard with Service item types.</p>
+<h3><b>Set up Partial Pre-Billing Customer Acceptance</b></h3>
+<p>Perform the following steps to set up the Partial Pre-Billing Customer Acceptance.</p>
+<ol>
+<li>
+<p>Set Yes for the profile option <b>OM: Enable Partial Acceptance</b>.</p>
+</li>
+<li>
+<p>Set Yes for the system parameter <b>Enable Fulfillment Acceptance</b>.</p>
+</li>
+<li>
+<p>Configure the field <b>Default Return Line Type</b> on the Order Type associated with the order.</p>
+<p>The Default Return Line Type configured on the order type must support RMA receipt.</p>
+</li>
+<li>
+<p>On the Process Acceptance page, select <b>Fulfilment Acceptance.</b></p>
+</li>
+<li>
+<p>Select the <b>Accept</b> action to enter the accepted quantity. If accepted quantity is entered and there is need for automatic RMA creation for the rejected quantity, then select the <b>Create RMA</b> checkbox.</p>
+</li>
+<li>
+<p>Select the <b>Reject</b> action and select the <b>Create RMA</b> check box to create the RMA automatically for the rejected quantity.</p>
+</li>
+</ol>
+<h3><b>Notes/Attachments</b></h3>
+<p>Oracle Order Management gives you the ability to set up note categories to indicate you want a note to print on the Invoice. The notes do not print on the seeded standard Receivables Invoice although they are visible in the Receivables Transaction window, but you can modify the invoice to print them. If you choose to customize the printing of the Invoice, you can fetch those notes flagged for the invoice and print them in your print procedure.</p>
+<h3><b>Viewing the Invoice</b></h3>
+<p>After a line or an order has invoiced, you can view the invoice summary information in Oracle Order Management. From the Sales Order Organizer, select 'Invoices/Credit Memos in Additional Line Information or in Additional Order Information to see invoice data. Data available to view includes Invoice Number, Batch Source, invoice date, amount and balance. Click the Invoice Details button to view all the details about the invoice selected in the Receivables Transaction Summary window.</p>
+<h2><a name="2993886"></a><a id="T376583"></a><b>Detail Instruction</b></h2>
+<h3><b>Defaulting Rules Setup</b></h3>
+<p>The hard coded defaulting rules (Ship to, invoice to and sold to) have been converted to seeded defaulting rules using defaulting framework to provide flexibility in changing the sequence of the rules to be used. Order type is an additional seeded defaulting rule that can be used in defining sequence for defaulting rules of Fulfillment Sets. A defaulting rule can be defined for Fulfillment Sets based on the Transaction type.</p>
+<p><strong><span>Note:</span></strong> Defaulted Set at the header level affects only the new lines that are created and does not have any impact on existing lines.</p>
+<h3><b>Order Import</b></h3>
+<ul>
+<li>
+<p>Fulfillment Set Name column has been added to OE_ACTIONS_INTERFACE table to specify Set Name.</p>
+</li>
+<li>
+<p>OE_ACTIONS_INTERFACE table can be used to perform multiple fulfillment set operations on single line.</p>
+</li>
+<li>
+<p>Action ADD_FULFILLMENT_SET can be used to add lines into fulfillment set.</p>
+</li>
+<li>
+<p>Action REMOVE_FULFILLMENT_SET can be used to remove line from a fulfillment set.</p>
+</li>
+<li>
+<p>Combination of Addition and Removal will help in moving line from one fulfillment set to another.</p>
+</li>
+</ul>
+<p>For example: To add line 1.1 into fulfillment set F1, F2, populate two records into the OM actions interface table.</p>
+<p><strong><span>Note:</span></strong> If lines are created during order import, the fulfillment set name specified on the lines interface table is used to add lines to fulfillment set. If the UPDATE operation is being performed on existing lines in Order lines, the fulfillment set name specified on the lines interface table is ignored and you must populate the fulfillment set name on the actions interface table.</p>
+<p><b>Transaction Types Window</b> There are default Fulfillment Set columns on the Transaction Types window. They are available only for Order Level Transaction types. To locate the Default Fulfillment Set check box, navigate to Setup &gt; Transaction Type &gt; Define &gt; Shipping Tab &gt; Fulfillment Set check box.</p>
+<p><strong><span>Note:</span></strong> A seeded defaulting rule is provided for defaulting this on to the Quote/Sales Order Pad.</p>
+<p><b>Sales Orders Window</b> The Default Fulfillment set is on the Quote/Sales Orders window Header, which may be defaulted from transaction type. You can change the value of the Default Fulfillment Set column. If the Set Name is available it is used as the name for the system defined set. If the Set Name is not available then the system generates a set name Starting with "1." If the system defined fulfillment set is fulfilled, then no new lines are added to the system defined set. Changing the set name is allowed only when no line is part of the default set. You cannot change the name if there are one or more lines for that set.</p>
+<p><b>Order Import Corrections Window</b> Specify the Set Fulfillment name on the Actions window. You can edit the Fulfillment set name.</p>
+<h2><a name="2993889"></a><a id="T376584"></a><b>Tools/Techniques of Feature - API's, Workflow</b></h2>
+<p>When you set up your order and line workflows for invoicing, choose carefully which line and header workflows you use together to be sure you match the correct Invoicing Activities.</p>
+<p>If you intend to use header level Invoicing, be sure to use line level workflows that have coordination points with the header activity. The seeded Oracle Workflows are named to make that easy to do. For example, there is a header workflow called Order Flow &ndash; Generic with Header Level Invoice Interface &ndash; you would use it with line flows such as Line Flow &ndash; Generic with Header Level Invoice Interface.</p>
+<p><b>Order Flow with Header Level Invoicing</b></p>
+<p><img width="836" height="177" src="./img/ontig_inv1.gif" alt="the picture is described in the document text"></p>
+<p><b>Line Flow with Header Level Invoicing</b></p>
+<p><img width="870" height="188" src="./img/ontig_inv2.gif" alt="the picture is described in the document text"></p>
+<p>Similarly, if you want to use line level Invoicing, use a header workflow that does not have invoicing, and use line flows that do not wait for coordination with the header regarding Invoicing.</p>
+<p>See: The <i>Oracle Order Management User's Guide</i></p>
+<p><b>Order Flow with Line Level Invoicing</b></p>
+<p><img width="631" height="123" src="./img/ontig_inv3.gif" alt="the picture is described in the document text"></p>
+<p><b>Line Flow with Line Level Invoicing</b></p>
+<p><img width="664" height="291" src="./img/ontig_inv4.gif" alt="the picture is described in the document text"></p>
+<h2><a name="2993894"></a><a id="T376585"></a><b>To Implement Invoicing</b></h2>
+<p><b>Profile Options</b></p>
+<p>For information on profile options, see the <i>Profile Options section</i> in the Oracle Order Management Setup chapter in this guide.</p>
+<p>See: Invoice Processing, <i>Oracle Order Management User's Guide.</i></p>
+<h3><b>Item Attributes</b></h3>
+<p>The items you expect to invoice must be set up with the Invoiceable Item and the Invoice Enabled item attributes turned on in the Invoicing tab of the Master Item window. You can also enter a GL account which can be used for building the revenue account in autoAccounting on this tab.</p>
+<h3><b>Accounting Rules and Invoicing Rules</b></h3>
+<p>Accounting and invoicing rules are set up in Oracle Receivables and refer to the way revenue is recognized and in which accounting period. There are several seeded rules which suit most applications. In Order Management, you can specify an Accounting and an Invoicing Rule when you define an order type or line type, and also when you define agreements. If you choose an Accounting Rule with a variable duration, you must also enter the number of periods to be used for recognizing revenue. When the Invoice Interface workflow activity runs, the data to pass to Oracle Receivables is obtained based on information documented in the Oracle Integration Repository (iRepository).</p>
+<h3><b>Receivables Transaction Types</b></h3>
+<p>There are various transaction types seeded in Oracle Receivables such as Invoice or Credit Memo. These definitions control how the different Account Receivables transactions are processed, and they can specify the GL accounts available for use during autoAccounting. You must attach a Receivables Transaction Type to the Order Management Order Types and Lines Types when you define them to make Autoinvoice import the orders.</p>
+<h3><b>Receivables Invoice Sources</b></h3>
+<p>Oracle Receivables invoice sources are also called transaction sources or batch sources. These entities enable you to specify a default transaction type assigned to a batch and determine whether Oracle Receivables will automatically number the transactions and batches. To use in Oracle Order Management, create at least one of these with a type of automatic.</p>
+<p>For more information about invoice sources and uses, see the Oracle Integration Repository (iRepository).</p>
+<h3><b>Auto-accounting</b></h3>
+<p>Auto-accounting controls how the accounting is derived for lines that are processed by the Autoinvoice Import process.</p>
+<p>For information on the setup details, see the <i>Oracle Receivables Implementation Guide.</i></p>
+<h3><b>Order Management Transaction Types</b></h3>
+<p>When you define the Oracle Order Management order types and line types, you can specify various information that affects the Invoicing Activity. Enter this information in the Finance tab of the Transaction Types window. Pick a Receivables Transaction Type and Invoice Source. You may choose Accounting and Invoicing Rules, Credit Method for Accounting and Installment.</p>
+<h3><b>Invoice Grouping Rules</b></h3>
+<p>Invoice grouping rules are set up in Oracle Receivables and let you specify which attributes must be identical on the same invoice. If the chosen attributes are different for different lines, then separate invoices will be generated.</p>
+<h3><b>Invoice Line Ordering Rules</b></h3>
+<p>Invoice line ordering rules are also set up in Oracle Receivables and let you specify the sequence of printing lines within an invoice.</p>
+<h2><a name="2993903"></a><a id="T376586"></a><b>Troubleshooting</b></h2>
+<p>If the order does not appear in the Sales Order list of values in the Autoinvoice Import request submission window, check the workflow status of the lines and verify that the Invoice Interface activity status is COMPLETE.</p>
+<p>If the lines display the Invoice Interface activity status of INCOMPLETE, AWAITING INVOICE INTERFACE - ON HOLD, or AWAITING INVOICE INTERFACE - INCOMPLETE DATA, and AWAITING INVOICE INTERFACE statuses, you can use the Process Messages window to find the messages logged by the Invoice Interface for these lines. Typically, the process errors out due to incomplete or missing data on the order line, data such as batch source name, Receivables transaction type, credit memo transaction type or service start date and end date for service lines.</p>
+<p>See: Detailed Order Statuses for Invoicing in the <i>Oracle Order Management User's Guide</i></p>
+<p>If the invoices are not getting created when you run Autoinvoice Import, be sure to examine the log and report resulting from the concurrent job. It points out the reasons why data is not processed. Usually the problem stems from auto-accounting rules that have or have not been set up. For example, verify that there are General Ledger numbers entered for the revenue accounts for the salespeople on the order. Usually you can correct the setup and rerun Autoinvoice Import. The corrected sales order data will process correctly and your invoices will be created.</p>
+<h2><a name="3695077"></a><a id="T421652"></a><b>Vertex Integration</b></h2>
+<p><a name="d0e65674" id="d0e65674"></a>The Vertex engine is a part of the Tax application. Tax calculations and tax-related activities are performed in the Tax application using the Vertex engine</p>
+<h3><b>Tax Calculation setup considerations</b></h3>
+<p>In the Transaction Types window, Finance tab, you can specify a Receivables Transaction Type and a Tax Event for tax calculation. You must ensure that in the Receivables Transaction Type window (Receivables &gt; Setup &gt; Transaction Types), the Tax Calculation check box is selected, otherwise tax calculation will not occur for the order lines.</p>
+<p><b>Transaction Types window - Oracle Receivables</b></p>
+<p><img width="997" height="554" src="./img/ont_vertex4.gif" alt="the picture is described in the document text"></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

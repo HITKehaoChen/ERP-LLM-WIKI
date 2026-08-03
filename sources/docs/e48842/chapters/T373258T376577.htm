@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T376576.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T662260.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">21/36</span> <!-- End Header -->
+<h1>Retroactive Billing</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T376587">Retroactive Billing Overview</a></li>
+<li><a href="#T376620">Setting Up Retroactive Billing</a></li>
+</ul>
+<h2><a name="2993905"></a><a id="T376587"></a><b>Retroactive Billing Overview</b></h2>
+<p>Retroactive Billing enables you to change billing amounts retroactively in the event of a price renegotiation. Retroactive Billing is a common business process in some industries, especially the automotive industry, whereby a customer requests changes to the amounts charged on already invoiced orders and receives credits or additional invoices. Order Management provides a query to identify order lines that have previously been invoiced that may be subject to such retroactive billing, a simple approval mechanism, and then the automatic generation of credit memos (and occasionally invoices).</p>
+<ul>
+<li>
+<p>Blanket sales agreement (BSA) functionality is not supported for retrobill orders. BSA number does not default to the retrobill order even though BSA number is populated on the original order line.</p>
+</li>
+<li>
+<p>Retroactive Billing is not supported for Services (Extended Warranty and Subscriptions).</p>
+</li>
+</ul>
+<h2><a name="2993907"></a><a id="T376620"></a><b>Setting Up Retroactive Billing</b></h2>
+<p><a name="d0e65719" id="d0e65719"></a><a name="d0e65724" id="d0e65724"></a><b>To Set Up Retroactive Billing</b></p>
+<ol>
+<li>
+<p>Navigate to the Receivables Lookups window (Order Management &gt; Setup &gt; QuickCodes &gt; Receivables).</p>
+</li>
+<li>
+<p>(Optional) Create an unique reason code for credits using the Receivables Lookups window . This is optional, but recommended because it enables you to query the credit lines and credits in Receivables using the reason code.</p>
+</li>
+<li>
+<p>Create a new Credit Memo Reason Code to use for retroactive billing using the Oracle Receivables Lookups window.</p>
+<p><b>Oracle Receivables Lookups window - Retrobilling</b></p>
+<p><img width="759" height="460" src="./img/ontig_qrto.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Navigate to the Transaction Types window (Order Management &gt; Setup &gt; Transaction Types &gt; Define)</p>
+</li>
+<li>
+<p>Create an order type to use for retroactive billing. Set up the transaction type as follows:</p>
+<ul>
+<li>
+<p>Order Category equals Mixed.</p>
+</li>
+<li>
+<p>Credit Check Rules do not specify.</p>
+</li>
+<li>
+<p>Default Order Line Type equals Bill Only Line.</p>
+</li>
+<li>
+<p>Default Return Line Type equals Return-Credit Only, No Receipts</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> This order type must not have scheduling turned on because these orders are not visible as demand in the planning systems.</p>
+<p>For more information on setting up transaction types, see Define Order Management Transaction Types.</p>
+</li>
+<li>
+<p>Navigate to the OM System Parameters window (Order Management &gt; Setup &gt; System Parameters &gt; Values).</p>
+<p><a href="T373258T374215.htm#t_setompara">Setting OM System Parameters</a>.</p>
+</li>
+<li>
+<p>Define the Order Management parameters for retroactive billing:</p>
+<ol>
+<li>
+<p>Enter the operating unit in the Operating Unit field.</p>
+</li>
+<li>
+<p>Clear the Show All check box.</p>
+</li>
+<li>
+<p>Select Retrobilling Parameters from the Category field.</p>
+<p><b>OM System Parameters Window Retrobilling Parameters</b></p>
+<p><img width="738" height="549" src="./img/12215_ont_system_param.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Set the Default Order Type to the transaction type you created.</p>
+</li>
+<li>
+<p>Set Enable Retrobilling to Yes.</p>
+</li>
+<li>
+<p>Set the Retrobill Reason Code to the default reason code if you created one.</p>
+</li>
+<li>
+<p>Set the Retrobill Based on Original Order Pricing Date to Yes. This is optional.</p>
+</li>
+<li>
+<p>Save the parameters.</p>
+</li>
+</ol>
+<p>You can override the order type and reason code for individual runs of Retrobilling. This step defines the defaults Retrobilling uses.</p>
+</li>
+<li>
+<p>Create any necessary folders for the Sales Order window. The fields on the Sales Orders window that support retrobilling are seeded as Hidden. You must create folders to display the retrobilling fields. Create folders with the attributes visible, and then assign those folders to the responsibilities who will perform retrobilling.</p>
+</li>
+<li>
+<p>Add Retrobilling Organizer to the menu. Add the Retrobilling Organizer menu item to the responsibilities that perform Retrobilling. This menu item is seeded, but is not active for any responsibility until you assign it. If you have installed Oracle Release Management, this menu item is seeded as granted, so you do not need to perform this step.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T377073.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T377075.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">13/36</span> <!-- End Header -->
+<h1>Order Inquiry and Status</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T377109">Pricing and Availability</a></li>
+<li><a href="#T377110">Profiles and Parameters</a></li>
+<li><a href="#T377169">Setup</a></li>
+<li><a href="#T377111">Order Organizer</a></li>
+<li><a href="#T377112">Profiles</a></li>
+<li><a href="#T377113">Creating & Managing Folders in Oracle Applications</a></li>
+<li><a href="#T377114">Order Information</a></li>
+<li><a href="#T377170">Setup</a></li>
+<li><a href="#T377115">Oracle Applications Framework (OAF) Overview</a></li>
+<li><a href="#T377116">Menus and Responsibilities</a></li>
+<li><a href="#T377117">FND Messages and Lookups</a></li>
+<li><a href="#T377118">UI Definition Overlays with the OA Personalization Framework</a></li>
+<li><a href="#T377119">OA Personalization Framework</a></li>
+<li><a href="#T377120">Personalization Levels</a></li>
+<li><a href="#T377171">Admin-Level Personalizations</a></li>
+<li><a href="#T377121">Create/Update View Page</a></li>
+<li><a href="#T377122">General Properties</a></li>
+<li><a href="#T377172">Column or Attribute Properties</a></li>
+<li><a href="#T377173">Search Query to Filter Data in Table</a></li>
+<li><a href="#T377174">Saving Your Personalized View</a></li>
+<li><a href="#T450014">Personalizing the Order Information Portal</a></li>
+<li><a href="#T377175">Advanced Settings</a></li>
+<li><a href="#T377176">Adding New Items With OA Personalization Framework</a></li>
+<li><a href="#T377177">Add a New Region Item</a></li>
+<li><a href="#T377123">Add a Link in the What's New Region</a></li>
+</ul>
+<h2><a name="3004714"></a><a id="T377109"></a><b>Pricing and Availability</b></h2>
+<a name="t_priavail" id="t_priavail"></a>
+<h3><b>Overview</b></h3>
+<p>Pricing and Availability provides item prices and displays the availability of items priced, across all organizations. The Pricing and Availability window enables you to:</p>
+<ul>
+<li>
+<p>Check price and availability</p>
+</li>
+<li>
+<p>Check price and availability by item cross-reference, customer item, or item description.</p>
+</li>
+<li>
+<p>View both the Selling Price and List Price of a product.</p>
+</li>
+<li>
+<p>View price list breaks, automatic discounts, and available surcharges for a particular product or customer.</p>
+</li>
+<li>
+<p>What-if analysis of price based upon an Agreement, Price List, Pricing Attribute, Order Quantity, Customer, Currency, Ship To, Bill To, OrderType, Pricing Date, or Request Date.</p>
+</li>
+<li>
+<p>Check price by specific currency and select the currency type the Selling Price is calculated and displayed.</p>
+</li>
+<li>
+<p>View a limited set of item attribute details.</p>
+</li>
+<li>
+<p>Validate your Pricing Setup by ensuring your selling price is correctly returned by the pricing engine prior to placing an order; the selling price will include any eligible qualifiers, modifier, or discounts you have defined.</p>
+</li>
+<li>
+<p>The Pricing & Availability form allows quick price and/or availability checking of an item without entering an order, and includes:</p>
+</li>
+<li>
+<p>Automatic conversion of an queried item or item in the saved selection area into a Quote or a Sales Order.</p>
+</li>
+<li>
+<p>Demand class, line type search criteria, well as the ability to enter "ask for" promotions and coupons.</p>
+</li>
+<li>
+<p>Pricing and Availability checks of ATO items.</p>
+</li>
+<li>
+<p>Enhanced defaulting of attributes that can affect Pricing and Availability, including demand class, item identifier type, order type, warehouse and price list.</p>
+</li>
+<li>
+<p>A results tab that displays Related Items, such as up-sell, cross-sell or substitute items, and their price and availability.</p>
+</li>
+<li>
+<p>A sub-tab of Pricing results tab displays additional benefits modifiers that are applicable but that do not affect the selling price, such as terms substitution, promotional goods, other item discounts, item upgrade, or coupons.</p>
+</li>
+<li>
+<p>Display of modifier price breaks in addition to existing price list price breaks.</p>
+</li>
+<li>
+<p>Ability to apply manual discounts to items having price checked.</p>
+</li>
+<li>
+<p>Ability to store a selected group of items being checked to allow simultaneous ordering.</p>
+</li>
+</ul>
+<h2><a name="3004716"></a><a id="T377110"></a><b>Profiles and Parameters</b></h2>
+<p><a name="t_propara" id="t_propara"></a>The following profiles control the look and feel of the Pricing and Availability form:</p>
+<h3><b>OM: Display Current Selections in Pricing and Availability</b></h3>
+<p>This profile controls whether or not the multiline area at the bottom of the window displays where you can save items before ordering them. The default is No. Leave this set to No if you want a simple form and want to operate on one item at a time. If you set it to Yes, a scratch pad area called Current Selections appears.</p>
+<h3><b>OM: Sales Order Navigation From Pricing and Availability</b></h3>
+<p>This profile controls how items are added to an order or quote. The options are Always, Never, or Ask. This determines if the Sales Order or Quick Sales Order form opens with the new order or quote displayed. If the value is Ask, you are asked if you want to open the window.</p>
+<p>The following profiles also affect form behavior:</p>
+<h3><b>OM: Sales Order Form Preference</b></h3>
+<p>The profile controls the window that displays after the create order or create quote button is selected. The options are the Sales Orders window or the Quick Sales Orders window.</p>
+<h3><b>OM: Discounting Privilege</b></h3>
+<p>This profile controls the availability of manual discount.</p>
+<h3><b>OM: Unit Price Precision Type</b></h3>
+<p>This profile controls the precision of the pricing display. Choices are standard or extended precision.</p>
+<h3><b>OM: Add Customer</b></h3>
+<p>This profile controls whether the user can add new customers from this form.</p>
+<h3><b>ONT_PRC_AVA_DEFAULT_HINT</b></h3>
+<p>This seeded parameter enables you to enter the text that displays on the first line of the Hints region of the Pricing and Availability window.</p>
+<h2><a name="3004724"></a><a id="T377169"></a><b>Setup</b></h2>
+<p><b>To set up Pricing & Availability</b></p>
+<ol>
+<li>
+<p>Set the appropriate profile options, as specified in <a href="T373258T377074.htm#t_propara">Profiles and Parameters</a>.</p>
+</li>
+<li>
+<p>Set appropriate user responsibilities for Function Security. Function Security controls the visibility of buttons for creating an order or quote. These buttons are not visible in the pricing and availability window. Function security also controls whether or not you can display cost and gross margin.</p>
+<p><strong><span>Note:</span></strong> Advanced Pricing must be fully installed to use the additional benefits features in the results area. You can still use Pricing & Availability with Basic Pricing but you not see any additional benefits or price list price breaks information.</p>
+</li>
+</ol>
+<h2><a name="3004726"></a><a id="T377111"></a><b>Order Organizer</b></h2>
+<a name="d0e51096" id="d0e51096"></a>
+<h3><b>Overview</b></h3>
+<p>The Sales Order Organizer has a Navigator tree view and a Summary information view. The tree view consists of a set of user-defined folders, or queries, that you use to access most commonly used orders/lines.</p>
+<h3><b>Tree View</b></h3>
+<p>The tree view consists of:</p>
+<ul>
+<li>
+<p><b>Todays Orders:</b> Displays new orders for the session.</p>
+</li>
+<li>
+<p><b>Search Results:</b> Displays the search results from Find Window.</p>
+</li>
+<li>
+<p><b>Personal Folders:</b> Displays user-named queries.</p>
+</li>
+<li>
+<p><b>Public Folders:</b> Displays folders created as public</p>
+</li>
+</ul>
+<h3><b>Summary Information View</b></h3>
+<p>Summary information consists of Summary and lines tabs. The information in Summary and Lines tabs is view only. The information shown in these tabs changes based on the selection in the tree nodes. You can access other functions through the Actions List/Special Menu or context menu.</p>
+<h3><b>Find in the Order Organizer</b></h3>
+<p>To run saved queries, use the find function in the Order Organizer or go straight to the summary form.</p>
+<p>The find window in the Order Organizer form has the following advantages:</p>
+<ul>
+<li>
+<p>You can create different folders for the types of queries you most commonly perform and save these queries within the Order Organizer.</p>
+</li>
+<li>
+<p>The organizer is extensible using folder technology and supports search fields specific to user requirements. You can determine how and where to display them.</p>
+</li>
+</ul>
+<h2><a name="3004732"></a><a id="T377112"></a><b>Profiles</b></h2>
+<a name="d0e51154" id="d0e51154"></a>
+<h3><b>OM: Show Line Details</b></h3>
+<p>This profile allows you to optionally specify whether model details such as options, classes, or included items display in the Lines summary. Controlled at the user level, user preference is shown as an entry in the Tools menu. This preference can be changed for the forms session. Every form is opened in a separate session, and a forms session ends once it is closed. Once you change the selection, a lines summary block is re-queried with the new preferences.</p>
+<p>The profile option value must be set to not display line details. By default, only standard lines, shipment lines, service lines and models display. Details of the model are not displayed.</p>
+<h3><b>OM: Administer Public Queries</b></h3>
+<p>This profile determines who can create/update public queries in the order organizer Tree.</p>
+<h2><a name="3004735"></a><a id="T377113"></a><b>Creating & Managing Folders in Oracle Applications</b></h2>
+<p>See <i>Oracle E-Business Suite User's Guide</i> for information on customizing the layout of data in various forms by creating and managing folders in Oracle Applications.</p>
+<h3><a id="T377133"></a><b>Setup</b></h3>
+<p>There is no specific setup associated with the organizer other than setting the profiles mentioned above and the definition of any required folders or queries.</p>
+<h2><a name="3004737"></a><a id="T377114"></a><b>Order Information</b></h2>
+<a name="d0e51197" id="d0e51197"></a><a name="t_oioi" id="t_oioi"></a>
+<h3><a id="T377134"></a><b>Overview<a name="d0e51205" id="d0e51205"></a></b></h3>
+<p>The purpose of Order Information is to provide an industry leading and competitively differentiating self-service order management offering to improve the accessibility of service to customers, improve customer satisfaction, and limit expensive calls to the support center.</p>
+<p>The View Sales Orders Inquiry window allows you to search for Sales Orders and view their details. It also contains links to related information like deliveries, AR and Quality. Order Information can be personalized for the requirements of different self-service users. For example, Sales representatives may define various views on each of the customers they are responsible. A warehouse manager may want to only look at recently shipped deliveries. Such views can be defaulted for each responsibility.</p>
+<p>Order Information can be used for internal and external users. View for the external user is secured by Customer, which you can assign. User can be assigned in the Define users window in System Administration responsibility in Oracle Applications. A user without a customer assigned to it is treated as an internal customer.</p>
+<h3><a id="T377135"></a><b>Implementation Requirements</b></h3>
+<p>You can use a browser to access the Order Information web page with a sign on and password. Request an account through your system administrator.</p>
+<h3><a id="T377136"></a><b>Profiles</b></h3>
+<h3><b>OM: Customer Service Feedback</b></h3>
+<p>This profile option indicates the internal contact designated to receive the workflow notifications for RMA requests entered from Order Information. The list of values for this profile include all users, defined Oracle Applications through System Administrator responsibility, with no customer contacts. The default for this profile option is Null and optional.</p>
+<h3><b>OM: Customer Service Report Defect</b></h3>
+<p>This profile option indicates the internal contact who will receive a workflow notification for any Report Defects submitted from customers from Order Information. The list of values for this profile include all users, defined Oracle Applications through System Administrator responsibility, with no customer contacts. The default for this profile option is Null and optional.</p>
+<h3><b>OM: Order View for External Users based on</b></h3>
+<p>This profile option indicates the contacts who can view and track sales orders through Order Information. If you set the profile value as Sold to Customer, then customers associated with the Sold to Customer on the sales order can view and track the applicable sales orders. If you set the profile value as Bill to Customer, then customers associated with the Bill to Customer on the sales order can view and track the applicable sales orders. You set this profile option at the site level.</p>
+<h3><b>OM: Raise Status Change Business Event</b></h3>
+<p>Set this profile option to Yes to enable external users, who have subscribed, to receive notifications based on key business events such as Scheduling, Schedule Date Changes, and Shipping.</p>
+<h3><b>OM: Records on Summary Page for External Users</b></h3>
+<p>This profile option determines if the system executes the default query for external users. The values are Y or N. Set to Y to run the default query. If the query is very long, you may want to set to N.</p>
+<h3><b>Personalize Self Service Defn</b></h3>
+<p>This profile option enables the global Personalize Page link on every page to allow personalizing any page or region of an OA Framework application. This profile must be set to Yes to allow users to personalize a region.</p>
+<h3><b>FND: Personalize Region Link Enabled</b></h3>
+<p>Every OA Framework-based application contains a global Personalize Page link. In addition, users can personalize regions. To personalize regions, set the value of this profile option to Yes. If this profile is set to No, users will not be able to personalize regions within Order Information.</p>
+<p><b>Personalize Self-Service Defn</b></p>
+<p>FND_CUSTOM_OA_DEFINTION</p>
+<p>Set this profile option to Yes or No at the user level for an administrator or at the responsibility level for the system administrator. When you set this profile option to Yes, and log on as an Admin-level user or responsibility:</p>
+<ul>
+<li>
+<p>A global Personalize button appears on each self-service web application page. When you select the global Personalize button on any page, the personalization user interface prompts you for the administrative level at which you wish to create your personalizations. A navigation tree then lets you navigate to the region or nested region to personalize.</p>
+</li>
+<li>
+<p>Personalize Region links appear for every personalizable region on each self-service web application page. When you select a Personalize Region link, the personalization user interface first prompts you for the administrative level at which you wish to create your personalization, then takes you directly to the page to personalize.</p>
+</li>
+</ul>
+<p>You can choose the Personalize button or Personalize Region links to create your personalizations.</p>
+<p><b>Disable Self-Service Personal</b></p>
+<p>FND_DISABLE_OA_CUSTOMIZATIONS</p>
+<p>You can set this profile option to Yes or No at the site or application level. If this system profile option is set to Yes, any personalizations you make, regardless of the level at which you make the personalizations, will not be applied. Only the original base definition of each self-service web application page is ever displayed.</p>
+<p><strong><span>Note:</span></strong> Additionally, you may set the FND: Personalize Region Link Enabled profile to Yes to enable the "Personalize Region" links above each region on a page.</p>
+<p><strong>Related Topics</strong></p>
+<p><i>Oracle Self Service Web Applications Implementation Manual</i></p>
+<p><i>Overview and the Oracle E-Business Suite System Administrators Guide Documentation Set</i></p>
+<h2><a name="3004746"></a><a id="T377170"></a><b>Setup</b></h2>
+<p>OIP has been integrated with FND Security to enable rules-based access to the summary and detail views of sales orders and deliveries. Ensure to define the security rules using the FND Security functionality and associate the rule to an FND responsibility. You can create different OIP responsibilities and associate each with different access rules.</p>
+<p>To enforce rules-based access on any of the different views within OIP, you must define the security rules against the corresponding FND objects that secure them. The association is specified below and includes the name of the underlying table over which you must create the FND object:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>OIP View Name</b></th>
+<th scope="col"><b>FND Object Name</b></th>
+<th scope="col"><b>Underlying Table</b></th>
+</tr>
+<tr valign="top">
+<td>Order Summary</td>
+<td>SALES_ORDER_HEADERS</td>
+<td>oe_order_headers_all</td>
+</tr>
+<tr valign="top">
+<td>Order Line Summary</td>
+<td>SALES_ORDER_LINES</td>
+<td>oe_order_lines_all</td>
+</tr>
+<tr valign="top">
+<td>Delivery Summary</td>
+<td>SHIPPING_NEW_DELIVERIES</td>
+<td>wsh_new_deliveries</td>
+</tr>
+<tr valign="top">
+<td>Delivery Line Summary</td>
+<td>SHIPPING_DELIVERY_DETAILS</td>
+<td>wsh_delivery_details</td>
+</tr>
+</table>
+<p>For more information on creating the FND objects and security rules, please refer to Overview of Data Security, <i>Oracle E-Business Suite Security Guide</i>.</p>
+<p><strong><span>Note:</span></strong> This functionality is available for internal OIP users only.</p>
+<p><b>To setup an external user</b></p>
+<ol>
+<li>
+<p>Create a Customer Contact. Include Last Name, First Name, Title, and Job.</p>
+</li>
+<li>
+<p>Navigate to N: System Administrator &gt; Define Users. The external user can be set up by assigning a customer contact to the user in the Customer Field. Select the customer contact from the list of values. When this is set up, the external user sees only his or her data.</p>
+<p>Personalization allows you to tailor the user interface to suit your preferences. Personalization refers to the ability to tailor the following to suit a business need:</p>
+<ul>
+<li>
+<p>Look and feel of the user interface</p>
+</li>
+<li>
+<p>Layout of the user interface</p>
+</li>
+<li>
+<p>Visibility of built-in content</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2><a name="3004748"></a><a id="T377115"></a><b>Oracle Applications Framework (OAF) Overview</b></h2>
+<p>Oracle Applications Framework (OA Framework) is designed to provide rich and upgradable personalization capabilities.</p>
+<h2><a name="3004749"></a><a id="T377116"></a><b>Menus and Responsibilities</b></h2>
+<p>You can use the Menu and Responsibility forms to personalize and maintain security for Oracle Self-Service Web Applications. You can use the forms to assign specific responsibilities to your users and designate the menus that are available to the users of a given responsibility.</p>
+<p><strong>Related Topics</strong></p>
+<p><i>Oracle E-Business Suite system administration guides</i></p>
+<h2><a name="3004750"></a><a id="T377117"></a><b>FND Messages and Lookups</b></h2>
+<p>You can similarly use the Messages and Lookups forms to modify existing, or define new messages and lookups, respectively. For example, you may have a need to create additional messages for display within an application that is pertinent to your users or you may want to add new lookup values to a lookup type that are applicable to your site.</p>
+<p><strong>Related Topics</strong></p>
+<p>Message Dictionary, <i>Oracle E-Business Suite Developer's Guide</i> and Application Utilities Lookups and Application Object Library Lookups in the <i>Oracle E-Business Suite Developer's Guide</i></p>
+<h2><a name="3004751"></a><a id="T377118"></a><b>UI Definition Overlays with the OA Personalization Framework</b></h2>
+<p>Finally, you can use the functionality of OA Personalization Framework to personalize the UI of an application page. Administrators can create personalizations that overlay the existing UI and are targeted to specific audiences.</p>
+<h2><a name="3004752"></a><a id="T377119"></a><b>OA Personalization Framework</b></h2>
+<p>OA Framework includes the OA Personalization Framework which allows you to personalize your user interface (UI) of Oracle Self-Service Web Applications without modifying any underlying code. Personalizing the appearance of or the data displayed in an Oracle Self-Service Web Application page is as easy as changing your web browser preferences.</p>
+<p>All personalizations you make through the OA Personalization Framework are added on top of the base product meta data at runtime. These personalizations never overwrite the existing base product UI and are therefore preserved during upgrades and patches and can also be translated. This means you can create your personalizations on a test system first and easily load your finalized personalizations to your production system with little interruption.</p>
+<p>Common types of personalizations you can accomplish with OA Personalization Framework:</p>
+<ul>
+<li>
+<p>Change the prompt for a field or other text on a page</p>
+</li>
+<li>
+<p>Hide or show a field on a page</p>
+</li>
+<li>
+<p>Reorder fields or items on a page</p>
+</li>
+<li>
+<p>Restrict data that a user can access</p>
+</li>
+<li>
+<p>Add new buttons, links, text items, images, etc.</p>
+</li>
+<li>
+<p>Restrict query results in a table</p>
+</li>
+</ul>
+<p>With OA Personalization Framework, your personalizations are reflected immediately on the page.</p>
+<h2><a name="3004753"></a><a id="T377120"></a><b>Personalization Levels</b></h2>
+<p>OA Personalization Framework supports localization, verticalization, and customization teams in their efforts to tailor self-service web applications. OA Personalization Framework accomplishes this by allowing you to make personalizations at distinct levels so that you may target those personalizations to specific audiences.</p>
+<p>There are different personalization levels available from the administrative stand-point: Localization, Site, Organization, and Responsibility. When you make personalizations at any of these levels, the personalizations are available only to the audience defined by that level. Since personalizations should only be made at these levels by a system administrator, these are collectively referred to as Administrator-level (or Admin-level) personalizations. Admin-level personalizations can be performed on any component in a page.</p>
+<h2><a name="3004754"></a><a id="T377171"></a><b>Admin-Level Personalizations</b></h2>
+<p><b>To Personalize a Region at an Admin level</b></p>
+<ol>
+<li>
+<p>Sign-on to Oracle Self-Service Web Applications as a user who has Admin-level personalization access.</p>
+</li>
+<li>
+<p>Select a responsibility.</p>
+</li>
+<li>
+<p>Navigate to the application page that contains the region you wish to personalize.</p>
+</li>
+<li>
+<p>Choose the Personalize... link above the region you wish to personalize or select the Personalize Region global button.</p>
+<p><strong><span>Note:</span></strong> If the region is a table, the Personalize Region link appears below the table.</p>
+</li>
+<li>
+<p>In the Personalization Level field, select the administrative level at which you wish to personalize the region.</p>
+</li>
+<li>
+<p>On the next page, enter a value appropriate for the Personalization level you selected. The Site level does not require any value as the personalization applies to all users of the current site. Other levels, such as Responsibility or Function, for example, require a specific responsibility or function name, respectively.</p>
+</li>
+<li>
+<p>If you initially selected the Personalize Region link for a specific region, the Create View or Update View page for that region should appear. Use the Create View or Update View page to create a new view or update the existing personalized view of the region.</p>
+</li>
+<li>
+<p>If you initially selected the global Personalize Region button, a navigation tree appears to the left of the Create View or Update View page. The tree displays the hierarchy of all the regions that make up the current application page and allows you to navigate to any region within the page. Select the region you wish to personalize from the navigation tree to display the Create View or Update View page for that region.</p>
+</li>
+</ol>
+<h2><a name="3004756"></a><a id="T377121"></a><b>Create/Update View Page</b></h2>
+<p>The Create View page is identical to the Update View page, except that the fields in the latter page are pre-populated with settings from a prior personalization.</p>
+<p><strong><span>Note:</span></strong> In OA Framework 5.7 and above, the following restriction applies for pages developed in MDS or migrated to MDS from AK. When you personalize a parent region, you can no longer change any of the properties of its nested regions through the Advanced Settings page. You must select the Personalize Region link for the nested region and personalize the nested region itself. Only the properties of region items (such as individual fields) can be changed in the Advanced Settings page when you personalize a parent region.</p>
+<h2><a name="3004757"></a><a id="T377122"></a><b>General Properties</b></h2>
+<p>You may edit the General Properties of your region. Note that some of the properties discussed below do not appear if they are not relevant to the region you are personalizing.</p>
+<ul>
+<li>
+<p>The page always shows the personalization level and personalization level value, if any, at which you are making personalizations.</p>
+</li>
+<li>
+<p>If the region has a header or label, you can update the value in the New Label field.</p>
+</li>
+<li>
+<p>If your selected region is a table, select the number of rows of data you wish to display.</p>
+</li>
+<li>
+<p>If the region has a corporate-branding image file or product-branding image file defined, you can specify your own GIF image files to replace either of these files. If the region you are personalizing is not nested within other regions, that is, it is a page layout region, the image in your custom product-branding image file replaces the product-branding image that appears beneath the Corporate logo. If your region is a nested region, such as a header level region, the image in your custom product-branding image file replaces the icon that appears next to the header.</p>
+</li>
+<li>
+<p>If you are creating a personalization at an Admin-level that is higher than Localization, you have the option of associating a different controller class name with the region. This is useful if you are creating Localization-level personalizations and want to associate different controller classes with different localizations.</p>
+<p><strong><span>Note:</span></strong> You cannot change the controller class name associated with a region if you are creating an Org-or Site-level personalization, that is, a personalization at an Admin-level lower than Localization.</p>
+</li>
+</ul>
+<h2><a name="3004758"></a><a id="T377172"></a><b>Column or Attribute Properties</b></h2>
+<p>If the region you are editing is a table, this part of the Create or Update View page is called Column Properties. If the region is not a table, this part of the page is called Attribute properties. Edit the Column/Attributes Properties section to specify the items you wish to display in the region and the order in which to display them.</p>
+<ol>
+<li>
+<p>Select an item from the Available Columns/Attributes or Columns/Attributes Displayed list and use the buttons between these lists to either move the selected item to or remove the selected item from the Columns/Attributes Displayed list.</p>
+<p><strong><span>Note:</span></strong> Items that are required fields in a page appear with an asterisk (*) and cannot be removed from the Columns/Attributes Displayed list.</p>
+</li>
+<li>
+<p>Once you are satisfied with the items to display, use the buttons to the right of the list to reorder their sequence.</p>
+<p><strong><span>Note:</span></strong> You can hide or reorder the display of specific regions in a page by personalizing the region items of the top level region, that is, the parent container or page layout region.</p>
+</li>
+<li>
+<p>Choose Advanced Settings to alter other settings for your items or add new items your region.</p>
+</li>
+</ol>
+<h3><b>Sort Settings</b></h3>
+<p>If the region you are personalizing is a table, the Sort Settings section appears in the Create View or Update View page.</p>
+<ul>
+<li>
+<p>You can specify up to three levels of sorting for your data. Select a column from the Column Name context menu for each level of sorting you wish to perform.</p>
+</li>
+<li>
+<p>For each sort column, you must specify whether to sort in ascending or descending order.</p>
+</li>
+</ul>
+<h2><a name="3004760"></a><a id="T377173"></a><b>Search Query to Filter Data in Table</b></h2>
+<p>If the region you are personalizing is a table, then the Search Query to Filter Data in Table section appears in the Create View or Update View page. You can filter the data that is displayed in the table based on criteria that you specify.</p>
+<ol>
+<li>
+<p>Indicate how you want the filter to match your search conditions by selecting one of the following radio buttons:</p>
+</li>
+<li>
+<p>Show table data when all conditions are met.</p>
+</li>
+<li>
+<p>Show table data when any condition is met.</p>
+</li>
+<li>
+<p>The first four columns of the table are listed for you to specify search criteria. Using the context menu following the column name, choose a search condition and enter a value to search for in that column.</p>
+</li>
+<li>
+<p>Select a column from the Add column context menu and choose Add to add more search criteria to your filter.</p>
+</li>
+<li>
+<p>If you leave the search criteria blank for a column, the filter will not search on that column.</p>
+</li>
+</ol>
+<h2><a name="3004761"></a><a id="T377174"></a><b>Saving Your Personalized View</b></h2>
+<p><b>To save your personalized view</b></p>
+<ol>
+<li>
+<p>When you are done personalizing your view of the region, choose Apply to apply your personalizations to the region.</p>
+</li>
+<li>
+<p>If you choose Revert to revert to default settings, the following occurs depending on the page you are using:</p>
+<ul>
+<li>
+<p>Create View page: the page defaults to the preseeded display settings. Also, if the region is a table, no query options are set.</p>
+</li>
+<li>
+<p>Update View page: the page defaults to the display settings of the saved existing view. If the region is a table, the page also defaults to the query options of the saved existing view.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2><a name="4059442"></a><a id="T450014"></a><b>Personalizing the Order Information Portal</b></h2>
+<p><a name="d0e51701" id="d0e51701"></a>You can perform the following personalizations in Order Information Portal for all the four tabs:</p>
+<p><strong><span>Note:</span></strong> If any of the fields within these tabs are not visible, then you must set the 'Rendered' property of the corresponding item to 'TRUE' through OA framework personalization.</p>
+<h3><b>Home Tab</b></h3>
+<p>You can personalize the What's New region by changing the prompt and Destination URL attribute in the personalization page.</p>
+<p><img width="973" height="597" src="./img/ont_oip_personaliz1.gif" alt="the picture is described in the document text"></p>
+<h3><b>Order Status Tab</b></h3>
+<p>You can customize the search (Simple and Advanced) results pages by hiding/displaying columns like Operating Unit and End Customer.</p>
+<p><b>Personalize the Order Detail Page &ndash; Header General Section.</b> You can display/hide attributes like Operating Unit, Sales Agreement Number (for SA users), End Customer, End Customer Location, End Customer Address, End Customer Contact, Owner, Current Location, Install Base Current Address, Installed at Location, Install Base Installed At Address. The Descriptive Flexfields - Additional Header Information, Additional Header Global Information and Header Level Trading Partner Information are customizable too.</p>
+<p><b>Customize the Order Detail Page - Header Shipping Section.</b> You can display/hide defaulted attributes like Shipping Method &amp;Partial Shipments Allowed.</p>
+<p><b>Customize Order Detail Page - Header Billing Section.</b> You can use personalization to display/hide fields like Tax Handling, Subtotal, Tax, Charges, Discount.</p>
+<p><b>Customize Order Detail Page - Line Table Region.</b> You can display/hide attributes like Sales Agreement, Dual UOM, Preferred Grade, Acceptance Status, Acceptance Date, Accepted By, Acceptance Reference, Acceptance Comments, Acceptance Signature, Ordered Quantity, Ship To Location, Actual Shipment Date, Schedule Arrival Date, Promise Date, End Customer Name, End Customer Location, End Customer Contact, Install Base Owner, Install Base Current Location, Install base Installed At Location.</p>
+<p><b>Customize the Line Detail Page</b> (this page is displayed by clicking the Detail icon in a line (row) of the Order Detail Page). You can display/hide the following attributes:</p>
+<ol>
+<li>
+<p>Descriptive Flexfield region and the underlying DFFs. They are: Additional Line Pricing Information, Additional Line Pricing Information, Additional Line Return Information, Additional Line Industry Information, Additional Line Attribute Information, Trading Partner Flexfield, Additional Line Global Information.</p>
+</li>
+<li>
+<p>In the Quality Information region, you can unhide Item Description attribute.</p>
+</li>
+<li>
+<p>In the Price Adjustment Details region, you can unhide List Line, Pricing Phase attributes.</p>
+</li>
+</ol>
+<p><img width="1006" height="574" src="./img/ont_oip_personaliz2.gif" alt="the picture is described in the document text"></p>
+<h3><b>Delivery Tab</b></h3>
+<p>In the Delivery tab, you can personalize the attributes/regions described below:</p>
+<ul>
+<li>
+<p>Customize the search results for both Simple and Advanced Search pages by hiding/displaying attributes like Vehicle Type, Vehicle Number and Customer Name.</p>
+</li>
+<li>
+<p>Customize Advanced Search page by displaying hidden attributes like Operating Unit.</p>
+</li>
+<li>
+<p>Customize the Delivery Detail Page - Vehicle Type and Vehicle Number in Header: Shipping Information region are hidden attributes that can be displayed by personalization.</p>
+</li>
+<li>
+<p>Customize the Delivery Detail Page- delivery line table region. Operating Unit is a hidden attribute which can be displayed using admin personalization.</p>
+</li>
+</ul>
+<p><img width="972" height="579" src="./img/ont_oip_personaliz3.gif" alt="the picture is described in the document text"></p>
+<h3><b>Customer Service Tab</b></h3>
+<p>You can modify and update contact information in the Customer Service tab by customizing the Additional Text field properties.</p>
+<p><strong>Related Topics</strong></p>
+<p>Order Information Portal supports neither Extensibility nor BC4J Object customization for the current release.</p>
+<h2><a name="3004763"></a><a id="T377175"></a><b>Advanced Settings</b></h2>
+<p>Starting with OA Framework 5.7, for pages developed in MDS or migrated to MDS from AK, if a region is nested beneath a parent region, you cannot change the properties of that nested region in the Advanced Settings page when you are personalizing the parent region. You must personalize the nested region itself. Only the properties of region items can be changed in the Advanced Settings page when you personalize a parent region.</p>
+<p>You can change the labels for the items that you chose to display.</p>
+<ol>
+<li>
+<p>If an item is not originally marked as Required, but you want it to become Required, you can check the Required Field check box.</p>
+<p><strong><span>Note:</span></strong> Items originally marked as Required always remain required and cannot be changed with the Required Field check box.</p>
+</li>
+<li>
+<p>Use the Updatable check box to mark whether the data for an item is updatable.</p>
+</li>
+<li>
+<p>If you are personalizing a table, the Show Total column appears. You may check Show Total to turn on totaling for a specific item/column in your table, if it is applicable to the underlying data.</p>
+<p><strong><span>Note:</span></strong> If you choose to display a column with totaling capabilities, you may want to display this column as the last column of the table. You can reorder the columns in the Columns Displayed list located on the Create/Update View page.</p>
+</li>
+<li>
+<p>Specify a default value for an item. This is optional.</p>
+</li>
+<li>
+<p>You can display a static text message or tip for a column or region item. For example, suppose you need to add a tip on how to enter data into a specific column for your users in Japan.</p>
+</li>
+<li>
+<p>If a column or attribute has a URL associated with it, you can edit the URL in the URL field. Columns/attributes such as buttons, images or links may have an associated URL that the application navigates to when a user clicks the button, image or link.</p>
+</li>
+<li>
+<p>Choose Apply to accept your changes and return to the Create View or Update View page.</p>
+</li>
+<li>
+<p>If the region you are personalizing is not a table, you may add a new item to the region. Choose the Add New Item button to add new items to your region with OA Personalization Framework.</p>
+<p><strong><span>Note:</span></strong> OA Personalization Framework does not currently support adding a new item to a table. All items in a table must be set to the same BC4J view usage name.</p>
+</li>
+<li>
+<p>Use the Edit Item or Delete Item columns to edit or delete any of the items you create with OA Personalization Framework.</p>
+</li>
+<li>
+<p>A column called Attachment Categories appears in the Advanced Settings screen. If an item within the region is an attachment item, an Categories button appears in the column for that item.</p>
+</li>
+</ol>
+<h2><a name="3004764"></a><a id="T377176"></a><b>Adding New Items With OA Personalization Framework</b></h2>
+<p>You can add new items or fields in OA Framework-based pages in Oracle Self-Service Web Applications. You can only add new items to a self-service application page at the Admin-level.</p>
+<p><b>To add new items</b></p>
+<ol>
+<li>
+<p>Enable Admin-Level personalizations for your application by setting the Personalize Self-Service Defn profile option to Yes.</p>
+</li>
+<li>
+<p>Navigate to the Create/Update View for the page you wish to personalize, and then choose Advance Settings.</p>
+</li>
+<li>
+<p>The Advanced Settings page includes an Add New Item button.</p>
+</li>
+<li>
+<p>When you select Add New Item from the Advanced Settings screen, a new screen called Extended Region Item appears, that lets you define a new region item.</p>
+</li>
+</ol>
+<h2><a name="3004766"></a><a id="T377177"></a><b>Add a New Region Item</b></h2>
+<p>The region application ID identifies the application for which the current region applies and is owned. The region code identifies the region for which you are adding a new region item.</p>
+<ol>
+<li>
+<p>Select an application ID that identifies the application for which this attribute applies and is owned. OA Personalization Framework creates an attribute based on the information you specify in this page and creates a usage of that attribute as the new region item.</p>
+</li>
+<li>
+<p>Enter a name for the new region item.</p>
+</li>
+<li>
+<p>Use the Item Style poplist to select the type of HTML User Interface object that represents the data for the new item. The item styles that you may choose are:</p>
+<ul>
+<li>
+<p>Button: A button represents an action that you can perform on a region. OA Framework generates buttons as images that represent the underlying function.</p>
+</li>
+<li>
+<p>Images: An image can be a plain image that simply appears on the page, or can have a URL associated with it so that the user can click on it to navigate elsewhere. Although icon images are generally used as global buttons in Oracle Self-Service Web Applications, an icon image may also be used next to text to visually quantify its content, as in the case of tips, or in line messages</p>
+</li>
+<li>
+<p>Raw Text: Any type of text. For example, the raw text style allows you to enter HTML tags to display text in bold.</p>
+</li>
+<li>
+<p>Reset Button: A button that resets the values in a page.</p>
+</li>
+<li>
+<p>Separator: A line to separate portions of a region. By default, the separator is rendered as a blue dotted line.</p>
+</li>
+<li>
+<p>Spacer: A space that you can include in a region to improve the appearance of its layout.</p>
+</li>
+<li>
+<p>Static Text: Text that is for display only and not for editing purposes. For example, if you wish to create a URL link, you would define its item style as static text.</p>
+</li>
+<li>
+<p>Text: A text field that can be updated and have a default value.</p>
+</li>
+<li>
+<p>Tip: Text that provides a tip about the contents of the region. When you select Tip as the Item Style, and then select Apply after completing the remainder of the Extended Region Item page, you return to Advanced Settings. In the Advanced Settings page, you can then specify the Tip Type and Tip Message name for the Tip region item.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter a label for the new region item. The value you enter gets displayed as the label of the region item.</p>
+</li>
+<li>
+<p>Specify the horizontal and vertical alignment of the region item. A horizontal alignment of Start results in left alignment for languages that read left to right or in right alignment for languages that read right to left.</p>
+</li>
+<li>
+<p>Specify a URL if your region item style is an Image, and you want to navigate to another URL when your user clicks on the image.</p>
+</li>
+<li>
+<p>If your region item style is Image, specify filename of your image file. Do not include any path information, as all image files must reside in OA_MEDIA.</p>
+</li>
+<li>
+<p>Enter a description for your region item.</p>
+</li>
+<li>
+<p>Choose Apply to create the new region item. The new region item should now appear in the Advanced Settings screen.</p>
+</li>
+<li>
+<p>If you are the creator of the new region item, you can select the Edit Item or Delete Item column icons in the Advanced Settings page to edit or delete the region item. If you are not the owner of the new region item, or the region item is not created from OA Personalization Framework, the Edit Item and Delete Item icons are disabled.</p>
+</li>
+</ol>
+<h2><a name="3004767"></a><a id="T377123"></a><b>Add a Link in the What's New Region</b></h2>
+<h3><b>To modify links in the "What's New" region:</b></h3>
+<p>The What's New region is configurable. From this region, administrators can link to other pages in Order Information, or to external URLs. This is done using the personalization framework.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

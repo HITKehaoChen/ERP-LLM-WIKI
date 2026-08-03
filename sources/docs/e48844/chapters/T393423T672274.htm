@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Using Oracle Workflow in Oracle Order Management</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Using Oracle Workflow in Oracle Order Management Guide">
+<meta name="dcterms.identifier" content="E48844-08">
+<meta name="dcterms.isVersionOf" content="OMOWF">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T393423T479666.htm" title="Previous" type="text/html">
+<link rel="Next" href="T393423T393432.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Using Oracle Workflow in Oracle Order Management","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">12/16</span> <!-- End Header -->
+<h1>Oracle Order Management Workflow Validation</h1>
+<h2><a name="8646441"></a><a id="T672275"></a><b>Overview</b></h2>
+<p><a name="d0e20933" id="d0e20933"></a><a name="omwf_overview" id="omwf_overview"></a>In Oracle E-Business Suite, Oracle Order Management is closely integrated with Oracle Workflow. This relationship is a key factor in making Oracle Order Management more flexible and easier for customers to extend. Sometimes, however, extensions and customizations can result in imperfect workflow designs that lead to problems, errors, and even data corruption, which is not readily apparent and can only be corrected by data fix scripts provided by Oracle Support or Oracle Development. To avoid these problems, OM Workflow Validation helps Oracle Order Management customers evaluate and validate their proposed workflow extensions and customizations before they are moved into production.</p>
+<h2><a name="8646442"></a><a id="T672276"></a><b>Validation Using the Transaction Types window</b></h2>
+<p><a name="d0e20944" id="d0e20944"></a><a name="omwf_txntypes_win" id="omwf_txntypes_win"></a>Oracle Order Management validates assigned workflow processes in the Transaction Types window and with the Validate OM Workflow concurrent program. The Transaction Types window is the logical place to enforce workflow validation, because this is where top-level (&ldquo;runnable&rdquo;) workflow processes are assigned to transaction types. Here, validation is performed when:</p>
+<ul>
+<li>
+<p>The user enters a fulfillment flow different from the one saved in the database and attempts to save or navigate out of the current record</p>
+</li>
+<li>
+<p>The user enters or changes the negotiation flow and navigates out of the field.</p>
+</li>
+<li>
+<p>In the Line Workflow Assignments window, a row is entered or changed and the user tries to save or navigate out of the current record.</p>
+</li>
+</ul>
+<p>Validation in the Transaction Types window is implicit and cannot be avoided. It does not, however, check for all possible faults in workflow process design, but only those which would cause serious problems and which do not exact a high toll on performance in the window. In addition, due to the potential complexity of workflow process design, automated validation may not be conclusive in the case of some subtle potential error conditions, and therefore not warrant preventing the user from saving the workflow assignment. Because of these considerations, exhaustive workflow validation is only performed by the Validate OM Workflow concurrent program. The program can be launched by clicking on the Validate Workflow button in the Transaction Types window or by submitting it from the Run Requests window. The concurrent program is in the request group OM Concurrent Programs and takes an optional parameter Order Type.</p>
+<p><b>Validation in the Transaction Types window</b></p>
+<p><img width="1024" height="744" src="./img/omwf_val1.gif" alt="the picture is described in the document text"></p>
+<p>The following errors are captured in the Transaction Types window.</p>
+<p><b>"Activity &amp;ACTIVITY_LABEL in process &amp;PROCESS_NAME has no OUTtransition."</b></p>
+<p>This error means that in the workflow process assigned to the order or line type, an activity is missing the definition that determines where the flow goes after that activity is completed. For example, suppose that the fulfillment flow @demo_Order Flow &ndash; Generic is assigned to the order type Order Only2 as shown in the image above, and that the flow contains the subprocess Demo_Close &ndash; Order, which is defined as shown in the image below:</p>
+<p><img width="1024" height="744" src="./img/omwf_val2.gif" alt="the picture is described in the document text"></p>
+<p>The actual error reported in the window would read: "Activity WAIT in process R_STANDARD_HEADER-8 (@demo_Order Flow &ndash; Generic) has no OUT transition."</p>
+<p>The error message refers to a runnable workflow processes both by its internal name (R_STANDARD_HEADER-8), visible in Oracle Workflow Builder when View -&gt; Developer Mode is turned on, and its display name (@demo_Order Flow &ndash; Generic). The latter is the same name displayed in the Transaction Types window. Activities within a workflow process are denoted by their internal names or by the labels (such as WAIT) used for unique identification within the parent process.</p>
+<p><b>&ldquo;Attributes of activity &amp;ACTIVITY_LABEL in process &amp;PROCESS_NAME are incorrectly defined.&rdquo;</b></p>
+<p>This error is raised for activities assigned the standard API Wf_standard.Waitforflow() for which either:</p>
+<ul>
+<li>
+<p>The activity attributes Continuation Activity or Continuation Flow are missing.</p>
+</li>
+<li>
+<p>The Continuation Flow has the value Detail in an OM Order Line (OEOL) workflow or the value Master in an OM Order Header (OEOH) workflow.</p>
+</li>
+</ul>
+<p>This error is also raised for activities assigned the standard API Wf_standard.Continueflow() for which either:</p>
+<ul>
+<li>
+<p>The attributes Waiting Activity or Waiting Flow are missing,</p>
+</li>
+<li>
+<p>The values of these attributes are incorrect.</p>
+</li>
+</ul>
+<p><b>"Process &amp;PROCESS1 is missing activity &amp;ACTIVITY1, which is defined as the waiting/continuation activity of activity &amp;ACTIVITY2 in process &amp;PROCESS2."</b></p>
+<p>This error also relates to activities assigned either Wf_standard.Continueflow() or Waitforflow() APIs. In this case, however, ACTIVITY1 is stated as the Continuation Activity or Waiting Activity for ACTIVITY2 in PROCESS2, but is missing from PROCESS1. PROCESS1 is an order header workflow, and PROCESS2 is an order line workflow associated with PROCESS1 in the Transaction Types window, or vice versa.</p>
+<p><b>"Process &amp;PROCESS_NAME is missing activity &amp;FULFILLMENT_ACTIVITY referenced in activity &amp;FULFILL_LINE."</b></p>
+<p>This error means that the activity referenced in the attribute Fulfillment Activity Name of the FULFILL_LINE (Fulfill) activity does not exist in the parent process &amp;PROCESS_NAME.</p>
+<p><b>"Process &amp;PROCESS is incompatible with item type &amp;ITEM_TYPE."</b></p>
+<p>This error only applies to order line workflows. Some of the seeded line flows, such as Line Flow - ATO Item, Line Flow - ATO Model, and Line Flow - OTA Item, are only compatible with certain OM item types (ATO item, ATO model, education (OTA) item, and so on). The error is raised if the user attempts to assign such a workflow to any other OM item type, or to all OM item types.</p>
+<p><b>"Process &amp;PROCESS may be incompatible with item type &amp;ITEM_TYPE. Please make sure that is not the case before saving this assignment."</b></p>
+<p>This is similar to the previous situation, but is reported for custom workflows with names similar to the seeded names of the specialized workflows mentioned there, which makes it likely that the custom workflows were derived from the seeded workflows, and therefore still incompatible with other OM item types. This message, however, is only a warning. The user can still save such an assignment after acknowledging the warning.</p>
+<h2><a name="8646443"></a><a id="T672277"></a><b>Validation by Concurrent Program</b></h2>
+<p><a name="d0e21033" id="d0e21033"></a><a name="omwf_concprg" id="omwf_concprg"></a>When the Validate OM Workflow concurrent program is submitted via the Validate Workflow button in the Transaction Types window, the request is submitted only for the transaction (order) type of the current record. Unsaved changes in the window must be saved before the concurrent request is submitted. The request ID is displayed after submission. The program will perform a complete validation of all OM Order Header (OEOH), OM Blanket Header (OEBH), OM Negotiation Header (OENH) and OM Order Line (OEOL) processes associated with the particular order type.</p>
+<p>The Validate OM Workflow concurrent program can also be submitted independently, like most other OM concurrent programs. If no value is given for the Order Type parameter, then all active order types are validated. If a specific Order Type parameter is specified, it is validated even if it is currently not active.</p>
+<p><img width="708" height="505" src="./img/ont_wfvalidation2.gif" alt="the picture is described in the document text"></p>
+<p>In addition to the errors already mentioned previously, the concurrent program reports the following conditions:</p>
+<p><b>"Activity &amp;ACTIVITY in process &amp;PROCESS defers workflow with zero delay within a processing loop, which is not allowed."</b></p>
+<p>This message is reported for standard WAIT (Wait) or DEFER (Defer Thread) activities that are placed inside a loop in the workflow process definition. The Wait activity has Wait Mode of Relative Time and Relative Time specified as zero (or null). Such a definition may cause infinite loops in Workflow Background concurrent processes that are processing runtime workflows, which may appear never to complete.</p>
+<p><b>"Please verify that the value for attribute WAIT_RELATIVE_TIME of activity &amp;ACTIVITY in process &amp;PROCESS is greater than the average time it takes Workflow Background Process to complete."</b></p>
+<p>Similar to the previous case, the Workflow Background process for deferred activities operates in a loop that removes activities from the deferred activity queue as long as there are any activities available. If a WAIT activity is defined in a loop within its parent process, and if there are only a few other activities in the loop with it, they may all complete very quickly, and the same WAIT activity will be again be added to the deferred activity queue. If the relative time (for the Wait Mode of Relative Time) of the activity is short enough, the time may expire before the very same Workflow Background process is done processing all other deferred activities ahead in the queue. In that case, it will process the WAIT activity again. If there are too many active workflow items in the same situation, an infinite loop may result, in which the concurrent program never completes.</p>
+<p><b>"Please verify that activity &amp;ACTIVITY1 precedes &amp;ACTIVITY2 in process &amp;PROCESS_NAME."</b></p>
+<p>It is nearly impossible to programmatically establish with absolute certainty, in every conceivable workflow design, whether a particular activity comes before another one. Therefore, in some cases, the user is prompted to verify the order of activities.</p>
+<p><b>"Process &amp;PROCESS_NAME is missing activity &amp;ACTIVITY_NAME."</b></p>
+<p>This condition is checked for the OM Order Header activities BOOK_ORDER (Book) and CLOSE_HEADER (Close), and for the OM Order Line activities FULFILL_LINE (Fulfill) and CLOSE_LINE (Close). For most OM implementations, all of these are required.</p>
+<p><b>"Please verify the value specified for attribute WAIT_ABSOLUTE_DATE in activity &amp;ACTIVITY of process &amp;PROCESS_NAME."</b></p>
+<p>Use of the WAIT activity with Wait Mode of Absolute Date has a very limited application, and is often an error rather than a deliberate part of a workflow design. Therefore, this warning is displayed whenever such an activity is encountered.</p>
+<p>To conclude: Because only a subset of workflow validations are enforced through the OM Transaction Types window and because workflow processes and definitions may be altered using Oracle Workflow Builder after they have already been assigned, it is strongly recommended that Oracle Order Management users do the following:</p>
+<ul>
+<li>
+<p>Run the Validate OM Workflow concurrent program using the Validate Workflow button whenever adding or changing workflow assignments (whether for fulfillment flows, negotiation flows or line flows) in the Transaction Types window.</p>
+</li>
+<li>
+<p>Schedule Validate OM Workflow to run periodically for all order types (no parameters specified).</p>
+<p>For both operations, check the output of the program carefully.</p>
+</li>
+</ul>
+<p>Correct all reported errors and heed all warnings, because they are designed to prevent runtime data corruption errors that are difficult to detect and difficult to correct.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

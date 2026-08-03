@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T228122.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107T228124.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">23/31</span> <!-- End Header -->
+<h1>Reports and Processes</h1>
+<p>This chapter explains how to submit report and process requests, and briefly describes each Work in Process report.</p>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#I_tx2Dfasauto">AutoCreating Final Assembly Orders</a></li>
+<li><a href="#I_tx2Dclosdj">Closing Discrete Jobs Using Submit Requests</a></li>
+<li><a href="#I_rx2Dwipdjdat">Discrete Job Data Report</a></li>
+<li><a href="#I_rx2Dwipdjdsp">Discrete Job Dispatch Report</a></li>
+<li><a href="#I_rx2Dwipdjlis">Discrete Job Listing Report</a></li>
+<li><a href="#I_rx2Dwipdjpck">Discrete Job Pick List Report</a></li>
+<li><a href="#I_rx2Dwipdjrtg">Discrete Job Routing Sheet</a></li>
+<li><a href="#I_rx2Dwipdjorq">Discrete Job Shortage Report</a></li>
+<li><a href="#I_rx2Dwiprdjvr">Discrete Job Value Report - Standard Costing</a></li>
+<li><a href="#I_rx2Ddjpckt">Discrete Shop Packet</a></li>
+<li><a href="#I_rx2Dwipsuemp">Employee Rates Listing</a></li>
+<li><a href="#I_rx2Dwiprejvr">Expense Job Value Report</a></li>
+<li><a href="#I_tx2Djsimprt">Importing Jobs and Schedules</a></li>
+<li><a href="#I_rx2Dwipmtdlt">Job Lot Composition Report</a></li>
+<li><a href="#I_rx2Dwipmlint">Job and Schedule Interface Report</a></li>
+<li><a href="#I_rx2Dwiptsmov">Move Transaction Report</a></li>
+<li><a href="#I_rx2Dwipsulin">Production Line Report</a></li>
+<li><a href="#I_tx2Dpurge">Purging Jobs and Schedules</a></li>
+<li><a href="#I_rx2Dwippurge">Purge Report</a></li>
+<li><a href="#I_rx2Dwiprelin">Repetitive Line Report</a></li>
+<li><a href="#I_rx2Dwiprepck">Repetitive Pick List Report</a></li>
+<li><a href="#I_rx2Dwiprertg">Repetitive Routing Sheet</a></li>
+<li><a href="#I_rx2Dwipredat">Repetitive Schedule Data Report</a></li>
+<li><a href="#I_rx2Dwipreorq">Repetitive Schedule Shortage Report</a></li>
+<li><a href="#I_rx2Drspckt">Repetitive Shop Packet</a></li>
+<li><a href="#I_rx2Dwipreval">Repetitive Value Report</a></li>
+<li><a href="#I_rx2Dwiplbper">Resource Performance Report</a></li>
+<li><a href="#I_rx2Dwiptrtx78n">Resource Transaction Report</a></li>
+<li><a href="#I_rx2Dwipsglis">Schedule Group Listing</a></li>
+<li><a href="#I_rx2Dwipsusta">Shop Floor Statuses Report</a></li>
+<li><a href="#I_rx2Dwiputacd">WIP Account Distribution Report</a></li>
+<li><a href="#I_rx2Dwiputacs">WIP Account Summary Report</a></li>
+<li><a href="#I_rx2Dwipsucls">WIP Accounting Classes Report</a></li>
+<li><a href="#I_rx2Dwipmtlct">WIP Location Report</a></li>
+<li><a href="#I_rx2Dwiputoac">WIP Offsetting Account Report</a></li>
+<li><a href="#I_rx2Dwiplbosp">WIP Outside Processing Report</a></li>
+<li><a href="#I_rx2Dwipsupmt">WIP Parameters Report</a></li>
+<li><a href="#I_rx2Dwiputval">WIP Value Report</a></li>
+</ul>
+<h2><a name="1035235"></a><a id="I_tx2Dfasauto"></a><b>AutoCreating Final Assembly Orders</b></h2>
+<p><a name="d0e50641" id="d0e50641"></a><a name="srs.wicdol" id="srs.wicdol"></a>The AutoCreate Final Assembly Orders load program creates final assembly orders (discrete jobs) from sales order demand, and links each sales order to the final assembly order supplying it. You can create final assembly orders for ATO configuration items, or standard ATO items.</p>
+<p>You can submit the program in specified intervals. For example, to submit the program each day at midnight, specify midnight in the Run Options.</p>
+<p>You have the option to create supply for lower level configurations when running the AutoCreate Final Assembly Orders program. This is based on the setting for the Create Lower Level Supply parameter in Oracle Bills of Material. See: Parameters, <i>Oracle Configure to Order Implementation Manual</i>. You have three options:</p>
+<ul>
+<li>
+<p>No - Creates supply only to the top level ATO item or configuration</p>
+</li>
+<li>
+<p>Auto Created Configuration Items only - Creates supply for any lower level configuration generated because of the specific sales order generation.</p>
+</li>
+<li>
+<p>Auto Created Configuration Items and ATO Items - Creates supply for all lower level ATO, preconfigured, and autocreated configured items.</p>
+</li>
+</ul>
+<p>The Assemble To Order Mass Load Report is automatically printed after submitting the AutoCreate Final Assembly Orders program. This report lists the sales orders where final assembly orders could not be created</p>
+<p><strong><span>Additional Information:</span></strong> When you autocreate a final assembly order, the sales order line delivery quantity becomes the default quantity for the discrete job and the assembly's primary bill and routing are used.</p>
+<p><b>To autocreate final assembly orders</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e50680" id="d0e50680"></a>AutoCreate Final Assembly Orders concurrent program. The <a name="d0e50687" id="d0e50687"></a>Parameters window appears.</p>
+<p><img width="1156" height="524" src="./img/autocreateorders.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Optionally, select the <a name="d0e50703" id="d0e50703"></a>Sales Order number.</p>
+<p>A discrete job is created for each sales order shipment number associated with the sales order number. If you enter an order number, you cannot enter Offset Days, Load Type, or Organization. If you do not enter an order number, you must enter <b>Offset Days</b> and <b>Load Type</b>.</p>
+</li>
+<li>
+<p>If you have not selected a sales order, enter the number of <a name="d0e50722" id="d0e50722"></a><b>Offset Days</b>.</p>
+<p>The number of offset days is added to the current date to determine when final assembly orders must be released to the shop floor to be completed by the sales order due date. The final assembly order release date is backwards scheduled using the order from the sales order due date. For example, if the current date is 01-JAN-2007 and you specify 7 offset days, final assembly orders are created that must be released between 01-JAN-2007 and 08-JAN-2007 to meet the due dates of the sales orders they are supplying. Orders that should have been released before the current date are also included.</p>
+</li>
+<li>
+<p>If you have not selected a sales order, select one of the following <a name="d0e50735" id="d0e50735"></a><b>Load Type</b> values. The Create Lower Level Supply parameter in Oracle Bills of Material must be set correctly to specify the option selected here. See: Parameters, <i>Oracle Configure to Order Implementation Manual</i></p>
+<p><i>Configured Orders only:</i> Final assembly orders created from configured sales orders. A configured order begins with a model and options, and then generates or links a configured item using the AutoCreate Configuration Items program in Oracle Bills of Material.</p>
+<p><i>Non-configured Orders only:</i> Final assembly orders created from sales orders placed directly for ATO items.</p>
+<p><i>Both configured and non-configured Orders:</i> Final assembly orders created from both configured and non-configured items.</p>
+</li>
+<li>
+<p>If you have not selected a sales order, select one of the following job <a name="d0e50762" id="d0e50762"></a><a name="d0e50768" id="d0e50768"></a><b>Status</b> values: Unreleased, Released, or On Hold. See: <a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a>.</p>
+</li>
+<li>
+<p>If you have not selected a sales order, select an <a name="d0e50782" id="d0e50782"></a><b>Organization</b>.</p>
+<p>If you do not select an organization, sales order demand across all organizations is examined.</p>
+</li>
+<li>
+<p>Select an accounting <b>Class Code</b>. This accounting class is the default for the jobs that are created.</p>
+<p>Default accounting class codes may be displayed but can be overwritten. See: <a href="T228107T228110.htm#I_cx2Ddfltwipcl">WIP Accounting Class Defaults</a>, <a href="T228107T228110.htm#I_cx2Dparmdm">Discrete Parameters</a>, and <a href="T228107T228110.htm#I_cx2Ddjacctcl">Discrete Accounting Classes</a>.</p>
+</li>
+<li>
+<p>Optionally, you can <b>Create Flow Schedules</b>. Select Yes or No for this parameter. Based on the parameter value, the total product cycle time, yields, and planning percentages of the newly created configuration item are either not calculated, or calculated by process or by line operation.</p>
+</li>
+<li>
+<p>Select a value for <b>Group Work Orders</b>. If the value for this parameter is Yes, then one work order is created for all the sales order lines that are being processed by the AFAS program based on the following criteria: Item, Organization, and BOM revision. The program sums all quantities for all sales order lines having the same values for the criteria, and one work order is created for all lines. If the value is No, then one work order is created for each sales order line.</p>
+</li>
+<li>
+<p>Choose <b>OK</b> to display the request window.</p>
+</li>
+<li>
+<p><b>Submit</b> the autocreate request.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Dovcrdj">Overview of Creating Discrete Jobs</a></p>
+<p>Overview to Supplying Unique Configurations, <i>Oracle Configure To Order Implementation Manual.</i></p>
+<h2><a name="1035237"></a><a id="I_tx2Dclosdj"></a><b>Closing Discrete Jobs Using Submit Requests</b></h2>
+<p><a name="d0e50850" id="d0e50850"></a><a name="srs.wicdcl" id="srs.wicdcl"></a>Job close requests can be submitted using concurrent or scheduled processing. See: Overview of Standard Request Submission, <i>Oracle E-Business Suite User's Guide</i>.</p>
+<p>The close requirements for the concurrent program are the same as when using the Close Discrete Jobs window. See: <a href="T228107T228111.htm#I_cx2Dovclsjob">Overview of Discrete Job Close</a>. In the concurrent program, you can also use criteria for closing jobs based on a range of accounting classes, job numbers, and dates - including release, scheduled start, and completion dates. You can also close jobs as of a specific date, rather than the date the program is executed.</p>
+<p><b>To close Discrete jobs using Submit Requests</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e50875" id="d0e50875"></a>Close Discrete Jobs window using the Close Discrete Jobs (SRS) menu option. The <a name="d0e50880" id="d0e50880"></a>Parameters window appears.</p>
+</li>
+<li>
+<p>Select an accounting <a name="d0e50891" id="d0e50891"></a>Class Type.</p>
+<p>The options are Standard Discrete, Repetitive Assembly, Asset Non-standard, Expense Non-standard, Standard Lot Based, Maintenance, and Expense Non-standard Lot Based.</p>
+<p>If you do not select a class type, the system closes job for all class types. If you select a class type, you can only select accounting classes of that class type.</p>
+</li>
+<li>
+<p>To select a range of accounting classes, select values in the From and To Class fields.</p>
+<p>If you do not select a To Class, all jobs from the From Class forward are closed. If you do not select a From Class, all jobs through the To Class are closed.</p>
+</li>
+<li>
+<p>To select a range of jobs, select values in the From and To Job fields.</p>
+<p>To close a single job, use the same From and To Job value. The From Job value defaults into the To Job field, eliminating accidentally closing all jobs forward from the one selected.</p>
+</li>
+<li>
+<p>To select a range of job release dates, select values in the From and To Job Release Date fields. Use the same value in the From and To fields if you only want one date.</p>
+</li>
+<li>
+<p>To select a range of scheduled job start dates, select values in the From and To Job Start Date fields. Use the same value in the From and To fields if you only want one date.</p>
+<p><img width="649" height="521" src="./img/wip_wip_cldsjopm.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>To select a range of dates for Date Completed, select values in the From and To Job Completion Date fields. Use the same value in the From and To fields if you only want one date.</p>
+</li>
+<li>
+<p>Select a job <a name="d0e50935" id="d0e50935"></a>Status</p>
+<p>You can only close jobs with one with the following statuses: Cancelled, Complete, Complete - No Charges, Failed Bill Load, Failed Close, Failed Routing Load, On Hold, Release, or Unreleased. See: <a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a>.</p>
+</li>
+<li>
+<p>Exclude Reserved Jobs parameter provides the option to exclude or include jobs linked to sales orders from the processing. The default value is Yes.</p>
+</li>
+<li>
+<p>Exclude Un-Completed Jobs parameter provides the option to exclude or include jobs having a status other than Complete from the processing.</p>
+<p>If the value selected is Yes - jobs in this submission with a status other than Complete are ignored and will not process.</p>
+<p>If the value selected is No - jobs with a status other than Complete are processed, and the job status changes to Failed Close. See: <a href="T228107T228111.htm#I_tx2Dptx78vwg">Viewing Pending Job Transactions</a>.</p>
+</li>
+<li>
+<p>Exclude Jobs with Pending Trans parameter provides the option to exclude or include jobs with pending transactions during the close process.</p>
+<p>If the value selected is Yes - jobs in this submission with pending material, resource, move, or uncosted material transactions are ignored and will not process.</p>
+<p>If the value is set to No - jobs in this submission with pending material, resource, move, or uncosted material transactions are included in the process. The job status changes to Failed Close.</p>
+</li>
+<li>
+<p>Select a Report Type.</p>
+<p>Reports are printed after the close process computes job close variances. The Discrete Job Value Report is printed when standard discrete jobs and non-standard asset jobs are closed - in summary or detail based on the Report Type option specified. The Expense Job Value Report is printed when expense non-standard jobs are closed and is always printed in detail format regardless of the Report Type option specified. See: <a href="T228107T228123.htm#I_rx2Dwiprdjvr">Discrete Job Value Report</a> and <a href="T228107T228123.htm#I_rx2Dwiprejvr">Expense Job Value Report</a>.</p>
+<p>Report Type options and formats are as follows:</p>
+<p><i>Summary</i>: Lists each job and includes job header, period-to-date summary, and cumulative-to-date summary information. The system also lists summary elemental account values for each job.</p>
+<p><i>Detail using planned start quantity:</i> Lists each job using the planned start quantity of the job to calculate the material usage variance. A detail report includes the following: job header, material, resource, resource-based and move-based overhead costs, completion, scrap, and job close variance transactions. It also includes period-to-date and cumulative-to-date summary information.</p>
+<p><i>Detail using actual completion quantity:</i> Lists each job using the actual completion quantity of the job to calculate the material usage variance. A detail report includes the following: job header, material, resource, resource-based and move-based overhead costs, completion, scrap, and job close variance transactions. It also includes period-to-date and cumulative-to-date summary information</p>
+<p><i>No Report:</i> Does not print a report.</p>
+</li>
+<li>
+<p>In the Actual Close Date field, you have the option to enter a date other than today's date. This enables you to close jobs as of a specific date, rather than the date the program is executed.</p>
+</li>
+<li>
+<p>Choose OK.</p>
+</li>
+<li>
+<p>Submit the close request. See: Submitting a Request, <i>Oracle E-Business Suite User's Guide</i>.</p>
+<p>Jobs that meet the criteria entered are closed when your request is run.</p>
+<p>You can check the status of close requests using the Concurrent Requests window. See: Concurrent Requests, <i>Oracle E-Business Suite User's Guide</i>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Dovclsjob">Overview of Discrete Job Close</a></p>
+<p><a href="T228107T228111.htm#I_tx2Ddefdj">Defining Discrete Jobs Manually</a></p>
+<p><a href="T228107T228111.htm#I_tx2Ddjwbclsg">Closing Discrete Jobs</a></p>
+<p><a href="T228107T228110.htm#I_cx2Ddjacctcl">Discrete Accounting Classes</a></p>
+<p>Period Close, <i>Cost Management User's Guide</i></p>
+<h2><a name="1035239"></a><a id="I_rx2Dwipdjdat"></a><b>Discrete Job Data Report<a name="d0e51046" id="d0e51046"></a><a name="d0e51050" id="d0e51050"></a> <a name="srs.wipdjdat" id="srs.wipdjdat"></a></b></h2>
+<p>The Discrete Job Data Report lists complete information on discrete jobs. You can use this report to review all details about a job, such as quantities, dates, routing operations, material requirements, resources, instructions, sales orders, comments and accounts. You can sort the report by job name or schedule group and build sequence.</p>
+<h3><a id="T228560"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Discrete Job Data Report in the Name field.</p>
+<h3><a id="T228561"></a><b>Report Parameters</b></h3>
+<h3><a id="T228562"></a><b>Sort By</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Job</b></td>
+<td>Sort by job.</td>
+</tr>
+<tr valign="top">
+<td><b>Schedule Group, Build Sequence</b></td>
+<td>Sort by schedule group, then by build sequence.</td>
+</tr>
+</table>
+<h3><a id="T228563"></a><b>Job From/To</b></h3>
+<p>To restrict the report to a range of jobs, select a beginning and an ending job.</p>
+<h3><a id="T228564"></a><b>Assembly From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and an ending assembly.</p>
+<h3><a id="T228565"></a><b>Start Dates From/To</b></h3>
+<p>To restrict the report to a date range, select a beginning and an ending date.</p>
+<h3><a id="T228566"></a><b>Class</b></h3>
+<p>Select a WIP accounting class. See: <a href="T228107T228110.htm#I_rx2Dacctclass">WIP Accounting Classes</a></p>
+<h3><a id="T228567"></a><b>Status</b></h3>
+<p>Choose a status. The available options are Unreleased, Released, Complete, Complete-No Charges, and On Hold. See: <a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a> and <a href="T228107T228119.htm#I_cx2Drptbyst">Reporting by Status</a>.</p>
+<h3><a id="T228568"></a><b>Schedule Groups From/To</b></h3>
+<p>To restrict the report to a range of schedule groups, select a beginning and an ending schedule group.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Ddmfgovw">Overview of Discrete Manufacturing</a></p>
+<p><a href="T228107T228116.htm#I_cx2Ddptchrptg">Dispatch Reports</a></p>
+<h2><a name="1035251"></a><a id="I_rx2Dwipdjdsp"></a><b>Discrete Job Dispatch Report</b></h2>
+<p><a name="d0e51150" id="d0e51150"></a><a name="d0e51154" id="d0e51154"></a><a name="srs.wipdjdsp" id="srs.wipdjdsp"></a>The Discrete Job Dispatch Report lists jobs that must be completed. You can use this report to prioritize the work in each of your manufacturing departments. You can sort this report by operation start date or operation completion date within the department. You can restrict the output by department, date, and schedule group. Information is listed only for jobs with statuses of Released, Complete, and On Hold.</p>
+<h3><a id="T228569"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Discrete Job Dispatch Report in the Name field.</p>
+<h3><a id="T228570"></a><b>Report Parameters</b></h3>
+<h3><a id="T228571"></a><b>Sort By</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Operation start date</b></td>
+<td>Sort by operation start date within the department.</td>
+</tr>
+<tr valign="top">
+<td><b>Operation completion date</b></td>
+<td>Sort by operation completion date within the department.</td>
+</tr>
+</table>
+<h3><a id="T228572"></a><b>Include Unreleased Jobs</b></h3>
+<p>Select Yes or No to indicate whether to include jobs with a status of Unreleased on the report.</p>
+<h3><a id="T228573"></a><b>Departments From/To</b></h3>
+<p>To restrict the report to a range of departments, select a beginning and an ending department.</p>
+<h3><a id="T228574"></a><b>Dates From/To</b></h3>
+<p>To restrict the report to a date range, enter a beginning and an ending date.</p>
+<h3><a id="T228575"></a><b>Schedule Group</b></h3>
+<p>Select a schedule group.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Ddmfgovw">Overview of Discrete Manufacturing</a></p>
+<p><a href="T228107T228116.htm#I_cx2Ddptchrptg">Dispatch Reports</a></p>
+<p><a href="T228107T228119.htm#I_cx2Drptbyst">Reporting by Status</a></p>
+<h2><a name="1035261"></a><a id="I_rx2Dwipdjlis"></a><b>Discrete Job Listing Report</b></h2>
+<p><a name="d0e51242" id="d0e51242"></a><a name="d0e51248" id="d0e51248"></a><a name="srs.wipdjlis" id="srs.wipdjlis"></a>The Discrete Job Listing Report lists discrete jobs regardless of their status. You can sort the report by assembly, job, scheduled start date, or schedule group and build sequence. You can restrict the output of the report by job, assembly, start date, status, and schedule group. For example, you can use this report to determine which jobs need to be released by restricting it to jobs with a status of Unreleased.</p>
+<h3><a id="T228576"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Discrete Job Listing Report in the Name field.</p>
+<h3><a id="T228577"></a><b>Report Parameters</b></h3>
+<h3><a id="T228578"></a><b>Sort By</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Assembly</b></td>
+<td>Sort by assembly.</td>
+</tr>
+<tr valign="top">
+<td><b>Job</b></td>
+<td>Sort by job. This is the default option.</td>
+</tr>
+<tr valign="top">
+<td><b>Scheduled start date</b></td>
+<td>Sort by scheduled start date.</td>
+</tr>
+<tr valign="top">
+<td><b>Schedule Group, Build Sequence</b></td>
+<td>Sort by schedule group, then by build sequence.</td>
+</tr>
+</table>
+<h3><a id="T228579"></a><b>Jobs From/To</b></h3>
+<p>To restrict the report to a range of jobs, select a beginning and an ending job.</p>
+<h3><a id="T228580"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and an ending assembly.</p>
+<h3><a id="T228581"></a><b>Start Dates From/To</b></h3>
+<p>To restrict the report to a date range, enter a beginning and an ending date.</p>
+<h3><a id="T228582"></a><b>Status</b></h3>
+<p>Choose a status. You can choose any status. See: <a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a>.</p>
+<h3><a id="T228583"></a><b>Schedule Group From/To</b></h3>
+<p>To restrict the report to a range of schedule groups, select a beginning and an ending schedule group.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Ddmfgovw">Overview of Discrete Manufacturing</a></p>
+<p><a href="T228107T228119.htm#I_cx2Drptbyst">Reporting by Status</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035274"></a><a id="I_rx2Dwipdjpck"></a><b>Discrete Job Pick List Report</b></h2>
+<p><a name="d0e51351" id="d0e51351"></a><a name="d0e51357" id="d0e51357"></a><a name="srs.wipdjpck" id="srs.wipdjpck"></a>The Discrete Job Pick List Report lists open component requirements for jobs with statuses of Unreleased, Released, Complete, or On Hold. You can use this report when you pick material from stock to issue to discrete jobs. This report lists component requirements in supply type order; push components first followed by pull, bulk, then vendor components. This report can be sorted by component, date required, item sequence, supply subinventory/locator, or WIP material transaction.</p>
+<p>If the report is sorted by component, requirements that are common across jobs are consolidated. This can be particularly useful if you are replenishing backflush subinventories which supply several jobs.</p>
+<h3><a id="T228584"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Discrete Job Pick List Report in the Name field.</p>
+<h3><a id="T228585"></a><b>Report Parameters</b></h3>
+<h3><a id="T228586"></a><b>Sort By</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Component</b></td>
+<td>Sort by component. Requirements are consolidated across jobs. Use this option to help you replenish backflush subinventories which supply multiple jobs. You can use the Subinventory Transfer form in Oracle Inventory to transfer the consolidated quantity of each requirement from your warehouse to the backflush subinventories that supply your jobs.</td>
+</tr>
+<tr valign="top">
+<td><b>Date required</b></td>
+<td>Sort by requirement date.</td>
+</tr>
+<tr valign="top">
+<td><b>Item Sequence</b></td>
+<td>Sort by item sequence. The item sequence is established while defining a component on the bill of material. If a job includes phantom components, the item sequence is derived from the phantom component, not the parent assembly.</td>
+</tr>
+<tr valign="top">
+<td><b>Supply sub- inventory, locator</b></td>
+<td>Sort by supply subinventory and locator.</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>WIP material transaction</b></td>
+<td>Sort component requirements in WIP Material Transaction order. The system lists components in the order presented in the WIP Material Transactions window. This assists data entry when you use the pick list as hard copy for issuing the components.</td>
+</tr>
+</table>
+<h3><a id="T228587"></a><b>Transactable Only</b></h3>
+<p>Select Yes or No to indicate whether to exclude discrete jobs with statuses of Unreleased or On Hold.</p>
+<h3><a id="T228588"></a><b>Jobs From/To</b></h3>
+<p>To restrict the report to a range of jobs, select a beginning and an ending job.</p>
+<h3><a id="T228589"></a><b>Start Dates From/To</b></h3>
+<p>To restrict the report to a date range, select a starting and an ending date.</p>
+<h3><a id="T228590"></a><b>Schedule Groups From/To</b></h3>
+<p>To restrict the report to a range of schedule groups, select a beginning and an ending schedule group.</p>
+<h3><a id="T228591"></a><b>Supply Type</b></h3>
+<p>Choose a Supply Type. The available options are Push, Pull, Bulk, and Vendor. See: <a href="T228107T228127.htm#I_rx2Dsupptype">Supply Types</a>.</p>
+<h3><a id="T228592"></a><b>Supply Subinventory</b></h3>
+<p>Select the supply subinventory to include as available material in the Discrete Job Pick List. If you do not enter a value, the system lists requirements of any supply subinventory.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Ddmfgovw">Overview of Discrete Manufacturing</a></p>
+<p><a href="T228107T228115.htm#I_cx2Dovwmctl">Overview of Material Control</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035289"></a><a id="I_rx2Dwipdjrtg"></a><b>Discrete Job Routing Sheet<a name="d0e51478" id="d0e51478"></a><a name="d0e51484" id="d0e51484"></a> <a name="srs.wipdjrtg" id="srs.wipdjrtg"></a></b></h2>
+<p>The Discrete Job Routing Sheet lists the operations and associated resources and material requirements for jobs with statuses of Unreleased Released, Complete, and On Hold. You can use the report output as a traveler for the discrete job on the shop floor. Jobs can be sorted by job or schedule group and build sequence. Header information is followed by job details including job operations, resources, operation instructions and material requirements.</p>
+<h3><a id="T228593"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Discrete Job Routing Sheet Report in the Name field.</p>
+<h3><a id="T228594"></a><b>Report Options</b></h3>
+<h4><a id="T228595"></a><b>Jobs From/To</b></h4>
+<p>To restrict the report to a range of jobs, select a beginning and an ending job.</p>
+<h4><a id="T228596"></a><b>Scheduled Start Dates From/To</b></h4>
+<p>To restrict the report to a range of scheduled start dates, select a beginning and an ending date.</p>
+<h4><a id="T228597"></a><b>Schedule Groups From/To</b></h4>
+<p>To restrict the report to a range of schedule groups, enter a beginning and an ending schedule group.</p>
+<h4><a id="T228598"></a><b>Sort By</b></h4>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Job</b></td>
+<td>Sort by job.</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Schedule Group, Build Sequence</b></td>
+<td>Sort by schedule group, then by build sequence within the schedule group.</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Ddmfgovw">Overview of Discrete Manufacturing</a></p>
+<p><a href="T228107T228111.htm#I_tx2Dvwdj">Viewing Discrete Job Information</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dvwops">Viewing Operations</a></p>
+<p><a href="T228107T228119.htm#I_cx2Drptbyst">Reporting by Status</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035298"></a><a id="I_rx2Dwipdjorq"></a><b>Discrete Job Shortage Report</b></h2>
+<p><a name="d0e51569" id="d0e51569"></a><a name="d0e51575" id="d0e51575"></a><a name="srs.wipdjorq" id="srs.wipdjorq"></a>The Discrete Job Shortage report lists either jobs with open requirements or jobs with component requirements for which there is a shortage. Shortage component requirements can be listed based on the quantities available in all subinventories or based only on the quantities available in the component's supply subinventory. You can also list shortage components based on all subinventories or only those subinventories that are nettable. Only discrete jobs with statuses of Unreleased, Released, Complete, and On Hold are listed on this report. See: <a href="T228107T228119.htm#I_cx2Drptbyst">Reporting by Status</a>.</p>
+<p>You can format your report to print:</p>
+<ul>
+<li>
+<p>A job's open requirements to identify components you need to issue or have not yet backflushed</p>
+</li>
+<li>
+<p>Components you need to highlight for expediting</p>
+</li>
+<li>
+<p>You can sort either report by component, date required, department, job, or by make/ buy option, buyer, and planner:</p>
+</li>
+<li>
+<p>When you sort by component, make/ buy option,or planner-the components are listed in order of the corresponding jobs</p>
+</li>
+<li>
+<p>When you print report type Shortage based on supply sub/loc-the components are not listed by corresponding jobs</p>
+</li>
+</ul>
+<h3><a id="T228599"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Discrete Job Shortage Report in the Name field.</p>
+<h3><a id="T228600"></a><b>Report Parameters</b></h3>
+<h3><a id="T228601"></a><b>Report Type</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Open requirement</b></td>
+<td>Lists open material requirements for all jobs. This is the default option. These values are calculated using only the Include Nettable Only and Requirement End Date parameters, and not any of the other parameters.</td>
+</tr>
+<tr valign="top">
+<td><b>Shortage based on QOH</b></td>
+<td>Lists requirements with insufficient quantities as based on all subinventories. If you select Yes in the Include Nettable Only option, then you may see more shortages depending on how much quantity you have available for each requirement in your non-nettable subinventories. These values are calculated using only the Include Nettable Only and Requirement End Date parameters, and not any of the other parameters.</td>
+</tr>
+<tr valign="top">
+<td><b>Shortage based on supply sub/loc</b></td>
+<td>Lists requirements with insufficient quantities as based on each requirement's supply subinventory and locator.</td>
+</tr>
+</table>
+<h3><a id="T228602"></a><b>Sort By</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Component</b></td>
+<td>Sort the shortages or open requirements by component, and then by job within the component.</td>
+</tr>
+<tr valign="top">
+<td><b>Date required</b></td>
+<td>Sort the shortages or open requirements by requirement date, and then by job within the requirement date.</td>
+</tr>
+<tr valign="top">
+<td><b>Department</b></td>
+<td>Sort the shortages or open requirements by department, and then by job within the department.</td>
+</tr>
+<tr valign="top">
+<td><b>Job</b></td>
+<td>Sort the open requirements by job. This is the default option.</td>
+</tr>
+<tr valign="top">
+<td><b>Make or Buy, Buyer, Planner</b></td>
+<td>Sort the shortages or open requirements by component, and then by job within the component. Order the components by the make or buy code, and then by the buyer, and then by the planner.</td>
+</tr>
+</table>
+<h3><a id="T228603"></a><b>Include Nettable Only</b></h3>
+<p>Select Yes to include only nettable subinventories when calculating subinventory quantities and printing shortages. Select No to include nettable and non-nettable subinventories when calculating subinventory quantities and printing shortages. The system determines the quantity onhand for each requirement using this value.</p>
+<h3><a id="T228604"></a><b>Include Bulk</b></h3>
+<p>Select Yes to indicate whether to include bulk-supplied material requirements.</p>
+<h3><a id="T228605"></a><b>Include Supplier</b></h3>
+<p>Select Yes to indicate whether to include supplier-provided material requirements.</p>
+<h3><a id="T228606"></a><b>Jobs From/To</b></h3>
+<p>To restrict the report to range of jobs, select a beginning and an ending job.</p>
+<h3><a id="T228607"></a><b>Components From/To</b></h3>
+<p>To restrict the report to range of components, select a beginning and an ending component.</p>
+<h3><a id="T228608"></a><b>Dates From/To</b></h3>
+<p>To restrict the report to a date range, select a beginning and an ending date.</p>
+<h3><a id="T228609"></a><b>Departments From/To</b></h3>
+<p>To restrict the report to a range of departments, select a beginning and an ending department.</p>
+<h3><a id="T228610"></a><b>Planners From/To</b></h3>
+<p>To restrict the report to a range of planners, select a beginning and an ending planner name.</p>
+<h3><a id="T228611"></a><b>Buyers From/To</b></h3>
+<p>To restrict the report to a range of buyers, select a beginning and an ending buyer name.</p>
+<h3><a id="T228612"></a><b>Make or Buy</b></h3>
+<p>Select Make or Buy to indicate whether to report on shortages for components that are made or purchased.</p>
+<h3><a id="T228613"></a><b>Requirement End Date</b></h3>
+<p>Select a date to limit netting the requirements for open jobs. The system nets the requirements required on or before this date.</p>
+<h3><a id="T228614"></a><b>Schedule Group</b></h3>
+<p>Select a schedule group.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Ddmfgovw">Overview of Discrete Manufacturing</a></p>
+<p><a href="T228107T228115.htm#I_cx2Dovwmctl">Overview of Material Control</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035323"></a><a id="I_rx2Dwiprdjvr"></a><b>Discrete Job Value Report - Standard Costing</b></h2>
+<p><a name="d0e51776" id="d0e51776"></a><a name="d0e51782" id="d0e51782"></a><a name="srs.wiprdjvr" id="srs.wiprdjvr"></a>The Discrete Job Value Report - Standard Costing assists you in analyzing your standard discrete jobs and non-standard asset jobs in a standard costing organization. You can submit the WIP Value Report before submitting this report to review total variances and charges for your jobs. Then, you can submit this report to analyze a summary of the transactions behind the charges and variances for each job.</p>
+<p>This report includes summarized information on all cost transactions including material, resource, move and resource-based overheads, scraps, completions, and job close variances. The report also lists period-to-date and cumulative-to-date summary information, as well as complete job header information.</p>
+<p>You can list information for a group of jobs by specifying a job name range, an accounting class range, an assembly range, and/or a particular job status. Costs are grouped and subtotalled by transaction type.</p>
+<p>This report provides you with all the information you need to reconcile your standard and non-standard asset jobs before closing them.</p>
+<p><strong><span>Note:</span></strong> This report does not include expense non-standard jobs. Use the Expense Job Value Report to analyze expense non-standard jobs.</p>
+<h3><a id="T228615"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Discrete Job Value Report - Standard Costing in the Name field.</p>
+<p>You can optionally print this report when you close asset non-standard and standard discrete jobs using the Close Discrete Jobs (Form) or Close Discrete Jobs (SRS) window. This is done by choosing any Report Type option other than No Report. The report is printed after the close process computes job close variances.</p>
+<p>See: <a href="T228107T228111.htm#I_tx2Ddjwbclsg">Closing Discrete Jobs</a> and <a href="T228107T228123.htm#I_tx2Dclosdj">Closing Discrete Jobs Using Submit Requests</a>.</p>
+<h3><a id="T228616"></a><b>Report Parameters</b></h3>
+<h3><a id="T228617"></a><b>Sort By</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Assembly, Job</b></td>
+<td>Sort by assembly and then by job within the assembly.</td>
+</tr>
+<tr valign="top">
+<td><b>Class, Assembly, Job</b></td>
+<td>Sort by WIP accounting class, then by assembly within the WIP accounting class, and then by job within the assembly.</td>
+</tr>
+<tr valign="top">
+<td><b>Job</b></td>
+<td>Sort by job. This is the default.</td>
+</tr>
+</table>
+<h3><a id="T228618"></a><b>Report Type</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Detail using actual completion quantity</b></td>
+<td>Lists each job using the actual completion quantity of the job to calculate the material usage variance. A detail report includes the following: job header, material, resource, resource-based and move-based overhead costs, completion, scrap, and job close variance transactions. It also includes period-to-date and cumulative-to-date summary information.<br>
+If you push material to a job or backflush material at operation completion and have not completed the assemblies that consumed the material, your material usage variance is overstated. If you backflush material at assembly completion, or you have completed all of the assemblies, any material usage variance is accurate.<br>
+Use this option if you backflush your requirements at assembly completion, or if you have already completed most of your assemblies.</td>
+</tr>
+<tr valign="top">
+<td><b>Detail using planned start quantity</b></td>
+<td>Lists each job using the planned start quantity of the job to calculate the material usage variance. A detail report includes the following: job header, material, resource, resource-based and move-based overhead costs, completion, scrap, and job close variance transactions. It also includes period-to-date and cumulative-to-date summary information.<br>
+If you have not transacted each of the items and resources required to produce your assemblies, your variances are understated (you have a favorable variance). You can use this option to analyze the total cost requirements for a job by cost element, based on your planned assembly completions.</td>
+</tr>
+<tr valign="top">
+<td><b>Summary</b></td>
+<td>Lists each job and includes job header, period-to-date summary, and cumulative-to-date summary information. The system also lists summary elemental account values for each job.</td>
+</tr>
+</table>
+<h3><a id="T228619"></a><b>Class Type</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Asset non-standard</b></td>
+<td>Report costs for jobs with a WIP accounting class type of asset non-standard.</td>
+</tr>
+<tr valign="top">
+<td><b>Standard discrete</b></td>
+<td>Report costs for jobs with a WIP accounting class type of standard discrete. This is the default.</td>
+</tr>
+</table>
+<h3><a id="T228620"></a><b>Include Bulk</b></h3>
+<p>Select Yes to indicate whether to include bulk-supplied material requirements. If you have already issued to a particular bulk requirement, the system lists the requirement, regardless of what you select here. Yes is the default.</p>
+<h3><a id="T228621"></a><b>Include Supplier</b></h3>
+<p>Select Yes to indicate whether to include supplier-provided material requirements. If you have already issued to a particular supplier requirement, the system lists the requirement, regardless of what you select here. Yes is the default.</p>
+<h3><a id="T228622"></a><b>Classes From/To</b></h3>
+<p>To restrict the report to a range of accounting classes, select a beginning and an ending accounting class.</p>
+<h3><a id="T228623"></a><b>Jobs From/To</b></h3>
+<p>To restrict the report to a range of jobs, select a beginning and an ending job.</p>
+<h3><a id="T228624"></a><b>Status</b></h3>
+<p>Select a status. The available options are Unreleased, Released, Complete, Complete-No Charges, On Hold, Cancelled, Closed, Pending Close, and Failed Close jobs. See: <a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a>.</p>
+<p><strong><span>Note:</span></strong> If you run the Discrete Job Value Report for closed jobs and have changed your standard costs, the transaction summary information uses the latest standard cost and does not balance to the period or cumulative-to-date summaries.</p>
+<h3><a id="T228625"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and an ending assembly.</p>
+<p><strong><span>Note:</span></strong> For discrete jobs, any difference between the cumulative single level variances and the material usage or efficiency variance subtotals is from configuration or method variances. The cumulative-to-date summary compares the costs incurred for the job with the standard bill/routing requirements for completions out of the job. Therefore, the difference between the cumulative variances and the usage/efficiency variance is due to the difference between the standard bill/routing requirements and the work in process bill/routing requirements.</p>
+<p>To find the configuration variance, you should compare the material usage variance with the single level material variance. To find the methods variance, you should compare the efficiency variance with its corresponding single level variance. For example, you would compare the resource efficiency variance with the single level; resource and outside processing variance added together. You would add the resource-based and move-based overhead efficiency variances and compare it with the single level overhead variance.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Ddmfgovw">Overview of Discrete Manufacturing</a></p>
+<p><a href="T228107T228111.htm#I_cx2Dovclsjob">Overview of Discrete Job Close</a></p>
+<p><a href="T228107T228123.htm#I_rx2Dwiprejvr">Expense Job Value Report</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035343"></a><a id="I_rx2Ddjpckt"></a><b>Discrete Shop Packet</b></h2>
+<p><a name="d0e51970" id="d0e51970"></a><a name="d0e51976" id="d0e51976"></a>The discrete shop packet consists of three reports:</p>
+<ul>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwipdjpck">Discrete Job Pick List Report</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwipdjrtg">Discrete Job Routing Sheet</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwipdjorq">Discrete Job Shortage Report</a></p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035344"></a><a id="I_rx2Dwipsuemp"></a><b>Employee Rates Listing</b></h2>
+<p><a name="d0e52005" id="d0e52005"></a><a name="d0e52011" id="d0e52011"></a><a name="srs.wipsuemp" id="srs.wipsuemp"></a>The Employee Rates Listing lists employees and their hourly labor rates. Employees are listed in alphabetical order with their employee number, current labor rate and effective date.</p>
+<p>You can charge an employee labor rate to a job or repetitive schedule by charging a resource that does not charge at standard and by referencing the employee whose rate you want to charge. The system uses the rate effective on the resource transaction date.</p>
+<h3><a id="T228626"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Employee Rates Listing in the Name field.</p>
+<p>Use the Request Cost Setup Reports form and enter Employee Rates Listing in the Name field to submit the Employee Rates Listing.</p>
+<h3><a id="T228627"></a><b>Report Parameters</b></h3>
+<h3><a id="T228628"></a><b>Display in Detail</b></h3>
+<p>Select Yes or No to indicate whether to print any additional labor rate information. If you select Yes, the system lists any past or future labor rates defined for your employees.</p>
+<h3><a id="T228629"></a><b>Current Only</b></h3>
+<p>Select Yes or No to indicate whether to print current employees only or all employees.</p>
+<h3><a id="T228630"></a><b>Employees From/To</b></h3>
+<p>To restrict the report to a range or employees, select a beginning and an ending employee.</p>
+<h3><a id="T228631"></a><b>Dates From/To</b></h3>
+<p>To restrict the report to a date range, select a beginning and an ending date.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_cx2Dovwsfc">Overview of Shop Floor Control</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dresovw">Overview of Resource Management</a></p>
+<p><a href="T228107T228110.htm#I_tx2Ddelrates">Defining Labor Rates</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035351"></a><a id="I_rx2Dwiprejvr"></a><b>Expense Job Value Report</b></h2>
+<p><a name="d0e52078" id="d0e52078"></a><a name="d0e52084" id="d0e52084"></a><a name="srs.wiprejvr" id="srs.wiprejvr"></a>The Expense Job Value Report assists you in analyzing your non-standard expense jobs. You can submit the WIP Value Report before submitting this report to review total charges for your jobs. Then, you can submit this report to analyze a summary of the transactions behind the charges for each job.</p>
+<p>This report includes summarized information on all cost transactions including, material, resource, move and resource based overheads, scraps, completions, and period close variances. The report also prints period-to-date summary information as well as complete job header information.</p>
+<p>You can list a particular group of jobs by specifying a job name range, an accounting class range, an assembly range, and/or a particular job status. The system groups and subtotals your cost transactions by transaction type.</p>
+<p><strong><span>Note:</span></strong> Unlike the Discrete Job Value Report, this report prints no standard or variance information. Expense non-standard jobs typically have no standards and are used only to collect and charge costs. See: <a href="T228107T228123.htm#I_rx2Dwiprdjvr">Discrete Job Value Report</a>.</p>
+<h3><a id="T228632"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Expense Job Value Report in the Name field.</p>
+<p>You can optionally print this report when you close expense non-standard discrete jobs using the Close Discrete Jobs (Form) or Close Discrete Jobs (SRS) window. This is done by choosing any Report Type option other than No Report. When printed in conjunction with the close process, this report automatically prints in <i>detailed</i> format. The report is printed after the close process computes job close variances.</p>
+<p>See: <a href="T228107T228111.htm#I_tx2Ddjwbclsg">Closing Discrete Jobs</a> and <a href="T228107T228123.htm#I_tx2Dclosdj">Closing Discrete Jobs Using Submit Requests</a>.</p>
+<h3><a id="T228633"></a><b>Report Parameters</b></h3>
+<h3><a id="T228634"></a><b>Sort By</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Assembly, Job</b></td>
+<td>Sort by assembly and then by job within the assembly.</td>
+</tr>
+<tr valign="top">
+<td><b>Class, Assembly, Job</b></td>
+<td>Sort by WIP accounting class, then by assembly within the WIP accounting class, and then by job within the assembly.</td>
+</tr>
+<tr valign="top">
+<td><b>Job</b></td>
+<td>Sort by job. This is the default.</td>
+</tr>
+</table>
+<h3><a id="T228635"></a><b>Report Type</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Detailed</b></td>
+<td>In addition to summary information, the system prints detail cost transaction information on material, resource, move and resource based overheads, completions, scrap, and period close variances.</td>
+</tr>
+<tr valign="top">
+<td><b>Summary</b></td>
+<td>List only summary information, including job header and period-to-date summary information.</td>
+</tr>
+</table>
+<h3><a id="T228636"></a><b>Period Start Date</b></h3>
+<p>Select a period start date. The system prints non-standard expense jobs with cost transactions against them that are dated on or after this date.</p>
+<h3><a id="T228637"></a><b>Period Close Date</b></h3>
+<p>Select a period close date. The system prints non-standard expense jobs with cost transactions against them that are dated on or before this date.</p>
+<h3><a id="T228638"></a><b>Classes From/To</b></h3>
+<p>To restrict the report to a range of WIP accounting classes, select a beginning and an ending class.</p>
+<h3><a id="T228639"></a><b>Jobs From/To</b></h3>
+<p>To restrict the report to a range of jobs, select a beginning and an ending job.</p>
+<h3><a id="T228640"></a><b>Status</b></h3>
+<p>Choose a status. You can print this report for Unreleased, Released, Complete, Complete-No Charges, On Hold, Cancelled, Closed, Pending Close, and Failed Close jobs. See: <a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a>.</p>
+<h3><a id="T228641"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and ending assembly.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228112.htm#I_cx2Dovwnsdj">Overview of Non-Standard Discrete Jobs</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035367"></a><a id="I_tx2Djsimprt"></a><b>Importing Jobs and Schedules</b></h2>
+<p><a name="srs.wicumi" id="srs.wicumi"></a>You can use the Import Jobs and Schedules window to submit the WIP Mass Load program.</p>
+<p>When the WIP Mass Load program is submitted, the system searches the Open Job and Schedule Interface (WIP_JOB_SCHEDULE_ INTERFACE) table for rows with the specified Group ID. It then creates standard and non-standard discrete jobs, updates existing jobs, and creates pending repetitive schedules for all valid rows. If a row fails validation, an error message is generated. You can view these errors and update failed rows using the Pending Jobs and Schedules window.</p>
+<p><strong><span>Note:</span></strong> When a job is changed to complete, closed, or canceled status &ndash; an informational warning message displays if open purchase orders or requisitions exist for any of the operations.</p>
+<p>The assembly unit number can be changed through WIP Mass Load for discrete jobs that are unreleased, project related, and use unit effectivity. You can change job status is from Unreleased to Released in the same process.</p>
+<p>You can use the WIP Mass Load program to mass change work orders to the Complete-No Charges status. Instead of manually selecting Complete-No Charges for discrete jobs after changing the job status to Complete, you can run the WIP Mass Load program to update jobs from Complete to Complete-No Charges and from Complete-No Charges to Complete. Note that you cannot update job attributes.</p>
+<p>You can also use Oracle Advanced Planning to submit the WIP Mass Load program and perform the same actions on planned orders, reschedule recommendations, or suggested schedules sourced for Oracle Advanced Planning.</p>
+<p>The Job and Schedule Interface Report is automatically printed when the WIP Mass Load program is submitted. This report lists the standard and non-standard jobs that were created, the jobs that were updated, and the repetitive schedules that were created. It also lists the jobs and repetitive schedules rows that failed to process. If you resubmit the Job and Schedule Interface Report after the WIP Mass Load program has cleared the Open Job and Schedule Interface table of successfully processed records, only records for failed rows are listed.</p>
+<p><b>To import jobs and schedules:</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e52250" id="d0e52250"></a>Import Jobs and Schedules window. The <a name="d0e52257" id="d0e52257"></a>Parameters window appears.</p>
+<p><img width="336" height="162" src="./img/wip_wip_imjobspm.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a <a name="d0e52273" id="d0e52273"></a>Group ID number.</p>
+<p>The system polls the WIP_JOB_SCHEDULE_INTERFACE table for rows with this group identification number. When rows with this number are found, the system validates the data and either creates a job or repetitive schedule, reschedules an existing job, or enters an error message. Rows with errors in them remain in the table and can be updated and resubmitted. See: <a href="T228107T228111.htm#I_tx2Djspndg">Processing Pending Jobs and Schedules</a></p>
+</li>
+<li>
+<p>Choose OK.</p>
+</li>
+<li>
+<p>Submit the import request. See: Submitting a Request, <i>Oracle E-Business Suite User's Guide</i>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Dopen">Open Job and Schedule Interface</a></p>
+<h2><a name="1035369"></a><a id="I_rx2Dwipmtdlt"></a><b>Job Lot Composition Report</b></h2>
+<p><a name="d0e52304" id="d0e52304"></a><a name="d0e52310" id="d0e52310"></a><a name="srs.wipmtdlt" id="srs.wipmtdlt"></a>The Job Lot Composition Report lists assembly and component lot numbers used on discrete jobs of any status. You assign component lot numbers when you issue or backflush lot controlled components to the job. You assign assembly lot numbers when you complete lot controlled assemblies from the job. The system lists all components under lot control consumed by a discrete job as well as lot numbers if you complete assemblies under lot control. You can sort this report by job or lot.</p>
+<p>Since the system uses the material transaction history to create compositions, you should not purge any material transactions which contribute to genealogies you need to retain.</p>
+<h3><a id="T228642"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Job Lot Composition Report in the Name field.</p>
+<h3><a id="T228643"></a><b>Report Parameters</b></h3>
+<h3><a id="T228644"></a><b>Sort By</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Job</b></td>
+<td>Sort by job. The system lists jobs in alphanumeric order.</td>
+</tr>
+<tr valign="top">
+<td><b>Lot</b></td>
+<td>Sort by lot. The system lists jobs by lot number and job name.</td>
+</tr>
+</table>
+<h3><a id="T228645"></a><b>Assembly</b></h3>
+<p>Select an assembly. The system lists the lot composition of all jobs that are building this assembly. If you do not select a value, the system lists the lot composition for all assemblies.</p>
+<h3><a id="T228646"></a><b>Dates From/To</b></h3>
+<p>To restrict the report to a date range, select a beginning and an ending date.</p>
+<h3><a id="T228647"></a><b>Jobs From/To</b></h3>
+<p>To restrict the report to a range of jobs, select a beginning and an ending job.</p>
+<h3><a id="T228648"></a><b>Lots From/To</b></h3>
+<p>To restrict the report to a range of lots, select a beginning and an ending lot.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Ddmfgovw">Overview of Discrete Manufacturing</a></p>
+<p><a href="T228107T228111.htm#I_cx2Dovdjpurg">Overview of Discrete Job Purge</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035379"></a><a id="I_rx2Dwipmlint"></a><b>Job and Schedule Interface Report</b></h2>
+<p><a name="d0e52392" id="d0e52392"></a><a name="d0e52398" id="d0e52398"></a><a name="srs.wipmlint" id="srs.wipmlint"></a>The Job and Schedule Interface Report is submitted when the Mass Load program is launched.</p>
+<p>This report lists the following information for jobs and schedules that are created and/or updated as well as for those that fail to process.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Created Jobs</b></td>
+<td>Job, Job Type, Assembly, Quantity, Start Date, Completion Date, Process Phase, and Process Status</td>
+</tr>
+<tr valign="top">
+<td><b>Created Schedules</b></td>
+<td>Line, Assembly, Line, Daily Quantity, Days, First Unit Start Date, Last Unit Completion Date. Process Phase, and Process Status</td>
+</tr>
+<tr valign="top">
+<td><b>Updated Discrete Jobs</b></td>
+<td>Job, Assembly, Status, Quantity, Start Date, Completion Date, Process Phase, and Process Status</td>
+</tr>
+</table>
+<p>The report is sorted by source code and, where applicable, by organization within that source code.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Dopen">Open Job and Schedule Interface</a></p>
+<p><a href="T228107T228111.htm#I_tx2Djspndg">Processing Pending Jobs and Schedules</a></p>
+<p><a href="T228107T228123.htm#I_tx2Djsimprt">Importing Jobs and Schedules</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035383"></a><a id="I_rx2Dwiptsmov"></a><b>Move Transaction Report</b></h2>
+<p><a name="d0e52456" id="d0e52456"></a><a name="d0e52462" id="d0e52462"></a><a name="srs.wiptsmov" id="srs.wiptsmov"></a>The Move Transaction Report lists move transaction information for discrete jobs and repetitive schedules. You can choose to display transaction details such as reason codes and references. You can also sort this report by date or assembly.</p>
+<h3><a id="T228649"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Move Transaction Report in the Name field.</p>
+<p>Use the Request Work in Process Reports form and enter Move Transaction Report in the Name field to submit the Move Transaction Report.</p>
+<h3><a id="T228650"></a><b>Report Parameters</b></h3>
+<h3><a id="T228651"></a><b>Sort By</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Date</b></td>
+<td>Sort by date, then by job or repetitive schedule within the date, and then by operation sequence number within the job or repetitive schedule.</td>
+</tr>
+<tr valign="top">
+<td><b>Assembly</b></td>
+<td>Sort by assembly, then by date within the assembly, then by job or repetitive schedule within the assembly, and then by operation sequence number within the job or repetitive schedule.</td>
+</tr>
+</table>
+<h3><a id="T228652"></a><b>Show Details</b></h3>
+<p>Select Yes or No to indicate whether to print the reason and reference for the move transaction. If you select Date in the Sort By field and you choose Yes in this field, the system lists the assembly along with the reason and reference for each move transaction.</p>
+<h3><a id="T228653"></a><b>Jobs/Schedules From and To</b></h3>
+<p>To restrict the report to a range of jobs or repetitive schedules, select a beginning and an ending job/repetitive schedule.</p>
+<h3><a id="T228654"></a><b>Lines From/To</b></h3>
+<p>To restrict the report to a range of lines, select a beginning and an ending line.</p>
+<h3><a id="T228655"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and an ending assembly</p>
+<h3><a id="T228656"></a><b>Dates From/To</b></h3>
+<p>To restrict the report to a date range, select a beginning and an ending date.</p>
+<h3><a id="T228657"></a><b>Reasons From/To</b></h3>
+<p>To restrict the report to a range of reasons, select a beginning and an ending reason.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_cx2Dovwmtx78n">Move Transactions</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035395"></a><a id="I_rx2Dwipsulin"></a><b>Production Line Report</b></h2>
+<p><a name="d0e52552" id="d0e52552"></a><a name="d0e52558" id="d0e52558"></a><a name="srs.wipsulin" id="srs.wipsulin"></a>The Production Line Report lists production lines in alphabetical order. The system prints the line attributes as well as the assemblies that you can build on each line.</p>
+<p>A production line describes a unique set of operations, departments, and/or manufacturing cells that produce one or more of your assemblies. You use production lines to build repetitive assemblies.</p>
+<p>You can build different repetitive assemblies on the same production line. This means that you can use production lines to aggregate material requirements for a number of assemblies. You can also use lines to define separate area1s of your shop floor for greater management control.</p>
+<h3><a id="T228658"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Production Line Report in the Name field.</p>
+<h3><a id="T228659"></a><b>Report Parameters</b></h3>
+<h3><a id="T228660"></a><b>Line From/To</b></h3>
+<p>To restrict the report to a range of lines, select a beginning and an ending line.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228114.htm#I_cx2Drpovw">Overview of Repetitive Manufacturing</a></p>
+<p><a href="T228107T228110.htm#I_tx2Ddpline">Defining Production Lines</a></p>
+<p><a href="T228107T228114.htm#I_tx2Dlaassoc">Associating Lines and Assemblies</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035399"></a><a id="I_tx2Dpurge"></a><b>Purging Jobs and Schedules</b></h2>
+<p><a name="srs.wippurge" id="srs.wippurge"></a>You can purge old job and schedules records in your database. You can purge:</p>
+<ul>
+<li>
+<p>Discrete and lot based jobs closed in accounting periods currently closed</p>
+</li>
+<li>
+<p>Repetitive schedules cancelled or completed with no charges in a closed accounting period</p>
+</li>
+<li>
+<p>All detail information including material requirements, resource requirements, and operations associated with jobs and schedules</p>
+</li>
+<li>
+<p>Move and/or resource transactions associated with jobs and repetitive schedules</p>
+</li>
+</ul>
+<p>For quality and customer service tracking purposes, you can choose to retain as-built configuration histories for discrete jobs that build assemble to order items. You can purge all discrete job and repetitive schedule information (details, transactions and headers) by choosing to purge headers.</p>
+<p><strong><span>Note:</span></strong> Once you submit a purge request with a <i>Purge Only</i> or <i>Purge and Report</i> action type, all related information is removed from the database.</p>
+<p>Purge requests can be submitted using concurrent or scheduled processing. See: Overview of Standard Request Submission, <i>Oracle E-Business Suite User's Guide</i>.</p>
+<p>You can check the status of purge requests using the Concurrent Requests window.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>You must have at least one closed period for your organization. See: Overview of Period Close, <i>Oracle Cost Management User's Guide</i></li>
+</ul>
+<p><b>To purge jobs and schedules</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e52655" id="d0e52655"></a>Purge Jobs and Schedules window. The <a name="d0e52662" id="d0e52662"></a>Parameters window appears.</p>
+<p><img width="816" height="626" src="./img/wip_wip_prschdpm.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a <a name="d0e52678" id="d0e52678"></a>Job Type.</p>
+<p><i>All Jobs/schedules:</i> Purge information for discrete and lot based jobs with statuses of Closed, and repetitive schedules with statuses of Cancelled and Complete-No Charges. All Jobs/schedules is the default.</p>
+<p><i>Discrete jobs:</i> <a name="d0e52690" id="d0e52690"></a>Purge information for discrete jobs with a status of Closed.</p>
+<p><i>Lot Based Jobs:</i> Purge information for lot based jobs with a status of Closed.</p>
+<p><i>Repetitive Schedules:</i> <a name="d0e52705" id="d0e52705"></a>Purge information for repetitive schedules with statuses of Cancelled or Complete-No Charges.</p>
+</li>
+<li>
+<p>Select an Action Type.</p>
+<p>You can choose from the following:</p>
+<p><i>Purge and Report:</i> Purge the selected jobs/schedules and print a report. You can print the report in Full, Summary, or Detail format. If you select Purge and Report, you must select a Report Type.</p>
+<p><i>Report Only:</i> Print a report listing the selected jobs/schedules but do not purge them. You can print the report in Full, Summary, or Detail format. If you select Report Only, you must select a Report Type.</p>
+<p><i>Purge Only:</i> Purge the selected jobs/schedules but do not print a report. If you choose Purge Only, you must specify that the Report Type is None.</p>
+<p><strong><span>Note:</span></strong> Printing a report before submitting a purge request allows you to view the exceptions that might arise and determine how many records are to be deleted from related tables as a result of the purge.</p>
+</li>
+<li>
+<p>Specify which job or schedule records to purge by selecting one or more of the following:</p>
+<p><i>Jobs From/To:</i> Purge all jobs in this range that have a close date before the purge cutoff date.</p>
+<p><i>Line:</i> Purge all repetitive schedules produced on this line that have been closed or cancelled before the purge cutoff date.</p>
+<p><i>Assembly:</i> Purge all jobs and repetitive schedules that produce this assembly. If a job range is also specified, only jobs that produce this assembly that are within that range are purged. Similarly, if a production line is specified, only repetitive schedules that produce this assembly on that line are purged.</p>
+<p><strong><span>Note:</span></strong> When purging discrete jobs, you can enter a production line, however this information is ignored when the purge is submitted. If you enter a job range, when purging repetitive schedules, this information is also ignored.</p>
+</li>
+<li>
+<p>Enter a <a name="d0e52756" id="d0e52756"></a>Cutoff Datetime.</p>
+<p>The date and corresponding time component must be less than or equal to the close date of the most recently closed accounting period.</p>
+<p>If you choose to purge details in the Purge Options window, the system purges the details (material requirements, resource requirements, and operations) of Closed jobs and Cancelled and Complete-No Charges repetitive schedules with closed, completed, or cancelled dates less than or equal to this date. If you choose to purge Move, Resource, or Move and Resource Cost Transactions, the system purges transactions with dates less than or equal to this date for Closed jobs and Cancelled and Complete-No Charges schedules.</p>
+<p><strong><span>Note:</span></strong> If you enter a date that is earlier than the closed, cancelled or completed date of a selected job or repetitive schedule, the system only purges job and repetitive schedule detail and transaction information up to the date you enter.</p>
+</li>
+<li>
+<p>Select Yes for <a name="d0e52772" id="d0e52772"></a>Include Configurations to include discrete jobs that build either configured items or models in the purge. Select No to exclude configured items.</p>
+<p>If Oracle Bills of Materials purges the configured item that you build in Work in Process, then Oracle Bills of Material replaces the configured item on the job with the model the configuration was based on. You do not want to include configurations if you need this information for customer support. For example, if a customer complains that you did not build the configuration he ordered.</p>
+<p>If you do include configurations, you still have access to lot and serial information using the Lot Genealogy window or the lot and serial transactions in Oracle Inventory.</p>
+</li>
+<li>
+<p>Select whether to purge Headers.</p>
+<p>If you purge Headers, all information associated with the parent record and all associated details (material requirements, resource requirements, and operations) and transactions (move and resource transactions) are automatically purged. Shop floor statuses associated with jobs and/or repetitive schedules are also purged. Sales order allocations associated with discrete jobs are also purged.</p>
+<p><strong><span>Note:</span></strong> When you choose to purge headers, the options to include details, move transactions, and resource transactions are automatically selected. You cannot choose to purge header and choose not to purge details are purged even if you choose not to purge details, move transactions, and resource transactions.</p>
+</li>
+<li>
+<p>Select whether to purge <a name="d0e52794" id="d0e52794"></a> Details</p>
+<p>You can selectively purge Details - material requirements, resource requirements, and operations - without purging headers. Selective purging allows you to retain pertinent historical information. For example, you can retain operation information but purge move transactions associated with these operations.</p>
+</li>
+<li>
+<p>Select whether to purge <a name="d0e52807" id="d0e52807"></a><a name="d0e52813" id="d0e52813"></a>Move Transactions</p>
+<p>You can selectively purge Move Transactions associated with the selected discrete jobs, repetitive schedules, or both. If the move transaction date is less than or equal to the cutoff date you entered, move transactions for repetitive schedules with Cancelled and Complete-No Charges statuses or discrete jobs with Closed statuses are purged.</p>
+</li>
+<li>
+<p>Select whether to purge <a name="d0e52826" id="d0e52826"></a>Resource Transactions associated with jobs and/or repetitive schedules.</p>
+<p>You can selectively purge Resource Transactions associated with the selected discrete jobs, repetitive schedules, or both. Only resource transactions for repetitive schedules with Cancelled and Complete-No Charges statuses are purged, regardless of whether the transaction date is less than or equal to the cutoff date you entered.</p>
+</li>
+<li>
+<p>Select one of the following Report Types:</p>
+<p><i>Full:</i> The report lists all job and/or schedule records selected for the purge, the table and number of rows affected as well as those records that cannot be purged because of purge rule violations. <i>Full</i> is the default option.</p>
+<p><i>Summary:</i> The report lists all job and/or schedule records selected for the purge but in a tabular form. The table and row detail is omitted although exception information is included.</p>
+<p><i>Exception:</i> The report lists only those job and/or schedule records that cannot be purged because of purge violation rules. Exception information is included.</p>
+<p><i>None:</i> The report lists only the purge options selected (e.g. Headers<i>,</i> Schedule Details, Move Transactions, Resource Transactions), but does not list tables affected and records purged.</p>
+</li>
+<li>
+<p>In the Days Before Cutoff Date field, you have the option to select another cutoff value for purge calculations. This value, entered in days, is prior to the date and time entered in the Cutoff Datetime field.</p>
+<p>If there is a value entered in this field, the system purges jobs and schedules where the Close Date is between Cutoff Datetime and Days before Cutoff. If this field is null, all eligible jobs are considered in the purge where Close Date is less than or equal to Cutoff Date.</p>
+</li>
+<li>
+<p>Choose OK.</p>
+</li>
+<li>
+<p>Submit your purge request. See: Submitting a Request, <i>Oracle E-Business Suite User's Guide</i>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Dovdjpurg">Overview of Discrete Job Purge</a></p>
+<p><a href="T228107T228114.htm#I_cx2Dovrspurg">Overview of Repetitive Schedule Purge</a></p>
+<p><a href="T228107T228119.htm#I_cx2Dsttnx78ctl">Transaction Control by Status</a></p>
+<h2><a name="1035402"></a><a id="I_rx2Dwippurge"></a><b>Purge Report</b></h2>
+<p><a name="d0e52895" id="d0e52895"></a><a name="d0e52901" id="d0e52901"></a>The Purge Report can be printed as you purge discrete and lot based jobs, repetitive schedules, or all jobs and repetitive schedules using the following windows:</p>
+<ul>
+<li>
+<p>Purge Discrete Jobs</p>
+</li>
+<li>
+<p>Purge Repetitive Schedules</p>
+</li>
+<li>
+<p>Purge Discrete Jobs/Repetitive Schedules (SRS)</p>
+</li>
+</ul>
+<p>When you choose to print a report as part of the purge process, the report option selected in the Purge Options window is defaulted and determines the format of the report.</p>
+<h3><a id="T326820"></a><b>Report Options</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Full</b></td>
+<td>Lists all job and/or schedule records, the table and number of rows affected as well as those records that cannot be purged because of purge rule violations. <i>Full</i> is the default option.</td>
+</tr>
+<tr valign="top">
+<td><b><i>Summary</i></b></td>
+<td>Lists all job and/or schedule records but in a tabular form. The table and row detail is omitted although exception information is included.</td>
+</tr>
+<tr valign="top">
+<td><b><i>Exception</i></b></td>
+<td>Lists only those job and/or schedule records that cannot be purged because of purge violation rules. Exception information is included.</td>
+</tr>
+<tr valign="top">
+<td><b><i>None</i></b></td>
+<td>Lists only the purge options selected (such as Headers, Schedule Details, Move Transactions, Resource Transactions), but does not list which tables are affected and which records purged.<br>
+You can only select the <i>None</i> option when submitting a purge request from the Purge Jobs and Schedules window. It is available only if you select the Purge Only action type in the Purge Options window. Furthermore, you must select this report option if the Purge Only option is selected as no other report option selections are allowed.</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_tx2Ddjpurg">Purging Discrete Jobs</a></p>
+<p><a href="T228107T228114.htm#I_tx2Drspurg">Purging Repetitive Schedules</a></p>
+<p><a href="T228107T228111.htm#I_tx2Dprgoptg">Specifying Purge Options</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035407"></a><a id="I_rx2Dwiprelin"></a><b>Repetitive Line Report</b></h2>
+<p><a name="d0e52985" id="d0e52985"></a><a name="d0e52991" id="d0e52991"></a><a name="srs.wiprelin" id="srs.wiprelin"></a>The Repetitive Line Report lists repetitive schedules defined for a production line. The system lists effective and pending repetitive schedules separately so you can easily identify which ones to cancel or implement. You can use this report to help you see the overall load on the line.</p>
+<p>The system lists the production line header followed by all schedules defined on that line. Schedules are listed by assembly and first unit start date.</p>
+<h3><a id="T228661"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Repetitive Line Report in the Name field.</p>
+<h3><a id="T228662"></a><b>Report Parameters</b></h3>
+<h3><a id="T228663"></a><b>Lines From/To</b></h3>
+<p>To restrict the report to a range of lines, select a beginning and an ending line.</p>
+<h3><a id="T228664"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of lines, select a beginning and an ending assembly.</p>
+<h3><a id="T228665"></a><b>Dates From/To</b></h3>
+<p>To restrict the report to a date range, select a beginning and an ending date.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228114.htm#I_cx2Drpovw">Overview of Repetitive Manufacturing</a></p>
+<p><a href="T228107T228116.htm#I_cx2Ddptchrptg">Dispatch Reports</a></p>
+<h2><a name="1035413"></a><a id="I_rx2Dwiprepck"></a><b>Repetitive Pick List Report</b></h2>
+<p><a name="d0e53042" id="d0e53042"></a><a name="d0e53048" id="d0e53048"></a><a name="srs.wiprepck" id="srs.wiprepck"></a>The Repetitive Pick List Report lists component requirements for a range of repetitive schedules in your organization with statuses of Unreleased, Released, Complete, or On Hold. You can use this report to pick material from stock to issue to work in process for a schedule. The report lists production lines in alphanumeric order with all their requirements ordered by supply type, including push, pull, bulk and vendor items. This report can be sorted by component, date required, supply subinventory/locator, or WIP material transaction.</p>
+<h3><a id="T228666"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Repetitive Pick List Report in the Name field.</p>
+<h3><a id="T228667"></a><b>Report Parameters</b></h3>
+<h3><a id="T228668"></a><b>Sort By</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Component</b></td>
+<td>Sort by component.</td>
+</tr>
+<tr valign="top">
+<td><b>Supply sub- inventory, locator</b></td>
+<td>Sort by supply subinventory and locator.</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>WIP material transaction</b></td>
+<td>Sort component requirements in WIP Material Transaction order. The system lists components in the order presented in the WIP Material Transaction window. This assists data entry when you use the pick list as hard copy for issuing the components.</td>
+</tr>
+</table>
+<h3><a id="T228669"></a><b>Transactable Only</b></h3>
+<p>Select Yes or No to indicate whether to exclude repetitive schedules with statuses of Unreleased or On Hold.</p>
+<h3><a id="T228670"></a><b>Start Date</b></h3>
+<p>Select the start date. The system calculates requirements for your repetitive schedules from this date for the number of days you specified in the Days of Supply report option.</p>
+<h3><a id="T228671"></a><b>Days of Supply</b></h3>
+<p>Select the number of days of supply that you want to calculate requirements for.</p>
+<h3><a id="T228672"></a><b>Lines From/To</b></h3>
+<p>To restrict the report to a range of lines, select a beginning and an ending line.</p>
+<h3><a id="T228673"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and an ending assembly.</p>
+<h3><a id="T228674"></a><b>Supply Type</b></h3>
+<p>Choose a Supply Type. The available options are Push, Pull, Bulk, and Vendor. See: <a href="T228107T228127.htm#I_rx2Dsupptype">Supply Types</a>.</p>
+<h3><a id="T228675"></a><b>Supply Subinventory</b></h3>
+<p>Select the supply subinventory to include as available material in the pick list. If you do not select a value, the system lists requirements of any supply subinventory.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228114.htm#I_cx2Drpovw">Overview of Repetitive Manufacturing</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035427"></a><a id="I_rx2Dwiprertg"></a><b>Repetitive Routing Sheet</b></h2>
+<p><a name="d0e53153" id="d0e53153"></a><a name="d0e53159" id="d0e53159"></a><a name="srs.wiprertg" id="srs.wiprertg"></a>The Repetitive Routing Sheet lists operations and associated resources and material requirements for schedules with a status of Unreleased, Released, On Hold, or, Complete. You can use the report as a traveler to report production against repetitive schedules on the shop floor. The system displays repetitive assemblies and production lines in alphanumeric order. For each repetitive assembly/line, the system prints schedules ordered by first unit start date and followed by their operations, resources, instructions and requirements.</p>
+<h3><a id="T228676"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Repetitive Routing Sheet in the Name field.</p>
+<h3><a id="T228677"></a><b>Report Parameters</b></h3>
+<h3><a id="T228678"></a><b>Assembly</b></h3>
+<p>Select a repetitive assembly. If you do not select an assembly, the system lists routing information for all schedules defined for the line selected.</p>
+<h3><a id="T228679"></a><b>Line</b></h3>
+<p>Select a production line. If you do not select a line, the system displays routing information for all schedules defined for the assembly selected.</p>
+<h3><a id="T228680"></a><b>First Unit Start Dates From/To</b></h3>
+<p>To restrict the report to a range of first unit start dates, select a beginning and an ending date.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228114.htm#I_cx2Drpovw">Overview of Repetitive Manufacturing</a></p>
+<h2><a name="1035433"></a><a id="I_rx2Dwipredat"></a><b>Repetitive Schedule Data Report</b></h2>
+<p><a name="d0e53204" id="d0e53204"></a><a name="d0e53210" id="d0e53210"></a><a name="srs.wipredat" id="srs.wipredat"></a>The Repetitive Schedule Data Report lists repetitive assemblies and production lines in alphanumeric order, and their schedules ordered by first unit start date. You can use this report to review all details about a repetitive schedule, such as quantities, dates, routing operations, material requirements, resources, instructions, comments and accounts.</p>
+<h3><a id="T228681"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Repetitive Schedule Data Report in the Name field.</p>
+<h3><a id="T228682"></a><b>Report Parameters</b></h3>
+<h3><a id="T228683"></a><b>Effective Only</b></h3>
+<p>Select Yes or No. No means list all schedules in the report. Yes means list only the schedules with the following statuses: Unreleased, Released, On Hold, Complete and Pending - Mass Loaded. See: <a href="T228107T228119.htm#I_cx2Drptbyst">Reporting by Status</a>.</p>
+<h3><a id="T228684"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and an ending assembly.</p>
+<h3><a id="T228685"></a><b>Lines From/To</b></h3>
+<p>To restrict the report to a range of lines, select a beginning and an ending line.</p>
+<h3><a id="T228686"></a><b>Start Dates From/To</b></h3>
+<p>To restrict the report to a date range, select a beginning and an ending date.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228114.htm#I_cx2Drpovw">Overview of Repetitive Manufacturing</a></p>
+<p><a href="T228107T228116.htm#I_cx2Ddptchrptg">Dispatch Reports</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035440"></a><a id="I_rx2Dwipreorq"></a><b>Repetitive Schedule Shortage Report</b></h2>
+<p><a name="d0e53272" id="d0e53272"></a><a name="d0e53278" id="d0e53278"></a><a name="srs.wipreorq" id="srs.wipreorq"></a>The Repetitive Schedule Shortage Report lists either open requirements or requirements with inventory shortages for repetitive schedules. You can list requirement shortages based on the quantities available in all subinventories or based on the quantities available in the supply subinventories only. You can also determine shortages using all subinventories or only nettable subinventories. The system lists repetitive schedules with statuses of Unreleased<b>,</b> Released<b>,</b> On Hold<b>,</b> or Complete<b>.</b></p>
+<p>You can print a repetitive schedule's open requirements to identify components you need to issue or have not yet backflushed. You can print the shortage report to highlight components you need to expedite.</p>
+<h3><a id="T228687"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Repetitive Schedule Shortage Report in the Name field.</p>
+<h3><a id="T228688"></a><b>Report Parameters</b></h3>
+<h3><a id="T228689"></a><b>Report Type</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Open requirement</b></td>
+<td>List open material requirements for all repetitive schedules. This is the default option.</td>
+</tr>
+<tr valign="top">
+<td><b>Shortage based on QOH</b></td>
+<td>Lists requirements with insufficient quantities as based on all subinventories. If you select Yes in the Include Nettable Only option, then you may see more shortages depending on how much quantity you have available for each requirement in your non-nettable subinventories.</td>
+</tr>
+<tr valign="top">
+<td><b>Shortage based on supply sub/loc</b></td>
+<td>Lists requirements with insufficient quantities as based on each requirement's supply subinventory and locator.</td>
+</tr>
+</table>
+<h3><a id="T228690"></a><b>Include Nettable Only</b></h3>
+<p>Select Yes to include only nettable subinventories when calculating subinventory quantities and printing shortages. Select No to include nettable and non-nettable subinventories when calculating subinventory quantities and printing shortages. The system determines the quantity onhand for each requirement using this value.</p>
+<h3><a id="T228691"></a><b>Include Qty Ahead/Behind</b></h3>
+<p>Select Yes or No to indicate whether to include requirements fulfilled in the past when calculating open requirements and shortages. If you select Yes, the system includes requirements already issued or to be issued in its calculation of open requirements and shortages. If you select No, the system only takes into account today's quantities in its calculation of open requirements and shortages.</p>
+<h3><a id="T228692"></a><b>Include Bulk</b></h3>
+<p>Select Yes to indicate whether to include bulk-provided material requirements.</p>
+<h3><a id="T228693"></a><b>Include Supplier</b></h3>
+<p>Select Yes to indicate whether to include supplier-supplied material requirements.</p>
+<h3><a id="T228694"></a><b>Supply Days</b></h3>
+<p>Select the number of supply days ahead of today that the system uses to calculate open requirements and shortages for your repetitive schedules.</p>
+<h3><a id="T228695"></a><b>Lines From/To</b></h3>
+<p>To restrict the report to a range of lines, select a beginning and an ending line.</p>
+<h3><a id="T228696"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and an ending assembly.</p>
+<h3><a id="T228697"></a><b>Components From/To</b></h3>
+<p>To restrict the report to a range of component, select a beginning and an ending component.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228115.htm#I_cx2Dovwmctl">Overview of Material Control</a></p>
+<h2><a name="1035455"></a><a id="I_rx2Drspckt"></a><b>Repetitive Shop Packet</b></h2>
+<p><a name="d0e53397" id="d0e53397"></a><a name="d0e53403" id="d0e53403"></a>The repetitive shop packet consists of four reports:</p>
+<ul>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwiprepck">Repetitive Pick List Report</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwiprertg">Repetitive Routing Sheet</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwipreorq">Repetitive Schedule Shortage Report</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwiprelin">Repetitive Line Report</a></p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035456"></a><a id="I_rx2Dwipreval"></a><b>Repetitive Value Report</b></h2>
+<p><a name="d0e53436" id="d0e53436"></a><a name="d0e53442" id="d0e53442"></a><a name="srs.wipreval" id="srs.wipreval"></a>The Repetitive Value Report can be used to analyze your repetitive schedules. You can submit the WIP Value Report before submitting this report to review total variances and charges for your repetitive schedules. Then, you can submit this report to analyze a summary of the transactions behind the charges and variances for each repetitive schedule.</p>
+<p>This report includes information on all cost transactions including material, resource, outside processing, move and resource-based overhead charges and variances. Relief charges, such as completion, assembly scrap, and period close transactions, are summarized across all schedules building an assembly on a line. The report also lists account summary information as well as repetitive schedule header information. The system groups and subtotals cost transactions by transaction type.</p>
+<h3><a id="T228698"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Repetitive Value Report in the Name field.</p>
+<p>Use the Request Work in Process Reports form and enter Repetitive Value Report in the Name field to submit the Repetitive Value Report.</p>
+<h3><a id="T228699"></a><b>Report Parameters</b></h3>
+<h3><a id="T228700"></a><b>Report Type</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Detail with requirements based on actual quantity completion</b></td>
+<td>Lists each assembly and line using the actual completion quantity of the assembly and line in to calculate all the variances. A detail report includes the following: header, material, resource, resource-based and move-based overhead costs, completion, scrap, and close variance transactions. It also includes account period-to-date and cumulative-to-date summary information.<br>
+Use this option if you backflush your material requirements at assembly completion or if you have already completed most of your assemblies.</td>
+</tr>
+<tr valign="top">
+<td><b>Detail with requirements based on planned start quantity</b></td>
+<td>Lists each assembly and line using the planned start quantity of the assembly and line to calculate all the variances. A detail report includes the following: header, material, resource, resource-based and move-based overhead costs, completion, scrap, and close variance transactions. It also includes account summary information.<br>
+Use this option to compare your total requirements against your existing transactions for all cost elements using your planned completion quantity.</td>
+</tr>
+<tr valign="top">
+<td><b>Lists Summary</b></td>
+<td>each assembly and line and includes repetitive schedule header and account information. The system also lists summary elemental account values for each repetitive schedule.</td>
+</tr>
+</table>
+<h3><a id="T228701"></a><b>Include Bulk</b></h3>
+<p>Select Yes to indicate whether to include bulk-supplied material requirements. If you have already issued to a particular bulk requirement, the system lists the requirement, regardless of what you select here.</p>
+<h3><a id="T228702"></a><b>Include Supplier</b></h3>
+<p>Select Yes to indicate whether to include supplier-provided material requirements. If you have already issued to a particular supplier requirement, the system lists the requirement, regardless of what you select here.</p>
+<h3><a id="T228703"></a><b>Period Start Date</b></h3>
+<p>Select a period start date. The system lists the value of repetitive schedules that are dated on or after this date, or that were transacted between the period start date and the period close date.</p>
+<h3><a id="T228704"></a><b>Period Close Date</b></h3>
+<p>Select a period close date. The system lists the value of repetitive schedules that are dated on or before this date, or that were transacted between the period start date and the period close date.</p>
+<h3><a id="T228705"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and an ending assembly.</p>
+<h3><a id="T228706"></a><b>Lines From/To</b></h3>
+<p>To restrict the report to a range of production lines, select a beginning and an ending line.</p>
+<h3><a id="T228707"></a><b>Classes From/To</b></h3>
+<p>To restrict the report to a range of WIP accounting classes, select a beginning and an ending class.</p>
+<p>For repetitive schedules, any difference between the cumulative single level variances and the material usage or efficiency variance subtotals is from configuration or methods variances. The cumulative-to-date summary compares the costs incurred for the schedule with the standard bill/routing requirements for completions out of the schedule. Therefore, the difference between the cumulative variances and the usage/efficiency variance is due to the difference between the standard bill/routing requirements and the work in process bill/routing requirements. To find the configuration variance, you should compare the material usage variance with the single level material variance. To find the methods variance, you should compare the efficiency variance with its corresponding single level variance. For example, you would compare the resource efficiency variance with the single level; resource and outside processing variance added together. You would add the resource-based and move-based overhead efficiency variances and compare it with the single level overhead variance.</p>
+<p>Since repetitive schedules are not revalued by the cost update, these variances also include any standard cost adjustments. The Standard Requirements columns use the latest standards. The Applied Cost columns use the transaction cost without cost update adjustments.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228120.htm#I_cx2Dovwpcst">Overview of Work in Process Costing</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035470"></a><a id="I_rx2Dwiplbper"></a><b>Resource Performance Report</b></h2>
+<p><a name="d0e53555" id="d0e53555"></a><a name="d0e53561" id="d0e53561"></a><a name="srs.wiplbper" id="srs.wiplbper"></a>The Resource Performance Report details resource efficiency by department. The system lists all resources within a department with the jobs/schedules charging these resources in alphanumeric order. The system lists the efficiency percentage of each resource as applied to a specific job or schedule and the departmental efficiency of each resource.</p>
+<h3><a id="T228708"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Resource Performance Report in the Name field.</p>
+<p>Use the Request Work in Process Reports form and enter Resource Performance Report in the Name field to submit the Resource Performance Report.</p>
+<h3><a id="T228709"></a><b>Report Parameters</b></h3>
+<h3><a id="T228710"></a><b>Resources From/To</b></h3>
+<p>To restrict the report to a range of resources, select a beginning and an ending resource.</p>
+<h3><a id="T228711"></a><b>Departments From/To</b></h3>
+<p>To restrict the report to a range of departments, select a beginning and an ending department.</p>
+<h3><a id="T228712"></a><b>Job/Schedule Active Dates From</b></h3>
+<p>Select a beginning date.</p>
+<h3><a id="T228713"></a><b>To</b></h3>
+<p>Select an ending date.</p>
+<h3><a id="T228714"></a><b>Minimum Efficiency</b></h3>
+<p>Select a minimum efficiency percentage. The system lists the resources for which the departmental efficiency is equal to or greater than this value. If you also select a maximum efficiency percentage, displays resources for which the departmental efficiency is equal to or greater than the minimum efficiency percentage and less than or equal to the maximum efficiency percentage.</p>
+<h3><a id="T228715"></a><b>Maximum Efficiency</b></h3>
+<p>Select a maximum efficiency percentage. The system lists the resources for which the departmental efficiency is less than or equal to this value. If you also select a minimum efficiency percentage, the system lists resources for which the departmental efficiency is equal to or greater than the minimum efficiency percentage and less than or equal to the maximum efficiency percentage.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228117.htm#I_cx2Dresovw">Overview of Resource Management</a></p>
+<h2><a name="1035479"></a><a id="I_rx2Dwiptrtx78n"></a><b>Resource Transaction Report</b></h2>
+<p><a name="d0e53626" id="d0e53626"></a><a name="d0e53632" id="d0e53632"></a><a name="srs.wiptrtxn" id="srs.wiptrtxn"></a>The Resource Transaction Report lists resource transaction information for discrete jobs and repetitive schedules. You can list transaction details such as reason codes and references. You can sort this report by assembly, date, or employee.</p>
+<h3><a id="T228716"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Resource Transaction Report in the Name field.</p>
+<p>Use the Request Work in Process Reports form and enter Resource Transaction Report in the Name field to submit the Resource Transaction Report.</p>
+<h3><a id="T228717"></a><b>Report Parameters</b></h3>
+<h3><a id="T228718"></a><b>Sort By</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Assembly</b></td>
+<td>Sort by assembly, then by date within assembly, then by job or repetitive schedule within the assembly, and then by operation sequence number within the job or repetitive schedule.</td>
+</tr>
+<tr valign="top">
+<td><b>Date</b></td>
+<td>Sort by date, then by job or repetitive schedule within the date, and then by operation sequence number within the job or repetitive schedule.</td>
+</tr>
+<tr valign="top">
+<td><b>Employee</b></td>
+<td>Sort by employee, then by date within the employee, then by job or repetitive schedule within the date, and then by operation sequence number within the job or repetitive schedule.</td>
+</tr>
+</table>
+<h3><a id="T228719"></a><b>Show Details</b></h3>
+<p>Select Yes or No to indicate whether to list reason and reference for the resource transaction. If you select Date or Employee in the Sort By field, and you choose Yes in this field, the system also lists the assembly along with the reason and reference for each resource transaction.</p>
+<h3><a id="T228720"></a><b>Jobs/Schedules From and To</b></h3>
+<p>To restrict the report to a range of jobs/schedules, select a beginning and an ending job or repetitive schedule.</p>
+<h3><a id="T228721"></a><b>Resources From/To</b></h3>
+<p>To restrict the report to a range of resources, select a beginning and an ending resource.</p>
+<h3><a id="T228722"></a><b>Lines From/To</b></h3>
+<p>To restrict the report to a range of production lines, select a beginning and an ending line.</p>
+<h3><a id="T228723"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and an ending assembly.</p>
+<h3><a id="T228724"></a><b>Dates From/To</b></h3>
+<p>To restrict the report to a date range, select a beginning and an ending date.</p>
+<h3><a id="T228725"></a><b>Employees From/To</b></h3>
+<p>To restrict the report to a range of employees, select a beginning and an ending employee.</p>
+<h3><a id="T228726"></a><b>Reasons From/To</b></h3>
+<p>To restrict the report to a range of employees, select a beginning and an ending reason.</p>
+<h3><a id="T228727"></a><b>Activities From/To</b></h3>
+<p>To restrict the report to a range of Activities, select a beginning and an ending activity.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228117.htm#I_cx2Dovrestx78">Overview of Resource Transactions</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035495"></a><a id="I_rx2Dwipsglis"></a><b>Schedule Group Listing</b></h2>
+<p><a name="d0e53753" id="d0e53753"></a><a name="d0e53759" id="d0e53759"></a><a name="srs.wipsglis" id="srs.wipsglis"></a>The Schedule Group Listing lists all information about schedule groups.</p>
+<h3><a id="T228728"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Schedule Group Listing in the Name field.</p>
+<h3><a id="T228729"></a><b>Report Parameters</b></h3>
+<h3><a id="T228730"></a><b>Schedule Group From/To</b></h3>
+<p>To restrict the report to a range of schedule groups, select a beginning and an ending schedule group.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228110.htm#I_tx2Dschgrpg">Defining Schedule Groups</a></p>
+<h2><a name="1035499"></a><a id="I_rx2Dwipsusta"></a><b>Shop Floor Statuses Report</b></h2>
+<p><a name="d0e53792" id="d0e53792"></a><a name="d0e53798" id="d0e53798"></a><a name="srs.wipsusta" id="srs.wipsusta"></a>The Shop Floor Statuses Report lists shop floor statuses in alphabetical order. The system also lists status descriptions and disable dates and identifies which statuses prevents you from moving assemblies.</p>
+<p>Shop floor statuses give you control of your shop floor movement by limiting when you can make moves. Once you have released a job or repetitive schedule, you can assign and modify these statuses at the operations on the work in process routing using the Shop Floor Statuses window. You can view these statuses during shop floor moves and report them using job or repetitive schedule data reports.</p>
+<h3><a id="T228731"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select Shop Floor Statuses Report in the Name field.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_cx2Dovwsfc">Overview of Shop Floor Control</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dasfstat">Assigning and Viewing Shop Floor Statuses</a></p>
+<p><a href="T228107T228110.htm#I_tx2Ddsfstatus">Defining Shop Floor Statuses</a></p>
+<h2><a name="1035501"></a><a id="I_rx2Dwiputacd"></a><b>WIP Account Distribution Report</b></h2>
+<p><a name="d0e53831" id="d0e53831"></a><a name="d0e53837" id="d0e53837"></a><a name="srs.wiputacd" id="srs.wiputacd"></a>The WIP Account Distribution Report details account information for work in process cost transactions, including resource, overhead and outside processing charges, cost updates, and period close and job close variances. The system groups your transactions by job or schedule, by transaction type, and orders your transactions by earliest transaction date. You can list detailed account information for specific accounts, general ledger batches, or both to help you reconcile your general ledger.</p>
+<p>This report does not list material cost transactions such as issues, completions, and scrap. You can list this information using the Material Account Distribution reports in Oracle Inventory.</p>
+<h3><a id="T228732"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select WIP Account Distribution Report in the Name field.</p>
+<p>Use the Request Work in Process Reports form and enter WIP Account Distribution Report in the Name field to submit the WIP Account Distribution Report.</p>
+<h3><a id="T228733"></a><b>Report Parameters</b></h3>
+<h3><a id="T228734"></a><b>Dates From/To</b></h3>
+<p>To restrict the report to a range of transaction dates, enter a beginning and ending date.</p>
+<h3><a id="T228735"></a><b>Account</b></h3>
+<p>Select a specific general ledger accounting flexfield.</p>
+<h3><a id="T228736"></a><b>GL Batch</b></h3>
+<p>Select a general ledger batch number. The system lists information by account for each account in the selected batch.</p>
+<h3><a id="T228737"></a><b>Job/Schedule</b></h3>
+<p>Select a specific job or repetitive assembly.</p>
+<h3><a id="T228738"></a><b>Line</b></h3>
+<p>Select a production line.</p>
+<h3><a id="T228739"></a><b>Assembly</b></h3>
+<p>Select an assembly.</p>
+<h3><a id="T228740"></a><b>Transaction Type</b></h3>
+<p>Choose one of the following options to print work in process cost transaction details for a specific transaction type:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Resource transaction</b></td>
+<td>Lists resource transaction details.</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Overhead transaction</b></td>
+<td>Lists overhead transaction details.</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Outside processing</b></td>
+<td>Lists outside processing transaction details.</td>
+</tr>
+<tr valign="top">
+<td><b>Cost update</b></td>
+<td>Lists cost update transaction details.</td>
+</tr>
+<tr valign="top">
+<td><b>Period close variance</b></td>
+<td>Lists transaction details for period close variance transactions for expense jobs and certain instances of repetitive schedules.</td>
+</tr>
+<tr valign="top">
+<td><b>Job close variance</b></td>
+<td>Lists job close variance transaction details.</td>
+</tr>
+</table>
+<h3><a id="T228741"></a><b>Department</b></h3>
+<p>Select a department name.</p>
+<h3><a id="T228742"></a><b>Activity</b></h3>
+<p>Select an activity.</p>
+<h3><a id="T228743"></a><b>Class</b></h3>
+<p>Select a WIP accounting class name.</p>
+<h3><a id="T228744"></a><b>Currency</b></h3>
+<p>Select a currency. You can run this report for any defined currency. When you select a currency other than the functional currency, item costs are converted to the selected currency. Your functional currency is the default.</p>
+<h3><a id="T228745"></a><b>Exchange Rate</b></h3>
+<p>The system displays the most recent End of period rate but you can choose another period. The rate type used, either period average or the period end, is determine by how the <i>CST:Exchange Rate Type</i> profile option is set. See: Cost Management Profile Options, <i>Oracle Cost Management</i>.</p>
+<p><strong>Related Topics</strong></p>
+<p>Overview of Period Close, <i>Oracle Cost Management User's Guide</i></p>
+<h2><a name="1035522"></a><a id="I_rx2Dwiputacs"></a><b>WIP Account Summary Report</b></h2>
+<p><a name="d0e53991" id="d0e53991"></a><a name="d0e53997" id="d0e53997"></a><a name="srs.wiputacs" id="srs.wiputacs"></a>The WIP Account Summary Report summarizes account information for work in process cost transactions, including resource, overhead and outside processing charges, cost updates, and period close and job close variances. The system lists debit, credit and net activity by account for each type of cost transaction. You can list information by date. You can also list information for specific accounts, general ledger batches, or both to help you reconcile your general ledger. You can use this report during your pre-close monthly review process.</p>
+<p>The system does not list material cost transactions, such as issues, completions, and scraps, in this report. You can report this information using the Inventory Account Distribution report in Oracle Inventory.</p>
+<h3><a id="T228746"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select WIP Account Summary Report in the Name field.</p>
+<p>Use the Request Work in Process Reports form and enter WIP Account Summary Report in the Name field to submit the WIP Account Summary Report.</p>
+<h3><a id="T228747"></a><b>Report Parameters</b></h3>
+<h3><a id="T228748"></a><b>Dates From/To</b></h3>
+<p>To restrict the report to a range of transaction dates, select a beginning and an ending date.</p>
+<h3><a id="T228749"></a><b>Account</b></h3>
+<p>Select a general ledger accounting flexfield.</p>
+<h3><a id="T228750"></a><b>GL Batch</b></h3>
+<p>Select a general ledger batch. The system lists information by account for each account in the selected batch.</p>
+<p><strong>Related Topics</strong></p>
+<p>Period Close, <i>Oracle Cost Management User's Guide</i></p>
+<h2><a name="1035528"></a><a id="I_rx2Dwipsucls"></a><b>WIP Accounting Classes Report</b></h2>
+<p><a name="d0e54046" id="d0e54046"></a><a name="d0e54052" id="d0e54052"></a><a name="srs.wipsucls" id="srs.wipsucls"></a>The WIP Accounting Classes Report lists the WIP accounting classes you have defined. The class type, disable date and description for each accounting class, as well as the elemental valuation and variance accounts, are listed.</p>
+<p>You must define separate accounting classes for standard discrete jobs, non-standard expense jobs, non-standard asset jobs, repetitive assemblies, maintenance jobs, and lot based jobs. Each accounting class includes the elemental valuation and variance accounts you use to cost discrete and repetitive production. You must enter an accounting class when you define a discrete job and when you associate production lines with repetitive assemblies.</p>
+<h3><a id="T228751"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select WIP Accounting Classes Report in the Name field.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228110.htm#I_rx2Dacctclass">WIP Accounting Classes</a></p>
+<h2><a name="1035530"></a><a id="I_rx2Dwipmtlct"></a><b>WIP Location Report</b></h2>
+<p><a name="d0e54077" id="d0e54077"></a><a name="d0e54083" id="d0e54083"></a><a name="srs.wipmtlct" id="srs.wipmtlct"></a>The WIP Location Report details the locations of the assemblies within the routings of the jobs and repetitive schedules. This includes job and repetitive schedules with statuses of Released, Complete, and On Hold. The system lists only operations that contain assemblies.</p>
+<h3><a id="T228752"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select WIP Location Report in the Name field.</p>
+<h3><a id="T228753"></a><b>Report Parameters</b></h3>
+<h3><a id="T228754"></a><b>Sort By</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Assembly, Job/Schedule, Line, Op seq</b></td>
+<td>Sort by assembly, then by job or repetitive schedule within the assembly, then by line within the job or repetitive schedule, and then by operation sequence number within the line.</td>
+</tr>
+<tr valign="top">
+<td><b>Department, Assembly, Job/Schedule, Op seq</b></td>
+<td>Sort by department number, then by assembly within the department, then by job or repetitive schedule within the assembly, and then by operation sequence number within the job or repetitive schedule.</td>
+</tr>
+<tr valign="top">
+<td><b><i>Job/Schedule, Assembly, Line, Op seq</i></b></td>
+<td>Sort by job or repetitive schedule, then by assembly within the job or repetitive schedule, then by line within the assembly, and then by operation sequence number within the line.</td>
+</tr>
+<tr valign="top">
+<td><b>Line, Assembly, Job/Schedule, Op seq</b></td>
+<td>Sort the report by line, then by assembly within the line, then by job or repetitive schedule within the assembly, and then by operation sequence number within the job or repetitive schedule.</td>
+</tr>
+</table>
+<h3><a id="T228755"></a><b>Jobs/Schedules From and To</b></h3>
+<p>To restrict the report to a range of jobs or repetitive schedules, select a beginning and ending job/schedule.</p>
+<h3><a id="T228756"></a><b>Lines From/To</b></h3>
+<p>To restrict the report to a range of production lines, select a beginning and an ending line.</p>
+<h3><a id="T228757"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and an ending assembly.</p>
+<h3><a id="T228758"></a><b>Departments From/To</b></h3>
+<p>To restrict the report to a range of departments, select a beginning and an ending department.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_cx2Ddptchrptg">Dispatch Reports</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dvwops">Viewing Operations</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035542"></a><a id="I_rx2Dwiputoac"></a><b>WIP Offsetting Account Report</b></h2>
+<p><a name="d0e54178" id="d0e54178"></a><a name="d0e54184" id="d0e54184"></a><a name="srs.wiputoac" id="srs.wiputoac"></a>The WIP Offsetting Account Report lists detailed account information for work in process cost transactions, including resource, overhead and outside processing charges; cost updates; and period close and job close variances. Transaction information is grouped by offsetting account, by transaction type, from the earliest transaction date.</p>
+<p>The system does not list material cost transactions - issues, completions, and scrap transactions - on this report. You can report this information using the Inventory Account Distribution report in Oracle Inventory.</p>
+<h3><a id="T228759"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select WIP Offsetting Account Report in the Name field.</p>
+<p>Use the Request Work in Process Reports form and enter WIP Offsetting Account Report in the Name field to submit the WIP Offsetting Account Report.</p>
+<h3><a id="T228760"></a><b>Report Parameters</b></h3>
+<h3><a id="T228761"></a><b>Accounts From/To</b></h3>
+<p>To restrict the report to a range of accounts, select a beginning and an ending accounting flexfield.</p>
+<h3><a id="T228762"></a><b>Dates From/To</b></h3>
+<p>To restrict the report to a range of transaction dates, select a beginning and an ending date.</p>
+<p><strong>Related Topics</strong></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035547"></a><a id="I_rx2Dwiplbosp"></a><b>WIP Outside Processing Report</b></h2>
+<p><a name="d0e54227" id="d0e54227"></a><a name="d0e54233" id="d0e54233"></a><a name="srs.wiplbosp" id="srs.wiplbosp"></a>The WIP Outside Processing Report lists outside processing information for jobs or repetitive schedules. The system lists all purchase orders associated outside processing resources.</p>
+<h3><a id="T228763"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select WIP Outside Processing Report in the Name field.</p>
+<h3><a id="T228764"></a><b>Report Parameters</b></h3>
+<h3><a id="T228765"></a><b>Jobs/Schedules From and To</b></h3>
+<p>To restrict the report to a range of jobs or repetitive schedules, select a beginning and ending job/schedule.</p>
+<h3><a id="T228766"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and an ending assembly.</p>
+<h3><a id="T228767"></a><b>Lines From/To</b></h3>
+<p>To restrict the report to a range of production lines, select a beginning and an ending line.</p>
+<h3><a id="T228768"></a><b>Status</b></h3>
+<p>Choose a status. See: <a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a> or <a href="T228107T228119.htm#I_rx2Drepstat">Repetitive Schedule Statuses</a>.</p>
+<h3><a id="T228769"></a><b>Open POs Only</b></h3>
+<p>Select Yes or No to indicate whether to print all purchase orders except ones that are closed and cancelled.</p>
+<p><strong>Related Topics</strong></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1035555"></a><a id="I_rx2Dwipsupmt"></a><b>WIP Parameters Report</b></h2>
+<p><a name="d0e54296" id="d0e54296"></a><a name="d0e54302" id="d0e54302"></a><a name="srs.wipsupmt" id="srs.wipsupmt"></a>The WIP Parameters Report lists the Work in Process parameters you have defined.</p>
+<p>WIP parameters define modes of operation and assign default values that affect other functions in Work in Process, such as backflushing and lot number entry.</p>
+<h3><a id="T228770"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select WIP Parameters Report in the Name field.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228110.htm#I_cx2Dwipparams">WIP Parameters</a></p>
+<h2><a name="1035557"></a><a id="I_rx2Dwiputval"></a><b>WIP Value Report</b></h2>
+<p><a name="d0e54327" id="d0e54327"></a><a name="d0e54333" id="d0e54333"></a><a name="srs.wiputval" id="srs.wiputval"></a>The WIP Value Report details work in process inventory as of a particular accounting period. The system lists the value of discrete jobs and repetitive schedules for the period specified, lists the ending balance for each discrete job and repetitive schedule in a particular accounting class, and subtotals by the accounting class. In addition, the system summarizes each accounting class by cost element and lists a subtotal for each type of accounting class. For example, your can view your WIP inventory value for all standard discrete jobs.</p>
+<p>For Oracle Shop Floor Management lot based jobs, if Estimated Scrap Accounting is enabled, you can view estimated scrap calculations. This includes estimated scrap incurred, relieved, and variances.</p>
+<p>You can submit the report using several options to determine your output. You can list the output in a foreign currency using a particular exchange rate.</p>
+<p>To ensure accurate ending inventory values for discrete jobs, you must close any open periods before the one you are using for this report.</p>
+<p><strong><span>Note:</span></strong> The system overstates WIP value by the value in your expense non-standard jobs and repetitive schedules. If you have not closed the period you are reporting, you have not yet written off the balances in your expense non-standard jobs and repetitive schedules. The system automatically writes these values off to the variance accounts at period close.</p>
+<p>You can optionally set the WIP Recognize Period Variances Parameter so that only variances for repetitive schedules with statuses of Cancelled or Complete-No Charges are posted at period close. See: <a href="T228107T228110.htm#I_cx2Dparmrm">Repetitive Parameters</a>.</p>
+<h3><a id="T228771"></a><b>Report Submission</b></h3>
+<p>In the Submit Requests window, select WIP Value Report in the Name field.</p>
+<p>Use the Request Work in Process Reports form and enter WIP Value Report in the Name field to submit the WIP Value Report.</p>
+<h3><a id="T228772"></a><b>Report Parameters</b></h3>
+<h3><a id="T228773"></a><b>Report Type</b></h3>
+<p>Choose one of the following options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Cumulative to Date</b></td>
+<td>List WIP inventory values based on transactions entered for all periods, including those Selected before the current period.<br>
+For standard discrete jobs and non-standard asset jobs, the system accumulates job costs over the life of the job, which may cover more than one period. This option may be appropriate for these types of jobs</td>
+</tr>
+<tr valign="top">
+<td><b>Period to Date</b></td>
+<td>Lists WIP inventory values based only on transactions entered for a particular period.<br>
+Optionally for repetitive schedules and always for non-standard expense jobs, the system automatically creates journal entries for valuation costs when you close your accounting period each month. This option may be appropriate for this type of job and repetitive schedules.</td>
+</tr>
+</table>
+<h3><a id="T228774"></a><b>Period</b></h3>
+<p>Select an accounting period. Depending on the report type selected, the WIP values may be cumulative or may include only values transacted during this period.</p>
+<h3><a id="T228775"></a><b>Closed Jobs</b></h3>
+<p>Select Yes to include discrete jobs that were closed during the accounting period you specify. If you select No, the system includes only those jobs that were open at the end of the specified period.</p>
+<h3><a id="T228776"></a><b>Class Type</b></h3>
+<p>Choose one of the following accounting class options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Asset non-standard</b></td>
+<td>List costs for asset non-standard jobs.</td>
+</tr>
+<tr valign="top">
+<td><b>Expense non-standard</b></td>
+<td>List costs for expense non-standard jobs.</td>
+</tr>
+<tr valign="top">
+<td><b>Repetitive assembly</b></td>
+<td>List costs for repetitive assemblies.</td>
+</tr>
+<tr valign="top">
+<td><b>Standard discrete</b></td>
+<td>List costs for standard discrete jobs.</td>
+</tr>
+</table>
+<h3><a id="T228777"></a><b>Classes From/To</b></h3>
+<p>To restrict the report to a range of WIP accounting classes, select a beginning and ending class. You cannot specify a class range unless you first select a value in the Class Type field.</p>
+<h3><a id="T228778"></a><b>Jobs/Schedules From and To</b></h3>
+<p>To restrict the report to a range of jobs or repetitive schedules, select a beginning and ending job/repetitive schedule. You cannot specify a job/schedule range unless you first select a value in the Class Type field.</p>
+<p>For repetitive schedules, you are actually selecting a repetitive assembly value, such as an item number. For discrete jobs, you are selecting a job name.</p>
+<h3><a id="T228779"></a><b>Assemblies From/To</b></h3>
+<p>To restrict the report to a range of assemblies, select a beginning and an ending assembly. You cannot specify an assembly range unless you first select a value in the Class Type field.</p>
+<p>If you are reporting values for repetitive schedules, you do not need to select both a job/schedule and assembly range unless you changed a repetitive assembly item number since you defined your repetitive assembly.</p>
+<h3><a id="T228780"></a><b>Currency Code</b></h3>
+<p>Select a currency code in which you want to report your WIP inventory values. The system defaults the functional currency from the set of books associated with your organization.</p>
+<h3><a id="T228781"></a><b>Exchange Rate</b></h3>
+<p>Select an exchange rate when you report your WIP inventory values in a foreign currency. You can choose from any valid exchange rates defined for the currency you selected in the previous field.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228110.htm#I_rx2Dacctclass">WIP Accounting Classes</a></p>
+<p>Submitting a Request, <i>Oracle E-Business Suite User's Guide</i></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

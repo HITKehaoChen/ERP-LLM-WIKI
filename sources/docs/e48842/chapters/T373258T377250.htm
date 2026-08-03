@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T377249.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T374217.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">18/36</span> <!-- End Header -->
+<h1>Shipping Execution</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T377293">Change Orders in Oracle Shipping Execution</a></li>
+<li><a href="#T377294">Change Management Core Functionalities</a></li>
+<li><a href="#T377326">Change Management Setups</a></li>
+<li><a href="#T464521">Shipping Execution Workflows</a></li>
+<li><a href="#T466776">XML Publisher Enabled Shipping Documents</a></li>
+<li><a href="#T465165">Purging Shipping Records</a></li>
+<li><a href="#T465171">Parallel Pick Release</a></li>
+<li><a href="#T464706">Message Configuration</a></li>
+<li><a href="#T377295">Exception Messages</a></li>
+<li><a href="#T377296">Change Management Frequently Asked Questions</a></li>
+<li><a href="#T377297">Change Effects</a></li>
+<li><a href="#T377298">Change Management and Shipping Execution Actions</a></li>
+<li><a href="#T377299">Backorders</a></li>
+<li><a href="#T377327">Backorders and Cycle Counting</a></li>
+<li><a href="#T377306">Order Management and Shipping Execution Line Status</a></li>
+<li><a href="#T377318">Exception Handling</a></li>
+<li><a href="#T465562">Miscellaneous Shipments</a></li>
+<li><a href="#T465248">RFID-EPC Compliance</a></li>
+</ul>
+<h2><a name="3007253"></a><a id="T377293"></a><b>Change Orders in Oracle Shipping Execution</b></h2>
+<a name="d0e59199" id="d0e59199"></a>
+<h3><b>Order Line Change in Shipping Execution<a name="d0e59206" id="d0e59206"></a></b></h3>
+<p>In the course of business, Customer Sales Representatives (CSR) enter sales order changes in Oracle Order Management (OM) or Oracle Project Contracts. Changes are required when customers ask to change quantity or shipping information, reschedule or cancel a sales order.</p>
+<p>The OM Change Management in Shipping design improves the synchronization of delivery lines and reservations with the order lines when they are changed.</p>
+<p>The objective of the Line Change Management design is to allow most of the sales order changes up until the delivery lines are Staged or Ship Confirmed.</p>
+<p>Only changes entered after the sales order lines are booked and interfaced to Shipping Execution are validated by the change logic in Shipping Execution. Order Attribute changes propagate in Shipping Execution based on the Shipping Execution change logic.</p>
+<h2><a name="3007255"></a><a id="T377294"></a><b>Change Management Core Functionalities</b></h2>
+<h3><b>Delivery Line Split</b></h3>
+<p>When an interfaced order line is split, Order Management requests a delivery line split by setting the OM-WSH interface API action flag to S for Split.</p>
+<p>As Shipping splits a delivery line, it also synchronizes the Inventory reservation and splits and the move order line.</p>
+<p>Split is allowed for delivery lines that have not been ship confirmed.</p>
+<ul>
+<li>
+<p>Delivery lines Released to Warehouse are reset to Ready to Release and their move order lines are canceled</p>
+</li>
+<li>
+<p>Reservations are split</p>
+</li>
+<li>
+<p>Both proportional and non-proportional splits retain and split original serial numbers</p>
+<p><strong><span>Note:</span></strong> Order Management is updated first and then the Inventory Interface is run at ship confirm.</p>
+</li>
+</ul>
+<h2><a name="3007257"></a><a id="T377326"></a><b>Change Management Setups</b></h2>
+<p>There are no mandatory setups to enable the Change Management functionality. Order Management provides constraints that can be changed during implementation. These constraints are used to prevent sales order changes after the associated delivery lines have been pick confirmed in Shipping.</p>
+<p>If you choose to remove these constraints, it is recommended that you implement a two-step shipping process (Confirm/Close Delivery then Ship Confirm) or to always make sure that the deliveries are ship confirmed as soon they are loaded or picked up by the carrier. If the system is not accurately updated in real-time, changes may be allowed after the deliveries are far-gone.</p>
+<h3><b>OM Constraints</b></h3>
+<p>Order Management provides constraints at pick confirm for users who physically ship deliveries before confirming them in the system. Without these constraints, this process can allow changes between the time items are shipped and the ship confirmation update in the system.</p>
+<p>By default these constraints are active to disable order line changes after pick confirm/stage step. Seeded constraints will not allow Order Management user to change, cancel or split order lines once delivery lines have been pick confirmed/staged in Shipping Execution.</p>
+<h3><b>Disabling Constraints</b></h3>
+<p>Some users require changing order lines after the delivery is pick confirmed/staged and until the ship confirmation stage. The system supports flexibility of removing some or all the Order Management- Shipping constraints.</p>
+<p><strong><span>Note:</span></strong> In the event the system was not updated and changes are committed after the deliveries are physically shipped, users may have to handle exceptions manually (revert changes, move inventory, and adjust inventory).</p>
+<p><b>Changing Defaults</b></p>
+<p><b>To access the Order Management constraints window</b></p>
+<ol>
+<li>
+<p>Navigate to the Processing Constraints window.</p>
+</li>
+<li>
+<p>In the Application field, query Oracle Order Management.</p>
+</li>
+<li>
+<p>In the Entity field, query Order Line.</p>
+<h3><b>List of OM Constraints at Pick Confirm/Stage</b></h3>
+<p>The Order Management constraints control the following types of Order Line changes once deliveries are Pick Confirmed/Staged:</p>
+<ul>
+<li>
+<p>Update order line</p>
+</li>
+<li>
+<p>Cancel order line</p>
+</li>
+<li>
+<p>Delete order line</p>
+</li>
+<li>
+<p>Split order line</p>
+</li>
+</ul>
+<p>In turn, Order Line update is controlled for 22 different shipping attributes as shown in the following table:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Order Management - Shipping Execution Constraints</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Actions</b></th>
+<th scope="col"><b>Fields</b></th>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Authorized to Ship</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Customer</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Customer PO</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Customer PO Line Number</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Deliver To Contact</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Deliver To Org</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>FOB Point</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Freight Carrier</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Freight Terms</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Item Type</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Order Quantity UOM</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Ordered Quantity</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Packing Instructions</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Request Date</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Schedule Arrival Date</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Schedule Ship Date</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Ship To</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Ship To Contact</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Shipment Priority</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Shipping Instructions</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Subinventory (cannot be removed)</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Warehouse</td>
+</tr>
+<tr valign="top">
+<td>Cancel</td>
+<td>Not allowed if pick confirmed</td>
+</tr>
+<tr valign="top">
+<td>Delete</td>
+<td>Not allowed if pick confirmed</td>
+</tr>
+<tr valign="top">
+<td>Split</td>
+<td>Not allowed if pick confirmed</td>
+</tr>
+</table>
+</li>
+</ol>
+<h2><a name="4211724"></a><a id="T464521"></a><b>Shipping Execution Workflows</b></h2>
+<p><a name="d0e59503" id="d0e59503"></a><a name="wshworkflows" id="wshworkflows"></a>Oracle Shipping Execution enables you to utilize Oracle Workflow to enhance your day-to-day business. Using Oracle Workflow with Oracle Shipping Execution is optional; however, if you choose to enable Oracle Workflow with Oracle Shipping Execution, specific tasks and output are enabled through the use of customized business objects. For example, the workflow can be configured so that specific users receive a notification email when an overship or backorder occurs. The following Shipping Execution-specific workflows are available:</p>
+<ul>
+<li>
+<p>Delivery Flow - Generic</p>
+</li>
+<li>
+<p>Trip Flow - Generic</p>
+</li>
+<li>
+<p>Ship to Deliver Process Flow</p>
+</li>
+</ul>
+<p>You can customize any of the Shipping Execution-specific workflows and any of the wokflows can be used in any organization. Workflows are customized by Oracle Workflow Builder. You can copy an existing workflow, rename it, save it, then add the customized workflow to the lookup specific to that workflow. For example, the internal name of Trip Flow - Generic is R_TRIP_GEN. After customizing the workflow by adding a new notification activity, if you save it as NOTIFY_TRIP_GEN and add it to the R_TRIP_GEN lookup. With the lookup code as organization code for the organization, the workflow must be triggered in and Meaning as NOTIFY_TRIP_GEN. If the workflow needs to be triggered for all organizations, then the lookup code must be All.</p>
+<p>See: <i>Oracle Workflow User's Guide</i></p>
+<h3><a id="T471291"></a><b>Extending Shipping Workflows</b></h3>
+<p>Delivery and trip workflows enable limited extensions. That is, only those activities that do not required intervention and are not deferred, are allowed. All Oracle Workflow supported extensions are supported by the Ship to Delivery Process Flow. This includes response based notifications.</p>
+<h3><a id="T465160"></a><b>Shipping Workflow Lookups</b></h3>
+<p>The following are the lookups used to customize the Oracle Shipping Workflow:</p>
+<ul>
+<li>
+<p>R_DEL_GEN: This extensible lookup is used with the Delivery Flow - Generic workflow. It reflects the operations performed on a generic outbound delivery.</p>
+</li>
+<li>
+<p>R_SCPOD_C: This extensible lookup is used with the Ship to Deliver workflow. It performs the operations between ship confirm and final delivery of the shipment.</p>
+</li>
+<li>
+<p>R_TRIP_GEN: This extensible lookup is used with the Trip Flow - Generic workflow. It reflects the operations performed on a generic outbound trip.</p>
+</li>
+</ul>
+<h3><a id="T465161"></a><b>Shipping Workflow Profile Option</b></h3>
+<p>When set to Yes, the profile option WSH: Override Ship to Deliver Workflow enables you to bypass the Ship to Deliver workflow as well as any extensions to the workflow, and continue the delivery through ship confirm.</p>
+<p>The default value of this profile option is No.</p>
+<h3><a id="T465162"></a><b>Workflow-Specific Shipping and Global Parameters</b></h3>
+<p>The Shipping Parameters window and Global Parameters window both include the following Workflow-specific parameters:</p>
+<ul>
+<li>
+<p>Enable Workflows: Select Delivery, Trip, Both, or None.</p>
+</li>
+<li>
+<p>Raise Business Events: Enabling this parameter causes Oracle Workflow to raise business events with the Shipping workflows</p>
+</li>
+<li>
+<p>Enable Ship to Delivery Workflow: Enable this parameter if you are using the Ship to Delivery workflow.</p>
+</li>
+</ul>
+<p>Enable Workflows must be enabled in the Global Parameters window before Enable Workflows, Raise Business Events, and Enable Ship to Delivery Workflow are enabled in the Shipping Parameters window. Enabling Workflows in the Global Parameters does not enable workflows in each organization. The Shipping Parameters are used to enable workflows for each organization.</p>
+<h3><a id="T465163"></a><b>Shipping Execution-Specific Business Events</b></h3>
+<p>The Oracle Workflow Business Event System is an application service that leverages the Oracle Advanced Queuing (AQ) infrastructure to communicate business events between systems. The Business Event System consists of the Event Manager and workflow process event activities.</p>
+<p>The Event Manager contains a registry of business events, systems, named communication agents within those systems, and subscriptions indicating that an event is significant to a particular system. Events can be raised locally or received from an external system or the local system through AQ. When a local event occurs, the subscribing code is executed in the same transaction as the code that raised the event, unless the subscriptions are deferred. Subscriptions can include the following types of processing:</p>
+<ul>
+<li>
+<p>Executing custom code on the event information</p>
+</li>
+<li>
+<p>Sending event information to a workflow process</p>
+</li>
+<li>
+<p>Sending event information to other queues or systems</p>
+</li>
+</ul>
+<p>Business events are represented within workflow processes by event activities. By including event activities in a workflow process, you can model complex processing or routing logic for business events beyond the options of directly running a predefined function or sending the event to a predefined recipient.</p>
+<p>Shipping Execution-specific business events include:</p>
+<ul>
+<li>
+<p><b>wsh.delivery</b></p>
+<ul>
+<li>
+<p>oracle.apps.wsh.delivery.gen.closed: Delivery Closure Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.gen.interfaced: Delivery OM, INV Interface Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.gen.setintransit: Delivery Set to Intransit Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.gen.shipconfirmed: Delivery Ship Confirm Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.itm.submittedscreeningatdelcreate: Delivery Export Screening at Creation Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.itm.submittedscreeningatship: Delivery Export Screening at Confirm Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.pik.pickinitiated: Delivery Pick Initiation Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.gen.create: Delivery Creation Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.gen.open: Delivery Open Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.itm.responsereceivedatShip: Delivery Export Screening Response</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.itm.responsereceivedatdelcreate: Delivery Export Screening Response</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>wsh.trip</b></p>
+<ul>
+<li>
+<p>oracle.apps.wsh.trip.gen.initialpickupstopclosed: Trip Initial Pickup Stop Closure Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.trip.gen.ultimatedropoffstopclosed: Trip Initial Pickup Stop Closure Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.trip.gen.create: Trip Creation Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.trip.gen.shipconfirmed: Trip Ship Confirm Event</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>wsh.stop</b></p>
+<ul>
+<li>
+<p>oracle.apps.wsh.stop.gen.arrived: Stop Arrival Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.stop.gen.closed: Stop Closure Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.stop.gen.create: Stop Creation Event</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>wsh.line</b></p>
+<ul>
+<li>
+<p>oracle.apps.wsh.line.gen.backordered: Line Backorder Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.line.gen.releasedtowarehouse: Line Release to Warehouse Event</p>
+</li>
+<li>
+<p>oracle.apps.wsh.line.gen.staged: Line Pick/Stage Event</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Business event subscription specific to Shipping Workflow are:</p>
+<ul>
+<li>
+<p>oracle.apps.wsh.delivery.gen.closed: WSH_WF_STD.Instance_Default_Rule</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.gen.open: WSH_WF_STD.Instance_Default_Rule</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.gen.interfaced: WSH_WF_STD.Instance_Default_Rule</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.gen.setintransit: WSH_WF_STD.Instance_Default_Rule</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.gen.shipconfirmed: WSH_WF_STD.Instance_Default_Rule</p>
+</li>
+<li>
+<p>oracle.apps.wsh.delivery.pik.pickinitiated: WSH_WF_STD.Instance_Default_Rule</p>
+</li>
+<li>
+<p>oracle.apps.wsh.trip.gen.initialpickupstopclosed: WSH_WF_STD.Instance_Default_Rule</p>
+</li>
+<li>
+<p>oracle.apps.wsh.trip.gen.ultimatedropoffstopclosed: WSH_WF_STD.Instance_Default_Rule</p>
+</li>
+<li>
+<p>oracle.apps.wsh.sup.ssro: WSH_WF_STD.Instance_Default_Rule</p>
+</li>
+</ul>
+<h3><a id="T465164"></a><b>Purging Shipping Execution Workflows</b></h3>
+<p>The concurrent program Purge Obsolete Workflow Runtime Data is used to purge Shipping Execution workflows. Shipping Purge also purges workflows associated with deliveries and trips that have met the purging criteria and are purged.</p>
+<p>See <i>Oracle Shipping User's Guide</i> and <a href="T373258T377250.htm#ontig_wshprg">Purging Shipping Records</a> for information on Shipping Purge.</p>
+<p>See <i>Oracle Workflow Administrator's Guide</i> for information on Purge Obsolete Workflow Runtime Data.</p>
+<h2><a name="4290845"></a><a id="T466776"></a><b>XML Publisher Enabled Shipping Documents</b></h2>
+<p><a name="d0e59920" id="d0e59920"></a><a name="ontig_xmlpubl" id="ontig_xmlpubl"></a>Oracle XML Publisher enables you to extend various Oracle Shipping Execution reports by customizing the report templates and printing reports in PDF. The following list represents those seeded Oracle Shipping Execution report templates within Oracle XML Publisher:</p>
+<ul>
+<li>
+<p>Bill of Lading</p>
+</li>
+<li>
+<p>Commercial Invoice</p>
+</li>
+<li>
+<p>Mailing Label</p>
+</li>
+<li>
+<p>Master Bill of Lading</p>
+</li>
+<li>
+<p>Packing Slip</p>
+</li>
+<li>
+<p>Pick Slip</p>
+</li>
+<li>
+<p>Vehicle Load Sheet Summary</p>
+</li>
+</ul>
+<p><b>Customizing Templates</b></p>
+<p>Templates can be customized in many ways. Depending on your business needs, customize your report templates by:</p>
+<ul>
+<li>
+<p>Including your company logo</p>
+</li>
+<li>
+<p>Moving field prompts</p>
+</li>
+<li>
+<p>Adding new fields</p>
+</li>
+<li>
+<p>Removing unused fields</p>
+</li>
+<li>
+<p>Rearranging the layout</p>
+</li>
+</ul>
+<p><b>Template Flow</b></p>
+<p><img width="97" height="469" src="./img/ontig_printxml.gif" alt="the picture is described in the document text"></p>
+<p><b>Creating Templates for Shipping Documents</b></p>
+<p>There are two ways to create a custom report template:</p>
+<ul>
+<li>
+<p>Create a new template line by line</p>
+</li>
+<li>
+<p>Copy an existing template (in Microsoft Word, for example) and edit the template to meet your business needs, including the layout, fonts, colors, and company logos</p>
+</li>
+</ul>
+<p>It is suggested that you edit existing templates rather than create new templates.</p>
+<p>Once defined or modified, templates are used when printing reports from the Reports and Processes window, Shipping Transactions form, Quick Ship window, and through document sets.</p>
+<p>The management of shipping document templates is performed in Oracle XML Publisher.</p>
+<p><strong><span>Note:</span></strong> Editing software can be used to modify and customize templates. For example, Microsoft Word and Adobe Acrobat.</p>
+<p>The XML templates are assigned to document sets in the Shipping Document Sets window. See: <a href="T373258T374216.htm#t_set_docsets">Defining Shipping Document Sets</a>.</p>
+<p>See: <i>Oracle XML Publisher User's Guide</i></p>
+<h2><a name="4225029"></a><a id="T465165"></a><b>Purging Shipping Records</b></h2>
+<p><a name="d0e60012" id="d0e60012"></a><a name="ontig_wshprg" id="ontig_wshprg"></a>The Shipping Purge concurrent process is used to purge or report and purge records that are no longer needed. The process identifies records that are eligible to be purged and purges them or generates a report on records that are candidates for purge and then purges them. Entities that can be purged are trips, trip stops, deliveries, delivery details (lines), and LPNs/containers.</p>
+<p>The following is a list of exceptions to purging Shipping Execution entities:</p>
+<ul>
+<li>
+<p>Shipping Execution entities generated through Oracle Project Contracts cannot be purged.</p>
+</li>
+<li>
+<p>Oracle Order Management generated Shipping Execution entities can only be purged if the order has been purged and no freight charges are open.</p>
+</li>
+<li>
+<p>In a WMS Enabled organization, delivery information cannot be purged until verification exists that there are no activities on Oracle Warehouse Management LPNs.</p>
+</li>
+</ul>
+<p>See <i>Oracle Shipping Execution User's Guide</i> for information on running the Shipping Purge concurrent process.</p>
+<h3><a id="T465168"></a><b>Purging Trips and Trip Stops</b></h3>
+<p>The following list includes restrictions associated with purging trips and trip stops:</p>
+<ul>
+<li>
+<p>Trip status must be Closed in order to be purged.</p>
+</li>
+<li>
+<p>Trips cannot be purged if they are part of a multi-delivery consolidation and are in progress.</p>
+</li>
+<li>
+<p>In Transit trips are purged if the Purge SRS parameter Purge In Transit Trips is set to Yes. All entities associate with the trip are also purged.</p>
+</li>
+<li>
+<p>Unused trips are purged if the Purge SRS parameter Delete Empty Records is set to Yes.</p>
+</li>
+</ul>
+<h3><a id="T465169"></a><b>Purging Deliveries</b></h3>
+<p>The following list includes restrictions associated with purging deliveries:</p>
+<ul>
+<li>
+<p>Empty deliveries are purged if the Purge SRS parameter Delete Empty Records is set to Yes. If set to no, then empty deliveries will not be purged.</p>
+</li>
+<li>
+<p>All freight bills must be closed before the associated deliveries can be purged.</p>
+</li>
+</ul>
+<h3><a id="T465170"></a><b>Purging LPNs</b></h3>
+<p>The following list includes restrictions associated with purging LPNs:</p>
+<ul>
+<li>
+<p>All information associated with the purged LPNs is purged when the LPN is purged. For example, all associated freight costs, weight, volume, dates, and exceptions associated with an LPN are purged when the LPN is purged.</p>
+</li>
+<li>
+<p>An Oracle Warehouse Management API is called to determine whether Warehouse Management generated LPNs can be purged or not.</p>
+</li>
+</ul>
+<h2><a name="4225074"></a><a id="T465171"></a><b>Parallel Pick Release</b></h2>
+<p><a name="d0e60130" id="d0e60130"></a><a name="wshigparpikrel" id="wshigparpikrel"></a>Parallel pick release enables multiple pick release processes to run simultaneously as child processes through the Pick Release SRS Parameters window and Release Sales Orders window through the concurrent mode. Parallel pick release is available when pick releasing from the Tools menu on the Shipping Transactions form through the concurrent mode.</p>
+<p>Parallel pick release enables you to set a default number of child processes by defining the profile option: WSH: Number of Pick Release Child Processes.</p>
+<p>Parallel pick release cannot be executed from the Shipping Transactions form action Launch Pick Release. Parallel pick release does not run when Pick Release is executed Online.</p>
+<p>Parallel pick release distributes the pick release workload across multiple child processes, reducing the overall length of time it takes to run pick release.</p>
+<h3><a id="T465172"></a><b>Parallel Pick Release Profile Option</b></h3>
+<p>The profile option WSH: Number of Pick Release Child Processes determines the maximum number of child processes that will run. If the number of items in the batch is less than the profile option, then only as many processes will run as there are items. If the number of items is greater than the profile, then the profile will be honored. Although this profile option is the default, the Number of Child Processes field, on the Pick Release SRS window, can be modified. For example, if you set the profile option to four, then each time pick release is run, four child processes run concurrently based on (and grouped by) item and organization if you do not change the Number of Child Processes field.</p>
+<p>The actual number of pick release child processes spawned by pick release depends on each individual pick release batch and the profile setting.</p>
+<p><strong><span>Note:</span></strong> This process does not spawn a child request even though the profile option is set to more than 1, when the Delivery check box in the Pick Slip Grouping window is selected or when Print Pick Slip mode is set to Immediate in the Pick Release tab of Shipping Parameters window.</p>
+<h2><a name="4215180"></a><a id="T464706"></a><b>Message Configuration</b></h2>
+<p><a name="d0e60167" id="d0e60167"></a><a name="wshconfigmsg" id="wshconfigmsg"></a>Oracle Shipping Execution enables you to determine the configuration (Error or Warning) of the following ship confirm actions:</p>
+<ul>
+<li>
+<p>Breaking Proportionality of Ship Model Complete: For example, if you require a specific percent to ship orders complete, then this will display an error at ship confirm if the proportion of the order is not shipping complete.</p>
+</li>
+<li>
+<p>Breaking Ship Sets: For example, if you do not want to send partial ship sets, then setting this message to Error will prevent this by displaying an Error at ship confirm.</p>
+</li>
+<li>
+<p>Missing Inventory Controls: For example, if a delivery contains a delivery line that is missing inventory controls (for example, serial number or lot number), then an error is displayed at ship confirm.</p>
+</li>
+<li>
+<p>Invalid Material Status: If the material status is invalid for any reason, such as, a broken item, then set this message to Error to stop the ship confirm process.</p>
+</li>
+<li>
+<p>Shipping Holds on Order Header or Lines: If the order header or order lines contain shipping holds, then set this message to Error to stop the ship confirm process.</p>
+</li>
+<li>
+<p>Unreleased Delivery Lines: Set this to Error to prevent the ship confirm process from running until all the details of a delivery are released. To proceed with the delivery even if unreleased details exist, set it to Warning.</p>
+</li>
+</ul>
+<p>You determine whether these Shipping events display an Error or Warning message during ship confirm (for all entities, including trips and deliveries). Warning messages enable you to continue, whereas Error messages stop the process until the error is fixed.</p>
+<p>Automated ship confirm is not affected by the configuration of these messages.</p>
+<p>See <a href="T373258T374216.htm#o_roles">Roles and Users</a> for information on configuring ship confirm error/warning messages.</p>
+<h2><a name="3007263"></a><a id="T377295"></a><b>Exception Messages</b></h2>
+<p><a name="d0e60217" id="d0e60217"></a>The following messages have been created to provide feedback to Order Management users when an order line change is rejected.</p>
+<h3><b>Update Not Allowed</b></h3>
+<p>Message: The update is not allowed because the source line is under WMS control.</p>
+<p>This message is returned if the update cannot be executed because the source line is under Oracle Warehouse Management (WMS) control.</p>
+<h3><b>Update Cannot Split Quantities</b></h3>
+<p>Message: The source line cannot be split because quantity conversion has an error.</p>
+<p>This message is returned if the update is rejected because the source line cannot be split due to a quantity conversion issue. This exception happens when the result of a split would create a null or negative quantity.</p>
+<h3><b>Attribute Update Not Allowed</b></h3>
+<p>Message: The update requested cannot be executed now because the source line has at least one delivery line that is in a confirmed delivery or has been shipped.</p>
+<p>This message is returned when the update cannot be executed because the source order line is only partially eligible for a change. The order line is associated at least with a confirmed delivery line or has already been shipped. For a change to be allowed, all delivery lines related to the source order line must be eligible for the change.</p>
+<h3><b>Invalid Source Code</b></h3>
+<p>Message: The Source code 'Source_code_name_string' is not recognized.</p>
+<p>This message is returned when a delivery line update was rejected because it was requested by a product other than Order Management. The source code allowed is restricted to 'OE'. Other products cannot request Shipping changes.</p>
+<h3><b>Invalid Packing Condition Caused by Shipment Attribute Change</b></h3>
+<p>Message: One or more shipment attributes have been changed for delivery line &amp;DETAIL. Please manually unassign the delivery line from container &amp;CONTAINER_ID.</p>
+<p>This packing exception message is returned when Order Management has changed at least one non-enforced Shipment attribute for a delivery line packed in an LPN (container.)</p>
+<p>The update was executed but may require an additional manual step to unassign the delivery line from the LPN.</p>
+<h2><a name="3007269"></a><a id="T377296"></a><b>Change Management Frequently Asked Questions</b></h2>
+<h3><b>How are inventory reservations handled?</b></h3>
+<p>Order Management creates Inventory reservations by calling internal Inventory APIs before interfacing sales order lines into Shipping.</p>
+<p>Shipping manages reservation changes for all lines interfaced to Shipping that have reached an Order Management workflow status of Awaiting Shipping. Reservation changes for allocated or staged lines are allowed through backordering.</p>
+<h3><b>Do overpicked quantities have reservations?</b></h3>
+<p>Yes, Shipping creates reservations for overpicked delivery line quantities. Initially overpicked quantities do not have matching reservations. Shipping creates additional material reservations so that the whole picked inventory is effectively reserved.</p>
+<h3><b>How do individual serial numbers and ranges get split?</b></h3>
+<p>Shipping splits serial numbers ranges and assigns individual numbers when splitting delivery lines with serially controlled items. Serial numbers already assigned to items are kept during splitting. When splitting delivery lines, Shipping handles splits then updates the MTL_SERIAL_NUMBERS_TEMP table. The serial numbers are exploded at Inventory Interface time. Serial numbers assigned to Backorders are deleted during split changes.</p>
+<h3><b>What happens when OM makes a change to a shipping delivery grouping attribute?</b></h3>
+<p>The result of changing a delivery grouping attribute depends if the attribute changed is enforced. There are two types of grouping attributes: mandatory and optionally enforced. Shipment attributes are a sub-category of optional attributes.</p>
+<p>There are five optionally enforced Shipping delivery grouping attributes. The first four are Shipment attributes:</p>
+<ol>
+<li>
+<p>Customer Name</p>
+</li>
+<li>
+<p>Freight Terms</p>
+</li>
+<li>
+<p>FOB Code</p>
+</li>
+<li>
+<p>Ship Method</p>
+</li>
+<li>
+<p>Intermediate Ship To Location</p>
+</li>
+</ol>
+<p>There are two mandatory grouping attributes: Ship From Location and Ship To Location.</p>
+<p>When Order Management requests to change any of the mandatory or optional attributes, Shipping will check the Shipping Parameters' grouping attributes to identify any optional attributes to enforce and perform the following actions:</p>
+<ul>
+<li>
+<p>If the line is assigned to a delivery, then the delivery line will be unassigned from the delivery. Additionally, if the line is packed in a LPN, then a packing exception will be returned. In both cases, the system will automatically unassign the line from the delivery and the LPN.</p>
+</li>
+<li>
+<p>If none of the attributes changed are enforced, then the system will make the change and the delivery line will not be unassigned. Also, if at least one shipment attribute is changed, an invalid packing exception will be logged for the delivery line if it is packed in a container (LPNs). An exception message will remind the user to unassign the delivery line manually.</p>
+</li>
+</ul>
+<h3><b>What happens to the requested quantity when OM requests an ordered quantity change?</b></h3>
+<p>Shipping looks up all the delivery lines related to the source order line in a sequence governed by the line status and makes changes to the requested quantity if possible.</p>
+<p>The line status order ranking criteria is as follows:</p>
+<ul>
+<li>
+<p>Delivery line status: Not assigned, Open, Closed/Confirmed/In Transit.</p>
+</li>
+<li>
+<p>Packed status of the line: Not packed, packed.</p>
+</li>
+<li>
+<p>Planned status of the delivery: Firmed, Unfirmed.</p>
+</li>
+<li>
+<p>Released status of the lines and associated flag status:</p>
+<ul>
+<li>
+<p>Ready to Release (R)</p>
+</li>
+<li>
+<p>Non-transactable/pickable (X)</p>
+</li>
+<li>
+<p>Backordered (B)</p>
+</li>
+<li>
+<p>Released to warehouse (S)</p>
+</li>
+<li>
+<p>Staged (Y)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Ascending order of the requested quantity of the line.</p>
+</li>
+</ul>
+<h3><b>How are changes in source line quantity propagated to the delivery line requested quantity?</b></h3>
+<p>For the related source order line, Shipping looks up the delivery lines in the sequence described and makes a decision as follows:</p>
+<p>Increase in Quantity: Line is updatable: The line is updated if it is unassigned from a delivery or if the delivery is Opened, line is not packed in a LPN container, delivery (if present) is Not Firmed and the line release status is one of Not Ready to be released, Ready to be released and Non Transactable.</p>
+<p>New delivery line: For all cases except updatable delivery line as mentioned, a new delivery line is created with the increased quantity.</p>
+<p>Decrease in Quantity: Ship partial updatable: Lines requested quantity is updatable except for any line part of a shipped delivery (confirmed, closed or in transit). In that case the requested reduction in quantity can be accepted only if it is not more than the sum of those lines that are not shipped.</p>
+<p>Move order line update: The Inventory Move Order Line needs to be updated for lines in status Released to Warehouse.</p>
+<p>Multiple lines: The shipment lines are looked up in sequence and their requested quantities are reduced until the sum of the reduced quantity reaches the requested reduction in the source line quantity.</p>
+<p>Exceptions: An exception is logged along with the reduction in requested quantity for the shipment lines that are either staged, part of a planned delivery, or packed in a container.</p>
+<h3><b>What happens if Order Management tries to make changes to a ship confirmed delivery?</b></h3>
+<p>Changes to Shipped Confirmed or Closed delivery lines are not allowed. Instead a sales order line quantity increase creates a new delivery line.</p>
+<h3><b>How does Shipping handle a change in allocated/picked ship set delivery line?</b></h3>
+<p>For a Ship Set delivery line Allocated or Picked, the Order Management change request is fulfilled according to the Shipping parameter Enforce Ship Set at Picking.</p>
+<ul>
+<li>
+<p>If Ship Set integrity is enforced, the change is not allowed for Allocated or Picked lines.</p>
+</li>
+<li>
+<p>If Ship Set is not enforced, then the change is allowed even if it breaks the Ship Set.</p>
+</li>
+</ul>
+<h3><b>What happens during an organization change?</b></h3>
+<p>When a delivery line is transferred to a different organization, the Move Order Line (MOL) is reset to Ready to Release for the target organization. The reservations in the original organization are deleted</p>
+<p>Inventory reservations are created in the target organization.</p>
+<h3><b>How are reservations handled during split line requests?</b></h3>
+<p>During a delivery line split request the change logic retains and splits existing Inventory reservations. Reservations are associated with the delivery details. The delivery lines are sequenced according to their release status so that the shipped/staged lines with the specified inventory control will retain their reservations. The delivery lines not yet associated with a reservation (Ready to Release, Backordered, or Released to Warehouse) have their reservations split arbitrarily.</p>
+<h3><b>What happens to changes on partially shipped deliveries (split lines)?</b></h3>
+<p>What happens when a change is requested for an order line that spans across two or more deliveries, one of which is ship confirmed or closed but not OM interfaced? Regardless of other delivery lines eligibility for changes, no changes are allowed until the Order Management interface has updated the source order line. This is to prevent data corruption since the source order line has not been updated by the shipped line. The change request can be manually resubmitted successfully once the source order line has been updated by the shipped delivery line.</p>
+<h3><b>Are non-proportional split changes supported?</b></h3>
+<p>Yes, both Order Management and Shipping Execution support non-proportional splits. The delivery lines are kept synchronized with the order lines during Order Management non-proportional set splits by propagating changed attributes to the ship set delivery lines.</p>
+<h2><a name="3007282"></a><a id="T377297"></a><b>Change Effects</b></h2>
+<h3><b>Order is Booked/Scheduled</b></h3>
+<p>Once eligible booked sales orders are interfaced from Order Management to Shipping Execution, the delivery lines are accessible from the Shipping Transactions form. The initial delivery line status is Ready to Release.</p>
+<p><b>Change the organization or subinventory</b></p>
+<p>These changes are supported; changes can be made with no restriction.</p>
+<p><b>Change a line item</b></p>
+<p>Changing customer item is supported as long as the Inventory item is not changed on an existing delivery line. There is no change restriction if there is no delivery line.</p>
+<p><b>Cancel an order line</b></p>
+<p>This change is supported. The delivery lines are set as Canceled.</p>
+<p><b>Decrease delivery line quantity</b></p>
+<p>This change is supported. The delivery line quantity is reduced.</p>
+<p><b>Increase delivery line quantity</b></p>
+<p>This change is supported. The delivery line quantity is increased accordingly.</p>
+<p><b>Move the schedule date later or earlier</b></p>
+<p>This change is supported. The delivery detail is updated with the new scheduling information.</p>
+<h3><b>Unschedule a Delivery Line</b></h3>
+<p>This change is supported. The delivery line status is set to Ready to Release.</p>
+<p><b>Changes to a ship set</b></p>
+<p>If the Shipping Parameter Enforce Ship Set is active, changes to ship sets are allowed in Order Management before the inventory is allocated or before the delivery lines are picked. You can remove an order line from a ship set, regardless of the Shipping Parameter Enforce Ship Sets or the delivery line status prior to ship confirm.</p>
+<p><b>Change ship-to location</b></p>
+<p>This change is supported if the delivery line is not assigned to delivery or a container. If the delivery line is assigned, an exception is logged and the delivery line is unassigned from the delivery.</p>
+<p><b>Split an order line</b></p>
+<p>This change is supported. The delivery line detail is split.</p>
+<h3><b>Delivery Lines are Pick Released</b></h3>
+<p>The following details show how the order changes are supported after delivery lines get pick released. The inventory is allocated when a move order is created during pick release.</p>
+<p><b>Change the organization or subinventory</b></p>
+<p>These changes are supported. The delivery move order allocation status is changed to Canceled, the delivery detail is updated with the new organization and the status is reset to Ready to Release. A new reservation is created only if a reservation existed prior to pick release in previous org.</p>
+<p><b>Change a line item</b></p>
+<p>This change is not directly supported. An item cannot simply be changed for a different one at this stage. The CSR will need to cancel the order line. A new order line should be created with the replacement item.</p>
+<p><b>Cancel an order line</b></p>
+<p>This change is supported. The delivery line is set to status Canceled and the move order line is deleted.</p>
+<p><b>Decrease delivery line quantity</b></p>
+<p>This change is supported identically for backordered lines. The Move Order line quantity is updated and if applicable, the extra serial numbers are unassigned.</p>
+<p><b>Increase delivery line quantity</b></p>
+<p>This change is supported. A new delivery detail with status Ready to Release is created for the extra quantity.</p>
+<p><b>Move the schedule date later or earlier</b></p>
+<p>This change is supported. The delivery detail is updated with the new scheduling information.</p>
+<p><b>Unschedule a delivery line</b></p>
+<p>This change is supported. The move order line status is set to Canceled and the delivery detail status is changed to Ready To Release.</p>
+<p><b>Change within a ship set</b></p>
+<p>This change is supported unless the Ship Set profile option is set to Enforce Ship Set in Shipping. The delivery details are updated with the changes.</p>
+<p><b>Change ship-to location</b></p>
+<p>This change is supported if the delivery line is not assigned to delivery or a container. If the delivery line is assigned, an exception is logged and the delivery line is unassigned from the delivery.</p>
+<p><b>Split an order line</b></p>
+<p>This change is supported. The delivery line detail is split.</p>
+<h3><b>Delivery Lines Released to Warehouse</b></h3>
+<p>This status reflects that the move order lines were created and the delivery lines have been released to the warehouse. Lines may have been successfully allocated but not pick confirmed.</p>
+<p>In this step, the inventory items are picked from inventory location. The picking operation ends with a pick confirmation to progress the delivery line to Staged status.</p>
+<p><b>Change the organization or subinventory</b></p>
+<p>These changes are supported. The delivery move order allocations are deleted, the delivery detail is update with the new organization, and the status is reset to Ready to Release. New reservations are created only if a reservation existed prior to being Released to Warehouse.</p>
+<p><b>Change a line item</b></p>
+<p>This change is not directly supported. An item cannot simply be changed for a different one at this stage. The order line will have to be canceled. A new order line should be created with the replacement item.</p>
+<p><b>Cancel an order line</b></p>
+<p>This change is supported. The delivery details are set as Canceled and the move order line is deleted.</p>
+<p><b>Decrease delivery line quantity</b></p>
+<p>This change is supported. The move order line quantity is updated and if applicable, the extra serial numbers are unassigned.</p>
+<p><b>Increase delivery line quantity</b></p>
+<p>This change is supported. A new delivery detail with status Ready to Release is created for the extra quantity. A new reservation assignment is not added.</p>
+<p><b>Move the schedule date later or earlier</b></p>
+<p>This change is supported. The delivery detail is updated with the new scheduling information.</p>
+<p><b>Unschedule a delivery line</b></p>
+<p>This change is supported. The move order line is deleted and the release status of the delivery detail is changed to Ready To Release.</p>
+<p><b>Change within a ship set</b></p>
+<p>This change is supported unless the Ship Set profile option is set to Enforce Ship Set in Shipping. Both the delivery details and the move order lines are updated with the changes.</p>
+<p><b>Change ship-to location</b></p>
+<p>This change is supported if the delivery line is not assigned to delivery or a container. If the delivery line is assigned, an exception is logged and the delivery line is unassigned from the delivery.</p>
+<p><b>Split an order line</b></p>
+<p>This change is supported. The delivery line detail is split.</p>
+<h3><b>Staged Delivery Lines</b></h3>
+<p>Occurs after pick confirm to reflect the subinventory transfer from source inventory location to staging area has completed. The picked items have been dropped in the staging inventory area. Delivery lines remain staged until they are ship confirmed.</p>
+<p><b>Change the organization or subinventory</b></p>
+<p>These changes are supported. The inventory control information is cleared and the delivery detail is set to status Ready to Release. An exception is logged.</p>
+<p><b>Change a line item</b></p>
+<p>This change is not directly supported. An item cannot simply be changed for a different one at this stage. The order line will have to be canceled. A new order line should be created with the replacement item.</p>
+<p><b>Cancel an order line</b></p>
+<p>This change is supported. The delivery lines are set to Canceled and an exception is logged.</p>
+<p><b>Decrease line quantity</b></p>
+<p>This change is supported. The delivery line quantity is adjusted, if applicable the serial numbers are unassigned. An exception is logged.</p>
+<p><b>Increase delivery line quantity</b></p>
+<p>This change is supported. A new delivery detail with status Ready to Release is created for the extra quantity. A new reservation is not created.</p>
+<p><b>Move the schedule date later or earlier</b></p>
+<p>This change is supported. The delivery detail is updated with the new scheduling information.</p>
+<p><b>Unschedule a delivery line</b></p>
+<p>This change is supported. The status of the delivery detail is changed to become Ready to Release.</p>
+<p><b>Change within a ship set</b></p>
+<p>This change is supported unless the Ship Set profile option is set to Enforce Ship Set in Shipping. The delivery details are updated with the changes.</p>
+<p><b>Change ship-to location</b></p>
+<p>This change is supported if the delivery line is not assigned to delivery or a container. If the delivery line is assigned, an exception is logged and the delivery line is unassigned from the delivery.</p>
+<p><b>Split an order line</b></p>
+<p>The delivery lines are split and remain in Staged status.</p>
+<h3><b>Ship Confirmed, In Transit, or Closed</b></h3>
+<p><strong><span>Note:</span></strong> Companies that choose to support order changes after staging should ship confirm all deliveries in the system as they are moved across the loading dock or before. Ship confirming deliveries after loading or departure can enable you to make changes based on outdated status.</p>
+<p><strong><span>Note:</span></strong> You should ship confirm deliveries at the point when order changes should no longer be allowed through the system. This may be as the inventory is moved through the loading dock or when a seal is applied to the truck trailer door. Failure to update the order status while the order is being loaded will mislead CSRs to believe the delivery is still in house when it is actually in transit.</p>
+<p><b>Delivery at the loading dock</b></p>
+<p>The deliveries have not been and should not be loaded on board the truck.</p>
+<p><b>Delivery on board the truck at the loading dock</b></p>
+<p>The truck should be unloaded or if not practical the delivery drop-off should be canceled and dropped off back at the pick up stop.</p>
+<p><b>Delivery truck in Transit</b></p>
+<p>The delivery carrier should be called and asked not to deliver the goods or turn the truck around.</p>
+<p><b>Delivery dropped off</b></p>
+<p>An RMA should be issued, the delivery should be returned. A separate replacement order should be created.</p>
+<h2><a name="3007289"></a><a id="T377298"></a><b>Change Management and Shipping Execution Actions</b></h2>
+<p>In this section, you can find status tables to quickly capture the results of an Order Management change.</p>
+<p>Sales order line changes in Order Management are not allowed if any related delivery line is either Confirmed or Shipped.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Shipping Actions for a Requested Quantity Change</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Detail Status</b></th>
+<th scope="col"><b>Packed</b></th>
+<th scope="col"><b>Firmed</b></th>
+<th scope="col"><b>Sequence of Selection</b></th>
+<th scope="col"><b>Increase Line Quantity</b></th>
+<th scope="col"><b>Decrease Quantity (but not to zero)</b></th>
+<th scope="col"><b>Decrease Quantity to Zero</b></th>
+</tr>
+<tr valign="top">
+<td>Line unassigned from a delivery or delivery is open</td>
+<td>No</td>
+<td>No</td>
+<td>Not ready to be released</td>
+<td>Increase fully, consider no more shipment lines</td>
+<td>Decrease requested quantity; if not sufficient for the change request, proceed to the next shipment line</td>
+<td>Cancel delivery details</td>
+</tr>
+<tr valign="top">
+<td>Line unassigned from a delivery or delivery is open</td>
+<td>No</td>
+<td>No</td>
+<td>Ready to be released or non- transactable</td>
+<td>Increase fully, consider no more shipment lines</td>
+<td>Decrease requested quantity; if not sufficient for the change request, proceed to the next shipment line</td>
+<td>Cancel delivery details</td>
+</tr>
+<tr valign="top">
+<td>Line unassigned from a delivery or delivery is open</td>
+<td>No</td>
+<td>No</td>
+<td>Backordered</td>
+<td>New delivery detail with full change, consider no more shipment lines</td>
+<td>Decrease requested quantity; if not sufficient for the change request, proceed to the next shipment line</td>
+<td>Cancel delivery details</td>
+</tr>
+<tr valign="top">
+<td>Line unassigned from a delivery or delivery is open</td>
+<td>No</td>
+<td>No</td>
+<td>Released to warehouse</td>
+<td>New delivery details with full change, reservations are not created</td>
+<td>Update move order line<br>
+Unassign serial numbers<br>
+Decrease requested quantity; if not sufficient for the change request, proceed to the next shipment line</td>
+<td>Delete move order line<br>
+Cancel delivery details</td>
+</tr>
+<tr valign="top">
+<td>Line unassigned from a delivery or delivery is open</td>
+<td>No</td>
+<td>No</td>
+<td>Staged/Pick Confirmed</td>
+<td>New delivery detail with full change, consider no more shipment lines</td>
+<td>Log exception<br>
+Decrease requested quantity; if not sufficient for the change request, proceed to the next shipment line</td>
+<td>Log exception<br>
+Cancel delivery details</td>
+</tr>
+<tr valign="top">
+<td>Line unassigned from a delivery or delivery is open</td>
+<td>No</td>
+<td>Yes</td>
+<td>Any other than canceled</td>
+<td>New delivery detail with full change, consider no more shipment lines</td>
+<td>Log exception<br>
+Decrease requested quantity; if not sufficient for the change request, proceed to the next shipment line</td>
+<td>Log exception<br>
+Cancel delivery details</td>
+</tr>
+<tr valign="top">
+<td>Line unassigned from a delivery or delivery is open</td>
+<td>Yes</td>
+<td>Any</td>
+<td>Any other than canceled</td>
+<td>New delivery detail with full change, consider no more shipment lines</td>
+<td>Log exception<br>
+Decrease requested quantity; if not sufficient for the change request, proceed to the next shipment line</td>
+<td>Log exception<br>
+Cancel delivery details</td>
+</tr>
+<tr valign="top">
+<td>Delivery is confirmed, in transit, or closed</td>
+<td>Any</td>
+<td>Any</td>
+<td>Status is closed; create a new sales order</td>
+<td>After Order Management Interface run, new delivery detail with full change, consider no more shipment lines</td>
+<td>Reject, return eligible quantity, and rollback</td>
+<td>Reject, return eligible quantity, and rollback</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>OM Changes vs. Shipping Actions</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Action</b></th>
+<th scope="col"><b>Booked or Scheduled</b></th>
+<th scope="col"><b>Pick Released</b></th>
+<th scope="col"><b>Reservations Allocated</b></th>
+<th scope="col"><b>Pick Confirmed or Staged</b></th>
+</tr>
+<tr valign="top">
+<td>Change organization</td>
+<td>Make change</td>
+<td>Delete move order line<br>
+Update delivery detail with new warehouse<br>
+- Delivery detail should be Ready to Release</td>
+<td>Set status on the move order line to Canceled<br>
+Make delivery detail Ready to Release and change<br>
+- Clear inventory control information<br>
+- OM deletes reservation and recreates a new reservation only if the created reservation existed prior to Pick Release</td>
+<td>Make change<br>
+Log exception<br>
+Unassign if needed<br>
+- Clear inventory information<br>
+- Make delivery detail Ready to Release</td>
+</tr>
+<tr valign="top">
+<td>Change subinventory</td>
+<td>Make change</td>
+<td>Delete move order line<br>
+Update delivery detail with the new subinventory</td>
+<td>Set status on the move order line to Canceled<br>
+Make delivery detail Ready to Release and change<br>
+Clear inventory control information</td>
+<td>Make change<br>
+Log exception<br>
+Unassign if needed<br>
+Clear inventory information<br>
+Make delivery detail Ready to Release</td>
+</tr>
+<tr valign="top">
+<td>Change inventory line item (only Customer Item can be changed)</td>
+<td>Change not allowed in Order Management with delivery in that status</td>
+<td>Change not allowed in Order Management with delivery in that status</td>
+<td>Change not allowed in Order Management with delivery in that status</td>
+<td>Change not allowed in Order Management with delivery in that status</td>
+</tr>
+<tr valign="top">
+<td>Unschedule</td>
+<td>Set delivery detail released status to Ready to Release</td>
+<td>Delete move order line<br>
+Update delivery detail released status as Ready to Release and change</td>
+<td>Set Status on the move order line to canceled<br>
+Make delivery detail Ready to Release and change</td>
+<td>Make change<br>
+Log exception<br>
+Unassign if needed<br>
+Reset status to Ready to Release</td>
+</tr>
+<tr valign="top">
+<td>Schedule date change: Date pulled in</td>
+<td>Update delivery detail with new scheduling information</td>
+<td>Update delivery detail with new scheduling information</td>
+<td>Update delivery detail with new scheduling information</td>
+<td>Update delivery detail with new scheduling information</td>
+</tr>
+<tr valign="top">
+<td>Schedule date change: date pushed out</td>
+<td>Update delivery detail with new scheduling information<br>
+Log an exception</td>
+<td>Update delivery detail with new scheduling information<br>
+Log an exception</td>
+<td>Update delivery detail with new scheduling information<br>
+Log an exception</td>
+<td>Update delivery detail with new scheduling information<br>
+Log an exception</td>
+</tr>
+<tr valign="top">
+<td>Increase quantity</td>
+<td>Increase delivery details quantity</td>
+<td>Create new delivery detail with status Ready for Release for the extra quantity<br>
+Create new assignments if needed</td>
+<td>&lt;blank&gt;</td>
+<td>&lt;blank&gt;</td>
+</tr>
+<tr valign="top">
+<td>Decrease quantity or cancel line</td>
+<td>Decrease quantity<br>
+Set delivery details status to canceled if delivery detail is completely canceled</td>
+<td>Decrease quantity and update move order line<br>
+Unassign and unmark serial number if needed<br>
+Set delivery details status to Canceled if delivery detail is completely canceled<br>
+Delete move order line if completely canceled</td>
+<td>Decrease quantity and update move order line<br>
+Unassign and unmark serial number if needed<br>
+Set delivery details status to Canceled if delivery detail is completely canceled<br>
+Delete move order line if completely canceled</td>
+<td>Decrease quantity<br>
+Log exception<br>
+Unassign and unmark serial number if needed<br>
+Set delivery details status to Canceled if delivery detail is completely canceled</td>
+</tr>
+<tr valign="top">
+<td>Ship set</td>
+<td>Make change</td>
+<td>Update delivery details<br>
+Update move order lines if enforce ship set</td>
+<td>Update delivery details</td>
+<td>Update the set</td>
+</tr>
+<tr valign="top">
+<td>Split line</td>
+<td>Make change and split delivery details</td>
+<td>Make change, split delivery details and unrelease (set to Ready to Release)</td>
+<td>Make change, split delivery details and unrelease (set to Ready to Release)</td>
+<td>Make change and split delivery detail</td>
+</tr>
+<tr valign="top">
+<td>Delivery grouping attributes</td>
+<td>Make change and split delivery details</td>
+<td>Make change, split delivery details and unrelease (set to Ready to Release)</td>
+<td>Make change, split delivery details and unrelease (set to Ready to Release)</td>
+<td>Make change and split delivery detail</td>
+</tr>
+<tr valign="top">
+<td>Organization, implicit, mandatory</td>
+<td>If assigned to delivery or container, log an exception and unassign from delivery</td>
+<td>If assigned to delivery or container, log an exception and unassign from delivery</td>
+<td>If assigned to delivery or container, log an exception and unassign from delivery</td>
+<td>If assigned to delivery or container, log an exception and unassign from delivery</td>
+</tr>
+<tr valign="top">
+<td>Ship from location, implicit, mandatory</td>
+<td>If assigned to delivery or container, log an exception and unassign from delivery</td>
+<td>If assigned to delivery or container, log an exception and unassign from delivery</td>
+<td>If assigned to delivery or container, log an exception and unassign from delivery</td>
+<td>If assigned to delivery or container, log an exception and unassign from delivery</td>
+</tr>
+<tr valign="top">
+<td>Ship to location, implicit, mandatory</td>
+<td>If not assigned to delivery or container, make change.<br>
+If assigned to delivery or container, log an exception and unassign from delivery</td>
+<td>If not assigned to delivery or container, make change.<br>
+If assigned to delivery or container, log an exception and unassign from delivery</td>
+<td>If not assigned to delivery or container, make change.<br>
+If assigned to delivery or container, log an exception and unassign from delivery</td>
+<td>If not assigned to delivery or container, make change.<br>
+If assigned to delivery or container, log an exception and unassign from delivery</td>
+</tr>
+<tr valign="top">
+<td>Intermediate ship to location, implicit, optional</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+</tr>
+<tr valign="top">
+<td>Customer, explicit, optional</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+</tr>
+<tr valign="top">
+<td>Freight terms, implicit, optional</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+</tr>
+<tr valign="top">
+<td>FOB code, explicit, optional</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+</tr>
+<tr valign="top">
+<td>Ship method, explicit, optional</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+</tr>
+<tr valign="top">
+<td>Carrier, explicit</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+</tr>
+<tr valign="top">
+<td>Delivery, implicit, mandatory when assigned to delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+</tr>
+<tr valign="top">
+<td>Legend for delivery grouping attributes</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+<td>If enforced, unassign from the delivery</td>
+</tr>
+<tr valign="top">
+<td>Implicit: Automatically included, not part of shipping parameters</td>
+<td>Mandatory: Always Yes</td>
+<td>Optional: Can be Yes or No, usually set for each organization in the shipping parameters</td>
+<td>&lt;blank&gt;</td>
+<td>&lt;blank&gt;</td>
+</tr>
+</table>
+<h2><a name="3007293"></a><a id="T377299"></a><b>Backorders</b></h2>
+<p><a name="d0e61388" id="d0e61388"></a>This section describes the functional flow of the backorder process in Shipping Execution.</p>
+<p>The Backorder status:</p>
+<ul>
+<li>
+<p>Provides Order Management with better visibility to the status of a shipment line</p>
+</li>
+<li>
+<p>Provides cross docking capability within Oracle Warehouse Management against backordered delivery details upon receiving new material</p>
+</li>
+<li>
+<p>Provides feedback to production planners and schedulers what items need replenishing</p>
+</li>
+</ul>
+<h3><b>Pick Release Statuses</b></h3>
+<p>The following list displays the various pick release statuses along with a description for the status and an event that will cause the status to display on the delivery line.</p>
+<ul>
+<li>
+<p><b>Not Ready for Release:</b> This status occurs when a delivery line is manually imported into Shipping Execution using the Import Delivery Line program prior to the line reaching the awaiting shipping activity in Order Management.</p>
+</li>
+<li>
+<p><b>Ready for Release:</b> The order line has reached the Shipping Workflow activity in Order Management, meaning that the line has been booked, scheduled, and imported into Shipping Execution. Pick release can be initiated as the next step in this process. The pick release process creates a move order header and move order line in Oracle Inventory. This is a common status that occurs when performing a two-step pick release process. It indicates that inventory allocation has occurred; however, pick conformation has not yet taken place.</p>
+</li>
+<li>
+<p><b>Planned for Crossdocking:</b> A crossdock supply has been identified and the delivery line has been pick released.</p>
+</li>
+<li>
+<p><b>Released to Warehouse:</b> Release has started but not completed. Either no allocations were created or allocations have not been pick confirmed.</p>
+</li>
+<li>
+<p><b>Staged/Pick Confirmed:</b> The line receives the status of Staged once inventory has been allocated and pick confirmed. The allocation step and the pick confirmation step can be done manually or automatically based on business needs. Auto allocation and auto pick confirm are determined by set up steps in the Shipping Parameters form.</p>
+</li>
+<li>
+<p><b>Backordered:</b> The status of Backordered is assigned to a line under the following circumstances:</p>
+<ul>
+<li>
+<p>The Pick Release process attempted to allocate inventory to the line and all or a partial quantity of the item was not available. In this case the system automatically backorders the discrepant quantity.</p>
+</li>
+<li>
+<p>At ship confirm you enter a shipped quantity for an item that is less than the original requested quantity.</p>
+</li>
+<li>
+<p>You backorder an entire delivery.</p>
+</li>
+<li>
+<p>You record a missing quantity by transferring a reservation to cycle count.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>Shipped:</b> The delivery that the line is assigned to has been set to intransit, and the OM Interface and Inventory Interface processes have been deferred.</p>
+</li>
+<li>
+<p><b>Not Applicable:</b> The Not Applicable status applies to non-transactable order lines. For example, lines that are invoiced but not physically shipped. Items such as service and warranty would have a status of Not Applicable.</p>
+</li>
+<li>
+<p><b>Interfaced:</b> The delivery line is shipped and the OM Interface and Inventory Interface concurrent processes have completed.</p>
+</li>
+<li>
+<p><b>Canceled:</b> The Canceled status applies when the order line has been canceled in Order Management.</p>
+</li>
+</ul>
+<p><b>Delivery Detail Status Flow</b></p>
+<p><img width="491" height="640" src="./img/ontig_boflw.gif" alt="the picture is described in the document text"></p>
+<h2><a name="3007296"></a><a id="T454877"></a><b>Backorder at Pick Release</b></h2>
+<p><a name="d0e61486" id="d0e61486"></a>One way a delivery line detail can receive a picking status of Backordered is by auto-backorder. When the system determines insufficient inventory exists at the time of inventory allocation, it automatically splits the line if partial quantities are released and changes the status to Backordered for the unreleased quantity.</p>
+<h3><b>Picking Steps</b></h3>
+<ol>
+<li>
+<p>Pick release creates pick wave move order header.</p>
+</li>
+<li>
+<p>Pick release creates move order line.</p>
+</li>
+<li>
+<p>Move order line is allocated at pick release or at a subsequent step.</p>
+</li>
+<li>
+<p>Inventory updates Shipping Execution with the results of allocation. If a shortage exists (the quantity requested is greater than the quantity allocated on the move order line) Shipping performs the auto-backorder routine.</p>
+</li>
+</ol>
+<h2><a name="3007299"></a><a id="T454890"></a><b>Backorder at Ship Confirmation</b></h2>
+<p><a name="d0e61514" id="d0e61514"></a>Backordering also happens at ship confirmation either by backordering the entire delivery, in which case all delivery lines that are associated with the delivery will receive a picking status of Backordered. Or you can enter a shipped quantity of less than the requested quantity to backorder a partial quantity of the items being shipped.</p>
+<h3><b>Picking Steps</b></h3>
+<ol>
+<li>
+<p>Pick release creates pick wave move order header and lines</p>
+</li>
+<li>
+<p>Move order line is detailed</p>
+</li>
+<li>
+<p>Move order line is pick confirmed</p>
+</li>
+<li>
+<p>Delivery is backordered at ship confirmation</p>
+</li>
+<li>
+<p>If the status is firmed, keep the LPN and delivery assignment. Otherwise, unpack if packed.</p>
+</li>
+<li>
+<p>Change line status to Backordered.</p>
+</li>
+</ol>
+<p><b>Backorder Flow</b></p>
+<p><img width="412" height="227" src="./img/ontig_boflowv2.gif" alt="the picture is described in the document text"></p>
+<p>In the physical flow of the backorder process, material may or may not exist. In the case where the material does not exist, the backorder process is used to identify inventory discrepancies. For example, the system allocates the complete requested quantity at pick release based on availability. When the picker physically accesses the picking location, the quantity available to ship is less than the quantity the system determined as available. The shipper enters the actual quantity available in the shipped quantity field. The result of the ship confirm action is as follows:</p>
+<ul>
+<li>
+<p>The line is split into two. One line will indicate the entered quantity as shipped quantity and have a pick status of shipped and the other line will indicate the unshipped quantity with a status of backordered.</p>
+</li>
+<li>
+<p>Another case is when the material being shipped is available and material is being backordered for specific business reasons. For example, all available material has been allocated to a specific customer when you find out additional supply for other orders will be delayed. Another customer will have a down production line situation if some of the allocated material doesn't get to them right away. A decision could be made to ship a partial quantity to one customer and backorder enough quantity to accommodate the down line situation. At the ship confirmation step, you enter a partial ship quantity for the material. At ship confirmation, the line is split into two lines. One with a status of Shipped for the entered quantity's and one with a status of Backordered for the unshipped lines.</p>
+</li>
+<li>
+<p>The physical material for the backordered material systematically resides in the staging location. A manual subinventory transfer is required if the desired location of the backordered material is another location.</p>
+</li>
+<li>
+<p>Pick release could be run again for the down line customer and the system will allocate the material that was previously allocated to the backordered lines to the down line customer.</p>
+</li>
+</ul>
+<p>This diagram illustrates the transaction flow for backorders.</p>
+<p><b>Transaction Flow for Backorders</b></p>
+<p><img width="789" height="1009" src="./img/ontig_bfli.gif" alt="the picture is described in the document text"></p>
+<h2><a name="3007303"></a><a id="T377302"></a><b>Scenario 1: Shortage at Detailing</b></h2>
+<p>A sales order line for 10 units of item A is booked and released. Only seven units exist in inventory. The order is allocated, pick confirmed and ship confirmed.</p>
+<h3><b>Post Detailing</b></h3>
+<p>During allocation, seven units are found. Inventory updated shipping with the results of the detail. Auto backorder split the delivery line and called OM to split the sales order line. Oracle Shipping then reduced the requested quantity on the move order line. These tables show post detailing data for sales order lines, delivery lines, move order lines, and move order line details.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Sales Order Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>Quantity</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>10</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Delivery Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>SO Line</b></th>
+<th scope="col"><b>Qty</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Staged Qty</b></th>
+<th scope="col"><b>Status</b></th>
+<th scope="col"><b>Subinventory</b></th>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>1</td>
+<td>7</td>
+<td>1000</td>
+<td>0</td>
+<td>Released to Warehouse</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>101</td>
+<td>1.1</td>
+<td>3</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Backordered</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Move Order Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Req Qty</b></th>
+<th scope="col"><b>Detailed Qty</b></th>
+<th scope="col"><b>Delivered Qty</b></th>
+</tr>
+<tr valign="top">
+<td>1000</td>
+<td>7</td>
+<td>7</td>
+<td>0</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Move Order Line Details (MMTT)</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Qty</b></th>
+<th scope="col"><b>From Loc</b></th>
+<th scope="col"><b>To Loc</b></th>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>1000</td>
+<td>7</td>
+<td>Stores</td>
+<td>Stage</td>
+</tr>
+</table>
+<h3><b>Pick Confirm</b></h3>
+<p>You pick confirm the seven units. Because the move order line was changed at detailing, the move order line is closed at pick confirm even though all 10 units were not found. These tables show pick confirm data for sales order lines, delivery lines, move order lines, and move order line details.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Sales Order Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>Quantity</b></th>
+</tr>
+<tr valign="top">
+<td>1.1</td>
+<td>10</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Delivery Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>SO Line</b></th>
+<th scope="col"><b>Qty</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Staged Qty</b></th>
+<th scope="col"><b>Status</b></th>
+<th scope="col"><b>Subinventory</b></th>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>1.1</td>
+<td>7</td>
+<td>1000</td>
+<td>7</td>
+<td>Staged</td>
+<td>Stage</td>
+</tr>
+<tr valign="top">
+<td>101</td>
+<td>1.1</td>
+<td>3</td>
+<td>&nbsp;</td>
+<td>0</td>
+<td>Backordered</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Move Order Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Req Qty</b></th>
+<th scope="col"><b>Detailed Qty</b></th>
+<th scope="col"><b>Delivered Qty</b></th>
+</tr>
+<tr valign="top">
+<td>1000</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Move Order Line Details</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Qty</b></th>
+<th scope="col"><b>From Loc</b></th>
+<th scope="col"><b>To Loc</b></th>
+</tr>
+<tr valign="top">
+<td>10000</td>
+<td>1000</td>
+<td>7</td>
+<td>Stores</td>
+<td>Stage</td>
+</tr>
+</table>
+<h3><b>Ship Confirm</b></h3>
+<p>You now ship confirm the seven units. These tables show ship confirm data for sales order lines, delivery lines, move order lines, and move order line details.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Sales Order Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>Quantity</b></th>
+</tr>
+<tr valign="top">
+<td>1.1</td>
+<td>10</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Delivery Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>SO Line</b></th>
+<th scope="col"><b>Qty</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Staged Qty</b></th>
+<th scope="col"><b>Status</b></th>
+<th scope="col"><b>Subinventory</b></th>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>1.1</td>
+<td>7</td>
+<td>1000</td>
+<td>7</td>
+<td>Shipped</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>101</td>
+<td>1.1</td>
+<td>3</td>
+<td>&nbsp;</td>
+<td>0</td>
+<td>Backordered</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Move Order Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Req Qty</b></th>
+<th scope="col"><b>Detailed Qty</b></th>
+<th scope="col"><b>Delivered Qty</b></th>
+</tr>
+<tr valign="top">
+<td>1000</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Move Order Line Details</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Qty</b></th>
+<th scope="col"><b>From Loc</b></th>
+<th scope="col"><b>To Loc</b></th>
+</tr>
+<tr valign="top">
+<td>10000</td>
+<td>1000</td>
+<td>7</td>
+<td>Stores</td>
+<td>Stage</td>
+</tr>
+</table>
+<h2><a name="3007319"></a><a id="T377303"></a><b>Scenario 2: Shortage Reported at Pick Confirm</b></h2>
+<p>A sales order line for 10 units of item A is booked and released. Seven units are found during detailing but at pick confirmation you report a missing quantity of one and can only pick confirm six units for the order.</p>
+<h3><b>Post Detailing</b></h3>
+<p>Allocation completes successfully and all 10 units are found. These tables show post detailing data for sales order lines, delivery lines, move order lines, and move order line details.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Sales Order Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>Quantity</b></th>
+</tr>
+<tr valign="top">
+<td>1.1</td>
+<td>10</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Delivery Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>SO Line</b></th>
+<th scope="col"><b>Qty</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Staged Qty</b></th>
+<th scope="col"><b>Status</b></th>
+<th scope="col"><b>Subinventory</b></th>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>1.1</td>
+<td>10</td>
+<td>1000</td>
+<td>0</td>
+<td>Released to Warehouse</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Move Order Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Req Qty</b></th>
+<th scope="col"><b>Detailed Qty</b></th>
+<th scope="col"><b>Delivered Qty</b></th>
+</tr>
+<tr valign="top">
+<td>1000</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Move Order Line Details</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Qty</b></th>
+<th scope="col"><b>From Loc</b></th>
+<th scope="col"><b>To Loc</b></th>
+</tr>
+<tr valign="top">
+<td>10000</td>
+<td>1000</td>
+<td>10</td>
+<td>Stores</td>
+<td>Stage</td>
+</tr>
+</table>
+<h3><b>Pick Confirm</b></h3>
+<p>You were instructed to find 10 units but could only find seven. A missing quantity is reported. When you asked the system to redetail the balance, the system could not find more quantity of the item (the results would be the same if you had not prompted the system to find the balance.) These tables show pick confirm data for sales order lines, delivery lines, move order lines, and move order line details.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Sales Order Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>Quantity</b></th>
+</tr>
+<tr valign="top">
+<td>1.1</td>
+<td>10</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Delivery Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>SO Line</b></th>
+<th scope="col"><b>Qty</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Staged Qty</b></th>
+<th scope="col"><b>Status</b></th>
+<th scope="col"><b>Subinventory</b></th>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>1.1</td>
+<td>7</td>
+<td>1000</td>
+<td>7</td>
+<td>Staged</td>
+<td>Stage</td>
+</tr>
+<tr valign="top">
+<td>101</td>
+<td>1.1</td>
+<td>3</td>
+<td>&nbsp;</td>
+<td>0</td>
+<td>Backordered</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Move Order Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Req Qty</b></th>
+<th scope="col"><b>Detailed Qty</b></th>
+<th scope="col"><b>Delivered Qty</b></th>
+</tr>
+<tr valign="top">
+<td>1000</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Move Order Line Details</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Qty</b></th>
+<th scope="col"><b>From Loc</b></th>
+<th scope="col"><b>To Loc</b></th>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>1000</td>
+<td>7</td>
+<td>Stores</td>
+<td>Stage</td>
+</tr>
+</table>
+<h3><b>Ship Confirm</b></h3>
+<p>You now ship confirm the seven units that were available to ship in the staging location. These tables show ship confirm data for sales order lines, delivery lines, move order lines, and move order line details.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Sales Order Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>Quantity</b></th>
+</tr>
+<tr valign="top">
+<td>1.1</td>
+<td>10</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Delivery Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>SO Line</b></th>
+<th scope="col"><b>Qty</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Staged Qty</b></th>
+<th scope="col"><b>Status</b></th>
+<th scope="col"><b>Subinventory</b></th>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>1.1</td>
+<td>7</td>
+<td>1000</td>
+<td>&nbsp;</td>
+<td>Shipped</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>101</td>
+<td>1.1</td>
+<td>3</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Backordered</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Move Order Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Req Qty</b></th>
+<th scope="col"><b>Detailed Qty</b></th>
+<th scope="col"><b>Delivered Qty</b></th>
+</tr>
+<tr valign="top">
+<td>1000</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Move Order Line Details (MMTT)</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>MO Line</b></th>
+<th scope="col"><b>Qty</b></th>
+<th scope="col"><b>From Loc</b></th>
+<th scope="col"><b>To Loc</b></th>
+</tr>
+<tr valign="top">
+<td>100</td>
+<td>1000</td>
+<td>7</td>
+<td>Stores</td>
+<td>Stage</td>
+</tr>
+</table>
+<h2><a name="3007339"></a><a id="T377304"></a><b>Backorders and Over Picking</b></h2>
+<p><a name="d0e62647" id="d0e62647"></a>After pick-confirm step, the picked quantity should always be greater or equal to the requested quantity.</p>
+<p>If not enough quantity was picked, the delivery line will be split at pick confirm. The delivery line will be updated to Staged with the picked quantity and a new backordered delivery line will be created.</p>
+<p>If a delivery line is fulfilled by the picked quantity and there is a pending quantity, a new delivery line pending over pick is created.</p>
+<p>When either one of the picked quantity or the pending quantity is null the following rule is used to handle delivery lines:</p>
+<ul>
+<li>
+<p>Backorder the delivery line if its picked quantity is null and the requested quantity is greater than zero.</p>
+</li>
+<li>
+<p>Delete the delivery line if its requested quantity is zero and the picked quantity is greater than zero.</p>
+</li>
+</ul>
+<h2><a name="3007340"></a><a id="T377305"></a><b>Consolidating Backorders</b></h2>
+<p><a name="d0e62672" id="d0e62672"></a><a name="d0e62677" id="d0e62677"></a>Consolidation of backordered delivery details can be performed systematically during pick release, cycle count, and ship confirm. The option to consolidate backordered lines is controlled using a <a href="T373258T374216.htm#t_defglsh">Global Shipping Parameter</a> named Consolidate Backordered Lines. If you enable the Consolidate Backordered Lines parameter, then any delivery line that was split and subsequently backordered will be automatically consolidated with other backordered lines that it was part of originally.</p>
+<p>When this feature is enabled and a backorder occurs, Oracle Shipping Execution searches the database for existing delivery line backorders for the particular detail line. If an qualified existing backorder is found, then the current backordered delivery detail is consolidated with the existing backordered delivery detail. However, a backordered line that remains packed after backordering will not get consolidated.</p>
+<p>See: Consolidating Backorders, <i>Oracle Shipping Execution User's Guide</i></p>
+<h2><a name="3007335"></a><a id="T377327"></a><b>Backorders and Cycle Counting</b></h2>
+<p><a name="d0e62696" id="d0e62696"></a>The ability to identify and remedy inventory discrepancies as part of the picking and shipping process is available in Oracle Shipping Execution.</p>
+<p>The process to send a reservation to cycle count and backorder lines that were released as a result of discrepant inventory is as follows.</p>
+<h3><b>Within the Shipping Transactions form:</b></h3>
+<ol>
+<li>
+<p>Select a line with a pick status of staged.</p>
+</li>
+<li>
+<p>Select Cycle Count from the action menu.</p>
+</li>
+<li>
+<p>Click Go.</p>
+<p>The Transfer to Cycle Count window opens. In this figure, the delivery has a delivery detail with a requested quantity of two.</p>
+<p><b>Transfer to Cycle Count Window</b></p>
+<p><img width="575" height="223" src="./img/ontig_bo01.gif" alt="the picture is described in the document text"></p>
+<p>If you enter a quantity less than two, then the delivery detail will split as one staged, and one backordered.</p>
+<p>If you enter a quantity of 2, then the delivery will be completely backordered.</p>
+<p>In both cases the reservation for the quantity that you see backordered, is transferred to cycle count. This can be verified from the inventory Supply/Demand form.</p>
+<p>There are two other ways to transfer backordered quantities to cycle count:</p>
+<ul>
+<li>
+<p>There is a radio button titled Cycle Count All under the Ship Options in the Confirm Delivery dialog box. By selecting this at ship confirm, the reservations for all lines in the delivery will be transferred to cycle count and the entire delivery will be backordered.</p>
+</li>
+<li>
+<p>In the unspecified quantities drop down box there is a Cycle Count selection. By choosing cycle count from here, any line that does not have a shipped quantity specified will be backordered and the reservation transferred to cycle count.</p>
+<p><strong><span>Note:</span></strong> If a delivery line is Firm status (planned delivery line) and you transfer the line to cycle count, the delivery line will be un-assigned from the delivery.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2><a name="3007341"></a><a id="T377306"></a><b>Order Management and Shipping Execution Line Status</b></h2>
+<p><a name="d0e62753" id="d0e62753"></a>Oracle Order Management and Oracle Shipping Execution provide line statuses to best reflect the stage of the process for the order line and delivery line.</p>
+<p>This section covers the flow and definitions of the order line and delivery line status from time of order entry to invoice.</p>
+<p>Three tables are provided at the end of this chapter to serve as a quick reference for viewing actions and associated line status within the Order Organizer, Sales Orders window, and Shipping Transactions form.</p>
+<h2><a name="3007342"></a><a id="T377307"></a><b>Standard Line Status Flow (also includes PTO)</b></h2>
+<p><a name="d0e62767" id="d0e62767"></a>Oracle Order Management captures the order line status in the Sales Order Pad on the Line Items Main tab in the Status field and in the Order Organizer on the Summary and Line tabs. Oracle Shipping Execution displays the delivery line status in the Shipping Transactions form on the Lines/LPN Main tab in the Line Status field and in the Quick Ship window in the Line Status field within the Delivery Lines/LPNs region. For a standard flow the statuses are:</p>
+<p>Begin by placing the order in Order Management (OM):</p>
+<ul>
+<li>
+<p><b>Entered (OM):</b> Order is saved but not booked.</p>
+</li>
+<li>
+<p><b>Booked (OM):</b> Order is booked.</p>
+</li>
+<li>
+<p><b>Scheduled (OM):</b> You can customize the Workflow to show the Scheduled status which indicates that the order line has been successfully scheduled by adding a customized activity after the Schedule activity. This activity will make a process order API call to update the status to Scheduled. When the ship line logic starts, the order line status changes to Awaiting Shipping.</p>
+</li>
+<li>
+<p><b>Awaiting Shipping (OM):</b> Order is booked and scheduled but lines have not been picked. This status is also displayed after the line has been ship confirmed but before the Order Management interface has been run.</p>
+</li>
+<li>
+<p><b>Picked (OM):</b> Order is booked and lines are picked.</p>
+</li>
+<li>
+<p><b>Open (OM):</b> This status of a delivery on the Additional Line Information form indicates that none of the delivery lines associated with that delivery have been ship confirmed.</p>
+</li>
+</ul>
+<p>Navigating to Shipping Execution, the delivery line status flow is:</p>
+<ul>
+<li>
+<p><b>Ready to Release (SE):</b> Order line is booked and passed to Shipping Execution. It is now a delivery line that is eligible for pick release.</p>
+</li>
+<li>
+<p><b>Not Ready to Release (SE):</b> A delivery line might be in this status when it is interfaced manually into Shipping Execution, is not scheduled, and has no reservations. When lines are imported automatically from Order Management this status is not used.</p>
+</li>
+<li>
+<p><b>Backordered (SE):</b> The delivery line is pick released but no allocations were created or partial allocations occurred. As an example, if a delivery line has a quantity of 100, and at pick release only 25 are available for allocation, the original delivery line splits to create a new line (quantity of 75) for the unallocated portion with a status of Backordered. The quantity on the original delivery line changes to 25 to reflect the allocated portion with a status of Staged/Pick Confirmed.</p>
+</li>
+<li>
+<p><b>Staged/Pick Confirmed (SE):</b> The delivery line is successfully pick released. It occurs after pick confirm to indicate subinventory transfer from source location to staging location is complete. Lines remain staged until they are ship confirmed.</p>
+</li>
+<li>
+<p><b>Released to Warehouse (SE):</b> Pick release has started but not completed. Either no allocations were created or allocations have not been pick confirmed.</p>
+<p><strong><span>Note:</span></strong> Both Backordered and Staged/Pick Confirmed statuses provide the ability to perform opportunistic cross-docking for warehouse organizations with Oracle Warehouse Management (WMS) installed.</p>
+</li>
+<li>
+<p><b>Shipped (SE):</b> This line status indicates that the delivery associated with the delivery lines is ship confirmed.</p>
+</li>
+<li>
+<p><b>Interfaced (SE):</b> If delivery was sourced from Oracle OM: The delivery line is shipped and the OM Interface and Inventory Interface concurrent processes have completed. If delivery was sourced from an Oracle Application other than OM: The delivery line is shipped and the Inventory Interface concurrent process has completed.</p>
+</li>
+<li>
+<p><b>Canceled (SE):</b> This status indicates that the delivery line was cancelled.</p>
+</li>
+</ul>
+<p>Navigate back to Order Management and query the order that results in Order Management pulling updated pick release information from Shipping Execution:</p>
+<ul>
+<li>
+<p><b>Picked (OM):</b> Pick release has completed normally (both allocation and pick confirm). The delivery associated with the delivery line(s) may have also been ship confirmed but the delivery may not be set to In Transit and the trip may not be closed.</p>
+</li>
+<li>
+<p><b>Picked Partial (OM):</b> This status occurs when a delivery line is not allocated the full quantity during pick release and ship confirm has not occurred.</p>
+<p>The delivery line splits during ship confirm and the information passes to Order Management through the Process Order API. The order line splits to reflect the changes that occurred during the Shipping process. As an example, a customer orders quantity 50. There are 20 on hand in inventory. The delivery line splits into two delivery lines and therefore represents two order lines in Order Management. The order line with quantity 20 has the status of Picked or Shipped depending on whether or not the delivery line is ship confirmed, the delivery set to In Transit, and the trip closed. The second order line with a quantity of 30 has status of Awaiting Shipping.</p>
+</li>
+</ul>
+<p>Shipping Execution passes the status information to Order Management when ship confirm is complete:</p>
+<ul>
+<li>
+<p><b>Shipped (OM):</b> The delivery associated with the line is ship confirmed. The delivery status is set to In Transit. This status appears at the line level as well as in the Additional Line Information at the Pick Status field.</p>
+</li>
+<li>
+<p><b>Awaiting Shipping (OM):</b> Awaiting information from shipping. This status will remain until the Order Management interface is run.</p>
+</li>
+<li>
+<p><b>Awaiting Fulfillment (OM):</b> Not all shippable lines in a fulfillment set or a configuration are fulfilled. The current line is waiting for other lines in the fulfillment set or the configuration to be fulfilled. This is a synchronization step within the Workflow process.</p>
+</li>
+<li>
+<p><b>Fulfilled (OM):</b> All lines in a fulfillment set are fulfilled.</p>
+<p>Fulfillment sets are defined as a group of order lines that are fulfilled together. Items that are not shippable can be in fulfillment sets with shippable items, and then will not be fulfilled (and therefore invoiced) until the shippable items are fulfilled. A line can belong to either a ship set or an arrival set, but can belong to multiple fulfillment sets.</p>
+</li>
+<li>
+<p><b>Interfaced to Receivables (OM):</b> Order Management has written information to the Receivables Interface tables. You should run Auto Invoice (from Receivables) to generate the Invoice.</p>
+</li>
+<li>
+<p><b>Partially Interfaced to Receivables (OM):</b> This status is used in a PTO flow and indicates that the particular PTO item is required for revenue.</p>
+</li>
+<li>
+<p><b>Closed (OM):</b> Closed indicates that the line is closed. It does not necessarily indicate that the line is interfaced to Accounts Receivable (AR) since you must close line activity in a no-bill flow.</p>
+</li>
+<li>
+<p><b>Canceled (OM):</b> Indicates that the line is completely canceled. No further processing will occur for this line.</p>
+</li>
+<li>
+<p><b>Backordered (OM):</b> If all the delivery details corresponding to an order line are Backordered, the flow status of the line will be displayed as Backordered.</p>
+</li>
+<li>
+<p><b>Released to Warehouse (OM):</b> If all of the delivery details corresponding to an order line are Released to Warehouse, the flow status of the line will be displayed as Released to Warehouse.</p>
+</li>
+</ul>
+<h2><a name="3007343"></a><a id="T377308"></a><b>Scenario</b></h2>
+<p>The following scenario will emulate a standard customer order from the first customer call to the invoice. The line status will assist the customer service agent on the shipper's side to answer the questions of the customer.</p>
+<p><b>Entered Status (OM)</b></p>
+<p>A customer calls and begins placing an order with the customer service representative. The customer is unclear whether or not the order is complete and indicates that he or she will call back to finish placing the order. The customer service representative saves the order to capture the current information but will not book the order, because the customer has indicated that the order is not complete. Both the order header and the order lines associated with the customer call will have the status of Entered once the order is saved. The line on the order exists in the system and can be queried when the customer calls back to complete the order. The following window illustrates the Sales Orders window with a status of Entered.</p>
+<p><b>Sales Orders Window - Status: Entered</b></p>
+<p><img width="749" height="502" src="./img/ontig_ls01.gif" alt="the picture is described in the document text"></p>
+<p><b>Booked Status (OM)</b></p>
+<p>The customer service representative receives a second call from the customer. The customer indicates that the order is complete, so the customer service representative books the order. The following window illustrates the Sales Orders window with a status of Awaiting Shipping.</p>
+<p><b>Sales Orders Window - Status: Awaiting Shipping</b></p>
+<p><img width="748" height="502" src="./img/ontig_ls02.gif" alt="the picture is described in the document text"></p>
+<p>In the Order Information tabbed region, the order status is Booked, as shown in the following graphic.</p>
+<p><b>Sales Orders Window, Main Tab - Status: Booked</b></p>
+<p><img width="750" height="501" src="./img/ontig_ls03.gif" alt="the picture is described in the document text"></p>
+<p><b>Ready to Release Status (SE)</b></p>
+<p>Once the order has been booked, the information passes to Shipping Execution. Order lines appear as delivery lines. Initially, it is a one to one ratio of order line to delivery line.</p>
+<p>The customer service agent calls the warehouse to ensure that the order that was just booked has appeared in Shipping Execution. The warehouse clerk queries the delivery lines by the order number provided by the customer service representative and indicates that the line status is Ready to Release indicating the delivery lines are eligible for pick release. The customer service representative has been assured that the booked order lines are visible in the Shipping Transactions form and are ready for the next step, pick release. The following graphic illustrates the Ready to Release status on the Lines/LPNs tab in the Shipping Transactions form.</p>
+<p><b>Shipping Transactions Form - Status: Ready to release</b></p>
+<p><img width="943" height="502" src="./img/ontig_ls04.gif" alt="the picture is described in the document text"></p>
+<p><b>Staged/Pick Confirmed and Released to Warehouse statuses (SE)</b></p>
+<p>The warehouse clerk launches pick release. Upon querying the delivery lines by order number, the warehouse clerk will see that the pick release status is Staged/Pick Confirmed for those delivery lines that have received allocation and pick confirmed successfully and Released to Warehouse for delivery lines that require a manual pick confirm or have not been allocated. The following graphic illustrates the Staged/Pick Confirmed status on the Lines/LPNs tab in the Shipping Transactions form.</p>
+<p><b>Shipping Transactions Window - Status: Staged/Pick Confirmed</b></p>
+<p><img width="943" height="502" src="./img/ontig_ls05.gif" alt="the picture is described in the document text"></p>
+<p><b>Picked and Awaiting Shipping Statuses (OM)</b></p>
+<p>The customer who placed the order calls up and wants to know the status. The customer service representative queries up the order in the Order Organizer and finds that the status of the sales order lines are Picked and Awaiting Shipping. The customer service representative is equipped to report that the order lines are processing smoothly as they have been picked from their source location and transferred to the staging location within the warehouse. The following window illustrates the Picked and Awaiting Shipping statuses on the Line Items Main tab in the Sales Orders window.</p>
+<p><b>Sales Orders Window - Status: Picked</b></p>
+<p><img width="753" height="500" src="./img/ontig_ls06.gif" alt="the picture is described in the document text"></p>
+<p><b>Closed Statuses (OM)</b></p>
+<p>The warehouse clerk has just ship confirmed the delivery associated with the delivery lines corresponding to the customer's order. The warehouse clerk used the check boxes on the Ship Confirm window to automatically set the delivery In Transit and close the trip automatically. Order Management is updated through the Process Order API and the order lines that previously had the status of Picked will now show a status of Closed.</p>
+<p>The customer calls back to check the status of the order, the customer service representative can tell the customer the date(s) that the order lines physically shipped from the warehouse. The following window illustrates the Closed and status on the Line Items' Main tab in the Sales Orders window.</p>
+<p><strong><span>Note:</span></strong> For a short time immediately following ship confirm, the order line status will show as Shipped while OM interfaces with Receivables so that the customer can be invoiced. When the interface to Receivables is completed the line status in Sales Orders window changes to Closed.</p>
+<p><b>Sales Orders Window - Status: Shipped/Closed</b></p>
+<p><img width="752" height="503" src="./img/ontig_ls07.gif" alt="the picture is described in the document text"></p>
+<h2><a name="3007351"></a><a id="T377309"></a><b>ATO Line Status Flow</b></h2>
+<p><a name="d0e63023" id="d0e63023"></a>A customer calls up Computer ABC and orders a laptop computer with a 56k modem and 64 mb of memory. This order will be processed as an Assemble to Order (ATO) item. The line status flow will be:</p>
+<ul>
+<li>
+<p>Entered</p>
+</li>
+<li>
+<p>Booked</p>
+</li>
+<li>
+<p>Create Configuration Item Eligible:</p>
+<ul>
+<li>
+<p>Booked (item, options, option classes)</p>
+</li>
+<li>
+<p>BOM and Routing Created (configuration item)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Create Supply Order Eligible:</p>
+<ul>
+<li>
+<p>Booked (item)</p>
+</li>
+<li>
+<p>BOM and Routing Created (configuration item)</p>
+</li>
+<li>
+<p>Awaiting Fulfillment (options and option classes)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Release the job in WIP:</p>
+<ul>
+<li>
+<p>Production Partial (configuration): Production has been partially completed.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Complete the job in WIP:</p>
+<ul>
+<li>
+<p>Production Complete (configuration): Entire production is complete.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Pick Release</p>
+<ul>
+<li>
+<p>Ready to Release (SE)</p>
+</li>
+<li>
+<p>Staged/Pick Confirmed (SE)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Ship Confirm</p>
+<ul>
+<li>
+<p>Staged/Pick Confirmed (SE)</p>
+</li>
+<li>
+<p>Shipped</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Invoice</p>
+<ul>
+<li>
+<p>Closed</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a name="3007352"></a><a id="T377310"></a><b>Bill Only Line Status Flow</b></h2>
+<p><a name="d0e63106" id="d0e63106"></a>A customer calls up to place an order for Service that is a non-shippable item. The line status flow of this order will be:</p>
+<ul>
+<li>
+<p>Entered</p>
+</li>
+<li>
+<p>Booked</p>
+</li>
+<li>
+<p>Invoiced</p>
+</li>
+<li>
+<p>Closed</p>
+</li>
+</ul>
+<h2><a name="3007353"></a><a id="T377311"></a><b>Returns Line Status Flow</b></h2>
+<a name="d0e63131" id="d0e63131"></a>
+<ul>
+<li>
+<p>Entered</p>
+</li>
+<li>
+<p>Booked</p>
+</li>
+<li>
+<p>Awaiting Return Disposition: Item requires inspection before Purchasing can create a receipt</p>
+</li>
+<li>
+<p>Awaiting Return: Purchasing creates a receipt of the item</p>
+</li>
+<li>
+<p>Returned: Item has been received and accepted</p>
+</li>
+</ul>
+<h2><a name="3007354"></a><a id="T377312"></a><b>Drop Ship Line Status Flow</b></h2>
+<a name="d0e63157" id="d0e63157"></a>
+<ul>
+<li>
+<p>Entered</p>
+</li>
+<li>
+<p>Booked</p>
+</li>
+<li>
+<p>Purchase Release: Item requires inspection before Purchasing can create a receipt</p>
+</li>
+<li>
+<p>Awaiting Receipt: Purchasing creates a receipt of the item</p>
+</li>
+<li>
+<p>Interfaced to Receivables</p>
+</li>
+<li>
+<p>Closed</p>
+</li>
+</ul>
+<h2><a name="3007355"></a><a id="T377313"></a><b>Order and Delivery Line Statuses</b></h2>
+<p><a name="d0e63186" id="d0e63186"></a><a name="d0e63191" id="d0e63191"></a>These tables show the status of order lines and delivery lines after you perform certain actions. They show information for the Order Organizer, Sales Orders window, Shipping Transactions form for deliveries and delivery lines, and Shipping Transactions form for stops and trips.</p>
+<h3><b>How to read the lines in the table:</b></h3>
+<p>Immediately after you autocreate a delivery, the status of all the entities will be as listed in the Create Trip column of the table.</p>
+<ul>
+<li>
+<p>The Order Organizer Summary form will show the status of Booked</p>
+</li>
+<li>
+<p>The Order Organizer Lines form will show the status of Awaiting Shipping</p>
+</li>
+<li>
+<p>The Order Information Main tab of the sales order pad will show the status of Booked</p>
+</li>
+<li>
+<p>The Line Items tab of the sales order pad will show the status of Awaiting Shipping</p>
+</li>
+<li>
+<p>The delivery Status on the Shipping Transactions form, Deliveries tab, will show the status of Open</p>
+</li>
+<li>
+<p>The Line Status on the Shipping Transactions form, Lines/LPNs tab, will show the status of Ready to Release</p>
+</li>
+<li>
+<p>The trip Status on the Shipping Transactions form, Path by Trip tab, will show the status of Open</p>
+</li>
+<li>
+<p>The stop Status on the Shipping Transactions form, Path by Stop tab, will show the status of Open</p>
+</li>
+<li>
+<p>The Stop Activity Status at Origin and Destination on the Shipping Transactions form will show the status of N/A</p>
+</li>
+<li>
+<p>The Trip Activity of the Shipping Transactions form will show the status of N/A</p>
+<p><b>Status: Order Organizer</b></p>
+<p><img width="283" height="423" src="./img/ontig_ordorg.gif" alt="the picture is described in the document text"></p>
+<p><b>Status: Sales Orders Form</b></p>
+<p><img width="443" height="421" src="./img/ontig_sostatus.gif" alt="the picture is described in the document text"></p>
+<p>(1): Occurs when pick release has started but not completed. Either no allocations were created or allocations are not yet pick confirmed</p>
+<p>(2): Occurs when deferred interface is turned on and interface has not started</p>
+<p><b>Status: Shipping Transactions Form</b></p>
+<p><img width="687" height="643" src="./img/ontig_stfs.gif" alt="the picture is described in the document text"></p>
+<p>(1): Occurs when pick release has started but not completed. Either no allocations were created or allocations are not yet pick confirmed.</p>
+</li>
+</ul>
+<h2><a name="3007390"></a><a id="T377318"></a><b>Exception Handling</b></h2>
+<h3><a id="T465173"></a><b>Export Compliance Screening Concurrent Program</b></h3>
+<p>This program can be used to progress any lines that are waiting at the Export Compliance Screening Eligible activity. The provided parameters such as Customer or Order Number can be used to refine the selection criteria for the lines. For example, if you have many orders for a customer that has come up with the same data errors, then you can fix the customer data and progress all lines for that customer.</p>
+<h2><a name="4238015"></a><a id="T465562"></a><b>Miscellaneous Shipments</b></h2>
+<p><a name="d0e63282" id="d0e63282"></a><a name="miscship" id="miscship"></a>Miscellaneous Shipments enable you to ship confirm deliveries that are not tied to (or did not originate from) a sales order, or have been sent via XML Shipment Request from a legacy order management system to Oracle Shipping Execution. XML support enables Oracle Shipping Execution to return an XML Shipment Advice message back to a legacy OM system to confirm the shipment.</p>
+<p>XML Shipment Request is an XML message that is sent to Oracle Shipping Execution. It is the equivalent of the EDI transaction 940 Inbound. Oracle XML Gateway is used to generate the XML messages (both Shipment Request and Shipment Advice). Miscellaneous shipment deliveries can be combined in a trip with OM-originated deliveries.</p>
+<p>The functionality of miscellaneous shipments is the same as Oracle Order Management-originated deliveries.</p>
+<p>The following restrictions exist when using miscellaneous shipments with Oracle Shipping Execution:</p>
+<ul>
+<li>
+<p>Cannot assign delivery lines to a delivery</p>
+</li>
+<li>
+<p>Cannot unassign delivery lines from a delivery</p>
+</li>
+<li>
+<p>Cannot reopen deliveries</p>
+</li>
+<li>
+<p>Partial shipment of a delivery will result in the cancellation of the remaining quantity or line(s)</p>
+</li>
+<li>
+<p>Cannot run pick release</p>
+</li>
+</ul>
+<p>Oracle XML Gateway, along with Advanced Queuing, must be installed. The WSH organization must be defined as a Trading Partner. (The supplier site Shipping organization must be defined as a Distributed organization).</p>
+<p>Oracle Workflow is required for notifications.</p>
+<h3><a id="T465563"></a><b>XML Used with Miscellaneous Shipments</b></h3>
+<p>Shipment Request: Shipment Request transaction (the XML equivalent of the ASC X12 940 transaction) is a modified version of the Open Applications Group (OAG) document type definition (DTD) show_shipment_005. This DTD is used to send shipment information from Oracle Shipping Execution to a 3rd party order management system (or legacy system). These transactions contain all pertinent information for the delivery.</p>
+<p>Shipment Advice: Shipment Advice transaction (the XML equivalent of the ASC X12 945 transaction) is a modified version of the OAG DTD show_shipment_005. This DTD is used to send shipment information from a 3rd party order management system (or legacy system) to Oracle Shipping Execution. The Shipment Advice transaction sends all pertinent information for the delivery.</p>
+<h3><a id="T465564"></a><b>Data Flow</b></h3>
+<p>The following graphic describes the data flow when Shipment Request is used to send information from a third-party order management system to Oracle Shipping Execution.</p>
+<p><img width="337" height="433" src="./img/ontig_wshxmlflow.gif" alt="the picture is described in the document text"></p>
+<p>The following graphic describes the data flow when Shipment Advice is used to send information from Oracle Shipping Execution to a third-party order management system.</p>
+<p><img width="337" height="433" src="./img/ontig_wshxmlflow2.gif" alt="the picture is described in the document text"></p>
+<h2><a name="4232093"></a><a id="T465248"></a><b>RFID-EPC Compliance</b></h2>
+<p><a name="d0e63369" id="d0e63369"></a><a name="d0e63372" id="d0e63372"></a><a name="rfidepc" id="rfidepc"></a>If you enable Oracle Warehouse Management, Radio Frequency Identification (RFID) can be used in the shipping process through the ship confirm process. RFID is a technology for tagging physical items with a unique ID that can be easily and non-invasively read, like a "wireless bar code". The Electronic Product Code (EPC) is a numbering standard for the unique identification used within RFID tags. RFID-EPC supported in the Shipping Execution enables you to select the LPN format and the printer associated to print a RFID tag, track the EPC associated with an LPN ID, and provide the EPC in the Departure Ship Notice Outbound (DSNO) file.</p>
+<p>See: <i>Oracle Warehouse Management User's Guide</i> for more information on RFID-EPC.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T376735.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T376736.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">27/36</span> <!-- End Header -->
+<h1>Order Management Web Services</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T2011554">Order Management Web Services</a></li>
+</ul>
+<h2><a name="30118272"></a><a id="T2011554"></a><b>Order Management Web Services</b></h2>
+<a name="d0e72444" id="d0e72444"></a> <a name="webservices" id="webservices"></a>
+<h3><b>Overview</b></h3>
+<p>Order Management supports integration of sales orders and its entities with external systems via web services. The following sections provides details of such Interfaces provided by Order Management.</p>
+<h3><b>Sales Order Services</b></h3>
+<p><b>Internal Name - OE_INBOUND_INT</b></p>
+<p>The web services provided via this interface provides services to create, update, delete, and retrieve sales order information and its entities from Order Management.</p>
+<p>The list of web services is as follows:</p>
+<h3><b>Get Sales Order Service - GET ORDER</b></h3>
+<p>This webservice retrieves Sales Order Information from Order Management entities.</p>
+<ul>
+<li>
+<p>If this webservice is invoked by passing header_id, the entire order information including all the lines is retrieved and passed as response.</p>
+</li>
+<li>
+<p>If this webservice is invoked by passing both header_id and line_id, the header information and corresponding line information is retrieved and passed as response.</p>
+</li>
+<li>
+<p>If this webservice is invoked by passing Order Number, the entire order will be retrieved only if there is one order based on Order number, Order type, and highest version number combination. Otherwise, this webservice returns an error requesting the user to pass the Order type also.</p>
+</li>
+<li>
+<p>If this webservice is invoked by passing Order Number and Order Type, the entire order information including all the lines is retrieved and passed as response.</p>
+</li>
+</ul>
+<h3><b>Sales Order Service - PROCESS_ORDER</b></h3>
+<p>This webservice is used to create, update, or delete Sales Order Information in Order Management entities.</p>
+<p>The entities supported by this webservice are - Order Header, Order Lines, Price adjustments, Pricing attributes, sales credits, and payments. Lot and Serial number information are supported for return lines. This webservice also supports action requests that allow you to execute different actions such as booking, hold application and removal, automatic attachments, fulfilment set application and removal, match and reserve for Configured items, get ship method and freight rates (both individually and together), and the linking and delinking of Configured items.</p>
+<h3><b>Sales Order Service (2) - PROCESS_ORDER</b></h3>
+<p>Similar to the Sales Order Service, this webservice is also used to create, update, or delete Sales Order Information in Order Management entities. However, this webservice supports assigning Null values to attributes which was not supported via &lsquo;Sales Order Service&rsquo;.</p>
+<p>A system lookup <b>Null Indicators for Inbound Process Order attributes</b> is defined with the lookup codes CHAR, SHORT_CHAR, DATE, and NUMBER. Meanings defined for those lookup codes are used as an indicator of Null value.</p>
+<p>To create or update a sales order and its entities with null values for certain attributes, the values mentioned in the Meaning for the lookup codes CHAR, SHORT_CHAR, DATE and NUMBER must be passed via payload for Character attributes that can hold more than 9 characters, Character attributes that cannot hold more than 9 characters, Date attributes, and Number attributes respectively.</p>
+<p>You can change the default Null indicators for each data type in the Lookup to meet your requirements. To change the default NULL indicators, consider the following:</p>
+<ul>
+<li>
+<p>The indicator for the NUMBER lookup code must support numeric conversion.</p>
+</li>
+<li>
+<p>The indicator for the DATE lookup code must be entered in &lsquo;YYYY-MM-DD&rsquo; format only. Character to Date conversion of that date indicator will be done using that format only.</p>
+</li>
+<li>
+<p>The indicator for SHORT_CHAR lookup code must be of one character only to support attributes with length of 1-9 characters.</p>
+</li>
+<li>
+<p>The indicator for CHAR lookup code must have a maximum of 10 characters to support attributes with length of 10 characters and above.</p>
+</li>
+</ul>
+<h3><b>Sales Order Service - PROCESS_ORDER_25</b></h3>
+<p>This webservice is dedicated for Oracle Order Management Cloud integration and is used to create, update, or delete Sales Order Information in Order Management entities.</p>
+<h3><b>Sales Order Outbound Services</b></h3>
+<p><b>Internal Name &ndash; OE_OUTBOUND_INT</b></p>
+<p>The web services provided via this interface contains services to generate outbound integration information to publish sales order and line information from Order Management. The web service available with this interface is given below:</p>
+<h3><b>Sales Order Service - SYNC_ORDER_25</b></h3>
+<p>This web-service publishes the Sales Order and Line Information in Order Management. Whenever any external system invokes this webservice, it retrieves the acknowledgement information of order header and line and sends it as a response along with the change sequence so that the order information can be synced up in that system.</p>
+<p>For the list of all Order Management interfaces, see <i>Oracle Integration Repository, Order Management Suite &gt; Order Management</i></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

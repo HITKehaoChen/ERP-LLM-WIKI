@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T329778.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107T228118.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">16/31</span> <!-- End Header -->
+<h1>Resource Management</h1>
+<p>This chapter explains how to manage resources in Work in Process.</p>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#I_cx2Dresovw">Overview of Resource Management</a></li>
+<li><a href="#T228935">Setting Up Resource Management</a></li>
+<li><a href="#I_cx2Dreschgtyp">Resource Charge Types</a></li>
+<li><a href="#T228276">Overview of Resource Requirements</a></li>
+<li><a href="#T228936">Adding and Updating Resource Requirements</a></li>
+<li><a href="#T228938">Deleting Resource Requirements</a></li>
+<li><a href="#T228939">Viewing Resource Requirements</a></li>
+<li><a href="#T228283">Overview of Resource Transactions</a></li>
+<li><a href="#T228940">Charging Resources Manually</a></li>
+<li><a href="#T228941">Charging Resources with Move Transactions</a></li>
+<li><a href="#T228942">Viewing Resource Transactions</a></li>
+<li><a href="#T228943">Viewing Accounting Lines</a></li>
+<li><a href="#T228944">Finding Pending Resource Transactions</a></li>
+<li><a href="#T228945">Processing Pending Resource Transactions</a></li>
+</ul>
+<h2><a name="1034861"></a><a id="I_cx2Dresovw"></a><b>Overview of Resource Management</b></h2>
+<p><a name="d0e38360" id="d0e38360"></a>In Work in Process, you can define and control resources (people, machines, and so on) during your production process using these features:</p>
+<h3><b>Automatic Resource Transactions</b></h3>
+<p>You can charge resources based upon their charge type: WIP Move, Manual, PO Move, and PO Receipt.</p>
+<p>When you move job and schedule assemblies forward in their routing, pre-assigned WIP Move resources are automatically charged at their standard rate. If you move assemblies backward, WIP Move resource charges are reversed.</p>
+<p>When you receive purchasing items that are associated with PO Move and PO Receipt resources back from an outside processing supplier, they are automatically charged. In the case of PO Move resources, the purchasing items are also completed at the operation. If you return assemblies to an outside processing supplier or enter correcting receipts for an outside processing supplier, resource charges and moves are reversed.</p>
+<p>Automatic Overhead Charging</p>
+<p>The appropriate overhead costs are automatically charged as you move assemblies through the shop floor. You can charge overheads directly based on move transactions or based on resource charges. You can base the material overhead charge on the number of units, or on the percentage of resource value. The overhead rate with the basis of resource value must be directly assigned to the resource's respective routing. Overhead charges are automatically reversed during a backward move transaction.</p>
+<p>See: <a href="T228107T228117.htm#I_cx2Dreschgtyp">Resource Charge Types</a></p>
+<h3><b>Constraint-based Scheduling of Resources<a name="d0e38389" id="d0e38389"></a></b></h3>
+<p>Oracle provides constraint-based scheduling enabling you to consider resource and material constraints. Oracle Production Scheduling is a constraint-based automated scheduling tool using sophisticated scheduling algorithms. It optimizes production, enforcing minimum run length constraints, and minimizing changeover times on your resources. See: <i>Oracle Production Scheduling Implementation Guide</i></p>
+<h3><b>Flexible Labor Transactions</b></h3>
+<p>You can charge person-type resources with or without entering an employee. If you enter an employee, the employee hourly rate is used to calculate the resource charge. Otherwise, the charge is calculated using the standard resource rate.</p>
+<h3><b>Manual Resource Transactions</b></h3>
+<p>You can manually charge resources associated with discrete job and repetitive schedule operations. Manual resources can be charged as you move assemblies. They can also be charged independent of move transactions resource transaction. You can correct erroneously entered Manual resource charges. See: <a href="T228107T228117.htm#I_tx2Drestx78add">Charging Resources Manually</a></p>
+<h3><b>Mobile Manufacturing<a name="d0e38414" id="d0e38414"></a></b></h3>
+<p>If Oracle Mobile Supply Chain Applications is installed, the Mobile Manufacturing component enables you to perform resource transactions using a mobile client device networked with a computer system. You can charge resources defined to operation sequences. See: Resource Transactions, <i>Oracle Mobile Supply Chain Applications User's Guide.</i></p>
+<h3><b>Open Resource Transaction Interface</b></h3>
+<p>You can load resource transaction information from external systems - such as bar code readers, payroll systems, time cards, routing sheets, and custom data entry forms - into the Open Resource Transaction Interface table. When this data is processed, it is validated, and invalid records are marked so that you can correct and resubmit them. See: <a href="T228107T228117.htm#I_cx2Dopnrestx78n">Open Resource Transaction Interface</a>.</p>
+<h3><b>Outside Processing Resources</b></h3>
+<p>You can assign outside processing resources to job and schedule routing operations. You can move assemblies to and receive them back from these outside operations. The system automatically charges outside processing resources, tracks your supplier costs, and directly interfaces with Oracle Purchasing for closed loop control. See: <a href="T228107T228118.htm#I_ex2Dosp">Overview of Outside Processing</a>.</p>
+<h3><b>Phantom Resources</b></h3>
+<p>You can include phantom resources in your routings. When the phantom is the parent or higher level assembly, its component costs are included in the parent cost, they inherit the operation sequence number from the parent, and their resources and overheads are excluded from the parent or higher level assembly cost. If you want phantom components to maintain their own operation sequence numbers, and if you want resource costs included in the parent cost - set the Bills of Material parameters BOM:Use Phantom Routings and BOM:Inherit Phantom Operation Sequence parameters. See: <a href="T228107T228115.htm#I_phantmov">Phantom Assemblies</a>.</p>
+<h3><b>Resource Instances</b></h3>
+<p>You can define specific machines to any of your machine type resources. You can also define specific employees to labor type resources. Resource instances are defined on the Resource Instance window. See: <a href="T228107T228115.htm#I_tx2Dupdmrqs">Adding and Updating Material Requirements</a></p>
+<h3><b>Resource Reporting</b></h3>
+<p>You can report on resource transactions, efficiencies, and costs by job, repetitive schedule, department, or resource to get a complete history of resource activities. See: <a href="T228107T228123.htm#I_rx2Dwiplbper">Resource Performance Report</a> and <a href="T228107T228123.htm#I_rx2Dwiptrtx78n">Resource Transaction Report</a>.</p>
+<h3><b>Simultaneous and Alternate Resources<a name="d0e38469" id="d0e38469"></a></b></h3>
+<p>You can set up simultaneous and alternate resources. <a name="d0e38477" id="d0e38477"></a>Simultaneous resources consist of two or more resources scheduled with the same start date and time. Alternate <a name="d0e38484" id="d0e38484"></a>resources consist of other resources used instead of the primary resource. You can also use alternate resource sets. In constraint-based scheduling, this gives you the option to specify an alternate for a group of resources spanning multiple schedule sequences. See: <a href="T228107T228117.htm#simultandalternate">Simultaneous and Alternate Resources</a></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228117.htm#I_cx2Dovrestx78">Overview of Resource Transactions</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dressup">Setting Up Resource Management</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dresopt">Resource Transaction Options</a></p>
+<p>Defining Overhead, <i>Oracle Cost Management User's Guide</i></p>
+<h2><a name="1034877"></a><a id="T228935"></a><b>Setting Up Resource Management</b></h2>
+<p><a name="d0e38514" id="d0e38514"></a><a name="d0e38520" id="d0e38520"></a><a name="I_cx2Dressup" id="I_cx2Dressup"></a><strong>Prerequisites</strong></p>
+<ul>
+<li>For a listing of out-of-product setups that affect resource management see: <a href="T228107T228110.htm#I_cx2Dprereq">Setup Prerequisites</a></li>
+<li>For a listing of setups within Work in Process that affect resource management see: <a href="T228107T228110.htm#I_cx2Dchklst">Setup Check List</a></li>
+<li>For a listing of profile options that affect resource management see:<a href="T228107T228110.htm#r_wippo">Profile Options</a></li>
+</ul>
+<h2><a name="1034878"></a><a id="I_cx2Dreschgtyp"></a><b>Resource Charge Types</b></h2>
+<p><a name="d0e38547" id="d0e38547"></a>You can specify how to charge resources when you create routings in Oracle Bills of Materials. You can also specify how to charge resources when you create resource requirements in Work in Process.</p>
+<p>You can specify how to charge resources when you assign resources to routing operations in Oracle Bills of Materials. You can also specify how to charge resources when you add resources to work in process routing operations. There are four resource charge types: WIP Move, Manual, PO Move, and PO Receipt.</p>
+<p><a href="T228107T228117.htm#I_cx2Dmovchrg">WIP Move</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dmanchrg">Manual</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dpochrg">PO Move and PO Receipt</a></p>
+<h3><b><a name="I_cx2Dmovchrg" id="I_cx2Dmovchrg"></a>WIP Move<a name="d0e38574" id="d0e38574"></a><a name="d0e38580" id="d0e38580"></a></b></h3>
+<p>WIP Move resources are automatically charged at their standard rate as you move assemblies forward from the Queue or Run intraoperation step to the To move, Reject, or Scrap intraoperation step of the same operation, or to the next operation.</p>
+<p>WIP Move resources with a basis of Item are charged upon completion of each assembly in the operation. WIP Move resources with a basis of Lot are charged upon completion of the first assembly at the operation. In both cases, the amount charged is based upon the resource's usage rate or amount multiplied by the resource's standard cost at the time of the transaction.</p>
+<p>You can reverse a WIP Move resource charge by moving assemblies backward from Queue or Run of the current operation to Queue or Run of any prior operation, or by moving assemblies from the To move, Reject, or Scrap intraoperation steps backward to the Queue or Run intraoperation steps of the same operation, or to any intraoperation step of any prior operation.</p>
+<p>WIP Move resource charges are applied on a first in-first out basis to multiple repetitive schedules on a line based on how the assemblies being moved are allocated. For example, if you have 2 released schedules for 100 assemblies each and you move 150 assemblies, the system automatically allocates 100 to the earliest schedule and 50 to the next.</p>
+<p><a href="T228107T228116.htm#I_cx2Dopcomp">Operation Completion Moves</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dmoves">Performing Move Transactions</a></p>
+<h3><b><a name="I_cx2Dmanchrg" id="I_cx2Dmanchrg"></a>Manual<a name="d0e38609" id="d0e38609"></a></b></h3>
+<p><i>Manual</i> resources can be charged independent of move transactions using the Resource Transactions window. If you complete an operation with a move transaction, and there are <i>Manual</i> resources assigned to that operation, a message informing you that <i>Manual</i> resources exist at that operation is displayed. You can then charge these <i>Manual</i> resources by choosing the Resources button in the Move Transactions window.</p>
+<p><strong><span>Note:</span></strong> You can control whether the Resources button appears in the Move Transactions window using function security. See: <a href="T228107T228110.htm#I_rx2Dsecfunc">Security Functions</a>.</p>
+<p>When you charge <i>Manual</i> resources, you must enter the actual resource units applied rather than autocharging the resource's usage rate or amount based on the move quantity. You can charge <i>Manual</i> resources using that resources unit of measure or any valid alternate unit of measure. If the resource is a person-type resource, you can enter an employee number. <i>Manual</i> resources for repetitive schedules are charged to the first open repetitive schedule on the line.</p>
+<p>You can create ad hoc resource requirements as you charge resources. Ad hoc resource requirements an be created for any resource that is defined for the department that is associated with the operation.</p>
+<p>You can reverse <i>Manual</i> resource charges by entering negative resource units. For example, if you intend to charge 8 hours but mistakenly enter 10, you can correct the error by entering an additional resource charge transaction for -2 hours.</p>
+<p><a href="T228107T228116.htm#I_cx2Dopcomp">Operation Completion Moves</a></p>
+<p><a href="T228107T228117.htm#I_tx2Drestx78add">Charging Resources Manually</a></p>
+<h3><b><a name="I_cx2Dpochrg" id="I_cx2Dpochrg"></a>PO Move and PO Receipt<a name="d0e38664" id="d0e38664"></a><a name="d0e38670" id="d0e38670"></a></b></h3>
+<p>When you receive assemblies back from an outside processing supplier in Oracle Purchasing, PO Receipt or PO Move resources, also known as outside processing resources, are automatically charged at the standard or the actual rate. If the receipt involves a PO Move resource, the assemblies are also moved from the Queue intraoperation step of the outside processing operation into the Queue intraoperation step of the next operation. If the outside processing operation is the last operation in the routing, the assemblies are moved into the To move intraoperation step of that operation. The assemblies are then immediately completed into inventory if the following conditions are also met:</p>
+<ul>
+<li>
+<p>For discrete jobs, a lot number must have been specified if the assemblies are under lot control. See: <a href="T228107T228111.htm#I_tx2Ddefdj">Defining Discrete Jobs Manually</a></p>
+</li>
+<li>
+<p>For repetitive schedules, the assemblies cannot be under lot control.</p>
+</li>
+<li>
+<p>On PO Receipt transactions, available serial number records are restricted for use with another assembly once it has been issued from stock. Validations occur to prevent issuing a serialized item, returned to stock, and then to a different job. At the time of completion, serialized assemblies and components are available from stock if they have the specific values set for jobs and schedules in the Serial Numbers window in Oracle Inventory. See: <a href="T228107T228115.htm#I_serialrc">Serial Number Validations for Component Returns and Assembly Completions</a></p>
+<p><strong><span>Note:</span></strong> Outside processing jobs use serial tracking only if the resource charge type is PO Receipt. Serial numbers must be assigned before moving a serialized job, and that information is not designated during the purchase order receipt transaction.</p>
+</li>
+<li>
+<p>For discrete jobs and repetitive schedules, the assemblies cannot be completed from or returned to the last operation on the routing if the To Move intraoperation step of that operation has a shop floor status that disallows move transactions</p>
+</li>
+<li>
+<p>For both discrete jobs and repetitive schedules, locators must be specified if required by the default completion subinventories</p>
+<p><strong><span>Note:</span></strong> If the Move Transaction manager in Oracle Inventory has not been launched, the assemblies move transactions are not processed. See: <a href="T228107T228116.htm#I_cx2Domti">Open Move Transactions Interface</a>.</p>
+</li>
+</ul>
+<p>You can track the progress of outside processing assemblies that have been sent to a supplier by moving assemblies within the outside processing operation. You can optionally disallow move transactions from an outside processing step <i>unless</i> they are launched by a purchase order receipt. You can do this by using the Shop Floor Status for PO Move Resource parameter<i>.</i> See: <a href="T228107T228116.htm#I_cx2Dsfstatus">Shop Floor Statuses</a>.</p>
+<p>If, in Oracle Purchasing, you return assemblies to an outside processing supplier using the Receiving Returns window, or enter correcting receipts for an outside processing supplier using the Receiving Corrections window, the system creates reversing charges for the PO Move and PO Receipt resources associated with the outside processing operation. If you enter a return or correction that involves a PO Move resource, the assemblies are moved from the Queue intraoperation step of the operation immediately following the outside processing operation into the Queue intraoperation step of the outside processing operation. If the outside processing operation is the last operation on the routing, the assemblies automatically move from the To move intraoperation step to the Queue intraoperation step of the outside processing operation.</p>
+<p>PO Move resource transactions are applied to multiple repetitive schedules on a line based on how the assemblies being moved are allocated. Moves are allocated across multiple repetitive schedules on a first-in-first-out (FIFO) basis. PO Receipt resource transactions are allocated across schedules on a first-in-first-out basis.</p>
+<p>For example, if you have two released schedules for 100 assemblies each and you move 150 assemblies, the system automatically allocates 100 to the earliest schedule and 50 to the next.</p>
+<p><a href="T228107T228116.htm#I_cx2Doutsp">Outside Processing</a></p>
+<p>Resource Charges, <i>Oracle Cost Management User's Guide</i></p>
+<p><a href="T228107T228121.htm#I_cx2Ddtldsch">Detailed Scheduling</a></p>
+<h2><a name="1034882"></a><a id="T228276"></a><b>Overview of Resource Requirements</b></h2>
+<p><a name="d0e38743" id="d0e38743"></a><a name="d0e38747" id="d0e38747"></a><a name="d0e38753" id="d0e38753"></a><a name="d0e38759" id="d0e38759"></a><a name="d0e38765" id="d0e38765"></a><a name="I_rx2Dresreqs" id="I_rx2Dresreqs"></a>Resources can be assigned to routing operations. Resources are used to cost and schedule jobs and repetitive schedules. A resource is anything of value, except material and cash, required to manufacture, cost, and schedule products. People, tools, machines, outside processing services, machines, and physical space are commonly used resources. See: Defining a Resource, <i>Oracle Bills of Material User's Guide</i>.</p>
+<ul>
+<li>
+<p>Departmental Resources</p>
+<p>You can identify which resources are available to a department when you define departments. Departments can have multiple resources.</p>
+</li>
+<li>
+<p>Standard versus Non-Standard</p>
+<p>You can specify whether to charge resources at a standard or non-standard rate. Non-standard resources can be charged manually in Work in Process. If the resource is a non-standard, outside processing resource, its costs are derived from the purchase order it is associated with.</p>
+</li>
+<li>
+<p>Outside Processing Resources</p>
+<p>You can define a resource as an outside processing resource. Outside processing resources must be associated with the item that they are used to produce. See: <a href="T228107T228118.htm#I_ex2Dosp">Overview of Outside Processing</a>.</p>
+</li>
+<li>
+<p>Phantom Assembly Resources</p>
+<p>Phantom assemblies are non-stocked items that group material needed to produce an assembly or a subassembly. When parent or high level assemblies are phantoms, resource costs, including overheads are not charged to the parent or higher level assembly cost. When phantoms arse used as subassemblies, however, you can set a parameter in Oracle Bills of Material to specify that its resource and overhead costs are charged to the parent or higher level assembly. See: <a href="T228107T228115.htm#I_phantmov">Phantom Assemblies</a>.</p>
+</li>
+<li>
+<p>Charge Types</p>
+<p>You must assign a charge type to each resource. Charge types determine how resources are charged in Work in Process.</p>
+</li>
+<li>
+<p>Resource Activities</p>
+<p>You can assign the activities you define in Oracle Cost Management to resources. Activities are processes or procedures that consume costs and time. The can be used to assign indirect costs.</p>
+</li>
+<li>
+<p>Resource Basis</p>
+<p>You can assign a resource basis type of Item to a resource if its per unit usage rate is dependent on the number of assembly items being produced. If the per unit usage rate is fixed, for example labor to setup a machine for a job, you can assign a resource basis of Lot. See: Resource Usage, <i>Oracle Bills of Material User's Guide</i>.</p>
+</li>
+<li>
+<p>Resource Instances</p>
+<p>You can define specific machines to any of your machine type resources, and specific employees to labor type resources. All instances for a resource are viewable in the Resource Property window on the Scheduler Workbench, Job Workbench, and Resource Workbench.</p>
+<p><b>Contingent Workers</b></p>
+<p>A contingent worker is typically a self-employed individual or an agency supplied worker. Contingent workers can perform many of the roles assigned to your employees. This type of worker is not paid in your payroll; they submit payment invoices to your accounts payable department or can be set up in the Oracle Services Procurement using Oracle Time and Labor to generate payment invoices automatically.</p>
+<p><strong><span>Note:</span></strong> Contingent workers exist as a separate category of worker from short-term or fixed-term contractors who are hired directly by your organization and are paid in your payroll.</p>
+</li>
+<li>
+<p>Adjusting Resource Capacity</p>
+<p>You can adjust resource capacity from the Scheduler Workbench. This can be done manually or automatically:</p>
+<ul>
+<li>
+<p>Reschedule the start and end dates of a resource .</p>
+</li>
+<li>
+<p>Delete or add a day of capacity, adjusting for overtime shifts or shop closures.</p>
+</li>
+<li>
+<p>Add or delete resource units when either extra resources are obtainable or resources are unavailable.</p>
+</li>
+<li>
+<p>Adjust Assigned Units or Usage Rate for the resource on the job routing.</p>
+</li>
+</ul>
+<p>See: <a href="T228107T329778.htm#resourcenav">Using the Resource Workbench</a></p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> In order for resources to be viewable in the applications windows, Unit of Measure values in manufacturing must be consistent with the values in Oracle General Ledger Set of Books. Use the Unit of Measure Conversions window in Oracle Inventory to create UOM conversion values. See: Defining Unit of Measure Conversions, <i>Oracle Inventory User's Guide</i></p>
+<h2><a name="1034891"></a><a id="T228279"></a><b>Operation Resources</b></h2>
+<p><a name="d0e38867" id="d0e38867"></a><a name="I_cx2Dopresour" id="I_cx2Dopresour"></a>You can define routing operations as you create routings in Oracle Bills of Material. You can also add and update job and schedule routing operations in Work in Process. When you define a routing operation you must identify the department at which the operation is performed. You can assign any resource that is defined for that department to the routing operation. See: Assigning Operation Resources, <i>Oracle Bills of Material User's Guide</i>.</p>
+<ul>
+<li>
+<p>Multiple Resources</p>
+<p>You can assign multiple resources to routing operations. You can sequence these resources as required. If you assign multiple resources, they are scheduled sequentially based on their resource sequence number, or in parallel, based on their scheduled attribute</p>
+</li>
+<li>
+<p>Costing Multiple Resources</p>
+<p>You can assign multiple resources to charge labor, machine usage, and other activities performed within the operation. For example, if you have costs associated with running a machine and costs associated with the machine operator, you can define them as two resources at the same operation. For each resource you can specify the sequence number of the resource, the usage rate, and the number of resources assigned to the operation working in parallel.</p>
+</li>
+<li>
+<p>Scheduling Multiple Resources</p>
+<p>Resource requirements are used for detailed scheduling. When multiple resources are assigned to an operation, operation start and end dates and times are scheduled based upon the sum of the times required for each resource. Job and repetitive schedule start and end dates and times are scheduled based upon sum of the time required for each operation.</p>
+<p>You can assign but not schedule resources at an operation. You can also assign resources used solely for scheduling, even though these resources do not actually provide value added work. See: <a href="T228107T228121.htm#I_cx2Ddtldsch">Detailed Scheduling</a></p>
+</li>
+</ul>
+<h2><a name="8013841"></a><a id="T650871"></a><b>Alternate Resource Sets</b></h2>
+<a name="d0e38905" id="d0e38905"></a><a name="altset" id="altset"></a>
+<h3><b>Overview of Alternate Resource Sets</b></h3>
+<p>Alternate Resource Sets enable resources to be substituted and replaced as a group. In infinite scheduling&mdash;alternate resources can be a one-for-one substitution, or substitution by a group when the resources in the group are simultaneous.</p>
+<p>In constraint-based scheduling&mdash;you can specify that a group, or set of resources, is substituted for another set. This enables resources to be sequential and span multiple schedule sequences. This functionality is used in manufacturing environments where groups of machines are used consecutively in an operation. The type of machine used in the first group determines the type of machine used in the second group. The groups are not simultaneous, therefore each corresponding pair of machines is assigned a replacement group value within a substitute group. Alternate resource sets are defined using the Resource Sequence, Schedule Sequence, Substitute Group, and Replacement Group fields:</p>
+<p><b>Resource Sequence</b></p>
+<ul>
+<li>
+<p>The resource sequence is the number that indicates the order a resource is used in an operation, relative to the other resources. This value is unique for each operation.</p>
+</li>
+<li>
+<p>If a schedule sequence number is not provided, since it is an optional field&mdash;the resource sequence is used for scheduling.</p>
+</li>
+</ul>
+<p><b>Schedule Sequence</b></p>
+<ul>
+<li>
+<p>The schedule sequence number indicates the period the resource is used. When defining resource sets, you can define records with different schedule sequences using the same substitute group number value. This enables each replacement group, within a substitute group, to have a different set of schedule sequences.</p>
+</li>
+</ul>
+<p><b>Substitute Group</b></p>
+<ul>
+<li>
+<p>This value indicates which resources can be used as alternates. Resources with the same substitute group number can replace other resources defined with that substitute group number, and the same replacement group number value.</p>
+</li>
+<li>
+<p>Substitute groups are used in the order of their defined schedule sequence number and resource sequence number combination.</p>
+</li>
+<li>
+<p>A resource can have alternates without defined schedule sequences; the substitute group value is not dependent on the schedule sequence number.</p>
+</li>
+</ul>
+<p><b>Replacement Group</b></p>
+<ul>
+<li>
+<p>This value is used in grouping several resources together as an alternate resource group. The primary resource is always a Replacement Group value of 0.</p>
+</li>
+</ul>
+<p><b>Alternate Resource Sets Example</b></p>
+<ul>
+<li>
+<p>The resource Grinder1 is the primary resource and includes Tool-50 in its resource set. The replacement resource is Grinder-2.</p>
+</li>
+<li>
+<p>Grinder-2 is an alternate resource set that includes Tool-46 in its setup.</p>
+</li>
+<li>
+<p>The tools for each grinder are second in the setup of the grinders.</p>
+</li>
+<li>
+<p>The primary resource and alternate resource sets are in the same substitute group.</p>
+</li>
+<li>
+<p>The replacement group for the primary resource is 0, for the alternate it is another value.</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Resource</b></th>
+<th scope="col"><b>Resource Sequence</b></th>
+<th scope="col"><b>Schedule Sequence</b></th>
+<th scope="col"><b>Substitute Group</b></th>
+<th scope="col"><b>Replacement Group</b></th>
+</tr>
+<tr valign="top">
+<td>Grinder-1</td>
+<td>23</td>
+<td>10</td>
+<td>668</td>
+<td>0</td>
+</tr>
+<tr valign="top">
+<td>Tool-50</td>
+<td>24</td>
+<td>11</td>
+<td>668</td>
+<td>0</td>
+</tr>
+<tr valign="top">
+<td>Grinder-2</td>
+<td>23</td>
+<td>10</td>
+<td>668</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>Tool-46</td>
+<td>24</td>
+<td>11</td>
+<td>668</td>
+<td>1</td>
+</tr>
+</table>
+<h2><a name="1034895"></a><a id="T228280"></a><b>Simultaneous and Alternate Resources</b></h2>
+<p><a name="d0e39065" id="d0e39065"></a><a name="simultandalternate" id="simultandalternate"></a>Simultaneous resources consist of two or more resources scheduled with the same start date and time within a job operation. These resources have the same value in the Scheduled Seq field of the Routing window. Simultaneous resources must begin at the same time, but they may complete at different times depending on the Usage Rate or Amount.</p>
+<p>Alternate <a name="d0e39077" id="d0e39077"></a>resources consist of other resources-or groups of resources-used instead of the primary resource in the job operation. Alternate resources are defined on the Alternate Resources window. They are invoked in one of two ways:</p>
+<ul>
+<li>
+<p>During backward scheduling, when the use of alternate resources is the only means for a job to complete by the Requested Due Date</p>
+</li>
+<li>
+<p>When a resource for an operation is unavailable</p>
+</li>
+</ul>
+<p>You can also use alternate resource sets. In infinite scheduling, you can change an alternate resource to a primary resource, This specifies it as a one-for-one substitution, or substitution by a group when the resources in the group are simultaneous. In constraint-based scheduling, you can specify the resources in a sequence, and have them span multiple schedule sequences. See: <a href="T228107T228117.htm#altset">Alternate Resource Sets</a></p>
+<h2><a name="1034900"></a><a id="T228282"></a><b>Resource Factors in Lead Time Calculation</b></h2>
+<p><a name="I_resleadtime" id="I_resleadtime"></a>Material and resource requirement lead times are calculated using the Calculate Manufacturing Lead Time concurrent program. This program determines the lead time for items and assemblies using information from the bill of material and routing setup. This includes lot size, item lead time attributes (such as processing and cumulative lead times), and fixed and variable components. The lead time calculation rollup program also includes resource usage features that can affect processing lead time.</p>
+<p>You can set the profile option WIP: Round Off Resource Usage to Minutes in Lead Time Calculations to change resource usage calculations. If set to Yes&mdash;when entry of resource usage values of a routing resource is less than a minute value, this profile enables the value to be rounded to the next minute to be compatible with Advanced Supply Chain Planning calculations. This setting can change the resource usage rate. Otherwise, if set to No, resource usage is not rounded.</p>
+<p>For scheduling and lead time calculations, extended resource usages are rounded to the next minute. In the following example, each resource usage is 72 seconds. The scheduling logic and lead time calculation round to the next minute&mdash;therefore each resource usage is rounded to 120 seconds, and the total duration is 240 seconds.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Operation</b></th>
+<th scope="col"><b>Resource</b></th>
+<th scope="col"><b>Usage</b></th>
+<th scope="col"><b>Scheduled Flag</b></th>
+<th scope="col"><b>Basis</b></th>
+</tr>
+<tr valign="top">
+<td>10</td>
+<td>Resource1</td>
+<td>72 seconds</td>
+<td>Yes</td>
+<td>Item</td>
+</tr>
+<tr valign="top">
+<td>10</td>
+<td>Resource2</td>
+<td>72 seconds</td>
+<td>Yes</td>
+<td>Item</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> Alternate resources are not considered in lead time calculation.</p>
+<h3><b>Resource Efficiency</b></h3>
+<p>Resource usage is divided by the efficiency percentage to capture the resource lead time. Values of less than 100 percent elongate the lead time.</p>
+<h3><b>Resource Utilization</b></h3>
+<p>You define a utilization percentage in order to capture true available-for-work time. Utilization represents the difference between the theoretical and actual production from a resource, For example, is the resource actually working 8 hours of productive time in an 8 hour shift. If the difference is expected to be significant, you can model utilization on that resource. Values of less than 100 percent elongate lead time.</p>
+<h3><b>Simultaneous Resources</b></h3>
+<p>When using two or more resources at the same time, the resource taking the most extended time is used in lead time calculation. This is the resource with the longest lead time within the same schedule number, for an operation. Simultaneous resources shorten lead time.</p>
+<h3><b>Assigned Units for 24 Hour Resources</b></h3>
+<p>For resources available 24 hours, the more resource units assigned to an operation in a routing - the less elapsed time for that operation to complete. This shortens the lead time.</p>
+<p><strong>Related Topics</strong></p>
+<p>Calculating Manufacturing Lead Times, <i>Oracle Bills of Material User's Guide</i></p>
+<p>Manufacturing Lead Time Computations , <i>Oracle Bills of Material User's Guide</i></p>
+<h2><a name="1034905"></a><a id="T228936"></a><b>Adding and Updating Resource Requirements</b></h2>
+<p><a name="I_tx2Drraddg" id="I_tx2Drraddg"></a><a name="WIPOPMDF_W_SUB_RESOURCES" id="WIPOPMDF_W_SUB_RESOURCES"></a><a name="WIPOPMDF_W_SETUP_RESOURCES" id="WIPOPMDF_W_SETUP_RESOURCES"></a><a name="WIPOPMDF_W_RES_INSTANCES" id="WIPOPMDF_W_RES_INSTANCES"></a><a name="WIPTXRSC_RESOURCE_HEADER" id="WIPTXRSC_RESOURCE_HEADER"></a><a name="WIPTXRSC_RESOURCE_TRANSACTIONS" id="WIPTXRSC_RESOURCE_TRANSACTIONS"></a><a name="WIPOPMDF_W_RESOURCES" id="WIPOPMDF_W_RESOURCES"></a><a name="WIPDJMDF_W_RESOURCES" id="WIPDJMDF_W_RESOURCES"></a>You can add and update resources as you add and update operations. You can add resources that are not pre-assigned to job or repetitive schedule routing operations. You can add resources to jobs and schedules that do not have operations.</p>
+<p>You can add resource requirements regardless of their charge type: Manual, PO move, PO receipt, or WIP move. When you add a resource with an charge type of PO move, PO receipt, or WIP move, the resource is added to the job or repetitive schedule as a <i>Manual</i> resource.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>You must assign a resource to the department that is associated with the operation before you can add the resource as a requirement at that operation. See: Assigning Resources to a Department, <i>Oracle Bills of Material User's Guide</i>.</li>
+</ul>
+<p><b>To add or update resource requirements</b></p>
+<ol>
+<li>
+<p><a name="d0e39228" id="d0e39228"></a>Navigate to the Operations from Job/Schedule Details in the menu.</p>
+</li>
+<li>
+<p>Select the Job or repetitive Line and Assembly.</p>
+<p>If you select a line and assembly, choose the repetitive schedule by selecting the first unit start date of that schedule. If you have selected a discrete job, the system displays the scheduled start date of the job.</p>
+</li>
+<li>
+<p>In the Main tabbed region, select the operation Sequence.</p>
+<p>If you are adding a resource, the operation Sequence specifies at which operation to add the resource.</p>
+</li>
+<li>
+<p>Choose the Resources button. The <a name="d0e39252" id="d0e39252"></a>Resource Requirements window appears.</p>
+<p><img width="799" height="518" src="./img/wip_resreq01.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Main tabbed region of the Resource Requirements window, select or enter the resource <a name="d0e39268" id="d0e39268"></a><a name="d0e39274" id="d0e39274"></a>Sequence number.</p>
+<p>Valid sequence numbers range from 1 to 9999 inclusive.</p>
+</li>
+<li>
+<p>Select the resource <a name="d0e39287" id="d0e39287"></a>Name.</p>
+<p>You can add any resource that is assigned to the department of the operation you have selected. You can also add any multi- departmental resource.</p>
+<p>When you add a resource, the UOM, basis, activity, charge type, and rate or amount that are associated with the resource are defaulted. See: Assigning Resources to a Department, <i>Oracle Bills of Material User's Guide</i> and Defining a Resource, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p><strong><span>Note:</span></strong> You cannot update a resource if you have charged the resource to a job or schedule.</p>
+</li>
+<li>
+<p>Select a resource <a name="d0e39311" id="d0e39311"></a>Basis basis. See: Resource Usage, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p>The options are as follows:</p>
+<p><a name="d0e39324" id="d0e39324"></a><i>Item:</i> Charge and schedule the resource on an item-by-item basis. Select <i>Item</i> when resource times and costs are dependent on the job or schedule quantity, such as when charging per unit labor costs.</p>
+<p><a name="d0e39337" id="d0e39337"></a><i>Lot:</i> Charge and schedule the resource on a <i>one per</i> job or schedule basis. Select <i>Lot</i> when resource times and costs are independent of quantity, such as when setting up a machine to run an entire job.</p>
+<p>You cannot update the resource basis if you have charged against the resource.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e39358" id="d0e39358"></a>Usage Rate or <a name="d0e39365" id="d0e39365"></a>Amount Value or Inverse.</p>
+<p><i>Value:</i> Enter a <i>Value</i> if you know how much of the resource is consumed at the operation (per item or per lot) given the resource UOM. For example, if your manufacturing process consumes a mold (resource UOM=EA) for every 5 items produced, enter a Value of 0.2 (1/5). When you enter the Value of 0.2, the <i>Inverse</i> is automatically calculated as 5. In other words, producing one unit consumes 0.2 of the mold.</p>
+<p><i>Inverse</i>: Enter an <i>inverse</i> amount if you know the number of units a resource can process given the resource UOM. For example, if you can process 10 units on a lathe (resource UOM = HR) in an hour, enter an inverse amount of 10. When you enter the inverse amount of 10, the <i>value</i> is automatically calculated as 0.1 (1/10). In other words, each unit takes 0.1 hours to process.</p>
+<p>You cannot enter a quantity less than zero for resources with time-based units of measure. When you enter the usage rate or amount, the inverse usage rate or amount is automatically supplied.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e39397" id="d0e39397"></a>schedule or reschedule a resource</b></p>
+<ol>
+<li>
+<p>In the Scheduling tabbed region, enter the number of <a name="d0e39406" id="d0e39406"></a>Assigned Units. See: Resource Usage, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p>When you add a resource, the number of assigned units default value of 1. The number of Assigned Units must be greater than zero.</p>
+<p>The number of assigned units affects the scheduling of jobs and repetitive schedules. If you assign more than the default number of resource units, less elapsed time is scheduled for the operation.</p>
+<p>For example, if you have an operation that normally takes a machine 10 hours to complete, and you assign 2 machines, then only 5 hours are scheduled for the resource at that operation. You should only assign multiple resource units if they work simultaneously at an operation.</p>
+<p>Assigned units for 24 hour resources are also considered by the Calculate Manufacturing Lead Time concurrent program.</p>
+<p><strong><span>Note:</span></strong> You should not assign multiple resource units unless each resource charges at the same rate. For example, if you have 2 person-type resources performing the same task at an operation, you can create 1 resource and assign 2 units if each person works at the same rate, charges at the same rate, and works in parallel on a job or schedule. If not, then you should create 2 separate resources at the operation.</p>
+<p><img width="799" height="505" src="./img/wip_resreq02.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the <a name="d0e39436" id="d0e39436"></a>Scheduled option.</p>
+<p><i>Yes:</i> The resource's start and completion dates and times are used to schedule the job or repetitive schedule operation.</p>
+<p><i>No:</i> The resource's start and completion dates and times are not used to schedule the job or repetitive schedule operation.</p>
+<p><a name="d0e39452" id="d0e39452"></a><i>Prior:</i> The resource's completion date and time are scheduled to overlap the completion date and time of the first scheduled resource (Scheduled option is Yes) of the previous operation which is earlier than a Next resource. This option is used when applied to setup resources that can work in parallel with work in previous operations.</p>
+<p><a name="d0e39462" id="d0e39462"></a><i>Next:</i> The resource's start date and time are scheduled to overlap the start date and time of the first scheduled resource (Scheduled option is Yes) of the next operation which is earlier than a Prior resource. This option is used when applied to a teardown operation that can work in parallel with work in next operations.</p>
+<p><strong><span>Note:</span></strong> For infinite scheduling, Prior and Next resource scheduling options are not available for simultaneous resources. These resources are scheduled as Yes, that is, the resource start and completion dates are used to schedule the operation.</p>
+<p>For constraint-based scheduling, alternate resources allow you to have multiple resources set to Prior or Next scheduled options at each operation. However, for alternate resource sets with at least one Prior or Next resource&mdash;the set must be defined with resources of the same scheduled type, or scheduled type equal to No.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e39480" id="d0e39480"></a>Start and <a name="d0e39487" id="d0e39487"></a>Completion Dates and times for the resource operation.</p>
+</li>
+<li>
+<p>Use the Firm Type field to view the firm type details for a resource.</p>
+<p><img width="799" height="504" src="./img/wip_resreq03.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To enter or update resource cost information</b></p>
+<ol>
+<li>
+<p>In the Costing tabbed region, select the <a name="d0e39510" id="d0e39510"></a>Activity.</p>
+<p>Activities are processes and procedures that consume costs and time. See: Defining Activities and Activity Costs, <i>Oracle Cost Management User's Guide</i>.</p>
+</li>
+<li>
+<p>Check the <a name="d0e39526" id="d0e39526"></a>Standard Rate check box to charge the resource at its standard rate.</p>
+<p>If you choose the standard rate option, the resource is charged at its resource unit cost. If you charge an outside processing resources at the standard, Oracle Purchasing computes any purchase price variance and posts it to the variance account for the resource.</p>
+<p>If you choose non-standard, you can manually charge the resource at the employee rate or at actual cost. If the resource is a non-standard, outside processing resource, its costs are derived from the purchase order it is associated with.</p>
+<p><strong><span>Note:</span></strong> Non-standard is recommended if you import charges from an outside labor system and want to enter actual costs or an employee's labor rate.</p>
+<p>You cannot change the standard rate option if you have charged the resource to the job or repetitive schedule.</p>
+</li>
+<li>
+<p>Select the <a name="d0e39546" id="d0e39546"></a>Charge Type. See: <a href="T228107T228117.htm#I_cx2Dreschgtyp">Resource Charge Types</a>.</p>
+<p>You can select any charge type if the resource is defined as an outside processing resource. You can only select <i>PO receipt</i> if the department of the current operation has a location assigned to it. You can only select <i>PO move</i> if the department of the next operation has a location assigned to it. Also, you can only assign one <i>PO move</i> resource to an operation.</p>
+<p>Charge types are defined as follows:</p>
+<p><i>WIP move:</i> Resources with this charge type are automatically charged when you complete a job or repetitive schedule operation. See: <a href="T228107T228117.htm#I_tx2Dmvrestx78n">Charging Resources with Move Transactions</a>.</p>
+<p><i>Manual:</i> Resources with this charge type must be manually charged. See: <a href="T228107T228117.htm#I_tx2Drestx78add">Charging Resources Manually</a></p>
+<p><i>PO receipt</i>: Resources with this charge type are automatically charged when purchase orders are received. However, the assembly items associated with theses resources are not automatically moved to the next operation. They must be manually moved. See: <a href="T228107T228116.htm#I_tx2Dmoves">Performing Move Transactions</a></p>
+<p><i>PO move:</i> Resources with this charge type are automatically charged upon receipt of a purchase order and the assembly items associated with theses resources are moved to the Queue intraoperation step of the next operation, or to the To move intraoperation step if there is no next operation.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To define simultaneous resources and designate to job routings</b></p>
+<ol>
+<li>
+<p><a name="d0e39601" id="d0e39601"></a>Navigate to the Operations Resources window in Oracle Bills of Material.</p>
+</li>
+<li>
+<p>Enter your resource information in the Main tabbed regions. .</p>
+</li>
+<li>
+<p>In the Scheduling tabbed region, enter the same value in the Scheduled Seq field for all resources that are simultaneous for each sequence.</p>
+<p>The schedule sequence number indicates the sequence the resource is to be used - simultaneous resources have identical values.</p>
+</li>
+<li>
+<p>In the Principal Flag check box, you have the option to designated the resource that is the primary resource in a group of simultaneous resources.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+<li>
+<p>Navigate to the Resource Requirements window in Oracle Work in Process.</p>
+</li>
+<li>
+<p>Enter resource information in the Main tabbed region.</p>
+</li>
+<li>
+<p>In the Scheduling tabbed region, enter the same value in the Scheduled Seq field for all resources that are simultaneous for each sequence.</p>
+<p>The schedule sequence number indicates the sequence the resource is to be used - simultaneous resources have identical values</p>
+</li>
+<li>
+<p>In the Scheduled field, select a value.</p>
+<p>If these resources are scheduled as Yes, the resource start and completion dates are used to schedule the operation.</p>
+<p>Prior and Next resource scheduling options are not available for simultaneous resources. These resources are scheduled as Yes, that is, the resource start and completion dates are used to schedule the operation.</p>
+<p>For constraint-based scheduling, alternate resources allow you to have multiple resources set to Prior or Next scheduled options at each operation. However, for alternate resource sets with at least one Prior or Next resource&mdash;the set must be defined with resources of the same scheduled type, or scheduled type equal to No.</p>
+</li>
+<li>
+<p>Select the Start dates and times for the resources - these dates must be the same date for the resources to be considered simultaneous.</p>
+<p>Simultaneous resources must begin at the same time, but they may complete at different times depending on the Usage Rate or Amount.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To enter alternate resource information</b></p>
+<ol>
+<li>
+<p><a name="d0e39666" id="d0e39666"></a>Navigate to the Resource Requirements window. Select a record and choose the Scheduling tabbed region.</p>
+</li>
+<li>
+<p>Enter a value in the Substitute Group field.</p>
+<p>This value indicates which resources are replaced as alternates&mdash; alternates have the same substitute group number as the operation resource.</p>
+<p><strong><span>Note:</span></strong> The Alternates button is active when a value is entered in the Substitute Group field, and the record is saved.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+<li>
+<p>Choose Alternates to display the Alternate Resources window.</p>
+<p>Alternate resources consist of other resources used instead of the primary resource.</p>
+</li>
+<li>
+<p>In the Main tabbed region, optionally you can enter the Resource Sequence. The resource sequence indicates the order of a resource relative to other resources. The value must be unique for each operation.</p>
+</li>
+<li>
+<p>Navigate to the Scheduling tabbed region. For each alternate resource, enter a Replacement Group value.</p>
+<p>This is used in grouping several resources together as an alternate resource group. The primary resource is always a Replacement Group value of 0.</p>
+<p><img width="747" height="479" src="./img/wip_alternate.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Scheduled Sequence field, enter a value.</p>
+<p>The schedule sequence number indicates the sequence the resource is to be used&mdash;this value defaults from the Resource Requirements window. The replacement group can contain different sequences even if the primary replacement group has only one schedule sequence.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To enter resource instance information</b></p>
+<ol>
+<li>
+<p><a name="d0e39723" id="d0e39723"></a><a name="d0e39727" id="d0e39727"></a>Choose Instances on the Resource Requirements window.</p>
+<p><img width="752" height="480" src="./img/wip_instance.gif" alt="the picture is described in the document text"></p>
+<p>Enter the number for the employee, or equipment and serial number applicable to the resource type.</p>
+</li>
+</ol>
+<p><b>To enter resource setup information</b></p>
+<ol>
+<li>
+<p><a name="d0e39747" id="d0e39747"></a>Choose Setup on the Resource Requirements window.</p>
+<p>You can create a performance model for machine and labor resource setups. The setups for a resource are independent of the department that the resource is defined in.</p>
+<p><img width="753" height="471" src="./img/wip_rressetup.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a resource sequence in the Res Seq field.</p>
+<p>The resource sequence indicates the order of a resource relative to other resources.</p>
+</li>
+<li>
+<p>Select a value in the Resource field.</p>
+</li>
+<li>
+<p>Select the resource basis, indicating whether the usage required is by item or lot.</p>
+</li>
+<li>
+<p>In the Usage Rate or Amount section, enter the amount the resource is consumed at an operation.</p>
+</li>
+<li>
+<p>In the Setup Type field, select a setup that is specific to this resource.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228121.htm#I_cx2Dwipschov">Overview of Work in Process Scheduling</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dupops">Adding and Updating Operations</a></p>
+<h2><a name="1034915"></a><a id="T228938"></a><b>Deleting Resource Requirements</b></h2>
+<p><a name="I_tx2Drrdeltg" id="I_tx2Drrdeltg"></a>You can delete resource requirements as you update operations. You cannot delete resource requirement that have pending transactions, you cannot delete resource requirements that have been transacted even if their due quantity is zero. If you delete an operation, the resources associated with it are automatically deleted.</p>
+<p><b>To delete resource requirements</b></p>
+<ol>
+<li>
+<p>Navigate to the Operations window.</p>
+</li>
+<li>
+<p>Select the operation Sequence.</p>
+<p>The operation Sequence specifies from which operation the resource is to be deleted.</p>
+</li>
+<li>
+<p>Choose the Resources button. The <a name="d0e39822" id="d0e39822"></a>Resource Requirements window appears.</p>
+</li>
+<li>
+<p>In the Main tabbed region of the Resource Requirements window, select or enter the resource <a name="d0e39833" id="d0e39833"></a><a name="d0e39839" id="d0e39839"></a>Sequence number.</p>
+</li>
+<li>
+<p>Select the resource <a name="d0e39850" id="d0e39850"></a>Name.</p>
+<p>You can delete a resource requirement regardless of the status of the job or repetitive schedule. You cannot delete a resource that has been charged at an operation (applied quantity exists) or that has pending resource transactions.</p>
+<p>If you delete an operation from a job or repetitive schedule, you may want to reschedule the job or repetitive schedule to correctly reflect the start and completion dates.</p>
+<p>You cannot delete a <i>PO move</i> or <i>PO receipt</i> resources or the operations they are assigned to if purchase requisitions (either approved or unapproved) or purchase orders exist for these resources.</p>
+</li>
+<li>
+<p>Choose Delete Record from the Edit Menu.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_tx2Dupops">Adding and Updating Operations</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dopsdeltg">Deleting Operations</a></p>
+<p><a href="T228107T228117.htm#I_tx2Drraddg">Adding and Updating Resource Requirements</a></p>
+<h2><a name="1034917"></a><a id="T228939"></a><b>Viewing Resource Requirements</b></h2>
+<p><a name="WIPRRQAW.resource_qf" id="WIPRRQAW.resource_qf"></a><a name="WIPRRQAW.w_resources" id="WIPRRQAW.w_resources"></a><a name="I_tx2Dresrqvwg" id="I_tx2Dresrqvwg"></a>You can view resource requirements for a specific discrete job or repetitive line and assembly. You can also view resource requirements across jobs and schedules.</p>
+<p><b>To find and view resource requirements</b></p>
+<ol>
+<li>
+<p>Navigate to the View Resource Requirements window. The <a name="d0e39907" id="d0e39907"></a>Find Resource Requirements window appears.</p>
+<p><img width="590" height="502" src="./img/wip_wip_fndresrq.gif" alt="the picture is described in the document text"></p>
+<p>You can query by Job or production Line and Assembly or a range of start dates. You can query to find resource requirements for jobs and schedules of a specific status. For example, you can query to find only resources for Released jobs and schedules</p>
+<p>You can also query by Department, Resource, Resource Type, Activity, and/or a range of First Unit and Last Unit Start or Completion Dates.</p>
+</li>
+<li>
+<p>Enter any combination of search criteria and choose the Find button. The results display in the <a name="d0e39927" id="d0e39927"></a>View Resource Requirements window.</p>
+<p><img width="753" height="503" src="./img/wip_wip_vwresrqm.gif" alt="the picture is described in the document text"></p>
+<p>You can view the following information in View Resource Requirements window's tabbed regions:</p>
+<p><i>Main:</i> Resource, UOM, Operation Sequence number, Department, Resource Sequence number, Basis, Rate or Amount of Usage and Inverse Value</p>
+<p><i>Quantities:</i> Required, Applied, and Open quantities</p>
+<p><i>Scheduling:</i> Assigned Units, Scheduled, Start Date, and Completion Date</p>
+<p><i>Costing:</i> Activity, Standard Rate option, Charge Type</p>
+<p><i>Job or Schedule:</i> Job/Assembly or production Line/Assembly and Status</p>
+<p><i>Type, Description:</i> Resource Type and Description</p>
+<p>You can also view, if entered, descriptive flexfield information. See: <a href="T228107T228122.htm#I_cx2Dflex78su">Setting Up Descriptive Flexfields</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228117.htm#I_rx2Dresreqs">Overview of Resource Requirements</a></p>
+<p>Searching for Information, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1034919"></a><a id="T228283"></a><b>Overview of Resource Transactions</b></h2>
+<p><a name="d0e39983" id="d0e39983"></a><a name="I_cx2Dovrestx78" id="I_cx2Dovrestx78"></a>Resource charges can be transacted manually, with move or purchase order transactions, or imported from outside data sources or data collection devices. Resources are charged based upon their charge type: Manual, WIP Move, PO Receipt and PO Move. See: <a href="T228107T228117.htm#I_cx2Dreschgtyp">Resource Charge Types</a>.</p>
+<p>For all resources you charge either manually or automatically, Oracle Work in Process also records the units applied to the job or repetitive schedule, expressed in the unit of measure of the resource, when you complete an operation.</p>
+<h3><b>Actual Resource Charges<a name="d0e39999" id="d0e39999"></a><a name="d0e40003" id="d0e40003"></a></b></h3>
+<p>You can charge resource charges at actual in two ways. You can enter an actual rate for the resource using the Open Resource Transaction Interface or you can use the Persons window. The system computes the resources variances accordingly.</p>
+<h3><b>Actual Outside Processing Charges<a name="d0e40014" id="d0e40014"></a><a name="d0e40020" id="d0e40020"></a><a name="d0e40024" id="d0e40024"></a></b></h3>
+<p>Outside processing resources can be charged at standard rate or actual. Oracle Purchasing computes purchase price variances accordingly.</p>
+<h3><b>Overhead Charging<a name="d0e40035" id="d0e40035"></a><a name="d0e40041" id="d0e40041"></a></b></h3>
+<p>Overhead costs are appropriately charged as you charge resources. You can define overheads to be charged based on Resource units or Resource value, Lot, or Item. Oracle Work in Process calculates the appropriate overhead charge as you charge the resource. Oracle Work Overhead charges are automatically reversed as you reverse underlying resource charges. See: Default Basis Types, <i>Oracle Cost Management User's Guide</i>.</p>
+<h3><b>Resource Costs and Overheads for Phantoms</b></h3>
+<p>You have the option to include resource and overhead charges in the cost of the parent or higher level assembly. This feature is enabled when you set up the Oracle Bills of Material BOM:Use Phantom Routings parameter to have &ldquo;Yes" as its value. You set this parameter at the inventory organization level and it applies to all phantoms within a single inventory organization. Routing resources and their costs are then also included in capacity planning.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228117.htm#I_cx2Dresovw">Overview of Resource Management</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dressup">Setting Up Resource Management</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dresopt">Resource Transaction Options</a></p>
+<h2><a name="1034924"></a><a id="T228284"></a><b><a name="I_cx2Dopnrestx78n" id="I_cx2Dopnrestx78n"></a>Open Resource Transaction Interface<a name="d0e40077" id="d0e40077"></a><a name="d0e40083" id="d0e40083"></a><a name="d0e40089" id="d0e40089"></a></b></h2>
+<p>You can load resource transaction information into the Open Resource Transaction Interface table from external sources such as bar code readers and payroll systems. The resource cost transaction manager, launched in Oracle Inventory, processes and validates this information to ensure accuracy and compatibility with other Oracle Applications information.</p>
+<p>Resource transaction information that fails validation or processing is marked. You can use the Pending Resource Transactions window to view, update, and resubmit this information.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228117.htm#I_tx2Drespndg">Processing Pending Resource Transactions</a></p>
+<p>Transaction Managers, <i>Oracle Inventory User's Guide</i></p>
+<h2><a name="1034925"></a><a id="T228285"></a><b>Resource Transaction Options</b></h2>
+<p><a name="d0e40114" id="d0e40114"></a><a name="d0e40120" id="d0e40120"></a><a name="d0e40124" id="d0e40124"></a><a name="I_cx2Dresopt" id="I_cx2Dresopt"></a>You can transact resources or reverse resource charges:</p>
+<ul>
+<li>
+<p>In Work in Process by:</p>
+<ul>
+<li>
+<p><a href="T228107T228117.htm#I_tx2Dmvrestx78n">Charging Resources with Move Transactions</a></p>
+</li>
+<li>
+<p><a href="T228107T228117.htm#I_tx2Drestx78add">Charging Resources Manually</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Through open interfaces:</p>
+<ul>
+<li>
+<p><a href="T228107T228116.htm#I_cx2Domti">Open Move Transaction Interface</a></p>
+</li>
+<li>
+<p><a href="T228107T228117.htm#I_cx2Dopnrestx78n">Open Resource Transaction Interface</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a name="1034926"></a><a id="T228940"></a><b>Charging Resources Manually</b></h2>
+<p><a name="d0e40163" id="d0e40163"></a><a name="d0e40169" id="d0e40169"></a><a name="d0e40175" id="d0e40175"></a><a name="I_tx2Drestx78add" id="I_tx2Drestx78add"></a>Manual resources can be charged to discrete jobs and repetitive schedules that have statuses of Released or Complete. Resources are charged based on how they are defined at the operation they are assigned.</p>
+<h3><b>Ad Hoc Resource Requirements<a name="d0e40186" id="d0e40186"></a></b></h3>
+<p>You can charge resources that are not assigned to job or repetitive schedule routing operations thus creating <i>ad hoc</i> resource requirements. You can choose to add <i>ad hoc</i> resources of any charge type - Manual, PO Move, PO Receipt, or WIP Move - however ad hoc resources are actually added as Manual resources and have with a required quantity of zero.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define at least one job or repetitive schedule with a routing. See: <a href="T228107T228111.htm#I_tx2Ddefdj">Defining Discrete Jobs Manually</a> or <a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a>.</li>
+</ul>
+<p><b>To add, charge, or add and charge a resource</b></p>
+<ol>
+<li>
+<p>Navigate to the Resource Transactions window.</p>
+<p><img width="753" height="334" src="./img/wip_wip_resrtxns.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a Sales Order, repetitive Line and Assembly, Assembly, or Job. The cursor defaults to one of these fields based on how the <i>TP:WIP:Resource Transactions First Field</i> profile option is set. See: <a href="T228107T228110.htm#c_profdesc">Profile Option Descriptions</a>.</p>
+<p>You must select a discrete job or repetitive line and assembly with a status of Released or Complete.</p>
+</li>
+<li>
+<p>Enter the transaction <a name="d0e40238" id="d0e40238"></a>Date and time.</p>
+</li>
+<li>
+<p>Check the Find Manual Resources check box to find the manual resources operations for the Job or Line/Schedule.</p>
+<p><strong><span>Note:</span></strong> Be aware that costed, manual resources on the manufacturing routing are part of the standard cost for the assembly you are building. If you do not apply the correct number of resource units, you may have a variance on the job or repetitive schedule.</p>
+</li>
+<li>
+<p><a name="d0e40254" id="d0e40254"></a>Enter the range of operation sequence numbers to transact manual resources.</p>
+</li>
+<li>
+<p>Check the<a name="d0e40266" id="d0e40266"></a><a name="d0e40270" id="d0e40270"></a> Count Points Only check box to find only the count point operations for the Job or Line/Schedule. See: Count Point and Autocharge Fields, <i>Oracle Bills of Material User's Guide</i>.</p>
+</li>
+<li>
+<p>Choose the Transact button. The Resource Transactions window appears.</p>
+<p><img width="771" height="363" src="./img/wip_wip_restxns1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the <a name="d0e40293" id="d0e40293"></a>Operation Sequence.</p>
+</li>
+<li>
+<p>Enter or select the <a name="d0e40304" id="d0e40304"></a>Resource Sequence.</p>
+</li>
+<li>
+<p>In the Transaction tabbed region, enter or select a resource.</p>
+<p>You can select any resource associated with the department of the operation or any multi-departmental resource.</p>
+</li>
+<li>
+<p>Optionally, select the Employee.</p>
+<p>If you enter an employee, you can charge job or schedule resources at the employee's effective rate. If you do not specify an employee, the resource is charged at the standard rate for the person-type resource.</p>
+</li>
+<li>
+<p>Select the <a name="d0e40327" id="d0e40327"></a>UOM. See: Overview of Units of Measure, <i>Oracle Inventory User's Guide</i>.</p>
+<p>You can use any valid, alternate unit of measure for the assembly you are moving.</p>
+</li>
+<li>
+<p>Enter the transaction <a name="d0e40343" id="d0e40343"></a>Quantity.</p>
+<p>Enter the number of units charged by the resource. If you enter an amount different from the standard for a resource that is part of your standard manufacturing routing, a cost variance is incurred. All charges for 'ad hoc' resources, represent a cost variance.</p>
+<p><strong><span>Note:</span></strong> If you add a manual resource, the transaction quantity is blank. The resource is not transacted unless you enter a transaction quantity.</p>
+</li>
+<li>
+<p>Select the <a name="d0e40359" id="d0e40359"></a>Activity. See: Defining Activities and Activity Costs, <i>Oracle Cost Management User's Guide</i>.</p>
+<p>The enabled activity, if any, associated with the resource is displayed.</p>
+</li>
+</ol>
+<p><b>To enter additional resource transaction information</b></p>
+<ol>
+<li>
+<p>In the Comments tabbed region, select the Operation sequence.</p>
+</li>
+<li>
+<p>Optionally, select the <a name="d0e40385" id="d0e40385"></a>Reason code. See: Defining Transaction Reasons, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally, enter the transaction <a name="d0e40399" id="d0e40399"></a>Reference.</p>
+<p>References can be used to identify transactions on standard reports. They can be up to 240 characters of alpha numeric text.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228117.htm#I_cx2Dovrestx78">Overview of Resource Transactions</a></p>
+<p><a href="T228107T228120.htm#I_cx2Dovwpcst">Overview of Work in Process Costing</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dupops">Adding and Updating Operations</a></p>
+<p><a href="T228107T228117.htm#I_rx2Dresreqs">Overview of Resource Requirements</a></p>
+<p><a href="T228107T228117.htm#I_tx2Drraddg">Adding and Updating Resource Requirements</a></p>
+<p><a href="T228107T228119.htm#I_cx2Dsttnx78ctl">Transaction Control by Status</a></p>
+<h2><a name="1034931"></a><a id="T228941"></a><b><a name="I_tx2Dmvrestx78n" id="I_tx2Dmvrestx78n"></a>Charging Resources with Move Transactions</b></h2>
+<p><a name="d0e40438" id="d0e40438"></a><a name="d0e40444" id="d0e40444"></a><a name="d0e40450" id="d0e40450"></a><a name="WIPTXRSC_WIPTXRSC_RESOURCE_TRANSACTIONS" id="WIPTXRSC_WIPTXRSC_RESOURCE_TRANSACTIONS"></a><a name="WIPTXRSC_WIPTXRSC_RESOURCE_HEADER" id="WIPTXRSC_WIPTXRSC_RESOURCE_HEADER"></a>You can charge manual resources as you move assemblies by choosing the Resources button. The system automatically displays the resources you should charge based upon the move. When you perform a move transaction across more than one repetitive schedule, only manual resources associated with the first schedule are displayed.</p>
+<p>You can also add and charge resources not already associated with a job or repetitive schedule. You can add a resource regardless of the autocharge type. When you add a resource with an autocharge type of PO move, PO receipt, or WIP move, the system adds the resource to the job or repetitive schedule as a manual resource.</p>
+<p>If you add a standard operation that has manual resources in the Move Transactions window, then complete assemblies at that operation, the system automatically displays the resources you should charge.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Set the <i>Move Transactions: No Resource Transactions</i> (RESOURCE_TXNS) security function to Y so that the Resources button appears in the Move Transactions window. See: <a href="T228107T228110.htm#I_rx2Dsecfunc">Security Functions</a>.</li>
+</ul>
+<p><b>To manually transact a resource with a move</b></p>
+<ol>
+<li>
+<p>Perform a Move Transaction. See: <a href="T228107T228116.htm#I_tx2Dmoves">Performing Move Transactions</a>.</p>
+</li>
+<li>
+<p>Choose the Resources button. The <a name="d0e40489" id="d0e40489"></a>Resource Transactions window appears.</p>
+<p><img width="771" height="363" src="./img/wip_wip_restxns1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Perform a Resource Transaction. See: <a href="T228107T228117.htm#I_tx2Drestx78add">Charging Resources Manually</a>.</p>
+<p><strong><span>Note:</span></strong> The Reason, if any, entered for the move transaction is displayed as the default.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228117.htm#I_cx2Dressup">Setting Up Resource Management</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dovrestx78">Overview of Resource Transactions</a></p>
+<h2><a name="1034934"></a><a id="T228942"></a><b>Viewing Resource Transactions</b></h2>
+<p><a name="d0e40524" id="d0e40524"></a><a name="d0e40530" id="d0e40530"></a><a name="d0e40534" id="d0e40534"></a><a name="I_tx2Drestx78vwg" id="I_tx2Drestx78vwg"></a><a name="WIPTQRSC_TXN_QF" id="WIPTQRSC_TXN_QF"></a><a name="WIPTQRSC_W_TXNS_V" id="WIPTQRSC_W_TXNS_V"></a>You can find and view resource transactions for an individual job or schedule using the View Resource Transactions window. This window enables you to view resource transactions across jobs and schedules, and access subledger accounting transaction windows in Oracle Cost Management. You can choose to view only resource and overhead transactions, or also include variance transactions in the display.</p>
+<p><b>To find and view resource transactions</b></p>
+<ol>
+<li>
+<p>Navigate to the View Resource Transactions window. The Find Resource Transactions window first appears.</p>
+<p>You can query to find resource transactions by Transaction Date range, Job or Schedule, Line, Assembly, Department, Resource, Employee Number, Activity, PO Number, and Transferred to Projects values.</p>
+<p><img width="651" height="420" src="./img/wip_findrestrans.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter any combination of search criteria.</p>
+<p>For the Include Variance Transactions check box, when the check box is:</p>
+<ul>
+<li>
+<p>Unchecked only resource and overhead transactions display.</p>
+</li>
+<li>
+<p>Enabled all variance transactions also display including cost update transactions, job close variance transactions, and final completion variance transactions.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose Find. The results display in the View Resource Transactions window.</p>
+<p><img width="764" height="509" src="./img/wip_vwmrestxn.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the following tabs to view information:</p>
+<ul>
+<li>
+<p><i>Job or Schedule Header:</i> Transaction Date, Job/Schedule, Assembly, Line Transaction ID</p>
+</li>
+<li>
+<p><i>Operation, Quantities:</i> Operation Sequence, Department, Sequence, Name, Employee Number, UOM and Quantity in both the transaction and primary units of measure</p>
+</li>
+<li>
+<p><i>Resource Information:</i> Basis, Usage Rate or Amount, Activity, Autocharge Type, PO Number, Currency</p>
+</li>
+<li>
+<p><i>Transaction Comments:</i> Transaction Type, Reason, Reference</p>
+</li>
+<li>
+<p><i>Project</i>: Project Number, Project ID, Task Number, Task ID</p>
+</li>
+</ul>
+</li>
+<li>
+<p>You can access accounting windows by choosing Distributions, and using options in the Tools menu:</p>
+<ul>
+<li>
+<p>Select Distributions to access the WIP Transactions Distributions window.</p>
+</li>
+<li>
+<p>From the Tools menu, select View Accounting to access the View Resource Accounting window.</p>
+</li>
+<li>
+<p>From the Tools menu, select View Accounting Events to access the Accounting Events page.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228117.htm#I_cx2Dresopt">Resource Transactions Options</a></p>
+<p>Viewing WIP Transaction Distributions, <i>Oracle Cost Management User's Guide</i></p>
+<p>Overview of Subledger Accounting (SLA), <i>Oracle Cost Management User's Guide</i></p>
+<p>Setting Up Cost Management Subledger Accounting , <i>Oracle Cost Management User's Guide</i></p>
+<h2><a name="1034937"></a><a id="T228943"></a><b>Viewing Accounting Lines</b></h2>
+<p><a name="d0e40647" id="d0e40647"></a><a name="d0e40651" id="d0e40651"></a><a name="d0e40657" id="d0e40657"></a><a name="I_tx2Dx78lax2Dview" id="I_tx2Dx78lax2Dview"></a><a name="WIP.SLA_VIEW_ACCT" id="WIP.SLA_VIEW_ACCT"></a>When you query a resource transaction in Oracle Work in Process, you can choose to view the detail accounting lines for the queried transaction in the form of a balanced accounting entry (such as debits equal credits). You can also choose to view the detail accounting as t-accounts. Use these features to see how a transaction will affect the account balances in your general ledger.</p>
+<p><b>To view accounting lines and t-accounts</b></p>
+<ol>
+<li>
+<p>Query the resource transaction for which you want to view accounting lines.</p>
+</li>
+<li>
+<p>From the Tools menu, choose View Accounting.</p>
+<p>The <a name="d0e40681" id="d0e40681"></a>View Resource Accounting window opens.</p>
+<p><img width="785" height="531" src="./img/wip_viewresacc.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>To view the accounting detail, choose T-Accounts.</p>
+<h3><b>View Accounting Windows</b></h3>
+<p><a name="d0e40698" id="d0e40698"></a>The first time you open the <a name="d0e40704" id="d0e40704"></a>View Resource Accounting window, the following information will be displayed for the detailed accounting lines:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Account</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Accounting Date</td>
+<td>Line Type</td>
+</tr>
+<tr valign="top">
+<td>Assembly</td>
+<td>Operation Sequence</td>
+</tr>
+<tr valign="top">
+<td>Basis</td>
+<td>Primary Quantity</td>
+</tr>
+<tr valign="top">
+<td>Cost Element</td>
+<td>Reference</td>
+</tr>
+<tr valign="top">
+<td>Credit</td>
+<td>Resource</td>
+</tr>
+<tr valign="top">
+<td>Curr Conversion Rate</td>
+<td>Resource Sequence</td>
+</tr>
+<tr valign="top">
+<td>Debit</td>
+<td>Set of Books Short Name</td>
+</tr>
+<tr valign="top">
+<td>Department</td>
+<td>Trans Reason</td>
+</tr>
+<tr valign="top">
+<td>Entered Credit</td>
+<td>Trans Source</td>
+</tr>
+<tr valign="top">
+<td>Entered Curr</td>
+<td>Transaction Class</td>
+</tr>
+<tr valign="top">
+<td>Entered Debit</td>
+<td>Transaction Date</td>
+</tr>
+<tr valign="top">
+<td>Flow Schedule</td>
+<td>Transaction Num</td>
+</tr>
+<tr valign="top">
+<td>GL Batch</td>
+<td>Transaction Type</td>
+</tr>
+<tr valign="top">
+<td>Inventory Organization Code</td>
+<td>Unit Cost</td>
+</tr>
+<tr valign="top">
+<td>Job</td>
+<td>UOM</td>
+</tr>
+</table>
+<p>When you select a detailed accounting line, the system displays the following information at the bottom of the View Resource Accounting window:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Account Desc</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Assembly</td>
+<td>Quantity</td>
+</tr>
+<tr valign="top">
+<td>Basis</td>
+<td>Resource</td>
+</tr>
+<tr valign="top">
+<td>Flow Schedule</td>
+<td>Unit Cost</td>
+</tr>
+<tr valign="top">
+<td>Job</td>
+<td>UOM</td>
+</tr>
+</table>
+<p><b>Customizing the View Accounting Window<a name="d0e40871" id="d0e40871"></a></b></p>
+<p>The View Resource Accounting window is a folder. You can easily customize the information that is displayed in the window. When you select a detailed accounting line, the system displays additional information at the bottom of the View Resource Accounting window.</p>
+<h3><b><a name="I_slax2Ddrillx2Dwip" id="I_slax2Ddrillx2Dwip"></a>Drilling Down to Oracle Work in Process from Oracle General Ledger<a name="WIP.SLA_DRILLDOWN" id="WIP.SLA_DRILLDOWN"></a></b></h3>
+<p>From General Ledger, you can drill down to subledger details from the Account Inquiry, Journal Entry Inquiry, or Enter Journals windows for journals that have specific journal sources assigned to them. For example, if a journal source is WIP, you can drill down to the transaction details in Oracle Work in Process.</p>
+<p>When you drill down from General Ledger, the <a name="d0e40888" id="d0e40888"></a>WIP Accounting Lines window will open. The first time you open this window, the following information will be displayed:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Accounting Date</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Assembly</td>
+<td>Line Type</td>
+</tr>
+<tr valign="top">
+<td>Basis</td>
+<td>Operation Sequence</td>
+</tr>
+<tr valign="top">
+<td>Cost Element</td>
+<td>Primary Quantity</td>
+</tr>
+<tr valign="top">
+<td>Credit</td>
+<td>Reference</td>
+</tr>
+<tr valign="top">
+<td>Currency</td>
+<td>Resource</td>
+</tr>
+<tr valign="top">
+<td>Curr Conversion Rate</td>
+<td>Resource Sequence</td>
+</tr>
+<tr valign="top">
+<td>Debit</td>
+<td>Trans Reason</td>
+</tr>
+<tr valign="top">
+<td>Entered Credit</td>
+<td>Trans Source</td>
+</tr>
+<tr valign="top">
+<td>Entered Curr</td>
+<td>Transaction Date</td>
+</tr>
+<tr valign="top">
+<td>Entered Debit</td>
+<td>Transaction ID</td>
+</tr>
+<tr valign="top">
+<td>Flow Schedule</td>
+<td>Transaction Type</td>
+</tr>
+<tr valign="top">
+<td>GL Batch</td>
+<td>Unit Cost</td>
+</tr>
+<tr valign="top">
+<td>Job</td>
+<td>UOM</td>
+</tr>
+</table>
+<p>When you select a detailed accounting line, the system displays the following information at the bottom of the window:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Assembly</td>
+<td>Quantity</td>
+</tr>
+<tr valign="top">
+<td>Basis</td>
+<td>Resource</td>
+</tr>
+<tr valign="top">
+<td>Flow Schedule</td>
+<td>Unit Cost</td>
+</tr>
+<tr valign="top">
+<td>Job</td>
+<td>UOM</td>
+</tr>
+<tr valign="top">
+<td>Line</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>From the <a name="d0e41039" id="d0e41039"></a>WIP Accounting Lines window, you can drill down even further to view detail transactions or you can choose to view the underlying transaction accounting.</p>
+<p><b>To drill down to detail transactions or to view transaction accounting</b></p>
+<ol>
+<li>
+<p>From the WIP Accounting Lines window, select a detail accounting line.</p>
+</li>
+<li>
+<p>Choose the Show Transaction button to view detail transactions.</p>
+</li>
+<li>
+<p>Choose the Show Transaction Accounting button to view the transaction accounting.</p>
+<p><a href="T228107T228117.htm#I_tx2Dx78lax2Dview">Viewing Accounting Lines</a></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="1034943"></a><a id="T228944"></a><b>Finding Pending Resource Transactions</b></h2>
+<p><a name="d0e41067" id="d0e41067"></a><a name="WIPTICOM.TXN_FIND" id="WIPTICOM.TXN_FIND"></a><a name="WIPTICOM.TXN_ERRORS" id="WIPTICOM.TXN_ERRORS"></a><a name="I_tx2Drspndfdg" id="I_tx2Drspndfdg"></a><a name="WIPTIRSC_TXN_FIND" id="WIPTIRSC_TXN_FIND"></a>You can find pending resource transactions for an individual job or schedule name. You can also find pending resource transactions for multiple jobs and schedules simultaneously.</p>
+<p>You can find pending resource transactions by a range of Transaction Dates, Organization, Job or Schedule Name, Line, Process Phase (Move validation, Move processing, or Backflush setup), Process Status (Pending, Running, or Error), Source Code, Source Line ID, and Transaction ID. You can limit or expand your selection by combining selection criteria.</p>
+<p><b>To find pending resource transactions</b></p>
+<ol>
+<li>
+<p>Navigate to the Pending Resources Transactions window. The <a name="d0e41087" id="d0e41087"></a>Find Pending Resources Transactions window appears.</p>
+<p><img width="694" height="332" src="./img/wip_wip_fndrestx.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter any combination of search criteria and choose the Find button. The <a name="d0e41103" id="d0e41103"></a>Pending Resource Transactions window appears with the results of your query.</p>
+<p><img width="753" height="406" src="./img/wip_wip_pndgrtxn.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228117.htm#I_tx2Drespndg">Processing Pending Resource Transactions</a></p>
+<h2><a name="1034945"></a><a id="T228945"></a><b>Processing Pending Resource Transactions</b></h2>
+<p><a name="d0e41124" id="d0e41124"></a><a name="WIPTICOM.UPDATE_INTERFACE" id="WIPTICOM.UPDATE_INTERFACE"></a><a name="I_tx2Drespndg" id="I_tx2Drespndg"></a><a name="WIPTIRSC.resource_transactions" id="WIPTIRSC.resource_transactions"></a>You can view, update, delete, and resubmit resource transactions that have failed validation and remain in the Open Resource Transaction Interface table (WIP_COST_TXN_INTERFACE). You can also resubmit transactions whose concurrent process has failed and have a processing phase of Complete and process status of Error. You can view error messages associated with failed records. Error messages can assist you in updating failed records before resubmission.</p>
+<p><b>To find pending resource transactions</b></p>
+<ol>
+<li>
+<p>See: <a href="T228107T228117.htm#I_tx2Drspndfdg">Finding Pending Resource Transactions</a>.</p>
+</li>
+</ol>
+<p><b>To view pending resource transaction records</b></p>
+<ol>
+<li>
+<p>Navigate to the Pending Resources Transactions window. The <a name="d0e41153" id="d0e41153"></a>Find Pending Resource Transactions window appears.</p>
+<p><img width="694" height="332" src="./img/wip_wip_fndrestx.gif" alt="the picture is described in the document text"></p>
+<p>You can find pending records by Transaction Date range, by Organization, by Job, Schedule Name, and production Line. You can also search for records that have a specific Process Phase (Move validation, Move processing, or Backflush setup, Process Status (Pending, Running, or Error), Source Code, Source Line ID, or Transaction ID.</p>
+</li>
+<li>
+<p>Enter any combination of search criteria and choose the Find button. The <a name="d0e41171" id="d0e41171"></a>Pending Resource Transactions window appears with the results of your query.</p>
+<p><img width="753" height="406" src="./img/wip_wip_pndgrtxn.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To <a name="d0e41186" id="d0e41186"></a>view pending resource transaction records</b></p>
+<ol>
+<li>
+<p>For each pending record displayed, you can view the following information using the Pending Resource Transactions window's tabbed regions:</p>
+<p><i>Processing:</i> Group ID, processing Phase, processing Status</p>
+<p><i>Source:</i> Source Code, Source Line (if applicable), Created By</p>
+<p><i>Concurrent Request:</i> Request ID, Phase, Status, Message</p>
+<p><i>Job or Schedule Name:</i> Organization, Job, Schedule Name, Line</p>
+<p><i>Operations:</i> Operation Sequence, Department, resource Sequence, resource Name, resource Type, Employee Number</p>
+<p><i>Resource:</i> Activity, Charge Type, PO Number, Currency, Actual Rate</p>
+<p><i>Transaction:</i> UOM, Quantity, Date and Time, Type</p>
+<p>You can also view the descriptive flexfield information entered for the transaction record. See: <a href="T228107T228122.htm#I_cx2Dflex78su">Setting Up Descriptive Flexfields</a>.</p>
+</li>
+</ol>
+<p><b>To view <a name="d0e41233" id="d0e41233"></a>error details for failed resource transactions</b></p>
+<ol>
+<li>
+<p>In the Pending Resource Transactions window, select the failed record.</p>
+</li>
+<li>
+<p>Choose the Errors button. The <a name="d0e41248" id="d0e41248"></a>Pending Resource Transactions Error window appears.</p>
+<p><img width="755" height="191" src="./img/wip_wip_pngrtxne.gif" alt="the picture is described in the document text"></p>
+<p>All errors for the selected transaction are displayed. <i>Column</i> indicates the name of the column in the resource transaction interface table that failed validation. <i>Message</i> indicates why the transaction failed.</p>
+<p>Messages that are not specific to a Column, for example processing errors, may also be displayed. In such cases, a <i>Message</i> but no <i>Column</i> is shown.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e41279" id="d0e41279"></a>update failed resource transaction records</b></p>
+<ol>
+<li>
+<p>Select the record to update.</p>
+<p>You can update records with a processing status of Error.</p>
+</li>
+<li>
+<p>In the Source tabbed region, enter the <a name="d0e41296" id="d0e41296"></a>Source Code and <a name="d0e41303" id="d0e41303"></a>Source Line.</p>
+<p>When you insert records into the Open Resource Transaction Interface table, you can optionally identity a record's source using the source code and source line. For example, you can enter a different source code and source line for records from a bar code reader versus those from a radio frequency device.</p>
+</li>
+<li>
+<p>Select the <a name="d0e41316" id="d0e41316"></a>Created By identifier.</p>
+<p>The name of the user that created the transaction is displayed. This field can be updated.</p>
+</li>
+<li>
+<p>In the Job or Schedule Name tabbed region, select the <a name="d0e41329" id="d0e41329"></a>Organization.</p>
+<p>You can only select enabled organizations. See: Creating an Organization, <i>Oracle Human Resources User's Guide</i>.</p>
+</li>
+<li>
+<p>In the Operations tabbed regions, select the <a name="d0e41345" id="d0e41345"></a>Operation Sequence for the resource.</p>
+<p>You can select any operation defined for the job or repetitive schedule.</p>
+</li>
+<li>
+<p>Select or enter the resource <a name="d0e41358" id="d0e41358"></a>Sequence.</p>
+<p>You can update this field with any resource sequence defined for your operation or you can add a resource ad hoc by entering a new resource sequence. If you choose a predefined resource sequence, all fields specific to that resource are automatically populated.</p>
+</li>
+<li>
+<p>Select the <a name="d0e41371" id="d0e41371"></a>Name.</p>
+<p>If you inserted an 'ad hoc' resource requirement into the Open Resource Transaction Interface table by entering a new resource sequence, you can select resources associated with the department of the operation or multi-departmental resources. All related fields are automatically populated based on your selection.</p>
+<p>If you choose a resource of type Person and the employee number has no value, you are prompted to enter an employee number.</p>
+<p>If you choose a resource type other than Person and the employee number has a value, you are prompted to clear the employee number.</p>
+</li>
+<li>
+<p>Select the <a name="d0e41388" id="d0e41388"></a>Employee Number.</p>
+<p>If you have entered a person-type resource, you can update this field with any valid employee number.</p>
+</li>
+<li>
+<p>In the Resource tabbed region, select the <a name="d0e41401" id="d0e41401"></a>Activity.</p>
+<p>You can select an activity defined for your organization or an activity that is not tied to any specific organization and is not inactive.</p>
+</li>
+<li>
+<p>Select the <a name="d0e41414" id="d0e41414"></a>Currency code. .</p>
+</li>
+<li>
+<p>Enter the <a name="d0e41425" id="d0e41425"></a>Actual Rate for your resource.</p>
+<p>This rate is used to determine the cost of a resource when the resource's standard rate option is set to No.</p>
+</li>
+<li>
+<p>In the Transaction tabbed region, select the <a name="d0e41438" id="d0e41438"></a>UOM. See: Overview of Units of Measure, <i>Oracle Inventory User's Guide</i>.</p>
+<p>You can update this field with any resource alternate UOM that is not inactive.</p>
+</li>
+<li>
+<p>Enter the transaction <a name="d0e41454" id="d0e41454"></a>Quantity.</p>
+<p>This is a quantity of the UOM which you are charging to a job or schedule. The job/schedule is costed at the resource standard, the employee rate, or the actual rate. You can update this field with any number.</p>
+</li>
+<li>
+<p>Enter the transaction <a name="d0e41467" id="d0e41467"></a>Date and time.</p>
+<p>The date and time must fall within an open accounting period. It cannot be greater than the current date or less than the release date of the job or the earliest valid repetitive schedule.</p>
+</li>
+<li>
+<p>In the Comments tabbed region, select the Reason code. See: Defining Transaction Reasons, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Enter the transaction Reference.</p>
+<p>References can be used to identify transactions on standard reports. They can be up to 240 characters of alpha numeric text.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e41496" id="d0e41496"></a>resubmit individual failed resource transaction records</b></p>
+<ol>
+<li>
+<p>In the Pending Resource Transactions window, check the transaction's Resubmit check box.</p>
+<p>You can resubmit transactions of any processing status. If you leave the check box unchecked you can still update your transaction record but the transaction manager does not process it again when polling the resource interface table.</p>
+</li>
+<li>
+<p>Save your work to resubmit the transaction.</p>
+<p>When you resubmit a transaction, the system nulls the Transaction ID, Group ID, and concurrent Request ID and changes the processing status to Pending. The resubmit level of the Resource Cost Transaction Manager determines at what specific start date and time or at what specific intervals transactions are processed.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e41518" id="d0e41518"></a>select and resubmit all failed resource transactions</b></p>
+<ol>
+<li>
+<p>In the Pending Resource Transactions window, chose <i>Select All for Resubmit</i> from the Tools menu. .</p>
+<p>You can deselect selected transactions as required.</p>
+</li>
+<li>
+<p>Save your work to resubmit the transactions.</p>
+<p>When you resubmit transactions, the system nulls their Transaction IDs, Group IDs, and concurrent Request IDs, and changes their processing Statuses to Pending. The resubmit level of the Resource Cost Transaction Manager determines at what specific start date and time or at what specific intervals transactions are processed.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e41543" id="d0e41543"></a>delete pending resource transaction records</b></p>
+<ol>
+<li>
+<p>In the Pending Resource Transactions window, select the transaction.</p>
+</li>
+<li>
+<p>Choose Delete from the Edit Menu</p>
+<p>You can delete failed records that have a processing status of Error regardless of their processing phase. When you delete transaction records, their corresponding error messages are also deleted.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Open Resource Transaction Interface, Oracle Integration Repository</p>
+<p><a href="T228107T228117.htm#I_cx2Dopnrestx78n">Open Resource Transaction Interface</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dovrestx78">Overview of Resource Transactions</a></p>
+<p><a href="T228107T228117.htm#I_tx2Drestx78add">Changing Resources Manually</a></p>
+<p><a href="T228107T228117.htm#I_tx2Dmvrestx78n">Charging Resources with Move Transactions</a></p>
+<p><a href="T228107T228115.htm#I_tx2Dupdmrqs">Adding and Updating Resource Requirements</a></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

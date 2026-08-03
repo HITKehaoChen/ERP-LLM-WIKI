@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Shipping Execution User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Shipping Execution User's Guide">
+<meta name="dcterms.identifier" content="E48847-15">
+<meta name="dcterms.isVersionOf" content="WSHUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T414830T414844.htm" title="Previous" type="text/html">
+<link rel="Next" href="T414830T414845.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Shipping Execution User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">20/23</span> <!-- End Header -->
+<h1>Electronic Messaging</h1>
+<h2><a name="3917357"></a><a id="T435969"></a><b>Overview of Electronic Messaging</b></h2>
+<a name="d0e24180" id="d0e24180"></a><a name="d0e24184" id="d0e24184"></a><a name="t_emxml" id="t_emxml"></a>
+<h3><a id="T435971"></a><b>XML Transactions</b></h3>
+<p>Oracle Shipping Execution enables the communication of information to external sources outside of Oracle E-Business Suite (EBS) and internal sources outside of Oracle Shipping Execution through the use of XML (Extensible Markup Language).</p>
+<p>Oracle XML Gateway must be installed and configured before using XML with Shipping Execution.</p>
+<p>See: <i>Oracle XML Gateway User's Guide</i>.</p>
+<p>Oracle Shipping Execution uses XML transactions in many shipping processes such as carrier manifesting (shipment request and shipment advice) and for integration between EBS instance and Distributed Warehouse Management Systems (DWMS) instance (shipment request and shipment advice).</p>
+<h2><a name="4079550"></a><a id="T452362"></a><b>XML Transactions with Carrier Manifesting Systems</b></h2>
+<p><a name="d0e24208" id="d0e24208"></a><a name="t_xml" id="t_xml"></a>XML transactions are used to transmit delivery details to a carrier manifesting system. Once the carrier manifesting system has processed the delivery, the shipping details are transmitted back to Oracle Shipping Execution using an XML shipment response transaction.</p>
+<p>The XML transactions used for carrier manifesting are ShowShipment Request and ShowShipment Advice. Both are modified versions of the Open Applications Group (OAG) document type definition (DTD) show_shipment_005 and contain data such as:</p>
+<ul>
+<li>
+<p>Customer</p>
+</li>
+<li>
+<p>Delivery number</p>
+</li>
+<li>
+<p>Ship to Address</p>
+</li>
+<li>
+<p>Weight</p>
+</li>
+<li>
+<p>Carrier</p>
+</li>
+</ul>
+<h3><a id="T452363"></a><b>Setting Up XML Transactions with Carrier Manifesting Systems</b></h3>
+<p>You can send an outbound message to a carrier manifesting system, including data pertinent to the delivery, that will allow the manifesting system to calculate the total weight, calculate the total freight costs, and produce the required shipping labels and paperwork for shipment. The XML transaction, Shipment Request, extracts data from the delivery tables. After the carrier manifesting system has performed its functions, Oracle Shipping Execution will receive shipment information from the manifesting system in the window an XML Shipment Response transaction. The data transmitted will have the information required to complete the shipment, including designated carrier, vehicle information, freight costs, and other information.</p>
+<p><strong><span>Note:</span></strong> You can use the Action View Message History at the delivery level to view the history of XML messages that have been exchanged. This Action is only available if you have the appropriate privilege assigned to your role.</p>
+<p>To enable XML Transactions for carrier manifesting, you must do the following:</p>
+<ul>
+<li>
+<p>Enable Carrier Manifesting Organization in Oracle Shipping Execution. (In the Organization Parameters window, ATP, Pick, Item Sourcing tabbed region, select Carrier Manifesting Organization.)</p>
+</li>
+<li>
+<p>Select Enable Manifesting for the carrier in Shipping Execution. (In the Carrier window, query the specific carrier and select Enable Manifesting.)</p>
+</li>
+<li>
+<p>Grant the user privilege Send Outbound XML Messages.</p>
+</li>
+</ul>
+<p>You can setup a concurrent request that will automatically send the Shipment Request to the manifest partner for eligible delivery lines.</p>
+<p><b>To Set Up Automated Carrier Manifesting:</b></p>
+<ol>
+<li>
+<p>Navigate to the Shipping Interfaces window.</p>
+</li>
+<li>
+<p>Enter Automated Carrier Manifesting in Name field.</p>
+</li>
+<li>
+<p>Define the parameters.</p>
+<p>A concurrent request will be launched in the background that will automatically manifest deliveries that meet the criteria (ship from organization, carrier, customer, scheduled from/to dates, etc.) This concurrent request can be scheduled to run periodically so that the process is automated.</p>
+</li>
+</ol>
+<p><b>To Manually Initiate an XML Transaction for a Single Delivery Within the Shipping Transactions Window</b></p>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions window.</p>
+</li>
+<li>
+<p>Find your delivery.</p>
+</li>
+<li>
+<p>Select the action <b>Send Outbound Message.</b></p>
+<p>A pop up window displays. You can select from the following transactions that send the corresponding XML transactions:</p>
+<ul>
+<li>
+<p>Send Shipment Request: Shipment must be pick released and packed. Oracle Shipping Execution will extract shipment information and send it to the carrier manifesting system using an XML transaction (Request Shipment).</p>
+<p>When a shipment request is sent, the delivery is locked to prevent updates while it waits for feedback from the carrier manifesting system. To update the delivery details, you can unlock the delivery by using the Send Shipment Cancellation. You must then send another Shipment Request if you expect a response.</p>
+<p><strong><span>Note:</span></strong> Manual ship confirm is disabled for a delivery if the organization and carrier are manifest enabled.</p>
+</li>
+<li>
+<p>Send Shipment Advice: Not currently used.</p>
+</li>
+<li>
+<p>Send Shipment Cancellation: Transmits a message to the carrier's manifesting system to cancel the shipment request</p>
+<p><b>Send Outbound Message window</b></p>
+<p><img width="291" height="215" src="./img/wshug_som.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2><a name="6196520"></a><a id="T587104"></a><b>XML Transactions with Distributed Warehouse Management Systems</b></h2>
+<p><a name="d0e24314" id="d0e24314"></a><a name="dwmsebsxml" id="dwmsebsxml"></a>XML transactions enable transmit of shipment batch information from EBS instance to Distributed Warehouse Management System (DWMS) instance and receive shipment advice from DWMS instance into EBS instance. The EBS instance needs to periodically communicate the shipment requests to DWMS instance to process warehousing activities and receive shipment advices from DWMS instance to update the main EBS instance with the shipping information. Hence, to provide seamless integration between EBS instance and DWMS instance, XML Gateway enables generation and posting of Shipment Request XML (For Shipment Batches) to DWMS instance and processing of the Shipment Advice XML posted from DWMS instance at the EBS instance.</p>
+<h3><a id="T587105"></a><b>Setting Up XML Transactions with Distributed Warehouse Management Systems</b></h3>
+<p>To ensure seamless integration between EBS and DWMS instances for shipment request and advice, you must complete the following setups in the EBS instance and XML Gateway:</p>
+<p><b>Setups in EBS Instance</b></p>
+<ol>
+<li>
+<p>Set up a distributed organization to enable XML transactions by enabling the applicable organization as a distributed organization in Oracle Shipping Execution. (Navigate: Shipping Execution &gt; Shipping &gt; Setup). In the Organization Parameters window, ATP, Pick, Item Sourcing tabbed region, select Distributed Organization check box.</p>
+</li>
+<li>
+<p>Set Fulfillment Batch as the value for WSH: Distributed Source Entity profile option.</p>
+</li>
+</ol>
+<p><b>Setups in XML Gateway</b></p>
+<ol>
+<li>
+<p>Create Hubs (Navigate: XML Gateway &gt; SetUp &gt; Define Hubs)</p>
+</li>
+<li>
+<p>Define Trading Partners (Navigate: XML Gateway &gt; SetUp &gt; Define Trading Partners)</p>
+</li>
+</ol>
+<p>See: Hub Definition Forms and Trading Partner Setup in Chapter 3 XML Gateway Setup, <i>Oracle XML Gateway User's Guide</i></p>
+<h2><a name="3917360"></a><a id="T435970"></a><b>Miscellaneous Shipments</b></h2>
+<a name="d0e24356" id="d0e24356"></a><a name="wsh_rmiscship" id="wsh_rmiscship"></a>
+<h3><a id="T435975"></a><b>Transactions with Miscellaneous Shipments</b></h3>
+<p>Oracle Shipping Execution enables you to process and ship confirm deliveries that are not generated through Oracle Order Management, for example from a legacy, non-Oracle order management system. Further, deliveries can also be created for miscellaneous shipments, such as outside processing shipments or return shipments.</p>
+<p>Shipments from legacy systems are sent to Oracle Shipping Execution using XML. The XML transactions Shipment_Request and Shipment_Advice are used to transmit the data to and from the legacy system and Oracle Shipping Execution.</p>
+<p>The XML transaction Shipment_Request is equivalent to the EDI transaction 940 Inbound. This transaction is used to send miscellaneous shipment information to Oracle Shipping Execution. This information is then processed and a delivery is created. Ship confirm information is then sent back to the legacy system using the XML transaction Shipment_Advice, which is equivalent to the EDI transaction 945 Outbound. This transaction is used to send delivery and ship confirm information back (as confirmation) to the originating source of the shipment.</p>
+<p>Oracle Shipping Execution uses Oracle XML Gateway to generate the XML messages. The organization can be a distributed or non-distributed organization as the organization serves normal inventory operations and miscellaneous shipments. See <i>Oracle XML Gateway User's Guide</i>.</p>
+<p>Miscellaneous deliveries created in Shipping Execution are treated no different than deliveries created in Oracle Order Management; however, the following details are understood:</p>
+<ul>
+<li>
+<p>Delivery lines cannot be assigned to a delivery</p>
+</li>
+<li>
+<p>Delivery lines cannot be unassigned from a delivery</p>
+</li>
+<li>
+<p>Closed deliveries cannot be re-opened</p>
+</li>
+<li>
+<p>Partial shipments will close the delivery</p>
+</li>
+<li>
+<p>Pick release cannot be executed</p>
+</li>
+<li>
+<p>Delivery and delivery line attributes cannot be modified</p>
+</li>
+<li>
+<p>Miscellaneous deliveries can be combined with Oracle Order Management generated deliveries within the same trip</p>
+</li>
+</ul>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

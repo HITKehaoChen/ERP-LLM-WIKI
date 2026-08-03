@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Using Oracle Workflow in Oracle Order Management</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Using Oracle Workflow in Oracle Order Management Guide">
+<meta name="dcterms.identifier" content="E48844-08">
+<meta name="dcterms.isVersionOf" content="OMOWF">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T393423T393431.htm" title="Previous" type="text/html">
+<link rel="Next" href="T393423T672274.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Using Oracle Workflow in Oracle Order Management","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">11/16</span> <!-- End Header -->
+<h1>Seeded Shipping Workflows</h1>
+<h2><a name="4512048"></a><a id="T479667"></a><b>Using Workflow in Shipping</b></h2>
+<p><a name="d0e20313" id="d0e20313"></a><a name="t_wshflows" id="t_wshflows"></a>Oracle Shipping Execution uses Oracle Workflow to automate and customize shipping transactions. Various shipping functions such as deliveries and ship confirmation can be managed more effectively by leveraging Oracle Workflow. For example, by using a configurable workflow, you can receive notification that a delivery has been backordered and you can also be alerted to any issues arising throughout the shipping process - from pick release to ship confirm. The following workflows are available: Delivery Flow - Generic, Trip Flow - Generic and Ship to Deliver subprocess.</p>
+<h3><a id="T479668"></a><b>Setting up Shipping Workflows</b></h3>
+<p>Though Line flows and trip / delivery flows are inter-related, they are independant of each other. You may not drill down from one flow to another. The relationship between line flows and trip/delivery flows is described below:</p>
+<p>When you book an order, the line workflows are initiated for each of the lines. Each line workflow progresses through activities like Schedule - Line, Create Supply - Line to reach the Ship Line - Manual activity. At this time the order lines status is set to Awaiting Shipping and the lines are interfaced to Shipping. The delivery workflows are not initiated yet. Line flows continue to wait at this activity until the deliveries are ship confirmed. The delivery flow, if enabled in shipping, is initiated when a delivery is created and a delivery line is assigned. Delivery workflow progresses through Pick Initiated and other activities to the Ship Confirm activity. Once the delivery is ship confirmed, the pickup stop is closed, and Order Management and Inventory interface activities take place. This completes the delivery flow which then reaches the end activity. At this point, the line workflow also completes the Ship Line - Manual activity and progresses to Invoicing.</p>
+<p>Please refer to the <i>Oracle Order Management Implementation Manual</i> for more information on setting up shipping workflows and business events. This includes setting up Global Parameters, Shipping Parameters, Profile options and Shipping Lookups.</p>
+<h3><a id="T479669"></a><b>Seeded Data Files and Item Types</b></h3>
+<p>The Shipping flows are in the following seeded data file:</p>
+<ul>
+<li>
+<p>wshwftrx.wft</p>
+</li>
+</ul>
+<p>The item types found in the wshwftrx.wft seeded data file are:</p>
+<ul>
+<li>
+<p>Shipping Delivery</p>
+</li>
+<li>
+<p>Shipping Standard</p>
+</li>
+<li>
+<p>Shipping Trip</p>
+</li>
+<li>
+<p>Standard</p>
+</li>
+<li>
+<p>System: Error</p>
+</li>
+</ul>
+<p>You can view these item types in the Workflow Builder. To view the workflow status and monitor its progress, use the Tools &gt; Workflow Status menu option found in the Shipping Transactions window and the Quick Ship User Interface window. For more information on viewing workflow information, please refer to the section <a href="T393423T393426.htm#t_viewwf">Viewing Workflows in Oracle Order Management</a> in the Introduction chapter.</p>
+<h3><a id="T479671"></a><b>Shipping Business Events</b></h3>
+<p>Several seeded business events are also provided along with workflow capabilities. You can use as many business events as you need for all your custom extensions and integrations. The events are optional and you can enable them only if needed. You can also enable/disable individual business events.</p>
+<p>Whether the workflows are enabled or disabled, certain events are marked as core events required for workflows and can not be disabled. Key reference information is published along with raising of the business event. For example, you could notify your compliance manager when you receive a compliance failed response from your partner International Trade Management (ITM) application. This is achieved by subscribing to the ITM response received business event and building logic to evaluate the response.</p>
+<h2><a name="4512133"></a><a id="T479670"></a><b>Seeded Trip and Delivery Workflow Definitions</b></h2>
+<a name="d0e20378" id="d0e20378"></a>
+<h3><a id="T479672"></a><b>Delivery Flow &ndash; Generic</b></h3>
+<p><a name="d0e20385" id="d0e20385"></a>Delivery Flow &ndash; Generic is enabled in one of the following ways:</p>
+<ul>
+<li>
+<p>When a delivery line (irrespective of whether picking is required or not for the line) is assigned to a manually created empty delivery.</p>
+</li>
+<li>
+<p>When a delivery is automatically created for a delivery line (irrespective of whether picking is required or not for the line).</p>
+</li>
+</ul>
+<p>The Ship To Deliver subprocess is associated with Delivery Flow - Generic. Delivery Flow - Generic is contained in the seeded data file wshwftrx.wft and is associated with the Shipping Delivery (WSHDEL) item type.</p>
+<h3><b>Summary of Delivery Flow - Generic</b></h3>
+<p>This workflow is used to track outbound shipments where picking is a mandatory activity and it models delivery creation, close and ship confirm activities (some exceptions are when the flow can be used for non-transactable items, project contract items and deliveries shipped from TPW instance, where picking is not a mandatory activity). Delivery Flow - Generic is not initiated for consolidation deliveries and deliveries in a distributed organization. The Ship to Deliver sub-process controls and represents the ship confirm activity.</p>
+<p>If Delivery Flow &ndash; Generic is enabled, then business events pertaining to the flow are triggered. Raising of business events is dependant on the setup of the Global Parameters and Shipping Parameters windows. Please refer to the <i>Oracle Order Management Implementation Manual</i> for more information on setting up the parameters for enabling workflow and business events.</p>
+<p><b>Delivery Flow - Generic</b></p>
+<p><img width="487" height="212" src="./img/wf_wshdeltracking.gif" alt="the picture is described in the document text"></p>
+<p>Ship to Deliver Initiated is a workflow subprocess which consists of other functions and activities. Ship to Deliver Initiated subprocess (SCPOD) has two options: Enabled and Disabled. If you select Disabled, the Delivery Flow &ndash; Generic flow initiates. If you select Enabled, the Ship to Deliver subprocess initiates.</p>
+<p><b>Ship to Deliver Initiated</b></p>
+<p><img width="813" height="362" src="./img/wf_wshstdinitated.gif" alt="the picture is described in the document text"></p>
+<h3><b>Seeded Activity Definitions for Delivery Flow - Generic</b></h3>
+<p>The following table provides descriptions of the main activities in the Delivery Flow &ndash; Generic process.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function / Event</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Open</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Pick Initiated</td>
+<td>DEL_PIK_INITIATED event</td>
+<td>Not Applicable</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Ship to Deliver Workflow Status</td>
+<td>SCPOD_SCWF_STATUS</td>
+<td>Enabled / Disabled</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Ship Confirm Initiated</td>
+<td>DEL_CONFIRM_INITIATED event</td>
+<td>Not Applicable</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Reopen, eligible</td>
+<td>DEL_REOPENED event</td>
+<td>Not Applicable</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Shipping Status</td>
+<td>SCPOD_SHIPPING_STATUS</td>
+<td>Shipping Status</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Set to Intransit</td>
+<td>DEL_INTRANSIT event</td>
+<td>Not Applicable</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Closed</td>
+<td>DEL_CLOSED event</td>
+<td>Not Applicable</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Interfaced to OM, INV</td>
+<td>DEL_INTERFACED event</td>
+<td>Not Applicable</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>And</td>
+<td>WF_STANDARD.ANDJOIN</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h3><a id="T479673"></a><b>Trip Flow - Generic</b></h3>
+<p><a name="d0e20585" id="d0e20585"></a>With Trip Flow &ndash; Generic, you can track outbound trips. Trip Flow - Generic is optional, you can continue the shipping process even without enabling this workflow. You can monitor outbound trips and also extend the flow to suit your specific business need. It is contained in the wshwftrx.wft seeded data file and is in the Shipping Trip item type.</p>
+<h3><b>Summary of Trip Flow - Generic process</b></h3>
+<p>Trip Flow &ndash; Generic is initiated when you create a trip automatically at ship confirm or manually. It consists of 2 activities &ndash; Set to Intransit and Close Trip. It models open, close, and set to intransit activities. Please note, for a multi stop or multi-leg trip, only the initial pick up stop and ultimate drop off stop is modeled. The flow is completed when a notification is received about the completion of delivery.</p>
+<p><b>Trip Flow - Generic</b></p>
+<p><img width="504" height="148" src="./img/wf_wshtriptracking.gif" alt="the picture is described in the document text"></p>
+<h3><b>Seeded Activity Definitions for Trip Flow - Generic</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function / Event</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Open</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Set to Intransit</td>
+<td>TRIP_PU_STOP_CLOSED event</td>
+<td>Not Applicable</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Close Trip</td>
+<td>TRIP_DO_STOP_CLOSED event</td>
+<td>Not Applicable</td>
+<td>Yes</td>
+</tr>
+</table>
+<h3><a id="T479674"></a><b>Ship to Deliver Initiated subprocess</b></h3>
+<p><a name="d0e20669" id="d0e20669"></a>The Ship to Deliver Initiated subprocess enables you to branch into either the Delivery Flow &ndash; Generic process or Ship to Deliver subprocess. It is started once a delivery line is assigned to a delivery. The ship to deliver subprocess is started upon ship confirmation if it takes the enabled route. It is contained in the seeded data file wshwftrx.wft and is associated with the Shipping Delivery item type.</p>
+<h3><b>Summary of the Ship to Deliver Initiated subprocess</b></h3>
+<p>If the Ship to Deliver Workflow Status is Enabled, then the Ship to Deliver subprocess is initiated. If the Ship to Deliver Workflow Status is disabled, then the Delivery Flow &ndash; Generic process is initiated.</p>
+<p>The Ship Confirm Initiated business event checks the Shipping Status. If the line has been shipped, then the other business events &ndash; Set to Intransit, Close and Interface to OM, INV &ndash; are initiated.</p>
+<p><b>Ship to Deliver Initiated subprocess</b></p>
+<p><img width="813" height="362" src="./img/wf_wshstdinitated.gif" alt="the picture is described in the document text"></p>
+<p>The Ship to Deliver Initiated subprocess is completed when any one of the following conditions are met:</p>
+<ul>
+<li>
+<p>Ship to Deliver subprocess is completed.</p>
+</li>
+<li>
+<p>When Ship Confirm results in Back Order All/Cyclecount All, the workflow takes the Not Shipped route and ends.</p>
+</li>
+<li>
+<p>If the ship confirm dialog box option Close Trip is checked, the event Closed will be raised at the time of ship confirm. Otherwise, the manual closure of drop-off stop will raise this event and the subprocess ends.</p>
+</li>
+</ul>
+<h3><a id="T479680"></a><b>Ship To Deliver subprocess</b></h3>
+<p><a name="d0e20704" id="d0e20704"></a>The Ship to Deliver subprocess maps out ship confirm process through the interfaces. It is initiated from the Ship to Deliver Initiated process. It is contained in the seeded data file wshwftrx.wft and is associated with the Shipping Delivery item type.</p>
+<h3><b>Summary of the Ship to Deliver subprocess</b></h3>
+<p>The Ship to Deliver subprocess consists of 3 sub processes:</p>
+<ul>
+<li>
+<p>Set to Intransit &ndash; This process sets the delivery as Intransit automatically if specified in the ship confirm window, or waits for the event that signals that the pick up stop was closed and delivery is in Intransit, and then proceeds to completion.</p>
+</li>
+<li>
+<p>Interface to OM, Inv &ndash; This process runs the Interface to OM, Inv automatically if specified in the ship confirm window, or waits for the event that signals that Interface to OM, Inv was run manually, and then proceeds to completion.</p>
+</li>
+<li>
+<p>Close Delivery &ndash; This process closes the Trip automatically if specified in the ship confirm window, or waits for the event that signals that the Trip was closed and then proceeds to completion.</p>
+</li>
+</ul>
+<p>Ship to Deliver is an optional flow. You may raise business events independent of the subprocess. However if the subprocess is enabled, then the required business events for the workflow must also be enabled (Core business events are always enabled). You can initiate the Trip Flow Generic process to run simultaneously with the Ship to Deliver subprocess. You can customize the subprocess to meet your business requirements.</p>
+<p>If you disable the subprocess or if the custom functions fail in the middle of a transaction, you can still process deliveries successfully. The workflow gets purged if it is bypassed. The profile option WSH: Override Ship to Deliver workflow lets you to bypass any stuck processes and continue with shipping transactions. The profile option supports two values: Yes and No. The default is No. When set to Yes, you can progress the delivery to ship-confirm bypassing ship to deliver process workflow or any possible customization.</p>
+<p>The flow is completed upon delivery reaching the ultimate drop-off location mentioned on the delivery. If the delivery, reaching the destination, is assigned to a trip having multiple deliveries destined for the same drop-off stop, the drop-off stop may not be closed but the delivery will be marked as closed. This can be notified manually by marking the delivery as Closed.</p>
+<p><img width="720" height="261" src="./img/wf_wshshiptodeliver.gif" alt="the picture is described in the document text"></p>
+<h3><b>Seeded Activity Definitions for Ship to Deliver</b></h3>
+<p>The following table provides descriptions of the main activities in the Ship to Deliver subprocess:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>Ship to Deliver Activities</caption>
+<tr valign="top">
+<td>Activity</td>
+<td>Function / Event</td>
+<td>Result Type</td>
+<td>Required</td>
+</tr>
+<tr valign="top">
+<td>Ship Confirm Initiated</td>
+<td>DEL_CONFIRM_INTIATED event</td>
+<td>Not Applicable</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Reopen, eligible</td>
+<td>DEL_REOPENED event</td>
+<td>Not Applicable</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Set to Intransit</td>
+<td>SCPOD_C_INTRANSIT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Interface to OM, INV</td>
+<td>SCPOD_C_INTERFACE</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Close Delivery</td>
+<td>SCPOD_C_CLOSURE</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="4512198"></a><a id="T479683"></a><b>Seeded Activity and Notification</b></h2>
+<p><b>Print Document Set Activity</b></p>
+<p>Print document Set is a PL/SQL function that enables you to print a document set (either pick release or ship confirm). You can call the seeded function by any event or process in all the shipping flows. The document set can be printed at any phase in the flow.</p>
+<p><b>Ship Confirm Notification</b></p>
+<p>Ship Confirm Notification is a seeded notification that informs you when a delivery has been ship confirmed. It can be used in any of the shipping flows.</p>
+<h2><a name="4512199"></a><a id="T479684"></a><b>Extending Shipping Seeded Flows</b></h2>
+<p><a name="d0e20845" id="d0e20845"></a>You can customize any of the Shipping Execution workflows and any of the wokflows can be used in any organization. Workflows are customized in Oracle Workflow Builder. You can copy an existing workflow, rename it, save it, then add the customized workflow to the lookup specific to that workflow. For example, the internal name of Trip Flow - Generic is R_TRIP_GEN. After customizing the workflow by adding a new notification activity, save it as NOTIFY_TRIP_GEN and add it to the R_TRIP_GEN lookup.</p>
+<p>The lookups that you can use are:</p>
+<ul>
+<li>
+<p>R_DEL_GEN: This extensible lookup is used with the Delivery Flow - Generic workflow. It reflects the operations performed on a generic outbound delivery.</p>
+</li>
+<li>
+<p>R_SCPOD_C: This extensible lookup is used with the Ship to Deliver workflow. It performs the operations between ship confirm and final delivery of the shipment.</p>
+</li>
+<li>
+<p>R_TRIP_GEN: This extensible lookup is used with the Trip Flow - Generic workflow. It reflects the operations performed on a generic outbound trip.</p>
+</li>
+</ul>
+<p>After querying and retreiving the required lookup, you can add the organization code and the customized workflow name to the lookup fields. If you need the customized workflow for all organizations, you can insert "ALL" in the Lookup Code field.</p>
+<p>For more information on customization of seeded workflows, please see the chapter <a href="T393423T393428.htm#t_extend">Extending Oracle Order Management Seeded Workflows</a></p>
+<p>The workflows for Delivery and Trip allow limited extensions. Only activities that do not require user intervention and are not deferred workflow activities extensible. For example, if you want to notify your transportation manager about a large shipment that exceeds a specified quantity or amount, you can extend the flow to include your custom notification. However if you need an approval activity in the flow where users can directly approve or reject an approval request via e-mail, you cannot extend the flow for this purpose.</p>
+<p>Please note that the Ship to Deliver Process flow is inherently different from Delivery and Trip Workflows. Ship to Deliver Flow controls the ship confirm process however Delivery and Trip workflows do not.</p>
+<h2><a name="4512244"></a><a id="T479685"></a><b>Shipping Business Events</b></h2>
+<p><a name="d0e20877" id="d0e20877"></a>You can enable or disable individual business events. Using the System Administrator responsibility, navigate to Workflow &gt; Business Events &gt; Business Events. All the events are seeded as disabled. Enable only the events you need for your business.</p>
+<p>Business events are required to support the shipping flows and may not be turned off when the flows are enabled. You can raise business events at one of the three levels:</p>
+<ul>
+<li>
+<p>Global shipping parameters</p>
+</li>
+<li>
+<p>Organization specific shipping parameters</p>
+</li>
+<li>
+<p>Individual business events</p>
+</li>
+</ul>
+<p>If business events are disabled in the Global Parameters window, then no shipping business events are raised. If business events are enabled in the Global Parameters window and disabled in the Shipping Parameters window for the organization, then delivery business events are not raised for the organization. Only enabled events are raised for an organization enabled for business events in the instance with events enabled in the Global Parameters window. Business events required for all flows are raised if the flows are enabled. In general, all the statuses on all the entities are considered as candidates for raising a business event. Additionally all the possible actions on various activities are also evaluated for possible candidate for raising the business events.</p>
+<p><b>Enabling Business Events</b></p>
+<p><img width="1004" height="599" src="./img/wf_wshbevents.gif" alt="the picture is described in the document text"></p>
+<p>For a list of shipping business events, please refer to the <i>Oracle Shipping Execution Implementation Guide.</i></p>
+<h2><a name="4512246"></a><a id="T479686"></a><b>Purging Workflow Data</b></h2>
+<p><a name="d0e20912" id="d0e20912"></a>You can use the Purge Obsolete Workflow Runtime Data concurrent program to purge workflow data. For purging shipping data, you can use parameters such as Item Type, Item Key, Age and Persistence Type. In addition, if you use shipping purge and purge a given delivery or trip &ndash; the workflows for the delivery will be purged automatically.</p>
+<p><b>Purging Workflow Runtime Data</b></p>
+<p><img width="707" height="504" src="./img/wf_wshpurge.gif" alt="the picture is described in the document text"></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

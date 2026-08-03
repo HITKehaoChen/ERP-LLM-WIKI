@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management User's Guide">
+<meta name="dcterms.identifier" content="E48843-30">
+<meta name="dcterms.isVersionOf" content="ONTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T335476T336327.htm" title="Previous" type="text/html">
+<link rel="Next" href="T335476T336783.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">16/28</span> <!-- End Header -->
+<h1>Shipping</h1>
+<h2><a name="2454081"></a><a id="T335584"></a><b>Defining Sales Order Line Shipping Information</b></h2>
+<a name="d0e55999" id="d0e55999"></a><a name="t_solship" id="t_solship"></a>
+<h3><b>To Define Shipping Information for an Order Line:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Line Items tab in the Sales Orders window.</p>
+</li>
+<li>
+<p>Select the Shipping tabbed region.</p>
+</li>
+<li>
+<p>Enter the shipping information for your orders.</p>
+<p><strong><span>Note:</span></strong> You can choose to enter a specific subinventory for your sales order line. You must first either:</p>
+<ul>
+<li>
+<p>Create a custom folder that allows visibility to the Subinventory field and then use this folder each time you wish to enter the subinventory for an order line</p>
+<p>or</p>
+</li>
+<li>
+<p>Navigate to the Order Lines window, Shipping tab, and from the menu, select Folders -&gt; Show Field. Select Subinventory from the list of values. This will allow the subinventory field to be displayed for your current session only.</p>
+</li>
+<li>
+<p>You must enter the warehouse or Ship From on the order line prior to selecting the subinventory. If you enter a subinventory prior to entering a warehouse or ship from, you will receive an error.</p>
+</li>
+</ul>
+<p>The application populates the folder-enabled Fulfillment Base field only if:</p>
+<ul>
+<li>
+<p>The OM: Default Fulfillment Base profile is set to Yes.</p>
+</li>
+<li>
+<p>The ordered item is a dual UOM.</p>
+</li>
+<li>
+<p>The ordered item is either shippable, reservable, or inventory item in the Master Item in Oracle Inventory.</p>
+</li>
+<li>
+<p>The Ship from Org (warehouse) for ordered item is a WMS organization.</p>
+</li>
+</ul>
+<p>If any of these are not as required, then the application does not populate the Fulfillment Base field. If all these are as required, then the application populates this field with either 'P' (primary) or 'S' (secondary) based on the following priority:</p>
+<ul>
+<li>
+<p>RMAs created against an existing sales order (or invoice) carry forward the fulfillment base of the line it is referencing.</p>
+</li>
+<li>
+<p>If line is a split line, then this field shows the fulfillment base from the parent line.</p>
+</li>
+<li>
+<p>If the ordered UOM is same as primary UOM, then this field displays 'P'; else if ordered uom is same as secondary UOM, then this field displays 'S'.</p>
+</li>
+<li>
+<p>This field uses the value from custom hook oe_dual_uom_hook.get_fulfillment_base. By default this custom hook returns no value.</p>
+</li>
+<li>
+<p>If ordered UOM CLASS is same as primary UOM CLASS, then this field displays 'P'; else if ordered UOM CLASS is same as secondary UOM CLASS, then this field displays 'S'.</p>
+</li>
+<li>
+<p>If none of above matches, then this field displays 'P'.</p>
+</li>
+</ul>
+<p>For reserved quantity, the application matches it with the ordered quantity if the entire ordered quantity is reserved and the ordered quantity in primary UOM matches with the actual reserved quantity up to a precision of five decimals.</p>
+</li>
+</ol>
+<h3><b>Default SO Source Type Item Attribute</b></h3>
+<p><a name="d0e56078" id="d0e56078"></a>Order Management currently utilizes the item attribute Default SO Source Type, to provide a default for the line Source Type based upon seeded defaulting rules.</p>
+<h3><b>Cancel Unshipped Lines</b></h3>
+<p>You can cancel unshipped lines using the Cancel Unshipped Lines check box in the Sales Order form and Sales Order HTML UI page, at the header level.</p>
+<p>The Cancel Unshipped Lines check box has 2 values:</p>
+<ul>
+<li>
+<p>Unchecked (or Unselected) - Default option: no cancellation is performed.</p>
+</li>
+<li>
+<p>Checked (or Selected) - The system will cancel unshipped lines automatically.</p>
+</li>
+</ul>
+<p>For more information, see Ship Confirm in <i>Oracle Shipping Execution User's Guide</i></p>
+<h3><b>Special Considerations for Entering Subinventory on an Order Line:</b></h3>
+<p><a name="d0e56106" id="d0e56106"></a>If the item on order line is under revision or lot control, you will not be able to enter a subinventory on the order line without performing a reservation; inventory hierarchy require a revision/lot to be provided if item is under such control. Enter the subinventory for your warehouse in the Reservations window for the order line.</p>
+<p>The Sales Order window will prevent a user from entering a subinventory if the item entered on the order line is under revision/lot control. Order Import will provide appropriate messages within the log file.</p>
+<p>Changing the value of Subinventory for a reserved line will automatically cancel the existing reservation, and generate a new reservation for the new subinventory. You cannot enter a subinventory for externally sourced lines. The Sales Order window will prevent user from entering a subinventory if a line is externally sourced.</p>
+<p>A message will be displayed if this occurs during order import.</p>
+<p>If an order line associated with a subinventory is split either by the user or the system, the new order line will retain the original subinventory information.</p>
+<p><strong><span>Note:</span></strong> If the warehouse or the Ship To for the order line is changed during a split, the subinventory field will be NULL for the new split line generated.</p>
+<ul>
+<li>
+<p>When performing a Copy Order, if order lines contain a value for subinventory, the subinventory will be copied to the new order line</p>
+</li>
+<li>
+<p>If the item on the sales order line is under locator control, you can enter a subinventory as the preferred subinventory. During reservation, the subinventory will be honored and Inventory will autodetail locator, per the hierarchy of inventory locator controls.</p>
+</li>
+<li>
+<p>Defaulting is enabled for the subinventory field. The user can default the subinventory from a constant value.</p>
+</li>
+<li>
+<p>A new Order Management Processing Constraint has been added. The Subinventory field on an order line cannot be updated once the line has been pick released.</p>
+</li>
+</ul>
+<h2><a name="2454096"></a><a id="T335590"></a><b>Freight Rating Procedures</b></h2>
+<a name="t_fr_pro" id="t_fr_pro"></a>
+<h3><b>To enter an order and order lines and obtain the freight rates:</b></h3>
+<p><strong><span>Note:</span></strong> This procedure assumes that freight rating is requested manually, and after that freight rating will happen automatically if any of the attributes related to freight rating changes.</p>
+<p>To enable the Freight Rating feature, complete the following steps:</p>
+<p>In the <b>System Parameters</b> window, set the parameter <b>Enable Freight Rating</b> to <b>Enable</b>.</p>
+<p>Use the action <b>Get Ship Methods and Rates for Order</b> to obtain the recommended Ship Method from Carrier Selection and the rates from Freight Rating without first specifying the ship method on the order line. The <b>Get Ship Method</b> action applies to all lines on the order, not just a single line. You can perform this action more than once or when the ship method is defaulted, manually supplied, or supplied by APS as part of scheduling the order lines.</p>
+<ol>
+<li>
+<p>Navigate to the <b>Sales Orders</b> window.</p>
+</li>
+<li>
+<p>Enter the order header information.</p>
+</li>
+<li>
+<p>Enter order lines and save your work.</p>
+</li>
+<li>
+<p>Choose <b>Actions</b>, <b>Get Freight Rates</b> or <b>Get Ship Method and Rates for Order</b>.</p>
+</li>
+<li>
+<p>Choose <b>Actions</b>, then choose <b>Charges and Freight Costs</b>.</p>
+<p><b><a name="d0e56213" id="d0e56213"></a>Charges and Freight Costs Window - Charges Tab</b></p>
+<p><img width="667" height="481" src="./img/ont_fr2.gif" alt="the picture is described in the document text"></p>
+<p>You can control the calculation of the freight charges based on the shipped quantity or on the ordered quantity. The application calculates the freight charges based on the values specified for the system parameter <b>Overshipment or Undershipment Invoice Basis for Charges</b>. If the quantity shipped or received is within the tolerance specified on the sales order line, then the freight charge amount invoiced is calculated based on the value of this parameter for both undershipments and overshipments. The fields <b>Quantity, UOM,</b> and <b>Charge</b> display the quantity, UOM, and freight charge amount calculated based on the value of this parameter.</p>
+<p><b><a name="d0e56236" id="d0e56236"></a>Charges and Freight Costs Window - Freight Costs Tab</b></p>
+<p><img width="666" height="479" src="./img/ont_fr3.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> To use this feature, one of the lines must have a non-null Ship Method. The lines with the Ship Method will show the freight charges, and will be applied to the order lines, and saved.</p>
+</li>
+<li>
+<p>If you change any of the following fields: <b>Item, Quantity, Ship Method, Ship-to Org, Ship-from Org, Scheduled Ship Date, or Estimated Arrival Date</b>, then a delayed request is logged for the order to get freight rates automatically.</p>
+<p><strong><span>Note:</span></strong> This request is automatic only because <b>Actions &gt; Get Freight Rates</b> for the order had been selected earlier.</p>
+</li>
+<li>
+<p>After saving the order, the delayed request executes for the lines with a Ship Method. The system will return a table with freight rates appropriately prorated for each order line. Each order line may have multiple freight rates.</p>
+</li>
+<li>
+<p>To view the freight charges, choose <b>Actions &gt; View Charges</b>.</p>
+</li>
+<li>
+<p>To view freight costs, click <b>Freight Costs</b> tab in the <b>Charges and Freight Costs</b> window. The <b>Estimated</b> check box indicates whether the charge is an estimate or not.</p>
+<p><strong><span>Note:</span></strong> You must have access to the function <b>View Freight Costs</b> to perform this action. By default the check box <b>Grant</b> is not selected. The System Administrator must select the <b>Grant</b> check box to enable you to view the freight costs.</p>
+</li>
+</ol>
+<p>For configuration items, Order Management will pass the top model. Rates that are returned for the model will be applied on the configuration item as this is the shippable item.</p>
+<p><strong><span>Note:</span></strong> If the freight charge was marked as <b>Fixed</b> in the <b>Charges</b> window, then it cannot be changed by the system automatically.</p>
+<p>Currently, the only way to identify that the charge is a Transportation charge is by the name of the charge and the type of the charge (charge_type_code).</p>
+<p><b>User Splits</b>: If splitting of an order line does not result in any change in the following attributes: Ship-from, Ship-to, Scheduled-ship Date, Estimated-arrival Date, Ship-method, then the costs are prorated, otherwise, Transportation is called to get the freight rates.</p>
+<p><a name="d0e56314" id="d0e56314"></a><b>System Splits:</b> System Split happens only for backordered lines at shipping. You do not need to prorate or copy the estimated freight costs when a system split happens. Freight charges will continue to work the same way when a system split happens.</p>
+<p><b>Copied Orders</b></p>
+<p>You can copy orders to avoid entering all the line items again. You can perform changes to the copied order, such as retaining only the original price and not the charges. For information about the setup, see: <i>Oracle Pricing User's Guide</i></p>
+<h2><a name="2454100"></a><a id="T335591"></a><b>Ship Method Selection</b></h2>
+<p><a name="d0e56333" id="d0e56333"></a><a name="t_sm_int" id="t_sm_int"></a>Oracle Order Management provides functionality for getting the ship method selection based on Transportation rules that use attributes such as weight, volume, or geographic locations.</p>
+<h2><a name="2454101"></a><a id="T335521"></a><b>Overview of Ship Method Selection</b></h2>
+<p><a name="t_sm_ovr" id="t_sm_ovr"></a>You can, during order entry, perform an action to bring the ship method to the sales order line(s), and optionally inform your customer of the ship method. This provides several benefits once the carrier selection rules are set up:</p>
+<ul>
+<li>
+<p>Customer Service Representatives (CSR's) can determine the ship method recommended from the Sales Orders window. The routing guides can recommend ship methods based on weight, volume, and locations. Weight and volume are calculated using inventory item information.</p>
+</li>
+<li>
+<p>The recommended ship method could be based either on the shipper's or the customer's routing guides.</p>
+</li>
+<li>
+<p>If desired, the recommended ship method can be quoted to the customer at the time of taking the order.</p>
+</li>
+</ul>
+<p>Note that when Order Management gets Ship Methods, all lines on the order are aggregated. This is true regardless of whether the Get Ship Methods for Order action is performed from the Header or Lines tab. Within an order, lines with the same Ship From, Ship To, and Schedule Dates are consolidated.</p>
+<p>Get Ship Method can be used with internal orders. It does not apply to drop ship, service, or return lines.</p>
+<h2><a name="2454102"></a><a id="T335592"></a><b>Ship Method Selection Major Features</b></h2>
+<a name="d0e56366" id="d0e56366"></a><a name="t_sm_maj" id="t_sm_maj"></a>
+<ul>
+<li>
+<p>Utilizing the routing guides at order entry will ensure using the most appropriate ship method, dependent on defined business rules used. Only ship methods valid for the warehouse are returned to the sales order line.</p>
+</li>
+<li>
+<p>Get Ship Methods for the Order at any point desired. If allowed by system and/or processing constraints, a new ship method may be returned to the line. You can perform actions to Get Ship Methods for the Order after a line is entered, after multiple lines are entered, or after the order is booked.</p>
+</li>
+<li>
+<p>If you don't want to perform an action to Get Ship Methods for Order, you can still enter a ship method manually, default a ship method using defaulting rules. Or use APS sourcing rules to provide a ship method.</p>
+</li>
+</ul>
+<p>For ATO models, the weight and volume of the components are added together. If the ATO model uses out packaging, the outer packaging is not included in the weight and volume calculations.</p>
+<p><strong><span>Note:</span></strong> Recommendation: - For ATO models, to specify volume only at the model level, not for individual components.</p>
+<p><a name="d0e56386" id="d0e56386"></a>Transit Time (Lead Time) calculation</p>
+<p>If you are using Intransit lead times, set them up as desired. The action to Get Ship Methods for Order will succeed if no Ship Methods are defined on the Transit Times form, or if they are set up but no default ship method is specified.</p>
+<p>If a default Ship Method is identified on the Transit Times form, the Ship Method returned by Transportation must be defined on the form.</p>
+<p>Order Management Parameters</p>
+<a name="d0e56399" id="d0e56399"></a>
+<ol>
+<li>
+<p>If Enable Ship Method is checked, you can perform the Get Ship Method for Order action from the Sales Orders window and also using the public process order API for example Order Import.</p>
+</li>
+<li>
+<p>If Enable Freight Rating is checked, you can perform Get Freight Rates for Order action from Sales Orders window.</p>
+</li>
+<li>
+<p>If both parameters are enabled, there will be an action Get Ship Method and Freight Rates for Order in addition to the above actions in the Sales Orders window, Actions.</p>
+</li>
+<li>
+<p>If both system parameters are disabled, none of the actions are supported from the Sales Order window and the process order call.</p>
+</li>
+</ol>
+<p>Business Examples</p>
+<p>Consider an Order Management user with routing guides defined for determining an appropriate carrier/ship method based on attributes such as the Ship-from and Ship-to locations, and weight and volume. Below is an example of an excerpt from a routing guide based on locations, and weight.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Routing Guide Example</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Routing</b></th>
+<th scope="col"><b>1-10 lb.</b></th>
+<th scope="col"><b>11-70 lb.</b></th>
+<th scope="col"><b>71-over</b></th>
+</tr>
+<tr valign="top">
+<td>California</td>
+<td>AAA Express</td>
+<td>BBB Next Day</td>
+<td>Modern Truck</td>
+</tr>
+<tr valign="top">
+<td>Arizona</td>
+<td>AAA Express</td>
+<td>BBB Next Day</td>
+<td>Modern Truck</td>
+</tr>
+<tr valign="top">
+<td>New York</td>
+<td>BBB Next Day</td>
+<td>BBB Next Day</td>
+<td>Modern Truck</td>
+</tr>
+<tr valign="top">
+<td>United Kingdom</td>
+<td>CCC Express</td>
+<td>BBB Next Day</td>
+<td>Modern Truck</td>
+</tr>
+<tr valign="top">
+<td>Hong Kong</td>
+<td>CCC Express</td>
+<td>CCC Express</td>
+<td>Modern Truck</td>
+</tr>
+</table>
+<p>When the customer service representative needs a recommended ship method based on rules, it is done from the Sales Order window by performing an action. The action to Get Ship Methods for Order is optional. You can enter the ship method on the line, or use defaulting rules or APS to populate the ship method.</p>
+<h2><a name="2454104"></a><a id="T335593"></a><b>Ship Method Procedures</b></h2>
+<a name="t_sm_pro" id="t_sm_pro"></a>
+<h3><b>To manually get the ship method, and the line is scheduled:<a name="d0e56520" id="d0e56520"></a></b></h3>
+<ol>
+<li>
+<p>Navigate to the Sales Orders window.</p>
+</li>
+<li>
+<p>Create an order and scheduled line with a specified ship method and in-transit time.</p>
+</li>
+<li>
+<p>Click Actions and then choose Get Ship Methods for Order.</p>
+<p><b><a name="d0e56540" id="d0e56540"></a>Sales Orders Window - Ship Method</b></p>
+<p><img width="755" height="506" src="./img/ont_shpmeth1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>A Ship Method displays. If you accept the change, it is saved automatically.</p>
+</li>
+</ol>
+<h3><b>To manually get a ship method if one is specified, and the line is unscheduled:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Sales Orders window.</p>
+</li>
+<li>
+<p>Create an order and unscheduled line(s) with specified ship method and in-transit time.</p>
+</li>
+<li>
+<p>Click Actions then choose Get Ship Methods for Order.</p>
+</li>
+<li>
+<p>A Ship Method displays, honoring the input constraints.</p>
+<p><strong><span>Note:</span></strong> The recommended ship method must be valid for the specified warehouse.</p>
+<p>The new changed Ship Method displays.</p>
+</li>
+</ol>
+<h3><b>To manually get a ship method if unspecified and the line is unscheduled:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Sales Orders window.</p>
+</li>
+<li>
+<p>Create an order and unscheduled line(s) with no specified ship method.</p>
+</li>
+<li>
+<p>Enter the Ship-from, Ship-to information.</p>
+</li>
+<li>
+<p>Click Actions then choose Get Ship Methods for Order.</p>
+</li>
+<li>
+<p>The Carrier and Ship Method displays and is saved.</p>
+<a name="d0e56601" id="d0e56601"></a></li>
+</ol>
+<p><b>Error Conditions</b></p>
+<p>The following conditions display an error, and the ship method will not be saved:</p>
+<ul>
+<li>
+<p>The in-transit time is more than the existing delivery lead time on order lines.</p>
+<p>Manually enter the suggested ship method on the order line. Order Management will reschedule the line. If rescheduling fails, you must change the scheduling parameters such as schedule ship date so that rescheduling is successful.</p>
+</li>
+<li>
+<p>The ship method does not exist in the Inter Location transit table.</p>
+<p>Fix the set up data and perform the ship method selection action again.</p>
+</li>
+<li>
+<p>The ship method can not be obtained using carrier selection set up.</p>
+<p>Fix the set up data and perform the ship method selection action again. This also applies to internal orders. It does not apply to drop ship, service, or return lines.</p>
+</li>
+<li>
+<p>You may also get error messages if the line does not have a Ship From to Ship To.</p>
+<p>Specify the Ship From and / or Ship To and perform the action again.</p>
+<p>Note that Get Ship Method functionality excludes lines that are externally sourced, inbound, or service items. It also excludes lines that are shipped, fulfilled, or closed.</p>
+</li>
+</ul>
+<h2><a name="2454109"></a><a id="T335594"></a><b>Display Choices for Freight Rating In Order Management</b></h2>
+<p><a name="d0e56638" id="d0e56638"></a><a name="t_frc_ov" id="t_frc_ov"></a>You can choose from the available shipping methods using the Freight Choices window. This window can display eligible freight charges (contracted rates or otherwise) and the choice between different ship methods (mode, carrier, and service level). You can choose a carrier ship method combination for its rates, or for optimal delivery times.</p>
+<p>If multiple freight options exist, you can see all eligible freight options (including mode, carrier, and service level and transit time) as well as the cost. These options can be given to the customer and the customer can choose between the different shipping methods.</p>
+<p><strong><span>Note:</span></strong> The options for freight rating, including the Choose Ship Method action require either of the transportation products, Oracle Transportation Execution (FTE) or Oracle Transportation Management (OTM) to be installed, as Order Management retrieves these details from the transportation product that you have implemented.</p>
+<h2><a name="2454110"></a><a id="T335595"></a><b>Display Choices for Freight Rating Major Features</b></h2>
+<p><a name="d0e56654" id="d0e56654"></a><a name="t_frc_maj" id="t_frc_maj"></a>Display Choices for Ship Method and Charges</p>
+<p>If <a name="d0e56663" id="d0e56663"></a>multiple freight options exist, order entry user should have the ability to see all eligible freight options (including mode, carrier and service level and transit time) as well as the cost. These options would be given to the customer and the customer could choose between the different shipping methods.</p>
+<p><a name="d0e56667" id="d0e56667"></a><b>Select Choices for Ship Method and Charges</b></p>
+<p>Once <a name="d0e56675" id="d0e56675"></a>multiple freight options are displayed, you can choose between different ship methods (mode, carrier, and service level). You can choose carrier / ship method for its rates, or for optimal delivery times</p>
+<p>Once selected from the list, the ship method and charges are carried back to the order. You can optionally leave the Freight Choices window without making a selection.<a name="d0e56681" id="d0e56681"></a></p>
+<p><a name="d0e56686" id="d0e56686"></a><b>Freight Choices Window Availability</b></p>
+<p>You can access the Freight Choices window from the Sales Orders, and Quick Sales Orders windows.</p>
+<p><strong><span>Note:</span></strong> There is no access from Order Import or HVOP.</p>
+<h2><a name="2454111"></a><a id="T335522"></a><b>User Procedures</b></h2>
+<a name="t_frc_up" id="t_frc_up"></a>
+<h3><b>To enter an order where the customer pays the freight charges:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Sales Orders/ Quick Sales Orders window.</p>
+</li>
+<li>
+<p>Enter the order header information, and the information for a line.</p>
+</li>
+<li>
+<p>Choose Actions &gt; Choose Ship Method to view the options. Note: make sure you have the Ship From and Ship To information from the customer. The Freight Options window opens, displaying the shipping options and charges.</p>
+<p><strong><span>Note:</span></strong> The Shipment Details tab displays Line, Ordered Item, Ordered Qty, UOM, Item Description. The Scheduled Ship Date, Ship Set, and Arrival Date are available as hidden folder fields.</p>
+<p><b>Freight Choices Window - Freight Choices Tab</b></p>
+<p><img width="761" height="447" src="./img/ont_dfc_1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Based on customer feedback, choose the freight choices, then click Apply. The Sales Orders window appears with the updated ship method and freight charges information. Save your work.</p>
+<p><strong><span>Note:</span></strong> For freight to charge conversion for ATO lines, the application does the following:</p>
+<ul>
+<li>
+<p>if you perform Action &gt; Choose Ship Method before creating the Configuration Line, then the application applies the charge on the individual ATO Lines.</p>
+</li>
+<li>
+<p>Later, after creating the Configuration Line, if you perform Action-&gt; Choose Ship Method, then the application transfers the charge from individual ATO Lines to the Configuration Line.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3><b>To make changes to an existing order:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Sales Orders or Quick Sales Orders window.</p>
+</li>
+<li>
+<p>Based on customer feedback, more items are added to the scheduled and booked order resulting in a change to the order's weight and volume and so you might want to change the shipping method. Choose Actions &gt; Choose Ship Method, the Freight Options window appears.</p>
+<p><strong><span>Note:</span></strong> You can keep the existing ship method, and you can manually execute Freight Rating, updating the order with the new charges based on the new order weight and volume. If Choose Ship Method has previously been executed, you will see a message, when saving the order, to perform Freight Rating. The changes apply to: Ship From, Ship To, Inventory Item, UOM, Ordered Quantity, Schedule Ship Date, Schedule Arrival Date, and Freight Terms.</p>
+</li>
+<li>
+<p>Based on customer feedback, select the chosen ship method, and then click Apply. The Sales Orders window appears with the updated ship method and freight charges information. Note: Cost may also be displayed, but is visible only if you have the ability to view costs. Save your work.</p>
+</li>
+</ol>
+<h3><b>To place orders with multiple shipments and destinations:</b></h3>
+<ol>
+<li>
+<p>Navigate to the Sales Orders or Quick Sales Orders window.</p>
+</li>
+<li>
+<p>Enter the order header information, and the information for multiple lines, some requiring different Request Dates, Ship From, and Ship To destinations.</p>
+</li>
+<li>
+<p>Choose Actions &gt; Choose Ship Method to view the options. Note: make sure you have the Ship From and Ship To information from the customer. A message states there are multiple shipments in the order. The Shipment Summary window opens, displaying a summary of each of the shipments for this order.</p>
+</li>
+<li>
+<p>You should select each proposed shipment in turn and click Open to display the freight choices for each shipment. To see which items make up a shipment, click the Shipment Details tab. For each shipment, choose a ship method based on customer feedback and select Apply.</p>
+</li>
+<li>
+<p>Once you have selected a ship method for each shipment on the order, click Save on the Shipment Summary window, and the Sales Orders window re-displays with the updated ship methods and freight charges applied.</p>
+<p><b>Shipment Summary Window</b></p>
+<p><img width="758" height="388" src="./img/ont_shsm.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

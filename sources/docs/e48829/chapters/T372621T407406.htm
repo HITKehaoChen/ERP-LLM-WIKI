@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Cost Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Cost Management User's Guide">
+<meta name="dcterms.identifier" content="E48829-27">
+<meta name="dcterms.isVersionOf" content="CSTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T372621T406948.htm" title="Previous" type="text/html">
+<link rel="Next" href="T372621T407431.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Cost Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">24/29</span> <!-- End Header -->
+<h1>Oracle Cost Management Workflows</h1>
+<h2><a name="3491759"></a><a id="T452191"></a><b>Account Generation Extension Workflow</b></h2>
+<p><a name="d0e64413" id="d0e64413"></a><a name="c_agwf" id="c_agwf"></a>The Account Generation Extension workflow is called from the Account Generator Client Extension. The workflow is designed to provide a graphical user interface to the Client Extension, as well as additional features such as drag and drop functionality. The workflow, like the Client Extension, allows you to specify the accounts for distribution based on the type of transaction or to define your own business functions to generate the desired accounts.</p>
+<p><strong><span>Note:</span></strong> Although these accounts are provided as default accounts, it is not recommended to write new extensions. You should use Subledger Accounting (SLA) to derive custom accounts. See: Oracle Subledger Accounting Implementation Guide.</p>
+<p>You may choose to continue using the Account Generator Client Extension without using the workflow, by turning off the call to the workflow within the client extension.</p>
+<p>If you choose to use the workflow, then modify the workflow rather than the Client Extension.</p>
+<p><a name="d0e64431" id="d0e64431"></a><a name="d0e64435" id="d0e64435"></a>The Account Generation Extension workflow has two item types: the Standard Costing Workflow Item Type and Average Costing Workflow Item Type. Each of these workflow item types has 19 processes, one for each accounting line type. Line types identify which accounts are used, for example, inventory valuation or WIP variance accounts. Each process can be initiated from the Account Generation Client Extension, based on the costing method and the accounting line type. For standard costing transactions, the <b>std_get_account_id</b> package function is called. For average costing transactions the <b>get_account_id package</b> function is called. See: <a href="T372621T406948.htm#c_acctgext">Account Generation Extension</a>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T407406.htm#c_custag">Customizing the Account Generation Process</a></p>
+<p><a href="T372621T407406.htm#c_agit">The Workflow Item Type</a></p>
+<p><a href="T372621T407406.htm#c_agsum">Summary of the Account Generation Process</a></p>
+<p><a href="T372621T407406.htm#c_proact">Account Generation Workflow Process Activities</a></p>
+<h2><a name="3491760"></a><a id="T407407"></a><b><a name="c_custag" id="c_custag"></a>Customizing the Account Generation Extension Processes</b></h2>
+<p><a name="d0e64471" id="d0e64471"></a>You can customize the use of the Account Generation Extension workflow processes, or you can use the default. When the processes are executed, they end by returning a user&ndash;defined account number which by default returns (&ndash;1). This default causes the distribution processor to perform distributions using the system&ndash;defined accounts.</p>
+<p>You can view a workflow process in a Process window using Oracle Workflow Builder.</p>
+<p><img width="716" height="541" src="./img/cst_wrknav.gif" alt="the picture is described in the document text"></p>
+<h3><a id="T407408"></a><b>Displaying the Process in Oracle Workflow Builder</b></h3>
+<p>You can displaying the process in Oracle Workflow Builder in three steps:</p>
+<ol>
+<li>
+<p>Choose Open from the File menu, and connect to the database.</p>
+</li>
+<li>
+<p>Expand the data source, then the item type branch within that data source.</p>
+</li>
+<li>
+<p>Expand the Processes branch within your item type, then double-click on a process activity to display the diagram of the process in a Process window.</p>
+</li>
+</ol>
+<h3><a id="T407409"></a><b>Required Modifications</b></h3>
+<p>There are no required modifications.</p>
+<h3><a id="T407410"></a><b>Customization Examples</b></h3>
+<p>Although you can use the Account Generation Extension workflow processes as is, you may wish to customize them to accommodate your organization's specific needs. For example, you can:</p>
+<ul>
+<li>
+<p>Customize the Inventory Valuation Workflow process using one or more of the five seeded functions that return product line accounts.</p>
+</li>
+<li>
+<p>Add new functions that return accounts specific to your organization's needs.</p>
+</li>
+</ul>
+<h3><a id="T407411"></a><b>Turning Off the Account Generation Extension Workflow</b></h3>
+<p>You can turn off the workflow, for example, if you find that it is using too much overhead. You do this in the client extension that calls the workflow, by commenting out lines of code and substituting this line.</p>
+<pre>return &ndash;1;</pre>
+<h4><a id="T407415"></a><b>For Standard Costing</b></h4>
+<p>Comment out these lines in the function std_get_account_id() of CSTSCHKB.pls.</p>
+<pre>SELECT       transaction_type_id,
+                                transaction_action_id,
+                                transaction_source_type_id,
+                                inventory_item_id
+INTO            l_txn_type_id,
+                                l_txn_act_id,
+                                l_txn_src_type_id,
+                                l_item_id
+FROM            MTL_MATERIAL_TRANSACTIONS
+WHERE           transaction_id = I_TXN_ID;
+
+l_account_num := CSTPSCWF.START_STD_WF(i_txn_id,
+                l_txn_type_id,l_txn_act_id,
+                l_txn_src_type_id, i_org_id,
+                l_item_id, i_cost_element_id,
+                i_acct_line_type, i_subinv,i_cg_id,i_resource_id,
+                wf_err_num, wf_err_code, wf_err_msg);
+o_err_num := NVL(wf_err_num, 0);
+o_err_code := NVL(wf_err_code, 'No Error in
+                CSTPSWF.START_STD_WF');
+o_err_msg := NVL(wf_err_msg, 'No Error in
+                CSTPSWF.START_STD_WF');</pre>
+<pre>return l_account_num;</pre>
+<h4><a id="T407416"></a><b>For Average Costing</b></h4>
+<p>Comment out these lines in the function get_account_id() of CSTACHKB.pls.</p>
+<pre>SELECT       transaction_type_id,
+                                transaction_action_id,
+                                transaction_source_type_id,
+                                inventory_item_id,
+                                nvl(cost_group_id, &ndash;1)
+INTO            l_txn_type_id,
+                                l_txn_act_id,
+                                l_txn_src_type_id,
+                                l_item_id,
+                                l_cg_id
+FROM            MTL_MATERIAL_TRANSACTIONS
+WHERE           transaction_id = I_TXN_ID;</pre>
+<pre>l_account_num := CSTPACWF.START_AVG_WF(i_txn_id,
+                l_txn_type_id,l_txn_act_id,
+                l_txn_src_type_id,i_org_id, l_item_id,
+                i_cost_element_id,i_acct_line_type,
+                l_cg_id,i_resource_id, wf_err_num,
+                wf_err_code, wf_err_msg);
+o_err_num := NVL(wf_err_num, 0);
+o_err_code := NVL(wf_err_code, 'No Error in
+                CSTPAWF.START_AVG_WF');
+o_err_msg := NVL(wf_err_msg, 'No Error in
+                CSTPAWF.START_AVG_WF');</pre>
+<pre>&ndash;&ndash; if &ndash;1 then use default account, else use this account for
+distribution</pre>
+<pre>return l_account_num;</pre>
+<h3><a id="T407417"></a><b>Creating a New Custom Process</b></h3>
+<p>You can create a new custom process and use it as a subprocess within one of the 19 processes provided.</p>
+<p><strong>Related Topics</strong></p>
+<p>Account Generation Workflow Processes</p>
+<p>The Account Generation Workflow Item Types</p>
+<p>Summary of the Account Generation Process</p>
+<h2><a name="3491904"></a><a id="T407412"></a><b>The Account Generation Extension Workflow Item Types</b></h2>
+<p><a name="d0e64574" id="d0e64574"></a><a name="c_agit" id="c_agit"></a>The Account Generation Extension workflows are associated with two item types:</p>
+<ul>
+<li>
+<p>Standard Costing</p>
+</li>
+<li>
+<p>Average Costing</p>
+</li>
+</ul>
+<p>These item types identify all account generation workflow processes available.</p>
+<ul>
+<li>
+<p>Account</p>
+</li>
+<li>
+<p>Accrual</p>
+</li>
+<li>
+<p>Avg Cost Variance</p>
+</li>
+<li>
+<p>Clearing Account</p>
+</li>
+<li>
+<p>Encumbrance Reversal</p>
+</li>
+<li>
+<p>Interorg Freight Charge</p>
+</li>
+<li>
+<p>Interorg Payable</p>
+</li>
+<li>
+<p>Interorg Receivable</p>
+</li>
+<li>
+<p>Interorg Transfer Credit</p>
+</li>
+<li>
+<p>Intransit Inventory</p>
+</li>
+<li>
+<p>Inventory Valuation</p>
+</li>
+<li>
+<p>Overhead Absorption</p>
+</li>
+<li>
+<p>Profit in Inventory</p>
+</li>
+<li>
+<p>Purchase Price or Rate Variance</p>
+</li>
+<li>
+<p>Receiving Inspection</p>
+</li>
+<li>
+<p>Resource Absorption</p>
+</li>
+<li>
+<p>Retroactive Price Adjustment</p>
+</li>
+<li>
+<p>WIP Valuation</p>
+</li>
+<li>
+<p>WIP Variance</p>
+</li>
+</ul>
+<p>The Account Generation Extension workflow item types also have several attributes associated with them. These attributes reference information in the demonstration application tables. The attributes are used and maintained by function activities throughout the process, as presented in the following tables.</p>
+<h3><a id="T407418"></a><b>Standard Costing Account Generation Item Type Attributes</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Display Name</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Type</b></th>
+</tr>
+<tr valign="top">
+<td>Org ID</td>
+<td>Organization</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Item ID</td>
+<td>Inventory Item ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Subinventory Code</td>
+<td>Subinventory Code</td>
+<td>Test</td>
+</tr>
+<tr valign="top">
+<td>Transaction ID</td>
+<td>Transaction ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Account Generated</td>
+<td>Account Generated</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Cost Element ID</td>
+<td>Cost Element ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Cost Group ID</td>
+<td>Cost Group ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Error Number</td>
+<td>Error number is &ndash;1 for errors, 0 for no errors</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Error Message</td>
+<td>System error message</td>
+<td>Test</td>
+</tr>
+<tr valign="top">
+<td>Resource ID</td>
+<td>Resource ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Error Code</td>
+<td>System Error code</td>
+<td>Test</td>
+</tr>
+<tr valign="top">
+<td>Transaction Type ID</td>
+<td>Transaction Type ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Transaction Action ID</td>
+<td>Transaction Action ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Transaction Source Type ID</td>
+<td>Transaction Source Type ID</td>
+<td>Number</td>
+</tr>
+</table>
+<h3><a id="T407419"></a><b>Average Costing Account Generation Item Type Attributes</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Display Name</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Type</b></th>
+</tr>
+<tr valign="top">
+<td>Org ID</td>
+<td>Organization</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Item ID</td>
+<td>Inventory Item ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Transaction ID</td>
+<td>Transaction ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Account Generated</td>
+<td>Account Generated</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Cost Element ID</td>
+<td>Cost Element ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Cost Group ID</td>
+<td>Cost Group ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Error Number</td>
+<td>Error number is &ndash;1 for errors, 0 for no errors</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Error Message</td>
+<td>System error message</td>
+<td>Test</td>
+</tr>
+<tr valign="top">
+<td>Resource ID</td>
+<td>Resource ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Error Code</td>
+<td>System Error code</td>
+<td>Test</td>
+</tr>
+<tr valign="top">
+<td>Transaction Type ID</td>
+<td>Transaction Type ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Transaction Action ID</td>
+<td>Transaction Action ID</td>
+<td>Number</td>
+</tr>
+<tr valign="top">
+<td>Transaction Source Type ID</td>
+<td>Transaction Source Type ID</td>
+<td>Number</td>
+</tr>
+</table>
+<h2><a name="3491907"></a><a id="T407413"></a><b>Summary of the Account Generation Extension Workflow</b></h2>
+<p><a name="d0e64969" id="d0e64969"></a><a name="c_agsum" id="c_agsum"></a>To view the properties of any of the processes, select the process in the navigator tree, then choose Properties from the Edit menu.</p>
+<p>When you display the Process window for an Account Generation Extension process, you see that the process consists of three unique activities, several of which are reused to comprise the three activity nodes that appear in each workflow process diagram. The nodes are numbered for referencing below, but the numbers are not part of the process diagram.</p>
+<p>As illustrated in the following diagram, all of the processes in the Account Generation Extension workflow have the same structure and therefore only one is shown in this document.</p>
+<p><img width="437" height="169" src="./img/cst_wrk.gif" alt="the picture is described in the document text"></p>
+<p>Each of the workflows processes is launched from the Account Generation Client Extension. The exact workflow process called is dependent on the costing method (standard or average) and the accounting line type.</p>
+<p>The workflow begins at node 1 with the Start activity. At node 2, the default account (&ndash;1) is returned. Node 3 is the end activity.</p>
+<h2><a name="3491908"></a><a id="T407414"></a><b>Account Generation Workflow Extension Process Activities</b></h2>
+<p><a name="d0e64995" id="d0e64995"></a><a name="c_proact" id="c_proact"></a>This section provides a description of each activity listed by the activity's display name. You can create all the components for an activity in the graphical Oracle Workflow Builder except for the PL/SQL stored procedures that the function activities call. All function activities execute PL/SQL stored procedures which you must create and store in the Oracle RDBMS. The naming convention for the PL/SQL stored procedures used in the Account Generation Extension workflow processes are:</p>
+<pre>CSTPSCWF.&lt;PROCEDURE&gt; (for standard costing)</pre>
+<pre>CSTPACWF.&lt;PROCEDURE&gt; (for average costing)</pre>
+<p>CSTPSCWF or CSTPACWF are the names of the packages that group the procedures used by each process for standard and average costing respectively. &lt;PROCEDURE&gt; represents the name of the procedure.</p>
+<p><b>STANDARD COSTING</b></p>
+<p>CSTPSCWF is the name of the package.</p>
+<p><i>Standard Costing Procedures</i></p>
+<p>The following procedures are used:</p>
+<ul>
+<li>
+<p>START_STD_WF</p>
+</li>
+<li>
+<p>GET_DEF_ACC</p>
+</li>
+</ul>
+<p>The following procedures are seeded to return product line accounts but are not used:</p>
+<ul>
+<li>
+<p>GET_STD_MTL_PLA</p>
+</li>
+<li>
+<p>GET_STD_MO_PLA</p>
+</li>
+<li>
+<p>GET_STD_RES_PLA</p>
+</li>
+<li>
+<p>GET_STD_OSP_PLA</p>
+</li>
+<li>
+<p>GET_STD_OVH_PLA</p>
+</li>
+<li>
+<p>GET_STD_CE</p>
+</li>
+</ul>
+<p><b>AVERAGE COSTING</b></p>
+<p>CSTPACWF is the name of the package.</p>
+<p><i>Average Costing Procedures</i></p>
+<p>The following procedures are used:</p>
+<ul>
+<li>
+<p>START_AVG_WF</p>
+</li>
+<li>
+<p>GET_DEF_ACC</p>
+</li>
+</ul>
+<p>The following procedures are seeded but not used:</p>
+<ul>
+<li>
+<p>GET_AVG_MTL_PLA</p>
+</li>
+<li>
+<p>GET_AVG_MO_PLA</p>
+</li>
+<li>
+<p>GET_AVG_RES_PLA</p>
+</li>
+<li>
+<p>GET_AVG_OSP_PLA</p>
+</li>
+<li>
+<p>GET_AVG_OVH_PLA</p>
+</li>
+<li>
+<p>GET_AVG_CE</p>
+</li>
+</ul>
+<h3><a id="T407420"></a><b>Start (Node 1)</b></h3>
+<p>This is a Standard function activity that simply marks the start of the process.</p>
+<ul>
+<li>
+<p>Function &ndash; WF_STANDARD.NOOP</p>
+</li>
+<li>
+<p>Result Type &ndash; None</p>
+</li>
+<li>
+<p>Required &ndash; Yes</p>
+</li>
+<li>
+<p>Prerequisite &ndash; None</p>
+</li>
+</ul>
+<h3><a id="T407421"></a><b>Get Default Account (Node 2)</b></h3>
+<p>This function activity returns (&ndash;1) to indicate that the extension has not been used.</p>
+<ul>
+<li>
+<p>Function &ndash; CSTPSCWF.GET_DEF_ACC (for standard costing) CSTPACWF.GET_DEF_ACC (for average costing)</p>
+</li>
+<li>
+<p>Result Type &ndash; (&ndash;1)</p>
+</li>
+<li>
+<p>Required &ndash; Yes</p>
+</li>
+<li>
+<p>Prerequisite Activities &ndash; None</p>
+</li>
+</ul>
+<h3><a id="T407422"></a><b>End (Node 3)</b></h3>
+<p>This is a Standard function activity that simply marks the end of the process.</p>
+<ul>
+<li>
+<p>Function &ndash; WF_STANDARD.NOOP</p>
+</li>
+<li>
+<p>Result Type &ndash; None</p>
+</li>
+<li>
+<p>Required &ndash; Yes</p>
+</li>
+<li>
+<p>Prerequisite &ndash; None</p>
+</li>
+</ul>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T376739.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T376985.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">32/36</span> <!-- End Header -->
+<h1>Seeded Pricing Formulas</h1>
+<p>This appendix covers the following topics:</p>
+<ul>
+<li><a href="#T376995">Overview of Seeded Formulas</a></li>
+</ul>
+<h2><a name="3002221"></a><a id="T376995"></a><b><a name="formseed" id="formseed"></a>Overview of Seeded Formulas</b></h2>
+<p><a name="d0e76391" id="d0e76391"></a><a name="d0e76396" id="d0e76396"></a><a name="d0e76399" id="d0e76399"></a><a name="d0e76402" id="d0e76402"></a><a name="t_seedovr" id="t_seedovr"></a>Pricing provides two types of seeded formulas that you can use when setting up freight charges:</p>
+<ul>
+<li>
+<p>Cost to charge conversion formulas (simple pass-through formulas)</p>
+</li>
+<li>
+<p>Cost to charge markup formulas (simple markup formulas)</p>
+</li>
+</ul>
+<p>Each seeded formula is customized with its own formula expression. So rather than create a new formula and expression, you can select an existing seeded formula when setting up freight charges: for example, you could select the QP: Cost to charge conversion of Administration Cost formula to convert the Administration Cost pricing attribute to a charge.</p>
+<p>Alternately, you can update the formula header or formula lines for an existing seeded formula.</p>
+<p>You can review the available seeded and non-seeded formulas in the Pricing Formulas window. The Seeded box indicates if the formula is seeded or not.</p>
+<p><strong><span>Note:</span></strong> If the name of a seeded formula is updated then the formula will no longer be identified as seeded.</p>
+<h3><b>Seeded Cost to Charge Conversion Formulas</b></h3>
+<p>The following list describes the names and setup details about the seeded cost to charge conversion (pass-through) formulas:</p>
+<h3><b>1) QP: Cost to charge conversion of Administration Cost</b></h3>
+<p>Description: Formula to convert Administration Cost to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Administration Cost</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line</td>
+</tr>
+</table>
+<h3><b>2) QP: Cost to charge conversion of Duty Cost</b></h3>
+<p>Description: Formula to convert Duty Cost to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Duty Cost</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line</td>
+</tr>
+</table>
+<h3><b>3) QP: Cost to charge conversion of Export Cost</b></h3>
+<p>Description: Formula to convert Export Cost to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Export Cost</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line</td>
+</tr>
+</table>
+<h3><b>4) QP: Cost to charge conversion of Freight Cost</b></h3>
+<p>Description: Formula to convert Freight Cost to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Freight Cost</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line</td>
+</tr>
+</table>
+<h3><b>5) QP: Cost to charge conversion of Handling Cost</b></h3>
+<p>Description: Formula to convert Handling Cost to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Handling Cost</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line</td>
+</tr>
+</table>
+<h3><b>6) QP: Cost to charge conversion of Insurance Cost</b></h3>
+<p>Description: Formula to convert Insurance Cost to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Insurance Cost</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line</td>
+</tr>
+</table>
+<h3><b>7) QP: Cost to charge conversion of Transportation Price</b></h3>
+<p>Description: Formula to convert Transportation Price to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Transportation Price</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line</td>
+</tr>
+</table>
+<h3><b>8) QP: Cost to charge conversion of Transportation Charge</b></h3>
+<p>Description: Formula to convert Transportation Charge to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Transportation Charge</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line</td>
+</tr>
+</table>
+<h3><b>Seeded Markup Formulas</b></h3>
+<p>The following list describes the names and setup details about the seeded cost-to-charge with markup formulas:</p>
+<h3><b>1) QP: Cost to charge markup of Administration Cost</b></h3>
+<p>Description: Formula to convert Administration Cost to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1*2</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Administration Cost</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Numeric Constant</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Component</td>
+<td>1</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>2</td>
+<td>Line 2</td>
+</tr>
+</table>
+<h3><b>2) QP: Cost to charge markup of Duty Cost</b></h3>
+<p>Description: Formula to convert Duty Cost to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1*2</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Duty Cost</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Numeric Constant</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Component</td>
+<td>1</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>2</td>
+<td>Line 2</td>
+</tr>
+</table>
+<h3><b>3) QP: Cost to charge markup of Export Cost</b></h3>
+<p>Description: Formula to convert Export Cost to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1*2</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Export Cost</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Numeric Constant</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Component</td>
+<td>1</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>2</td>
+<td>Line 2</td>
+</tr>
+</table>
+<h3><b>4) QP: Cost to charge markup of Freight Cost</b></h3>
+<p>Description: Formula to convert Freight Cost to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1*2</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Freight Cost</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Numeric Constant</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Component</td>
+<td>1</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>2</td>
+<td>Line 2</td>
+</tr>
+</table>
+<h3><b>5) QP: Cost to charge markup of Handling Cost</b></h3>
+<p>Description: Formula to convert Handling Cost to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1*2</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Handling Cost</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Numeric Constant</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Component</td>
+<td>1</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>2</td>
+<td>Line 2</td>
+</tr>
+</table>
+<h3><b>6) QP: Cost to charge markup of Insurance Cost</b></h3>
+<p>Description: Formula to convert Insurance Cost to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1*2</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Insurance Cost</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Numeric Constant</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Component</td>
+<td>1</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>2</td>
+<td>Line 2</td>
+</tr>
+</table>
+<h3><b>7) QP: Cost to charge markup of Transportation Price</b></h3>
+<p>Description: Formula to convert Transportation Price to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1*2</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Transportation Price</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Numeric Constant</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Component</td>
+<td>1</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>2</td>
+<td>Line 2</td>
+</tr>
+</table>
+<h3><b>8) QP: Cost to charge markup of Transportation Charge</b></h3>
+<p>Description: Formula to convert Transportation Charge to charge.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Field Level</b></th>
+</tr>
+<tr valign="top">
+<td>Formula</td>
+<td>1*2</td>
+<td>Header</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute Context</td>
+<td>Pricing Attribute</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Pricing Attribute</td>
+<td>Transportation Charge</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>1</td>
+<td>Line 1</td>
+</tr>
+<tr valign="top">
+<td>Formula Type</td>
+<td>Numeric Constant</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Component</td>
+<td>1</td>
+<td>Line 2</td>
+</tr>
+<tr valign="top">
+<td>Step</td>
+<td>2</td>
+<td>Line 2</td>
+</tr>
+</table>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

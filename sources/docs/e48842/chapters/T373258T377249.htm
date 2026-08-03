@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T377248.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T377250.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">17/36</span> <!-- End Header -->
+<h1>Scheduling</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T377259">Overview</a></li>
+<li><a href="#T377260">Introduction</a></li>
+<li><a href="#T377261">Key Features</a></li>
+<li><a href="#T377262">Terminology</a></li>
+<li><a href="#T377263">Calculating Available to Promise (ATP)</a></li>
+<li><a href="#T377264">Scheduling</a></li>
+<li><a href="#T377265">Scheduling by Ship or Arrival Date</a></li>
+<li><a href="#T377266">Alternative Ways to Schedule</a></li>
+<li><a href="#T377267">Automatic Line Set Assignment</a></li>
+<li><a href="#T377268">Profiles</a></li>
+<li><a href="#T377323">Setup</a></li>
+<li><a href="#T377324">Changing Scheduled Lines</a></li>
+<li><a href="#T667605">Global Order Promising for ATO Models</a></li>
+<li><a href="#T667606">Publishing Plan Results</a></li>
+<li><a href="#T377325">Override ATP</a></li>
+<li><a href="#T377269">Reserving</a></li>
+<li><a href="#T377270">Manual Reservations</a></li>
+<li><a href="#T377271">Reservation Time Fence</a></li>
+<li><a href="#T377272">Reservation Details Window</a></li>
+<li><a href="#T377273">Reserve Orders Concurrent Program</a></li>
+<li><a href="#T377274">Unreserving and Unscheduling</a></li>
+<li><a href="#T377275">Setup</a></li>
+<li><a href="#T377276">Scheduling Parameters</a></li>
+<li><a href="#T377277">Profiles</a></li>
+<li><a href="#T377278">Folders</a></li>
+<li><a href="#T377279">Scheduling Levels on Transaction Types</a></li>
+<li><a href="#T377280">Customer Window</a></li>
+<li><a href="#T377281">ATP and Sourcing Rules</a></li>
+<li><a href="#T377282">Choosing Not to Use ATP</a></li>
+<li><a href="#T2011251">Integrating with Third-Party Planning Application</a></li>
+<li><a href="#T377283">Inter Location Transit Times</a></li>
+<li><a href="#T377284">Late Demand Penalty</a></li>
+<li><a href="#T377285">Implementation Considerations</a></li>
+<li><a href="#T377286">Past Dates</a></li>
+<li><a href="#T377287">Reservations Details Window</a></li>
+<li><a href="#T377288">Reserve Orders</a></li>
+<li><a href="#T377289">Reservation Modes</a></li>
+<li><a href="#T377290">Override ATP</a></li>
+<li><a href="#T377292">Examples</a></li>
+</ul>
+<h2><a name="3007179"></a><a id="T377259"></a><b><a name="schedule" id="schedule"></a>Overview</b></h2>
+<p><a name="t_schedov" id="t_schedov"></a>The scheduling feature of Oracle Order Management (OM) enables you to determine when items will be available to promise to a customer, schedule the shipment or arrival of order lines based on this availability, and reserve on-hand inventory to sales order lines. These scheduling activities can be performed on individual order lines or groups of order lines such as ship sets, arrival sets, and configurations.</p>
+<h2><a name="3007180"></a><a id="T377260"></a><b>Introduction</b></h2>
+<p>Oracle Order Management works closely with Oracle Advanced Planning and Scheduling (APS) and Oracle Inventory to provide scheduling functionality. The features are provided in a variety of ways enabling you to tailor your processes to meet your business needs.</p>
+<p>The features that are provided under the umbrella term of scheduling are:</p>
+<ul>
+<li>
+<p>Calculating Available-to-Promise (ATP)</p>
+</li>
+<li>
+<p>Scheduling</p>
+</li>
+<li>
+<p>Reserving</p>
+</li>
+</ul>
+<p>Unscheduling and unreserving functionality is also provided. This chapter covers how scheduling works in Order Management and how to set up OM, APS and Inventory to achieve your scheduling goals.</p>
+<p>In Oracle Order Management if a line requires more than one set of schedule details, such as schedule date or warehouse, the line is split into multiple lines. An order line represents demand and is visible to the planning applications when the VISIBLE_DEMAND_FLAG is set to yes. This flag is set when the line is scheduled.</p>
+<h2><a name="3007181"></a><a id="T377261"></a><b>Key Features</b></h2>
+<p>Scheduling in Order Management includes the ability to:</p>
+<ul>
+<li>
+<p>Schedule at multiple points - either manually or automatically as the line is entered, when the order is booked, or later using a background process.</p>
+</li>
+<li>
+<p>Determine the best warehouse for an order line using sourcing rules. This includes using ATO models.</p>
+</li>
+<li>
+<p>Define by customer whether the request date is the requested ship date or requested arrival date.</p>
+</li>
+<li>
+<p>Automatically set the scheduled ship and arrival dates based on the calculated ATP date.</p>
+</li>
+<li>
+<p>Define a shipping network and determine the number of days required for delivery based on the transit time.</p>
+</li>
+<li>
+<p>Automatically reserve on-hand inventory to order lines.</p>
+</li>
+<li>
+<p>Control, based on order transaction type, the level of scheduling which should occur.</p>
+</li>
+<li>
+<p>View availability for multiple warehouses at one time.</p>
+</li>
+<li>
+<p>Group lines into arrival sets which may be shipped from different warehouses on different days but should arrive at the customer site on the same day, or group lines into ship sets which ship on the same day from the same location.</p>
+</li>
+<li>
+<p>Reserve scheduled lines from multiple orders using the Reserve Orders concurrent program. Optionally, you can use reservations strategies such as Fair Share, Percentage, and Partial. You can choose whether to simulate or commit the reservations. An API Hook is provided for those who want to write an API to tailor reservation logic for a business-specific processes. Reserve Orders can be run either from the concurrent request menu, or from Scheduling Across Orders.</p>
+</li>
+<li>
+<p>Override Available to Promise (ATP). This feature allows authorized users to override ATP schedule date from the sales order window as needed for exceptions.</p>
+</li>
+<li>
+<p>Perform scheduling actions on multiple lines across orders.</p>
+</li>
+<li>
+<p>Scheduling can be updated based on the latest planning output for planned items.</p>
+</li>
+<li>
+<p>Configured items can be matched at scheduling for planned items.</p>
+</li>
+<li>
+<p>Flexible scheduling parameters enable users to control:</p>
+<ul>
+<li>
+<p>The use of Promise Date</p>
+</li>
+<li>
+<p>The impact of Request Date and Shipping Method on Schedule Date</p>
+</li>
+<li>
+<p>The behavior of the LAD with manual scheduling</p>
+</li>
+<li>
+<p>The scheduling of lines when they are added to ship or arrival sets</p>
+</li>
+<li>
+<p>Whether to allow partial reservations for manual reservations and the reservation time fence</p>
+</li>
+<li>
+<p>The ability to define a reservation removal sequence by supply source type</p>
+</li>
+</ul>
+</li>
+<li>
+<p>ATP/Scheduling uses Transportation calendars like Shipping Calendar, In-transit (Carrier) Calendar, and Receiving Calendar to calculate the ship/arrival dates</p>
+</li>
+<li>
+<p>The ATP window displays the scheduling results for all recent (related to the current order) scheduling actions- successes as well as failures.</p>
+<p><strong><span>Note:</span></strong> In this release with the introduction of the Multi-Org Access Control functionality, you will now be able to perform most scheduling actions on lines across operating units. This can be achieved via the Scheduling Organizer (Schedule Across Orders i.e. SAO ) or by running the Schedule Orders / Reserve Orders concurrent program. across operating units. For additional information please refer to the <i>Oracle Order Management User's Guide.</i></p>
+</li>
+</ul>
+<h2><a name="3007182"></a><a id="T377262"></a><b>Terminology</b></h2>
+<p><a name="Terminology" id="Terminology"></a>Understanding the following terms will help you understand how scheduling works in Oracle Order Management.</p>
+<ul>
+<li>
+<p>Actual Arrival Date: The date the order line arrives at the customer site.</p>
+</li>
+<li>
+<p>Actual Ship Date: The date the order line is shipped. This date is recorded by the ship confirm action.</p>
+</li>
+<li>
+<p>Arrival Set: A set of order lines which arrive at the same time at the destination.</p>
+</li>
+<li>
+<p>Available to Promise (ATP): The quantity of current on-hand stock, outstanding receipts and planned production not already committed to sales orders or other sources of demand.</p>
+</li>
+<li>
+<p>ATP Date: The date that a requested quantity will be available to promise.</p>
+</li>
+<li>
+<p>Delivery Lead Time: Time, in days, for items to reach the customer once they are shipped.</p>
+</li>
+<li>
+<p>Demand: Requests which consume inventory such as sales orders. Discrete manufacturing work orders and flow manufacturing schedules place demand for component items, and sales orders place demand for finished goods.</p>
+</li>
+<li>
+<p>Line Set: A set of lines which can be grouped into a Ship Set or Arrival Set.</p>
+</li>
+<li>
+<p>Override ATP: An action that allows authorized users to schedule the line even if there is no supply. Overriding ATP requires users to find supply manually.</p>
+</li>
+<li>
+<p>Promise Date: The date on which you agree you can ship the products to your customer or that your customer will receive the products. This field is for tracking purposes only. It may be defaulted from the schedule ship date or the schedule arrival date.</p>
+</li>
+<li>
+<p>Request Date: The date the customer requests that the products be either shipped or received.</p>
+</li>
+<li>
+<p>Reservation: A guaranteed allotment of product to a specific sales order. Once reserved, the product cannot be allocated to any other source of demand. Also known as a hard reservation.</p>
+</li>
+<li>
+<p>Reservation modes: Choose one of three reservation strategies when using Reserve Orders: Fair Share, Percentage, or Partial.</p>
+</li>
+<li>
+<p>Reservation Time Fence: Time, in days, before the schedule date, within which a line should be automatically reserved.</p>
+</li>
+<li>
+<p>Reservation Types: Using Reserve orders, you can choose whether the reservation run should simulate the reservation strategy, or commit the reservations.</p>
+</li>
+<li>
+<p>Reserve Orders: A concurrent program that attempts to reserve all those order lines specified in the search criteria in a batch process.</p>
+</li>
+<li>
+<p>Schedule Arrival Date: The date returned by the system on which your customer can receive the products.</p>
+</li>
+<li>
+<p>Schedule Ship Date: The date returned by the system on which you can ship the products.</p>
+</li>
+<li>
+<p>Scheduling Across Orders: The ability to perform scheduling actions on lines from multiple orders. With Scheduling Across Orders, users can schedule, unschedule, reserve, unreserve and perform ATP checks on lines across orders.</p>
+</li>
+<li>
+<p>Scheduling parameters: Scheduling attributes are added to the OM System Parameters</p>
+</li>
+<li>
+<p>Ship Set: A set of lines which will be shipped together from the same warehouse to the same location.</p>
+</li>
+<li>
+<p>Sourcing: Selecting the warehouse for the order lines.</p>
+</li>
+<li>
+<p>Supply: Incoming inventory. Some Oracle transactions that generate supply are purchase orders, discrete manufacturing work orders and flow manufacturing schedules.</p>
+</li>
+</ul>
+<h2><a name="3007183"></a><a id="T377263"></a><b>Calculating Available to Promise (ATP)</b></h2>
+<p>Oracle Order Management enables you to advise your customers when items will be available based on current on-hand inventory plus the expected incoming supply and outgoing demand. Calculating ATP requires as input the item, the order quantity, the order quantity unit of measure and the request date. In general the user will enter the item and order quantity on every order line. The request date and order quantity unit of measure may be defaulted or manually entered. ATP may be calculated for a single line, a group of lines, or a complete order. The results for a single line are displayed in a single column in a small window. The results for multi-line ATP are displayed in a table. In both formats, the following information is displayed:</p>
+<ul>
+<li>
+<p>Warehouse: Either the warehouse on the order line or, if the warehouse on the order line was blank, the best warehouse as selected by the sourcing rules.</p>
+</li>
+<li>
+<p>Request Date Qty: The quantity that is available on the requested date</p>
+</li>
+<li>
+<p>Available: The order quantity, if ATP was successful. The available quantity, which will be less than the order quantity, if ATP was not successful.</p>
+</li>
+<li>
+<p>On-hand Qty: The quantity that is currently in the warehouse.</p>
+</li>
+<li>
+<p>Qty Reservable: The on-hand quantity minus the quantity that is already reserved to other sources of demand.</p>
+</li>
+<li>
+<p>Request Date: The date on the order line.</p>
+</li>
+<li>
+<p>Available date: The date that the ordered quantity will be available. It could be the request date if the order quantity is available on the request date, or it might be a future date when the order quantity will be available</p>
+</li>
+<li>
+<p>Error Message: Any error that occurred in calculating ATP. For example, if the Check ATP flag for the item is not selected then this field will display ATP not applicable.</p>
+</li>
+<li>
+<p>Substitute Item: If the requested item is not available and the requested quantity for a defined substitute is available, the substitute item will be displayed. An additional tab, showing the availability of the substitute item, is also displayed.displayed for single items. A multi-line window displays availability information for sets and models.</p>
+</li>
+</ul>
+<p>Clicking the Global Availability button located at the bottom of the Availability window opens the ATP window that has the list of warehouses where the item is enabled. You can select the warehouses for which you want to see the availability, and the system will return the availability in all the selected warehouses.</p>
+<p>The ATP Details window can also be opened from the Availability window by pressing the ATP Details Button. The ATP Details window displays how the results were derived.</p>
+<p>ATP is calculated automatically during scheduling, and may be calculated manually by clicking Availability on the Line Items tab of the Sales Order window. There are several steps required for ATP calculations.</p>
+<p>If you are using ASCP, supply/demand is set up at the plan level. See the <i>Oracle ASCP Implementation Manual</i>. Global Order Promising will only use the infinite time fence specified on the ATP rule.</p>
+<p>If you are not using ASCP, ATP rules must be defined to determine the sources of supply and demand which are included in the calculation. The ATP rules must be associated with items and/or inventory organizations. Also, the data collection program must be run. There is a requirement for ATP calculations to be very fast; some customer service representatives will need to give this information to customers on the phone. However, considering all the possible sources of supply and demand for an ATP calculation can be very complex. Therefore, a concurrent process known as data collection must be run to summarize the supply and demand picture. This program is part of the Oracle Advanced Planning and Scheduling application. The ATP calculation is then performed on the summary tables. For details about setting up ATP rules and running the data collection program, see the setup section of this document.</p>
+<h2><a name="3007184"></a><a id="T377264"></a><b>Scheduling</b></h2>
+<p>Scheduling is an action performed on an order line or a group of lines. The action performs the following:</p>
+<ul>
+<li>
+<p>Determines the source (warehouse) for the order line. If the warehouse is entered on the line, either manually or using defaulting rules, the scheduling action uses the requested warehouse and the other scheduling results are based on it. If the warehouse is blank, the scheduling action determines the best warehouse based on the sourcing rules. This functionality includes ATO models.</p>
+</li>
+<li>
+<p>Determines the schedule ship date, the schedule arrival date, the delivery lead time and the shipping method.</p>
+</li>
+<li>
+<p>Makes the line visible to the planning applications and consumes supply for the item. When a line is successfully scheduled the VISIBLE_DEMAND_FLAG is set to Yes.</p>
+</li>
+<li>
+<p>If the reservation time fence is set and the schedule ship date is within the reservation time fence, automatically reserves the line.</p>
+</li>
+</ul>
+<h2><a name="3007185"></a><a id="T377265"></a><b>Scheduling by Ship or Arrival Date</b></h2>
+<p>The request date may be either the requested ship date or the requested arrival date depending on the request date type of the customer. If the customer's request dates are requested arrival dates, the scheduling action calls MRP's scheduling API with the requested arrival date. The API returns the first date on or after the requested arrival date that the items could arrive at the customer location, and enters that date into the scheduled arrival date field for the line(s). The schedule ship date is calculated by subtracting the delivery lead time (number of days for items to reach the customer once they ship) from the schedule arrival date. If the shipping network has not been defined for this combination of locations, the delivery lead time will be considered zero days and the schedule ship date and schedule arrival date will be the same.</p>
+<p>If you enter a schedule ship date on the order line before performing the schedule action, the system will attempt to schedule on that date when the schedule action occurs. If it cannot, the schedule action fails.</p>
+<p>You can define for each customer the delivery window in days that they will accept by entering the latest schedule limit on the customer window. When you enter an order line, the latest acceptable date is calculated by adding the latest schedule limit to the request date. When the scheduling action occurs, the schedule date will only be returned if it is between the requested date and the latest acceptable date. If it is not within this range, the scheduling action fails. For example, suppose that you have a customer who only accepts orders that ship within 5 days of the request date. You would enter 5 in the latest schedule limit fields on the Order Management tab of the customer window. When you enter an order line, if the request date is September 10, the latest acceptable date would be September 15. When the scheduling action occurs, if the schedule date returned is not in the date range of September 10 through September 15, the schedule request fails.</p>
+<p>You can control whether OM schedules lines on hold by using the system parameter OM: Schedule lines on Hold. If an order or line is on hold and this system parameter is set to No, then the scheduling action fails.</p>
+<h2><a name="3007186"></a><a id="T377266"></a><b>Alternative Ways to Schedule</b></h2>
+<p>The scheduling action can be invoked in multiple ways. You can schedule from the sales order window by having autoschedule turned on, or by manually choosing to schedule using the context menu or the tools menu. You can schedule using a workflow activity either immediately or in deferred mode. If the scheduling action fails in the workflow then the line is moved to scheduling eligible activity. You can then use the Schedule Orders concurrent program to schedule the lines with exceptions.</p>
+<p><b>Autoschedule</b></p>
+<p>The sales order line is scheduled when it is saved. If either the Autoschedule check box on the order transaction type is checked or the OM: Autoschedule profile option is Yes, the sales order will be opened in Autoschedule mode. You can turn Autoschedule on or off from the sales order window by going to the Tools menu. Note that if autoschedule is turned on the availability window is automatically displayed when the sales order window is opened. You can close the availability window, but the lines will still be autoscheduled unless the autoschedule check box on the tools menu is unchecked.</p>
+<p><b>Autoschedule Sets</b></p>
+<p>If you set the value of OM: Auto Schedule Sets system parameter as No, then the application does not schedule the lines automatically, when you add them to a new ship or arrival set. You can schedule the lines manually whenever it is required. If you set the value of this system parameter as Yes, then the application schedules the lines as and when you add them to a set. The default value of the system parameter is Yes.</p>
+<p>If the value of OM: Auto Schedule Sets system parameter is No, then the application behaves in the following manner:</p>
+<ul>
+<li>
+<p>When you or the application add a line to a new set, either by defaulting or manually, then upon saving, the line is not scheduled automatically. The application adds it to the set though. You can then schedule the line whenever required. However, once the line that is part of a set is scheduled, even if the OM: Auto Schedule Sets system parameter is set to No, it cannot be unscheduled. If the line has to be unscheduled, then you have to remove the line from the set first.</p>
+</li>
+<li>
+<p>When you or the application add a line to an existing set, and the set is not scheduled (lines part of the set are not scheduled), then the application adds the line to the set but does not schedule the line. This is irrespective of the value of the OM: Auto Schedule Sets parameter.</p>
+</li>
+<li>
+<p>When a line is added to an existing set, and the set is already scheduled (lines part of the set are already scheduled), then the new line gets scheduled and added to the set. The application considers the value of the OM: Auto Schedule Sets system parameter only when a line is added to a new set. However, if the new line could not be scheduled for any reason (scheduling errors out), then the line is not added to the set.</p>
+</li>
+<li>
+<p>When a sales order in Entered status has lines that are part of a set and not scheduled, is booked, then the application schedules all the lines in the set. In this case, booking causes the order line workflow, as seeded by Oracle, to advance to activity Schedule (LINE_SCHEDULING), which triggers scheduling, irrespective of the value of the OM: Auto Schedule Sets system parameter.</p>
+</li>
+<li>
+<p>When there are multiple lines in a set, and you try to schedule the set, if any of the lines in the set could not be scheduled to the set attributes, the whole set remains unscheduled. All the lines remain as part of the set.</p>
+</li>
+<li>
+<p>When lines are added to a set and are not scheduled yet, the OM: Auto Schedule Sets system parameter is changed to Yes, and a new line is added to the same set, then the new line gets added to the set, but does not get scheduled. The new line remains unscheduled, even though the value of the system parameter is Yes. The application honors the value of the system parameter only when the set is getting created. If the set is already created, then new lines added to the set retain the set behavior, irrespective of the value of the system parameter.</p>
+</li>
+</ul>
+<p>The OM: Auto Schedule Sets system parameter is applicable to standard items, models (ATO/PTO) and kits.</p>
+<p><b>Manual</b></p>
+<p>You can access the scheduling sub menu either by selecting schedule from the list of activities on the tools menu or by placing your cursor on a line and pressing the right mouse button. Selecting schedule from these menus will trigger the scheduling action. If the action is selected from the order header tab, all the lines on the order will be scheduled. If the action is selected from the lines tab, it applies only to the line or group of lines selected.If the profile option MSC_OM_IMPORT_PRESCHEDULED is set to Yes, then you will be able to schedule ATO items on weekends as well. However if you require the scheduling to be done only on valid working days, set this profile option to No.</p>
+<p><b>Workflow</b></p>
+<p>The seeded scheduling workflow activity should be used in the workflow process for your order lines. In the Line Flow - Generic seeded flow, the schedule activity is a synchronous activity immediately after booking. With this type of process, scheduling will occur immediately after booking. Scheduling errors will be seen by the person who is booking the order. If the scheduling activity is deferred it will occur after the workflow background process runs and any error messages will be available in the process messages window.Only lines waiting at the Schedule-Eligible workflow activity are selected. The default is no value entered. Note that the lines may or may not be scheduled and still could be waiting at the activity. See: <i>Using Oracle Workflow in Oracle Order Management.</i></p>
+<p><b>Manual Scheduling Sub-Process</b></p>
+<p>In Release 12, a new scheduling sub-process named Schedule-Line, Manual is provided to handle cases where you may want to control scheduling manually after the order is booked. If the new sub-process is used in the line workflow, then after booking the order, lines are blocked at the Schedule-Eligible activity. You can progress the Schedule-Eligible activity from Sales Orders window or use the Schedule Orders concurrent program to schedule the lines.</p>
+<p>A new generic line workflow is not provided with this new sub-process. If you require to use this sub-process you can copy and customize the generic line workflow and replace the new sub-process in place of the existing Schedule &ndash; Line sub-process.</p>
+<p>For additional details please refer to the Oracle Order Management User's Guide.</p>
+<p><b>Schedule Orders Concurrent Program</b></p>
+<p>The Schedule Orders Concurrent Program functionality has been enhanced in the current release. This program selects all lines that have failed workflow scheduling, and attempts to schedule them. These lines are waiting at the schedule-eligible activity. The user can select orders based on the order number and other parameters.</p>
+<p>In addition, lines that have never been scheduled can now be scheduled using the Schedule Orders concurrent program. This is useful for high-volume orders, where a batch of imported orders in Booked status can be mass scheduled. Please note that lines that have not been booked are not scheduled.</p>
+<p>Also the enhancements to the Schedule Orders concurrent program enable you to reschedule lines in case there is a change in supply dates or even unschedule lines if they have been scheduled previously. You have two re-scheduling options: Re-Schedule and Re-scheduling with Request Date. You can query scheduled lines and perform a reschedule. You can move schedules in and out based on the item's availability, and if orders or delivery schedules from suppliers are changed or cancelled, then the allocated product can be rescheduled to meet other demands earlier or later. You can query and sort scheduled lines, and assign either a new Schedule Ship Date (this can be Schedule Ship Date or Schedule Arrival date; depending on the Order Date Type value) or Warehouse (location) when re-scheduling a line.</p>
+<ul>
+<li>
+<p>For each line of the order that fails workflow scheduling, messages will be stored in the Process Messages table and also printed in the logfile.</p>
+</li>
+<li>
+<p>If scheduling was successful, the scheduling workflow activity will complete with a result of COMPLETE so that the line can progress to the next activity.</p>
+</li>
+<li>
+<p>If scheduling was not successful, the workflow activity will complete with the result of INCOMPLETE. The line can then be scheduled manually by progressing the order from the sales order window (press the Action button and select Progress Order) or automatically in the next run of the scheduling concurrent program.</p>
+</li>
+</ul>
+<p>Submit the scheduling concurrent program by navigating to (N) Orders, Returns &gt; Schedule Order. See: <i>Oracle Order Management User's Guide</i></p>
+<p><b>Scheduling Across Orders</b></p>
+<p>Scheduling Across Orders provides the ability to view scheduling attributes of multiple lines across orders, and to perform any scheduling action from a single window. From the Scheduling tab on the Find window of the Order Organizer, you can query lines based on a variety of parameters, such as:</p>
+<ul>
+<li>
+<p>Item</p>
+</li>
+<li>
+<p>Warehouse</p>
+</li>
+<li>
+<p>Request Date</p>
+</li>
+<li>
+<p>Reservation Status (Reserved or Unreserved)</p>
+</li>
+<li>
+<p>Scheduling Status (Scheduled or Unscheduled)</p>
+</li>
+<li>
+<p>Shipping Status (Picked, Unpicked, or Backordered)</p>
+</li>
+<li>
+<p>Order Status</p>
+</li>
+<li>
+<p>Customer</p>
+</li>
+<li>
+<p>Shipment Priority</p>
+</li>
+<li>
+<p>Schedule Date Ranges</p>
+</li>
+<li>
+<p>Request Date Ranges</p>
+</li>
+</ul>
+<p>After performing an intelligent query to display a group of lines, you will see a new window, Scheduling Organizer. From the Scheduling Organizer, you can perform scheduling actions on lines across orders, that is, you can Schedule, Unschedule, Reserve, Unreserve and perform ATP inquiry.</p>
+<p>Access to the scheduling tab is controlled by the Profile Option OM: Scheduling Role. Those with the role of CSR Only do not have access to the Scheduling tab, but they have the same functionality available in previous releases. Those with the role of Scheduler Only are allowed access to the Scheduling tab, but not to other tabs (Order Information, Line Information, Advanced, and Holds Information). Those with the role of both CSR and Scheduler have access to all tabs in the Find window of the Order Organizer. Additionally, the role determines whether some actions are available. For instance, those with the role of Scheduler only will not be allowed to open the Sales Order window from the Scheduling Organizer.</p>
+<p>Scheduling Across Orders is useful in a variety of business scenarios:</p>
+<ul>
+<li>
+<p>Availability and/or scarce inventory: Who has the reserved items? Which customers have scheduled lines? Which customers have unscheduled lines? If desired, you can take supply away from lower priority customers, and give it to higher priority customers within Scheduling Across Orders.</p>
+</li>
+<li>
+<p>Customer service: View all the lines for a customer. Which lines need to be scheduled or reserved?</p>
+</li>
+<li>
+<p>Scheduling: Query all lines that are scheduled to ship on a specific date, and push out the schedule date for those lines as required. Or query any lines where Override ATP is flagged, and decide how to provide supply.</p>
+</li>
+<li>
+<p>Revenue impact: Query up all lines for an item, and display gross margin. Using Folders, move gross margin to be one of the first three columns on the Scheduling Organizer. Then sort based on gross margin. Reserve the lines with the higher gross margins, and pick by prior reservation. By doing so, you can impact bottom line for a month, quarter, and so on.</p>
+</li>
+</ul>
+<p>To use these strategies, the general flow is:</p>
+<ul>
+<li>
+<p>Use business logic to select and reserve the lines you want to pick release</p>
+</li>
+<li>
+<p>Pick release "By Prior Reservation"</p>
+</li>
+<li>
+<p>Ship the reserved items immediately</p>
+</li>
+<li>
+<p>Ship remaining qtys when supply is available</p>
+</li>
+<li>
+<p>Scheduling Groups of Lines</p>
+</li>
+</ul>
+<p>For scheduling functions other than Override ATP, Order Management may perform the function on only one line or on that line and a group of related lines. Scheduling treats the following groups as scheduling sets. For these line groups, the scheduling activity occurs on all the lines of a set.</p>
+<ul>
+<li>
+<p>Assemble to Order (ATO) Models</p>
+</li>
+<li>
+<p>Ship Model Complete (SMC) Pick to Order (PTO) Models</p>
+</li>
+<li>
+<p>Line Sets</p>
+</li>
+<li>
+<p>Ship Sets</p>
+</li>
+<li>
+<p>Arrival Sets</p>
+</li>
+</ul>
+<p>Scheduling processes the lines of the set together and applies the rules required to honor the set. If lines are in a ship set they will be scheduled from the same warehouse and will have the same requested ship date and ship to. They may not have the same Shipping Method. For instance, in a PTO model or a ship set you might ship a fragile part using one Shipping Method, and a heavy part using another Shipping Method.</p>
+<p>User created ship sets, ATO models and SMC PTO models are all ship sets.</p>
+<p>All lines in a user created arrival set will have the same arrival date and ship to organization. Lines assigned to an Arrival Set within an order will be scheduled with the same requested arrival date and ship to.</p>
+<p>The following table shows the behavior for each scheduling function with each type of line group.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Scheduling Groups of Lines</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line Group Type</b></th>
+<th scope="col"><b>Calculate ATP</b></th>
+<th scope="col"><b>Schedule</b></th>
+<th scope="col"><b>Reserve</b></th>
+</tr>
+<tr valign="top">
+<td>Standard Line (not in any set)</td>
+<td>That Line</td>
+<td>That Line</td>
+<td>That Line</td>
+</tr>
+<tr valign="top">
+<td>Standard Line (in ship or arrival set)</td>
+<td>Whole Set</td>
+<td>Whole Set</td>
+<td>That Line</td>
+</tr>
+<tr valign="top">
+<td>ATO Model</td>
+<td>Whole configuration</td>
+<td>Whole configuration</td>
+<td>Cannot Reserve</td>
+</tr>
+<tr valign="top">
+<td>ATO Class</td>
+<td>Whole configuration</td>
+<td>Whole configuration</td>
+<td>Cannot Reserve</td>
+</tr>
+<tr valign="top">
+<td>ATO Option</td>
+<td>Whole configuration</td>
+<td>Whole configuration</td>
+<td>Cannot Reserve</td>
+</tr>
+<tr valign="top">
+<td>PTO Model (Ship Model Complete)</td>
+<td>Whole configuration</td>
+<td>Whole configuration</td>
+<td>Whole configuration, but each line is reserved separately</td>
+</tr>
+<tr valign="top">
+<td>PTO Class (Ship Model Complete)</td>
+<td>Whole configuration</td>
+<td>Whole configuration</td>
+<td>Class and its included items</td>
+</tr>
+<tr valign="top">
+<td>PTO Options (Ship Model Complete)</td>
+<td>Whole configuration</td>
+<td>Whole configuration</td>
+<td>Only the option</td>
+</tr>
+<tr valign="top">
+<td>PTO Model (non-Ship Model Complete)</td>
+<td>Whole configuration, but ATP will be performed separately for each line</td>
+<td>Whole configuration, but each line will be scheduled separately</td>
+<td>Whole configuration, but each line is reserved separately</td>
+</tr>
+<tr valign="top">
+<td>PTO Class (non-Ship Model Complete)</td>
+<td>Class and its included items</td>
+<td>Class and its included items</td>
+<td>Class and its included items</td>
+</tr>
+<tr valign="top">
+<td>PTO Options (non-Ship Model Complete)</td>
+<td>Only the option</td>
+<td>Only the option</td>
+<td>Only the option</td>
+</tr>
+<tr valign="top">
+<td>Included Item (Ship Model Complete)</td>
+<td>Whole configuration</td>
+<td>Whole configuration</td>
+<td>That Line</td>
+</tr>
+<tr valign="top">
+<td>Included Item (non-Ship Model Complete)</td>
+<td>That line</td>
+<td>That line</td>
+<td>That line</td>
+</tr>
+<tr valign="top">
+<td>Service Line</td>
+<td>Cannot calculate ATP</td>
+<td>Cannot schedule</td>
+<td>Cannot reserve</td>
+</tr>
+</table>
+<p>For scheduling actions other than Override ATP, you can manually request scheduling for more than one line at a time by multi-selecting the lines. (Override ATP is intended for exceptions only.) From the sales order window, select each line by pressing the Ctrl key and clicking the mouse. The selected lines will be highlighted. The scheduling activity that you request will be executed for the lines that you selected, plus any lines that are required to be scheduled with them because they are in the same group. The lines that are multi-selected that are not in a scheduling group will be processed independently.</p>
+<p><b>Line Sets: Ship/Arrival</b><a name="t_lssarr" id="t_lssarr"></a></p>
+<p>Ship Sets can be enforced at the time of Pick Release or display a warning at Ship Confirm. If you decide to enforce Ship Sets at the time of Pick Release, N &gt; Setup &gt; Shipping &gt; Shipping Parameters &gt; Pick Release &gt; check the flag to "Enforce Ship Sets and Ship Models." The enforcement ensures that all lines assigned to the same Line Set will not progress until each line in the set is ready.</p>
+<p>A Ship Set is a group of order lines which must ship from the same warehouse on the same day with the same ship to location. If the enforce Ship Sets flag is checked, Pick Release will not pick anything in the ship set unless everything in the ship set is ready to go; that is, there is inventory available, no holds exist and it is eligible for pick release. The order entry window will ensure that the common attributes are the same across all lines in the set.</p>
+<p>An Arrival set is a set of order line Shipments which must arrive at the customer site at the same time regardless of how each line is shipped or from where it is shipped. The scheduling functions will honor arrival sets and the ATP calculation will operate on a whole arrival set together as a group, taking delivery lead times into consideration to meet the scheduled arrival date. Arrival sets can ship from different warehouses and ship on different days, but the ship To organization and the scheduled arrival date must be the same on each line in the arrival set.</p>
+<p>Lines in sets will be enforced to have some common attributes. Ship Sets need to have a common Schedule Ship date, Ship From and Ship To while Arrival Sets need to have a common Schedule Arrival Date and Ship To. A Line can either belong to a Ship Set or an Arrival Set at one time.</p>
+<h2><a name="3007188"></a><a id="T377267"></a><b>Automatic Line Set Assignment</b></h2>
+<h3><b>Overview</b></h3>
+<p>Oracle Order Management enhances Line Set (Ship/Arrival) functionality with seeded defaulting rules minimizing the need for user action thus reducing error and keystrokes.</p>
+<p>Features include:</p>
+<ul>
+<li>
+<p>Allow defaulting header level Line Set (Ship/Arrival) from Order Transaction Types See Transaction Types for more information.</p>
+</li>
+<li>
+<p>Customer</p>
+<ul>
+<li>
+<p>Invoice To</p>
+</li>
+<li>
+<p>Ship To</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><b>Defaulting Rules Setup</b></h3>
+<p>Previously, there were hard coded defaulting rules such as Ship To, Line Set, Invoice To, Line Set, or Customer.Line Set (Sold to), depending on which lines were automatically included in Ship or Arrival Sets.</p>
+<ul>
+<li>
+<p>The hard coded defaulting rules have been converted to seeded defaulting rules using defaulting framework to provide flexibility in changing the sequence of the rules to be used.</p>
+</li>
+<li>
+<p>Added defaulting rule for Order Type.Line Set</p>
+</li>
+<li>
+<p>A facility has been provided to define a defaulting rule for Ship Set or Arrival Set based on the Transaction type.</p>
+<p><strong><span>Note:</span></strong> Defaulted Set at the header level will only affect the new lines that are being created and will not have any impact on existing lines.</p>
+</li>
+</ul>
+<p>See: <a href="T373258T374215.htm#t_ddefrules">Define Defaulting Rules</a></p>
+<h3><b>Transaction Types Definition Form</b></h3>
+<p>Default Line set column has been added to the Transaction type Form. This is available only for Order Level Transaction types.</p>
+<ul>
+<li>
+<p>Line Set choice of "Ship" or "Arrival" provided by an LOV. N &gt; Setup &gt; Transaction Type &gt; Define &gt; Shipping Tab &gt; Line Set field</p>
+</li>
+</ul>
+<p>See: <a href="T373258T374215.htm#t_defttyps">Define Order Management Transaction Types</a></p>
+<h3><b>Ship Set or Arrival Set For Each Line</b></h3>
+<p>Oracle Order Management has increased the choice to their customers of header level Ship/Arrival Set functionality. The profile, "OM: Assign new set for each line," provides two alternatives:</p>
+<p>Many businesses do not wish to create multiple shipments for a single order. The default is set to "No," creating a single Ship/Arrival Set per order. As an example, if the header level choice is Ship, all successfully scheduled lines are assigned to one Ship Set when created. If one line fails scheduling, none of the lines are assigned to a Ship Set.</p>
+<p>It is important for other businesses that a single line ship complete and multiple shipments are allowed per order. By setting the profile to "Yes," the system creates a unique Ship/Arrival Set for each line in an order as long as the line can be scheduled.</p>
+<h2><a name="3007193"></a><a id="T377268"></a><b>Profiles</b></h2>
+<h3><b>OM: Assign new set for each line</b></h3>
+<p>This profile allows you to determine how Order Management places lines into sets. Set to "No," all successfully scheduled lines automatically go into one Ship or Arrival Set. Set to "Yes," each line is scheduled into a unique set (Ship or Arrival) based on the header level preference.</p>
+<h3><b>Implementation Considerations</b></h3>
+<p>Option 1 provides functionality for businesses that prefer to group all lines of an order into one Ship Set or Arrival Set.</p>
+<ul>
+<li>
+<p>Setting the profile to "No" with header level set to "Ship" creates one Ship Set per order, scheduling all of the lines to ship together from the same warehouse to the same Ship To with the same Scheduled Ship Date, potentially saving on freight costs.</p>
+</li>
+<li>
+<p>Setting the profile to "No" with header level set to "Arrival" creates one Arrival Set per order, scheduling all of the lines to arrive together at the same Ship To with the same Scheduled Arrival Date providing a high level of customer service through scheduling to deliver all lines of the order at the same time to the same place.</p>
+</li>
+</ul>
+<p>Option 2 creates an additional use of Ship/Arrival Sets by creating a unique set for each line of an order.</p>
+<ul>
+<li>
+<p>Setting the profile to "Yes" with header level set to "Ship" creates a unique Ship Set for each line of the order. Creating line level Ship Sets enforces that the full quantity ordered is scheduled to ship at the same time. Thus assisting in customer satisfaction through shipping full quantity every time an item is ordered. It also allows flexibility in that each line is independent. Consider an order with two lines, 1) Item A, quantity 500 2) Item B, quantity 200. At the time of scheduling, Item A has full quantity of 500 available to be ordered while Item B only has quantity 50 available. With separate Ship Sets, Item A, quantity 500 proceeds to Pick Release and Ship Confirm while Line 2, Item B will not progress. The customer is happy as full quantity 500 of Line 1, Item A is shipped immediately instead of waiting for the complete quantity of Line, 2 Item B to ship on the same date.</p>
+</li>
+<li>
+<p>Similarly, setting the profile to &ldquo;Yes&rdquo; with header level set to &ldquo;Arrival&rdquo; creates a unique Arrival Set for each line of the order. Creating line level Arrival sets enforces that the full quantity ordered is scheduled to arrive. Thus assisting in customer satisfaction through shipping full quantity every time an item is ordered. It also allows flexibility in that each line is independent. Consider the same order with two lines, 1) Item A, quantity 500 2) Item B, quantity 200. At the time of scheduling, Item A has full quantity of 500 available to be ordered while Item B only has quantity 50 available. With separate Arrival Sets, Item A, quantity 500 proceeds to Pick Release and Ship Confirm while Line 2, Item B will not progress. The customer is happy as full quantity 500 of Line 1, Item A arrives together instead of waiting for the complete quantity of Line, 2 Item B to arrive on the same date.</p>
+</li>
+</ul>
+<h2><a name="3007196"></a><a id="T377323"></a><b>Setup</b></h2>
+<h3><b>To set up Order level Ship/Arrival Sets:</b></h3>
+<ol>
+<li>
+<p>Define a Defaulting Rule to determine header level setting as Ship or Arrival</p>
+</li>
+<li>
+<p>Set the profile option OM: Assign New Set For Each Line to &ldquo;No.&rdquo;</p>
+<h3><b>To set up unique Line level Ship/Arrival Sets:</b></h3>
+</li>
+<li>
+<p>Define a Defaulting Rule to determine header level setting as Ship or Arrival.</p>
+</li>
+<li>
+<p>Set the profile option OM: Assign New Set For Each Line to &ldquo;Yes.&rdquo;</p>
+</li>
+</ol>
+<h2><a name="3007199"></a><a id="T377324"></a><b>Changing Scheduled Lines</b></h2>
+<p><a name="change_schline" id="change_schline"></a>Order Management has many features to help manage scheduled lines when the lines are changed. When a scheduling related attribute is changed on a line, the system reschedules the line. For example, if you change the ordered quantity or the warehouse, the system reschedules based on this new information.</p>
+<p>When a new line is inserted into a scheduling group (such as a ship set or a configuration) that is scheduled the system will first try to schedule the new line with the same attributes as the other lines in the scheduling group. If that fails, then it checks the value of the profile option Auto Push Group Date. If the value is No, the line is inserted but not scheduled. If the value is Yes, the system tries to reschedule the whole set. If rescheduling the whole set fails, the line is not inserted and not scheduled. Exception: If the line is part of an ATO configuration or a ship model complete PTO configuration, and scheduling the group of lines together fails, then the line will not be inserted.</p>
+<p>When you cancel a line that has been scheduled or reserved, the system unschedules the lines and removes the reservations. If a scheduled line is partially canceled, it is rescheduled to the remaining quantity. The system cancels scheduling information in this order:</p>
+<ul>
+<li>
+<p>If the quantity requested for cancellation includes lines with reservations, the system cancels the reservations one at a time until the reserved quantity does not exceed the remaining uncanceled quantity. Reservations are canceled in this order:</p>
+<ul>
+<li>
+<p>Reservations that are not detailed are canceled first, that is, organization or warehouse level reservations.</p>
+</li>
+<li>
+<p>Reservations that are detailed are canceled next, that is, subinventory or lot level reservations.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If a scheduled line is split then both of the new lines are scheduled. If the line is partially reserved, Order Management determines which of the new lines get the reserved quantity, based on whether the split is initiated by a user or the system.</p>
+<ul>
+<li>
+<p>User splits: The customer may request shipment on more than one date so the user splits the line. If a original line is partially reserved, the first new line gets as much of the reserved quantity as it needs, then the second line, and so on. For example, suppose that a line has order quantity of ten and reserved quantity of three. If the line is split into two lines with order quantities of six and four, the first new line will have a reservation for three and the second new line will not have any reservation. If an order line has order quantity of ten and reserved quantity of seven, and the line is split into two lines with ordered quantities of six and four, then the first line will have a reserved quantity of six and the second line will have a reserved quantity of one.</p>
+</li>
+<li>
+<p>System splits: Lines are split by the system when a partial quantity is ship confirmed. In this case, the shipped line will have a reserved quantity of zero (it doesn't need reservations any more) so any remaining reserved quantity belongs to the unshipped lines.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>When reducing the quantity on a sales order line where the line is scheduled and reserved against multiple supply sources, Order Management enables you to define how you want the reservations to be removed. You have these options:</p>
+<ul>
+<li>
+<p>Set the Use Reservation Removal Sequence system parameter to null or No. In this case, the reservations are decremented against the supply source that has the earliest need-by date.</p>
+</li>
+<li>
+<p>Set the Use Reservation Removal Sequence system parameter to Yes. In this case, the reservations are decremented by the reservation removal sequences defined in the ONT_RESERVATION_REM_SEQUENCE (OM: Reservation Removal Sequence) lookup type for the different supply sources.</p>
+</li>
+</ul>
+<h3><b>To Set Up the OM_RESERVATION_REM_SEQUENCE Lookup Type:</b></h3>
+<ol>
+<li>
+<p>Navigate to the <b>Order Management Lookups</b> window.</p>
+</li>
+<li>
+<p>Click <b>Find.</b></p>
+</li>
+<li>
+<p>Search for the ONT_RESERVATION_REM_SEQUENCE lookup type.</p>
+<p>The <b>Order Management Lookups</b> window appears displaying the different predefined supply sources provided by Order Management in the <b>Meaning</b> column of the lookup value table. The supply sources displayed include Purchase Order, Inventory, Internal Requisition, and Job or Schedule. The code displayed next to each supply source corresponds to the SUPPLY_SOURCE_TYPE_ID from the MTL_RESERVATIONS table. Each supply source value is also enabled.</p>
+<p>In addition to the predefined supply sources, if you want to prioritize the reservation removal for custom supply sources, you can add your custom supply sources to the ONT_RESERVATION_REM_SEQUENCE lookup type. The lookup code must match the value in the INV_RESERVATION_SOURCE_TYPES lookup type where the custom supply sources are defined.</p>
+</li>
+<li>
+<p>Enter this information next to each supply source:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Tag</b></td>
+<td>Enter a number value in the <b>Tag</b> field. This field indicates the order in which the system removes the reservations for that particular supply source. A value of 1 gives the highest priority. If 1 is entered against a supply source, reservations are always reduced from that supply source first if there are reservations against that supply source.<br>
+If you enter the same priority against multiple supply sources, the quantity is reduced randomly against the supply sources in that sequence.<br>
+If you enter a priority for some supply sources but not for all of the supply sources that are required, then after the reservations are removed from supply sources for which a priority was supplied, the system reduces the quantity from other supply sources by the earliest need-by date.<br>
+If you enter a non-numeric value in this field, the reservation sequence is ignored.</td>
+</tr>
+<tr valign="top">
+<td><b>Effective Date To</b></td>
+<td>(Optional) Enter a date in the <b>Effective Date To</b> field if you want to specify an end date for the supply source.</td>
+</tr>
+<tr valign="top">
+<td><b>Enabled</b></td>
+<td>All of the supply sources are enabled by default. Clear this field if you want to disable this supply source.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>(Optional) Click <b>New</b> and add another user-defined supply source and its associated information.</p>
+</li>
+<li>
+<p>Click <b>Save.</b></p>
+<p><b>Order Management Lookups Window</b></p>
+<p><img width="754" height="456" src="./img/ontig_scn_resremlookup.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<h2><a name="8526927"></a><a id="T667605"></a><b>Global Order Promising for ATO Models</b></h2>
+<p><a name="d0e56265" id="d0e56265"></a><a name="d0e56274" id="d0e56274"></a><a name="globalorderpromise" id="globalorderpromise"></a>Global order promising offers the following functionality:</p>
+<ul>
+<li>
+<p><b>Ability to schedule an ATO model without supplying a warehouse</b>: Supplying a warehouse is not necessary to schedule an ATO model. Sourcing rules are used to provide the best warehouse based on availability, and derive the source for the ATO Model. This is available regardless of whether you are using Operation Data Store or Planning Data Store. When scheduling with planned data, the system will try to net any existing configurations:</p>
+<ul>
+<li>
+<p>If a matching configuration is found, the system schedules based on the matched configuration. Available on-hand material is used before checking for other supply.</p>
+</li>
+<li>
+<p>If no match is found, the system schedules based on the model and its children.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>Ability to net configurations for ATO models</b>: This feature is available only with a fully licensed version of ASCP and GOP. Match functionality is available with Planning Data Store only, not with Operation Data Store.</p>
+<p>GOP promises availability based on the configuration instead of the model and options, if the date for the configuration is better than that of the model and options. If a match is found, the promised availability considers the matched configuration supply. The system checks whether there is any on hand or on order for a match that is not consumed by other orders before it checks availability for making a new item.</p>
+<p>Linking refers to creating the configuration item. The configured item can be created either manually or via a concurrent program, Autocreate Configuration. The same match functionality used during scheduling is also supported during the creation of the configuration item.</p>
+<p><strong><span>Note:</span></strong> Operation Data Store (ODS) represents all tables that act as the destination for the collected data from Oracle applications or the legacy system. ODS ATP is Available to Promise based on collected data.</p>
+<p><strong><span>Note:</span></strong> Planning Data Store (PDS) encompasses all of the tables in ODS plus other output tables from planning. PDS ATP means ATP based on planning output.</p>
+</li>
+</ul>
+<h2><a name="8526928"></a><a id="T667606"></a><b>Publishing Plan Results</b></h2>
+<p><a name="d0e56352" id="d0e56352"></a><a name="d0e56361" id="d0e56361"></a><a name="pubplanresults" id="pubplanresults"></a>For Scheduled lines with Planned items, Advanced Supply Chain Planning (ASCP) can make planning recommendations based on the latest supply/demand picture. These recommendations can be published to Order Management, automatically updating the sales order line(s). This is applicable for Planned items only. You can firm a line to prevent updates to the warehouse. Note that the ability to publish plan results to Order Management means that there is the potential for a number of scheduling attributes to be changed. If your items are not planned items, those items will not be impacted by any changes in planning.</p>
+<p>The following attributes may be updated by ASCP:</p>
+<ul>
+<li>
+<p>Scheduled arrival date</p>
+</li>
+<li>
+<p>Scheduled ship date</p>
+</li>
+<li>
+<p>Warehouse (if line is not firmed)</p>
+</li>
+<li>
+<p>Delivery lead time</p>
+</li>
+<li>
+<p>Shipping method</p>
+</li>
+</ul>
+<p>Publishing Plan Behavior with Models:</p>
+<ul>
+<li>
+<p>'Firm Demand' flag cascades across Assemble To Order (ATO) Models</p>
+</li>
+<li>
+<p>Updates occur only if all lines within the ATO Model contain planned items</p>
+</li>
+<li>
+<p>Pick To Order (PTO) models and kits</p>
+<ul>
+<li>
+<p>Ship Model Complete (SMC) models / kits (SMCs) are not supported</p>
+</li>
+<li>
+<p>Options and included items in non-SMC models and kits are supported</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Publishing Plan Behavior with Ship and Arrival Sets</p>
+<ul>
+<li>
+<p>Updates to sets will occur only if all the lines in the set contain planned items</p>
+</li>
+<li>
+<p>Warehouse cannot be updated if any line within the set is firmed</p>
+</li>
+</ul>
+<p>If one line in the set is not planned, none of the lines in the set will be updated based on the results of the new plan.</p>
+<p><strong><span>Note:</span></strong> If one line in the set is firmed, all lines in the set are treated as firmed. The warehouse cannot be updated on any line in the set, if even one line of the set is firmed.</p>
+<p>How would this new feature work with Override ATP?</p>
+<p>APS can update overridden lines if they are NOT firmed. When this occurs, OM un-overrides the lines</p>
+<p>OM allows APS to update the overridden lines irrespective of the authorization profile value OM: Authorized to Override ATP.</p>
+<h3><b>To Firm a Line:</b></h3>
+<p>Firming a line prevents updates to the warehouse by APS</p>
+<p>There are three optional firming methods:</p>
+<ol>
+<li>
+<p>Manually enable the Firm Demand Flag on the Sales Order line.</p>
+<ul>
+<li>
+<p>From the Shipping tab, use Folder functionality to display the Firm Demand flag.</p>
+<ul>
+<li>
+<p>To firm lines manually, check the flag for Firm Demand.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Set up pre-defined events on the Order Management System Parameters window.</p>
+</li>
+<li>
+<p>Create a Line Type with the seeded sub-process "Wait to Firm Line" inserted in the line flow. Then use the Progress from Firm Process concurrent program to progress and firm the lines.</p>
+</li>
+</ol>
+<h2><a name="3007202"></a><a id="T377325"></a><b>Override ATP</b></h2>
+<p>Override ATP enables you to schedule an item that is available to promise even if there is no supply. It is designed for exceptions. For example, you can take supply from one customer and give it to a higher-priority customer. You can make use of supply that is not recognized by the system. Once Override ATP is set for a line, that line remains overridden until the override flag is removed or the line is unscheduled.</p>
+<p>You may want to allow only a single planner, scheduler, or sales order administrator to use this feature. Overriding ATP creates the responsibility of manually finding supply. Authorization to override ATP is secured through the use of a profile options, OM: Authorized to Override ATP.</p>
+<h3><b>To override ATP you must:</b></h3>
+<ol>
+<li>
+<p>Provide a schedule date</p>
+</li>
+<li>
+<p>Check the Override ATP box</p>
+</li>
+<li>
+<p>Save any changes.</p>
+<p>Override ATP honors days, but ignores time stamps in the date fields. Once a line is overridden, unauthorized users cannot undo the override, unschedule a line, or change scheduling-related attributes such as warehouse or the Ship_To location. If the line is at a point in the flow where allowed by processing constraints, unauthorized users can cancel or reduce quantity, or delete the line. Unauthorized users can also split the line, if scheduling attributes are not changed.</p>
+<p>If you uncheck the Override ATP check box, the system tries to reschedule the line. If there is supply, the line will schedule. If the supply in insufficient, the line can be left unscheduled, or the you can override ATP. Override ATP does not apply to service items or to drop ship or return lines.</p>
+<p>For ATO models, the override flag cascades to other items within the model. For PTO models, it cascades only to included items.</p>
+</li>
+</ol>
+<h2><a name="3007204"></a><a id="T377269"></a><b>Reserving</b></h2>
+<p><a name="Reserving" id="Reserving"></a>In Oracle Order Management, you can reserve on-hand inventory to a sales order. Reserved inventory cannot be used for any other purpose. The reserved quantity for a sales order line is displayed on the shipping tab. You may reserve part or all of the ordered quantity.</p>
+<p>A line must be scheduled before it can be reserved. If you try to reserve an unscheduled line, the system will first try to schedule the line. If the line is successfully scheduled then the system will try to reserve it.</p>
+<h2><a name="3007205"></a><a id="T377270"></a><b>Manual Reservations</b></h2>
+<p>There are two ways to reserve manually from the sales order window.</p>
+<ul>
+<li>
+<p>Select reserve from the scheduling option under the tools menu</p>
+</li>
+<li>
+<p>Select reserve from the scheduling sub menu which is displayed when you select the context menu.</p>
+</li>
+</ul>
+<p>If you are on an order line the line will be reserved. If you are on the header, all the lines will be reserved.</p>
+<p>Manual reservations are affected by a scheduling parameter that lets you control whether to apply a partial reservation manually. If 9 out of 10 are available, and if you have set the parameters to allow partials, you can right mouse click to bring up the context menu and select Reserve to reserve the 9.</p>
+<h2><a name="3007206"></a><a id="T377271"></a><b>Reservation Time Fence</b></h2>
+<p>Reservations are performed automatically whenever a line is scheduled and the schedule date is within the reservation time fence. For example, suppose the today's date is November 25th. An order line is scheduled for December 1st, which is 6 days away. If the reservation time fence is 10, the line will be reserved because 6 &lt; 10. If the reservation time fence is 2, the line will not be reserved because 6 &gt; 2. If the reservation time fence is NULL, then lines will not be automatically reserved. The reservation time fence is set using the system parameter Reservation Time Fence.</p>
+<p>Reservations Time Fence is affected by the scheduling parameters, Allow Partials. If you want the reservation time fence to reserve as much as possible, even though full supply is not available, set the scheduling parameter to allow partials.</p>
+<h2><a name="3007207"></a><a id="T377272"></a><b>Reservation Details Window</b></h2>
+<p>When you create reservations manually on the sales order window or automatically using the reservation time fence, the items are reserved at the warehouse level with no inventory details specified, or at the subinventory if the subinventory is specified on the line. You can specify inventory details for a reservation by using inventory's reservation details window. To access the window from the sales order window, go to the tools menu and select scheduling. From the list of options select Reservation Details, where you can reserve by lot, revision, subinventory and/or locator. You can only access the reservation details window for lines that are scheduled.</p>
+<h2><a name="3007208"></a><a id="T377273"></a><b>Reserve Orders Concurrent Program</b></h2>
+<p>The Reserve Orders concurrent program is able to reserve any line that is scheduled, assuming full quantity for the line exists. A number of parameters are provided that enable you to select orders and lines to reserve by order number range, customer name, order type, item, request date, ship date, arrival date, order date, demand class, and within the reservation time fence.</p>
+<p>Reserve Orders does not lock the supply for the queried lines. You may want to implement a business process of one person at a time reserving for an item.</p>
+<p>You can run the Reserve Orders program against a filtered group of orders. In addition, there are Sort parameters, so that existing supply can be sequenced using attributes such as:</p>
+<ul>
+<li>
+<p>Date Ordered</p>
+</li>
+<li>
+<p>Request Date</p>
+</li>
+<li>
+<p>Scheduled Ship Date</p>
+</li>
+<li>
+<p>Arrival Date</p>
+</li>
+<li>
+<p>Promise Date</p>
+</li>
+<li>
+<p>Line Planning priority</p>
+</li>
+</ul>
+<p>You can use this feature in a variety of business scenarios. Perhaps you are using the reservation time fence, but there is no supply at the time the line schedules. Once there is additional supply, you can run Reserve Orders to update reservations on lines that are within the reservation time fence. Or perhaps you have a Customer who is complaining about not receiving items as requested. You can query all lines for a particular customer, or for lines within a specific schedule date range, and place reservations on those lines.</p>
+<h3><b>Reservation Enhancements</b></h3>
+<p>You can also use Reserve Orders for the reservation strategies of Fair Share, Percentage, and Partial.</p>
+<p>The following reservation modes are available for making reservations:</p>
+<ul>
+<li>
+<p>Fair Share</p>
+</li>
+<li>
+<p>Percentage</p>
+</li>
+<li>
+<p>Partial, include only unreserved lines</p>
+</li>
+<li>
+<p>Partial, include partially reserved lines</p>
+</li>
+</ul>
+<p>Additionally, the following reservation run types are available:</p>
+<ul>
+<li>
+<p>Reserve</p>
+</li>
+<li>
+<p>Simulate</p>
+</li>
+<li>
+<p>Create Reservation for Set</p>
+</li>
+</ul>
+<p>If you have specific business needs not met by the above, you can write your own using the API hook OE_RESERVE_CONC_HOOK. The Business procedure can be used to add business validation logic, that is only reserve case quantities.</p>
+<p>Hook Package: OE_RESERVE_CONC_HOOK. This hook is provided with two procedures: Simulation Data Procedure :</p>
+<ul>
+<li>
+<p>Business Validation Procedure : Procedure Qty_Per_Business_Rule</p>
+</li>
+<li>
+<p>Simulated_Results Business procedure can be used to add business validation logics like allow only case qty reservation and so on.</p>
+</li>
+</ul>
+<p>For example, Fair Share might determine that 58 out of the requested qty of 80 can be reserved for Fair Share. But if the user wants to ship only case quantities of 50, then the user can write their own API to round the qty of 58 down to 50. The Simulation procedure can be used to read the simulated data.</p>
+<h3><b>Reservation Modes</b></h3>
+<p><b>Fair Share</b></p>
+<p>Fair share distributes available on-hand supply among selected lines on a pro-rated basis. For example,</p>
+<ul>
+<li>
+<p>10 units are available.</p>
+<ul>
+<li>
+<p>Line 1 Requested Qty is 60</p>
+</li>
+<li>
+<p>Line 2 Requested Qty is 40</p>
+<p>Fair Share reserves as follows:</p>
+</li>
+<li>
+<p>6 are reserved for Line 1</p>
+</li>
+<li>
+<p>4 are reserved for Line 2</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>With this method, distribution is determined by the amount of each order; a larger order will receive a larger portion of available supply. Once the reservations are placed, you can Pick by Prior Reservation, ship those lines, and get them out the door. The remaining quantities are fulfilled as supply is available.</p>
+<p>With Fair Share, every queried line receives something assuming there is supply for each line to get at least one piece. If supply is divided across warehouses, Fair Share is calculated separately for each warehouse, as shown below. In this example, there are 100 pieces in M1 and 100 pieces in M2. Because 140 are requested in M1, each line gets about 71% of supply. Notice that the fractional quantities are rounded down, assuming that the OM Indivisible flag is set on the Physical Attributes tab of the Item Master.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Fair Share Example One</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>WH</b></th>
+<th scope="col"><b>Req Qty</b></th>
+<th scope="col"><b>Factor</b></th>
+<th scope="col"><b>Factor * Req Qty</b></th>
+<th scope="col"><b>Derived Qty</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>ItemA</td>
+<td>M1</td>
+<td>80</td>
+<td>0.71429</td>
+<td>57.14286</td>
+<td>57</td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>ItemA</td>
+<td>M1</td>
+<td>60</td>
+<td>0.71429</td>
+<td>42.85714</td>
+<td>42</td>
+</tr>
+<tr valign="top">
+<td>3</td>
+<td>ItemA</td>
+<td>M2</td>
+<td>20</td>
+<td>0.625</td>
+<td>25</td>
+<td>25</td>
+</tr>
+<tr valign="top">
+<td>4</td>
+<td>ItemA</td>
+<td>M2</td>
+<td>40</td>
+<td>0.625</td>
+<td>12.5</td>
+<td>12</td>
+</tr>
+<tr valign="top">
+<td>5</td>
+<td>ItemA</td>
+<td>M2</td>
+<td>100</td>
+<td>0.625</td>
+<td>62.5</td>
+<td>62</td>
+</tr>
+</table>
+<p>In this case, supply is divided across warehouses and different warehouses are specified on the order lines. Fair Share is first calculated for each subinventory. Then if there is remaining supply, lines with no subinventory receive Fair Share</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Fair Share Example Two</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line</b></th>
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>WH</b></th>
+<th scope="col"><b>Sub</b></th>
+<th scope="col"><b>Req Qty</b></th>
+<th scope="col"><b>Factor</b></th>
+<th scope="col"><b>Factor * Req Qty</b></th>
+<th scope="col"><b>Derived Qty</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>ItemA</td>
+<td>M1</td>
+<td>Stores</td>
+<td>80</td>
+<td>0.71429</td>
+<td>57.14285714</td>
+<td>57</td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>ItemA</td>
+<td>M1</td>
+<td>Stores</td>
+<td>60</td>
+<td>0.71429</td>
+<td>42.85714286</td>
+<td>42</td>
+</tr>
+<tr valign="top">
+<td>3</td>
+<td>ItemA</td>
+<td>M2</td>
+<td>Stores</td>
+<td>20</td>
+<td>1</td>
+<td>20</td>
+<td>20</td>
+</tr>
+<tr valign="top">
+<td>4</td>
+<td>ItemA</td>
+<td>M2</td>
+<td>FGI</td>
+<td>40</td>
+<td>0.35714</td>
+<td>14.28571</td>
+<td>14</td>
+</tr>
+<tr valign="top">
+<td>5</td>
+<td>ItemA</td>
+<td>M2</td>
+<td>FGI</td>
+<td>100</td>
+<td>0.35714</td>
+<td>35.71429</td>
+<td>35</td>
+</tr>
+<tr valign="top">
+<td>6</td>
+<td>ItemA</td>
+<td>M2</td>
+<td>&nbsp;</td>
+<td>15</td>
+<td>0.50000</td>
+<td>7.50000</td>
+<td>7*</td>
+</tr>
+<tr valign="top">
+<td>7</td>
+<td>ItemA</td>
+<td>M2</td>
+<td>&nbsp;</td>
+<td>15</td>
+<td>0.50000</td>
+<td>7.50000</td>
+<td>7*</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>*Available in M2 Stores</td>
+</tr>
+</table>
+<p><b>Percentage</b></p>
+<p>Percentage allows you to specify that a percentage of the available supply is allotted to specified lines. For example, assume that 100 pieces of the specified item are available:</p>
+<p>For Line 1, 80 are requested and 40 are reserved.</p>
+<p>For Line 2, 100 are requested and 50 are reserved.</p>
+<p>For Line 3, 30 are requested and 10 are reserved.</p>
+<p>For Line 4, 20 are requested and none are reserved.</p>
+<p>This mode reserves the specified percentage on each line, if supply exists. But when the supply is consumed, no further reservations can be made.</p>
+<p>Order By parameters can be used with Percentage Mode, such as Order By Request Date, in order to give available supply to those lines that were requested earlier rather than later.</p>
+<p>Partial</p>
+<p>If only part of the full Requested Qty is available, a partial reservation can be applied.</p>
+<h3><b>Summary</b></h3>
+<p>The following chart shows what you can expect if 100 are available, and the following amounts are requested.</p>
+<ul>
+<li>
+<p>For Fair Share, each line gets approximately a third of the requested qty, because the demand for these lines is 300. Note that Line 2 rounds down, i.e. .33333 * 60 is rounded down to 19. You can have remaining quantities with Fair Share.</p>
+</li>
+<li>
+<p>For Percentage and Partial, there is no guarantee that each line will get supply, which is why the Order By parameter is recommended.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Summary</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Lines</b></th>
+<th scope="col"><b>Req Qty</b></th>
+<th scope="col"><b>Fair Share</b></th>
+<th scope="col"><b>Percentage, 40%</b></th>
+<th scope="col"><b>Partial</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>80</td>
+<td>26</td>
+<td>32</td>
+<td>80</td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>60</td>
+<td>19</td>
+<td>24</td>
+<td>20</td>
+</tr>
+<tr valign="top">
+<td>3</td>
+<td>40</td>
+<td>13</td>
+<td>16</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>4</td>
+<td>20</td>
+<td>6</td>
+<td>8</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>5</td>
+<td>100</td>
+<td>33</td>
+<td>20</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Remainder</td>
+<td>2</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+<p>When using any of these reservation strategies, there is no special logic for sets and PTO models.</p>
+<p><b>Reservation Run Types</b></p>
+<p>Simulate - Reservations are not committed to the reservations table. They are instead saved in a temp table, and if desired, users can use the Scheduling Across Orders window to:</p>
+<ul>
+<li>
+<p>View the simulated reservations</p>
+</li>
+<li>
+<p>Make modifications if desired</p>
+</li>
+</ul>
+<p>Create Reservation for Set - This allows users to commit the quantities reserved in the simulation set to become reservations.</p>
+<p>You can perform Reservation Modes either from Scheduling Across Orders, or from Concurrent Requests. From Scheduling Across Orders, the steps are:</p>
+<ol>
+<li>
+<p>From the scheduling tab of the Find window, query the desired items / lines for reservations.</p>
+</li>
+<li>
+<p>From the Actions menu, choose Reserve Orders Request. You will be asked to specify:</p>
+<p>Reservation Run Type, i.e. do you want to simulate or reserve? If you reserve, the items will be reserved in Oracle's tables. If you simulate, you will have the opportunity to view and edit the reservations before committing them.</p>
+<p>Reservation Set Name. You need to provide a name so that you can query later to see the results.</p>
+<p>Override Set Name? If there is already a reservation set using this reservation set name, should that name be overridden?</p>
+<p>Reservation Mode, i.e. do you want to do Fair Share or select another reservation strategy.</p>
+<p>Percentage. If you've chosen the Percentage strategy, specify the percentage, i.e. 60% of requested quantity.</p>
+<p>Order By. Not applicable for Fair Share. But for Partial and Percentage strategies, would you like to give preference to lines with an earlier request date, a higher planning priority, or other criteria?</p>
+</li>
+<li>
+<p>After entering the above parameters, submit your request. Then if you choose, you can query by Reservation Set Name from the Scheduling tab of the Find window. The Derived Quantity indicates how many items were reserved. If you used a Simulation Run Type, you can make adjustments in the Corrected Qty column. Once satisfied, you can commit the reservations using Actions, Create Reservation for Set. Once the lines are reserved, the Processing column shows the lines as processed / reserved.</p>
+</li>
+</ol>
+<h3><b>Reservation API Hook</b></h3>
+<p>This hook is provided to allow creation of need-specific APIs, extending Reserve Orders to apply business-specific rules, such as:</p>
+<ul>
+<li>
+<p>Ensure that a particular customer receives only a case quantity.</p>
+</li>
+<li>
+<p>Ensure that the reserved quantity for a line never exceeds a specified amount.</p>
+</li>
+<li>
+<p>Give preference, if desired, to lines with promotional codes.</p>
+</li>
+</ul>
+<p>The modified reserved quantities can be passed back to Oracle and be reserved.</p>
+<p><strong><span>Note:</span></strong> This business process assumes only one person at a time performs reservations for an item.</p>
+<p>Package Name: OE_RESERVE_CONC_HOOK. File Names: OEXRSHOS.pls and OEXRSHOB.pls, located in the $ONT_TOP/patch/115/sql directory. Procedures that you can use: Qty_per_Business_rule and Simulated_Results.</p>
+<p>Inputs for the two procedures can be found in the file OEXCRSVS.pls, located in the $ONT_TOP/patch/115/sql directory. The input is a table of records, named Rsv_Tbl_type. The table of records is based on a record structure, named Res_Rec_type. You need to update the field, corrected_reserved_qty with the reserved qty, as per your business rules. Note that this API only performs reservations. You will need to use inventory's public API, INV_RESERVATION_PUB, in order to perform unreserve activities.</p>
+<h2><a name="3007216"></a><a id="T377274"></a><b>Unreserving and Unscheduling</b></h2>
+<p>You can unreserve lines that have been partially or completely reserved. The inventory which was allocated to the line becomes available for other orders, but the line will still be scheduled so it will be visible as demand to the manufacturing applications. The system automatically unreserves a line if it is deleted or canceled.</p>
+<p>When you unschedule a line the system will both unreserve and unschedule it. Unscheduling the line sets the VISIBLE_DEMAND_FLAG to No so that the line is no longer visible as demand to the manufacturing applications.</p>
+<p>You can unreserve or unschedule by choosing these options from the scheduling submenu of the tools menu or by choosing scheduling from the context menu.</p>
+<h2><a name="3007217"></a><a id="T377275"></a><b>Setup</b></h2>
+<p><a name="Setup" id="Setup"></a>To set up scheduling to meet the needs of your business, note that several fields on the Order Management tab of the customer definition window affect the way scheduling works:</p>
+<p><b>Request Date Type: Scheduling by Ship or Arrival Date</b></p>
+<p>To determine whether to schedule by Ship or Arrival date, set the Request Date Type flag on the customer window to Ship or Arrival. If the value is arrival, the request date will be considered as the arrival date by the system. If the value is ship, then the request date will be considered the ship date. The request date type can be defaulted from the customer information to the order, and the user can change it on the order if required.</p>
+<p><b>Latest Schedule Limit: Latest Acceptable Date</b></p>
+<p>To set a Latest Acceptable Date (LAD) for a particular customer on the order line, enter a value on the customer window for Latest Schedule Limit. This field can contain any numeric positive integer value. This value can be defaulted to the header field, Latest Schedule Limit. When you enter an order line, the latest acceptable date is calculated by adding the latest schedule limit to the request date. When the scheduling action occurs, the schedule date will only be returned if it is between the requested date and the latest acceptable date. If it is not within this range, the scheduling action fails. You can manually override the LAD, but the system will not schedule lines that exceed the LAD.</p>
+<p>To set a default ship set or arrival set based on the customer, select either Ship Set or Arrival Set from the Lines In field. If desired, you can also set the value at the Ship To Address (Site) level. You can default this value to the order. If this value is set on the order, then all lines of the order will be placed into a system-defined set if scheduling is successful.</p>
+<p>If you are using a reservation mode such as Fair Share with discrete items, set up the OM Indivisible flag on the Physical Attributes tab of the Item. For instance, if you want to reserve "Fair Share" quantity, and your items are discrete units, setting this attribute prevents decimal quantity reservations such as 1.65.</p>
+<h2><a name="3007218"></a><a id="T377276"></a><b>Scheduling Parameters</b></h2>
+<a name="t_schedpara" id="t_schedpara"></a>
+<h3><b>Request Date affecting Schedule Date</b></h3>
+<p>This parameter allows you to control rescheduling if there is a change to the Request Date.</p>
+<h3><b>Ship Method affecting Schedule Date</b></h3>
+<p>This parameter allows you to control rescheduling if the ship method changes. By default, items are rescheduled if Ship Method is changed. This is desired if you are using Lead Time scheduling. If you are not using lead time scheduling, you can change the Ship Method without triggering rescheduling by setting this parameter to No.</p>
+<h3><b>Promise Date</b></h3>
+<p>This parameter defines the terms of the promise date. Available options are:</p>
+<ul>
+<li>
+<p><b>Manual:</b> Promise date entered manually or with defaulting rules. Promise Date not taken from Schedule Ship Date, Schedule Arrival Date, or Request Date.</p>
+</li>
+<li>
+<p><b>First Schedule Date</b></p>
+</li>
+<li>
+<p><b>First Request Date</b></p>
+</li>
+<li>
+<p><b>Dependent on Schedule Date:</b> If Schedule Ship Date changes, Promise Date will change.</p>
+</li>
+<li>
+<p><b>Dependent on Request Date:</b> Promise Date tied to Request Date.</p>
+</li>
+</ul>
+<h3><b>Partial Reservations</b></h3>
+<p>This parameter allows you to determine if partial reservations are accepted. The default behavior does not allow a reservation to be placed if the full quantity is not available. If necessary, you can set this parameter to allow a partial reservation to be placed using available supply.</p>
+<h3><b>Latest Acceptable Date</b></h3>
+<p>Choices for Latest Acceptable Date</p>
+<p>This parameter selects the behavior for the latest acceptable date for scheduling. Options are:</p>
+<ul>
+<li>
+<p>Honors the Latest Acceptable Date</p>
+</li>
+<li>
+<p>Ignores the Latest Acceptable Date and gives a warning</p>
+</li>
+<li>
+<p>Ignores the Latest Acceptable Date, and gives no warning (default setting)</p>
+</li>
+</ul>
+<h3><b>Schedule Lines on Hold</b></h3>
+<p>Possible values are yes and no. If this field is set to yes, the scheduling action processes order lines even if the order or line is on hold. If set to no, the scheduling action will fail if the line is on hold.</p>
+<h3><b>Reservation Time Fence</b></h3>
+<p>This may be any positive integer numeric value. When a line is scheduled it is also automatically reserved whenever the schedule date is within the reservation time fence.</p>
+<h3><b>Auto Schedule Sets</b></h3>
+<p>The value of OM: Auto Schedule Sets system parameter decides whether lines, which are getting added to a set, should be automatically scheduled or not, at the time of set creation. If the system parameter value is set to No, then the lines are not scheduled automatically, when they are added to a new set. However, you can schedule the lines manually whenever it is required. If you set the value to Yes, then the lines are scheduled as and when they are added to a set. The default value of the system parameter is Yes and the application treats no value as Yes.</p>
+<h3><b>Use Reservation Removal Sequence</b></h3>
+<p>The User Reservation Removal Sequence parameter gives you the ability to control the sequence in which reservations are removed, if the quantity on the order line is reduced and if the line is reserved against multiple supply sources. If you enter Yes, the system uses the reservation removal sequences defined in the ONT_RESERVATION_REM_SEQUENCE (OM: Reservation Removal Sequence) lookup type and decrements the quantity accordingly when removing reservations against a sales order for the organization. If you enter No or Null, the system always decrements against the supply source that has the earliest need-by date.</p>
+<p>For more information about how to set up the ONT_RESERVATION_REM_SEQUENCE lookup type, see <a href="T373258T377249.htm#change_schline">Changing Scheduled Lines</a>.</p>
+<h2><a name="3007224"></a><a id="T377277"></a><b>Profiles</b></h2>
+<p>The following profile options affect scheduling functionality:</p>
+<p><b>OM: Autoschedule</b></p>
+<p>Possible values are yes or no. If set to yes, the availability window is displayed when the sales order window is opened and scheduling occurs automatically as each order line is saved. This profile applies only to standard items. It applies to lines entered through Order Import.</p>
+<p><b>OM: Auto Push Group Date</b></p>
+<p>Possible values are yes and no. If the value is yes and a line is added to a scheduled configuration, and the new line cannot be scheduled on the date that the rest of the configuration is scheduled, then the system will try to reschedule the complete configuration at a different time. If the value is no and the new line cannot be scheduled, then scheduling for the new line will fail and the rest of the configuration will not be affected.</p>
+<p><b>OM: Authorized to Override ATP</b></p>
+<p>Possible values are yes or no. If the value is Yes, the the authorized user will be able to check the override ATP flag, and override the Schedule ship date or Arrival date. If the value is No, the user will not be able to override the schedule ship date or arrival date.</p>
+<p><b>OM: Scheduling Role</b></p>
+<p>This pertains to Scheduling Across Orders. Possible values are CSR only, CSR and Scheduler, and Scheduler only. This can be set at either the Responsibility or User level. This profile option determines which tabs can be accessed on the Find window of the Order Organizer. If set to CSR only, there is access to the tabs pertaining to the sales order, but no access to the Scheduling tab. If set to CSR and Scheduler, there is access to all tabs, including the tabs for CSRs and the one for schedulers. If set to Scheduler only, there is access to only the Scheduling tab.</p>
+<p><b>MRP: ATP Assignment Set</b></p>
+<p>This can be any valid assignment set which is defined in the MRP application. It specifies the assignment set that will be used for calculating ATP. Assignment sets are mentioned later in this section.</p>
+<p><b>INV: Capable to Promise</b></p>
+<p>Possible values are Enable Product Family ATP and CTP, Enable Product Family ATP, Enable ATP, ATP/CTP based on Planning Output, and ATP based on Collected Data. This profile option indicates whether and how to calculate ATP. You can choose one of two options.</p>
+<p>If you license ASCP and want to use planning output, choose ATP/CTP based on Planning Output.</p>
+<p>If you are not licensing ASCP but want to calculate ATP, choose ATP based on Collected Data. See: <a href="T373258T377249.htm#t_schedpara">Scheduling Parameters</a></p>
+<h2><a name="3007225"></a><a id="T377278"></a><b>Folders</b></h2>
+<p>You may want to expose the Override ATP flag on the Shipping tab. You may also want to use Folders to tailor the Scheduling tab on the Find window of the Order Organizer, or the Scheduling Organizer window.</p>
+<h2><a name="3007226"></a><a id="T377279"></a><b>Scheduling Levels on Transaction Types</b></h2>
+<p>The scheduling level on the order transaction type determines what type of scheduling is allowed. The possible values for this are:</p>
+<p><b>ATP Only</b></p>
+<p>You will not be able to schedule or reserve lines on the order. If you have an order transaction type defined with a scheduling level of ATP Only then you must not have the scheduling activity in any of the line level workflow processes. This could be used for Bill-Only or Bill-Only with Inventory Interface flows, or possibly for quoting scenarios.</p>
+<p>For example, you could use the ATP Only flow for Bill Only lines that you want to omit from a header level set. If you do not want the Bill Only lines to be scheduled and considered part of the header-level set, you could make the scheduling level of the line transaction type be ATP Only.</p>
+<p><b>No Reservations</b></p>
+<p>You can perform all scheduling functions except for reserving inventory. You will be able to use ATPable items, and schedule all items, but you will not be able to create reservations from the sales order window.</p>
+<p><b>Allow All Scheduling Actions</b></p>
+<p>All scheduling actions can be performed.</p>
+<p><b>Inactive Demand With Reservations</b></p>
+<p>You can manually enter any schedule date, but the system does not schedule. The line can be reserved. The schedule date is not visible to MRP / APS. This functionality is only for standard items, and it does not support ship or arrival sets.</p>
+<p><b>Inactive Demand Without Reservations</b></p>
+<p>You can manually enter any schedule date, but the system does not schedule. No reservation can be placed on the line. The schedule date is not visible to MRP/APS. This functionality is only for standard items, and it does not support ship or arrival sets.</p>
+<p>If you don't want your order lines to be visible as demand to the manufacturing applications, do not schedule the lines. Alternatively, you can control this by setting the scheduling level of the order transaction type.</p>
+<h2><a name="3007227"></a><a id="T377280"></a><b>Customer Window</b></h2>
+<p><a name="T377480" id="T377480"></a>Several fields on the Order Management tab of the customer window affect the way scheduling works.</p>
+<p><b>Scheduling by Ship or Arrival Date</b></p>
+<p>To determine whether to schedule by Ship or Arrival date, set the Request Date Type flag on the customer window to Ship or Arrival. If the value is arrival, the request date will be considered as the arrival date by the system. If the value is ship, then the request date will be considered the ship date. The request date type can be defaulted from the customer information to the order, and the user can change it on the order if required.</p>
+<p><b>Latest Acceptable Date</b></p>
+<p>To set a Latest Acceptable Date (LAD) for a particular customer on the order line, enter a value on the customer window for Latest Schedule Limit. This field can contain any numeric positive integer value. This value can be defaulted to the header field, Latest Schedule Limit. When you enter an order line, the latest acceptable date is calculated by adding the latest schedule limit to the request date. When the scheduling action occurs, the schedule date will only be returned if it is between the requested date and the latest acceptable date. If it is not within this range, the scheduling action fails. You can manually override the LAD, but the system will not schedule lines that exceed the LAD.</p>
+<p><b>Line Set</b></p>
+<p>To set a default ship set or arrival set based on the customer, select either Ship Set or Arrival Set from the Lines In field. If desired, you can also set the value at the Ship To Address (Site) level. You can default this value to the order. If this value is set on the order, then all lines of the order will be placed into a system-defined set if scheduling is successful.</p>
+<h2><a name="3007228"></a><a id="T377281"></a><b>ATP and Sourcing Rules</b></h2>
+<p>ATP Rules are created in the Inventory module. They indicate which sources of supply and demand to consider when calculating ATP. They can be assigned to inventory organizations and items. If an ATP rule is assigned to an item that is used. If the ATP rule for the item is blank, then the ATP rule for the inventory organization is used.</p>
+<p>You must define sourcing rules if you want ATP to determine the warehouse for your order lines. Once sourcing rules are defined, they must be assigned to particular items, categories and/or inventory organizations. You do this using assignment sets.</p>
+<p>For scheduling to work in Oracle Order Management you must successfully run the data collection concurrent request set. As previously stated, calculating ATP must happen almost instantaneously, but searching through all the possible sources of supply and demand to calculate ATP is very complex. Therefore, a concurrent process known as data collection must be run to summarize the supply and demand picture. The ATP calculation is then performed on the summary tables. To run the data collection request set, choose Scheduling -&gt; Collect Data from the Oracle Order Management navigation menu. There are two programs in the request set. Enter parameters for both and submit the set. The Planning Data Pull program has a parameter named Complete Refresh. If this is set to yes, then the collection will select all scheduling related information from the relevant tables. If it is set to no, then only the updated information will be selected.</p>
+<p>The basic steps for setting up ATP are summarized below:</p>
+<ul>
+<li>
+<p>In Inventory, create the ATP rule, and attach the rule to item(s).</p>
+</li>
+<li>
+<p>In ASCP, define sourcing rules, such as Item X can be transferred from M1 to M2.</p>
+</li>
+<li>
+<p>Set the MRP: ATP Assignment Set profile option to point to an assignment set that includes your sourcing rules. Include the ATPable items in the Assignment Set.</p>
+</li>
+<li>
+<p>Run Collections from either Order Management or ASCP. (If you have never run Collections before, you will need first to define an Instance with assigned orgs. For details, please refer to Oracle Global Order Promising Implementation and User's Guide.</p>
+</li>
+<li>
+<p>Set the INV: Capable to Promise profile option to the correct level. If you have licensed ASCP, choose ATP/CTP based on Planning Output. If you are using a shared version of ASCP, select ATP based on Collected Data. To use ATP / CTP based on Planning Output, plans must be run.</p>
+<p>See: <i>Oracle Global Order Promising Implementation and User's Guide</i></p>
+<p><i>Oracle Inventory User's Guide</i></p>
+<p><i>Oracle Master Scheduling/MRP and Oracle Supply Chain Planning User Guide</i></p>
+</li>
+</ul>
+<h2><a name="3007229"></a><a id="T377282"></a><b>Choosing Not to Use ATP</b></h2>
+<p><a name="d0e58551" id="d0e58551"></a>You can turn off some or all of the scheduling functionality of Order Management. If you want lines to be visible as demand to the manufacturing applications but do not want to perform an ATP check on them then you can set the Check ATP flag of the item to No. You would do this for items where you assume that the item is always available. When the scheduling action is called for a non-ATP item, the system will still perform the sourcing action to determine the warehouse if one is not specified. It will not check ATP but will copy the request date into the schedule date field. The line will become visible to the manufacturing applications as demand on the requested/schedule date.</p>
+<p>If you do not want your order lines to be visible as demand to the manufacturing applications, do not schedule the lines. You can control this by setting the scheduling level of the order / line transaction types. The possible values for this setting are ATP only, No Reservations, Allow all Scheduling Actions, Inactive Demand with Reservations, and Inactive Demand without Reservations.</p>
+<p>To avoid ATP calls and keep the demand invisible, set the scheduling level to <b>Inactive Demand</b>. You can also accomplish this by setting the profile option <b>OM: Bypass ATP</b> to Yes.</p>
+<h2><a name="30114360"></a><a id="T2011251"></a><b>Integrating with Third-Party Planning Application</b></h2>
+<p><a name="d0e58584" id="d0e58584"></a><a name="atp3party" id="atp3party"></a>You can directly integrate Order Scheduling with a third-party Available to Promise (ATP) application to perform scheduling actions on the sales order lines. Oracle Order Management provides the profile option <b>OM: ATP Engine</b> to enable direct integration of a third-party planning system without using EBS ATP. This bypasses any call to Oracle Global Order Promising and directly interacts with the third-party planning application.</p>
+<p>Set the profile option <b>OM: ATP Engine</b> to <b>Third Party</b> to perform scheduling on order lines. The application calls the API hook (OE_ATP_CUSTOM.CUSTOM_ATP_API()) by sending the ATP related information and updates the line record with the return result.</p>
+<p>You must add the code to the API hook to call the Third-Party ATP API to perform the requested scheduling action and return the result.</p>
+<p><b>Custom ATP API</b></p>
+<p>OE_ATP_CUSTOM. CUSTOM_ATP_API()</p>
+<p>Use this API hook to call the Third-Party ATP API.</p>
+<p>This API takes p_atp_rec input record table of lines along with the scheduling action and returns the x_atp_rec output record. You must customize this API to add call to the Third-Party ATP API to get the result.</p>
+<pre>PROCEDURE Custom_ATP_API (p_atp_rec  IN  MRP_ATP_PUB.ATP_Rec_Typ, 
+                        x_atp_rec  OUT NOCOPY MRP_ATP_PUB.ATP_Rec_Typ, 
+                        x_return_status  OUT NOCOPY VARCHAR2 
+                        ) 
+            --    DESCRIPTION                                                                 
+            --    This package provides a hook wherein customers can call their 
+            --    custom ATP Engine.  
+ 
+-- Parameter Details 
+-- p_atp_rec -- Input table. This table contains information from the line 
+-- records. This to be passed to the Third-Party ATP api. 
+-- 
+-- x_atp_rec -- Output table. This table should contain ATP result 
+-- information that to be updated on the line records returned by 
+-- Third-Party ATP api. The return record sequence should be same as 
+-- input record sequence. 
+-- 
+-- x_return_status -- Return Status from the API 
+-- 
+-- Action details &ndash; 
+--   p_atp_rec.Action = 100 &ndash;&gt; ATP CHECK  
+--   p_atp_rec.Action = 110 -&gt; SCHEDULE 
+--   p_atp_rec.Action = 120 -&gt; RESCHEDULE 
+--   p_atp_rec.Action = 130 -&gt; UNSCHEDULE 
+ 
+ 
+IS  
+   l_debug_level CONSTANT NUMBER := oe_debug_pub.g_debug_level;  
+BEGIN 
+    IF l_debug_level &gt; 0 THEN 
+       oe_debug_pub.add(  'CALLING THIRD PARTY ATP API', 0.5 ) ; 
+    END IF; 
+    -- initialize API return status to success. 
+    --Incase of any error set x_return_status to FND_API.G_RET_STS_ERROR 
+    x_return_status := FND_API.G_RET_STS_SUCCESS; 
+     
+               -- In order to start using the package: 
+               -- 
+ -- 1) Increase the version number in the header line to a high value 
+               -- /* $Header: OEXATPCB.pls 120.1000. This would prevent patches 
+               -- from over-writing this package in the future. 
+               -- 
+               -- 2) Add the code below to call your custom ATP Engine and populate 
+               -- its results into the x_atp_rec OUT parameter 
+               -- 
+   -- 3) x_atp_rec is pre-populated with the records in p_atp_rec. 
+   -- Assign the scheduling result correctly by checking record 
+   -- identifier.   
+               -- 
+               -- 4) If there is any error at custom ATP Engine, populate error code 
+               -- and message in x_atp_rec and set x_return_status to  
+               -- FND_API.G_RET_STS_ERROR 
+               -- 
+               -- 4) Recompile this package and confirm it is valid after recompiling; 
+               -- 
+               -- 5) Set the profile ONT_ATP_ENGINE ('OM: ATP Engine')  
+               -- to T ('Third Party'); 
+               -- 
+               -- 6) Test the functionality thoroughly to make sure scheduling results 
+               -- are as expected in all relevant scenarios. 
+ 
+    --- Add your custom code here 
+    
+    IF l_debug_level &gt; 0 THEN 
+       oe_debug_pub.add(  'AFTER CALLING THIRD PARTY ATP API', 0.5 ) ; 
+    END IF; 
+ 
+EXCEPTION  
+    WHEN OTHERS THEN     
+       x_return_status := FND_API.G_RET_STS_ERROR; 
+ 
+END Custom_ATP_API; 
+</pre>
+<p>The specification of p_atp_rec / x_atp_rec is listed as follows:</p>
+<p>Inventory_Item_Id &ndash; This is the Inventory Item ID for which the scheduling processing must be done. This field is mandatory.</p>
+<p>Inventory_Item_Name &ndash; This is the name of the items. This is populated for return record. This field is to be populated by ATP call.</p>
+<p>Source_Organization_Id - This is the inventory organization that you want the scheduling processing against. It is the Shipping Organization ID.</p>
+<p>Identifier - This is Order line ID. This field is mandatory for all scheduling actions.</p>
+<p>Customer_Id &ndash; This is the ID of the customer for whom scheduling action must be done. Either organization_id or customer_id.</p>
+<p>Customer_Site_Id - This is Ship to Site ID of the receiving Customer Site.</p>
+<p>Destination_Time_Zone - This is the time zone of the requesting organization. This field is reserved for future use.</p>
+<p>Quantity_Ordered - This is the quantity ordered for the items expressed in Quantity_UOM. For unscheduling, this field must be 0.</p>
+<p>Quantity_UOM - This is the unit of measurement of items ordered.</p>
+<p>Requested_Ship_Date - This is the requested ship date for the items. This can be either requested_ship_date or requested_arrival_date, not both.</p>
+<p>Requested_Arrival_Date - This is the requested arrival date for the items. This can be either requested_ship_date or requested_arrival_date, not both.</p>
+<p>Latest_Acceptable_Date -This is the latest acceptable date by which the requester is ready to accept the order.</p>
+<p>Delivery_Lead_Time - This is the delivery lead time between shipping and receiving organization. This field to be populated by ATP call.</p>
+<p>Freight_Carrier - This is the freight carrier used for the shipment.</p>
+<p>Ship_Method - This is the ship method to be used for shipping.</p>
+<p>Demand_Class - This is the demand class under which customer or requesting organization falls.</p>
+<p>Ship_Set_Name - This is the name of the ship-set. This can be either Ship_set_name or Arrival_Set_Name, and not both.</p>
+<p>Arrival_Set_Name - This is the name of the arrival-set. This can be either Ship_set_name or Arrival_Set_Name, and not both.</p>
+<p>Override_Flag - This is the ATP to honor the requested date irrespective of availability of the requested items. The values are &lsquo;Y&rsquo;, &lsquo;N&rsquo;.</p>
+<p>Action - This is the type of inquiry. The values are:</p>
+<ul>
+<li>
+<p>100 - ATP Inquiry</p>
+</li>
+<li>
+<p>110 - Scheduling</p>
+</li>
+<li>
+<p>120 - Rescheduling</p>
+</li>
+<li>
+<p>130 - Unscheduling with Ordered quantity as zero</p>
+</li>
+</ul>
+<p>Ship_Date -This is the date on which requested item will be shipped. This field to be populated by ATP call.</p>
+<p>Arrival_date - This is the date on which requested item will arrive. This field to be populated by ATP call.</p>
+<p>Available_Quantity - This is the quantity available on ship date. This field to be populated by ATP call.</p>
+<p>Requested_Date_Quantity - This is the quantity available on requested ship/arrival date. This field to be populated by ATP call.</p>
+<p>Group_Ship_Date - This is the ship date for whole ship set / Model. This field to be populated by ATP call.</p>
+<p>Group_Arrival_Date - This is the arrival date for arrival set / Model. This field to be populated by ATP call.</p>
+<p>OE_Flag - This indicates if it is an internal sales order or not. The values are &lsquo;Y&rsquo;, &lsquo;N&rsquo;</p>
+<p>ATP_Lead_Time - This is the ATP Lead Time for Configure-to-Order Models/ Option Classes/Option Items etc. This field to be populated by ATP call.</p>
+<p>Error_Code - This is the error code of the error occurred during ATP processing. It must be set to some +ve number value. This field to be populated by ATP call.</p>
+<p>Message - This is the error message for the error occurred during ATP processing. This field to be populated by ATP call.</p>
+<p>Order_Number - This is the order number of the line(s).</p>
+<p>Old_Source_Organization_Id - This is the ID of organization where item was scheduled initially.</p>
+<p>Old_Demand_Class - This is the demand class under which item was scheduled initially.</p>
+<p>ATO_delete_flag - This indicates if the item requested for Unscheduling is part of an ATO Model. The values are &lsquo;Y&rsquo; or &lsquo;N&rsquo;.</p>
+<p>Substitution_typ_code - This is the type of substitution that should be performed on the line. The values are All or Nothing (1), No Substitution (4).</p>
+<p>Req_item_detail_flag - This field is reserved for future use.</p>
+<p>Request_item_id &ndash; This is the source inventory item id of the requested item. This field to be populated by ATP call.</p>
+<p>Req_item_req_date_qty - This is the request date quantity for requested item. This field to be populated by ATP call.</p>
+<p>Req_item_available_date - This is the date on which requested item is available. This field to be populated by ATP call.</p>
+<p>Req_item_available_date_qty - This is quantity of requested item on ATP date. This field to be populated by ATP call.</p>
+<p>Request_item_name &ndash; This is the name of the requested item. This field to be populated by ATP call.</p>
+<p>Old_inventory_item_id - This is the source inventory item ID for the item used during last scheduling session for the line.</p>
+<p>Top_Model_line_id - This is the line ID of the top model for an ATO/PTO configuration.</p>
+<p>ATO_Model_Line_Id - This is the line ID of the top ATO model configuration.</p>
+<p>Parent_line_id - This is the line ID of the parent item in case of ATO/PTO models.</p>
+<p>Config_item_line_id - This is the line ID of the configuration item linked to a sales order.</p>
+<p>Validation_Org - This is the master organization ID based on which the item is validated.</p>
+<p>Component_Sequence_ID - This is the sequence ID of an option item/class in the BOM of an ATO model.</p>
+<p>Component_Code - This is the component code of an option item/class in the BOM of an ATO model.</p>
+<p>Line_number - This is the line number of an item on sales order.</p>
+<p>Included_item_flag - This field indicates whether calling module has already exploded included items for a PTO model/Kit or not. The values are Null or 1-Calling module has exploded included items, or 3- Calling module has not exploded included items</p>
+<p>Part_of_set - This is used in the context of lines that are added to an existing set: if it is set to Y, ATP should validate the scheduled date with the date passed by OM for the existing set and fail if it does not meet the date.</p>
+<h2><a name="3007230"></a><a id="T377283"></a><b>Inter Location Transit Times</b></h2>
+<p>If you want to calculate arrival dates based on the time required for shipment from a warehouse to a customer location through a specified ship method, you must define your inter-location transit times.</p>
+<p>See: <i>Oracle Global Order Promising Implementation and User's Guide</i></p>
+<p><i>Oracle Shipping Execution User's Guide</i></p>
+<h2><a name="3007231"></a><a id="T377284"></a><b>Late Demand Penalty</b></h2>
+<p>The penalty factor for late demand is used to calculate the penalty cost calculated by Planning Optimization. You can update the field, but no defaulting logic is provided. For details on how Planning Optimization uses this value, please refer to the <i>Oracle Advanced Planning Implementation and User's Guide</i>.</p>
+<h2><a name="3007232"></a><a id="T377285"></a><b>Implementation Considerations</b></h2>
+<h3><b>Time Stamp</b></h3>
+<ul>
+<li>
+<p>The schedule dates returned by MRP have only the day, and not the time. Therefore, automatic scheduling in OM can only be at the day level.The Order Management date fields have time capability, so you can enter the time on request dates, promise dates, and the like, but the scheduling function will ignore them: the time stamp returned by ATP is 23:59:59. Availability check provides a quick, rough-cut estimate, so it view availability by days, not hours.</p>
+</li>
+</ul>
+<h3><b>ATP with or without ASCP</b></h3>
+<ul>
+<li>
+<p>You can use ATP with or without planning. To use ATP with planning, you must license ASCP.</p>
+</li>
+</ul>
+<h3><b>ATP Without Planning</b></h3>
+<ul>
+<li>
+<p>If you have not licensed APS, you can still perform basic ATP. ATP without planning allows you to see what is currently available, but the system cannot use planning to determine if it's possible to build the product by the Request Date. ATP without planning is single-level. IT can see available for an ATO item that is assembled, or an if a WIP job or PO is expected by a certain date. But it cannot calculate whether there are components and resources to build it by a certain date. ATP without planning uses ODS.</p>
+</li>
+</ul>
+<h3><b>ATP With Planning</b></h3>
+<ul>
+<li>
+<p>If you have licensed APS, you can not only see what is currently available, but also determine if there are resources to source the product by the Request Date. This type of ATP is multi-level, so it can drill down to the component level and look at available materials and resources to determine an available date. ATP with planning uses PDS.</p>
+</li>
+</ul>
+<h2><a name="3007237"></a><a id="T377286"></a><b>Past Dates</b></h2>
+<p>If scheduling is called with a request date that is before today's date then ATP will be calculated using today's date and not the request date. If for some reason (for example a non-ATP item) a schedule date is returned for a past date, the system will not automatically reserve the item even if it is within the reservation time fence.</p>
+<h2><a name="3007238"></a><a id="T377287"></a><b>Reservations Details Window</b></h2>
+<p>There are some limitations to using the reservation details window. You cannot:</p>
+<ul>
+<li>
+<p>Multi-select lines and go to the reservation details window.</p>
+</li>
+<li>
+<p>Go to the reservation details window from the orders block.</p>
+</li>
+<li>
+<p>Use this window to reserve more than the ordered quantity.</p>
+</li>
+<li>
+<p>Use this window to modify reservations for a configured item created for an ATO configuration.</p>
+</li>
+</ul>
+<p>Order Management does not guarantee the reservations from the Reservation Details window because the details passed to Inventory may not be valid for the Inventory hierarchy.</p>
+<h2><a name="3007239"></a><a id="T377288"></a><b>Reserve Orders</b></h2>
+<p>Assume the following lines are queried to be reserved, and 100 are available.</p>
+<p>Line 1 Qty 35, reserved</p>
+<p>Line 2 Qty 35, reserved</p>
+<p>Line 3 Qty 35, unreserved (only 30 of 35 are available)</p>
+<p>Line 4 Qty 20, reserved</p>
+<p>Line 5 Qty 10, reserved</p>
+<p>Notice that if full quantity is not available for the line, there is no reservation.</p>
+<p>When you run Reserve Orders, there is no guarantee that all lines will be reserved. Another user running Reserve Orders, or reserving manually, may reserve the supply before you do.</p>
+<h2><a name="3007240"></a><a id="T377289"></a><b>Reservation Modes</b></h2>
+<p>When calling Reserve Orders, either from the concurrent requests menu or from Scheduling Across Orders, supply is not locked for the items queried and then reserved. This may mean that one person at a time should reserve for the item. You may want to evaluate if it's feasible for one person to reserve for an item at a time.</p>
+<p>If you are using reservation modes to manage scarce inventory, analyze if the business is interesting is more interested in customer service than in cost-cutting. If so, it could be very useful to ship partial quantity that is currently available, and ship remaining quantities when there is more supply.</p>
+<p>Reservations modes apply to discrete manufacturing, not process.</p>
+<h2><a name="3007241"></a><a id="T377290"></a><b>Override ATP</b></h2>
+<p>Supply is not available. Once the line is overridden, you must take the responsible for finding supply manually.</p>
+<h2><a name="3007243"></a><a id="T377292"></a><b>Examples</b></h2>
+<p><a name="Examples" id="Examples"></a>The following examples illustrate some scheduling features.</p>
+<h3><b>Schedule by Ship Date with the Reservation Time Fence, without ATP</b></h3>
+<p>The warehouse for the order is defaulted from the ship to site. A shipping network is defined for this warehouse/ship to combination with the shipping method of UPS ground, and the transportation lead time is five days. The customer requests the shipment as soon as possible, so the request date is entered as today's date. On-hand inventory is available to fulfill the order. Autoschedule is on, and the reservation time fence is five days.</p>
+<p>You enter an order line with the item, quantity and request date. When the line is saved, because autoschedule is on, it is automatically scheduled for the requested warehouse with a schedule ship date of today. Because the schedule ship date is within the reservation time fence the line is also automatically reserved.</p>
+<h3><b>Schedule by Arrival Date, without ATP</b></h3>
+<p>One of the following is set up and used to defined to inter-location transit time from the warehouse:</p>
+<ul>
+<li>
+<p>A customer Location set up in inventory.</p>
+</li>
+<li>
+<p>Region and Zones functionality introduced by APS</p>
+</li>
+</ul>
+<p>The shipping network is setup in inventory, specifying a Default method to be picked up by Order Management. On the Others tab of the Sales Order header, Order Date Type is Arrival. A warehouse for the customer defaults to the header and line. There is no ship method on the line.</p>
+<p>The customer wants to receive the item on Day five. The Request Date is Day five. The item is available. The shipping lead time is three days. When scheduling by arrival date, the line schedules when it is saved. The default ship method defined in the shipping network defaults to the line. The user saves the line, and the item schedules to ship on Day five, arriving on Day five as requested by the customer.</p>
+<p>See: <i>Oracle Global Order Promising Implementation and User's Guide</i></p>
+<h3><b>Using ATP without Planning (ASCP), Schedule by Ship Date</b></h3>
+<p>No warehouse is defaulted or entered for the order. No shipping network is defined for the customer. The customer requests the shipment as soon as possible, so the request date is entered as today's date. There is no supply to fulfill the order, but there is a work order scheduled for completion in ten days, and the ATP rule includes work orders as source of supply. Autoschedule is off. The line level workflow process has the scheduling activity immediately after booking as a synchronous activity.</p>
+<p>You enter an order line with the item, quantity, and request date. When the line is saved, it does not schedule because AutoScheduling is off. You enter additional lines and book the order. When the order is booked, the workflow scheduling activity executes. The warehouse is determined by sourcing rules. The schedule ship date is sysdate + 10 days, which is the day the work order is scheduled to complete. The schedule arrival date is the same as the schedule ship date.</p>
+<h3><b>Scheduling Across Orders</b></h3>
+<p>Some order lines were scheduled to ship on Day 2 because a purchase order was expected on that day. You now know that 100 pieces will arrive on Day 5, not Day 2.</p>
+<p>Within Scheduling Across Orders, query lines for the delayed item with a scheduled ship date of Day 2. Multi-select lines that you want to reschedule, then change the Schedule Date to today's date to a more accurate date, Day 5.</p>
+<h3><b>Reserve Orders</b></h3>
+<p>A high priority customer is complaining about not getting full ordered quantity of a particular item. Using Reserve Orders, query all order lines for that item and customer. Run Reserve Orders, to place reservations on those lines.</p>
+<p>If desired, query the lines for that item and that customer in Scheduling Across Orders. View the reservations. You can also pick release using the Pick by Prior Reservation flag on the Release Orders window. By doing so, you have picked and shipped all lines reserved for a particular item for a high-priority customer.</p>
+<h3><b>Override ATP</b></h3>
+<p>A very important customer requires a large quantity of a scarce-inventory item to ship as soon as possible. There is no availability, so the line will not schedule.</p>
+<p>You know supply has been scheduled for a lower priority customer. You could decide to override ATP for the high priority customer, giving that customer a Schedule Date. You could then review all scheduled lines for the scarce item in Scheduling Across Orders, searching for a lower-priority customer who can wait for supply. Once you've identified a lower priority customer, you could extend the Schedule Date, in effect taking supply from the lower priority customer to give to the higher priority customer.</p>
+<h3><b>Loopback</b></h3>
+<p>Show that the schedule date is Day 4, but planning determines there is a shortage and the real schedule date is Day 6. The schedule date on the line can be updated. But maybe you know that for this particular Ship_To address, the warehouse should not be changed. You can firm the warehouse, so that although system can update the Schedule Date, it cannot update the warehouse.</p>
+<h3><b>Reservation Enhancements</b></h3>
+<p>Your supply for an item is short, and you want to give 100% of the requested quantity to your most important customer. Then you want to give everyone else Fair Share. First query all lines for that item for your highest priority customer, and reserve 100% of the requested quantity. Then query all other lines for that item, perhaps those lines scheduled to ship within a date range, and give those lines Fair Share. Then everyone gets something, even if not full quantity.</p>
+<p>Perhaps you have short supply, and you have a couple of customers that you know you can short, that is, they are overstocked or have not been paying promptly. Query the lines for each of those customers, or perhaps query all lines with a lower planning or shipment priority. Give those lines 30% of requested quantity. Query all other lines, and give those lines Fair Share or a higher percentage. If you use percentage mode, use the Order By parameter to ensure that lines you deem more deserving get the limited supply ahead of less deserving lines. For example, Order By Request Date, Promise Date, or Ship Date.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

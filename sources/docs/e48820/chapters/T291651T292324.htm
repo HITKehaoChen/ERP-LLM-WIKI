@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T428143.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T292307.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">20/31</span> <!-- End Header -->
+<h1>Planning and Replenishment</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T292325">Overview of Inventory Planning and Replenishment</a></li>
+<li><a href="#T292359">Summarizing Demand History</a></li>
+<li><a href="#T292360">Requesting the Summarize Demand Histories Report</a></li>
+<li><a href="#T656823">Defining ATP Rules</a></li>
+<li><a href="#T292361">Defining a Forecast Rule</a></li>
+<li><a href="#T469412">Generate a Forecast</a></li>
+<li><a href="#T292326">Order Modifiers</a></li>
+<li><a href="#T292327">Min-Max Planning</a></li>
+<li><a href="#T292362">Requesting the Min-Max Planning Report</a></li>
+<li><a href="#T292363">Entering and Reloading Item Safety Stocks</a></li>
+<li><a href="#T292328">Reorder Point Planning</a></li>
+<li><a href="#T292364">Running the Reorder Point Report</a></li>
+<li><a href="#T292329">Overview of Kanban Replenishment</a></li>
+<li><a href="#T292365">Defining Kanban Pull Sequences</a></li>
+<li><a href="#T292366">Generating Kanban Cards</a></li>
+<li><a href="#T292367">Defining Kanban Cards</a></li>
+<li><a href="#T292368">Printing Kanban Cards</a></li>
+<li><a href="#T292369">Replenishing Kanban Cards</a></li>
+<li><a href="#T292331">Replenishment Counting</a></li>
+<li><a href="#T292370">Entering and Processing Replenishment Counts</a></li>
+<li><a href="#T292371">Purging Replenishment Counts</a></li>
+</ul>
+<h2><a name="1759394"></a><a id="T292325"></a><b>Overview of Inventory Planning and Replenishment</b></h2>
+<p><a name="d0e91086" id="d0e91086"></a><a name="I_c_plnreplov" id="I_c_plnreplov"></a>Oracle Inventory lets you manage your inventory levels using any combination of the system's planning and replenishment features, including min-max planning, reorder point planning, kanban replenishment, and a replenishment system for generating orders.</p>
+<p>Inventory planning involves answering two questions:</p>
+<ul>
+<li>
+<p>When should you place a new order?</p>
+</li>
+<li>
+<p>How much should you order?</p>
+</li>
+</ul>
+<h3><a id="T292333"></a><b>Available Features</b></h3>
+<ul>
+<li>
+<p>Plan any item by establishing minimum and maximum on-hand plus on-order quantity targets. See: <a href="T291651T298833.htm#I_t_ditems">Defining Items</a>, <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>, and <a href="T291651T292324.htm#I_t_reqminmax78">Requesting the Min-Max Planning Report</a>.</p>
+</li>
+<li>
+<p>Plan any item using reorder points and safety stock levels. See: <a href="T291651T292324.htm#I_t_reqreptpl">Requesting the Reorder Point Planning Report</a>.</p>
+</li>
+<li>
+<p>Calculate safety stock levels for reorder point planning. See: <a href="T291651T292324.htm#I_t_enterss">Entering and Reloading Item Safety Stocks</a>.</p>
+</li>
+<li>
+<p>Define non-tracked inventory locations and periodically enter replenishment counts. See: <a href="T291651T292324.htm#I_t_replcnt">Entering and Processing Replenishment Counts</a>.</p>
+</li>
+<li>
+<p>Generate requisitions for any item requiring replenishment. See: <a href="T291651T292324.htm#I_t_replcnt">Entering and Processing Replenishment Counts</a>, <a href="T291651T292324.htm#I_t_reqminmax78">Requesting the Min-Max Planning Report</a>, <a href="T291651T292324.htm#I_t_reqreptpl">Requesting the Reorder Point Planning Report</a>, <a href="T291651T292324.htm#I_kanov">Overview of Kanban Replenishment.</a></p>
+</li>
+<li>
+<p>Generate move orders for any item requiring replenishment. See: <a href="T291651T428143.htm#I_movordov">Overview of Move Orders.</a></p>
+</li>
+<li>
+<p>Generate a job/schedule for any item requiring replenishment. See: <a href="T291651T292324.htm#I_kanov">Overview of Kanban Replenishment</a></p>
+</li>
+<li>
+<p>Define kanban cards and pull sequences. See: <a href="T291651T292324.htm#I_kancard">Defining Kanban Cards</a> and <a href="T291651T292324.htm#I_kanpull">Defining Kanban Pull Sequences</a>.</p>
+</li>
+<li>
+<p>Summarize demand history for a specific inventory item. See: <a href="T291651T292324.htm#I_t_dmndhist">Summarizing Demand History</a> and <a href="T291651T292324.htm#I_t_vwdmndhst">Requesting the Summarize Demand Histories Report</a>.</p>
+</li>
+<li>
+<p>Purge replenishment information including the count name, counting methods, and quantities. See: <a href="T291651T292324.htm#I_t_purgrepln">Purging Replenishment Counts</a>.</p>
+</li>
+</ul>
+<h2><a name="1759396"></a><a id="T292359"></a><b>Summarizing Demand History</b></h2>
+<p><a name="d0e91227" id="d0e91227"></a><a name="I_t_dmndhist" id="I_t_dmndhist"></a><a name="INVDVFDH.dh_item_find" id="INVDVFDH.dh_item_find"></a><a name="INVDVFDH.d_histories" id="INVDVFDH.d_histories"></a><a name="INVDVFDH.dh_items" id="INVDVFDH.dh_items"></a>You can summarize demand histories for all items, items within a category, or a specific item.</p>
+<p><b>To specify the parameters by which demand history is summarized</b></p>
+<ol>
+<li>
+<p>Navigate to the Demand History Items window. The Find Demand History Items window appears.</p>
+<p><img width="758" height="505" src="./img/invug_dmnhst.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter search criteria to query the items for which you want to summarize demand. Choose Find to start the search and display the information in the Demand History Items window.</p>
+<p><strong><span>Note:</span></strong> If you do not enter search criteria, when you choose Find the search is made for all items.</p>
+</li>
+<li>
+<p>Determine the<a name="d0e91262" id="d0e91262"></a> bucket size for demand history summarization. If you want demand history by day and by week and by monthly period, you must compile each bucket type.</p>
+<p><i>Day</i>: Use workday periods. Compiles the transaction history back for the previous 260 daily periods.</p>
+<p><i>Week</i>: Use weekly periods. Compiles the transaction history for the previous 260 weekly periods.</p>
+<p><i>Period</i>: Use manufacturing calendar periods. Compiles transaction history for the previous 260 monthly periods. The type of period is determined by the organization calendar you defined in the Define Calendar form.</p>
+<p>If Oracle Inventory finds that the bucket type has already been compiled, the process attempts to save processing time. Oracle Inventory checks to see if the accounting period has been closed, and does not recompile any transactions from a closed period. No new transactions can be entered in a closed period. Therefore, it is not necessary to recompile those transactions.</p>
+</li>
+<li>
+<p>Optionally, enter period start and end dates. Either or both may be left blank.</p>
+</li>
+</ol>
+<p><b>To view demand history results</b></p>
+<ol>
+<li>
+<p>Select items for which to display history information.</p>
+</li>
+<li>
+<p>Choose the History button. Results display in the Demand History window.</p>
+<p><img width="756" height="507" src="./img/invug_dmnhst2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Use the tabbed regions to view the information sorted by item and then date or by date and then item.</p>
+</li>
+<li>
+<p>Review information for the following:</p>
+<ul>
+<li>
+<p>sales order shipments</p>
+<ul>
+<li>
+<p>inter-organization shipments</p>
+</li>
+<li>
+<p>miscellaneous issues</p>
+</li>
+<li>
+<p>issues to WIP</p>
+</li>
+<li>
+<p>total issues</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To view transaction detail for a specific item</b></p>
+<ol>
+<li>
+<p>From the Demand History window select an item.</p>
+</li>
+<li>
+<p>Choose the Detail button. See: <a href="T291651T292013.htm#I_t_vwtrx78ns">Viewing Material Transactions</a>.</p>
+</li>
+</ol>
+<h2><a name="1759400"></a><a id="T292360"></a><b>Requesting the Summarize Demand Histories Report</b></h2>
+<p><a name="d0e91349" id="d0e91349"></a><a name="d0e91354" id="d0e91354"></a><a name="I_t_vwdmndhst" id="I_t_vwdmndhst"></a><a name="srs.incfdh" id="srs.incfdh"></a>You can print a report to view demand history information. The information in the report is the same information you see when you choose History on the Demand History Items window.</p>
+<p><b>To launch the report to view demand history for items</b></p>
+<ol>
+<li>
+<p>Navigate to the Summarize Demand History or All Reports window.</p>
+</li>
+<li>
+<p>Enter <i>Summarize demand histories</i> in the Name field. The Parameters window appears.</p>
+</li>
+<li>
+<p>Choose a period type option:</p>
+<p><i>Days</i>: Use daily periods.</p>
+<p><i>Weeks</i>: Use weekly periods.</p>
+<p><i>Periods</i>: Use manufacturing calendar periods.</p>
+</li>
+<li>
+<p>Select the scope of the summarization. You can summarize demand history for <i>All inventory items</i>, a <i>Specific inventory item</i>, or for items in a <i>Specific category</i>.</p>
+</li>
+<li>
+<p>If you choose <i>Specific inventory item</i>, enter an item.</p>
+</li>
+<li>
+<p>If you choose <i>Specific category</i>, enter a category set and category.</p>
+</li>
+<li>
+<p>Choose submit to launch the process.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Running Reports and Programs, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="8195863"></a><a id="T656823"></a><b>Defining ATP Rules</b></h2>
+<p><a name="d0e91438" id="d0e91438"></a><a name="d0e91441" id="d0e91441"></a><a name="d0e91444" id="d0e91444"></a><a name="atpdef" id="atpdef"></a><a name="INVDDARL_ATP_RULE" id="INVDDARL_ATP_RULE"></a>Available to promise (ATP) features are used across various modules in the Oracle E-Business Suite to determine demand/supply patterns. You can define ATP Rules and assign them as defaults at the organization, subinventory, or item level. To implement available to promise, you begin by defining your ATP rules. ATP rules let you tailor the ATP calculation to suit your business needs. Each rule is a combination of ATP computation options, time fence options, and supply and demand sources to use during an ATP inquiry. You cannot delete an ATP rule, but you can rename or redefine existing rules by updating fields.</p>
+<p>You can define multiple ATP rules to reflect the specific needs of your organization, and then use different rules to calculate availability for different items or groups of items. Each time you run an ATP check, the rule determines how existing supply and demand are matched. You can choose one of the ATP rules you define as the default ATP rule for your organization. You can update the item attribute ATP Rule to specify a default ATP rule for each item.</p>
+<p>Every item that is available to promise (ATP) must be assigned an ATP rule.</p>
+<p><b>To define an ATP rule</b></p>
+<p>You can choose a variety of computation options to suit your business needs. ATP computations use the consumption and accumulate available features. Consumption resolves negative ATP after it is already determined that there is not enough available inventory. Accumulation uses excess inventory from a period to determine where new demand can be placed.</p>
+<ol>
+<li>
+<p>Enter a unique name and a description for the ATP Rule.</p>
+<p><img width="758" height="507" src="./img/invug_atprules.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the combination of options for your business needs (main fields described):</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Consumption</td>
+<td>
+<ul>
+<li>
+<p>Forward Consumption: This option determines if the ATP calculation can match existing demand to supply in future periods. If you select this option, ATP checks future periods for availability if the period supply is insufficient for an existing demand.</p>
+</li>
+<li>
+<p>Backward Consumption: This option determines if the ATP calculation can look to previous periods to match existing demand to a supply. If you select this option, ATP checks prior periods for availability if a period has insufficient supply for existing demand. Most ATP users turn this option on and use it with Accumulate Available. With these options, ATP matches existing supply and demand period by period. If a period has insufficient supply, ATP checks prior periods, and matches demand to the excess supply of a prior period. With accumulation also turned on, ATP accumulates available quantities over multiple prior periods if necessary to meet existing demand.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Accumulate Available</td>
+<td>If you choose to accumulate expected surplus in one ATP period to the next, you can limit this accumulation to a specific number of workdays. Oracle Inventory does not treat excess supply as available supply beyond this accumulation window. Oracle Inventory also uses this option in backward consumption calculations, preventing excess supply from a period beyond the accumulation window from covering a shortage in a future period. You can use the accumulation window to prevent the commitment of supply to satisfy demand with requirement dates far into the future. This is particularly useful if you have an item with high turnover and would likely be able to sell it quickly.<br>
+Turning this option off may be appropriate if your items have a short shelf life, or you want to leave quantity available in each period for short lead time orders.</td>
+</tr>
+<tr valign="top">
+<td>Past Due Days (Demand)</td>
+<td>ATP does not include any demand orders with a due date before this time fence. ATP uses the number of manufacturing workdays you enter for this fence to back off from the current system date and determine the past due time fence. Use this time fence if you have sales orders, jobs, repetitive schedules, or other demand outstanding with past due dates that you do not plan to fill from existing or planned supply. If the due dates are before the time fence, ATP does not include these orders as demand.</td>
+</tr>
+<tr valign="top">
+<td>Past Due Days (Supply)</td>
+<td>ATP does not include any supply orders with a due date before this time fence. ATP uses the number of manufacturing workdays you enter for this fence to back off from the current system date and determine the past due supply fence. Use this time fence if you have purchase orders, jobs, repetitive schedules or other supply orders with past due dates that you do not want to rely on as a source of supply for your ATP calculations. If the due dates are before the time fence, ATP does not include these orders as supply.</td>
+</tr>
+<tr valign="top">
+<td>Infinite Supply</td>
+<td>Use this time fence to specify the end of your ATP horizon. ATP considers any demand that falls beyond this time fence as available. Use this time fence as the practical lead time you need to acquire components and build any quantity that a customer may order. You can choose from the following options to determine the infinite supply time fence:
+<ul>
+<li>
+<p>Cumulative total lead time: The total lead time of an assembly plus the largest adjusted cumulative total lead time of its components.</p>
+</li>
+<li>
+<p>Cumulative manufacturing lead time: The manufacturing lead time of an assembly. This value may also include and add to the previous lead time, the largest adjusted cumulative manufacturing lead time of its components. This condition only occurs for ATO items.</p>
+</li>
+<li>
+<p>Total lead time: The sum of the pre-processing, processing, and post-processing lead times of the item.</p>
+</li>
+<li>
+<p>User-defined time fence: The lead time (in days) that you enter in the Days field.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>ATP by Demand Class</td>
+<td>Indicates whether to calculate ATP based on defined demand classes. Demand classes allow you to segregate scheduled demand into user-defined groups. If you choose to calculate ATP based on defined demand classes, then the following Supply Source options are not available:
+<ul>
+<li>
+<p>On-hand available</p>
+</li>
+<li>
+<p>Inter-org transfers</p>
+</li>
+<li>
+<p>Purchase orders</p>
+</li>
+<li>
+<p>Internal and supplier requisitions</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Demand Sources / Supply Sources</td>
+<td>Select the Demand and Supply Sources to use in ATP calculations. When you use ATP that is based on the collected data, then supply and demand are specified in the ATP rules.<br>
+You control which sources are selected for consideration for the availability requests. You use the On-Hand Available check box to choose whether to include the available on-hand quantity as a source of supply. Typically, make-to-order and assemble-to-order manufacturing environments do not use the available on-hand quantity as a source of supply.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Combining ATP options: You can select more than one of the computation options. By combining options, you can create an ATP rule that best meets your needs. Consider the following points when selecting your ATP computation options:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>ATP Options</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Backward consumption only</td>
+<td>ATP calculates availability for your item period by period. If the available supply quantity for the period does not meet the existing demand for that period, ATP works backward, period by period, and checks if the available supply within each period is sufficient to meet the excess demand. ATP does not combine the available quantities from multiple periods to meet an existing demand.</td>
+</tr>
+<tr valign="top">
+<td>Backward consumption and accumulate available</td>
+<td>ATP accumulates the excess supply from period to period. When demand in a period exceeds supply, this accumulated quantity is dipped into and reduced. When you perform an availability check, the accumulated quantity is available for your demand.</td>
+</tr>
+<tr valign="top">
+<td>Forward consumption and backward consumption</td>
+<td>ATP consumes backwards first. If the available supply quantity for a period is not enough to meet the period's demand, ATP steps back period by period to try to satisfy demand. If the demand cannot be met, ATP then moves forward into future periods to check on available supply.</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> The ATP rule applies to existing demand and supply, and determines the quantity available on a period by period basis. Your quantity check is done against the results. ATP does not try to forward consume or backward consume your ATP check quantity.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>For information about defining ATP rules, see the <i>Oracle Global Order Promising Implementation and User's Guide</i>.</p>
+<p><i>Oracle Order Management Implementation Manual</i></p>
+<p><i>Oracle Order Management User's Guide</i></p>
+<h2><a name="1759402"></a><a id="T292361"></a><b>Defining a Forecast Rule</b></h2>
+<p><a name="d0e91636" id="d0e91636"></a><a name="I_t_frcstrule" id="I_t_frcstrule"></a><a name="INVDDFRL.forecast_rules" id="INVDDFRL.forecast_rules"></a>You can define forecast rules to use when loading forecasts. Defining forecast rules includes choosing forecast source options, entering statistical forecast parameters, and entering and adjusting initial seasonality indices.</p>
+<p><b>To define a forecast rule</b></p>
+<ol>
+<li>
+<p>Navigate to the Forecast Rules window.</p>
+<p><img width="653" height="481" src="./img/invug_frcstrul.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique name for the rule.</p>
+</li>
+<li>
+<p>Indicate whether the bucket type is days, weeks, or periods.</p>
+</li>
+<li>
+<p>Determine the transaction types to use as demand sources. The quantities associated with each source are used when calculating historical usage:</p>
+<p><i>Sales Order Shipments</i>: Includes sales order issue quantities.</p>
+<p><i>Issues to WIP</i>: Includes WIP issue quantities.</p>
+<p><i>Miscellaneous Issues</i>: Includes quantities issued with user-defined transaction sources, account numbers, and account aliases.</p>
+<p><i>Inter-Org Transfers</i>: Includes quantities issued to other organizations.</p>
+</li>
+<li>
+<p>Indicate the <a name="d0e91697" id="d0e91697"></a>forecast method to use:</p>
+<p><i>Focus</i>: Uses focus forecasting algorithms to forecast demand for the item. This procedure tests the selected items against a number of forecasting techniques and chooses the best one, based on history, as the technique to forecast future demand.</p>
+<p><i>Statistical</i>: Uses exponential smoothing, trend, and seasonality algorithms to forecast demand for the item</p>
+</li>
+</ol>
+<p><b>If you choose statistical forecasting, continue with the following steps</b></p>
+<ol>
+<li>
+<p>Enter the <a name="d0e91721" id="d0e91721"></a>maximum number of past periods upon which to base the forecast</p>
+</li>
+<li>
+<p>Enter the factor by which to smooth demand for each successive period in the forecast. These levels demand throughout the forecast, reducing dramatic upward or downward fluctuations.</p>
+<p>You can enter values from 0 to 1. Values closer to 0 give more weight to past demand; values closer to 1 give more weight to current demand.</p>
+</li>
+<li>
+<p>Indicate whether to base the forecast on a <a name="d0e91738" id="d0e91738"></a>trend model.</p>
+<p>Turning this option on performs smoothing on the upward or downward trend in demand.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e91753" id="d0e91753"></a>factor by which to smooth the trend change in demand from period to period. This produces a more linear rise or fall in demand from period to period over the course of the forecast.</p>
+<p>You can enter values from 0 to 1. Values closer to 1 give more weight to recent changes and trends. Values closer to 0 give more weight to historical trend.</p>
+</li>
+<li>
+<p>Indicate whether to base the forecast on a <a name="d0e91766" id="d0e91766"></a>seasonality model.</p>
+<p>Turning this option on bases the forecast on a seasonal adjustments you define for the forecast rule.</p>
+</li>
+<li>
+<p>Enter the factor by which to smooth the seasonality indices you define by period for this forecast rule. This produces a more even pattern of seasonal demand from period to period over the course of the forecast.</p>
+<p>You can enter values from 0 to 1. Values closer to 0 give more weight to past seasonal indices; values closer to 1 give more weight to current seasonal indices.</p>
+</li>
+<li>
+<p>Enter an index that describes the seasonal influence on the period. For example, 2 indicates that you expect the forecast to double in that period because of seasonal factors.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To delete a forecast rule:<a name="d0e91795" id="d0e91795"></a></b></p>
+<ol>
+<li>
+<p>You can delete a forecast rule if there are no references to it.</p>
+</li>
+</ol>
+<h2><a name="4333498"></a><a id="T469412"></a><b>Generate a Forecast</b></h2>
+<p><a name="d0e91810" id="d0e91810"></a><a name="generate_forecast" id="generate_forecast"></a><a name="SRS.INCFIF" id="SRS.INCFIF"></a><b>To generate a focus or statistical forecast</b></p>
+<ol>
+<li>
+<p>Navigate to the Generate Forecast Window.</p>
+<p><img width="768" height="348" src="./img/invug_generateforecast.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Parameters window, select a forecast name and forecast rule.</p>
+</li>
+<li>
+<p>Pick a range of items to forecast for: all items, a specific item, a category, or all items in a category set.</p>
+</li>
+<li>
+<p>Select an overwrite option:</p>
+<ul>
+<li>
+<p>All Entries: Deletes everything on the forecast before loading new information.</p>
+</li>
+<li>
+<p>No: Deletes nothing and adds new entries to existing entries during the load. Schedule entries are not combined. You can get multiple forecast entries for the same item on the same day.</p>
+</li>
+<li>
+<p>Same Source Only: Deletes the entries that have the same source as those you load. You can replace entries on the forecast that were previously loaded from the same source without affecting entries on the forecast.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter a star date and cutoff date.</p>
+</li>
+<li>
+<p>Click OK.</p>
+</li>
+<li>
+<p>Click Submit in the Generate Forecast window.</p>
+</li>
+</ol>
+<h2><a name="1759406"></a><a id="T292326"></a><b>Order Modifiers</b></h2>
+<p><a name="d0e91868" id="d0e91868"></a><a name="I_c_ordrmods" id="I_c_ordrmods"></a>When you define an item or an item-subinventory relationship, you can specify attributes that modify your order quantities. You can use them to model supplier constraints that restrict the size of an order or mandate a specific lot size. You can specify minimum and maximum order quantities and fixed lot size modifiers. For replenishing subinventories, these same order modifiers can be set by item at the subinventory level.</p>
+<p>If an order is smaller than the minimum order quantity, Inventory modifies the order upward to the minimum order quantity. Likewise, if the order is larger than the maximum order quantity, it modifies it downward to the maximum order quantity.</p>
+<p>An order must be a multiple of the fixed lot size multiplier. If it is not, it is revised upward so that the order is such a multiple.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<p><a href="T291651T427992.htm#I_r_gnplnattr">General Planning Attribute Group</a></p>
+<h2><a name="1759407"></a><a id="T292327"></a><b>Min-Max Planning</b></h2>
+<p><a name="d0e91894" id="d0e91894"></a><a name="I_c_minmax78" id="I_c_minmax78"></a>You can use min-max planning to maintain inventory levels for all of your items or selected items. With min-max planning, you specify minimum and maximum inventory levels for your items. When the inventory level for an item (on-hand quantities plus quantities on order) drops below the minimum, Oracle Inventory suggests a new purchase requisition, internal requisition, move order, or job to bring the balance back up to the maximum. The Min-Max planning report does not initiate the Requisition Import process. The system writes requisition information into the Requisition Interface table, but you must run the Requisition Import report to create requisitions.</p>
+<p>Oracle Inventory performs min-max planning for your items at either the organization level or the subinventory level. When you plan min-max at the organization level, you can optionally include the following transactions as demand in the min-max planning calculation: unreserved sales orders, reserved sales orders, account issue move orders, and work in process component requirements. Purchase requisitions and internal requisitions for buy items and WIP unreleased jobs for make items for the suggested replenishment quantities can be optionally created. You can then turn these requisitions into purchase orders or internal orders and the unreleased jobs into jobs for the required items.</p>
+<p><strong><span>Note:</span></strong> The INV: Purchasing by Revision profile option controls whether item revisions can be specified on purchase requisitions generated by min-max planning (purchasing by revision can be used for both non-revision controlled items and revision-controlled items). Item revisions may be defined and used when purchasing material, although the item may not be revision controlled in inventory. The latest revision will default onto the purchase requisition.</p>
+<p>When you plan min-max at the subinventory level, you can optionally include only unreserved sales orders, reserved sales orders, account issue move orders, and subinventory transfer move orders as demand in the min-max planning calculation. Purchase requisitions, internal requisitions, or pre-approved move orders for the suggested replenishment quantities can be optionally created. You can then turn requisitions into purchase orders or internal orders for the required items. See: <a href="T291651T428143.htm#I_movordov">Overview of Move Orders.</a></p>
+<p><strong><span>Note:</span></strong> Subinventory level planning cannot generate jobs and does not consider WIP jobs as supply or WIP components as demand.</p>
+<h3><a id="T292334"></a><b>Organization Level Min-Max Planning<a name="d0e91920" id="d0e91920"></a><a name="d0e91927" id="d0e91927"></a></b></h3>
+<p>When you plan min-max at the organization level, Oracle Inventory looks at inventory balances, purchase requisitions, internal requisitions, internal sales orders, process batches, and WIP jobs as supply. It looks at sales orders, WIP job component requirements, process batches, and account issue move orders as demand.</p>
+<p>To use min-max planning at the organization level, you must set the item attributes used by min-max planning. You can start by setting the Inventory Planning Method item attribute to <i>Min-max planning</i>. You establish your minimum and maximum levels used in the calculation using the Min-Max Minimum Quantity and the Min-Max Maximum Quantity item attributes. You can optionally set the order quantity modifier item attributes (Minimum Order Quantity, Maximum Order Quantity, and Fixed Lot Size Multiplier) to further control the suggested order quantities generated by min-max planning. Set the Make or Buy flag to <i>Make</i> to optionally generate unreleased jobs and to <i>Buy</i> to optionally generate requisitions. For buy items, set the List Price for the item to automatically generate requisitions. See: <a href="T291651T427992.htm#I_r_gnplnattr">General Planning Attribute Group</a>.</p>
+<p>For repetitive items, since you cannot generate repetitive plans, you have the option of generating requisitions, unplanned jobs, or a report only.</p>
+<p>Min-max planning is performed by running the Min-max planning report. By selecting organization level planning, you run min-max planning for your organization. In addition to the planning level option, Oracle Inventory offers the options to <i>Net Reserved Orders, Net Unreserved Orders, Net WIP Demand,</i> and <i>Include Non-nettable Inventory Quantities</i> when calculating availability. You also specify a <i>Demand Cutoff Date</i> and a <i>Supply Cutoff Date</i>. If you choose <i>No</i> to all the net demand options, Oracle Inventory performs the following calculation:</p>
+<ul>
+<li>
+<p>Nettable Quantity on Hand + On Order = Total Available, in which:</p>
+<ul>
+<li>
+<p>Nettable Quantity on Hand is the sum of the quantities on hand for the item across all the nettable subinventories within your organization. Non-nettable quantities may optionally be included.</p>
+</li>
+<li>
+<p>On Order is the sum of open purchase orders, purchase requisitions, internal requisitions, internal orders, and work in process jobs scheduled for receipt on or before the supply cutoff date.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If Total Available &lt; Minimum Quantity, suggest a new order, in which:</p>
+<ul>
+<li>
+<p>Minimum Quantity is the value for the Min-Max Minimum Quantity item attribute.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Order Quantity = Maximum Quantity - Total Available, adjusted for order quantity modifiers:</p>
+<ul>
+<li>
+<p>Oracle Inventory revises the order quantity if necessary for the quantity to be a multiple of the fixed lot size multiplier.</p>
+</li>
+<li>
+<p>The order quantity must be greater than or equal to the minimum quantity, or Oracle Inventory revises the quantity upward to the minimum.</p>
+</li>
+</ul>
+<p>If you choose <i>Yes</i> to any of the net demand options, Oracle Inventory performs the following calculation:</p>
+</li>
+<li>
+<p>Nettable Quantity on Hand + On Order - Open Demand = Total Available, in which</p>
+<ul>
+<li>
+<p>Nettable Quantity on Hand is the sum of the quantities on hand for the item across all the nettable subinventories within your organization. Non-nettable quantities may optionally be included.</p>
+</li>
+<li>
+<p>On Order is the sum of open purchase orders, requisitions, internal orders, and work in process jobs scheduled for receipt on or before the supply cutoff date.</p>
+</li>
+<li>
+<p>Open Demand is the sum of unreserved sales orders, inventory reservations, including reserved sales orders, account issue move orders, and WIP component demand scheduled for issue on or before the demand cutoff date.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If Total Available &lt; Minimum Quantity, suggest a new order, in which</p>
+<ul>
+<li>
+<p>Minimum Quantity is the value for the Min-Max Minimum Quantity item attribute.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Order Quantity = Maximum Quantity - Total Available, adjusted for order quantity modifiers:</p>
+<ul>
+<li>
+<p>Oracle Inventory revises the order quantity if necessary for the quantity to be a multiple of the fixed lot size multiplier.</p>
+</li>
+<li>
+<p>The order quantity must be greater than or equal to the minimum quantity, or Oracle Inventory revises the quantity upward to the minimum.</p>
+</li>
+<li>
+<p>The order quantity must be less than or equal to the maximum quantity, or Oracle Inventory revises the quantity down to the maximum.</p>
+</li>
+</ul>
+<p>When you run the Min-Max Planning report, you can have Oracle Inventory create requisitions for buy items and unreleased jobs for make items by answering <i>Yes</i> to <i>Restock</i>. You must also specify a location to serve as the default deliver to location on the requisitions. Oracle Inventory creates purchase requisitions for Buy items when the item attribute Replenishment Source Type is set to <i>Supplier</i>. Oracle Inventory creates internal requisitions for internal sales orders for Buy items when the item attribute Replenishment Source Type is set to <i>Inventory</i>. For internal requisitions, Oracle Inventory uses the item attribute Source Organization to determine the organization from which the internal requisition sources the item. For <i>Repetitive Items</i> you optionally create requisitions or unreleased jobs. See: <a href="T291651T295121.htm#I_rx2Dinvirmmx78">Min-max planning report</a>.</p>
+</li>
+</ul>
+<p>The following example shows you how Oracle Inventory performs min-max planning. Assume an item has the following quantity values and item attribute settings:</p>
+<ul>
+<li>
+<p>Nettable quantity on hand = 25</p>
+</li>
+<li>
+<p>Open supply quantity = 50</p>
+</li>
+<li>
+<p>Open reserved sales order quantity = 90</p>
+</li>
+<li>
+<p>Inventory planning method = Min-max planning</p>
+</li>
+<li>
+<p>Min-max minimum quantity = 100</p>
+</li>
+<li>
+<p>Min-max maximum quantity = 500</p>
+</li>
+</ul>
+<p>If you run the Min-max planning report, and specify <i>No</i> to <i>Net Reserved Orders</i>, Oracle Inventory performs the following calculations:</p>
+<ul>
+<li>
+<p>Total Available: 25 + 50 = 75</p>
+<ul>
+<li>
+<p>We assume that all the supply is within the supply cutoff date, for a supply total of 50.</p>
+</li>
+<li>
+<p>Total available quantity is 75.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Below min check: 75 &lt; 100</p>
+<ul>
+<li>
+<p>The total available quantity is less than the min-max minimum quantity, so Oracle Inventory plans a new order.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Max quantity less total available: 500 - 75 = 425</p>
+<ul>
+<li>
+<p>To bring the quantity available back to the min-max maximum, Oracle Inventory will plan an order for 425.</p>
+</li>
+</ul>
+<p>If you run the Min-max planning report, and specify <i>Ye</i><b><i>s</i></b> to <i>Net Reserved Orders</i>, Oracle Inventory performs the following calculations:</p>
+</li>
+<li>
+<p>Total Available: (25 + 50) - 90 = (-15)</p>
+<ul>
+<li>
+<p>We assume that all the supply is within the supply cutoff date, for a supply total of 50.</p>
+</li>
+<li>
+<p>We assume that all the demand is within the demand cutoff date, so open reserved orders total to 90.</p>
+</li>
+<li>
+<p>Total available quantity is (-15).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Below min check: (-15) &lt; 100</p>
+<ul>
+<li>
+<p>The total available quantity is less than the min-max minimum quantity, so Oracle Inventory plans a new order.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Max quantity less total available: 500 - (-15) = 515</p>
+<ul>
+<li>
+<p>To bring the quantity available back to the min-max maximum, Oracle Inventory will plan an order for 515.</p>
+<p><strong><span>Note:</span></strong> To include inventory reservations from an external order management system in the min-max calculation, create the sales order in the MTL_SALES_ORDER table using the Sales Order API, and then load the reservation using the Create/Update/Delete reservation interface or the Reservation APIs.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><b>Work Orders and Oracle Shop Floor Management</b></p>
+<p>In Oracle Inventory, you can run the Min-max planning report at the Organization level to create work orders for Oracle Shop Floor Management (OSFM). When the Min-max report is run at the Organization level (and the network routing is present for the item and the OSFM version is 11510 or later), then the following actions occur:</p>
+<ul>
+<li>
+<p>For lot-controlled items, the lot-based jobs are created in the OSFM interface table and then processed into the job by a OSFM user.</p>
+</li>
+<li>
+<p>For non lot-controlled items, discrete job details are inserted into the Oracle Work in Process (WIP) interface table and then processed into the job by the WIP mass load process.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> If neither of the preceding situations apply, then the job details are inserted into the WIP interface table and then processed into the job by the WIP mass load program.</p>
+<h3><a id="T292335"></a><b>Subinventory Level Min-Max Planning<a name="d0e92350" id="d0e92350"></a><a name="d0e92357" id="d0e92357"></a></b></h3>
+<p>When you min-max plan at the subinventory level, Oracle Inventory looks at inventory balances, purchase requisitions, internal requisitions, VMI stock and move orders as supply. In addition, rather than using item attribute planning modifiers, Oracle Inventory uses values and parameters set at the item/subinventory level.</p>
+<p>To perform min-max planning at the subinventory level, you establish the following values at the subinventory level using either the Subinventory Items or the Item Subinventories windows:</p>
+<ul>
+<li>
+<p>Min-max minimum quantity</p>
+</li>
+<li>
+<p>Min-max maximum quantity</p>
+</li>
+<li>
+<p>Planning method set to Min-max planning</p>
+</li>
+<li>
+<p>Fixed lot multiple (optional)</p>
+</li>
+<li>
+<p>Maximum order quantity</p>
+</li>
+<li>
+<p>Minimum order quantity</p>
+</li>
+<li>
+<p>Item sourcing details</p>
+<ul>
+<li>
+<p>Sourcing type (supplier or inventory)</p>
+</li>
+<li>
+<p>Sourcing organization (if type is inventory)</p>
+</li>
+<li>
+<p>Sourcing subinventory (if type is subinventory or inventory) (optional for Inventory source type)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Lead times (optional)</p>
+</li>
+</ul>
+<p>Min-max planning is performed by running the Min-max planning report. By selecting the subinventory level planning and specifying a subinventory, you run min-max planning for a single subinventory only. In addition to the planning level option (organization or subinventory), Oracle Inventory offers the option to <i>Net Reserved Demand</i> and to <i>Net Unreserved Demand</i> when calculating availability. You also specify a <i>Demand Cutoff Date</i> and a <i>Supply Cutoff Date</i>. If you choose <i>No</i> to the <i>Net Demand</i> options, Inventory performs the following calculation:</p>
+<ul>
+<li>
+<p>Quantity on Hand + On Order = Total Available, in which:</p>
+<ul>
+<li>
+<p>Quantity on Hand is the quantity in the subinventory you specified in the Min-max planning report.</p>
+</li>
+<li>
+<p>On Order is the sum of open purchase orders, purchase requisitions, internal requisitions, internal sales orders, and subinventory transfer move orders scheduled for receipt to the specified subinventory on or before the supply cutoff date. Note that supply orders referencing a different subinventory, or with no subinventory specified, are not included.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If Total Available &lt; Minimum Quantity, suggest a new order, in which:</p>
+<ul>
+<li>
+<p>Minimum Quantity is the value for the Min-Max Minimum Quantity set at the item/subinventory level.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Order Quantity = Maximum Quantity - Total Available, adjusted for item/subinventory order quantity modifiers:</p>
+<ul>
+<li>
+<p>Oracle Inventory revises the order quantity if necessary for the quantity to be a multiple of the fixed lot size multiplier.</p>
+</li>
+<li>
+<p>The order quantity must be greater than or equal to the minimum quantity, or Oracle Inventory revises the quantity upward to the minimum.</p>
+</li>
+<li>
+<p>The order quantity must be less than or equal to the maximum quantity, or Oracle Inventory revises the quantity down to the maximum.</p>
+</li>
+</ul>
+<p>If you choose <i>Yes</i> to the <i>Net Reserved Demand</i> and/or the <i>Net Unreserved Demand</i> option, Oracle Inventory performs the following calculation:</p>
+</li>
+<li>
+<p>Quantity on Hand + On Order - Open Demand = Total Available, where</p>
+<ul>
+<li>
+<p>Quantity on Hand is the quantity in the subinventory specified in the Min-max planning report.</p>
+</li>
+<li>
+<p>On Order is the sum of open purchase orders, purchase requisitions, internal requisitions, internal sales orders, and subinventory transfer move orders scheduled for receipt to the specified subinventory on or before the supply cutoff date. Note that supply orders referencing a different subinventory, or with no subinventory specified, are not included.</p>
+</li>
+<li>
+<p>Open Demand is the sum of inventory reservations (including reserved sales orders), account issue move orders, and subinventory transfer move orders scheduled to ship from this subinventory on or before the demand cutoff date. Note that inventory reservations referencing a different subinventory, or with no subinventory specified, are not included</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If Total Available &lt; Minimum Quantity, suggest a new order, where:</p>
+<ul>
+<li>
+<p>Minimum Quantity is the value for the Min-Max Minimum Quantity specified at the item/subinventory level.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Order Quantity = Maximum Quantity - Total Available, adjusted for order quantity modifiers specified at the item/subinventory level:</p>
+<ul>
+<li>
+<p>Oracle Inventory revises the order quantity if necessary for the quantity to be a multiple of the fixed lot size multiplier.</p>
+</li>
+<li>
+<p>The order quantity must be greater than or equal to the minimum quantity, or Oracle Inventory revises the quantity upward to the minimum.</p>
+</li>
+<li>
+<p>The order quantity must be less than or equal to the maximum quantity, or Oracle Inventory revises the quantity down to the maximum.</p>
+</li>
+</ul>
+<p>When you run the Min-max report, you can have Oracle Inventory create requisitions or move orders by answering <i>Yes</i> to <i>Restock</i>. You must also specify a location to serve as the deliver to location on the requisitions. If you set the Sourcing Details type to <i>Supplier</i>, the Min-Max report populates the Req Interface tables, and you must run the Req Import program to import the orders into purchasing. Inventory creates internal requisitions for internal sales orders for items with the item/ subinventory Sourcing Details Type set to <i>Inventory</i>. Oracle Inventory creates pre-approved move orders for items with the item/subinventory Sourcing Details Type set to <i>Subinventory</i>. For move orders, Inventory uses the item/subinventory Sourcing Details Subinventory to determine the subinventory from which the move order sources the item. For internal order requisitions, Inventory uses the item/ subinventory Sourcing Details Organization to determine the organization from which the internal requisition sources the item. See: <a href="T291651T292324.htm#I_t_reqminmax78">Requesting the Min-Max Planning Report</a>.</p>
+</li>
+</ul>
+<p>The following example shows you how Oracle Inventory performs min-max planning. Assume an item has the following quantity values and item attribute settings:</p>
+<ul>
+<li>
+<p>Quantity on hand for specified subinventory = 25</p>
+</li>
+<li>
+<p>Open supply quantity for specified subinventory = 50</p>
+</li>
+<li>
+<p>Open sales order quantity placed against specified subinventory= 90</p>
+</li>
+<li>
+<p>Inventory planning method at item/subinventory level = Min-max planning</p>
+</li>
+<li>
+<p>Min-max minimum quantity specified at the subinventory level = 100</p>
+</li>
+<li>
+<p>Min-max maximum quantity specified at the subinventory level = 500</p>
+</li>
+</ul>
+<p>If you run the min-max planning report, and specify <i>No</i> to the Net Demand options, Inventory performs the following calculations:</p>
+<ul>
+<li>
+<p>Total Available: 25 + 50 = 75</p>
+<ul>
+<li>
+<p>The quantity on hand for the specified subinventory is 25.</p>
+</li>
+<li>
+<p>We assume that all the supply is within the supply cutoff date, and is destined for our specified subinventory, for a supply total of 50.</p>
+</li>
+<li>
+<p>Total available quantity is 75.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Below min check: 75 &lt; 100</p>
+<ul>
+<li>
+<p>The total available quantity is less than the min-max minimum quantity, so Oracle Inventory plans a new order.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Max quantity less total available: 500 - 75 = 425</p>
+<ul>
+<li>
+<p>To bring the quantity available back to the min-max maximum, Oracle Inventory will plan an order for 425.</p>
+</li>
+</ul>
+<p>If you run the min-max planning report, and specify <i>Yes</i> to the Net Demand option, Oracle Inventory performs the following calculations:</p>
+</li>
+<li>
+<p>Total Available: (25 + 50) - 90 = (-15)</p>
+<ul>
+<li>
+<p>The quantity on hand for the specified subinventory is 25.</p>
+</li>
+<li>
+<p>We assume that all the supply is within the supply cutoff date, and is destined for our specified subinventory, for a supply total of 50.</p>
+</li>
+<li>
+<p>We assume that all the demand is within the demand cutoff date, and the sales orders are against our specified subinventory, so open sales orders total to 90.</p>
+</li>
+<li>
+<p>Total available quantity is (-15)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Below min check: (-15) &lt; 100</p>
+<ul>
+<li>
+<p>The total available quantity is less than the min-max minimum quantity, so Oracle Inventory plans a new order.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Max quantity less total available: 500 - (-15) = 515</p>
+<ul>
+<li>
+<p>To bring the quantity available back to the min-max maximum, Oracle Inventory will plan an order for 515.</p>
+<p><strong><span>Note:</span></strong> To include unreserved sales orders from an external order management system in the min-max planning calculation, modify the definition of MTL_DEMAND_OM_VIEW to include the sales order line table from the external system.</p>
+<p><strong><span>Note:</span></strong> To include inventory reservations from an external order management system in the min-max calculation, create the sales order in the MTL_SALES_ORDER table using the sales order API, and then load the reservation using the Create/Update/Delete reservation interface or the Reservation APIs.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#t_sub_itm">Assigning Subinventories to an Item</a></p>
+<p><a href="T291651T298833.htm#t_itm_sub">Assigning Items to a Subinventory</a></p>
+<p><a href="T291651T292324.htm#I_t_reqminmax78">Requesting the Min-Max Planning Report</a></p>
+<h2><a name="1759410"></a><a id="T292362"></a><b>Requesting the Min-Max Planning Report</b></h2>
+<p><a name="d0e92846" id="d0e92846"></a><a name="I_t_reqminmax78" id="I_t_reqminmax78"></a>To request a Min-max planning report, you define parameters for min-max planning calculation, choose the sorting criterion for the report, and choose whether to create internal requisitions.</p>
+<p>Use the Min-max planning report to show planning information for all items, or items with on-hand balances either below or above their assigned minimum or maximum on-hand quantities. You also have the option to generate internal or purchase requisitions for Buy items and WIP unreleased jobs for Make items for all items for which the on-hand quantity plus the on-order quantity is less than the min-max minimum amount.</p>
+<p><strong><span>Note:</span></strong> Use the Item/Subinventory Information and Subinventory/Item windows to specify subinventory level min-max planning details. See: <a href="T291651T298833.htm#t_sub_itm">Assigning Subinventories to an Item</a> and <a href="T291651T298833.htm#t_itm_sub">Assigning Items to a Subinventory</a>.</p>
+<p>You can define a default item source at the organization, subinventory, or item levels. Oracle Inventory uses the information from the lowest level to determine the source from which to requisition the item. The ascending hierarchy is:</p>
+<ol>
+<li>
+<p>Item in a subinventory</p>
+</li>
+<li>
+<p>Source in a subinventory</p>
+</li>
+<li>
+<p>Item in an organization</p>
+</li>
+<li>
+<p>Source in an organization</p>
+</li>
+</ol>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>The profile option INV: Minmax Reorder Approval governs the approval status of internal requisitions created by the Min-max planning report. (Move Orders are automatically approved.)</li>
+<p>For WIP jobs created by min-max, whenever the Min-max planning report completes, a WIP MASS LOAD program is generated. The status of the job created is determined by the setting of the system profile INV: Minmax Reorder Approval. If the value of this profile option is:</p>
+<ul>
+<li>
+<p>Incomplete, then the status of the created job is Unreleased.</p>
+</li>
+<li>
+<p>Approved, then the status of the created job is Released.</p>
+</li>
+</ul>
+<p>See: <a href="T291651T291654.htm#I_r_profopts">Oracle Inventory Profile Options</a>.</p>
+</ul>
+<p><b>To request the min-max planning report</b></p>
+<ol>
+<li>
+<p>Navigate to the Min-Max Planning window.</p>
+<p><img width="999" height="711" src="./img/invug_min_max_planning.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter Request in the Type field.</p>
+</li>
+<li>
+<p>Enter <i>Min-max planning report</i> in the Name field.</p>
+</li>
+<li>
+<p>Navigate to the Parameters field. The Parameters window appears.</p>
+</li>
+<li>
+<p>Indicate whether the planning level is set for the entire organization or a specific subinventory. At the subinventory level, the report cannot generate jobs and does not consider WIP jobs as supply or WIP components as demand. If you select <i>Subinventory</i>, enter the name of the subinventory.</p>
+<p>If you choose subinventory, as the planning level, the report includes VMI stock. If you choose organization as the planning level, the report does not include VMI stock.</p>
+</li>
+<li>
+<p>Indicate the type of item to include on the report. You can report on items under the minimum quantity, items over the maximum quantity, or all min-max planned items.</p>
+</li>
+<li>
+<p>Enter the category set for the report.</p>
+</li>
+<li>
+<p>You can optionally restrict the report to a range of categories, item, planners, or buyers.</p>
+</li>
+<li>
+<p>Enter the sorting criterion for the report. You can choose to sort by inventory item, category, planner, or buyer. If you choose <i>Category</i>, enter the category set.</p>
+</li>
+<li>
+<p>Enter the demand cutoff date and, optionally, the demand cutoff date offset. The report includes demand on or before this date. If you do not check <i>Net Demand</i> this calculation is for display purposes only.</p>
+</li>
+<li>
+<p>Enter the supply cutoff date and, optionally the supply cutoff date offset. The calculation includes open supply orders on or before this date.</p>
+</li>
+<li>
+<p>Enter <i>Yes</i> or <i>No</i> to indicate whether to restock. If you have set the Planning Level to <i>Organization</i>, the report generates requisitions or jobs according to the item's Make/Buy flag. If you have set the Planning Level to <i>Subinventory</i>, the report generates only requisitions.</p>
+</li>
+<li>
+<p>If you are using the <i>Organization</i> Planning Level, choose one of the following For Repetitive Item options: <i>Create Requisitions</i> for items under minimum quantity, <i>Create Discrete Jobs</i> for items under minimum quantity or run the <i>Report Only</i> without creating jobs or requisitions.</p>
+</li>
+<li>
+<p>Enter the default delivery location.</p>
+</li>
+<li>
+<p>Indicate whether to net reserved and unreserved orders.</p>
+</li>
+<li>
+<p>Indicate whether to Net WIP Demand in the available quantity calculation. Net demand is the unshipped sales quantity for the selected organization or subinventory. You cannot set this to Yes if you are using subinventory level planning.</p>
+</li>
+<li>
+<p>Indicate whether to include PO, WIP, and Interface supply and non-nettable subinventories.</p>
+</li>
+<li>
+<p>Choose one of the following Display Format options: <i>Display All Information, Don't Display Supply/Demand Details</i> (The report does not display the Minimum Order Quantity, Maximum Order Quantity, and Multiple Order Quantity columns.), or <i>Don't Display Order Constraints</i> (The report does not display the On Hand Quantity column).</p>
+</li>
+<li>
+<p>Indicate whether to to Display Item Information.</p>
+</li>
+<li>
+<p>Choose the Submit button to launch the report.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292324.htm#I_c_minmax78">Min-Max Planning</a></p>
+<p>Running Reports and Programs, <i>Oracle E-Business Suite User's Guide</i>.</p>
+<h2><a name="1759412"></a><a id="T292363"></a><b>Entering and Reloading Item Safety Stocks</b></h2>
+<p><a name="d0e93048" id="d0e93048"></a><a name="d0e93051" id="d0e93051"></a><a name="I_t_enterss" id="I_t_enterss"></a><a name="INVDDFSS.find_item_safety_stocks" id="INVDDFSS.find_item_safety_stocks"></a><a name="INVDDFSS.mtl_safety_stocks" id="INVDDFSS.mtl_safety_stocks"></a><a name="srs.incdss" id="srs.incdss"></a>Oracle Inventory uses item safety stocks in the reorder point planning process. Safety stock is a floor or base level of inventory from which Oracle Inventory performs all planning. In other words, the item is planned as if the safety stock quantity for the period is the zero inventory balance of the item. This ensures that the safety stock quantity remains in inventory to cover any fluctuations in demand.</p>
+<p>In businesses such as aerospace and defense manufacturing, or construction, it is normal to segrate supplies and demands by inventory ownership. Safety stock definition in such environments can be project specific.</p>
+<p>You can enter your own safety stock quantities or let Oracle Inventory calculate them based on an existing forecast for the item.</p>
+<p><b>To define your own safety stock quantities or modify quantities Oracle Inventory generated for you</b></p>
+<ol>
+<li>
+<p>Navigate to the Enter Item Safety Stocks window. The Find Item Safety Stocks window appears.</p>
+</li>
+<li>
+<p>Choose New to display the Enter Item Safety Stocks window. The Safety Stock Method field displays <i>User-defined quantity</i>.</p>
+</li>
+<li>
+<p>Enter the inventory item for safety stock specification. You can use the Find window to locate items by effective date, forecast, category set, and category.</p>
+<p>Optionally, you can enter a default item. This is useful if you are entering multiple safety stock values and effective dates for the same item.</p>
+</li>
+<li>
+<p>Enter the Project if applicable.</p>
+<p>You can enter a project only if the organization is classified as a project manufacturing organization. The list of projects includes only those that have been enabled in Project Parameters for that organization. See Defining a Project, <i>Oracle Project Manufacturing User's Guide</i>.</p>
+</li>
+<li>
+<p>Enter the Task if applicable.</p>
+<p>If you want to maintain the safety stock at the task level, you must define the task and associate it with the project you selected in the previous step. See Project Manufacturing Parameters, <i>Oracle Project Manufacturing User's Guide</i>.</p>
+</li>
+<li>
+<p>Enter a safety stock effective date.</p>
+</li>
+<li>
+<p>Enter the safety stock quantity.</p>
+</li>
+</ol>
+<p><b>To have Oracle Inventory calculate safety stock based on an existing forecast for the item</b></p>
+<ol>
+<li>
+<p>Navigate to the Safety Stock Update window or choose Reload from the Tools menu in the Enter Item Safety Stocks window.</p>
+</li>
+<li>
+<p>The Parameters window opens automatically. In the Selection field determine whether to reload safety stock for all inventory items, a specific inventory item, or items in a specific category.</p>
+</li>
+<li>
+<p>If you choose <i>Specific inventory item</i> in the Selection field, enter the item.</p>
+</li>
+<li>
+<p>Select the method for loading the safety stock:</p>
+<p><i>Mean absolute deviation (MAD)</i>: Calculates demand using the mean-absolute deviation method. You must enter the service level percentage and forecast information.</p>
+<p><i>User-defined percentage</i>: Calculates safety stock based on a user-defined percentage of a demand in specified forecast.</p>
+</li>
+<li>
+<p>Enter the forecast to use in the safety stock calculation.</p>
+</li>
+<li>
+<p>Optionally, enter the category set and category of items for safety stock specification.</p>
+</li>
+<li>
+<p>If you chose <i>User-defined percentage</i> in the Method field, enter the safety stock percentage of demand.</p>
+</li>
+<li>
+<p>If you chose <i>Mean absolute deviation (MAD)</i> in the Method field, enter the service level percentage. This is the desired level of customer service in satisfying the product demand immediately out of inventory. The higher this value is, the more safety stock quantity should be carried to provide protection against irregularities or uncertainties in the demand or the supply of an item.</p>
+<p>Enter a value between 50 and 100 as the service level. This represents the probability that you can fill an order from available inventory. A 90% service level means that on average you can fill an order immediately 90% of the time.</p>
+</li>
+<li>
+<p>Enter the starting date on or after which the existing safety stock quantities are replaced by the results from the safety stock calculation.</p>
+</li>
+<li>
+<p>When all parameter information is complete choose the Submit button to launch the process.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292324.htm#c_reordplan">Reorder Point Planning</a></p>
+<p>Running Reports and Programs, <i>Oracle E-Business Suite User's Guide</i>.</p>
+<p>Searching for Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1759415"></a><a id="T292328"></a><b>Reorder Point Planning</b></h2>
+<p><a name="d0e93199" id="d0e93199"></a><a name="c_reordplan" id="c_reordplan"></a>Reorder point planning uses demand forecasts to decide when to order a new quantity to avoid dipping into safety stock. Reorder point planning suggests a new order for an item when the available quantity-on-hand quantity plus planned receipts drops below the item's safety stock level plus forecast demand for the item during its replenishment lead time. The suggested order quantity is an economic order quantity that minimizes the total cost of ordering and carrying inventory. Oracle Inventory can automatically generate requisitions to inform your purchasing department that a replenishment order is required to supply your organization.<a name="d0e93208" id="d0e93208"></a></p>
+<p>Order lead time is the total of the item's processing, preprocessing, and postprocessing lead times.</p>
+<p>If the forecast is correct and the order arrives on time, the inventory level should be right at the safety stock level at the time of receipt. In cases where the desired safety stock level changes during the order lead time, Oracle Inventory uses the largest safety stock quantity during the lead time.</p>
+<p><a name="d0e93220" id="d0e93220"></a><a name="d0e93223" id="d0e93223"></a>When an order is triggered, the economic order quantity is the size of the triggered order. Economic order quantity (EOQ) is a fixed order quantity calculated to minimize the combined costs of acquiring and carrying inventory. The formula for EOQ is:</p>
+<p>The EOQ increases as demand increases, since the cost of carrying a larger order is smaller because the inventory is not carried as long. EOQ also increases when the cost of preparing an order increases. This is to avoid making too many orders and thus incurring this cost more often than necessary. On the other hand, the more it costs to carry inventory, the smaller the EOQ since it costs more to carry the excess inventory.</p>
+<p>Oracle Inventory calculates annual demand as the current demand rate annualized by multiplying the current period demand forecast by the number of periods per year (12 or 13).</p>
+<p>Neither carrying cost percent nor order cost influence the reorder quantity directly. The calculation process uses them to calculate the EOQ. The process uses the EOQ as the reorder quantity in the case where the reorder quantity is smaller than the difference between the reorder point and the available quantity. You cannot see the value if EOQ on the screen.</p>
+<h3><a id="T292337"></a><b>Safety Stock Levels<a name="d0e93241" id="d0e93241"></a><a name="d0e93246" id="d0e93246"></a></b></h3>
+<p>Oracle Inventory can help calculate the safety stock levels required by reorder point planning by providing the following two methods:</p>
+<ul>
+<li>
+<p>percentage of forecast demand</p>
+</li>
+<li>
+<p>mean absolute deviation</p>
+</li>
+</ul>
+<p>You can always enter your own safety stock quantities if you have your own method. Or, if you have Oracle MRP and Oracle Supply Chain Planning installed, you can use it to calculate your safety stocks levels. See: <a href="T291651T292324.htm#I_t_enterss">Entering and Reloading Item Safety Stocks</a>.</p>
+<h3><a id="T292338"></a> <b><a name="d0e93285" id="d0e93285"></a><a name="d0e93292" id="d0e93292"></a>Safety Stock as a Percentage of Forecast Demand</b></h3>
+<p>To calculate safety stock as a percentage of forecast demand, enter a forecast name and safety stock percent. Oracle Inventory calculates the safety stock quantity for each forecasting time bucket by multiplying the two. For instance, if the forecast demand for a particular period is 120 units and you specify a 10% safety stock buffer, the safety stock level is set at 120 ? 10% = 12 units.</p>
+<h3><a id="T292339"></a> <b><a name="d0e93311" id="d0e93311"></a><a name="d0e93316" id="d0e93316"></a>Safety Stock Using Mean Absolute Deviation and Service Level</b></h3>
+<p>If there is sufficient demand and forecast history available, you can use the mean absolute deviation method. This method compares the forecast to actual demand to determine forecast accuracy and, therefore, how much safety stock is required to prevent stock-outs. If the forecast has been very accurate in the past, only a small safety stock is required. The formula for safety stock using this method is:</p>
+<p>MAD is the mean absolute deviation of the historic forecasts from the actual demand. <i>Z</i> is the number from the normal distribution probabilities corresponding to the service level specified by the user.</p>
+<h3><a id="T292340"></a><b>Planning Levels<a name="d0e93341" id="d0e93341"></a></b></h3>
+<p>You perform reorder point planning at the organization level. You place an item under reorder point planning by specifying the inventory planning method (located in the General Planning attribute group in the Items window) as <i>Reorder point planning</i> when you define the item. You can also specify the item's processing, preprocessing, and postprocessing lead times, order cost, and carrying cost percent in this form. See: <a href="T291651T427992.htm#I_r_gnplnattr">General Planning Attribute Group</a>.</p>
+<p>Likewise, item safety stock levels may only be made at the organization level. Oracle Inventory only calculates safety stock levels for non-MRP safety stock planned items. If you specified a safety stock percent when defining the item, this value is used as a default when calculating safety stock as a percentage of forecast demand. See: <a href="T291651T292324.htm#I_t_enterss">Entering and Reloading Item Safety Stocks</a>.</p>
+<h3><a id="T292341"></a><b>Reorder Point Planning Report</b></h3>
+<p>To run reorder point planning, use the Reorder Point Report. This report provides an option to create requisitions for items requiring replenishment.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292324.htm#I_t_reqreptpl">Running the Reorder Point Report</a></p>
+<h2><a name="1759421"></a><a id="T292364"></a><b>Running the Reorder Point Report</b></h2>
+<p><a name="d0e93387" id="d0e93387"></a><a name="d0e93394" id="d0e93394"></a><a name="I_t_reqreptpl" id="I_t_reqreptpl"></a>To run the Reorder Point Report, you define selection parameters for the items to include on the report. Reorder point planning triggers a new order when the available quantity drops below the item's safety stock level plus forecast demand during lead time. When you run the Reorder point planning report you can have Oracle Inventory create either internal or purchase requisitions for these orders, depending on the sourcing options.</p>
+<p><b>To run the reorder point report</b></p>
+<ol>
+<li>
+<p>Navigate to the Reorder Point Report window.</p>
+<p><img width="998" height="711" src="./img/invug_Reorder_Pt_plnng_Rpt.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Indicate whether to report all items that are identified as reorder point planned or only items with on-hand balances and on-order balances that fall below their reorder point. Displaying all reorder point planned items (regardless of their balances) enables you to see where item balances are in relation to the specified order point.</p>
+</li>
+<li>
+<p>Enter the demand cutoff date. The report includes demand on or before this date.</p>
+</li>
+<li>
+<p>Enter the supply cutoff date. The calculation includes open supply orders with expected receipt dates on or before this date.</p>
+</li>
+<li>
+<p>Enter <i>Yes</i> or <i>No</i> to indicate whether to restock. If you have set the Planning Level to <b>Organization</b>, the report generates requisitions or jobs according to the item's Make/Buy flag.</p>
+<p><strong><span>Note:</span></strong> Oracle Shop Floor Management work orders: When restock is selected and the Reorder Point Report is run, you can create work orders for Oracle Shop Floor Management.</p>
+<p>If you have set the Planning Level to <b>Subinventory</b>, the report generates only requisitions.</p>
+</li>
+<li>
+<p>Indicate the delivery location to appear on the requisition, if different then current organization, in the Default Delivery Location To field.</p>
+</li>
+<li>
+<p>Enter the forecast designator. Oracle Inventory uses this forecast to determine the demand to be used in the reorder point calculation.</p>
+</li>
+<li>
+<p>Enter the sorting criterion for the report. You can choose to sort by inventory item, category, planner, or buyer. If you choose <i>Category</i>, enter the category set from which Oracle Inventory chooses items for the report.</p>
+</li>
+<li>
+<p>Indicate whether to prepare a full or partial report. If you choose Partial, specify the range of items, categories, planners, or buyers you want to include.</p>
+</li>
+<li>
+<p>Click the OK button to launch the report.</p>
+</li>
+</ol>
+<h2><a name="1759424"></a><a id="T292329"></a><b>Overview of Kanban Replenishment</b></h2>
+<p><a name="d0e93477" id="d0e93477"></a><a name="d0e93480" id="d0e93480"></a><a name="d0e93485" id="d0e93485"></a><a name="d0e93488" id="d0e93488"></a><a name="I_kanov" id="I_kanov"></a>Kanban is a means of supporting pull-based replenishment in manufacturing systems. A Kanban system is a self-regulating pull system that leads to shorter lead times and reduced inventory. Kanban systems are typically applied to items that have relatively constant demand and medium-to-high production volume.</p>
+<p>Kanbans represent replenishment signals that are usually manual and highly visible, such as a color-coded card that moves with the material, a light that goes on when replenishment is required, or an empty bin that is moved to the supply location to trigger replenishment.</p>
+<p>The system includes an API that can be called by external systems, such as bar code readers, to trigger replenishment signals.</p>
+<p>Kanbans can be replenished from an external supplier or an internal organization. The four types of kanbans available in the system trigger transactions that pull material from different replenishment sources.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>Inter Org</i></td>
+<td>Creates internal requisitions</td>
+</tr>
+<tr valign="top">
+<td><i>Intra Org</i></td>
+<td>Triggers material movement from a subinventory in the same organization</td>
+</tr>
+<tr valign="top">
+<td><i>Production</i></td>
+<td>Creates or releases a production job (discrete job, repetitive schedule, or flow schedule)</td>
+</tr>
+<tr valign="top">
+<td><i>Supplier</i></td>
+<td>Creates a purchase requisition</td>
+</tr>
+</table>
+<p>Kanbans are generally replenishable and cycle through the system from full to empty, remaining active until they are withdrawn. One-time signals, called non-replenishable kanbans, are used primarily to manage sudden spikes in demand.</p>
+<p><b>Using Oracle Electronic Kanban</b></p>
+<p>Oracle Electronic Kanban along with Kanban Dashboard is available to Oracle Inventory users. To enable Electronic Kanban, the profile option <i>FLM: Enable E-Kanban</i> must be set to Yes at the site level. For more information about using Oracle Electronic Kanban, see the <i>Oracle Electronic Kanban User's Guide</i>.</p>
+<p><strong><span>Warning:</span></strong> If Oracle Electronic Kanban is enabled for your organization, then the regular Kanban windows in Oracle Inventory will not be available. However, the existing Oracle Inventory Kanban data will be visible in Oracle Electronic Kanban.</p>
+<h2><a name="1759425"></a><a id="T292330"></a><b>Major Features</b></h2>
+<h3><a id="T292342"></a><b>Pull Sequences<a name="d0e93620" id="d0e93620"></a><a name="d0e93625" id="d0e93625"></a></b></h3>
+<p>A pull sequence is a group of information that defines a kanban location, source information, and planning parameters for an item. In order to replenish an item using kanbans, you must define a pull sequence for each item. An item can have multiple pull sequences that make up a replenishment chain. Pull sequences are used to calculate the number or quantity in each kanban container at that location. A kanban location can be a subinventory or an inventory locator. The replenishment source for a kanban location can be another kanban location, a production line, or an external source (either another organization or an outside supplier).</p>
+<p>You can define kanban pull sequences using inventory locators to represent kanban locations, compute kanban quantities by locator, and then track by subinventory in order to reduce the number of inventory transactions. See: <a href="T291651T292324.htm#I_kanpull">Defining Kanban Pull Sequences</a></p>
+<h3><a id="T292343"></a><b>Pull Sequence Terms</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Planning Only</b></td>
+<td>Choose Planning Only if you want the program to perform the kanban calculations for you, but you will use a manual system to process the kanbans. You will be able to calculate kanban sizes but will not be able to generate and print kanban cards or process the replenishment cycle.</td>
+</tr>
+<tr valign="top">
+<td><b>Kanban Size and Number of Kanban Cards</b></td>
+<td>You will choose what you want the program to calculate: kanban size or kanban cards. The product of kanban size and number of kanban cards (or containers) will satisfy the demand at capacity for the planning horizon. Kanban size refers to the number of items in each kanban container. Each kanban container has one kanban card, so the number of kanban cards is the same as the number of kanbans for each item.</td>
+</tr>
+<tr valign="top">
+<td><b>Enter Minimum Order Quantity (Optional)</b></td>
+<td>Minimum Order Quantity represents the minimum number of units per kanban container. It is used when calculating kanban size or during the kanban execution process to aggregate kanbans smaller than the minimum order quantity. This field defaults from the Item Master window but can also be overridden.</td>
+</tr>
+<tr valign="top">
+<td><b>Replenishment Lead Time</b></td>
+<td>The Replenishment Lead Time must be expressed in days. This is how long it will take to physically replenish the kanban. For example, if you enter two days, the Kanban Planner will size the kanban to two times the average daily demand. If you leave the field blank, the program will assume replenishment is one day when calculating kanban sizes.</td>
+</tr>
+</table>
+<p><strong><span>Additional Information:</span></strong> Production kanbans use the replenishment lead time to calculate the size of the kanban but use the Lead Times on the Item Master window to determine when to schedule jobs created by replenishing the production kanban. This allows you to add lead time on the pull sequence of the production item for transportation, or desired "queue time."</p>
+<p>Supplier and inter-org kanbans use the replenishment lead time to calculate the size of the kanban and to schedule the "need date" for the purchase requisition. However, if you leave this field blank, the program will use one day to size the kanban and will use the lead time defined in the Item Master window for the "need date" on the requisition. (Need date = sysdate + pre-processing + processing + post processing time if the replenishment lead time on the pull sequence is left blank.)</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Allocation Percent (Optional)</b></td>
+<td>The allocation percent represents the percent of independent demand for the kanban item that is to be supplied from this pull sequence.</td>
+</tr>
+<tr valign="top">
+<td><b>Lot Multiplier (Optional)</b></td>
+<td>When kanban planning sizes the containers at the location, it will size in multiples of this quantity. For example, if the supplier sells wire in a roll of 500 feet, then a multiplier of 500 would result in bin sizes of multiples of 500 feet. If demand called for 510 feet, the kanban planner would size the kanban for 1000 feet (500 + 500).</td>
+</tr>
+<tr valign="top">
+<td><b>Safety Stock Days (Optional)</b></td>
+<td>Safety Stock Days is the number of days demand that will be added to the kanban for safety stock. Kanban planning sizes kanbans to the average daily demand of the forecasted period.</td>
+</tr>
+</table>
+<h3><a id="T292344"></a><b>Kanban Chain<a name="d0e93801" id="d0e93801"></a><a name="d0e93808" id="d0e93808"></a></b></h3>
+<p>For every kanban planned item, you can define a kanban chain, which is a series of pull sequences that model the replenishment network on the shop floor, for example, line stock to stores and stores to supplier.</p>
+<h3><a id="T292345"></a><b>Card Definition<a name="d0e93824" id="d0e93824"></a><a name="d0e93829" id="d0e93829"></a></b></h3>
+<p>Kanban cards are created for an item, subinventory, and locator (optional). They are uniquely identified by a kanban number. For cards generated from a kanban pull sequence, the number is automatically generated. For manually defined cards, both replenishable and non-replenishable, you can enter an unused kanban number or let the system create the number. See: <a href="T291651T292324.htm#I_kangen">Generating Kanban Cards</a> and <a href="T291651T292324.htm#I_kancard">Defining Kanban Cards</a>.</p>
+<h3><a id="T292346"></a><b>Replenishable Cards<a name="d0e93851" id="d0e93851"></a></b></h3>
+<p>You can use the Generate Kanban Cards window to generate cards automatically from the following pull sequence information: item, kanban location, quantity, and source. You can also create these cards manually in the Kanban Cards window.</p>
+<p>You cannot override the quantity for generated cards, but you can add additional cards or delete existing cards from the pull sequence to control the inventory in the replenishment chain. Function security is provided for this feature.</p>
+<p>A supply source is defaulted from the source type of the pull sequence.</p>
+<h3><a id="T292347"></a><b>Non-Replenishable Cards<a name="d0e93873" id="d0e93873"></a></b></h3>
+<p>You can manually define non-replenishable cards by entering the item, location, supply source, and quantity in the Kanban Cards window. Non-replenishable cards do not have to be associated with a pull sequence.</p>
+<h3><a id="T292348"></a><b>Source Type<a name="d0e93889" id="d0e93889"></a></b></h3>
+<p>You can create kanban cards with the following source types:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Inter Org</b></td>
+<td>Replenished by another organization</td>
+</tr>
+<tr valign="top">
+<td><b>Intra Org</b></td>
+<td>Replenished from another subinventory in the same organization</td>
+</tr>
+<tr valign="top">
+<td><b>Production</b></td>
+<td>Replenished by a production line</td>
+</tr>
+<tr valign="top">
+<td><b>Supplier</b></td>
+<td>Replenished by an external supplier</td>
+</tr>
+</table>
+<h3><a id="T292349"></a><b>Card Status<a name="d0e93982" id="d0e93982"></a></b></h3>
+<p>Kanban cards are generated with a default card status of Active. When you define a card manually, you can initially give it either Active or Hold status.</p>
+<p>If the Supply Status is Full, you can temporarily pull a card out of the replenishment chain by changing the Card Status to Hold. You can later change the status back to Active.</p>
+<p>You can terminate use of a card by changing the Card Status to Canceled, but you cannot reverse this change. Only Canceled cards can be deleted.</p>
+<p><strong><span>Note:</span></strong> You can re-use a non-replenishable kanban card by manually changing its card status from <i>Hold</i> to <i>Active</i> in the Kanban Cards Summary window. If its status cannot be changed, confirm whether the profile option <code>INV: Allow Non-Replenishable Kanban Card Status Change</code> is set to Yes to allow changes.</p>
+<h3><a id="T292350"></a><b>Supply Status<a name="d0e94019" id="d0e94019"></a></b></h3>
+<p>All the following Supply Status codes can be set either manually or automatically.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>New</b></td>
+<td>The kanban has just been created and is not yet part of the replenishment chain.</td>
+</tr>
+<tr valign="top">
+<td><b>Empty</b></td>
+<td>The kanban is empty and a replenishment signal has been generated (available only for Inter Org and Supplier source types).</td>
+</tr>
+<tr valign="top">
+<td><b>Full</b></td>
+<td>The kanban has been replenished.</td>
+</tr>
+<tr valign="top">
+<td><b>Wait</b></td>
+<td>The kanban is waiting until the minimum order quantity has been met by the aggregation of cards.</td>
+</tr>
+<tr valign="top">
+<td><b>In-Process</b></td>
+<td>For the Supplier source type, the purchase order has been approved. For the Inter Org source type, the internal requisition has been approved.</td>
+</tr>
+</table>
+<p>All cards are generated with a status of New. You can switch this status to Empty to trigger a kanban replenishment signal. During initial setup, you can switch the status to Full if you are starting out with a full bin. When you are defining a card manually, you can create a card with a status of Empty, Full, or New.</p>
+<h3><a id="T292351"></a><b>Card Printing</b></h3>
+<p>You can print Kanban cards for a replenishment plan or a replenishment chain when you generate the cards. You can also print cards individually if the card information is complete.</p>
+<p>You can print duplicate cards only if the original is lost or voided. You are given a warning message before you can print duplicates.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_itmsuov">Overview of Item Setup and Control</a>.</p>
+<p><a href="T291651T298833.htm#I_c_itemov">Overview of Items</a></p>
+<h2><a name="1759436"></a><a id="T292365"></a><b>Defining Kanban Pull Sequences</b></h2>
+<p><a name="d0e94155" id="d0e94155"></a><a name="I_kanpull" id="I_kanpull"></a><a name="INVKBPSQ.pullseq_win" id="INVKBPSQ.pullseq_win"></a><a name="INVKBPSQ.pullseq_mir_win" id="INVKBPSQ.pullseq_mir_win"></a><a name="INVKBPSQ.pullseq_qf_win" id="INVKBPSQ.pullseq_qf_win"></a>Use the Pull Sequences window to view, update, and define the source of replenishment for a kanban planned item in a kanban location.</p>
+<p><b>To define pull sequences</b></p>
+<ol>
+<li>
+<p>Navigate to the Pull Sequence Summary window. The Find Pull Sequences window appears.</p>
+</li>
+<li>
+<p>Select New to open a new line.</p>
+<p><img width="754" height="518" src="./img/invug_kanban_pull.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the item and the subinventory. If the subinventory or item is under locator control, you must also enter a stock locator.</p>
+<p><strong><span>Note:</span></strong> If the subinventory and item is not locator controlled, entering a locator will allow you to specify a specific location (row, rack, bin) for organizing purposes without forcing you to transact at the locator level.</p>
+</li>
+<li>
+<p>In the Source tabbed region, select the source type: Inter Org, Intra Org, Production, or Supplier.</p>
+<p>For the Inter Org source type, you must select the source organization. If the organization, subinventory, or item is under locator control, you must also enter a stock locator.</p>
+<p>For the Intra Org source type, you must select the source subinventory. You can optionally enter a source stock locator. You can also optionally select the auto allocate check box to automatically allocate the move order.</p>
+<p>For the Production source type, you can optionally enter the line code.</p>
+<p>For the Supplier source type, you can optionally select the supplier and supplier site. If you do not select a supplier, Oracle Purchasing will choose the supplier based on sourcing rules when it creates a purchase order/blanket release.</p>
+</li>
+<li>
+<p>In the Kanban tabbed region, select the calculate method and enter the parameters as follows:</p>
+<p>Select the Auto-Request check box enable auto requests for the pull sequence. This calls the Auto Replenishment for manufacturing concurrent request, which picks up the pull sequences and generates non-replenishable kanban cards for the pull sequences.</p>
+<p>If you select <i>Do Not Calculate</i>: Enter a value in the Size and Number of Cards fields.</p>
+<p>If you select <i>Kanban Size</i>: Enter a value in the Number of Cards field and optionally enter a value in the Minimum Order Qty field.</p>
+<p>If you select <i>Number of Cards</i>: Enter a value in the Size field, and optionally enter a value in the Minimum Order Qty field.</p>
+<p>The minimum order quantity is defaulted from the item, but you can override this default.</p>
+</li>
+<li>
+<p>In the Planning tabbed region, enter the lead time for this location, and optionally enter allocation percent, lot multiplier, and number of safety stock days.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p><strong><span>Note:</span></strong> Pull sequences cannot be used with Model/Unit Number effective controlled items. Model/Unit items are used in a project manufacturing environment, while pull sequences are normally used in flow manufacturing environments. See <a href="T291651T427992.htm#I_r_bomattr">Bills of Material Attribute Group</a>.</p>
+</li>
+</ol>
+<p><b>To view pull sequences:<a name="d0e94244" id="d0e94244"></a><a name="d0e94249" id="d0e94249"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Find Pull Sequences window by selecting Pull Sequences from the menu.</p>
+</li>
+<li>
+<p>Enter selection criteria. You can restrict the search by item, subinventory, locator range, source type, supplier, supplier site, source organization, source subinventory, source locator, and line code.</p>
+</li>
+<li>
+<p>Select the Find button to display the search result in the Pull Sequence Summary window.</p>
+</li>
+</ol>
+<p><b>To update pull sequences:<a name="d0e94269" id="d0e94269"></a><a name="d0e94274" id="d0e94274"></a></b></p>
+<ol>
+<li>
+<p>In the Pull Sequence Summary window, you can update the following fields:</p>
+<p>In the Source tabbed region: Source Type.</p>
+<p>For the Inter Org source type: Org, Subinventory, and Locator.</p>
+<p>For the Intra Org source type: Subinventory and Locator.</p>
+<p>For the Production source type: Line Code.</p>
+<p>For the Supplier source type: Supplier and Supplier Site.</p>
+<p>In the Kanban tabbed region: all fields.</p>
+<p>In the Planning tabbed region: all fields.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To open the details window</b></p>
+<ol>
+<li>
+<p>To make entering and viewing information easier, you can select the Open button in the Pull Sequences Summary window to open the Pull Sequences window for the current line. In this window, you can enter any of the information in the tabbed regions of the summary window.</p>
+<p><img width="756" height="505" src="./img/invug_kanbanpulldet.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To calculate kanban size:<a name="d0e94317" id="d0e94317"></a></b></p>
+<ol>
+<li>
+<p>See Calculation Formula, <i>Oracle MRP User's Guide</i>.</p>
+</li>
+</ol>
+<p><b>To view or define kanban cards for a selected pull sequence:<a name="d0e94332" id="d0e94332"></a><a name="d0e94337" id="d0e94337"></a><a name="d0e94342" id="d0e94342"></a></b></p>
+<ol>
+<li>
+<p>Select the pull sequence and click Cards to open the Kanban Cards Summary window. See <a href="T291651T292324.htm#I_kancard">Defining Kanban Cards</a>.</p>
+</li>
+</ol>
+<p><b>To generate kanban cards automatically for a selected pull sequence:<a name="d0e94357" id="d0e94357"></a></b></p>
+<ol>
+<li>
+<p>Click Generate Cards to automatically generate kanban cards for the selected line.</p>
+</li>
+</ol>
+<h2><a name="1759444"></a><a id="T292366"></a><b>Generating Kanban Cards</b></h2>
+<p><a name="d0e94370" id="d0e94370"></a><a name="srs.INVKBCGN" id="srs.INVKBCGN"></a><a name="I_kangen" id="I_kangen"></a>Use the Generate Kanban Cards process to automatically generate kanban cards. You can generate cards for individual pull sequences in the Pull Sequences Summary and Pull Sequences windows. See: <a href="T291651T292324.htm#I_kanpull">Defining Kanban Pull Sequences</a>.</p>
+<p><b>To generate kanban cards</b></p>
+<ol>
+<li>
+<p>Select Generate Kanban Cards from the menu to display the Parameters window.</p>
+</li>
+<li>
+<p>To restrict the cards to a range of items, select the beginning and ending items.</p>
+</li>
+<li>
+<p>Select a subinventory to restrict the cards to a specific subinventory.</p>
+</li>
+<li>
+<p>To restrict the cards to a range of locators, enter the beginning and ending locators.</p>
+</li>
+<li>
+<p>Select a source type to restrict the cards to a specific type.</p>
+</li>
+<li>
+<p>Select a supplier to restrict the cards to a specific supplier. If you select a supplier, you can also select a supplier site.</p>
+</li>
+<li>
+<p>Select a source organization to restrict the cards to a specific organization. If you select a source organization, you can also select a source subinventory. If you select a source subinventory, you can also select a source location.</p>
+</li>
+<li>
+<p>Select the initial status that you want for the created cards: New, Full, or Wait.</p>
+</li>
+<li>
+<p>Select Yes or No to indicate whether you want the cards to be created and printed in one step.</p>
+</li>
+<li>
+<p>Select the OK button to complete parameter selection.</p>
+</li>
+<li>
+<p>Select the Submit Request button in the Generate Kanban Cards window.</p>
+</li>
+<li>
+<p>For Pull Sequences with a Source Type of Supplier, set the List Price for the item to automatically generate requisitions.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Running Reports and Programs, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1759446"></a><a id="T292367"></a><b>Defining Kanban Cards</b></h2>
+<p><a name="d0e94443" id="d0e94443"></a><a name="I_kancard" id="I_kancard"></a><a name="INVKBCRD.kanban_cards" id="INVKBCRD.kanban_cards"></a><a name="INVKBCRD.kanban_cards_mir" id="INVKBCRD.kanban_cards_mir"></a><a name="INVKBCRD.kanban_card_activity" id="INVKBCRD.kanban_card_activity"></a><a name="INVKBCRD.kanban_cards_qf" id="INVKBCRD.kanban_cards_qf"></a>Use the Kanban Cards Summary window to view, define, and update kanban cards. You can also automatically generate kanban cards with the Generate Kanban Cards process. See: <a href="T291651T292324.htm#I_kangen">Generating Kanban Cards</a>.</p>
+<p><b>To define kanban cards</b></p>
+<ol>
+<li>
+<p>Navigate to the Kanban Cards Summary window by selecting the Cards button in the Pull Sequence Summary or Pull Sequences window. You can also navigate to the Kanban Cards Summary window by selecting the New button in the Find Kanban Cards window.</p>
+<p>Optionally, enter a card number. Otherwise, a number will be generated when you save your work.</p>
+<p><img width="747" height="604" src="./img/invug_kancrd.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the item number.</p>
+</li>
+<li>
+<p>Select the subinventory and optionally the locator.</p>
+</li>
+<li>
+<p>In the Kanban tabbed region, check Replenishable if you want to define a replenishable card.</p>
+</li>
+<li>
+<p>In the Size field, enter the quantity of items in each kanban.</p>
+</li>
+<li>
+<p>Select the card status: Hold or Active</p>
+</li>
+<li>
+<p>Select the supply status: Empty, Full, or New. If you create a card with a card status of Hold, you cannot select a supply status of Empty.</p>
+</li>
+<li>
+<p>In the Source tabbed region, select the source type: Supplier or Inter Org</p>
+<p>For the Supplier source type, you can select a supplier and supplier site.</p>
+<p>For the Inter Org source type, you can select the organization, subinventory, and locator.</p>
+<p>For the Intra Org source type, you can select the subinventory and locator.</p>
+<p>For the Production source type, you can select the line code.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To view kanban cards</b></p>
+<ol>
+<li>
+<p>Navigate to the Find Kanban Cards window by selecting Kanban Cards from the menu.</p>
+</li>
+<li>
+<p>Enter selection criteria. You can restrict the search by card number range, item, subinventory, locator, source type, supplier, supplier site, source organization, source subinventory, source locator, and line code.</p>
+</li>
+<li>
+<p>Select the Find button to display the search results in the <a name="d0e94529" id="d0e94529"></a>Kanban Cards Summary window.</p>
+</li>
+</ol>
+<p><b>To update kanban cards:<a name="d0e94536" id="d0e94536"></a></b></p>
+<ol>
+<li>
+<p>In the Kanban Cards Summary window, you can update the following fields:</p>
+<p>In the Kanban tabbed region: Card Status and Supply Status.</p>
+<p>In the Source tabbed region: all fields.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To open the details window</b></p>
+<ol>
+<li>
+<p>To make viewing and entering information easier, you can select the Open button in the Kanban Cards Summary window to open the Kanban Cards window for the current line. In this window, you can enter any of the information in the tabbed regions of the summary window.</p>
+</li>
+</ol>
+<p><b>To display kanban card activity:<a name="d0e94564" id="d0e94564"></a></b></p>
+<ol>
+<li>
+<p>Select the Activity button to open the Card Activity window for the selected kanban card. For each replenishment cycle, this window displays a variety of activity information.</p>
+</li>
+</ol>
+<p><b>To print kanban cards:<a name="d0e94576" id="d0e94576"></a></b></p>
+<ol>
+<li>
+<p>Select the Print button to send a print request to the concurrent manager for cards for the selected line.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<h2><a name="1759453"></a><a id="T292368"></a><b>Printing Kanban Cards</b></h2>
+<p><a name="srs.INVKBCPR" id="srs.INVKBCPR"></a><a name="kanprt" id="kanprt"></a>Use the Print Kanban Cards process to batch print kanban cards with card status Active and Hold. You can print cards individually in the Kanban Cards window. See: <a href="T291651T292324.htm#I_kancard">Defining Kanban Cards</a>.</p>
+<p><b>To print kanban cards</b></p>
+<ol>
+<li>
+<p>Select Print Kanban Cards from the menu to display the Parameters window.</p>
+</li>
+<li>
+<p>To restrict the cards to a range of creation dates, enter the beginning and ending dates.</p>
+</li>
+<li>
+<p>To restrict the cards to a range of card numbers, enter the beginning and ending numbers.</p>
+</li>
+<li>
+<p>To restrict the cards to a range of items, select the beginning and ending items.</p>
+</li>
+<li>
+<p>Select a subinventory to restrict the cards to a specific subinventory.</p>
+</li>
+<li>
+<p>To restrict the cards to a range of locators, enter the beginning and ending locators.</p>
+</li>
+<li>
+<p>Select a source type to restrict the cards to a specific type.</p>
+</li>
+<li>
+<p>Select a card type to restrict the cards to replenishable or non-replenishable.</p>
+</li>
+<li>
+<p>Select a source organization to restrict the cards to a specific organization. If you select a source organization, you can also select a source subinventory. If you select a source subinventory, you can also select a source location.</p>
+</li>
+<li>
+<p>Select the sorting criteria. You can sort by:</p>
+<p>Kanban Card Number</p>
+<p>Subinventory</p>
+<p>Subinventory and then Locator</p>
+<p>Supplier and then Supplier Site</p>
+<p>Source Organization and then Source Subinventory and then Source Locator.</p>
+</li>
+<li>
+<p>Select the OK button to complete parameter selection.</p>
+</li>
+<li>
+<p>Select the Submit Request button in the Print Kanban Cards window.</p>
+</li>
+</ol>
+<h2><a name="1759455"></a><a id="T292369"></a><b>Replenishing Kanban Cards</b></h2>
+<p><a name="I_rplkbc" id="I_rplkbc"></a><a name="INVKBCRD_LOT_BASED_JOB" id="INVKBCRD_LOT_BASED_JOB"></a>When a kanban is empty, you can replenish it systematically. This will change the card status to empty and will trigger the necessary transactions to refill the kanban.</p>
+<ul>
+<li>
+<p>The supply type for the Kanban pull sequence equals production.</p>
+</li>
+<li>
+<p>The item is lot controlled.</p>
+</li>
+<li>
+<p>The primary routing for the kanban Item is network routing.</p>
+</li>
+</ul>
+<p><b>To replenish kanban cards</b></p>
+<ol>
+<li>
+<p>Navigate to the Kanban Cards Summary window. The Find Kanban Cards window appears.</p>
+</li>
+<li>
+<p>Enter search criteria and choose Find to locate the kanban card you want to replenish.</p>
+</li>
+<li>
+<p>Choose Replenish.</p>
+<p><strong><span>Note:</span></strong> If this item pertains to a lot based job complete the following steps.</p>
+</li>
+<li>
+<p>Enter the starting Lot number. The LOV shows all available inventory lots.</p>
+</li>
+<li>
+<p>Choose Replenish.</p>
+</li>
+</ol>
+<p><b>To replenish kanban cards using a bar code reader or RF terminal</b></p>
+<ol>
+<li>
+<p>See: Support of External Devices To Trigger Replenishment/Fill Kanbans<i>,</i> <i>Flow Manufacturing Implementation Manual</i>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Overview of Network Routings, <i>Oracle Shop Floor Management User's Guide</i></p>
+<p>Creating a Network Routing, <i>Oracle Shop Floor Management User's Guide</i></p>
+<h2><a name="1759458"></a><a id="T292331"></a><b>Replenishment Counting</b></h2>
+<p><a name="d0e94737" id="d0e94737"></a><a name="d0e94740" id="d0e94740"></a><a name="c_replcnt" id="c_replcnt"></a>Oracle Inventory provides additional methods for planning and replenishing inventories. Even if you are not maintaining perpetual on-hand balances-in non-tracked subinventories, for example-you can use the replenishment counting system to plan your inventories. This may be ideal for replenishing free stock items that you store on the production floor, or office supplies kept in departmental cabinets. Oracle Inventory even provides an open interface for loading replenishment count data collected electronically, such as with a hand held bar code reader.</p>
+<h3><a id="T292352"></a><b>Replenishment Counting Tracked Subinventories<a name="d0e94753" id="d0e94753"></a><a name="d0e94758" id="d0e94758"></a></b></h3>
+<p>In some situations, you may want to do your own planning and use Oracle Inventory to create your internal requisitions. When using the replenishment system in this manner, you provide the system with one of the following pieces of information (in addition to the item and subinventory):</p>
+<ul>
+<li>
+<p>Order quantity. You specify the quantity that is to be ordered.</p>
+</li>
+<li>
+<p>Order maximum quantity. Oracle Inventory orders the min-max maximum quantity.</p>
+</li>
+</ul>
+<p>You can enter this information in the Replenishment Counts window or through an external interface, using the replenishment interface tables. See: <a href="T291651T292324.htm#I_t_replcnt">Entering and Processing Replenishment Counts</a>.</p>
+<p>You must select a subinventory that has associated items to create the replenishment count.</p>
+<h3><a id="T292353"></a><b>Replenishment Counting Non-Tracked Subinventories<a name="d0e94798" id="d0e94798"></a><a name="d0e94803" id="d0e94803"></a></b></h3>
+<p>Planning and replenishment of non-quantity-tracked subinventories is different because Oracle Inventory cannot use perpetual system quantities. As you issue items from a subinventory without formal issuing procedures, it is necessary to take inventory of non-tracked subinventories to record item usage and determine reorder necessity.</p>
+<p>In order to determine when and how much to replenish, you periodically physically count the items in non-tracked subinventories. You enter the count details either through the Replenishment Counts window, or via a batch load transaction such as a bar code reader. Oracle Inventory permits on-hand quantity as an additional replenishment information type for non-tracked subinventories. If an on-hand quantity is entered, Oracle Inventory uses min-max planning to determine whether an order should be placed.</p>
+<h3><a id="T292354"></a><b>Processing Replenishment Counts<a name="d0e94822" id="d0e94822"></a></b></h3>
+<p>To process the replenishment counts and create requisitions for items that need to be ordered or move orders for items to be replenished from a subinventory, you run the Process Replenishment Counts program. See: <a href="T291651T292324.htm#I_t_replcnt">Entering and Processing Replenishment Counts</a>.</p>
+<h3><a id="T292355"></a><b>Planning Levels<a name="d0e94841" id="d0e94841"></a></b></h3>
+<p>You can only use the replenishment counting system at the subinventory level. To use replenishment counting, you must set up item-subinventory relationships using the Item Subinventories or Subinventory Items windows.</p>
+<h3><a id="T292356"></a><b>External Interface<a name="d0e94857" id="d0e94857"></a></b></h3>
+<p>Oracle Inventory provides an external interface for loading replenishment count data collected electronically, such as by a bar code reader. Once you have populated the replenishment interface tables, you can run the Validate Replenishment Interface program to validate the counts and put the information into the appropriate tables.</p>
+<h3><a id="T292357"></a><b>Replenishment Count Validations</b></h3>
+<p>When you assign an item to a subinventory or locator, it automatically assigns the item to a replenishment count header. Before you process a replenishment count the system performs validations to check if you made changes to the item setup subsequent to the creation of the replenishment count header. The system checks the following parameters:</p>
+<ul>
+<li>
+<p>Changes in subinventory.</p>
+</li>
+<li>
+<p>Changes in item-subinventory relationship.</p>
+</li>
+<li>
+<p>Changes in item-locator relationship.</p>
+</li>
+<li>
+<p>Changes to min-max planning item attribute for an item that is planned at the item-subinventory level. This restricts the count type you can perform for an item.</p>
+</li>
+<li>
+<p>Changes in minimum and maximum levels.</p>
+</li>
+<li>
+<p>Changes in item sourcing.</p>
+</li>
+</ul>
+<h3><a id="T292358"></a><b>PAR Replenishment Counts</b></h3>
+<p>Periodic Automated Replenishment (PAR) Level Counting enables facilities such as hospitals that do not store perpetual inventory to conduct locator level replenishment. PAR level counting enables you to perform locator level stock counting in non quantity tracked subinventories. The system generates the appropriate replenishment document based on the item sourcing for the subinventory if the stock level falls below the target on hand for the locator.</p>
+<p>For Example, if you wanted to count the items in the non-tracked subinventory Pediatrics B Wing you could count the items as follows:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Locator</b></th>
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Par Level</b></th>
+<th scope="col"><b>Par UOM</b></th>
+<th scope="col"><b>Source</b></th>
+<th scope="col"><b>Warehouse Stock Locator</b></th>
+</tr>
+<tr valign="top">
+<td>1.1.1</td>
+<td>A100</td>
+<td>Gloves</td>
+<td>5</td>
+<td>PR</td>
+<td>Subinventory</td>
+<td>6.3.2</td>
+</tr>
+<tr valign="top">
+<td>1.1.2</td>
+<td>B200</td>
+<td>Bandage</td>
+<td>10</td>
+<td>Box</td>
+<td>Supplier</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>1.1.3</td>
+<td>VF928</td>
+<td>Band-Aid</td>
+<td>50</td>
+<td>Ea</td>
+<td>Inventory</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>1.2.1</td>
+<td>SD342</td>
+<td>Mask</td>
+<td>15</td>
+<td>Ea</td>
+<td>Supplier</td>
+<td>N/A</td>
+</tr>
+</table>
+<ul>
+<li>
+<p>Locator- The locator within the Pediatrics B Wing Subinventory.</p>
+</li>
+<li>
+<p>Item-The tracked item within the Pediatrics B Wing Subinventory.</p>
+</li>
+<li>
+<p>Description- Description of the item.</p>
+</li>
+<li>
+<p>Par Level-The target number of items in the locator. If the Par Level falls below this number, the system automatically reorders the item.</p>
+</li>
+<li>
+<p>PAR UOM- The PAR Unit of Measure.</p>
+</li>
+<li>
+<p>Source- The item reorder source.</p>
+</li>
+<li>
+<p>Warehouse Stock Locator- If the item reorder source is the warehouse, the stock locator of the item within the warehouse.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_t_dsubinv">Defining Subinventories</a></p>
+<p><a href="T291651T292324.htm#I_t_replcnt">Entering and Processing Replenishment Counts</a></p>
+<p><a href="T291651T298833.htm#t_sub_itm">Assigning Subinventories to an Item</a></p>
+<h2><a name="1759466"></a><a id="T292332"></a><b>Sources of Replenishment</b></h2>
+<p><a name="d0e95246" id="d0e95246"></a><a name="d0e95251" id="d0e95251"></a><a name="I_c_replsrc" id="I_c_replsrc"></a>Oracle Inventory automatically generates external requisitions, internal requisitions, or move orders to replenish inventory levels using the orders suggested by min-max planning, reorder point planning, kanban planning, and replenishment counting. You determine the replenishment source by defining item sourcing rules at the item-subinventory, subinventory, item, or organization levels.</p>
+<p>External requisitions request stock from an outside supplier. Internal requisitions request stock from another inventory organization. Move orders request stock from another subinventory within the same organization.</p>
+<p>All items, subinventories, and organizations can have item sourcing information specified for them. At each level, you can choose whether items are replenished from another inventory organization or subinventory, or purchased from a supplier. In case of a conflict between the levels, Oracle Inventory uses the following order of precedence:</p>
+<ul>
+<li>
+<p>Sourcing information specified in the item-subinventory relationship</p>
+</li>
+<li>
+<p>Sourcing information specified in the subinventory definition</p>
+</li>
+<li>
+<p>Sourcing information specified in the item definition</p>
+</li>
+<li>
+<p>Sourcing information specified in the organization parameters</p>
+</li>
+</ul>
+<p>If you specify an item to be replenished from inventory, you must specify a source organization (source subinventory is optional). When an order is placed for this item, Oracle Inventory creates an internal requisition for the item from the source location. This is true when using organization or subinventory level min-max planning, replenishment counting, reorder point planning, and kanban planning.</p>
+<p>If the item source is a supplier, Oracle Inventory creates a purchase requisition to order the items from an outside supplier when reorder is necessary. This is true when using organization or subinventory level min-max planning, replenishment counting, reorder point planning, and kanban planning.</p>
+<p>If an item source is subinventory, Oracle Inventory creates a pre-approved replenishment move order to replenish supply when reorder is necessary. This is true when using subinventory level min-max planning, replenishment counting, and kanban planning. An item source of subinventory should only be used with subinventory level inventory replenishment.</p>
+<h2><a name="1759467"></a><a id="T292370"></a><b>Entering and Processing Replenishment Counts</b></h2>
+<p><a name="d0e95287" id="d0e95287"></a><a name="INVPTRPR.rep_hdr_wndw" id="INVPTRPR.rep_hdr_wndw"></a><a name="INVPTRPR.rep_line_wndw" id="INVPTRPR.rep_line_wndw"></a><a name="I_t_replcnt" id="I_t_replcnt"></a><a name="INVPTRPR.find_hdr_wndw" id="INVPTRPR.find_hdr_wndw"></a><a name="srs.incrpr" id="srs.incrpr"></a><a name="INVPTRPR.find_line_wndw" id="INVPTRPR.find_line_wndw"></a>You can enter counts to replenish subinventories. After entering the counts you can:</p>
+<ul>
+<li>
+<p>run the replenishment processor</p>
+</li>
+<li>
+<p>launch the Item Replenishment Count Report</p>
+</li>
+<li>
+<p>save the counts for future processing</p>
+</li>
+</ul>
+<p>You specify how the subinventories are replenished by determining how requisitions are generated.</p>
+<p><b>To enter replenishment count header information</b></p>
+<ol>
+<li>
+<p>Navigate to the Replenishment Count Headers window. The Find Replenishment Count Headers window appears.</p>
+</li>
+<li>
+<p>Choose New to display the Replenishment Count Headers window.</p>
+<p>To display existing count headers, enter search criteria and choose Find.</p>
+<p><img width="812" height="314" src="./img/invug_rplcnthd.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique name for the replenishment count.</p>
+</li>
+<li>
+<p>Enter the subinventory to replenish.</p>
+</li>
+<li>
+<p>Enter the supply cutoff date.</p>
+<p>Oracle Inventory may need on-hand quantity and supply information to verify whether to create replenishment requests. The replenishment count process considers only purchase orders and internal requisitions with receipt dates earlier than or equal to the supply cutoff date.</p>
+</li>
+<li>
+<p>Enter the count date.</p>
+</li>
+<li>
+<p>Optionally, enter a default delivery location to include on the requisition created by the replenishment processor.</p>
+</li>
+<li>
+<p>Optionally, select the Count Using Mobile check box. If you choose this checkbox you cannot enter count information from the desktop, you must enter it from the mobile device. You can view the counts from the desktop window, but the fields are not editable. If you do not select the checkbox, the counts are not visible in the mobile.</p>
+<p>If you select the check box, you can still enter replenishment count lines from either the desktop or the mobile, but you must perform the count on the mobile.</p>
+<p>If you choose Order Max or Order PAR on the subinventory window, and you select Count Using Mobile on the replenishment count header, you receive a warning: Count using Mobile cannot be used with default count type of Order Max or Order PAR. The system changes the default count type to order quantity.</p>
+</li>
+</ol>
+<p><b>To enter replenishment options and counts</b></p>
+<ol>
+<li>
+<p>Choose the Lines button or the Default Items button. The Replenishment Count Lines window appears.</p>
+<p><a name="d0e95370" id="d0e95370"></a><img width="755" height="504" src="./img/invug_repline.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the locator information in the locator field.</p>
+</li>
+<li>
+<p>Enter the item to count in the item field.</p>
+</li>
+<li>
+<p>Select a default <a name="d0e95394" id="d0e95394"></a>count type for how subinventories are replenished.</p>
+<p><i>On-Hand Quantity</i>: Use the quantity you enter as on-hand quantity to perform min-max comparison, calculate reorder quantity, and generate requisitions. This option does not display for tracked subinventories.</p>
+<p><i>Order Maximum</i>: Generate a replenishment requisition to automatically order the min-max maximum quantity as defined by the min-max planning information specific to that item and subinventory. You cannot enter a value in the Quantity field if you choose this option.</p>
+<p><i>Order Quantity</i>: Generate a replenishment requisition to order the quantity that you enter.</p>
+<p><i>Order Par:</i> Generate a replenishment count for the reorder quantity that you enter.</p>
+</li>
+<li>
+<p>Determine whether to default all items for processing. If you do not default all items you can choose specific items to include for processing. To default all items choose the Default Items button.</p>
+</li>
+<li>
+<p>Enter the item to be counted.</p>
+</li>
+<li>
+<p>Optionally, select a count type different from the one you selected as the default count type.</p>
+</li>
+<li>
+<p>Enter the unit of measure of the item. You cannot enter a value in this field if you chose <i>Order Maximum</i> as the count type.</p>
+</li>
+<li>
+<p>Enter the count quantity if you chose <i>On-Hand Quantity</i> for the count type, or enter the order quantity if you chose <i>Order Quantity</i> as the count type. You cannot enter a value in this field if you chose <i>Order Maximum</i> as the count type.</p>
+</li>
+<li>
+<p>Optionally, enter a reference note.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To process and report the count information</b></p>
+<ol>
+<li>
+<p>Return to the Replenishment Count Headers window.</p>
+<a name="d0e95472" id="d0e95472"></a></li>
+<li>
+<p>Choose an activity:</p>
+<p><i>Save</i>: You can save your changes but not run the replenishment processor. You can run the processor later.</p>
+<p><i>Process</i>: Choose the Process button to run the replenishment processor. After processing all the counts, the replenishment processor creates requisition information and saves it for reporting.</p>
+<p><i>Report</i>: Choose the Report button to run the Item Replenishment Count Report, or the PAR Replenishment Worksheet.</p>
+<p><i>Process and Report</i>: Choose the Process and Report button to run the replenishment processor. After processing all the counts, the replenishment processor creates requisition information and immediately runs the Item Replenishment Count Report, or the PAR Replenishment worksheet, depending the subinventory setup.</p>
+</li>
+</ol>
+<p><b>To process count information you saved for future processing</b></p>
+<ol>
+<li>
+<p>Navigate to the Process Replenishment Counts window. The Parameters window appears.</p>
+</li>
+<li>
+<p>Select either a concurrent or background processing mode.</p>
+</li>
+<li>
+<p>Enter the name of the replenishment count to process.</p>
+</li>
+<li>
+<p>Choose Submit.</p>
+</li>
+</ol>
+<p><b>To copy replenishment count headers</b></p>
+<ol>
+<li>
+<p>Select the replenishment count header to copy.</p>
+</li>
+<li>
+<p>Select Copy From from the Tools menu.</p>
+<p><img width="312" height="217" src="./img/invug_copyreplen.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter or select the replenishment count to copy in the Copy From field.</p>
+</li>
+<li>
+<p>Enter a new replenishment count in the Copy to field.</p>
+</li>
+<li>
+<p>Choose Copy to copy the replenishment count, or choose Cancel to cancel.</p>
+</li>
+</ol>
+<h2><a name="1759473"></a><a id="T292371"></a><b>Purging Replenishment Counts</b></h2>
+<p><a name="d0e95555" id="d0e95555"></a><a name="I_t_purgrepln" id="I_t_purgrepln"></a><a name="srs.incrpg" id="srs.incrpg"></a>You can purge replenishment information including the count name, counting methods, and quantities.</p>
+<p><b>To purge replenishment count information</b></p>
+<ol>
+<li>
+<p>Navigate to the Purge Replenishment Count window.</p>
+<p><img width="906" height="534" src="./img/invug_purrepcnt.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter <i>Purge replenishment count</i> in the Name field. The Parameters window appears.</p>
+</li>
+<li>
+<p>Enter the count name to be purged.</p>
+</li>
+<li>
+<p>Indicate whether to purge counts processed using a particular processing mode:</p>
+<p><i>Concurrent processing</i>: Purge count names processed by the concurrent processor.</p>
+<p><i>Background processing</i>: Purge all count names processed by background processing.</p>
+</li>
+<li>
+<p>Indicate whether you want to purge a count name even if an error occurred in the count. <i>No</i> indicates that you want to purge only count names that processed successfully without errors.</p>
+</li>
+<li>
+<p>Choose Submit to launch the process.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292324.htm#c_replcnt">Replenishment Counting</a></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

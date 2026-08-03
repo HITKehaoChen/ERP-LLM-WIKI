@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T447082.htm" title="Previous" type="text/html">
+<link rel="Next" href="index.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">35/36</span> <!-- End Header -->
+<h1>Importing Null Values - Attributes Not Supported</h1>
+<h2><a name="30117345"></a><a id="T2011472"></a><b>List of Attributes Not Supported During Importing Null Values</b></h2>
+<p><a name="d0e78734" id="d0e78734"></a><a name="imp_null" id="imp_null"></a>To import a null value for certain attributes of an order and its entities, IMPORT_NULL_VALUES attribute in headers interface table (OE_HEADERS_IFACE_ALL) must be set to &lsquo;Y&rsquo; for that order and Null Indicators that are defined as Meanings in the lookup Null Indicators for Attributes in Order Import for each data type should be passed for those attributes. However there are certain attributes in the interface tables that are not supported to be imported with Null values via Null Indicators.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Headers Iface</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>OE_HEADERS_IFACE_ALL</b></th>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG_CONTACT_ID</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_PARTY_ID</td>
+</tr>
+<tr valign="top">
+<td>SHIP_TO_PARTY_ID</td>
+</tr>
+<tr valign="top">
+<td>SHIP_TO_PARTY_SITE_ID</td>
+</tr>
+<tr valign="top">
+<td>SHIP_TO_PARTY_SITE_USE_ID</td>
+</tr>
+<tr valign="top">
+<td>DELIVER_TO_PARTY_ID</td>
+</tr>
+<tr valign="top">
+<td>DELIVER_TO_PARTY_SITE_ID</td>
+</tr>
+<tr valign="top">
+<td>DELIVER_TO_PARTY_SITE_USE_ID</td>
+</tr>
+<tr valign="top">
+<td>INVOICE_TO_PARTY_ID</td>
+</tr>
+<tr valign="top">
+<td>INVOICE_TO_PARTY_SITE_ID</td>
+</tr>
+<tr valign="top">
+<td>INVOICE_TO_PARTY_SITE_USE_ID</td>
+</tr>
+<tr valign="top">
+<td>END_CUSTOMER_PARTY_ID</td>
+</tr>
+<tr valign="top">
+<td>END_CUSTOMER_ORG_CONTACT_ID</td>
+</tr>
+<tr valign="top">
+<td>END_CUSTOMER_PARTY_SITE_ID</td>
+</tr>
+<tr valign="top">
+<td>END_CUSTOMER_PARTY_SITE_USE_ID</td>
+</tr>
+<tr valign="top">
+<td>END_CUSTOMER_PARTY_NUMBER</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_PARTY_NUMBER</td>
+</tr>
+<tr valign="top">
+<td>SHIP_TO_PARTY_NUMBER</td>
+</tr>
+<tr valign="top">
+<td>INVOICE_TO_PARTY_NUMBER</td>
+</tr>
+<tr valign="top">
+<td>DELIVER_TO_PARTY_NUMBER</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_CUSTOMER_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SHIP_ADDRESS_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_BILL_ADDRESS_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_DELIVER_ADDRESS_REF</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_CONTACT_REF</td>
+</tr>
+<tr valign="top">
+<td>SHIP_TO_CONTACT_REF</td>
+</tr>
+<tr valign="top">
+<td>BILL_TO_CONTACT_REF</td>
+</tr>
+<tr valign="top">
+<td>DELIVER_TO_CONTACT_REF</td>
+</tr>
+<tr valign="top">
+<td>CANCELLED_FLAG</td>
+</tr>
+<tr valign="top">
+<td>CLOSED_FLAG</td>
+</tr>
+<tr valign="top">
+<td>REJECTED_FLAG</td>
+</tr>
+<tr valign="top">
+<td>RESPONSE_FLAG</td>
+</tr>
+<tr valign="top">
+<td>READY_FLAG</td>
+</tr>
+<tr valign="top">
+<td>FORCE_APPLY_FLAG</td>
+</tr>
+<tr valign="top">
+<td>BOOKED_FLAG</td>
+</tr>
+<tr valign="top">
+<td>ORDER_SOURCE_ID</td>
+</tr>
+<tr valign="top">
+<td>ORDER_SOURCE</td>
+</tr>
+<tr valign="top">
+<td>CHANGE_SEQUENCE</td>
+</tr>
+<tr valign="top">
+<td>ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>OPERATION_CODE</td>
+</tr>
+<tr valign="top">
+<td>ERROR_FLAG</td>
+</tr>
+<tr valign="top">
+<td>STATUS_FLAG</td>
+</tr>
+<tr valign="top">
+<td>REQUEST_ID</td>
+</tr>
+<tr valign="top">
+<td>INTERFACE_STATUS</td>
+</tr>
+<tr valign="top">
+<td>INST_ID</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_DOCUMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>XML_MESSAGE_ID</td>
+</tr>
+<tr valign="top">
+<td>XML_TRANSACTION_TYPE_CODE</td>
+</tr>
+<tr valign="top">
+<td>INELIGIBLE_FOR_HVOP</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_ID</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_UPDATE_DATE</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_APPLICATION_ID</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Lines Iface</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>OE_LINES_IFACE_ALL</b></th>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_1</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_2</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_3</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_4</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_5</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_6</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_7</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_8</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_9</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_10</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_11</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_12</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_13</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_14</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_15</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_16</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_17</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_18</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_19</td>
+</tr>
+<tr valign="top">
+<td>INVENTORY_ITEM_SEGMENT_20</td>
+</tr>
+<tr valign="top">
+<td>SHIP_TO_PARTY_ID</td>
+</tr>
+<tr valign="top">
+<td>SHIP_TO_PARTY_SITE_ID</td>
+</tr>
+<tr valign="top">
+<td>SHIP_TO_PARTY_SITE_USE_ID</td>
+</tr>
+<tr valign="top">
+<td>DELIVER_TO_PARTY_ID</td>
+</tr>
+<tr valign="top">
+<td>DELIVER_TO_PARTY_SITE_ID</td>
+</tr>
+<tr valign="top">
+<td>DELIVER_TO_PARTY_SITE_USE_ID</td>
+</tr>
+<tr valign="top">
+<td>INVOICE_TO_PARTY_ID</td>
+</tr>
+<tr valign="top">
+<td>INVOICE_TO_PARTY_SITE_ID</td>
+</tr>
+<tr valign="top">
+<td>INVOICE_TO_PARTY_SITE_USE_ID</td>
+</tr>
+<tr valign="top">
+<td>END_CUSTOMER_PARTY_ID</td>
+</tr>
+<tr valign="top">
+<td>END_CUSTOMER_ORG_CONTACT_ID</td>
+</tr>
+<tr valign="top">
+<td>END_CUSTOMER_PARTY_SITE_ID</td>
+</tr>
+<tr valign="top">
+<td>END_CUSTOMER_PARTY_SITE_USE_ID</td>
+</tr>
+<tr valign="top">
+<td>END_CUSTOMER_PARTY_NUMBER</td>
+</tr>
+<tr valign="top">
+<td>SHIP_TO_PARTY_NUMBER</td>
+</tr>
+<tr valign="top">
+<td>INVOICE_TO_PARTY_NUMBER</td>
+</tr>
+<tr valign="top">
+<td>DELIVER_TO_PARTY_NUMBER</td>
+</tr>
+<tr valign="top">
+<td>ORIG_BILL_ADDRESS_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_DELIVER_ADDRESS_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SHIP_ADDRESS_REF</td>
+</tr>
+<tr valign="top">
+<td>SHIP_TO_CONTACT_REF</td>
+</tr>
+<tr valign="top">
+<td>BILL_TO_CONTACT_REF</td>
+</tr>
+<tr valign="top">
+<td>DELIVER_TO_CONTACT_REF</td>
+</tr>
+<tr valign="top">
+<td>CANCELLED_FLAG</td>
+</tr>
+<tr valign="top">
+<td>REJECTED_FLAG</td>
+</tr>
+<tr valign="top">
+<td>ORDER_SOURCE_ID</td>
+</tr>
+<tr valign="top">
+<td>CHANGE_SEQUENCE</td>
+</tr>
+<tr valign="top">
+<td>ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>OPERATION_CODE</td>
+</tr>
+<tr valign="top">
+<td>ERROR_FLAG</td>
+</tr>
+<tr valign="top">
+<td>STATUS_FLAG</td>
+</tr>
+<tr valign="top">
+<td>REQUEST_ID</td>
+</tr>
+<tr valign="top">
+<td>INTERFACE_STATUS</td>
+</tr>
+<tr valign="top">
+<td>INST_ID</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_DOCUMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_LINE_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_SHIPMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>SPLIT_FROM_LINE_REF</td>
+</tr>
+<tr valign="top">
+<td>SPLIT_FROM_SHIPMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>XML_TRANSACTION_TYPE_CODE</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_ID</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_UPDATE_DATE</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_APPLICATION_ID</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Price Adjustment Iface</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>OE_PRICE_ADJS_IFACE_ALL</b></th>
+</tr>
+<tr valign="top">
+<td>CHANGE_SEQUENCE</td>
+</tr>
+<tr valign="top">
+<td>OPERATION_CODE</td>
+</tr>
+<tr valign="top">
+<td>INTERFACE_STATUS</td>
+</tr>
+<tr valign="top">
+<td>ERROR_FLAG</td>
+</tr>
+<tr valign="top">
+<td>STATUS_FLAG</td>
+</tr>
+<tr valign="top">
+<td>INST_ID</td>
+</tr>
+<tr valign="top">
+<td>ORDER_SOURCE_ID</td>
+</tr>
+<tr valign="top">
+<td>REQUEST_ID</td>
+</tr>
+<tr valign="top">
+<td>ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_DISCOUNT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_DOCUMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_LINE_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_SHIPMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_ID</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Price Attributes Iface</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>OE_PRICE_ATTS_IFACE_ALL</b></th>
+</tr>
+<tr valign="top">
+<td>CHANGE_SEQUENCE</td>
+</tr>
+<tr valign="top">
+<td>OPERATION_CODE</td>
+</tr>
+<tr valign="top">
+<td>INTERFACE_STATUS</td>
+</tr>
+<tr valign="top">
+<td>ERROR_FLAG</td>
+</tr>
+<tr valign="top">
+<td>STATUS_FLAG</td>
+</tr>
+<tr valign="top">
+<td>INST_ID</td>
+</tr>
+<tr valign="top">
+<td>ORDER_SOURCE_ID</td>
+</tr>
+<tr valign="top">
+<td>REQUEST_ID</td>
+</tr>
+<tr valign="top">
+<td>ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_ATTS_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_DOCUMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_LINE_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_SHIPMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_ID</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_UPDATE_DATE</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_APPLICATION_ID</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Credits Iface</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>OE_CREDITS_IFACE_ALL</b></th>
+</tr>
+<tr valign="top">
+<td>CHANGE_SEQUENCE</td>
+</tr>
+<tr valign="top">
+<td>OPERATION_CODE</td>
+</tr>
+<tr valign="top">
+<td>INTERFACE_STATUS</td>
+</tr>
+<tr valign="top">
+<td>ERROR_FLAG</td>
+</tr>
+<tr valign="top">
+<td>STATUS_FLAG</td>
+</tr>
+<tr valign="top">
+<td>INST_ID</td>
+</tr>
+<tr valign="top">
+<td>ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>ORDER_SOURCE_ID</td>
+</tr>
+<tr valign="top">
+<td>REQUEST_ID</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_DOCUMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_LINE_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_CREDIT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_SHIPMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_ID</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_UPDATE_DATE</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_APPLICATION_ID</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Lotserial Iface</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>OE_LOTSERIALS_IFACE_ALL</b></th>
+</tr>
+<tr valign="top">
+<td>ERROR_FLAG</td>
+</tr>
+<tr valign="top">
+<td>ORDER_SOURCE_ID</td>
+</tr>
+<tr valign="top">
+<td>CHANGE_SEQUENCE</td>
+</tr>
+<tr valign="top">
+<td>INTERFACE_STATUS</td>
+</tr>
+<tr valign="top">
+<td>STATUS_FLAG</td>
+</tr>
+<tr valign="top">
+<td>REQUEST_ID</td>
+</tr>
+<tr valign="top">
+<td>INST_ID</td>
+</tr>
+<tr valign="top">
+<td>ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>OPERATION_CODE</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_DOCUMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_SHIPMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_LINE_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_LOTSERIAL_REF</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_ID</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_UPDATE_DATE</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_APPLICATION_ID</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Payments Iface</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>OE_PAYMENTS_IFACE_ALL</b></th>
+</tr>
+<tr valign="top">
+<td>CHANGE_SEQUENCE</td>
+</tr>
+<tr valign="top">
+<td>OPERATION_CODE</td>
+</tr>
+<tr valign="top">
+<td>INTERFACE_STATUS</td>
+</tr>
+<tr valign="top">
+<td>ERROR_FLAG</td>
+</tr>
+<tr valign="top">
+<td>STATUS_FLAG</td>
+</tr>
+<tr valign="top">
+<td>INST_ID</td>
+</tr>
+<tr valign="top">
+<td>ORDER_SOURCE_ID</td>
+</tr>
+<tr valign="top">
+<td>REQUEST_ID</td>
+</tr>
+<tr valign="top">
+<td>ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_PAYMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_DOCUMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_LINE_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_SHIPMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_ID</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_UPDATE_DATE</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_APPLICATION_ID</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Billing Plans Iface</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>OE_BILLING_PLANS_IFACE_ALL</b></th>
+</tr>
+<tr valign="top">
+<td>ORDER_SOURCE_ID</td>
+</tr>
+<tr valign="top">
+<td>CHANGE_SEQUENCE</td>
+</tr>
+<tr valign="top">
+<td>ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>OPERATION_CODE</td>
+</tr>
+<tr valign="top">
+<td>ERROR_FLAG</td>
+</tr>
+<tr valign="top">
+<td>REQUEST_ID</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_DOCUMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_BILL_PLAN_HDR_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_BILL_PLAN_LINE_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_BPLAN_USG_TIER_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_LINE_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_SHIPMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>OE_PAYMENTS_IFACE_ALL</td>
+</tr>
+<tr valign="top">
+<td>ERROR_FLAG</td>
+</tr>
+<tr valign="top">
+<td>ORDER_SOURCE_ID</td>
+</tr>
+<tr valign="top">
+<td>CHANGE_SEQUENCE</td>
+</tr>
+<tr valign="top">
+<td>ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>INTERFACE_STATUS</td>
+</tr>
+<tr valign="top">
+<td>STATUS_FLAG</td>
+</tr>
+<tr valign="top">
+<td>OPERATION_CODE</td>
+</tr>
+<tr valign="top">
+<td>REQUEST_ID</td>
+</tr>
+<tr valign="top">
+<td>INST_ID</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG</td>
+</tr>
+<tr valign="top">
+<td>SOLD_TO_ORG_ID</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_DOCUMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_LINE_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_PAYMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYS_SHIPMENT_REF</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_ID</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_UPDATE_DATE</td>
+</tr>
+<tr valign="top">
+<td>PROGRAM_APPLICATION_ID</td>
+</tr>
+</table>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

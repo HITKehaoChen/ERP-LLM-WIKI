@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T374816.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T374818.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">9/36</span> <!-- End Header -->
+<h1>Oracle Configurator Setup Requirements</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T374856">Overview</a></li>
+<li><a href="#T374857">Configurator</a></li>
+</ul>
+<h2><a name="2973330"></a><a id="T374856"></a><b>Overview</b></h2>
+<p>This chapter details the necessary setup needed to access the Configurator in Oracle Order Management. For details on implementing Configure to Order (CTO), refer to the <i>Oracle Configure to Order Implementation Manual.</i> Refer to the section on Configure to Order Process to see how Order Management is integrated with CTO, ATO, PTO and KITS and how these items are processed to their fulfillment.</p>
+<h2><a name="2973331"></a><a id="T374857"></a><b>Configurator</b></h2>
+<p>You must have the following setup in place before using the CTO process and Configurator window in the Sales Order Window:</p>
+<h3><a id="T374872"></a><b>Installation Status</b></h3>
+<p>The status of configurator product must be in complete installed mode (<b>Status = &lsquo;I'</b>).</p>
+<h3><a id="T374873"></a><b>Profile OM: Included Item Freeze Method</b></h3>
+<p>This profile determines when included items for Model, Class or Kit are frozen. Once the included items are frozen, they cannot be re-exploded. The profile has the following values:</p>
+<ul>
+<li>
+<p>Entry <b>-</b> Indicates included items will be exploded at the time the MODEL, CLASS or KIT is entered</p>
+</li>
+<li>
+<p>Booking <b>-</b> If the profile value is booking, the included items will be exploded at the time of booking</p>
+</li>
+<li>
+<p>Pick Release - If the profile value is pick release, the included items will be exploded when the parent line reaches workflow activity 'SHIP_LINE' in the flow</p>
+</li>
+<li>
+<p>None: When the profile is set to this value, the included items will not be processed. Even if the model has included items defined in its BOM, these will not be reflected in Order Management.</p>
+</li>
+</ul>
+<h3><a id="T374874"></a><b>Profile BOM:Configurator URL of UI Manager</b></h3>
+<p>This profile option indicates the Oracle Configurator Servlet URL, which is where the Oracle Configurator Servlet resides. This profile option must be set correctly for the host application to locate the Oracle Configurator Servlet. The person installing Oracle Applications supplies this URL when running Oracle Rapid Install. Oracle Rapid Install uses this information as the default value for BOM: Configurator URL of UI Manager. If you recently upgraded to a new version of Oracle Configurator, verify that this profile option is set correctly.</p>
+<p>All URLs in your profile options should be specified with the URL format:</p>
+<p><i>machine_name.domain:port_number;</i> where <i>machine_name</i> is the name of the server machine, domain is your domain name, and <i>port_number</i> is the port where your service is running. The Apache server port is typically 880n. For example: http://appsmachine.appsdomain:8800/configurator/oracle.apps.cz.servlet.UiServlet.</p>
+<p><strong>Related Topics</strong></p>
+<p><i>Oracle Configurator Implementation Guide</i></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

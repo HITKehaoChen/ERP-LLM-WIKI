@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Shipping Execution User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Shipping Execution User's Guide">
+<meta name="dcterms.identifier" content="E48847-15">
+<meta name="dcterms.isVersionOf" content="WSHUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T414830T414837.htm" title="Previous" type="text/html">
+<link rel="Next" href="T414830T414839.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Shipping Execution User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">10/23</span> <!-- End Header -->
+<h1>Managing Delivery Lines</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T414857">Overview of Delivery Lines</a></li>
+<li><a href="#T414858">Viewing the Status of a Delivery Line</a></li>
+<li><a href="#T435256">Delivery Line Statuses</a></li>
+<li><a href="#T414973">Viewing Delivery Line Status</a></li>
+<li><a href="#T414974">Splitting Delivery Lines</a></li>
+<li><a href="#T414975">Transferring Delivery Lines to Cycle Counting</a></li>
+<li><a href="#T414976">Assigning Delivery Lines to a Delivery</a></li>
+<li><a href="#T414977">Unassigning Delivery Lines From a Delivery</a></li>
+<li><a href="#T667878">Unassigning Delivery Lines From a Transportation Batch</a></li>
+<li><a href="#T414978">Auto-Creating Deliveries for Delivery Lines</a></li>
+<li><a href="#T414979">Auto-Creating a Trip for Delivery Lines</a></li>
+<li><a href="#T435190">Purging Delivery Lines</a></li>
+<li><a href="#T414980">Assigning Freight Costs to Delivery Lines</a></li>
+<li><a href="#T673386">Back Ordering Delivery Lines</a></li>
+<li><a href="#T414859">Calculating Weight and Volume for Delivery Lines</a></li>
+<li><a href="#T414981">Pick Releasing Delivery Lines From the Shipping Transactions Window</a></li>
+<li><a href="#T662233">Pick Releasing Delivery Lines From the Shipping Execution Simplified User Interface</a></li>
+<li><a href="#T414860">Managing Sales Order Changes</a></li>
+<li><a href="#T668156">Entering Serial Numbers for Delivery Lines</a></li>
+</ul>
+<h2><a name="3573648"></a><a id="T414857"></a><b>Overview of Delivery Lines</b></h2>
+<p><a name="d0e10497" id="d0e10497"></a><a name="o_lines" id="o_lines"></a><a name="hlplines" id="hlplines"></a><a name="t_unasdv" id="t_unasdv"></a><a name="DetailSearchPG" id="DetailSearchPG"></a><a name="DetailPG" id="DetailPG"></a>A booked order line that is eligible to be shipped can be viewed as a delivery line in the Shipping Transactions window and in the Shipping Execution Simplified User Interface. Delivery lines with common attributes such as Ship From and Ship To addresses can be grouped together as a delivery. Delivery lines from different sales orders can be grouped together as a single delivery.</p>
+<p>You can manage these tasks for delivery lines:</p>
+<ul>
+<li>
+<p><a href="T414830T414838.htm#viewstat">View status of a delivery line</a></p>
+</li>
+<li>
+<p><a href="T414830T414838.htm#split">Split delivery lines</a></p>
+</li>
+<li>
+<p><a href="T414830T414838.htm#xfer">Transfer delivery lines to cycle counting</a></p>
+</li>
+<li>
+<p><a href="T414830T414838.htm#asdel">Assign delivery lines to a delivery</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#unas">Unassign delivery lines from a delivery</a></p>
+</li>
+<li>
+<p><a href="T414830T414838.htm#auto">Auto-create deliveries for delivery lines</a></p>
+</li>
+<li>
+<p><a href="T414830T414838.htm#autotrp">Auto-create a trip for delivery lines</a></p>
+</li>
+<li>
+<p><a href="T414830T414838.htm#frtcstdelln">Assign freight costs to delivery lines</a></p>
+</li>
+<li>
+<p><a href="T414830T414838.htm#made_baordeli">Back order delivery lines</a></p>
+</li>
+<li>
+<p><a href="T414830T414838.htm#calcwtvol">Calculate weight and volume for delivery lines</a></p>
+</li>
+<li>
+<p><a href="T414830T414838.htm#pkrel">Pick release delivery lines</a></p>
+</li>
+<li>
+<p><a href="T414830T414838.htm#mgso">Manage sales order changes</a></p>
+<p><strong><span>Note:</span></strong> The Line/LPN, Inventory Details, and Source regions on the Line window include dual unit of measure, grade, and lot process fields. If the OPM item is dual UOM controlled, lot controlled, and has a grade, then you will see values in these fields. Otherwise, these fields will be blank.</p>
+<p>Refer to <i>Using Oracle Order Management with Process Inventory</i> for description of process fields.</p>
+</li>
+</ul>
+<p>The application does not enable the following actions for delivery lines, if you have set Fulfillment Batch as the value for WSH: Distributed Source Entity profile option:</p>
+<ul>
+<li>
+<p>Auto-create deliveries</p>
+</li>
+<li>
+<p>Assign to delivery</p>
+</li>
+<li>
+<p>Auto-create trip</p>
+</li>
+<li>
+<p>Auto-pack</p>
+</li>
+<li>
+<p>Auto-pack master</p>
+</li>
+<li>
+<p>Launch pick release</p>
+</li>
+<li>
+<p>Pack</p>
+</li>
+<li>
+<p>Unpack</p>
+</li>
+<li>
+<p>Packing workbench</p>
+</li>
+<li>
+<p>Pick and ship</p>
+</li>
+<li>
+<p>Pick, pack, and ship</p>
+</li>
+<li>
+<p>Cycle count</p>
+</li>
+</ul>
+<h2><a name="3573649"></a><a id="T414858"></a><b>Viewing the Status of a Delivery Line</b></h2>
+<p><a name="d0e10613" id="d0e10613"></a><a name="d0e10619" id="d0e10619"></a><a name="t_lines_viewstatus" id="t_lines_viewstatus"></a><a name="viewstat" id="viewstat"></a>The released status of a delivery line identifies its progress through the shipping process. A typical shipping process includes the following stages: orders are entered, booked, scheduled, and the delivery detail goes to Ready to Release status where the next step is pick release. Then the order is pick released, and the delivery detail goes to either staged/pick confirmed status or to released to warehouse. You can view released status in the:</p>
+<p><b>Oracle Shipping Execution</b></p>
+<ul>
+<li>
+<p>Shipping Transaction window</p>
+</li>
+<li>
+<p>Quick Ship window</p>
+</li>
+<li>
+<p>Shipping Execution Simplified User Interface</p>
+</li>
+</ul>
+<p><b>Oracle Order Management</b></p>
+<ul>
+<li>
+<p>Additional Order Information window</p>
+<p>Navigation: Sales Orders window - Order Information tab &gt; Actions &gt; Additional Order Information &gt; Deliveries tab</p>
+</li>
+<li>
+<p>Additional Line Information window</p>
+<p>Navigation: Sales Orders window - Line Items tab &gt; Actions &gt; Additional Order Information &gt; Deliveries tab</p>
+</li>
+</ul>
+<h2><a name="3909252"></a><a id="T435256"></a><b>Delivery Line Statuses</b></h2>
+<a name="d0e10659" id="d0e10659"></a><a name="d0e10665" id="d0e10665"></a><a name="t_dlstat" id="t_dlstat"></a>
+<h3><a id="T414914"></a><b>Not Applicable</b></h3>
+<p>The delivery line is invoiceable but non-shippable, for example, a service line or a warranty line.</p>
+<h3><a id="T414915"></a><b>Not Ready to Release</b></h3>
+<p>The delivery line is not eligible for pick release.</p>
+<p>Occurs when the order line is manually imported into Oracle Shipping Execution using the Import Delivery Line concurrent process. It has not reached the Awaiting Shipping workflow activity. It is not scheduled and has no reservations.</p>
+<h3><a id="T414916"></a><b>Ready to Release</b></h3>
+<p>The delivery line is eligible for pick release.</p>
+<p>Occurs when the order line has reached the Awaiting Shipping workflow activity (it is booked, scheduled, and in Oracle Shipping Execution).</p>
+<p><strong><span>Note:</span></strong> Only lines that are in Ready to Release status will be considered for Pick and Ship and Pick, Pack, and Ship processes.</p>
+<h3><a id="T414917"></a><b>Released to Warehouse</b></h3>
+<p>Pick release has processed the delivery line and has:</p>
+<ul>
+<li>
+<p>Created move order headers and lines.</p>
+</li>
+<li>
+<p>Found available quantity and created inventory allocations.</p>
+</li>
+<li>
+<p>Not pick confirmed. If you want to progress the delivery lines, navigate to Oracle Inventory Move Order Transaction window and perform manual pick confirm.</p>
+</li>
+</ul>
+<h3><a id="T452992"></a><b>Planned for Crossdocking</b></h3>
+<p>Crossdocking in Oracle Warehouse Management refers to the use of inbound receipts to satisfy outbound demands. Planned crossdocking occurs during pick release when Oracle Warehouse Management uses release sequence rules to sequence demand sources, and fulfills the demand based on the allocation method specified during pick release. When you run pick release, the system uses the allocation method to determine whether crossdock should be planned. A delivery line in <i>Planned for Crossdocking</i> status indicates that a crossdock supply has been identified and the delivery line has been pick released.</p>
+<p>For more information, see the <i>Oracle Warehouse Management User's Guide</i>, Oracle Warehouse Management Crossdocking.</p>
+<p><strong><span>Note:</span></strong> The crossdocking feature is valid only for Oracle Warehouse Management-enabled organizations.</p>
+<h3><a id="T414918"></a><b>Staged/Pick Confirmed</b></h3>
+<p>The delivery line is pick confirmed; inventory is transferred from storage sub inventory to staging sub inventory. Oracle Order Managements Line Item tab shows the status as Picked.</p>
+<p>It remains staged until ship confirm.</p>
+<h3><a id="T414919"></a><b>Backordered</b></h3>
+<p>Any of the following circumstances will cause this delivery line status to occur:</p>
+<ul>
+<li>
+<p>Pick release has processed the delivery line and cannot find the entire quantity.</p>
+<p>This typically occurs when the inventory balance indicates that there is not enough material (either because there is not enough material or because the inventory balance is incorrect).</p>
+</li>
+<li>
+<p>At ship confirm, you:</p>
+<ul>
+<li>
+<p>Enter Shipped Quantity that is less than original Requested Quantity.</p>
+</li>
+<li>
+<p>Back order the entire delivery quantity.</p>
+</li>
+<li>
+<p>Transfer a reservation to cycle count.</p>
+<p>This typically occurs when the material that you want to ship:</p>
+</li>
+<li>
+<p>Has become unavailable, for example, damaged between picking and shipping.</p>
+</li>
+<li>
+<p>Is not available. There is a discrepancy between the actual quantity and the system quantity. The discrepant quantities are moved to cycle count and the remainder ship.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>In the <b>Lines/LPNs</b> tab of the <b>Shipping Transactions</b> window, you can select Backorder from the <b>Actions</b> list for delivery lines that are staged and need to be backordered. For more information about how to back order material, see <a href="T414830T414838.htm#made_baordeli"><i>Back Ordering Delivery Lines</i></a>.</p>
+<h3><a id="T414920"></a><b>Shipped</b></h3>
+<p>The delivery line is ship confirmed and posted as intransit, interface to Oracle Order Management and Oracle Inventory has not completed, or has been deferred.</p>
+<h3><a id="T414921"></a><b>Interfaced</b></h3>
+<p>Delivery sourced from Oracle Order Management: The delivery line is shipped and the OM Interface and Inventory Interface concurrent processes have completed.</p>
+<p>Delivery sourced from all other Oracle Applications: The delivery line is shipped and the Inventory Interface concurrent process has completed.</p>
+<h3><a id="T414922"></a><b>Cancelled</b></h3>
+<p>The sales order line that the delivery line supports is cancelled.</p>
+<h3><a id="T516875"></a><b>Replenishment Requested</b></h3>
+<p>Forward pick replenishment is an important activity in a warehouse. By replenishing a forward pick area, a distribution center disaggregates material stored in a reserve or bulk area and moves it to a pick area that is optimized for unite picking. Replenishment to a forward pick area allows a distribution center to reap the benefits of bulk procurement and optimized storage in a reserve area as well as optimized picking for order profiles with smaller quantities. The replenishment types are available:</p>
+<ul>
+<li>
+<p>Pull Replenishment: A replenishment suggestion is auto-created as soon as a shortfall is detected during the order release process. This type of replenishment is useful for items with high uniform demand in forward pick areas.</p>
+</li>
+<li>
+<p>Push Replenishment: Using push replenishment, the aggregated future demand for an item is replenished to a forward pick area for future picking activity. This type of replenishment is useful for items with irregular demand in a forward pick area.</p>
+</li>
+<li>
+<p>Dynamic Execution: Dynamic execution orchestrates the warehouse tasks in such a way that a pick task to a forward pick area will be dispatched only when replenishment has been completed. Similarly a replenishment task will be dispatched only when a forward pick area has enough capacity to receive the replenished material.</p>
+</li>
+</ul>
+<p>If the quantity is not available in the correct pick unit of measure, instead of backordering the quantity, the delivery lines are assigned a status of <i>Replenishment Requested</i>.</p>
+<ul>
+<li>
+<p>Supports the Forward Pick Replenishment feature in Oracle Warehouse Management System (WMS).</p>
+</li>
+<li>
+<p>The Replenishment Requested status is assigned only when <i>Pull</i> or <i>Push</i> replenishment is initiated.</p>
+</li>
+</ul>
+<h3><a id="T516876"></a><b>Replenishment Completed</b></h3>
+<p>The warehouse management system changes the status of delivery detail lines from <i>Replenishment Requested</i> to <i>Replenishment Completed</i> after Oracle Warehouse Management releases the tasks that are associated with the replenishment requested delivery lines.</p>
+<p><strong><span>Note:</span></strong> Supports the Forward Pick Replenishment feature in Oracle Warehouse Management System (WMS).</p>
+<p><strong>Related Topics</strong></p>
+<p><i>Oracle Warehouse Management User's Guide,</i> Dynamic Replenishment.</p>
+<h2><a name="3573659"></a><a id="T414973"></a><b>Viewing Delivery Line Status</b></h2>
+<p><a name="d0e10866" id="d0e10866"></a><a name="t_linestatus" id="t_linestatus"></a><b>To View the Status of a Delivery Line Using the Shipping Transactions Window<a name="d0e10877" id="d0e10877"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery lines.</p>
+</li>
+<li>
+<p>Find the column named Line Status to see the status of the delivery line, or select the line and click <b>Detail</b> to display the line details and the Line Status field.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+<li>
+<p>If the delivery line is for a contract deliverable from Oracle Project Contracts:</p>
+<ul>
+<li>
+<p>Navigate: Tools &gt; Show Contract Details.</p>
+</li>
+<li>
+<p>View the contract details on the web page that displays.</p>
+<p><b>Oracle Project Contracts Screen - View a Contract</b></p>
+<p><img width="1021" height="619" src="./img/wshug_prctinfo.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To View the Status of a Delivery Line Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e10921" id="d0e10921"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines for which you want to view the status, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To View the Status of a Delivery Line Using the Search Details Page</b></p>
+<ul>
+<li>
+<p>The status of a delivery line is displayed in the Status column of the search results table.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> You can also view the status of a delivery line by performing the steps above from the Details page when any infotile is selected.</p>
+<p><b>To View the Status of a Delivery Line Using the Detail Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Details page appears.</p>
+</li>
+<li>
+<p>The status of a delivery line is displayed in the Line Status field.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573662"></a><a id="T414974"></a><b>Splitting Delivery Lines</b></h2>
+<p><a name="d0e10977" id="d0e10977"></a><a name="t_lines_splt" id="t_lines_splt"></a><a name="WSHFSTRX.SPLIT_LINE" id="WSHFSTRX.SPLIT_LINE"></a><a name="split" id="split"></a>You split delivery lines under various situations. You might split a delivery line to accommodate packing requirements, or when a backorder occurs.</p>
+<p><b>To Split Delivery Lines Using the Shipping Transactions Window<a name="d0e10992" id="d0e10992"></a><a name="splitdevlstw" id="splitdevlstw"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery line(s) you want to split.</p>
+</li>
+<li>
+<p>Select the delivery line you want to split.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Split Line.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><b>Split Delivery Line window</b></p>
+<p><img width="1116" height="287" src="./img/wshug_spdelln.gif" alt="the picture is described in the document text"></p>
+<p>The Original Quantity displays the line quantity.</p>
+</li>
+<li>
+<p>Enter the quantity you want to split.</p>
+<p>For example, if you split 9 items from a line consisting of 10 items, two delivery lines would result: one line with one item, and the second line with nine items.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+<p>The delivery lines are split into two lines.</p>
+<p>Set the profile option <i>WSH: Ship Confirm with Source Requested Quantity UOM</i> to <b>Yes</b> to enter values in the <b>Source</b> region.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p><strong><span>Note:</span></strong> When you split a staged delivery detail and when fulfillment base of the order line is secondary, the application checks for deviation not only in the new detail being created, but also on the quantities remaining on the original detail. If the quantities on original detail do not meet deviation, then the application displays an error message saying that the remaining quantity is higher than the allowed deviation for the item. You must reenter the quantity.</p>
+<p>For information regarding fulfillment base of the line, see Defining Sales Order Line Shipping Information, <i>Oracle Order Management User's Guide</i>.</p>
+</li>
+</ol>
+<p><b>To Split Delivery Lines Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e11071" id="d0e11071"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines that you want to split, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Split Delivery Lines Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one delivery line by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Split Line.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Split Line page appears displaying the delivery line quantity in the Original Quantity field.</p>
+</li>
+<li>
+<p>Enter the split information.</p>
+<p>For more information on how to split a delivery line, see the <a href="T414830T414838.htm#splitdevlstw">procedure: To Split Delivery Lines Using the Shipping Transactions Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+<p><strong><span>Note:</span></strong> You can also split a delivery line by performing the steps above from the Details page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To Split Delivery Lines Using the Detail Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Detail page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Split Line.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Split Line page appears displaying the delivery line quantity in the Original Quantity field.</p>
+</li>
+<li>
+<p>Enter the split information.</p>
+<p>For more information on how to split a delivery line, see the <a href="T414830T414838.htm#splitdevlstw">procedure: To Split Delivery Lines Using the Shipping Transactions Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573665"></a><a id="T414975"></a><b>Transferring Delivery Lines to Cycle Counting</b></h2>
+<p><a name="d0e11174" id="d0e11174"></a><a name="t_lines_xfercc" id="t_lines_xfercc"></a><a name="WSHFSTRX.CYCLE.COUNT" id="WSHFSTRX.CYCLE.COUNT"></a><a name="xfer" id="xfer"></a>You can transfer delivery lines to cycle counting to manage inventory discrepancies.</p>
+<p>If you back order a line with an inventory discrepancy, the backorder removes the reservation so that the quantity of the backorder remains available until you perform an inventory adjustment to correct it. The unavailable item could be pick released again before you perform the inventory adjustment transaction, unnecessarily sending pickers to retrieve it.</p>
+<p>If the reservation for the unavailable quantity is moved to cycle count, however, it is not available for pick release and the inventory control staff can correct the discrepancy on the next cycle count.</p>
+<p>By specifying a quantity for cycle counting in the Shipping Transactions form, you create a back order for the entire quantity or for a partial quantity of the delivery line. The Shipping Transactions window transfers the reservation for the back ordered quantity to cycle counting.</p>
+<p>For example, you are processing a staged delivery line with quantity 10. If you use the transfer cycle count functionality with this delivery line and specify two, the transfer cycle count functionality:</p>
+<ul>
+<li>
+<p>Splits the delivery line into two delivery lines, one with quantity eight and one with quantity two.</p>
+</li>
+<li>
+<p>Leaves the delivery line with quantity eight as staged.</p>
+</li>
+<li>
+<p>Back orders the delivery line with quantity two and transfers its reservation to cycle counting.</p>
+</li>
+</ul>
+<p>If you use the transfer cycle count functionality with this delivery line and specify 10, the transfer cycle count functionality back orders the entire delivery line and transfers its reservation to cycle counting.</p>
+<p>To use this functionality, you must have security privilege Cycle Count Delivery Line. This security privilege appears on the Shipping Execution Role Definition window, Lines/LPNs tabbed region.</p>
+<p>See: <i>Oracle Order Management Implementation Manual</i>, Shipping Execution Setup chapter.</p>
+<p>To view the reservation, use the Oracle Inventory Item Reservations form. Query the reservations for the organization and item number of the delivery and select the demand source as Cycle Count. The connection between the delivery line and the reservation is the item number.</p>
+<p>See: <i>Oracle Inventory User's Guide</i>.</p>
+<p>You can also transfer delivery quantities to cycle counting during ship confirm by specifying:</p>
+<ul>
+<li>
+<p>Cycle count the entire quantity</p>
+</li>
+<li>
+<p>Cycle count unspecified quantities</p>
+</li>
+</ul>
+<p><b>To Transfer Delivery Lines to Cycle Counting Using the Shipping Transactions Window<a name="tdlcycstw" id="tdlcycstw"></a><a name="d0e11233" id="d0e11233"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery line that you want to transfer to cycle counting.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Cycle Count.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><b>Transfer to Cycle Count window</b></p>
+<p><img width="575" height="222" src="./img/wshug_xfercc.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Primary region:</p>
+<ul>
+<li>
+<p>In Original Quantity and UOM, verify the delivery line quantity and item unit of measure.</p>
+</li>
+<li>
+<p>In Quantity to Cycle Count, enter the quantity that you want transferred to cycle counting.</p>
+<p><strong><span>Note:</span></strong> The Secondary region is used by Oracle Process Manufacturing.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Transfer Delivery Lines to Cycle Counting Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e11289" id="d0e11289"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines that you want to transfer to cycle counting, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Transfer Delivery Lines to Cycle Counting Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one delivery line by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Cycle Count.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Cycle Count page appears displaying the delivery line quantity in the Original Quantity field.</p>
+</li>
+<li>
+<p>Enter the transfer to cycle count information.</p>
+<p>For more information on how to transfer delivery lines to cycle counting, see the <a href="T414830T414838.htm#tdlcycstw">procedure: To Transfer Delivery Lines to Cycle Counting Using the Shipping Transactions Window</a>.</p>
+<p><strong><span>Note:</span></strong> You can also transfer delivery lines to cycle counting by performing the steps above from the Details page when any infotile is selected.</p>
+</li>
+<li>
+<p>Click Apply.</p>
+</li>
+</ol>
+<p><b>To Transfer Delivery Lines to Cycle Counting Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Detail page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Cycle Count.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Cycle Count page appears displaying the delivery line quantity in the Original Quantity field.</p>
+</li>
+<li>
+<p>Enter the transfer to cycle count information.</p>
+<p>For more information on how to transfer delivery lines to cycle counting, see the <a href="T414830T414838.htm#tdlcycstw">procedure: To Transfer Delivery Lines to Cycle Counting Using the Shipping Transactions Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573668"></a><a id="T414976"></a><b>Assigning Delivery Lines to a Delivery</b></h2>
+<p><a name="d0e11390" id="d0e11390"></a><a name="t_lines_assdel" id="t_lines_assdel"></a><a name="asdel" id="asdel"></a>You can assign delivery lines to an existing delivery.</p>
+<h3><b>Prerequisites</b></h3>
+<p>The delivery lines cannot be assigned to an existing delivery.</p>
+<p><b>To Assign Delivery Lines to a Delivery Using the Shipping Transactions Window<a name="d0e11409" id="d0e11409"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery lines.</p>
+</li>
+<li>
+<p>Select the delivery lines you want to assign.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign to Delivery.</b></p>
+</li>
+<li>
+<p>Click <b>Go</b> to display the Deliveries window.</p>
+</li>
+<li>
+<p>Select the delivery to which you want to assign the delivery lines.</p>
+<p>The delivery lines are assigned to the selected delivery.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Assign Delivery Lines to a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e11449" id="d0e11449"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines that you want to assign to a delivery, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Assign Delivery Lines to a Delivery Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one delivery line by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign to Delivery.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Assign to Delivery page appears.</p>
+</li>
+<li>
+<p>Select the delivery you want to assign to the delivery line in the Delivery Name field.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+<p><strong><span>Note:</span></strong> You can also assign delivery lines to a delivery by performing the steps above from the Details page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To Assign Delivery Lines to a Delivery Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Detail page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign to Delivery.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Assign to Delivery page appears.</p>
+</li>
+<li>
+<p>Select the delivery you want to assign to the delivery line in the Delivery Name field.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573671"></a><a id="T414977"></a><b>Unassigning Delivery Lines From a Delivery</b></h2>
+<p><a name="d0e11542" id="d0e11542"></a><a name="t_lines_unassdel" id="t_lines_unassdel"></a><a name="unasi" id="unasi"></a>You can unassign selected delivery lines from a delivery.</p>
+<h3><b>Prerequisites</b></h3>
+<p>The delivery lines must be assigned to an existing delivery.</p>
+<p><b>To Unassign Delivery Lines From a Delivery Using the Shipping Transactions Window<a name="d0e11561" id="d0e11561"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery lines.</p>
+</li>
+<li>
+<p>Select the delivery lines that you want to unassign from the delivery.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unassign from Delivery.</b></p>
+<p>The lines are unassigned from the delivery.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Unassign Delivery Lines From a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e11591" id="d0e11591"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines that you want to unassign from a delivery, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Unassign Delivery Lines From a Delivery Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one or more delivery lines by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unassign from Delivery.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><strong><span>Note:</span></strong> You can also assign delivery lines to a delivery by performing the steps above from the Details page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To Unassign Delivery Lines From a Delivery Using the Line Detail Page</b></p>
+<ol>
+<li>
+<p>Click the Detail link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Detail page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unassign from Delivery.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="8532567"></a><a id="T667878"></a><b>Unassigning Delivery Lines From a Transportation Batch</b></h2>
+<p><a name="d0e11661" id="d0e11661"></a><a name="d0e11667" id="d0e11667"></a><a name="unassign_batch" id="unassign_batch"></a>You can unassign delivery lines from a transportation batch.</p>
+<p><strong><span>Note:</span></strong> You can only unassign delivery lines from a transportation batch, if you are integrating Oracle Shipping Execution with Oracle Transportation Management using the batch based method.</p>
+<h3><b>Prerequisites</b></h3>
+<p>The delivery lines must be assigned to a transportation batch.</p>
+<p><b>To Unassign Delivery Lines From a Transportation Batch Using the Shipping Transactions Window<a name="d0e11688" id="d0e11688"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery lines assigned to the transportation batch.</p>
+</li>
+<li>
+<p>Select the delivery lines that you want to unassign from the transportation batch.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unassign from Transportation Batch.</b></p>
+<p>The lines are unassigned from the transportation batch.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Unassign Delivery Lines From a Transportation Batch Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e11718" id="d0e11718"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines that you want to unassign from a transportation batch, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Unassign Delivery Lines From a Transportation Batch Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one or more delivery lines by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unassign from Transportation Batch.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+<p><b>To Unassign Delivery Lines From a Transportation Batch Using the Line Detail Page</b></p>
+<ol>
+<li>
+<p>Click the Detail link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Detail page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unassign from Transportation Batch.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573674"></a><a id="T414978"></a><b>Auto-Creating Deliveries for Delivery Lines</b></h2>
+<p><a name="d0e11785" id="d0e11785"></a><a name="t_lines_acredel" id="t_lines_acredel"></a><a name="auto" id="auto"></a>During Pick Release, you can automatically create deliveries for delivery lines that have been successfully released for shipment. Lines are grouped onto deliveries based on the grouping attributes specified in the Shipping Parameters window.</p>
+<p><b>To Auto-Create Deliveries for Delivery Lines Using the Shipping Transactions Window<a name="d0e11797" id="d0e11797"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery lines.</p>
+</li>
+<li>
+<p>Multi-select the delivery lines for which you want to create a delivery.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Deliveries.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The deliveries are created for the selected lines based on the delivery grouping rules set up in the Shipping Parameters window.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p><strong><span>Note:</span></strong> You can auto-create deliveries during pick release by setting the Autocreate Delivery option to Yes within the Shipping tab of the Release Sales Orders for Picking window or by specifying a Release Rule that has the Autocreate Delivery option set to Yes.</p>
+</li>
+</ol>
+<p><b>To Auto-Create Deliveries for Delivery Lines Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e11835" id="d0e11835"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines for which you want to auto-create a delivery, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Auto-Create Deliveries for Delivery Lines Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one or more delivery lines by clicking the corresponding check boxes in the Select column</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Deliveries.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><strong><span>Note:</span></strong> You can also auto-create deliveries for delivery lines by performing the steps above from the Details page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To Auto-Create Deliveries for Delivery Lines Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Detail page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Deliveries.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573676"></a><a id="T414979"></a><b>Auto-Creating a Trip for Delivery Lines</b></h2>
+<p><a name="d0e11908" id="d0e11908"></a><a name="t_lines_acretrip" id="t_lines_acretrip"></a><a name="autotrp" id="autotrp"></a>You can automatically create trips for delivery lines that have not been assigned to an existing delivery or trip. Auto-creating trips automatically creates a trip, stops, deliveries, and delivery legs for selected delivery lines.</p>
+<h3><b>Prerequisites</b></h3>
+<p>The delivery lines cannot be assigned to an existing delivery or trip.</p>
+<p><b>To Auto-Create a Trip for Delivery Lines Using the Shipping Transactions Window<a name="d0e11925" id="d0e11925"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window and find the delivery lines.</p>
+</li>
+<li>
+<p>Select the delivery lines for which you want to create a trip.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>Trips are created for the selected delivery lines based on the delivery grouping rules defined in the Shipping Parameters window. You can view the trip name that has been created for the delivery lines in the Path by Stop tab in the Shipping Transactions window.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Auto-Create a Trip for Delivery Lines Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e11962" id="d0e11962"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines for which you want to auto-create a trip, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Auto-Create a Trip for Delivery Lines Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one or more delivery lines by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><strong><span>Note:</span></strong> You can also auto-create a trip for delivery lines by performing the steps above from the Details page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To Auto-Create a Trip for Delivery Lines Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Detail page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3908177"></a><a id="T435190"></a><b>Purging Delivery Lines</b></h2>
+<p><a name="d0e12035" id="d0e12035"></a><a name="t_dellnprg" id="t_dellnprg"></a>Oracle Shipping Execution enables you to purge (permanently delete) delivery lines from the Oracle Shipping Execution tables.</p>
+<p>All information associated with the purged entities is also purged, for example freight costs, weight and volume, dates, and exceptions.</p>
+<p>These are the limitations when purging delivery lines:</p>
+<ul>
+<li>
+<p>The parent sales order or purchase order must either be purged and not have any open activities, such as invoices.</p>
+</li>
+<li>
+<p>To purge delivery lines, the status must be Interfaced, Canceled, or Closed. In the case of inbound delivery lines, Canceled delivery lines cannot be purged because the status can be reversed.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414843.htm#t_shpprgrep">Shipping Purge Concurrent Process</a></p>
+<h2><a name="3573679"></a><a id="T414980"></a><b>Assigning Freight Costs to Delivery Lines</b></h2>
+<p><a name="d0e12065" id="d0e12065"></a><a name="t_linesassfcost" id="t_linesassfcost"></a><a name="assfrtcst" id="assfrtcst"></a><a name="frtcstdelln" id="frtcstdelln"></a><a name="DetailFreightCostsResultPG" id="DetailFreightCostsResultPG"></a><a name="DetailFreightCostMainPG" id="DetailFreightCostMainPG"></a>Freight costs are shipment-related costs such as freight, insurance, duty fee, special handling, or priority service. You can assign freight costs to delivery lines at any time even after ship confirmation. However, costs assigned after ship confirmation are not passed as freight costs to Order Management; instead, they are stored in the shipping system for future reference.</p>
+<p>Although freight costs can be defined in any currency, only the currency that is defined for the operating unit is displayed. When costs are passed to Order Management, the currency is converted to the order header currency.</p>
+<p>If freight costs were entered in the Shipping Transactions window or in the Shipping Execution Simplified User Interface, and those freight costs need to be passed to Oracle Order Management for invoicing, then you must set up a pricing modifier.</p>
+<p>Refer to the <i>Oracle Order Management Implementation Manual</i> for more information about Freight and Special Charges.</p>
+<p><b>To Assign Freight Costs to a Delivery Line Using the Shipping Transactions Window<a name="afcdlstw" id="afcdlstw"></a><a name="d0e12092" id="d0e12092"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window and find the delivery line.</p>
+</li>
+<li>
+<p>Select the delivery line for which you want to assign freight costs.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Freight Costs window appears.</p>
+</li>
+<li>
+<p>Enter the Name, Type, Currency Code, Amount, and Conversion Type, and Creation Date.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+<p>At ship confirmation, the freight cost is applied. If a pricing modifier was set up, then the information is interfaced to Oracle Order Management.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p>See Defining Freight Costs, <i>Oracle Order Management Implementation Manual</i></p>
+</li>
+</ol>
+<p><b>To Assign Freight Costs to a Delivery Line Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e12146" id="d0e12146"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines to which you want to assign freight costs, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Assign Freight Costs to a Delivery Line Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one delivery line by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Freight Costs page appears.</p>
+</li>
+<li>
+<p>Click the <b>Create Freight Cost</b> icon (+ plus sign).</p>
+</li>
+<li>
+<p>Enter the freight cost information.</p>
+<p>For more information on entering freight cost, see the <a href="T414830T414838.htm#afcdlstw">procedure: To Assign Freight Costs to a Delivery Line Using the Shipping Transactions Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+<p><strong><span>Note:</span></strong> You can also assign freight costs to a delivery line by performing the steps above from the Details page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To Assign Freight Costs to a Delivery Line Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Detail page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Freight Costs page appears.</p>
+</li>
+<li>
+<p>Enter the freight cost information.</p>
+<p>For more information on entering freight cost, see the <a href="T414830T414838.htm#afcdlstw">procedure: To Assign Freight Costs to a Delivery Line Using the Shipping Transactions Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="8689942"></a><a id="T673386"></a><b>Back Ordering Delivery Lines</b></h2>
+<p><a name="made_baordeli" id="made_baordeli"></a>You can back order material for selected delivery lines from the staging subinventory to source subinventory. These delivery lines must not be assigned to any delivery. To back order material:</p>
+<ol>
+<li>
+<p>Navigate to the <b>Shipping Transactions</b> window.</p>
+</li>
+<li>
+<p>On the <b>Lines/LPNs</b> tab, select the <b>Actions</b> list.</p>
+</li>
+<li>
+<p>Select <b>Backorder</b>.</p>
+</li>
+<li>
+<p>Click <b>Go</b>. A <b>Backorder Reason</b> pop-up window appears only if you have selected Auto Allocate or Auto Transact for the <b>Automate Backorder Move</b> drop-down list. This drop-down list is present in the <b>Shipping Transaction</b> tab of the <b>Shipping Parameters</b> window.</p>
+</li>
+</ol>
+<h2><a name="3573681"></a><a id="T414859"></a><b>Calculating Weight and Volume for Delivery Lines</b></h2>
+<p><a name="d0e12303" id="d0e12303"></a><a name="t_lines_wgtvolcal" id="t_lines_wgtvolcal"></a><a name="calcwtvol" id="calcwtvol"></a>You can calculate the weight and volume for selected delivery lines.</p>
+<p>When a new delivery detail (line) is created because of change in order line quantity, the system will retrieve the unit weight and volume from the existing delivery details (belonging to same order line) so that all delivery details belonging to same order line have the same unit weight and volume. When a delivery detail is created for a new order line, the system will retrieve the latest unit weight and volume from Inventory Master Item window.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414837.htm#wtvoldel">Calculating Weight and Volume for a Delivery</a></p>
+<p><a href="T414830T414835.htm#wtvol">Calculating Weight and Volume for a Trip Stop</a></p>
+<h2><a name="3573682"></a><a id="T414981"></a><b>Pick Releasing Delivery Lines From the Shipping Transactions Window</b></h2>
+<p><a name="d0e12328" id="d0e12328"></a><a name="d0e12334" id="d0e12334"></a><a name="t_linesprel" id="t_linesprel"></a><a name="pkrel" id="pkrel"></a>During pick release, delivery lines are released to the warehouse for picking based on the Pick Release and shipping criteria. In addition to pick releasing by trip, delivery, and container, you can also pick release by delivery lines. If the stop and delivery are not specified, only lines that are not assigned to the delivery are selected for release. If stop and delivery are specified, all selected lines meeting the release criteria, whether they are assigned to a delivery or not, are released.</p>
+<p><b>To Pick Release Delivery Lines Using the Shipping Transactions Window<a name="d0e12348" id="d0e12348"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery lines.</p>
+</li>
+<li>
+<p>Select the delivery lines you want to pick release.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Launch Pick Release.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The selected delivery lines are pick released and the Messages box displays if the pick release was successful or failed.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414840.htm#ovrpr">Overview of Pick Release</a>.</p>
+<h2><a name="8355754"></a><a id="T662233"></a><b>Pick Releasing Delivery Lines From the Shipping Execution Simplified User Interface</b></h2>
+<p><a name="d0e12386" id="d0e12386"></a><a name="d0e12392" id="d0e12392"></a><a name="pickrelease_htmlui" id="pickrelease_htmlui"></a>During pick release, delivery lines are released to the warehouse for picking based on the Pick Release and shipping criteria. In addition to pick releasing by trip, delivery, and container, you can also pick release by delivery lines. If the stop and delivery are not specified, only lines that are not assigned to the delivery are selected for release. If stop and delivery are specified, all selected lines meeting the release criteria, whether they are assigned to a delivery or not, are released.</p>
+<p><b>To Pick Release Delivery Lines Using the Shipping Execution Simplified User Interface<a name="d0e12405" id="d0e12405"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines that you want to pick release, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Pick Release Delivery Lines Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one or more delivery lines by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Launch Pick Release.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><strong><span>Note:</span></strong> You can also pick release delivery lines by performing the steps above from the Details page when any infotile is selected.</p>
+</li>
+</ol>
+<p><b>To Pick Release Delivery Lines Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Detail page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Launch Pick Release.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573684"></a><a id="T414860"></a><b>Managing Sales Order Changes</b></h2>
+<p><a name="d0e12483" id="d0e12483"></a><a name="t_lines_change" id="t_lines_change"></a><a name="mgso" id="mgso"></a>Changes to sales orders affect Oracle Shipping Execution if the order is booked. Since delivery details exist, they must remain coordinated with the sales order lines.</p>
+<p>Oracle Shipping Execution evaluates the delivery details every time there are any of the following sales order line updates:</p>
+<ul>
+<li>
+<p>Split</p>
+</li>
+<li>
+<p>Change quantity</p>
+</li>
+<li>
+<p>Change schedule</p>
+</li>
+<li>
+<p>Change schedule date</p>
+</li>
+<li>
+<p>Change ship set</p>
+</li>
+<li>
+<p>Change delivery group</p>
+</li>
+<li>
+<p>Changes resulting from automatic end item substitution initiated by:</p>
+<ul>
+<li>
+<p>Planner Workbench actions in Oracle Advanced Supply Chain Planning</p>
+</li>
+<li>
+<p>Scheduling or rescheduling actions from Oracle Order Management</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Automatic end item substitution can be performed until the status of the order line is <i>Pick Release.</i>.</p>
+</li>
+<li>
+<p>Item changes are restricted for ship sets, pick-to-order (PTO), and assemble-to-order (ATO) processes.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>In general, Oracle Shipping Execution honors sales order line changes as long as their delivery lines are not:</p>
+<ul>
+<li>
+<p>Shipped or in a confirmed delivery</p>
+</li>
+<li>
+<p>In Warehouse Management organizations and require unpacking or unassignment from delivery</p>
+</li>
+</ul>
+<h3><b>Changing Delivery Line Item</b></h3>
+<p>Item changes initiated from Oracle Order Management are updated in Oracle Shipping Execution until the status of the order line is <i>picked</i>. Oracle Shipping Execution evaluates the status of the delivery details to ensure that the item change is acceptable and then updates the item on the delivery detail. Item attributes such as Description, Pickable flag, Weight/Volume UOM codes, Unit Weight/Volume and Hazard Classification are also updated. Shipping also completes weight and volume changes for the item change.</p>
+<p><b>Additional Considerations:</b></p>
+<ul>
+<li>
+<p>If the delivery detail is required by Oracle Transportation Management (OTM), then the corresponding delivery will be identified as <i>Update Required</i> so that it can re-sent to OTM for planning. Shipping will update any existing reservations for the order line from the old item to the new item.</p>
+</li>
+<li>
+<p>If the primary UOM of the new item is different than the primary UOM of the old item, then the item change is not allowed and an error message will be displayed.</p>
+</li>
+<li>
+<p>If the line belongs to a warehouse that is either third party warehouse (TPW) or carrier manifesting enabled in the Organization parameters and the delivery status is either Shipment Requested or Shipment Advice Received, then the item change is not allowed.</p>
+</li>
+<li>
+<p>If there is an item change and if either the old organization or the new organization (if organization is also changed as part of item substitution) is an OPM organization, then the update is not allowed.</p>
+</li>
+<li>
+<p>If any detail exists that is packed into a container, then the update is not allowed.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> Item changes are restricted for ship sets/ ship model complete and assemble-to-order (ATOs), and pick-to-order (PTOs).</p>
+<h3><b>Split</b></h3>
+<p><a name="d0e12580" id="d0e12580"></a>Oracle Shipping Execution performs as follows during an order line split:</p>
+<ul>
+<li>
+<p>Disallows the order line to split if any delivery line is shipped or in a confirmed delivery.</p>
+</li>
+<li>
+<p>Sequences the delivery details by their released status in the following order: Shipped, Staged/Pick Confirmed, Ready to Release, Not Ready to Release, Backordered, and Released to Warehouse, and attempts to fulfill the sales order split line quantity by using them one-by-one.</p>
+</li>
+<li>
+<p>If an existing delivery line Requested Quantity can fulfill or partially fulfill the remaining split order line quantity, then the delivery line is assigned the quantity from the split sales order line.</p>
+</li>
+<li>
+<p>If an existing delivery line Requested Quantity is too large to fulfill the split order line quantity, then the split the delivery and assign the split delivery to the split order line. Carry serial numbers with the split delivery details.</p>
+</li>
+<li>
+<p>Retain reservations with inventory controls; randomly assign the others to the new delivery details.</p>
+</li>
+<li>
+<p>Change delivery lines with status Released to Warehouse to status Ready to Release, cancel their move order lines, and recreate reservations for them.</p>
+</li>
+</ul>
+<h3><b>Change Quantity</b></h3>
+<p><a name="d0e12610" id="d0e12610"></a>Oracle Shipping Execution performs as follows during an order line change quantity. Change quantity is a change in the ordered quantity:</p>
+<ol>
+<li>
+<p>Sequence the delivery details by packed status in the order Not packed, Packed.</p>
+</li>
+<li>
+<p>Then, sequence the delivery details by firm status in the order Not Firm, Contents Firm, or Routing and Contents Firm.</p>
+</li>
+<li>
+<p>Then, sequence the delivery details by released status in the order Ready to Release, Not Applicable, Backordered, Released to Warehouse, Staged/Pick Confirmed.</p>
+</li>
+</ol>
+<h3><b>Increased Quantity</b></h3>
+<p><a name="d0e12631" id="d0e12631"></a>Oracle Shipping Execution performs as follows during an increase to the delivery line quantity:</p>
+<ul>
+<li>
+<p>Attempt to increase the delivery detail Requested Quantity of the first delivery detail. For this to succeed, the detail must be unassigned or the delivery must be open, the delivery line must not be packed in a container, and released status must be Not Ready to Released or Ready to Released.</p>
+</li>
+<li>
+<p>Otherwise, create a new delivery detail.</p>
+</li>
+<li>
+<p>Do not modify reservations. You can create a manual reservation for the quantity.</p>
+<p><strong><span>Note:</span></strong> If the order line quantity is increased, you will have to manually create the extra reservations.</p>
+</li>
+</ul>
+<h3><b>Decreased Quantity</b></h3>
+<p><a name="d0e12655" id="d0e12655"></a>Oracle Shipping Execution performs as follows during a decrease to the delivery line quantity:</p>
+<ul>
+<li>
+<p>Decrease the Requested Quantity of delivery details one-by-one but skip delivery details with delivery status Confirmed, Closed, In transit.</p>
+</li>
+<li>
+<p>Refuse the reduction if there are not enough eligible lines to meet the decreased quantity.</p>
+</li>
+<li>
+<p>If the delivery line released status is Released to Warehouse, Oracle Inventory adjusts reservation quantity during pick confirm. For all other delivery line released statuses, Oracle Shipping Execution reduces the reservation quantity.</p>
+</li>
+<li>
+<p>Logs an exception for any lines that are staged, part of a firm delivery, or packed inside a container.</p>
+<p><strong><span>Note:</span></strong> If the order line quantity is decreased, you will have to manually change the reservation.</p>
+</li>
+</ul>
+<h3><b><a name="d0e12681" id="d0e12681"></a>Change Schedule</b></h3>
+<p>Change schedule is:</p>
+<ul>
+<li>
+<p>A change in ship-from organization</p>
+</li>
+<li>
+<p>A change in subinventory</p>
+</li>
+<li>
+<p>Unscheduling a line</p>
+</li>
+</ul>
+<h3><b><a name="d0e12702" id="d0e12702"></a>Subinventory</b></h3>
+<p>Oracle Shipping Execution performs as follows during a sub inventory change:</p>
+<ul>
+<li>
+<p>Changes sub inventory if status is Not Ready to Release or Ready to Release.</p>
+</li>
+<li>
+<p>Does not change sub inventory if status is Released to Warehouse or Staged/Pick Confirmed. Pick confirm can change the sub inventory.</p>
+</li>
+</ul>
+<h3><b>Ship-From Organization and Unscheduling<a name="d0e12721" id="d0e12721"></a><a name="d0e12727" id="d0e12727"></a></b></h3>
+<p>Oracle Shipping Execution performs as follows during a ship-from organization and unscheduling change:</p>
+<ul>
+<li>
+<p>If no allocations were created:</p>
+<ul>
+<li>
+<p>Delete the move order line.</p>
+</li>
+<li>
+<p>Set the status to Ready to Release.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If allocations were created, and the line is not pick confirmed:</p>
+<ul>
+<li>
+<p>Cancel the move order line.</p>
+</li>
+<li>
+<p>Clear the inventory control information. Leave sub inventory information if delivery detail is Released to Warehouse.</p>
+</li>
+<li>
+<p>Delete and recreate the reservation for the new subinventory.</p>
+</li>
+<li>
+<p>Set the status to Ready to Release.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Pick confirmation is completed:</p>
+<ul>
+<li>
+<p>Clear the inventory control information. Leave sub inventory information if delivery detail is Released to Warehouse or Staged/Pick Confirmed.</p>
+</li>
+<li>
+<p>Delete and recreate the reservation for the new subinventory.</p>
+</li>
+<li>
+<p>Set the status to Ready to Release.</p>
+</li>
+<li>
+<p>Log an exception.</p>
+</li>
+<li>
+<p>Unassign from container and delivery.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><b>Change Scheduled Date<a name="d0e12784" id="d0e12784"></a></b></h3>
+<p>Oracle Shipping Execution performs as follows during an order line change scheduled date. Change scheduled date is a change in the date scheduled:</p>
+<ul>
+<li>
+<p>Change the date.</p>
+</li>
+<li>
+<p>Log an exception if the new scheduled date is after the original scheduled date.</p>
+</li>
+</ul>
+<h3><b>Change Ship Set <a name="d0e12802" id="d0e12802"></a></b></h3>
+<p>Oracle Shipping Execution performs as follows during an order line change ship set. Change ship set is a changed ship set name:</p>
+<ul>
+<li>
+<p>If there is no current ship set, assign the ship set to the delivery lines.</p>
+</li>
+<li>
+<p>If there is a current ship set, change the ship set on the delivery line if the status is Not Ready to Release, Ready to Release, Released to Warehouse (without allocations), or Staged/Pick Confirmed. If the status is Released to Warehouse (without allocations), change the ship set on the move order also.</p>
+</li>
+<li>
+<p>If the status is Released to Warehouse and there are allocations, refer to the shipping parameter Enforce Ship Set at Picking. If ship sets are enforced, do not honor the change to the sales order line.</p>
+</li>
+</ul>
+<h3><b>Change Delivery Group<a name="d0e12823" id="d0e12823"></a></b></h3>
+<p>Delivery Grouping attributes consist of ship-to location, ship-from location, intermediate ship-to location, customer, freight terms, FOB code, ship method, order type, ship set, and shipment priority. Click More to define additional grouping attributes based on descriptive flexfields.</p>
+<ul>
+<li>
+<p>Check the shipping parameter grouping attributes.</p>
+</li>
+<li>
+<p>Change all values for the attributes that are mandatory or enforced.</p>
+</li>
+<li>
+<p>If the sales order line is assigned to a delivery or container, unassign the line from the delivery and log an exception.</p>
+</li>
+<li>
+<p>If none of the enforced or mandatory attributes are changed but intermediate ship-to location, customer, freight terms, FOB, ship method, order type, ship set, and shipment priority, or additional descriptive flexfields is changed, log an exception for each packed delivery line.</p>
+</li>
+</ul>
+<h3><b>Order Cancellations<a name="d0e12847" id="d0e12847"></a></b></h3>
+<p>With the material picking process, a sales order can be canceled after it has been pick released without requiring you to backorder in Oracle Shipping Execution. If an order quantity is reduced after pick release, any requested and detailed quantities on the move order line are reduced accordingly and any Reservations that exist for the sales order will be updated to reflect the new order quantity. These changes are made automatically and require no intervention from you.</p>
+<p><strong><span>Note:</span></strong> If you cancel an entire order that has serial numbers assigned to it, the system will remove the serial numbers during cancellation. If you are canceling a serialized line from an order (not canceling the entire order) then you will be required to unassign the specific line serial numbers before proceeding.</p>
+<h2><a name="8535456"></a><a id="T668156"></a><b>Entering Serial Numbers for Delivery Lines</b></h2>
+<p><a name="d0e12860" id="d0e12860"></a><a name="d0e12866" id="d0e12866"></a><a name="enter_serialnumbers" id="enter_serialnumbers"></a>You can enter an individual serial number or a range of serial numbers for a delivery line.</p>
+<p><b>To Enter Serial Numbers for Delivery Lines Using the Shipping Transactions Window<a name="d0e12879" id="d0e12879"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery lines.</p>
+</li>
+<li>
+<p>In the Shipping Transactions window, select the delivery line for which you want to enter the serial numbers and enter the shipped quantity in the <b>Shipped Qty</b> field.</p>
+</li>
+<li>
+<p>Select the <b>Tools</b> menu and then select <b>Serial Numbers.</b></p>
+<p><b>Serial Entry window</b></p>
+<p><img width="679" height="509" src="./img/wshug_scn_serialentry1.gif" alt="the picture is described in the document text"></p>
+<p>The Serial Entry window appears.</p>
+</li>
+<li>
+<p>Enter the serial numbers by performing one of the following:</p>
+<p><b>To Enter a Range of Serials</b></p>
+<ol>
+<li>
+<p>Select the <b>Serial Number Entry Mode</b> option of <i>Ranges.</i></p>
+</li>
+<li>
+<p>Enter a <b>Start Serial Number.</b></p>
+<p>The system uses the start serial number that you entered and automatically determines the range of serial numbers for you based on the quantity and populates the <b>End Serial Number</b> field.</p>
+<p><b>Serial Entry window</b></p>
+<p><img width="680" height="511" src="./img/wshug_scn_serialentry2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+<li>
+<p>Click <b>Save.</b></p>
+</li>
+</ol>
+<p><b>To Enter an Individual Serial</b></p>
+<ol>
+<li>
+<p>Select the <b>Serial Number Entry Mode</b> option of <i>Individual.</i></p>
+</li>
+<li>
+<p>Enter a <b>Start Serial Number.</b></p>
+<p>The system automatically populates the <b>End Serial Number</b> field with the same value as the Start Serial Number field.</p>
+</li>
+<li>
+<p>(Optional) Add another row and enter the next individual serial number in the <b>Start Serial Number</b> field.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+<li>
+<p>Click <b>Save.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<p><b>To Enter Serial Numbers for Delivery Lines Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e12997" id="d0e12997"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines for which you want to enter serial numbers, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Click the <b>Detail</b> link for the delivery line.</p>
+<p><b>Line Details: Delivery Line page (1 of 2)</b></p>
+<p><img width="800" height="547" src="./img/wshug_scn_linedetails1.gif" alt="the picture is described in the document text"></p>
+<p><b>Line Details: Delivery Line page (2 of 2)</b></p>
+<p><img width="800" height="359" src="./img/wshug_scn_linedetails2.gif" alt="the picture is described in the document text"></p>
+<p>The Line Details: Delivery Line page appears.</p>
+</li>
+<li>
+<p>In the Quantities region of the page, enter the <b>Shipped Qty</b> for the delivery line.</p>
+</li>
+<li>
+<p>In the Serials region of the page, enter the serial numbers for the deliver line by performing one of the following:</p>
+<p><b>To Enter a Range of Serial Numbers</b></p>
+<ol>
+<li>
+<p>Enter a <b>Serial From</b> and <b>Serial To</b> and enter a quantity in the <b>Qty</b> field.</p>
+<p>The serial number range that you enter must equate to the quantity that you enter.</p>
+</li>
+<li>
+<p>(Optional) Enter another row and enter another range of serial numbers and a quantity in the <b>Qty</b> field.</p>
+<p><b>Line Details: Delivery Line page (1 of 2)</b></p>
+<p><img width="800" height="551" src="./img/wshug_scn_linedetails3.gif" alt="the picture is described in the document text"></p>
+<p><b>Line Details: Delivery Line page (2 of 2)</b></p>
+<p><img width="800" height="357" src="./img/wshug_scn_linedetails4.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Save your work:</p>
+<ul>
+<li>
+<p>Click <b>Save</b> to save your work and stay on this page.</p>
+</li>
+<li>
+<p>Click <b>Apply</b> to save your work and return to the previous page.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To Enter a Range of Serial Numbers (Generate Serial Numbers)</b></p>
+<ol>
+<li>
+<p>Select a row in the serial number table and enter a quantity in the <b>Qty</b> field.</p>
+</li>
+<li>
+<p>Select <i>Generate Serial Numbers</i> in the <b>Actions</b> menu and click <b>Go.</b></p>
+<p>The system creates the serial numbers for you and displays them in the <b>Serial From</b> and <b>Serial To</b> fields.</p>
+</li>
+<li>
+<p>Save your work:</p>
+<ul>
+<li>
+<p>Click <b>Save</b> to save your work and stay on this page.</p>
+</li>
+<li>
+<p>Click <b>Apply</b> to save your work and return to the previous page.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To Enter an Individual Serial Number</b></p>
+<ol>
+<li>
+<p>Enter a <b>Serial From</b> and <b>Serial To</b> of the same value and enter a quantity of 1 in the <b>Qty</b> field.</p>
+</li>
+<li>
+<p>(Optional) Enter another row and enter another individual serial number in the <b>Serial From</b> and <b>Serial To</b> fields and enter a quantity of 1.</p>
+</li>
+<li>
+<p>Save your work:</p>
+<ul>
+<li>
+<p>Click <b>Save</b> to save your work and stay on this page.</p>
+</li>
+<li>
+<p>Click <b>Apply</b> to save your work and return to the previous page.</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

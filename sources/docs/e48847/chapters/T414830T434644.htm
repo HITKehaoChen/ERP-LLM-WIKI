@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Shipping Execution User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Shipping Execution User's Guide">
+<meta name="dcterms.identifier" content="E48847-15">
+<meta name="dcterms.isVersionOf" content="WSHUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T414830T414836.htm" title="Previous" type="text/html">
+<link rel="Next" href="T414830T414842.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Shipping Execution User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">15/23</span> <!-- End Header -->
+<h1>Using Oracle Workflow with Oracle Shipping Execution</h1>
+<h2><a name="3898557"></a><a id="T434645"></a><b>Overview of Using Oracle Workflow with Oracle Shipping Execution</b></h2>
+<p><a name="d0e19709" id="d0e19709"></a><a name="wshwkflw" id="wshwkflw"></a>Oracle Shipping Execution enables you to utilize Oracle Workflow to enhance your day-to-day business. Using Oracle Workflow with Oracle Shipping Execution is optional; however, if you choose to enable Oracle Workflow with Oracle Shipping Execution, specific tasks and output are enabled through the use of customized business objects. For example, the workflow can be configured so that specific users receive a notification email when an overship or backorder occurs.</p>
+<p>The following list represents a few of the enhancements when Oracle Workflow is utilized with Oracle Shipping Execution:</p>
+<ul>
+<li>
+<p>Workflow Monitor displays Oracle Shipping Execution delivery and trip workflows directly from the Shipping Transactions window or Quick Ship window. See:<a href="T414830T434644.htm#viewwshwf">Viewing Workflow from Shipping Windows</a>.</p>
+</li>
+<li>
+<p>Workflows are independent, enabling you to use only those processes, activities, and subprocesses that you need.</p>
+<p>The parameters to enable and disable workflows are located within the Shipping Parameters and Global Parameters. See <i>Oracle Order Management Implementation Guide</i>.</p>
+</li>
+<li>
+<p>Ease of communication with other Oracle and non-Oracle Applications</p>
+</li>
+<li>
+<p>Ability to print Oracle Shipping Execution documents at any point in the shipping process</p>
+</li>
+<li>
+<p>Notifications can be sent to users or external system components (3rd party warehouses, carrier manifest systems, and so on) upon activity completion, errors, or rejections.</p>
+</li>
+</ul>
+<h3><a id="T452240"></a><b>Delivery Flow - Generic</b></h3>
+<p>This process is initiated when a delivery line is assigned to a delivery and completed when the delivery reaches its final drop-off location. This workflow applies to outbound deliveries, such as a delivery that is created with assigned delivery lines that are picked and ship confirmed. Delivery workflow is not raised for consolidation deliveries.</p>
+<p><b>Delivery Flow - Generic</b></p>
+<p><img width="512" height="199" src="./img/wshug_wkflow4.gif" alt="the picture is described in the document text"></p>
+<h3><a id="T452241"></a><b>Trip Flow - Generic</b></h3>
+<p>This process is initiated when a trip is created and completed when the ultimate drop-off stop is closed. This workflow applies to trips that are created automatically or manually, such as a trip that is created automatically at ship confirmation.</p>
+<p><b>Trip Flow - Generic</b></p>
+<p><img width="534" height="197" src="./img/wshug_wkflow5.gif" alt="the picture is described in the document text"></p>
+<h3><a id="T447760"></a><b>Ship to Deliver Process Workflow</b></h3>
+<p>This process models the ship confirm process through the Order Management and Inventory interfaces. This workflow is optional, therefore, Oracle Shipping Execution continues to function without the use of this workflow. This can be enabled if you need it for your business.</p>
+<p><b>Ship to Delivery Process Workflow</b></p>
+<p><img width="692" height="245" src="./img/wshug_wkflow3.gif" alt="the picture is described in the document text"></p>
+<p><b>Extending Workflows:</b> You can modify or extend workflows through the use of the Oracle Workflow Builder. Certain processes, messages, functions, subprocesses, and properties may be customized. Delivery and Trip workflow offers limited extension capabilities. See <i>Oracle Workflow User's Guide</i> and <i>Oracle Order Management Using Workflow in Oracle Order Management</i> for more information on extending workflows.</p>
+<p><b>Purging Workflows:</b> Workflows are eligible for purging through the use of Oracle Workflow or when deliveries or trips are purged; using Shipping Purge.</p>
+<h3><a id="T447761"></a><b>Activities and Notifications</b></h3>
+<p>Oracle Shipping Execution offers a seeded activity and a seeded notification. Both are available to use in your custom workflows.</p>
+<p>The seeded activity is Print Document Set. This activity enables you to print a document set at a specific time during the course of the workflow.</p>
+<p>The seeded notification is Delivery is Ship Confirmed. This notification sends information to specified users when a delivery is ship confirmed. This notification can be customized and leveraged to be used in any part of the workflow.</p>
+<h3><a id="T447762"></a><b>Business Events</b></h3>
+<p>Business events are optional. They can be enabled or disabled through the Global Parameters and Shipping Parameters. In addition, individual Business Events can be enabled via the Business Events definition window. See: <i>Oracle Order Management Implementation Manual</i> and <i>Oracle Workflow User's Guide</i>.</p>
+<p>The following business events are available for use in Oracle Shipping Execution:</p>
+<ul>
+<li>
+<p><b>Delivery</b></p>
+<ul>
+<li>
+<p>Delivery Create: Records the delivery ID</p>
+</li>
+<li>
+<p>Submit Manifest: Records the delivery ID</p>
+</li>
+<li>
+<p>Manifest Response: Records the delivery ID</p>
+</li>
+<li>
+<p>Submitted for ITM Screening: Records the delivery ID</p>
+</li>
+<li>
+<p>ITM Response Received: Records the delivery ID</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>Trip</b></p>
+<ul>
+<li>
+<p>Trip Ship Confirmed: Records the trip ID</p>
+</li>
+<li>
+<p>Trip Create: Records the trip ID</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>Trip Stop</b></p>
+<ul>
+<li>
+<p>Trip Stop Arrived: Records the trip stop ID</p>
+</li>
+<li>
+<p>Trip Stop Closed: Records the trip stop ID</p>
+</li>
+<li>
+<p>Trip Stop Create: Records the trip stop ID</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>Delivery Line</b></p>
+<ul>
+<li>
+<p>Delivery Line Ready to Release: Records the delivery line ID</p>
+</li>
+<li>
+<p>Delivery Line Release to Warehouse: Records the delivery line ID</p>
+</li>
+<li>
+<p>Delivery Line Staged: Records the delivery line ID</p>
+</li>
+<li>
+<p>Delivery Line Back-Ordered: Records the delivery line ID</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a name="3898561"></a><a id="T434649"></a><b>Viewing Workflow From Shipping Windows</b></h2>
+<p><a name="d0e19887" id="d0e19887"></a><a name="viewwshwf" id="viewwshwf"></a><b>To View Workflow Status From the Shipping Transactions Window or Quick Ship window</b></p>
+<ol>
+<li>
+<p>Navigate to the Shipping Transactions window or Quick Ship window.</p>
+</li>
+<li>
+<p>Find and select your delivery or trip.</p>
+</li>
+<li>
+<p>From the Tools menu, select Workflow Status.</p>
+<p><b>Oracle Workflow Status Monitor</b></p>
+<p><img width="978" height="752" src="./img/wshug_wkflow2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select, or deselect, any Activity Type and click <b>Go</b> to limit the activities displayed on the window.</p>
+</li>
+<li>
+<p>Click any of the following links on the Workflow Status window to view the specific information or diagram:</p>
+<ul>
+<li>
+<p><b>Activity History:</b> View the history of activities for the given delivery or trip.</p>
+</li>
+<li>
+<p><b>Status Diagram:</b> View the workflow status diagram for the given delivery or trip.</p>
+</li>
+<li>
+<p><b>Participant Responses:</b> View the responses of each participant (user on the notification list) for the given delivery or trip.</p>
+</li>
+<li>
+<p><b>Workflow Details:</b> View the details of the workflow for the given delivery or trip.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>View Diagram</b> to view the workflow in a graphic format.</p>
+<p><b>Status Diagram</b></p>
+<p><img width="1003" height="676" src="./img/wshug_wkflow1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Definition, Usage, Status, or Notification tab to display specific information about the workflow.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,2409 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Using Oracle Workflow in Oracle Order Management</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Using Oracle Workflow in Oracle Order Management Guide">
+<meta name="dcterms.identifier" content="E48844-08">
+<meta name="dcterms.isVersionOf" content="OMOWF">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T393423T393428.htm" title="Previous" type="text/html">
+<link rel="Next" href="T393423T393430.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Using Oracle Workflow in Oracle Order Management","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">8/16</span> <!-- End Header -->
+<h1>Seeded Workflow Definitions</h1>
+<h2><a name="3258491"></a><a id="T393469"></a><b>CTO Change Order Process</b></h2>
+<p><a name="d0e4087" id="d0e4087"></a><a name="d0e4092" id="d0e4092"></a><a name="t_seedwf" id="t_seedwf"></a><a name="t_nfco" id="t_nfco"></a>CTO Change Order is an Oracle Configure to Order workflow process that initiates if you change one of the following sales order attributes after a configuration item has been created:</p>
+<ul>
+<li>
+<p>Scheduled ship date</p>
+</li>
+<li>
+<p>Request date/scheduled arrival date</p>
+</li>
+<li>
+<p>Order line quantity</p>
+</li>
+<li>
+<p>Configuration</p>
+</li>
+</ul>
+<p>This process is also initiated if you cancel an order.</p>
+<p>This process sends a notification about the change(s) to different people depending on which item has been modified: If configured and ATO items are changed, a notification is sent to the planner of the top model/item in the shipping organization. For Purchase to Order ATO items, a notification is sent to the buyer on the requisition. Only one message is sent for all changes accepted in an order line. If the planner information is unavailable, the notification is redirected to the system administrator. The notification process cannot be initiated using the Sales Orders or any windows, it is automatically generated by the system.</p>
+<p>For single-level, single-organization configurations and ATO items a notification is sent only if a reservation or flow schedule exists for the configuration. If there are configuration changes, a notification is sent even if no reservation exists.</p>
+<p>For multi level, or multi organization configurations and ATO items a notification of the changes is always sent, regardless of whether a reservation exists for the top level configuration or ATO Item.</p>
+<p><strong><span>Note:</span></strong> Note: Please note that notifications for drop shipments are not sent using this process.</p>
+<p>The Change Order Process is contained in the seeded data file CTO Change Order and is associated with the <a href="T393423T393426.htm#t_ctoco">CTO Change Order</a> item type. For more information on the CTO Change Order process, please refer to the <i>Oracle Configure to Order Process Guide.</i></p>
+<h3><a id="T393566"></a><b>Summary of the Change Order Process</b></h3>
+<p>The properties of the CTO Change Order process indicate that it is runnable, it can be called by other processes.</p>
+<h3><b>Change Order Process Activities</b></h3>
+<p>The following table provides descriptions of each function activity in Change Order Process.</p>
+<p>For more information about individual function activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Change Order Process Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Start</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Change Order Notification</td>
+<td>NOTIFYCHG</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258498"></a><a id="T393472"></a><b>Change Order Process</b></h2>
+<p><a name="d0e4214" id="d0e4214"></a><a name="d0e4219" id="d0e4219"></a><a name="t_copros" id="t_copros"></a>If you change any order details (other than CTO/ATO/PTO items) on the Sales Orders window, you can send a notification to other users with the details of the change. Actions &gt; Notification in the Sales Orders window enables you to initiate the OM Change Order process. This process can also be initiated in an error message by selecting the Notify option.</p>
+<p>Change Order Process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393426.htm#t_change">OM Change Order</a> item type.</p>
+<h3><a id="T393567"></a><b>Summary of the Change Order Process</b></h3>
+<p>The OM Change Order process properties indicate that it is runnable, it can be assigned to other processes.</p>
+<p><b>Sending a notification using the Sales Orders window</b></p>
+<p><img width="755" height="504" src="./img/wf_chnotify.gif" alt="the picture is described in the document text"></p>
+<p>The following process diagram displays OM Change Order. As in CTO Change Order, the Change Order Notification activity is a seeded function.</p>
+<p><b>Change Order Workflow</b></p>
+<p><img width="479" height="187" src="./img/wf_chgordr.gif" alt="the picture is described in the document text"></p>
+<h3><b>Change Order Process Activities</b></h3>
+<p>The following table provides descriptions of each activity in Change Order Process. For more information about individual function activities, see <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Change Order Process Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Start</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Change Order Notification</td>
+<td>NOTIFYCHG</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="5290110"></a><a id="T531806"></a><b>ISO Cancel Process</b></h2>
+<p><a name="d0e4331" id="d0e4331"></a><a name="t_isocancel" id="t_isocancel"></a>If you cancel the internal sales order, you can send a notification to the preparer of the Internal Requisition with the details of the cancellation. This process is relevant only in the context of Internal Requisitions and Internal Sales Orders change management. The following notification is displayed when the internal sales order is cancelled:</p>
+<p>Internal Sales Order &amp;ORDER_NUMBER has been cancelled.</p>
+<p>The following information is part of the ISO Cancel notification:</p>
+<ul>
+<li>
+<p>Sales Order No: &amp;ORDER_NUMBER</p>
+</li>
+<li>
+<p>Internal Requisition No: &amp;REQ_HDR_NUMBER</p>
+</li>
+<li>
+<p>Cancellation Date: &amp;ORDER_CANCEL_DATE</p>
+</li>
+</ul>
+<p>ISO Cancel Process is contained in the Seeded Data File oexwford.wft and is associated with the <a href="T393423T393426.htm#t_change">OM Change Order</a> item type.</p>
+<p>The following process diagram displays ISO Cancel Process. The ISO Cancel Notification activity is a seeded function.</p>
+<p><b>ISO Cancel Process</b></p>
+<p><img width="553" height="184" src="./img/wf_iso_cancel.gif" alt="the picture is described in the document text"></p>
+<h2><a name="5290125"></a><a id="T531807"></a><b>ISO Line Cancel Process</b></h2>
+<p><a name="d0e4372" id="d0e4372"></a><a name="t_isocancelline" id="t_isocancelline"></a>If you cancel the internal sales order lines, you can send a notification to the preparer of the Internal Requisition with the details of the cancellation. This process is relevant only in the context of Internal Requisitions and Internal Sales Orders change management. The following message is displayed when the internal sales order lines are cancelled:</p>
+<p>Internal Sales Order &amp;ORDER_NUMBER Line &amp;LINE_NUMBER has been cancelled.</p>
+<p>The following information is part of the ISO Line Cancel notification:</p>
+<ul>
+<li>
+<p>Sales Order No: &amp;ORDER_NUMBER</p>
+</li>
+<li>
+<p>Line No: &amp;LINE_NUMBER</p>
+</li>
+<li>
+<p>Internal Requisition No: &amp;REQ_HDR_NUMBER</p>
+</li>
+<li>
+<p>Line No: &amp;REQ_LINE_NUMBER</p>
+</li>
+<li>
+<p>Item: &amp;INVENTORY_ITEM</p>
+</li>
+<li>
+<p>Requested Quantity: &amp;REQUESTED_QTY</p>
+</li>
+<li>
+<p>Cancelled Quantity: &amp;CANCELLED_QTY</p>
+</li>
+<li>
+<p>Cancellation Date: &amp;LINE_CANCEL_DATE</p>
+</li>
+</ul>
+<p>ISO Line Cancel Process is contained in the Seeded Data File oexwford.wft and is associated with the <a href="T393423T393426.htm#t_change">OM Change Order</a> item type.</p>
+<p>The following process diagram displays ISO Line Cancel Process. The ISO Line Cancel Notification activity is a seeded function.</p>
+<p><b>ISO Line Cancel Process</b></p>
+<p><img width="499" height="132" src="./img/wf_iso_cancel_line.gif" alt="the picture is described in the document text"></p>
+<h2><a name="5290140"></a><a id="T531808"></a><b>ISO Qty update Process</b></h2>
+<p><a name="d0e4428" id="d0e4428"></a><a name="t_isoqtyupdt" id="t_isoqtyupdt"></a>If you update the ordered quantity or secondary quantity on the internal sales order line(s), you can send a notification to the preparer of the internal requisition with the details of the update. This process is relevant only in the context of Internal Requisitions and Internal Sales Orders change management. The following message is displayed when you update the ordered quantity or secondary quantity on the internal sales order line:</p>
+<p>Internal Sales Order &amp;ORDER_NUMBER Line &amp;LINE_NUMBER quantity has been updated.</p>
+<p>The following information is part of the ISO Qty Update notification:</p>
+<ul>
+<li>
+<p>Sales Order No: &amp;ORDER_NUMBER</p>
+</li>
+<li>
+<p>Line No: &amp;LINE_NUMBER</p>
+</li>
+<li>
+<p>Internal Requisition No: &amp;REQ_HDR_NUMBER</p>
+</li>
+<li>
+<p>Line No: &amp;REQ_LINE_NUMBER</p>
+</li>
+<li>
+<p>Item: &amp;INVENTORY_ITEM</p>
+</li>
+<li>
+<p>Original Requested Quantity: &amp;REQUESTED_QTY</p>
+</li>
+<li>
+<p>New Requested Quantity: &amp;UPDATED_QTY</p>
+</li>
+<li>
+<p>Update Date: &amp;LINE_UPDATE_DATE</p>
+</li>
+<li>
+<p>Original Secondary Requested Quantity: &amp;REQUESTED_QTY2</p>
+</li>
+<li>
+<p>New Secondary Requested Quantity: &amp;UPDATED_QTY2</p>
+</li>
+</ul>
+<p>ISO Qty update Process is contained in the Seeded Data File oexwford.wft and is associated with the <a href="T393423T393426.htm#t_change">OM Change Order</a> item type.</p>
+<p>The following process diagram displays ISO Qty Update Process. The ISO Line Ordered Quantity Update Notification activity is a seeded function.</p>
+<p><b>ISO Qty update Process</b></p>
+<p><img width="445" height="121" src="./img/wf_qty_upd.gif" alt="the picture is described in the document text"></p>
+<h2><a name="5290155"></a><a id="T531809"></a><b>ISO Schedule Date update Process</b></h2>
+<p><a name="d0e4490" id="d0e4490"></a><a name="t_isodateupdt" id="t_isodateupdt"></a>If you update the Schedule Arrival Date on the internal sales order lines, you can send a notification to the preparer of the Internal Requisition with the details of the update. This process is relevant only in the context of Internal Requisitions and Internal Sales Orders change management. The following message is displayed if you update the Schedule Arrival Date:</p>
+<p>Internal Sales Order &amp;ORDER_NUMBER Line &amp;LINE_NUMBER Schedule Ship/Arrival Date has been updated.</p>
+<p>The following information is part of the ISO Line Schedule Arrival Date update notification:</p>
+<ul>
+<li>
+<p>Sales Order No: &amp;ORDER_NUMBER</p>
+</li>
+<li>
+<p>Line No: &amp;LINE_NUMBER</p>
+</li>
+<li>
+<p>Internal Requisition No: &amp;REQ_HDR_NUMBER</p>
+</li>
+<li>
+<p>Line No: &amp;REQ_LINE_NUMBER</p>
+</li>
+<li>
+<p>Item: &amp;INVENTORY_ITEM</p>
+</li>
+<li>
+<p>Requested Quantity: &amp;REQUESTED_QTY</p>
+</li>
+<li>
+<p>Need By Date: &amp;REQ_LIN_NEED_BY_DATE</p>
+</li>
+<li>
+<p>New Schedule Ship Date: &amp;LINE_SCH_ARRIVAL_DATE</p>
+</li>
+<li>
+<p>Update Date: &amp;LINE_UPDATE_DATE</p>
+</li>
+</ul>
+<p>ISO Schedule Date update Process is contained in the Seeded Data File oexwford.wft and is associated with the <a href="T393423T393426.htm#t_change">OM Change Order</a> item type.</p>
+<p>The following process diagram displays ISO Line Schedule Arrival Date update Process. The ISO Line Schedule Arrival Date update Notification activity is a seeded function.</p>
+<p><b>ISO Schedule Date update Process</b></p>
+<p><img width="504" height="124" src="./img/wf_date_upd.gif" alt="the picture is described in the document text"></p>
+<h2><a name="5290171"></a><a id="T531810"></a><b>ISO Quantity and Schedule Date update Process</b></h2>
+<p><a name="d0e4549" id="d0e4549"></a><a name="t_isoqtydate" id="t_isoqtydate"></a>If you update the ordered quantity, secondary quantity, or schedule arrival date on the internal sales order lines, you can send a notification to the preparer of the internal requisition with the details of the update. This process is relevant only in the context of Internal Requisitions and Internal Sales Orders change management. The following message is displayed when you update the ordered quantity, secondary quantity, or schedule arrival date in the internal sales order:</p>
+<p>Internal Sales Order &amp;ORDER_NUMBER Line &amp;LINE_NUMBER Quantity and Schedule Ship/Arrival Date have been updated.</p>
+<p>The following information is part of the ISO Line Qty and Schedule Arrival Date update notification:</p>
+<ul>
+<li>
+<p>Sales Order No: &amp;ORDER_NUMBER</p>
+</li>
+<li>
+<p>Line No: &amp;LINE_NUMBER</p>
+</li>
+<li>
+<p>Internal Requisition No: &amp;REQ_HDR_NUMBER</p>
+</li>
+<li>
+<p>Line No: &amp;REQ_LINE_NUMBER</p>
+</li>
+<li>
+<p>Item: &amp;INVENTORY_ITEM</p>
+</li>
+<li>
+<p>Original Requested Quantity: &amp;REQUESTED_QTY</p>
+</li>
+<li>
+<p>New Requested Quantity: &amp;UPDATED_QTY</p>
+</li>
+<li>
+<p>Need By Date: &amp;REQ_LIN_NEED_BY_DATE</p>
+</li>
+<li>
+<p>New Schedule Ship/Arrival Date: &amp;LINE_SCH_ARRIVAL_DATE</p>
+</li>
+<li>
+<p>Update Date: &amp;LINE_UPDATE_DATE</p>
+</li>
+<li>
+<p>Original Secondary Requested Quantity: &amp;REQUESTED_QTY2</p>
+</li>
+<li>
+<p>New Secondary Requested Quantity: &amp;UPDATED_QTY2</p>
+</li>
+</ul>
+<p>ISO Quantity and Schedule Date update Process is contained in the Seeded Data File oexwford.wft and is associated with the OM <a href="T393423T393426.htm#t_change">Change Order</a> item type.</p>
+<p>The following process diagram displays ISO Quantity and Schedule Date update Process. The ISO Line Qty and Schedule Arrival Date update Notification activity is a seeded function.</p>
+<p><b>ISO Quantity and Schedule Date update Process</b></p>
+<p><img width="470" height="152" src="./img/wf_qty_date_upd.gif" alt="the picture is described in the document text"></p>
+<h2><a name="7238384"></a><a id="T633849"></a><b>ISO Item Update Process</b></h2>
+<p><a name="d0e4617" id="d0e4617"></a><a name="isoitemup" id="isoitemup"></a>This process sends a notification to the internal requisition preparer or SYSADMIN, if the preparer cannot be determined or is inactive, when an item is substituted on an internal sales order line. The following notification is displayed when an item is substituted on the internal sales order:</p>
+<ul>
+<li>
+<p>ISO Line Ordered Item Update</p>
+</li>
+</ul>
+<p>The following information is part of the ISO Line Ordered Item Update notification:</p>
+<ul>
+<li>
+<p>Sales Order No: &amp;ORDER_NUMBER &amp;LINE_NUMBER</p>
+</li>
+<li>
+<p>Internal Requisition No: &amp;REQ_HDR_NUMBER &amp;LINE_NUMBER</p>
+</li>
+<li>
+<p>Requisition Item</p>
+</li>
+<li>
+<p>Sales Order Item</p>
+</li>
+</ul>
+<p><img width="1599" height="654" src="./img/omwf_isoiumsg.gif" alt="the picture is described in the document text"></p>
+<p>ISO Line Ordered Item Update process is contained in the Seeded Data File oexwford.wft and is associated with the OM Change Order.</p>
+<p>The ISO Line Ordered Item Update notification activity is a seeded function. The following process diagram displays ISO Line Ordered Item Update process.</p>
+<p><img width="1599" height="1151" src="./img/omwf_isoiuproc.gif" alt="the picture is described in the document text"></p>
+<h2><a name="3258503"></a><a id="T393473"></a><b>OM Order Header Processes</b></h2>
+<p><a name="d0e4663" id="d0e4663"></a>The following section discusses the three workflows associated with the OM Order Header item type:</p>
+<ul>
+<li>
+<p><a href="T393423T393429.htm#t_ofgen">Order Flow - Generic</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_ofghl">Order Flow - Generic with Header Level Invoice Interface</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_ofraf">Order Flow - Return with Approval</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#ofmrwa">Order Flow &ndash; Mixed or Return with Approval</a></p>
+</li>
+</ul>
+<p>For more information regarding the OM Order Header item type, refer to, <a href="T393423T393426.htm#t_intro">Introduction</a>.</p>
+<h2><a name="3258504"></a><a id="T393474"></a><b>Order Flow - Generic</b></h2>
+<p><a name="d0e4697" id="d0e4697"></a><a name="t_ofgen" id="t_ofgen"></a>The Order Flow - Generic workflow process is the most often used workflow in Oracle Order Management. The Order Flow - Generic process contains subprocesses to verify that an order is booked and closed properly.</p>
+<p>Order Flow - Generic is initiated if it is assigned to the transaction type for the order. Transaction types determine which processes are attached to an order. For more information on defining transaction types, refer to the <i>Oracle Order Management Implementation Manual.</i></p>
+<p>Order Flow - Generic is associated with the following OM Order Header subprocesses:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_boman">Book - Order, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clord">Close - Order</a></p>
+</li>
+</ul>
+<p>Order Flow - Generic is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><a id="T393568"></a><b>Summary of the Order Flow - Generic Process</b></h3>
+<p>To view the properties of the Order Flow - Generic process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Order Flow - Generic process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Order Flow - Generic, you see that the process consists of 2 unique activities and 2 subprocesses, which comprise the 4 nodes that appear in the workflow diagram. The following diagram depicts the Order Flow - Generic process. Each node of this process is numbered for referencing.</p>
+<p><b>Order Flow - Generic Workflow</b></p>
+<p><img width="492" height="163" src="./img/wf_genord.gif" alt="the picture is described in the document text"></p>
+<p>The Order Flow - Generic workflow begins at node 1 with the <a href="T393423T393431.htm#t_enter">Enter</a> activity. The workflow then proceeds to the <a href="T393423T393430.htm#t_boman">Book - Order, Manual</a> subprocess in node 2.</p>
+<p>Once the order is booked, the process continues on to the <a href="T393423T393430.htm#t_clord">Close - Order</a> subprocess in node 3 and wait for all lines under this order to close. Once all lines are closed, the order will close. After the order is closed, the process ends.</p>
+<h3><b>Order Flow - Generic Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Order Flow - Generic process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Order Flow - Generic Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Enter</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="8626571"></a><a id="T671342"></a><b>Order Flow - Generic with Booking Approval</b></h2>
+<p><a name="d0e4821" id="d0e4821"></a><a name="of_gwbappr" id="of_gwbappr"></a>Order Flow - Generic with Booking Approval enables creation of order with AME approval before booking of the order.</p>
+<p>The Order Flow - Generic with Booking Approval workflow process is initiated when you create the order in Oracle Order Management. When the order is progressed for booking, the status of the order is changed to Pending Internal Approval, indicating that the order has been sent for approval. At the same time, the status of the order line will remain as Entered, awaiting approval of order for progressing further. Both outbound lines and return lines behave the same with respect to status, as they are children of new seeded workflow.</p>
+<p>If the order is rejected, the status of the header is changed to Review Required.</p>
+<p>If the order is approved, the status of the header is changed to Approved, indicating that the order has been approved. After the approval, the order would be pushed ahead for booking updating the status to Booked. If the order is approved, but does not get booked because of any reason, the workflow will move to the Book-Eligible activity updating the status to Entered. When progressing the order again for booking, then the order is not sent again for approval.</p>
+<p>Booking may happen asynchronously if the order is sent for booking approval. If no approvers are returned from AME, then the booking will happen synchronously, sending messages back to the user. If there are approvers from AME, then the booking will happen asynchronously after approval. In this case, no messages will be sent back to the user. Until the time, order is not approved, order will be in Pending Internal Approval status.</p>
+<p>The Order Flow - Generic with Booking Approval workflow process is associated with the following OM Order Header subprocesses:</p>
+<ul>
+<li>
+<p>Book - Order, Manual with AME Approval</p>
+</li>
+<li>
+<p>Close - Order</p>
+</li>
+</ul>
+<p>Order Flow - Generic with Booking Approval is contained in the Seeded Data File oexwford.wft and is associated with the OM Order Header item type.</p>
+<h3><a id="T671343"></a><b>Summary of the Order Flow - Generic with Booking Approval Process</b></h3>
+<p>To view the properties of the Order Flow - Generic with Booking Approval process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type. The Details property page of the process activity indicates that the Order Flow - Generic with Booking Approval process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process. When you display the Process window for the Order Flow - Generic with Booking Approval, you see that the process consists of 2 unique activities and 2 subprocesses, which comprise the nodes that appear in the workflow diagram. The following diagram depicts the Order Flow - Generic with Booking Approval process.</p>
+<p><img width="688" height="132" src="./img/omwf_genbappr.gif" alt="the picture is described in the document text"></p>
+<p>The Order Flow - Generic with Booking Approval workflow begins with the Enter activity. The workflow then proceeds to the Book - Order, Manual with AME approval subprocess.</p>
+<p>Once the order is booked, the workflow process resumes and moves to the Close - Order. Once all the lines in the Return have been closed the Return will be closed. After the order is successfully closed, the process ends.</p>
+<p>Order Flow - Generic with Booking Approval with Approval Activities</p>
+<p>The following table provides descriptions of each activity in the Order Flow - Generic with Booking Approval process. For more information about individual activities, refer to Seeded Function Activity Definitions.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Enter</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258509"></a><a id="T393475"></a><b>Order Flow - Generic with Header Level Invoice Interface</b></h2>
+<p><a name="d0e4917" id="d0e4917"></a><a name="t_ofghl" id="t_ofghl"></a>Order Flow - Generic with Header Level Invoice Interface can only be used along with Line Flow - Generic with Header Level Invoice Interface.</p>
+<p>The Order Flow - Generic with Header Level Invoice Interface is a workflow process that is initiated when you enter a sales order in Oracle Order Management. When you submit a sales order that requires an invoice, the Order Flow - Generic with Header Level Invoice Interface first ensures that the order is booked before generating the invoice. When all lines in the order are complete, the process interfaces with Oracle Receivables to generate an invoice for the order. Upon completion of the invoice interface, the process closes the order.</p>
+<p><strong><span>Note:</span></strong> This flow interfaces to Receivables for invoice creation when all lines in the order has been fulfilled.</p>
+<p>The Order Flow - Generic with Header Level Invoice Interface workflow process can only end once the order is successfully closed.</p>
+<p>Order Flow - Generic with Header Level Invoice Interface is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><a id="T393569"></a><b>Summary of the Order Flow - Generic with Header Level Invoice Interface Process</b></h3>
+<p>To view the properties of the Order Flow - Generic with Header Level Invoice Interface process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Order Flow - Generic with Header Level Invoice Interface process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Order Flow - Generic with Header Level Invoice Interface, you see that the process consists of 2 unique activities and 3 subprocesses, which comprise the 5 nodes that appear in the workflow diagram. The following diagram depicts the Order Flow - Generic with Header Level Invoice Interface process. Each node of this subprocess is numbered for referencing.</p>
+<p><b>Order Flow - Generic with Header Level Invoice Workflow</b></p>
+<p><img width="633" height="172" src="./img/wf_genordhl.gif" alt="the picture is described in the document text"></p>
+<p>The Order Flow - Generic workflow begins at node 1 with the Enter activity.</p>
+<p>The workflow then proceeds to the <a href="T393423T393430.htm#t_boman">Book - Order, Manual</a> subprocess in node 2. Once the order is booked, the process continues on to the <a href="T393423T393430.htm#t_hliio">Header Level Invoice Interface - Order</a> subprocess in node 3. This subprocess initiates the interface with Oracle Receivables to generate an invoice for the order. After an invoice is generated, the process moves to the <a href="T393423T393430.htm#t_clord">Close - Order</a> process in node 4. The process ends in node 5 after the order is successfully closed.</p>
+<h3><b>Order Flow - Generic with Header Level Invoice Interface Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Order Flow - Generic with Header Level Invoice Interface process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Order Flow - Generic with Header Level Invoice Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Enter</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258514"></a><a id="T393476"></a><b>Order Flow - Return with Approval</b></h2>
+<p><a name="d0e5033" id="d0e5033"></a><a name="t_ofraf" id="t_ofraf"></a>Order Flow - Return with Approval should be used with either Line Flow - Return for Credit Only with Approval or Line Flow - Return for Credit with Receipt and Approval.</p>
+<p>The Order Flow - Return with Approval workflow process is initiated when you submit a return on a sales order in Oracle Order Management. Returns must be booked and closed using the same processes as a sales order.</p>
+<p>When you submit a return in Oracle Order Management, the process first books the return and then sends a notification to verify that the return is authorized. When the return is approved, the corresponding return lines can proceed. When all the return lines have been closed, this header flow will close and end. The approving manager can also decline authorization for the return.</p>
+<p>The Order Flow - Return with Approval process ends after the return order is closed. The process can end with a result of rejected if:</p>
+<ul>
+<li>
+<p>The approving manager does not authorize the return.</p>
+</li>
+<li>
+<p>The order is not eligible for return.</p>
+</li>
+</ul>
+<p>The Order Flow - Return with Approval workflow process is associated with the following OM Order Header subprocesses:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_boman">Book - Order, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_appro">Approve Return - Order</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clord">Close - Order</a></p>
+</li>
+</ul>
+<p>Order Flow - Return with Approval is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><a id="T393570"></a><b>Summary of the Order Flow - Return with Approval Process</b></h3>
+<p>To view the properties of the Order Flow - Return with Approval process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type. The Details property page of the process activity indicates that the Order Flow - Return with approval process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process. When you display the Process window for the Order Flow - Return with Approval, you see that the process consists of 2 unique activities and 3 subprocesses, which comprise the 5 nodes that appear in the workflow diagram. The following diagram depicts the Order Flow - Return with Approval process. Each node of this subprocess is numbered for referencing.</p>
+<p><b>Order Flow - Return with Approval Workflow</b></p>
+<p><img width="663" height="181" src="./img/wf_retwapp.gif" alt="the picture is described in the document text"></p>
+<p>The Order Flow - Generic workflow begins at node 1 with the <a href="T393423T393431.htm#t_enter">Enter</a> activity. The workflow then proceeds to the <a href="T393423T393430.htm#t_boman">Book - Order, Manual</a> subprocess in node 2.</p>
+<p>Once the order is booked, the process continues on to the <a href="T393423T393430.htm#t_appro">Approve Return - Order</a> subprocess in node 3. This subprocess sends notification to verify that the return is authorized. After the authorization status is determined, the workflow process resumes and moves to the <a href="T393423T393430.htm#t_clord">Close - Order</a> process in node 4. Once all the lines in the Return have been closed the Return will be closed. After the order is successfully closed, the process ends.</p>
+<h3><b>Order Flow - Return with Approval Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Order Flow - Return with Approval process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Order Flow - Return with Approval Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Enter</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="5803536"></a><a id="T560940"></a><b>Order Flow &ndash; Mixed or Return with Approval</b></h2>
+<p><a name="d0e5169" id="d0e5169"></a><a name="ofmrwa" id="ofmrwa"></a>Order Flow &ndash; Mixed or Return with Approval enables creation of order with mixed lines and return lines with approval. Use this workflow with either Line Flow - Return for Credit Only with Approval or Line Flow - Return for Credit with Receipt and Approval.</p>
+<p>The Order Flow &ndash; Mixed or Return with Approval workflow process is initiated when you submit a return on a sales order with mixed lines and lines with approval in Oracle Order Management. Returns must be booked and closed using the same processes as a sales order. When you submit a return in Oracle Order Management, the process first books the return and then sends a notification to verify that the return is authorized. When the return is approved, the corresponding return lines can proceed. When all the return lines have been closed, this header flow will close and end. The approving manager can also decline authorization for the return. The Order Flow &ndash; Mixed or Return with Approval process ends after the return order is closed. The process can end with a result of rejected if:</p>
+<ul>
+<li>
+<p>The approving manager does not authorize the return.</p>
+</li>
+<li>
+<p>The order is not eligible for return.</p>
+</li>
+</ul>
+<p>The Order Flow &ndash; Mixed or Return with Approval workflow process is associated with the following OM Order Header subprocesses:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_boman">Book - Order, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_appro">Approve Return - Order</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_aromlame">Approve Return &ndash; Order with Mixed Lines AME</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clord">Close - Order</a></p>
+</li>
+</ul>
+<p>Order Flow - Return with Approval is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><a id="T560941"></a><b>Summary of the Order Flow &ndash; Mixed or Return with Approval Process</b></h3>
+<p>To view the properties of the Order Flow &ndash; Mixed or Return with Approval process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type. The Details property page of the process activity indicates that the Order Flow &ndash; Mixed or Return with approval process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process. When you display the Process window for the Order Flow &ndash; Mixed or Return with Approval, you see that the process consists of 2 unique activities and 3 subprocesses, which comprise the nodes that appear in the workflow diagram. The following diagram depicts the Order Flow &ndash; Mixed or Return with Approval process.</p>
+<p><b>Order Flow &ndash; Mixed or Return with Approval Workflow</b></p>
+<p><img width="499" height="110" src="./img/ont_wf_oflow_mra.gif" alt="the picture is described in the document text"></p>
+<p>The Order Flow - Generic workflow begins with the <a href="T393423T393431.htm#t_enter">Enter</a> activity. The workflow then proceeds to the <a href="T393423T393430.htm#t_boman">Book - Order, Manual</a> subprocess.</p>
+<p>Once the order is booked, the 'Is AME Used for Approval' function in this workflow checks if the Use Approvals Management Engine check box is selected in the Transaction Type window. If yes, then it goes to 'Approve Return &ndash; Order with Mixed Lines AME' sub process. This sub process takes care of approvals from AME. If it is unchecked, then this function goes to 'Approve Return &ndash; Order with Mixed Lines subprocess as seen in the following diagram:</p>
+<p><img width="590" height="247" src="./img/omwfofmrame.gif" alt="the picture is described in the document text"></p>
+<p>The Approve Return &ndash; Order with Mixed Lines subprocess sends notification to verify that the return is authorized. After the authorization status is determined, the workflow process resumes and moves to the <a href="T393423T393430.htm#t_clord">Close - Order</a>. Once all the lines in the Return have been closed the Return will be closed. After the order is successfully closed, the process ends.</p>
+<p><b>Order Flow &ndash; Mixed or Return with Approval Activities</b></p>
+<p>The following table provides descriptions of each activity in the Order Flow &ndash; Mixed or Return with Approval process. For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Order Flow &ndash; Mixed or Return with Approval Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Enter</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258519"></a><a id="T393477"></a><b>OM Order Line Processes</b></h2>
+<p><a name="d0e5306" id="d0e5306"></a><a name="d0e5311" id="d0e5311"></a>The following section discusses the workflow processes associated with the OM Order Line item type:</p>
+<ul>
+<li>
+<p><a href="T393423T393429.htm#t_lfato">Line Flow - ATO Item</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfatom">Line Flow - ATO Model</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfconf">Line Flow - Configuration</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcfrlm">Line Flow - Configuration with Authorize to Ship (RLM)</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgen">Line Flow - Generic</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgperf">Line Flow - Generic, Performance</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgrlm">Line Flow - Generic with Authorize to Ship (RLM)</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfghlii">Line Flow - Generic with Header Level Invoice Interface</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgexp">Line Flow - Generic, With Export Compliance</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgbo">Line Flow - Generic, Bill Only</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgboii">Line Flow - Generic, Bill Only with Inventory Interface</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgso">Line Flow - Generic, Ship Only</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgraf">Line Flow - Generic, with Repricing at Fulfillment</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcredit">Line Flow - Return for Credit Only</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcapp">Line Flow - Return for Credit Only with Approval</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfrcr">Line Flow - Return for Credit with Receipt</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcraa">Line Flow - Return for Credit with Receipt and Approval</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfss">Line Flow - Standard Service</a></p>
+</li>
+</ul>
+<p>For more information regarding the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type, refer to <a href="T393423T393426.htm#t_intro">Introduction</a>.</p>
+<h2><a name="3258520"></a><a id="T393478"></a><b>Line Flow - ATO Item</b></h2>
+<p><a name="d0e5402" id="d0e5402"></a><a name="t_lfato" id="t_lfato"></a>The Line Flow - ATO Item workflow process supports ATO item lines only, and can be assigned to ATO Item lines instead of the Line Flow-Generic.</p>
+<p>The Line Flow - ATO Item workflow process is initiated when an item on a sales order line is entered as an Assemble-to-Order (ATO) item. ATO items are associated with Oracle Configure to Order. To learn more about implementing Oracle Configure to Order, refer to the <i>Oracle Configure to Order Implementation Manual.</i> When you enter an order line in Oracle Order Management, the process runs through several subprocess that schedule the line, create the supply for the assemble to order item, prepare for shipping, interface with Oracle Receivables for invoicing, and closing the line.</p>
+<p>The Line Flow - ATO Item process can only end after the line is closed. To initiate the Line Flow - ATO Item process, you must enter an order in Oracle Order Management. The following subprocess are contained in the Line Flow - ATO Item workflow process:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_schln">Schedule - Line</a></p>
+</li>
+<li>
+<p>Branch on Source Type</p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_cclm">Create Supply Order - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>The Line Flow - ATO Item process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393571"></a><b>Summary of the Line Flow - ATO Item Process</b></h3>
+<p>To view the properties of the Line Flow - ATO Item process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - ATO Item process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>The following diagram depicts the Line Flow - ATO Item process.</p>
+<p><b>Line Flow - ATO Item Workflow</b></p>
+<p><img width="1071" height="298" src="./img/omwfglfatoi.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - ATO Item workflow begins with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess ensures that the order is booked before proceeding with the rest of the line flow.</p>
+<p>After the order is booked the workflow process proceeds to the <a href="T393423T393430.htm#t_schln">Schedule - Line</a> subprocess. The Branch on Source Type activity is available in the Line Flow - ATO Item process just so that completion of this activity can be tracked. Once the activity is complete, you cannot change the warehouse on the line, if the change triggers a change in ato_line_id on the line. This activity is not intended to perform any branching in the Line Flow - ATO Item process. When scheduling for the line is complete the <a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a> subprocess is initiated. The <a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a> subprocess is initiated after supply is created for the line. The <a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a> activity moves line fulfillment to the background engine. Next, the workflow interfaces with Oracle Receivables to create an invoice for the line. After the invoice interface is complete, the line is closed and the subprocess ends.</p>
+<h3><b>Line Flow - ATO Item Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Line Flow - ATO Item process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - ATO Item Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258525"></a><a id="T393479"></a><b>Line Flow - ATO Model</b></h2>
+<p><a name="d0e5565" id="d0e5565"></a><a name="t_lfatom" id="t_lfatom"></a>The Line Flow - ATO Model workflow process supports ATO model lines only, and can be assigned to ATO Model lines instead of the Line Flow - Generic.</p>
+<p>The Line Flow - ATO Model workflow process is initiated when an item on a sales order line is entered as an Assemble-to-Order (ATO) model. ATO is associated with Oracle Configure to Order. For more information about implementing Oracle Configure to Order, refer to the <i>Oracle Configure to Order Implementation Manual.</i></p>
+<p>The Line Flow - ATO Model process can only end after the line is closed. To initiate the Line Flow - ATO Model process, you must enter an order in Oracle Order Management. The following subprocess are contained in the Line Flow - ATO Model workflow process:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_schln">Schedule - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_cclm">Create Configuration - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>The Line Flow - ATO Model process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393572"></a><b>Summary of the Line Flow - ATO Model Process</b></h3>
+<p>To view the properties of the Line Flow - ATO Model process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - ATO Model process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - ATO Model, you see that the process consists of 3 unique activities and 5 subprocesses, which comprise the 8 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - ATO Item process. Each node of this subprocess is numbered for referencing.</p>
+<p><b>Line Flow - ATO Model Workflow</b></p>
+<p><img width="633" height="341" src="./img/wf_atomodel.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - ATO Model workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess ensures that the order is booked before proceeding with the rest of the line flow.</p>
+<p>After the order is booked the workflow process proceeds to the <a href="T393423T393430.htm#t_schln">Schedule - Line</a> subprocess in node 2. When scheduling for the line is complete the <a href="T393423T393430.htm#t_cclm">Create Configuration - Line, Manual</a> subprocess is initiated. The <a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a> activity in node 4 moves line fulfillment to the background engine. In node 6, <a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a>, the workflow interfaces with Oracle Receivables to create an invoice for the line. After the invoice interface is complete, the line is closed (<a href="T393423T393430.htm#t_clline">Close - Line</a>) and the subprocess ends (<a href="T393423T393431.htm#t_end">End</a>).</p>
+<h3><b>Line Flow - ATO Model Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Line Flow - ATO Model process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - ATO Model Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258530"></a><a id="T393480"></a><b>Line Flow - Configuration</b></h2>
+<p><a name="d0e5726" id="d0e5726"></a><a name="t_lfconf" id="t_lfconf"></a>The Line Flow - Configuration workflow process is associated with Oracle Configure to Order. This workflow works only with ATO configuration items and must be assigned specifically to configuration lines during the implementation process. To learn more about implementing Oracle Configure to Order, refer to the <i>Oracle Configure to Order Implementation Manual.</i></p>
+<p>To initiate the Line Flow - Configuration process, you must move an ATO model line through <a href="T393423T393431.htm#t_ccelig">Create Configuration - Eligible</a> activity by progressing the order line or by running the Autocreate Config batch program. This creates the configuration item, links it to the order, and starts the Line Flow - Configuration process.</p>
+<p>The following subprocess are contained in the Line Flow - Configuration workflow process:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_cmcdlm">Create Manufacturing Configuration Data - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>The Line Flow - Configuration process can only end after the line is closed. The Line Flow - Configuration process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393573"></a><b>Summary of the Line Flow - Configuration Process</b></h3>
+<p>To view the properties of the Line Flow - Configuration process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Configuration process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process. When you display the Process window for the Line Flow - Configuration, you see that the process consists of 4 unique activities and 4 subprocesses, which comprise the 8 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Configuration process. Each node of this subprocess is numbered for referencing.</p>
+<p><b>Line Flow - Configuration Workflow</b></p>
+<p><img width="456" height="348" src="./img/wf_config.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Configuration workflow begins at node 1 with the <a href="T393423T393431.htm#t_start">Start</a> activity. In node 2, the process runs the <a href="T393423T393430.htm#t_cmcdlm">Create Manufacturing Configuration Data - Line, Manual</a> subprocess, then the <a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a> subprocess in</p>
+<p>node 3. Once these subprocess are completed, the <a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a> subprocess is initiated. In node 5, the <a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a> activity moves fulfillment to the background engine. The process initiates the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess in node 7. After the line is successfully closed, the process ends.</p>
+<h3><b>Line Flow - Configuration Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Line Flow - Configuration process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Configuration Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Start</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258535"></a><a id="T393481"></a><b>Line Flow - Configuration with Authorize to Ship (RLM)</b></h2>
+<p><a name="d0e5898" id="d0e5898"></a><a name="t_lfcfrlm" id="t_lfcfrlm"></a>This process is not currently used in Oracle Order Management is listed for reference purposes only. Do not use this process when assigning processes to transaction types. Oracle does not provide support for this workflow process.</p>
+<p>The Line Flow - Configuration with Authorize to Ship (RLM) workflow process is associated with Oracle Release Management users. Line Flow - Configuration with Authorize to Ship (RLM) ensures that a line is eligible for shipping.</p>
+<p>This workflow is specific to Oracle Release Management users and must be assigned during the implementation process. To learn more about implementing Oracle Release Management, refer to the <i>Oracle Release Management Implementation Manual.</i></p>
+<p>To initiate the Line Flow - Configuration with Authorize to Ship (RLM) process, you must enter an order in Oracle Order Management. If the items on the line require authorization before shipping, this process initiates. The following subprocess are contained in the Line Flow - Configuration with Authorize to Ship (RLM) workflow process:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_cmcdlm">Create Manufacturing Configuration Data - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_atsl">Authorized to Ship - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>The Line Flow - Configuration with Authorize to Ship (RLM) process can only end after the line is closed.</p>
+<p>The Line Flow - Configuration with Authorize to Ship (RLM) process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393574"></a><b>Summary of the Line Flow - Configuration with Authorize to Ship (RLM) Process</b></h3>
+<p>To view the properties of the Line Flow - Configuration with Authorize to Ship (RLM) process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Configuration with Authorize to Ship (RLM) process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Configuration with Authorize to Ship (RLM), you see that the process consists of 5 unique activities and 5 subprocesses, which comprise the 10 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Configuration with Authorize to Ship (RLM) process. Each node of this subprocess is numbered for referencing.</p>
+<p><b>Line Flow - Configuration with Authorize to Ship (RLM) Workflow</b></p>
+<p><img width="608" height="391" src="./img/wf_confgrlm.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Configuration with Authorize to Ship (RLM) workflow begins at node 1 with the <a href="T393423T393431.htm#t_start">Start</a> activity.</p>
+<p>In node 2, the process runs the <a href="T393423T393431.htm#t_confck">Configuration - Check Status</a> activity. Once status is verified the process moves through the <a href="T393423T393430.htm#t_cmcdlm">Create Manufacturing Configuration Data - Line, Manual</a> subprocess in node 3 and the <a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a> subprocess in node 4. Once these subprocess are completed, the <a href="T393423T393430.htm#t_atsl">Authorized to Ship - Line</a> subprocess is initiated in node 5, then <a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a> subprocess in node 6. In node 7, the <a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a> activity moves fulfillment to the background engine. The process initiates the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess in node 9. After the line is successfully closed, the process ends.</p>
+<h3><b>Line Flow - Configuration with Authorize to Ship (RLM) Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Line Flow - Configuration with Authorize to Ship (RLM) process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Configuration with Authorize to Ship (RLM) Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Start</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Configuration - Check Status</td>
+<td>CTO_WORKFLOW.CHECK_RESERVATION_STATUS_WF</td>
+<td>Config Data Results</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258540"></a><a id="T393482"></a><b>Line Flow - Generic</b></h2>
+<p><a name="d0e6092" id="d0e6092"></a><a name="t_lfgen" id="t_lfgen"></a>The Line Flow - Generic process is a workflow process that is initiated when you save a sales order line in Oracle Order Management. The Line - Flow Generic process contains several subprocesses to ensure that an order line is properly entered, scheduled, created, invoiced, fulfilled, shipped, and closed. If you use several different line flows in your business, the Line Flow - Generic workflow can act as a default; it initiates when no other flow is determined necessary for a line. When you save an order line in Oracle Order Management, the process verifies that the order is booked before proceeding. Once booking is verified, the process continues with scheduling, supply creation, invoicing, fulfillment, shipping and closing. Several of these actions are performed in the following workflow subprocesses contained in Line Flow - Generic:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_schln">Schedule - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crsupl">Create Supply - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Generic can only end once the line is successfully closed.</p>
+<p>The Line Flow - Generic process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393575"></a><b>Summary of the Line Flow - Generic Process</b></h3>
+<p>To view the properties of the Line Flow - Generic process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Generic process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Generic, you see that the process consists of 3 unique activities and 6 subprocesses, which comprise the 9 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Generic process. Each node of this subprocess is numbered for referencing.</p>
+<p><b>Line Flow - Generic Workflow</b></p>
+<p><img width="541" height="308" src="./img/wf_generic.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Generic workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>In node 2, the process attempts to schedule the line for the order using the <a href="T393423T393430.htm#t_schln">Schedule - Line</a> subprocess. The <a href="T393423T393430.htm#t_crsupl">Create Supply - Line</a> subprocess is initiated in node 3. After supply is created for the line, the <a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a> subprocess in node 4 initiates. In node 5, the <a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a> activity moves fulfillment to the background engine. Node 7 is the <a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a> subprocess that generates invoicing information for the line. The process initiates the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess at node 8. After the line is successfully closed, the process ends.</p>
+<h3><b>Line Flow - Generic Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Line Flow - Generic process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Generic Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258545"></a><a id="T393483"></a><b>Line Flow - Generic, Performance</b></h2>
+<p><a name="d0e6253" id="d0e6253"></a><a name="t_lfgperf" id="t_lfgperf"></a>Line Flow Generic, Performance is a more recent line flow optimized for high volume users who have performance concerns. It is functionally the same as Line Flow-Generic, but performance is improved by placing the subprocesses at the top level/main process.</p>
+<p>If your performance is satisfactory and you are currently using Line Flow &ndash; Generic, you will probably want to continue to use the initially seeded generic flow. The traditional Line Flow &ndash; Generic has everything decomposed into subprocesses, which could make it easier to extend the flow. For example, you could add an activity to the top level/main flow without modifying the subprocesses seeded by Order Management. Then you could update a subprocess via patching, without the need to add your changes. If you are modifying the seeded flow, it may be beneficial to use Line Flow &ndash; Generic instead of Line Flow-Generic, Performance.</p>
+<p>It is possible to extend or even customize Line Flow-Generic, Performance, but then you will have to make your changes to a copy of the line flow any time it is updated via a patch.</p>
+<p>Line Flow - Generic, Performance can only end once the line is successfully closed.</p>
+<p>The Line Flow - Generic, Performance process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393576"></a><b>Summary of the Line Flow - Generic, Performance Process</b></h3>
+<p>To view the properties of the Line Flow - Generic, Performance process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Generic, Performance process has an error item type of OMERROR. This item type is associated with the R_ERROR_RETRY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Generic, Performance, you see that the process consists of 7 unique activities and 2 subprocesses that appear in the workflow diagram. The following diagram depicts the Line Flow - Generic, Performance process.</p>
+<p><b>Line Flow - Generic, Performance Workflow 1</b></p>
+<p><img width="973" height="453" src="./img/wf_lfgperf.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Generic, Performance workflow begins with the <a href="T393423T393431.htm#t_wbook">Wait for Booking</a> subprocess. This function verifies that the order is booked before proceeding to the next step in the workflow.</p>
+<p>The process then attempts to schedule the order line using the <a href="T393423T393431.htm#t_sched">Schedule</a> activity. If the order line is manually changed to incomplete or on hold, the <a href="T393423T393431.htm#t_selig">Schedule - Eligible</a> function will be used, otherwise the Schedule activity moves the workflow forward as complete. The <a href="T393423T393431.htm#t_branch">Branch on Source Type</a> function uses the lookup (has a result type of) Source Type. The source types include: ATO Item, Build, Dropship, and Ship (default). If Build is the source type, then the subprocess Create Configuration - Line, Manual is executed, then Ship. If ATO Item is the source type, then Create Supply Order - Line, Manual is executed, then Ship. If Dropship is the source type, then the <a href="T393423T393430.htm#t_purld">Purchase Release - Line, Deferred</a> activity is executed, after which the <a href="T393423T393431.htm#t_purrel">Purchase Release</a> activity is executed. If the order line is manually changed to incomplete or on hold, the <a href="T393423T393431.htm#t_pelig">Purchase Release - Eligible</a> function will be used, otherwise the Purchase Release activity moves the workflow forward to Ship. Next, the <a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a> activity moves the workflow forward to the <a href="T393423T393431.htm#t_fulfill">Fulfill</a> activity.</p>
+<p><b>Line Flow - Generic, Performance Workflow (Continued)</b></p>
+<p><img width="547" height="312" src="./img/wf_lfgperf2.gif" alt="the picture is described in the document text"></p>
+<p>The <a href="T393423T393431.htm#t_fulfill">Fulfill</a> activity then processes the workflow onto the <a href="T393423T393431.htm#t_iiface">Invoice Interface</a> function. If the order line is manually changed to incomplete or on hold, the <a href="T393423T393431.htm#t_iielig">Invoice Interface - Eligible</a> activity will be used, otherwise, the Invoice Interface function moves the workflow to either <a href="T393423T393431.htm#t_wrrd">Wait for Required for Revenue or Delivery</a> (if Partial) or Close (if Not Eligible or Complete). If the order line is manually changed to incomplete or on hold, the Wait function is used to specify a day of the week, specific date, and so on before closing the line. When the order line is complete or not eligible, the workflow moves to <a href="T393423T393431.htm#t_cch">Close - Continue Header</a> where the workflow ends.</p>
+<h3><b>Line Flow - Generic, Performance Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Line Flow - Generic, Performance process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Generic, Performance Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Schedule</td>
+<td>OE_OEOL_SCH.SCHEDULE_LINE</td>
+<td>On Hold, Incomplete, Not Eligible, Complete</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Schedule - Eligible</td>
+<td>OE_STANDARD_WF.STANDARD_BLOCK</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Purchase Release - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Purchase Release</td>
+<td>OE_OEOL_SCH.RELEASE_TO_PURCHASING</td>
+<td>On Hold, Incomplete, Not Eligible, Complete</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Inventory Interface - Eligible</td>
+<td>OE_STANDARD_WF.STANDARD_BLOCK</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<p>The following workflow subprocesses are contained in Line Flow - Generic, Performance:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_cclm">Create Configuration - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a></p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> Data Manipulation Language (DML) describes the portion of SQL that allows you to manipulate or control your data. The goal is to provide efficient human interaction with the system. A query language is a portion of a DML involving information retrieval only.</p>
+<h2><a name="3258551"></a><a id="T393484"></a><b>Line Flow - Generic with Authorize to Ship (RLM)</b></h2>
+<p><a name="d0e6489" id="d0e6489"></a><a name="t_lfgrlm" id="t_lfgrlm"></a>The Line Flow - Generic with Authorize to Ship (RLM) process is a workflow process that is initiated when you save a sales order line in Oracle Order Management. The Line - Flow Generic with Authorize to Ship (RLM) process is specific to Oracle Release Management users, and enables you to authorize order lines for shipping.</p>
+<p>Line Flow - Generic with Authorize to Ship (RLM) contains all of the subprocess and activities contained in Line Flow - Generic, as well as the Authorize to Ship (RLM) subprocess.</p>
+<p>To initiate the Line Flow - Generic with Authorize to Ship (RLM) process, enter an order line in Oracle Order Management. The following subprocess are contained in the Line Flow - Configuration with Authorize to Ship (RLM) workflow process:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_schln">Schedule - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_atsl">Authorized to Ship - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>The Line Flow - Generic with Authorize to Ship (RLM) process can only end after the line is successfully closed.</p>
+<p>Because this workflow is specific to Oracle Release Management users, it must be assigned during the implementation process. To learn more about implementing Oracle Release Management, refer to the <i>Oracle Release Management Implementation Manual.</i></p>
+<p>The Line Flow - Generic with Authorize to Ship (RLM) process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393577"></a><b>Summary of the Line Flow - Generic with Authorize to Ship (RLM) Process</b></h3>
+<p>To view the properties of the Line Flow - Generic with Authorize to Ship (RLM) process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Generic with Authorize to Ship (RLM) process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Generic with Authorize to Ship (RLM), you see that the process consists of 3 unique activities and 7 subprocesses, which comprise the 10 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Generic with Authorize to Ship (RLM) process. Each node of this subprocess is numbered for referencing.</p>
+<p><b>Line Flow - Generic with Authorize to Ship (RLM) Workflow</b></p>
+<p><img width="644" height="336" src="./img/wf_generrlm.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Generic with Authorize to Ship (RLM) workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>In node 2, the process attempts to schedule the line for the order using the <a href="T393423T393430.htm#t_schln">Schedule - Line</a> subprocess. The <a href="T393423T393430.htm#t_crsupl">Create Supply - Line</a> subprocess is initiated in node 3. The Oracle Release Management user <a href="T393423T393430.htm#t_atsl">Authorized to Ship - Line</a> subprocess at node 4 verifies that the line is approved for shipping. After approval is determined, the <a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a> subprocess at node 5 initiates. In node 6, the <a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a> activity moves fulfillment to the background engine. Node 8 is the <a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a> subprocess that generates invoicing information for the line. The process initiates the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess at node 9. After the line is successfully closed, the process ends.</p>
+<h3><b>Line Flow - Generic with Authorize to Ship (RLM) Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Line Flow - Generic with Authorize to Ship (RLM) process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Generic with Authorize to Ship (RLM) Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258556"></a><a id="T393485"></a><b>Line Flow - Generic with Header Level Invoice Interface</b></h2>
+<p><a name="d0e6665" id="d0e6665"></a><a name="t_lfghlii" id="t_lfghlii"></a>The Line Flow - Generic with Header Level Invoice Interface process is a workflow process that is initiated when you save a sales order line in Oracle Order Management. The Line - Flow Generic with Header Level Invoice Interface process interfaces with Oracle Receivables to generate invoicing information for an order line. The process works with the seeded header flow to support header level invoicing.</p>
+<p>The Line Flow - Generic with Header Level Invoice Interface workflow contains several subprocesses to ensure that an order line is properly entered, scheduled, created, invoiced, fulfilled, shipped, and closed. Line Flow - Generic with Header Level Invoice Interface contains all of the subprocess and activities contained in Line Flow - Generic, but replaces the <a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a> subprocess with the <a href="T393423T393430.htm#t_hliild">Header Level Invoice Interface - Line, Deferred</a> subprocess.</p>
+<p>When you save an order line in Oracle Order Management, the Line Flow - Generic with Header Level Invoice Interface process verifies that the order is booked before proceeding. Once booking is verified, the process continues with scheduling, supply creation, invoicing, fulfillment, shipping and closing. Several of these activities are performed in the following workflow subprocesses contained in Line Flow - Generic with Header Level Invoice Interface:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_schln">Schedule - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_hliild">Header Level Invoice Interface - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Generic with Header Level Invoice Interface can only end once the line is successfully closed.</p>
+<p>The Line Flow - Generic with Header Level Invoice Interface process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393578"></a><b>Summary of the Line Flow - Generic with Header Level Invoice Interface Process</b></h3>
+<p>To view the properties of the Line Flow - Generic with Header Level Invoice Interface process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Generic with Header Level Invoice Interface process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Generic with Header Level Invoice Interface, you see that the process consists of 1 unique activity and 6 subprocesses, which comprise the 7 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Generic with Header Level Invoice Interface process. Each node of this subprocess is numbered for referencing.</p>
+<p><b>Line Flow - Generic with Header Level Invoice Interface Workflow</b></p>
+<p><img width="633" height="222" src="./img/wf_genhdrlv.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Generic workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>In node 2, the process attempts to schedule the line for the order using the <a href="T393423T393430.htm#t_schln">Schedule - Line</a> subprocess. The <a href="T393423T393430.htm#t_crsupl">Create Supply - Line</a> subprocess is initiated in node 3. After supply is created for the line, the <a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a> subprocess in node 4 initiates. In node 5, the <a href="T393423T393430.htm#t_hliild">Header Level Invoice Interface - Line, Deferred</a> activity moves header level invoice interfacing to the background engine. This enables the workflow to proceed. Node 6 is the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess, followed by the <a href="T393423T393431.htm#t_end">End</a> activity at node 7.</p>
+<h3><b>Line Flow - Generic with Header Level Invoice Interface Activities</b></h3>
+<p>The following table provides a description of the activity in the Line Flow - Generic with Header Level Invoice Interface process.</p>
+<p>For more information about Oracle Order Management workflow activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Generic with Header Level Invoice Interface Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258561"></a><a id="T393486"></a><b>Line Flow - Generic, With Export Compliance</b></h2>
+<p><a name="d0e6810" id="d0e6810"></a><a name="t_lfgexp" id="t_lfgexp"></a>The Line Flow - Generic, With Export Compliance process is a workflow process that is initiated when you save a sales order line in Oracle Order Management that requires exportation. The Line Flow - Generic, With Export Compliance process contains a subprocess that performs Denied Party screening according to United States Bureau of Export Administration's Denied Party listing.</p>
+<p>When an order line is submitted that must comply with the United States Bureau of Export Administration's Denied Party listing, the Line Flow - Generic, With Export Compliance workflow process initiates. The Line - Flow Generic, With Export Compliance process contains several subprocesses to ensure that the order line is properly entered, scheduled, created, invoiced, fulfilled, shipped, and closed. Line Flow - Generic, With Export Compliance contains all of the subprocess and activities contained in Line Flow - Generic, as well as the <a href="T393423T393430.htm#t_expsl">Export Compliance Screening - Line</a> subprocess.</p>
+<p>When you save an order line in Oracle Order Management, the Line Flow - Generic, With Export Compliance process verifies that the order is booked before proceeding. Once booking is verified, the process continues with scheduling, supply creation, invoicing, fulfillment, shipping and closing. Several of these activities are performed in the following workflow subprocesses contained in Line Flow - Generic, With Export Compliance:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_schln">Schedule - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_expsl">Export Compliance Screening - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Generic, With Export Compliance can only end once the line is successfully closed.</p>
+<p>The Line Flow - Generic, With Export Compliance process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393579"></a><b>Summary of the Line Flow - Generic, With Export Compliance Process</b></h3>
+<p>To view the properties of the Line Flow - Generic, With Export Compliance process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Generic, With Export Compliance process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Generic, With Export Compliance, you see that the process consists of 3 unique activities and 7 subprocesses, which comprise the 10 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Generic, With Export Compliance process. Each node of this subprocess is numbered for referencing.</p>
+<p><b>Line Flow - Generic with Export Compliance Workflow</b></p>
+<p><img width="555" height="311" src="./img/wf_genexpt.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Generic With Export Compliance workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>In node 2, the process attempts to schedule the line for the order using the <a href="T393423T393430.htm#t_schln">Schedule - Line</a> subprocess. To comply with the United States Bureau of Export Administration's Denied Party listing, the <a href="T393423T393430.htm#t_expsl">Export Compliance Screening - Line</a> subprocess at node 3 initiates. If the line passes this screening process, then the process approves the line for exporting and continues.</p>
+<p>The <a href="T393423T393430.htm#t_crsom">Create Supply - Line</a> subprocess is initiated in node 4. After supply is created for the line, the <a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a> subprocess at node 5 initiates. At node 6, the <a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a> activity moves fulfillment to the background engine. Node 8 is the <a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a> subprocess that generates invoicing information for the line. The process initiates the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess at node 9. After the line is successfully closed, the process ends at node 10.</p>
+<h3><b>Line Flow - Generic With Export Compliance Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Line Flow - Generic With Export Compliance process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Generic with Export Compliance Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258566"></a><a id="T393487"></a><b>Line Flow - Generic, Bill Only</b></h2>
+<p><a name="d0e6987" id="d0e6987"></a><a name="t_lfgbo" id="t_lfgbo"></a>The Line Flow - Generic, Bill Only process is a workflow process is used for order lines that do not require shipping. The Line Flow - Generic, Bill Only process is used in a situation when only a bill for the order must be generated. The process contains several subprocesses to ensure that the order line is properly entered, invoiced, fulfilled, and closed.</p>
+<p>When you save an order line in Oracle Order Management, the Line Flow - Generic, Bill Only process verifies that the order is booked before proceeding. Once booking is verified, the process continues with invoicing, fulfillment, and closing. Several of these actions are performed in the following workflow subprocesses contained in Line Flow - Generic, Bill Only:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Generic, Bill Only ends once the line is successfully closed. The only process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393580"></a><b>Summary of the Line Flow - Generic, Bill Only Process</b></h3>
+<p>To view the properties of the Line Flow - Generic, Bill Only process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type. The Details property page of the process activity indicates that the Line Flow - Generic, Bill Only process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process. When you display the Process window for the Line Flow - Generic, Bill Only, you see that the process consists of 2 unique activities and 3 subprocesses, which comprise the 5 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Generic, Bill Only process. Each node of this process is numbered for referencing.</p>
+<p><b>Line Flow - Generic, Bill Only Workflow</b></p>
+<p><img width="500" height="182" src="./img/wf_genbilon.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Generic, Bill Only workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>The process attempts to fulfill the order at node 2. At node 3, the <a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a> subprocess is initiated. This subprocess moves the invoice interface to the background engine. The process initiates the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess at node 4. After the line is successfully closed, the process ends at node 5.</p>
+<h3><b>Line Flow - Generic, Bill Only Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Line Flow - Generic, Bill Only process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Generic, Bill Only Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258571"></a><a id="T393488"></a><b>Line Flow - Generic, Bill Only with Inventory Interface</b></h2>
+<p><a name="d0e7107" id="d0e7107"></a><a name="t_lfgboii" id="t_lfgboii"></a>The Line Flow - Generic, Bill Only with Inventory Interface process is a workflow process that is initiated when you save a sales order line in Oracle Order Management. The Line Flow - Generic, Bill Only with Inventory Interface process is used in a situation when only a bill for the order must be generated. The process contains several subprocesses to ensure that the order line is properly entered, invoiced, fulfilled, and closed.</p>
+<p>When you save an order line in Oracle Order Management, the Line Flow - Generic, Bill Only with Inventory Interface process verifies that the order is booked before proceeding. Once booking is verified, the process continues with invoicing, fulfillment, and closing. Several of these actions are performed in the following workflow subprocesses contained in Line Flow - Generic, Bill Only with Inventory Interface:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Generic, Bill Only with Inventory Interface ends after the line is successfully closed.</p>
+<p>The Line Flow - Generic, Bill Only with Inventory Interface process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393581"></a><b>Summary of the Line Flow - Generic, Bill Only with Inventory Interface Process</b></h3>
+<p>To view the properties of the Line Flow - Generic, Bill Only with Inventory Interface process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Generic, Bill Only with Inventory Interface process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Generic, Bill Only with Inventory Interface, you see that the process consists of 2 unique activities and 4 subprocesses, which comprise the 6 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Generic, Bill Only with Inventory Interface process. Each node of this process is numbered for referencing.</p>
+<p><b>Line Flow - Generic, Bill Only with Inventory Interface Workflow</b></p>
+<p><img width="591" height="185" src="./img/wf_genbilii.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Generic, Bill Only with Inventory Interface workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>At node 2 the <a href="T393423T393430.htm#t_iinsld">Inventory Interface Non-Ship - Line, Deferred</a> subprocess is initiated. After completion of that subprocess, the Line Flow - Generic, Bill Only with Inventory Interface process attempts to fulfill the order at node 3. At node 4, the <a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a> subprocess is initiated. This subprocess moves the invoice interface to the background engine. The process initiates the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess at node 5. After the line is successfully closed, the process ends at node 6.</p>
+<h3><b>Line Flow - Generic, Bill Only with Inventory Interface Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Line Flow - Generic, Bill Only with Inventory Interface process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Generic, Bill Only with Inventory Interface Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258576"></a><a id="T393489"></a><b>Line Flow - Generic, Ship Only</b></h2>
+<p><a name="d0e7235" id="d0e7235"></a><a name="t_lfgso" id="t_lfgso"></a>The Line Flow - Generic, Ship Only process is a workflow process that is initiated when you save a sales order line in Oracle Order Management that does not require invoicing. An order line can require this when the rest of the order lines have already been shipped with an invoice for the order. Line Flow - Generic, Ship Only is associated with order lines that only require shipping.</p>
+<p><strong><span>Note:</span></strong> The Line Flow - Generic, Ship Only process is identical to the <a href="T393423T393429.htm#t_lfgen">Line Flow - Generic</a> process except that it does not include the <a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a> activity.</p>
+<p>The Line - Flow Generic, Ship Only process contains several subprocesses to ensure that an order line is properly entered, scheduled, created, fulfilled, shipped, and closed.</p>
+<p>When you save an order line in Oracle Order Management, the Line Flow - Generic, Ship Only process verifies that the order is booked before proceeding. Once booking is verified, the process continues with scheduling, supply creation, fulfillment, shipping, and closing. Several of these actions are performed in the following workflow subprocesses contained in Line Flow - Generic, Ship Only:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_schln">Schedule - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Generic, Ship Only ends after the line is successfully closed.</p>
+<p>The Line Flow - Generic, Ship Only process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393582"></a><b>Summary of the Line Flow - Generic, Ship Only Process</b></h3>
+<p>To view the properties of the Line Flow - Generic, Ship Only process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type. The Details property page of the process activity indicates that the Line Flow - Generic, Ship Only process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process. When you display the Process window for the Line Flow - Generic, Ship Only, you see that the process consists of 3 unique activities and 5 subprocesses, which comprise the 8 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Generic, Ship Only process. Each node of this subprocess is numbered for referencing.</p>
+<p><b>Line Flow - Generic, Ship Only Workflow</b></p>
+<p><img width="684" height="169" src="./img/wf_genshpon.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Generic, Ship Only workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>In node 2, the process attempts to schedule the line for the order using the <a href="T393423T393430.htm#t_schln">Schedule - Line</a> subprocess. The <a href="T393423T393430.htm#t_crsom">Create Supply - Line</a> subprocess is initiated in node 3. After supply is created for the line, the <a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a> subprocess in node 4 initiates. In node 5, the <a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a> activity moves fulfillment to the background engine.</p>
+<p>The process initiates the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess at node 7. After the line is successfully closed, the process ends at node 8.</p>
+<h3><b>Line Flow - Generic, Ship Only Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Line Flow - Generic, Ship Only process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Generic, Ship Only Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258581"></a><a id="T393490"></a><b>Line Flow - Generic, with Repricing at Fulfillment</b></h2>
+<p><a name="d0e7400" id="d0e7400"></a><a name="t_lfgraf" id="t_lfgraf"></a>The Line Flow - Generic, with Repricing at Fulfillment process is a workflow process initiated when you save a sales order line in Oracle Order Management that requires repricing after the order line is fulfilled. The Line - Flow Generic with Repricing at Fulfillment process contains several subprocesses to ensure that an order line is properly entered, scheduled, created, invoiced, fulfilled, repriced, shipped, and closed.</p>
+<p>Line Flow - Generic, with Repricing at Fulfillment contains all of the subprocess and activities contained in the Line Flow - Generic workflow process, as well as the <a href="T393423T393430.htm#t_repln">Reprice - Line</a> subprocess.</p>
+<p>When you save an order line in Oracle Order Management, the Line Flow - Generic, with Repricing at Fulfillment process verifies that the order is booked before proceeding. Once booking is verified, the process continues with scheduling, supply creation, invoicing, fulfillment, repricing, shipping, and closing. Several of these activities are performed in the following workflow subprocesses contained in Line Flow - Generic, with Repricing at Fulfillment:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_schln">Schedule - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_repln">Reprice - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Generic, with Repricing at Fulfillment ends after the line is successfully closed.</p>
+<p>The Line Flow - Generic, with Repricing at Fulfillment process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393583"></a><b>Summary of the Line Flow - Generic, with Repricing at Fulfillment Process</b></h3>
+<p>To view the properties of the Line Flow - Generic, with Repricing at Fulfillment process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Generic, with Repricing at Fulfillment process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Generic, with Repricing at Fulfillment, you see that the process consists of 3 unique activities and 7 subprocesses, which comprise the 10 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Generic, with Repricing at Fulfillment process. Each node of this subprocess is numbered for referencing.</p>
+<p><b>Line Flow - Generic, with Repricing at Fulfillment Workflow</b></p>
+<p><img width="545" height="320" src="./img/wf_genrepr.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Generic, with Repricing at Fulfillment workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>In node 2, the process attempts to schedule the line for the order using the <a href="T393423T393430.htm#t_schln">Schedule - Line</a> subprocess. The <a href="T393423T393430.htm#t_crsupl">Create Supply - Line</a> subprocess is initiated in node 3. After supply is created for the line, the <a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a> subprocess in node 4 initiates. In node 5, the <a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a> activity moves fulfillment to the background engine. At node 7, the <a href="T393423T393430.htm#t_repln">Reprice - Line</a> is initiated. After the line is repriced, the process proceed to the <a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a> subprocess at node 8. The process initiates the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess at node 9. Once the line is successfully closed, the process ends at node 10.</p>
+<h3><b>Line Flow - Generic, with Repricing at Fulfillment Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Line Flow - Generic, with Repricing at Fulfillment process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Generic, with Repricing at Fulfillment Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="4472828"></a><a id="T476865"></a><b>Line Flow - Generic with Freeze Included Items at Pick</b></h2>
+<p><a name="d0e7575" id="d0e7575"></a><a name="t_lffreezepick" id="t_lffreezepick"></a>The profile option Included Items Freeze Method has the following possible values: Ready to Pick/ Purchase Release, Entry, Booking and None. When the value of the profile option is Ready to Pick/Purchase Release, the workflow process Line Flow Generic with Freeze Included Items at Pick is initiated. The workflow process has an activity that holds Models, Classes and Kits. You can manually complete the workflow activity by progressing the order or using Freeze Included Items at Pick release concurrent program. You can release the activity before pick releasing the order. Included Items will also be prevented from getting interfaced to Shipping; manually releasing the Models, Classes or Kits before pick release will freeze and interface the included items to shipping.</p>
+<p><img width="999" height="293" src="./img/wf_pickfreeze.gif" alt="the picture is described in the document text"></p>
+<h3><b>Line Flow - Generic with Freeze Included Items at Pick Activities</b></h3>
+<p>The following table provides a description for the activities of Line Flow - Generic with Freeze Included Items at Pick.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Included Items Freeze Required</td>
+<td>INCLUDED_ITEMS_FREEZE_REQUIRED</td>
+<td>PL/SQL</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Freeze Included Items - Eligible</td>
+<td>FREEZE_INCLUDED_ITEMS_ELIGIBLE</td>
+<td>PL/SQL</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>DEFER_FULFILLMENT</td>
+<td>PL/SQL</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>FULFILL_LINE</td>
+<td>PL/SQL</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="4476411"></a><a id="T477297"></a><b>Line Flow &ndash; OTA Item</b></h2>
+<p><a name="d0e7670" id="d0e7670"></a><a name="t_lfotaitem" id="t_lfotaitem"></a>This flow is utilized by Oracle Learning Management (OLM). This line flow is assigned when events and enrollment are entered in Order Management. In the case of both inbound or outbound transactions, when a line starts its flow the UOM is checked - the UOM would be event or enrollment. Each UOM has an independent sub process. For more information on OLM (OTA) flows, please refer to the <i>Oracle Learning Management User Guide.</i></p>
+<p><img width="776" height="379" src="./img/wf_lineotaitem.gif" alt="the picture is described in the document text"></p>
+<h2><a name="3258586"></a><a id="T393491"></a><b>Line Flow - Return for Credit Only</b></h2>
+<p><a name="d0e7688" id="d0e7688"></a><a name="t_lfcredit" id="t_lfcredit"></a>The Line Flow - Return for Credit Only process is a workflow process is used for return orders submitted in Oracle Order Management that do not require receipt or approval. This is an order line process. When your customer returns partial quantity of an order, Oracle Order Management splits the return line so that customers can be issued credit for what was returned.</p>
+<p>When you save a return order line in Oracle Order Management, the Line Flow - Return for Credit Only process verifies that the return is booked before proceeding. Once booking is verified, the process continues with invoicing and closing. These activities are performed in the following workflow subprocesses contained in Line Flow - Return for Credit Only:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Return for Credit Only ends after the line is successfully closed.</p>
+<p>The Line Flow - Return for Credit Only process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393584"></a><b>Summary of the Line Flow - Return for Credit Only Process</b></h3>
+<p>To view the properties of the Line Flow - Return for Credit Only process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type. The Details property page of the process activity indicates that the Line Flow - Return for Credit Only process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Return for Credit Only, you see that the process consists of 1 unique activity and 3 subprocesses, which comprise the 4 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Return for Credit Only process. Each node of this subprocess is numbered for referencing.</p>
+<p><b>Line Flow - Return for Credit Only Workflow</b></p>
+<p><img width="429" height="170" src="./img/wf_retcreon.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Return for Credit Only workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>At node 2 the process uses the <a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a> subprocess to generate the credit invoice. The process initiates the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess at node 3. After the line is successfully closed, the process ends at node 4.</p>
+<h3><b>Line Flow - Return for Credit Only Activities</b></h3>
+<p>The following table provides a description for the <a href="T393423T393431.htm#t_end">End</a> activity in the Line Flow - Return for Credit Only process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Return for Credit Only Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="5290245"></a><a id="T531817"></a><b>Line Flow - Return for Credit Only with Header Invoicing</b></h2>
+<p><a name="d0e7802" id="d0e7802"></a><a name="t_lfcrhli" id="t_lfcrhli"></a>The Line Flow - Return for Credit Only with Header Invoicing process is a workflow process is used for return orders submitted in Oracle Order Management that do not require receipt or approval. This is an order line process. When your customer returns an order quantity, Oracle Order Management issues credit for what was returned.</p>
+<p>When you save a return order line in Oracle Order Management, the Line Flow - Return for Credit Only with Header Invoicing process verifies that the return is booked before proceeding. Once booking is verified, the process continues with invoicing and closing.</p>
+<p>Line Flow - Return for Credit Only with Header Invoicing ends after the lines are successfully closed.</p>
+<p>The Line Flow - Return for Credit Only with Header Invoicing process is contained in the Seeded Data File oexwford.wft, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T531818"></a><b>Summary of the Line Flow - Return for Credit Only with Header Invoicing Process</b></h3>
+<p>To view the properties of the Line Flow - Return for Credit Only with Header Invoicing process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type definition form. The Details property page of the process activity indicates that the Line Flow - Return for Credit Only with Header Invoicing process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Return for Credit Only with Header Invoicing, you see that the process consists of 4 activities and 3 sub-processes, which comprise the nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Return for Credit Only with Header Invoicing process.</p>
+<p><b>Line Flow - Return for Credit Only with Header Invoicing process</b></p>
+<p><img width="855" height="134" src="./img/wf_rc_hdrinv.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Return for Credit Only with Header Invoicing workflow begins at node 1 with the Enter - Line. This sub-process verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>The subprocess <a href="T393423T393430.htm#t_hliirlwr">Header Level Invoice Interface for Return Line w/o Receipt</a> has two activities: Fulfill - Continue Header Flow and Wait for Invoice Interface. The wait and continue activities have been included to ensure that all the order lines are invoiced before they are closed at the header level invoicing activity.</p>
+<h3><b>Line Flow - Return for Credit Only with Header Invoicing Activities</b></h3>
+<p>The following table provides a description for the activities in the Line Flow - Return for Credit Only with Header Invoicing process.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Return for Credit Only with Header Invoicing</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Enter - Line</td>
+<td>-</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Header Level Invoice Interface for Return Line w/o Receipt</td>
+<td>-</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Close &ndash; Line</td>
+<td>-</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<h2><a name="3258591"></a><a id="T393492"></a><b>Line Flow - Return for Credit Only with Approval</b></h2>
+<p><a name="d0e7956" id="d0e7956"></a><a name="t_lfcapp" id="t_lfcapp"></a>The Line Flow - Return for Credit Only with Approval process is a workflow process is used for return orders submitted in Oracle Order Management that requires approval. This is an order line process. When your customer returns partial quantity of an order, Oracle Order Management splits the return line so that customers can be issued credit for what was returned.</p>
+<p><strong><span>Note:</span></strong> The Line Flow - Return for Credit Only with Approval process is identical to the <a href="T393423T393429.htm#t_lfcredit">Line Flow - Return for Credit Only</a> process except that it includes the <a href="T393423T393431.htm#t_wait">Wait for Approval</a> activity.</p>
+<p>The Line Flow - Return for Credit Only with Approval process contains several subprocesses to ensure that the return is properly entered, approved, invoiced, and closed.</p>
+<p>Line Flow - Return for Credit Only with Approval contains all of the subprocess and activities contained in the Return for Credit Only workflow process, as well as the <a href="T393423T393431.htm#t_wait">Wait for Approval</a> block activity.</p>
+<p>When you save a return order line in Oracle Order Management, the Line Flow - Return for Credit Only with Approval process verifies that the return is booked before proceeding. The process then verifies that the return is approved before proceeding with the return. Once booking and approval are verified, the process continues with invoicing and closing. These activities are performed in the following workflow subprocesses contained in Line Flow - Return for Credit Only with Approval:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Return for Credit Only with Approval ends after the line is successfully closed.</p>
+<p>The Line Flow - Return for Credit Only with Approval process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393585"></a><b>Summary of the Line Flow - Return for Credit Only with Approval Process</b></h3>
+<p>To view the properties of the Line Flow - Return for Credit Only with Approval process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Return for Credit Only with Approval process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Return for Credit Only with Approval, you see that the process consists of 2 unique activity and 3 subprocesses, which comprise the 5 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Return for Credit Only with Approval process. Each node of this process is numbered for referencing.</p>
+<p><b>Line Flow - Return for Credit Only with Approval Workflow</b></p>
+<p><img width="532" height="184" src="./img/wf_retcroap.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Return for Credit Only with Approval workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>At node 2 the process encounters a block activity that requires the return order line to obtain approval before proceeding with the workflow. Once approval is obtained, the workflow proceeds to the <a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a> subprocess at node 3 to generate the credit invoice. The process initiates the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess at node 4. After the line is successfully closed, the process ends at node 5.</p>
+<h3><b>Line Flow - Return for Credit Only with Approval Activities</b></h3>
+<p>The following table provides a description for the activities in the Line Flow - Return for Credit Only with Approval process.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Return for Credit Only with Approval Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td><a href="T393423T393431.htm#t_wait">Wait for Approval</a></td>
+<td>WF_STANDARD.WAITFORFLOW</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="5290417"></a><a id="T531820"></a><b>Line Flow - Return for Credit Only with Approval and Hdr Inv</b></h2>
+<p><a name="d0e8095" id="d0e8095"></a><a name="t_lfcrapphli" id="t_lfcrapphli"></a>The Line Flow - Return for Credit Only with Approval and Hdr Inv process is a workflow process is used for return orders submitted in Oracle Order Management that requires approval. This is an order line process. When your customer returns an order quantity, Order Management issues credit for what was returned</p>
+<p><strong><span>Note:</span></strong> Line Flow - Return for Credit Only with Approval and Hdr Inv process is identical to the Line Flow - Return for Credit Only with Header Invoicing process except that it includes the Wait for Approval activity.</p>
+<p>The Line Flow - Return for Credit Only with Approval and Hdr Inv process contains several subprocesses to ensure that the return is properly entered, approved, invoiced, and closed.</p>
+<p>When you save a return order line in Oracle Order Management, the Line Flow - Return for Credit Only with Approval and Hdr Inv process verifies that the return is booked before proceeding. The process then verifies that the return is approved before proceeding with the return. Once booking and approval are verified, the process continues with invoicing and closing. Line Flow - Return for Credit Only with Approval and Hdr Inv ends after the line is successfully closed.</p>
+<p>The Line Flow - Return for Credit Only with Approval and Hdr Inv process is contained in the Seeded Data File oexwford.wft and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T531821"></a><b>Summary of the Line Flow - Return for Credit Only with Approval and Hdr Inv Process</b></h3>
+<p>To view the properties of the Line Flow - Return for Credit Only with Approval and Hdr Inv process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type definition form.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Return for Credit Only with Approval and Hdr Inv process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Return for Credit Only with Approval and Hdr Inv, you see that the process consists of 4 activities and 3 subprocesses, which comprise the 7 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Return for Credit Only with Approval and Hdr Inv process.</p>
+<p><b>Line Flow - Return for Credit Only with Approval and Hdr Inv</b></p>
+<p><img width="850" height="140" src="./img/wf_rc_apphdrinv.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Return for Credit Only with Approval and Hdr Inv workflow begins with the Enter - Line sub-process. This sub-process verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>The sub-process <a href="T393423T393430.htm#t_hliirlwr">Header Level Invoice Interface for Return Line w/o Receipt</a> has two activities: Fulfill - Continue Header Flow and Wait for Invoice Interface. The wait and continue activities have been included to ensure that all the order lines are invoiced before they are closed at the header level invoicing activity.</p>
+<p>The following table provides a description for the activities in the Line Flow - Return for Credit Only with Approval and Hdr Inv process.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Return for Credit Only with Approval and Hdr Inv Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Enter &ndash; Line</td>
+<td>&nbsp;</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Wait for Approval</td>
+<td>WF_STANDARD.WAITFORFLOW</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Header Level Invoice Interface for Return Line w/o Receipt</td>
+<td>&nbsp;</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Close - Line</td>
+<td>&nbsp;</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<h2><a name="3258596"></a><a id="T393493"></a><b>Line Flow - Return for Credit with Receipt</b></h2>
+<p><a name="d0e8260" id="d0e8260"></a><a name="t_lfrcr" id="t_lfrcr"></a>The Line Flow - Return for Credit with Receipt process is a workflow process used for returns that require inspection before credit is given. This is an order line process. When your customer returns partial quantity of an order, Oracle Order Management splits the return line so that customers can be issued credit for what was returned.</p>
+<p>The Line Flow - Return for Credit with Receipt process contains several subprocesses to ensure that the return is properly entered, approved, inspected, fulfilled, invoiced, and closed.</p>
+<p>Line Flow - Return for Credit with Approval contains all of the subprocess and activities contained in the Return for Credit workflow process, as well as the <a href="T393423T393430.htm#t_rrl">Return Receiving - Line</a> subprocess and two fulfillment activities.</p>
+<p>When you save a return order line in Oracle Order Management, the Line Flow - Return for Credit with Receipt process verifies that the return is booked before proceeding. Once booking is verified, the process continues with receiving, invoicing and closing. These activities are performed in the following workflow subprocesses contained in Line Flow - Return for Credit with Receipt:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_rrl">Return Receiving - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Return for Credit with Receipt ends after the line is successfully closed.</p>
+<p>The Line Flow - Return for Credit with Receipt process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393586"></a><b>Summary of the Line Flow - Return for Credit with Receipt Process</b></h3>
+<p>To view the properties of the Line Flow - Return for Credit with Receipt process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Return for Credit with Receipt process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Return for Credit with Receipt, you see that the process consists of 3 unique activity and 4 subprocesses, which comprise the 7 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Return for Credit with Receipt process. Each node of this process is numbered for referencing.</p>
+<p><b>Line Flow - Return for Credit with Receipt Workflow</b></p>
+<p><img width="629" height="162" src="./img/wf_retcrrpt.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Return for Credit with Receipt workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>At node 2 the <a href="T393423T393430.htm#t_rrl">Return Receiving - Line</a> subprocess waits for inspection of the returned items before proceeding to the order fulfillment activities in nodes 3 and 4. The workflow proceeds to the <a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a> subprocess at node 5 to generate the credit invoice. The <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess initiates at node 6. After the line is successfully closed, the process ends at node 7.</p>
+<h3><b>Line Flow - Return for Credit with Receipt Activities</b></h3>
+<p>The following table provides a description for the activities in the Line Flow - Return for Credit with Receipt process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Return for Credit with Receipt Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="5290458"></a><a id="T531822"></a><b>Line Flow - Return for Credit with Receipt and Hdr Invoicing</b></h2>
+<p><a name="d0e8413" id="d0e8413"></a><a name="t_lfcrrcthli" id="t_lfcrrcthli"></a>The Line Flow - Return for Credit with Receipt and Hdr Invoicing process is a workflow process used for returns that require inspection before credit is given. This is an order line process. When your customer returns an order quantity, Order Management issues credit for what was returned.</p>
+<p>The Line Flow - Return for Credit with Receipt and Hdr Invoicing process contains 4 sub-processes and 1 activity to ensure that the return is properly entered, booked, inspected, fulfilled, invoiced, and closed.</p>
+<p>Line Flow - Return for Credit with Receipt and Hdr Invoicing contains all of the sub-processes and activities contained in the Return for Credit only with Header Invoicing workflow process, as well as the Return Receiving - Line sub-process.</p>
+<p>When you save a return order line in Oracle Order Management, the Line Flow - Return for Credit with Receipt and Hdr Invoicing process verifies that the return is booked before proceeding. Once booking is verified, the process continues with receiving, invoicing and closing.</p>
+<p>Line Flow - Return for Credit with Receipt and Hdr Invoicing ends after the line is successfully closed.</p>
+<p>The Line Flow - Return for Credit with Receipt and Hdr Invoicing process is contained in the Seeded Data File oexwford.wft and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T531823"></a><b>Summary of the Line Flow - Return for Credit with Receipt and Hdr Invoicing Process</b></h3>
+<p>To view the properties of the Line Flow - Return for Credit with Receipt and Hdr Invoicing process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type definition form.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Return for Credit with Receipt and Hdr Invoicing process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>The following diagram depicts the Line Flow - Return for Credit with Receipt and Hdr Invoicing process.</p>
+<p><b>Line Flow - Return for Credit with Receipt and Hdr Invoicing process</b></p>
+<p><img width="780" height="138" src="./img/wf_rc_receipt_hdrinv.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Return for Credit with Receipt and Hdr Invoicing workflow begins at node 1 with the Enter - Line subprocess. This sub-process verifies that the order is booked before proceeding with the remainder of the workflow. At node 2 the <a href="T393423T393430.htm#t_rrl">Return Receiving - Line</a> sub-process waits for inspection of the returned items before proceeding to the order fulfillment activities in nodes 3. The workflow proceeds to the <a href="T393423T393430.htm#t_hliirlrcpt">Header Level Invoice Interface for Return Line with Receipt</a> subprocess. The Close - Line subprocess initiates and after the line is successfully closed, the process ends.</p>
+<h3><b>Line Flow - Return for Credit with Receipt and Hdr Invoicing Activities</b></h3>
+<p>The following table provides a description for the activities in the Line Flow - Return for Credit with Receipt and Hdr Invoicing process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Return for Credit with Receipt and Hdr Invoicing</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Enter - Line</td>
+<td>&nbsp;</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Return Receiving - Line</td>
+<td>&nbsp;</td>
+<td>OM Sub-Process Success Results</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Header Level Invoice Interface for Return Line with Receipt</td>
+<td>&nbsp;</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Close - Line</td>
+<td>&nbsp;</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258601"></a><a id="T393494"></a><b>Line Flow - Return for Credit with Receipt and Approval</b></h2>
+<p><a name="d0e8557" id="d0e8557"></a><a name="t_lfcraa" id="t_lfcraa"></a>The Line Flow - Return for Credit with Receipt and Approval process is a workflow process used for returns that require inspection and approval before credit is given. This is an order line process. When your customer returns partial quantity of an order, Oracle Order Management splits the return line so that customers can be issued credit for what was returned.</p>
+<p><strong><span>Note:</span></strong> The Line Flow - Return for Credit with Receipt and Approval process is identical to the Line Flow - Return for Credit with Receipt process except that it includes the Wait for Approval activity.</p>
+<p>The Line Flow - Return for Credit with Receipt process contains several subprocesses to ensure that the return is properly entered, approved, inspected, fulfilled, invoiced, and closed.</p>
+<p>When you save a return order line in Oracle Order Management, the Line Flow - Return for Credit with Receipt and Approval process verifies that the return is booked before proceeding. Once booking is verified, the process continues with receiving, invoicing and closing. These activities are performed in the following workflow subprocesses contained in Line Flow - Return for Credit with Receipt and Approval:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_rrl">Return Receiving - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Return for Credit with Receipt and Approval ends after the line is successfully closed.</p>
+<p>The Line Flow - Return for Credit with Receipt and Approval process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393587"></a><b>Summary of the Line Flow - Return for Credit with Receipt and Approval Process</b></h3>
+<p>To view the properties of the Line Flow - Return for Credit with Receipt and Approval process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Return for Credit with Receipt and Approval process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Return for Credit with Receipt and Approval, you see that the process consists of 4 unique activities and 4 subprocesses, which comprise the 8 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Return for Credit with Receipt and Approval process. Each node of this process is numbered for referencing.</p>
+<p><b>Line Flow - Return for Credit with Receipt and Approval Workflow</b></p>
+<p><img width="667" height="156" src="./img/wf_retcrrap.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Return for Credit with Receipt and Approval workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>At node 2 the process encounters a block activity that requires the return order line to obtain approval before proceeding with the workflow. From this activity the process must be manually progressed before the workflow can proceed to node 3. At node 3, the <a href="T393423T393430.htm#t_rrl">Return Receiving - Line</a> subprocess waits for inspection of the returned items before proceeding to the order fulfillment activities in nodes 4 and 5. The workflow proceeds to the <a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a> subprocess at node</p>
+<p>6 to generate the credit invoice. The <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess initiates at node 6. After the line is successfully closed, the process to the <a href="T393423T393431.htm#t_end">End</a> activity at node 8.</p>
+<h3><b>Line Flow - Return for Credit with Receipt and Approval Activities</b></h3>
+<p>The following table provides a description for the activities in the Line Flow - Return for Credit with Receipt and Approval process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Flow - Return for Credit with Receipt and Approval Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td><a href="T393423T393431.htm#t_wappr">Wait for Approval</a></td>
+<td>WF_STANDARD.WAITFORFLOW</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td><a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a></td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="5290500"></a><a id="T531825"></a><b>Line Flow - Return for Credit, Receipt, Approval, Header Inv</b></h2>
+<p><a name="d0e8730" id="d0e8730"></a><a name="t_lfcrrahli" id="t_lfcrrahli"></a>The Line Flow - Return for Credit, Receipt, Approval, Header Inv process is a workflow process used for returns that require inspection and approval before credit is given. This is an order line process. When your customer returns an order quantity, Oracle Order Management issues credit for what was returned.</p>
+<p><strong><span>Note:</span></strong> The Line Flow - Return for Credit, Receipt, Approval, Header Inv process is identical to the Line Flow - Return for Credit with Receipt and Hdr Invoicing process except that it includes the Wait for Approval activity.</p>
+<p>The Line Flow - Return for Credit, Receipt, Approval, Header Inv process contains several subprocesses to ensure that the return is properly entered, booked, approved, inspected, fulfilled, invoiced, and closed.</p>
+<p>When you save a return order line in Oracle Order Management, the Line Flow - Return for Credit, Receipt, Approval, Header Inv process verifies that the return is booked and approved before proceeding. Once booking and approval is verified, the process continues with receiving, invoicing and closing.</p>
+<p>Line Flow - Return for Credit, Receipt, Approval, Header Inv ends after the line is successfully closed.</p>
+<p>The Line Flow - Return for Credit, Receipt, Approval, Header Inv process is contained in the Seeded Data File oexwford.wft and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T531826"></a><b>Summary of the Line Flow - Return for Credit, Receipt, Approval, Header Inv</b></h3>
+<p>To view the properties of the Line Flow - Return for Credit, Receipt, Approval, Header Invprocess, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type definition form.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Return for Credit, Receipt, Approval, Header Inv process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Return for Credit, Receipt, Approval, Header Inv, you see that the process consists of 2 unique activities and 4 subprocesses, which comprise the 6 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Return for Credit, Receipt, Approval, Header Inv process.</p>
+<p><b>Line Flow - Return for Credit, Receipt, Approval, Header Inv</b></p>
+<p><img width="817" height="166" src="./img/wf_rc_rcpt_appr_hdrinv.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Return for Credit, Receipt, Approval, Header Inv workflow begins at node 1 with the Enter - Line sub-process. This sub-process verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>At node 2 the process encounters a block activity that requires the return order line to obtain approval before proceeding with the workflow. From this activity the process must be manually progressed before the workflow can proceed to node 3. At node 3, the <a href="T393423T393430.htm#t_rrl">Return Receiving - Line</a> subprocess waits for inspection of the returned items before proceeding to the order fulfillment activities in node 4. The workflow proceeds to the <a href="T393423T393430.htm#t_hliirlrcpt">Header Level Invoice Interface for Return Line with Receipt</a> subprocess at node 4 to generate the credit invoice. The Close - Line subprocess initiates at node 5. After the line is successfully closed, the process moves to the End activity at node 6.</p>
+<h3><b>Line Flow - Return for Credit, Receipt, Approval, Header Inv Activites</b></h3>
+<p>The following table provides a description for the activities in the Line Flow - Return for Credit, Receipt, Approval, Header Inv process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a></p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>Line Flow - Return for Credit, Receipt, Approval, Header Inv</caption>
+<tr valign="top">
+<td>Activity</td>
+<td>Function</td>
+<td>Result Type</td>
+<td>Required</td>
+</tr>
+<tr valign="top">
+<td>Enter - Line</td>
+<td>&nbsp;</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Wait for Approval</td>
+<td>WF_STANDARD.WAITFORFLOW</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Return Receiving - Line</td>
+<td>&nbsp;</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Header Level Invoice Interface for Return Line with Receipt</td>
+<td>&nbsp;</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Close - Line</td>
+<td>&nbsp;</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="5315814"></a><a id="T533100"></a><b>Line Flow - Return with Receipt and Approval, No Credit</b></h2>
+<p><a name="d0e8875" id="d0e8875"></a>Line Flow - Return with Receipt and Approval, No Credit is a line flow process used for returns that require inspection and approval. When your customer an order quantity of, Oracle Order Management proceeds to approve and then close the order lines without interfacing to Receivables or creating a credit memo.</p>
+<p><strong><span>Note:</span></strong> The Line Flow - Return with Receipt and Approval, No Credit process is identical to the Line Flow - Return for Credit with Receipt and Approval process except that it excludes the Invoice Interface &ndash; Line, Deferred activity.</p>
+<p>The Line Flow - Return with Receipt and Approval, No Credit process contains several subprocesses to ensure that the return is properly entered, approved, inspected, fulfilled, and closed.</p>
+<p>When you save a return order line in Oracle Order Management, the Line Flow - Return with Receipt and Approval, No Credit process verifies that the return is booked before proceeding. Once booking is verified, the process continues with receiving, approving and closing. These activities are performed in the following workflow subprocesses contained in Line Flow - Return with Receipt and Approval, No Credit:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_rrl">Return Receiving - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Return with Receipt and Approval, No Credit ends after the line is successfully closed.</p>
+<p>The Line Flow - Return with Receipt and Approval, No Credit process is contained in the Seeded Data File oexwford.wft and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T533101"></a><b>Summary of the Line Flow - Return with Receipt and Approval, No Credit Process</b></h3>
+<p>To view the properties of the Line Flow - Return with Receipt and Approval, No Credit process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Return with Receipt and Approval, No Credit process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Return with Receipt and Approval, No Credit, you see that the process consists of 4 unique activities and 3 subprocesses, which comprise the 7 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Return with Receipt and Approval, No Credit process.</p>
+<p><b>Line Flow - Return with Receipt and Approval, No Credit Workflow</b></p>
+<p><img width="812" height="110" src="./img/wf_rma_rct_app_ncr.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Return with Receipt and Approval, No Credit workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>At node 2 the process encounters a block activity that requires the return order line to obtain approval before proceeding with the workflow. From this activity the process must be manually progressed before the workflow can proceed to node 3. At node 3, the Return Receiving - Line subprocess waits for inspection of the returned items before proceeding to the order fulfillment activities in nodes 4 and 5. The Close - Line subprocess initiates at node 6. After the line is successfully closed, the process moves to the End activity at node 7.</p>
+<h3><b>Line Flow - Return with Receipt and Approval, No Credit Activities</b></h3>
+<p>The following table provides a description for the activities in the Line Flow - Return with Receipt and Approval, No Credit process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td><a href="T393423T393431.htm#t_wappr">Wait for Approval</a></td>
+<td>WF_STANDARD.WAITFORFLOW</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td><a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a></td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="5315850"></a><a id="T533103"></a><b>Line Flow - Return with Receipt Only, No Credit</b></h2>
+<p><a name="d0e9022" id="d0e9022"></a>Line Flow - Return with Receipt Only, No Credit is a workflow process used for returns. This is an order line process. When your customer returns an order quantity and you enter the return quantity, Oracle Order Management proceeds to close the order lines without interfacing to Receivables or creating a credit memo.</p>
+<p>The Line Flow - Return with Receipt Only, No Credit process contains several subprocesses to ensure that the return is properly entered, inspected, and closed.</p>
+<p>Line Flow - Return with Receipt Only, No Credit contains all of the subprocess and activities contained in the Line Flow - Return for Credit with Receipt process, except the Invoice Interface &ndash; Line, Deferred sub-process.</p>
+<p>When you save a return order line in Oracle Order Management, the Line Flow - Return with Receipt Only, No Credit process verifies that the return is booked before proceeding. Once booking is verified, the process continues with receiving and closing. These activities are performed in the following workflow subprocesses contained in Line Flow - Return with Receipt Only, No Credit:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_rrl">Return Receiving - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Return with Receipt Only, No Credit ends after the line is successfully closed.</p>
+<p>Line Flow - Return with Receipt Only, No Credit process is contained in the Seeded Data File oexwford.wft and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T533104"></a><b>Summary of the Line Flow - Return with Receipt Only, No Credit</b></h3>
+<p>To view the properties of the Line Flow - Return with Receipt Only, No Credit process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Line Flow - Return with Receipt Only, No Credit process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>When you display the Process window for the Line Flow - Return with Receipt Only, No Credit, you see that the process consists of 3 unique activities and 3 subprocesses, which comprise the 7 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Return with Receipt Only, No Credit process.</p>
+<p><b>Line Flow - Return with Receipt Only, No Credit Workflow</b></p>
+<p><img width="777" height="146" src="./img/wf_rma_rct_ncr.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Return with Receipt Only, No Credit workflow begins at node 1 with the Enter - Line subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>At node 2 the Return Receiving - Line subprocess waits for inspection of the returned items before proceeding to the order fulfillment activities in nodes 3 and 4. The Close - Line subprocess initiates at node 5. After the line is successfully closed, the process ends at node 6.</p>
+<h3><b>Line Flow - Return with Receipt Only, No Credit Activities</b></h3>
+<p>The following table provides a description for the activities in the Line Flow - Return with Receipt Only, No Credit process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>Line Flow - Return with Receipt Only, No Credit Activities</caption>
+<tr valign="top">
+<td>Activity</td>
+<td>Function</td>
+<td>Result Type</td>
+<td>Required</td>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="4476414"></a><a id="T477298"></a><b>Line Flow &ndash; OTA Return for Credit Only</b></h2>
+<p><a name="d0e9151" id="d0e9151"></a><a name="t_otartn" id="t_otartn"></a>This flow is utilized by Oracle Learning Management (OLM). Please refer to the <a href="T393423T393429.htm#t_lfotaitem">Line Flow &ndash; OTA Item</a> for more information. This line flow is assigned when events and enrollment are returned in Order Management. The return flow performs validates the UOM and is intended to return for no credit to enable correction of an enrollment or event. In the case of enrollment the line flow returns a status of Cancel Enrollment and a notification is sent to specific recipients. Please refer to the <i>Oracle Leaning Management User Guide</i> for additional information.</p>
+<p><img width="721" height="233" src="./img/wf_rtnotaitem.gif" alt="the picture is described in the document text"></p>
+<h2><a name="3258606"></a><a id="T393495"></a><b>Line Flow - Standard Service</b></h2>
+<p><a name="d0e9173" id="d0e9173"></a><a name="t_lfss" id="t_lfss"></a>The Line Flow - Standard Service workflow process is initiated when a sales order with service lines is submitted in Oracle Order Management. This type of line flow is used for service items that are purchased with other merchandise, such as a warranty.</p>
+<p>The process contains several subprocesses to verify that the return is properly entered, fulfilled, invoiced, and closed.</p>
+<p>When you save a return order line in Oracle Order Management, the Line Flow - Standard Service process verifies that the return is booked before proceeding. Once booking is verified, the process continues with invoicing and closing. These activities are performed in the following workflow subprocesses contained in Line Flow - Standard Service:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+</ul>
+<p>Line Flow - Standard Service ends after the line is successfully closed.</p>
+<p>The Line Flow - Standard Service process is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a> and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><a id="T393588"></a><b>Summary of the Line Flow - Standard Service Process</b></h3>
+<p>To view the properties of the Line Flow - Standard Service process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type. The Details property page of the process activity indicates that the Line Flow - Standard Service process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process. When you display the Process window for the Line Flow - Standard Service, you see that the process consists of 3 unique activities and 3 subprocesses, which comprise the 6 nodes that appear in the workflow diagram. The following diagram depicts the Line Flow - Standard Service process. Each node of this process is numbered for referencing.</p>
+<p><b>Line Flow - Standard Service Workflow</b></p>
+<p><img width="575" height="148" src="./img/wf_stanserv.gif" alt="the picture is described in the document text"></p>
+<p>The Line Flow - Standard Service workflow begins at node 1 with the <a href="T393423T393430.htm#t_entln">Enter - Line</a> subprocess. This subprocess verifies that the order is booked before proceeding with the remainder of the workflow.</p>
+<p>At node 2 the process uses the <a href="T393423T393431.htm#t_fdefer">Fulfill - Deferred</a> to move the process to the background engine. After the <a href="T393423T393431.htm#t_fulfill">Fulfill</a> activity at node 3 complete, the line enters the <a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a> subprocess at node 4 to process an invoice. The process initiates the <a href="T393423T393430.htm#t_clline">Close - Line</a> subprocess at node 5. After the line is successfully closed, the process proceeds to the <a href="T393423T393431.htm#t_end">End</a> activity at node 6.</p>
+<h3><b>Line Flow - Standard Service Activities</b></h3>
+<p>The following table provides a description for the activities in the Line Flow - Standard Service process.</p>
+<p>For more information about individual activities, refer to <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>Line Flow - Standard Service Activities</caption>
+<tr valign="top">
+<td>Activity</td>
+<td>Function</td>
+<td>Result Type</td>
+<td>Required</td>
+</tr>
+<tr valign="top">
+<td>Fulfill - Deferred</td>
+<td>WF_STANDARD.DEFER</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Fulfill</td>
+<td>OE_FULFILL_WF.START_FULFILLMENT</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258611"></a><a id="T393496"></a><b>OM Negotiation Header Processes</b></h2>
+<p><a name="d0e9318" id="d0e9318"></a>The following section discusses the workflows associated with the OM Negotiation Header item type:</p>
+<h2><a name="3258612"></a><a id="T393497"></a><b>Negotiation Flow - Generic</b></h2>
+<p><a name="d0e9328" id="d0e9328"></a><a name="t_neggn" id="t_neggn"></a>The Negotiation Flow - Generic process can be assigned to both Sales Orders and Sales Agreements. A Sales Order that starts with the negotiation phase is considered a Quote until it transitions to the Fulfillment phase where it becomes a firm order, or Sales Order in Oracle Order Management. Sales Agreements maintain their same name during both the Negotiation and Fulfillment phases.</p>
+<p>Negotiation Flow - Generic is initiated if it is assigned to the transaction type. Transaction types determine which processes are attached to a Sales Order and Sales Agreements. For more information on defining transaction types, refer to the <i>Oracle Order Management Implementation Guide.</i></p>
+<p>Negotiation Flow - Generic is associated with the following OM Negotiation Header subprocesses:</p>
+<ul>
+<li>
+<p><a href="T393423T393431.htm#t_offer">Offer Expiration - Negotiation Process</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_subneg">Submit Draft - Negotiation</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_custacc">Customer Acceptance - Negotiation Process</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_negocp">Complete - Negotiation</a></p>
+</li>
+</ul>
+<p>Negotiation Flow - Generic is contained in the Seeded Data File oexwford.wft and is associated with the <a href="T393423T393426.htm#t_omnegh">OM Negotiation Header</a> item type.</p>
+<h3><a id="T393589"></a><b>Summary of the Negotiation Flow - Generic Process</b></h3>
+<p>To view the properties of the Negotiation Flow - Generic process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type. The Details property page of the process activity indicates that the Negotiation Flow - Generic process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>The Process window displays the activities and subprocesses of the Negotiation Flow - Generic process, which comprise the nodes that appear in the workflow diagram. The following diagram depicts the Negotiation Flow - Generic process.</p>
+<p><b>Negotiation Flow - Generic Workflow</b></p>
+<p><img width="876" height="334" src="./img/wf_neggen3.gif" alt="the picture is described in the document text"></p>
+<h3><b>Negotiation Flow - Generic Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Negotiation Flow - Generic Process.</p>
+<p>For more information about individual function activities, see <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Negotiation Flow - Generic Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td><a href="T393423T393431.htm#t_start">Start</a></td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td><a href="T393423T393431.htm#t_nlost">Negotiation Lost</a></td>
+<td>OE_NEGOTIATE_WF.Update_Status_Lost</td>
+<td>Null</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td><a href="T393423T393431.htm#t_end">End</a></td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258617"></a><a id="T393498"></a><b>Negotiation Flow - Generic with Approval</b></h2>
+<p><a name="d0e9458" id="d0e9458"></a><a name="t_ngapp" id="t_ngapp"></a>The Negotiation Flow - Generic with Approval process can be assigned to both Sales Orders and Sales Agreements. A Sales Order that starts with the negotiation phase is considered a Quote until it transitions to the Fulfillment phase where it becomes a firm order, or Sales Order in Oracle Order Management. Sales Agreements maintain their same name during both the Negotiation and Fulfillment phases.</p>
+<p>Negotiation Flow - Generic with Approval is initiated if it is assigned to the transaction type. Transaction types determine which processes are attached to a Sales Order and Sales Agreements. For more information on defining transaction types, refer to the <i>Oracle Order Management Implementation Manual.</i></p>
+<p>Negotiation Flow - Generic with Approval is associated with the following OM Negotiation Header subprocesses:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_subneg">Submit Draft - Negotiation</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_negocp">Complete - Negotiation</a></p>
+</li>
+<li>
+<p><a href="T393423T393431.htm#t_intapp">Internal Approval - Negotiation</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_ame">Internal Approval &ndash; Negotiation with AME</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_custacc">Customer Acceptance - Negotiation</a></p>
+</li>
+<li>
+<p><a href="T393423T393431.htm#t_offer">Offer Expiration - Negotiation</a></p>
+</li>
+</ul>
+<p>Negotiation Flow - Generic with Approval is contained in the Seeded Data File oexwford.wft and is associated with the <a href="T393423T393426.htm#t_omnegh">OM Negotiation Header</a> item type.</p>
+<h3><a id="T393590"></a><b>Summary of the Negotiation Flow with Approval Process</b></h3>
+<p>To view the properties of the Negotiation Flow - Generic with Approval process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type. The Details property page of the process activity indicates that the Negotiation Flow - Generic with Approval process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>The Process window displays the activities and subprocesses of the Negotiation Flow - Generic with Approval process, which comprise the nodes that appear in the workflow diagram. The following diagram depicts the Negotiation Flow - Generic with Approval process.</p>
+<p><b>Negotiation Flow - Generic with Approval Workflow</b></p>
+<p><img width="663" height="181" src="./img/wf_retwapp.gif" alt="the picture is described in the document text"></p>
+<p>The 'Is AME Used for Approval' function checks if the Use Approvals Management Engine check box is selected in the Transaction Type window. If yes, then it goes to 'Internal Approval Negotiation &ndash; With AME' sub process. This sub process takes care of approvals from AME. If it is unchecked, then this function goes to 'Internal Approval &ndash; Negotiation' sub process as seen in the following diagram:</p>
+<p><img width="667" height="364" src="./img/omwfnfgame.gif" alt="the picture is described in the document text"></p>
+<h3><b>Negotiation Flow - Generic with Approval Activities</b></h3>
+<p>The following table provides descriptions of each activity in the Negotiation Flow - Generic with Approval Process.</p>
+<p>For more information about individual function activities, see <a href="T393423T393431.htm#t_sfad">Seeded Function Activity Definitions</a>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Negotiation Flow - Generic with Approval Activities</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Start</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Negotiation Lost</td>
+<td>OE_NEGOTIATE_WF.Update_Status_Lost</td>
+<td>Null</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End</td>
+<td>WF_STANDARD.NOOP</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="3258622"></a><a id="T393499"></a><b>OM Blanket Header Processes</b></h2>
+<p><a name="d0e9600" id="d0e9600"></a>The following section discusses the workflows associated with the OM Blanket Header item type.</p>
+<h2><a name="3258623"></a><a id="T393500"></a><b>Blanket Flow - Generic</b></h2>
+<p><a name="d0e9610" id="d0e9610"></a><a name="t_bfgen" id="t_bfgen"></a>The Blanket Flow - Generic workflow process is used for the Fulfillment phase of Sales Agreements in Oracle Order Management.</p>
+<p>Blanket Flow - Generic is initiated if it is assigned to the transaction type for the Sales Agreement. Transaction types determine which processes are attached to a Sales Agreement. For more information on defining transaction types, refer to the <i>Oracle Order Management Implementation Guide.</i></p>
+<p>Blanket Flow - Generic is associated with the following OM Blanket Header subprocesses:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_entb">Enter&mdash;Blanket</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_exbsa">Execute Blanket</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_termbsa">Terminate&mdash;Blanket</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clbsa">Close - Blanket</a></p>
+</li>
+</ul>
+<p>Blanket Flow - Generic is contained in the Seeded Data File oexford.wft and is associated with the <a href="T393423T393426.htm#t_omblh">OM Blanket Header</a> item type.</p>
+<p>For Sales Agreements, the Fulfillment flow will start either after the Negotiation Flow has completed or, in the case where the Sales Agreement does not have a Negotiation Flow, it will start when you save the Sales Agreement.</p>
+<h3><a id="T393591"></a><b>Summary of the Blanket Flow - Generic Process</b></h3>
+<p>To view the properties of the Blanket Flow - Generic process, select the process in the navigator tree and then select Properties from the Edit menu. This process is runnable, which indicates that it can be assigned to a transaction type.</p>
+<p>The Details property page of the process activity indicates that the Blanket Flow - Generic process has an error item type of WFERROR. This item type is associated with the RETRY_ONLY error process. The purpose of this error handling process is to alert an administrator when an error occurs in a process and prompt the administrator to retry the process in error. This error process is initiated only when an unexpected error with Oracle Workflow is encountered in the process.</p>
+<p>The Process window displays the activities and subprocesses of the Blanket Flow - Generic process, which comprise the nodes that appear in the workflow diagram. The following diagram depicts the Blanket Flow - Generic process.</p>
+<p><b>Blanket Flow - Generic</b></p>
+<p><img width="852" height="269" src="./img/wf_blanket.gif" alt="the picture is described in the document text"></p>
+<h2><a name="4477055"></a><a id="T477362"></a><b>Order Information Portal Processes</b></h2>
+<a name="d0e9668" id="d0e9668"></a>
+<h3><a id="T477363"></a><b>Customer Feedback Process</b></h3>
+<p><a name="t_custfeedback" id="t_custfeedback"></a><a name="d0e9676" id="d0e9676"></a>The Order Status page enables you to initiate returns. However please note that Order Information Portal does not process orders or returns, only the notification to initiate a return can be carried out.</p>
+<p><img width="496" height="234" src="./img/wf_oipordstatus.gif" alt="the picture is described in the document text"></p>
+<h3><a id="T477364"></a><b>Defect Process</b></h3>
+<p><a name="t_defectprc" id="t_defectprc"></a><a name="d0e9691" id="d0e9691"></a>The Delivery page of Order Information Portal enables you to initiate returns through notifications to the salesperson. You can initiate a return by submitting a Defect Report and this notifies the salesperson to start processing the return. The returns processing can only be done using the Sales Orders window, not the Order Information Portal.</p>
+<p><img width="512" height="218" src="./img/wf_oipdelivery.gif" alt="the picture is described in the document text"></p>
+<h2><a name="4490953"></a><a id="T478233"></a><b>Cost of Goods (COGS) Account Generator Flows</b></h2>
+<p><a name="d0e9705" id="d0e9705"></a><a name="t_cogs" id="t_cogs"></a>The oexwfcog.wft file contains the COGS Account Generator workflows. There are 2 seeded workflows &ndash; Standard Flexfield Workflow and Generate Cost of Goods Sold Account. The Standard Flexfield Workflow consists of generic functions that assist you in generating account numbers, not only COGS Accounts. The Generate Cost of Goods Sold Account flow is described below.</p>
+<h3><a id="T478234"></a><b>Generate Cost of Goods Sold Account Flow</b></h3>
+<p>The Generate Cost of Goods Sold Account consists of 2 processes: Generate Account Using Flexbuilder Rules and Generate Default Account.</p>
+<h3><b>Summary of Generate Account Using Flexbuilder Rules</b></h3>
+<p>If you have upgraded from previous versions that were using the Flexbuilder tool, you can use the Flexbuilder rules. Please note that you need to perform some upgrade to use the Flexbuilder rules in the Generate Account Using Flexbuilder Rules process.</p>
+<p><img width="707" height="353" src="./img/wf_cogflexbldr.gif" alt="the picture is described in the document text"></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Generate Account Using Flexbuilder Rules</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Start generating Code Combination</td>
+<td>FND_FIND_FLEX_COMBINATION</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Upgrade From Flexbuilder</td>
+<td>UPGRADE_FLEX</td>
+<td>Flexfield Result</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Validate Code Combination</td>
+<td>FND_FLEX_VALIDATE_COMBINATION</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Abort generating Code Combination</td>
+<td>FND_FLEX_ABORT_GENERATION</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End generating Code Combination</td>
+<td>FND_FLEX_END_GENERATION</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<h3><b>Summary of Generate Default Account process</b></h3>
+<p>Generate Default Account is a seeded process that builds the COGS Account. It retrieves all segments from the COGS Account assigned to the item in the shipping inventory organization. The Chart of Accounts (the accounting structure that defines the number of segments making up an account) calls this process. The Cost Of Goods Sold Account is identified by a CODE_COMBINATION_ID (CCID), having a unique combination of segment values.</p>
+<p><img width="729" height="371" src="./img/wf_cogsacgen.gif" alt="the picture is described in the document text"></p>
+<p>Use the Properties menu option to check the Runnable box in order to assign this process to a Chart of Accounts.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Generate Default Account</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Activity</b></th>
+<th scope="col"><b>Function</b></th>
+<th scope="col"><b>Result Type</b></th>
+<th scope="col"><b>Required</b></th>
+</tr>
+<tr valign="top">
+<td>Start generating Code Combination</td>
+<td>FND_FLEX_START_GENERATION</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Get CCID for a line</td>
+<td>GET_ITEM_DERIVED</td>
+<td>Flexfield Result</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Copy Values from Code Combination</td>
+<td>FND_FLEX_COPY_FROM_COMB</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Validate Code Combination</td>
+<td>FND_FLEX_VALIDATE_COMBINATION</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>End generating Code Combination</td>
+<td>FND_FLEX_END_GENERATION</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Abort generating Code Combination</td>
+<td>FND_FLEX_ABORT_GENERATION</td>
+<td>None</td>
+<td>Yes</td>
+</tr>
+</table>
+<p>For a listing of seeded function activity definitions, please refer to <a href="T393423T393431.htm#t_cogsfunc">Listing of Seeded COGS Functions</a>.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

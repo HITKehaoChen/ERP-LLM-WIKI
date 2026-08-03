@@ -1,0 +1,2436 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T671993.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T291797.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">8/31</span> <!-- End Header -->
+<h1>Inventory Structure</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#I_c_strucov">Overview of Inventory Structure</a></li>
+<li><a href="#T291801">Organization Parameters Window</a></li>
+<li><a href="#T291813">Defining Default Inventory Parameters</a></li>
+<li><a href="#T291814">Defining Costing Information</a></li>
+<li><a href="#T291815">Valuation Accounts</a></li>
+<li><a href="#T291816">Defining Revision, Lot, Serial, and LPN Parameters</a></li>
+<li><a href="#T291817">Defining ATP, Pick, Item-Sourcing Parameters</a></li>
+<li><a href="#T291818">Defining Inter-Organization Information</a></li>
+<li><a href="#T291819">Inter-Organization Transfer Accounts</a></li>
+<li><a href="#T291820">Defining Other Accounts Parameters</a></li>
+<li><a href="#T564546">Defining Warehouse Parameters</a></li>
+<li><a href="#T291821">Defining Subinventories</a></li>
+<li><a href="#T291802">Subinventory General Ledger Account Fields</a></li>
+<li><a href="#T291822">Defining Stock Locators</a></li>
+<li><a href="#T291823">Defining Organization Access</a></li>
+<li><a href="#T291824">Defining Shortage Parameters</a></li>
+<li><a href="#T291826">Copying Inventory Organizations</a></li>
+<li><a href="#T291689">Inter-Organization Shipping Network</a></li>
+<li><a href="#T291691">Defining Shipping Methods</a></li>
+<li><a href="#T291694">Defining Intercompany Relations</a></li>
+<li><a href="#T291692">Defining Economic Zones</a></li>
+<li><a href="#T633963">Oracle Yard Management and Oracle Inventory</a></li>
+</ul>
+<h2><a name="1753321"></a><a id="I_c_strucov"></a><b>Overview of Inventory Structure</b></h2>
+<p><a name="inv_structure" id="inv_structure"></a>You must plan how Oracle Inventory represents your company's inventory sites and business units. This includes defining organizations, locations, subinventories, and locators.</p>
+<p><strong><span>Important:</span></strong> Before you define inventory structures you should define your ledger and set up required key flexfields. For more information, see Defining Ledgers, <i>Oracle General Ledger User's Guide</i> and <a href="T291651T291654.htm#I_susteps">Setup Steps</a>.</p>
+<h3><a id="T610701"></a><b>Steps Involved</b></h3>
+<ul>
+<li>
+<p>Define locations to use for a variety of functions including receiving and default delivery locations. See: Setting Up Site Locations, <i>Oracle Human Resource Management User's Guide</i>.</p>
+</li>
+<li>
+<p>Define organizations that represent inventory entities (manufacturing facility, warehouse, branch office) in your company. All activity must reference an organization. See: Creating an Organization, <i>Oracle HRMS Enterprise and Workforce Management Guide</i>.</p>
+</li>
+<li>
+<p>Enter employee information. This information is the source for lists of values for employee fields throughout the application. See: Entering a New Person, <i>Oracle Human Resource Management User's Guide</i>.</p>
+</li>
+<li>
+<p>Define a workday calendar, also called the manufacturing calendar, that each organization references for planning and scheduling activities. See: Creating a Workday Calendar, <i>Oracle Bills of Material User's Guide</i>.</p>
+</li>
+<li>
+<p>Define organization parameters. These parameters are the source for default inventory, costing, control, and movement parameters for an organization. See: <a href="T291651T291796.htm#I_orgparam">Organization Parameters</a>.</p>
+</li>
+<li>
+<p>Define subinventories that represent physical or logical locations for items within an organization. See: <a href="T291651T291796.htm#I_t_dsubinv">Defining Subinventories</a>.</p>
+</li>
+<li>
+<p>Define locators that represent storage structures (for example, aisles or bins) within subinventories. See: <a href="T291651T291796.htm#I_t_dlocators">Defining Stock Locators</a>.</p>
+</li>
+<li>
+<p>Define planners or planning entities for each organization. You assign planners to inventory items at the organization level.</p>
+</li>
+<li>
+<p>Define organization access mappings to restrict the organizations a responsibility can access. See: <a href="T291651T291796.htm#I_t_orgaccess">Defining Organization Access</a>.</p>
+</li>
+<li>
+<p>Define freight carriers. See: Defining Freight Carriers, <i>Oracle Order Management Implementation Guide</i>.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291797.htm#I_c_uomov">Overview of Units of Measure</a></p>
+<h2><a name="1753324"></a><a id="T291801"></a><b>Organization Parameters Window</b></h2>
+<p><a name="INVSDOIO.org_parameters" id="INVSDOIO.org_parameters"></a><a name="INVSDOIO.inv_param" id="INVSDOIO.inv_param"></a><a name="I_orgparam" id="I_orgparam"></a>You can define and update default inventory and costing parameters for your current organization in the following areas:</p>
+<ul>
+<li>
+<p><a href="T291651T291796.htm#I_t_invparam">Inventory Parameters</a></p>
+</li>
+<li>
+<p><a href="T291651T291796.htm#I_t_cstparam">Costing Information</a></p>
+</li>
+<li>
+<p><a href="T291651T291796.htm#t_rpara">Revision, Lot, Serial, LPN Parameters</a></p>
+</li>
+<li>
+<p><a href="T291651T291796.htm#t_atp_source">Available to Promise, Pick, Item-Sourcing Parameters</a></p>
+</li>
+<li>
+<p><a href="T291651T291796.htm#I_t_iorgparam">Inter-Organization Information</a></p>
+</li>
+<li>
+<p><a href="T291651T291796.htm#I_tx2Dothpar">Other Account Parameters</a></p>
+</li>
+<li>
+<p><a href="T291651T291796.htm#I_r_vacctfld">Valuation and Other Accounts</a></p>
+</li>
+<li>
+<p><a href="T291651T291796.htm#I_r_iotracctf">Inter-Organization Transfer Accounts</a></p>
+</li>
+<li>
+<p><i>Oracle Warehouse Management Implementation Guide</i>, Warehouse Organization Setup &gt; Warehouse Tab</p>
+<p><strong><span>Important:</span></strong> The Warehouse tab is available only when Oracle Warehouse Management is enabled for your organization.</p>
+</li>
+</ul>
+<h3><a id="T634176"></a><b>Yard Organizations in Oracle Inventory</b></h3>
+<p>A yard is defined as an organization in the Oracle E-Business Suite. The system provides default yard parameters that control the operations and transactions for a yard organization. You must use the Oracle Yard Management application to create yard organizations, but if you have installed and licensed Oracle Inventory, you can view the related setup parameters in the Organization Parameters window. For more information, see <a href="T291651T291796.htm#invyms">Oracle Yard Management and Oracle Inventory</a> and the <i>Oracle Yard Management Process Guide</i>.</p>
+<h2><a name="1753325"></a><a id="T291813"></a><b>Defining Default Inventory Parameters</b></h2>
+<p><a name="d0e33478" id="d0e33478"></a><a name="d0e33483" id="d0e33483"></a><a name="d0e33490" id="d0e33490"></a><a name="I_t_invparam" id="I_t_invparam"></a><b>To define inventory parameters</b></p>
+<ol>
+<li>
+<p>Navigate to the Organization Parameters window.</p>
+<p><img width="716" height="618" src="./img/invug_orgprmtr.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the Inventory Parameters tab.</p>
+</li>
+<li>
+<p>Enter an organization code. See Creating an Organization, <i>Oracle HRMS Enterprise and Workforce Management Guide</i>.</p>
+</li>
+<li>
+<p>Select an Item Master organization.</p>
+<p>You create items in the item master organization and assign them to other organization within your operating unit.</p>
+</li>
+<li>
+<p>Select a workday calendar. This is required when Oracle MRP is installed. See Creating a Workday Calendar, <i>Oracle Bills of Material User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally, select a demand class.<a name="d0e33538" id="d0e33538"></a></p>
+<p>Demand classes segregate scheduled demand and production into groups, and allow you to track and consume those groups independently. Oracle MRP uses this demand class during forecast consumption, and shipment and production relief. See Demand Classes, <i>Oracle MRP User's Guide</i>.</p>
+</li>
+<li>
+<p>In the Move Order Time-out Period field, enter the maximum number of days a move order requisition can wait for approval.<a name="d0e33554" id="d0e33554"></a></p>
+<p>The workflow approval process sends a notification to the item planner when a move order requisition requires approval. After the first time-out period, if the recipient has not approved or rejected the order, the system sends a reminder notice. After the second time-out period, the system automatically rejects or approves the order depending on whether you select <i>Approve automatically</i> or <i>Reject automatically</i> in the Move Order Time-out Action field.</p>
+</li>
+<li>
+<p>Select a Move Order Time-out Action:<a name="d0e33573" id="d0e33573"></a></p>
+<p><i>Approve automatically</i>: After the second time-out period, the system automatically approves move order requisitions. Select this option and set the Move Order Time-out Period to <i>0</i> if you want to bypass the move order approval process and automatically approve move order requisitions.</p>
+<p><i>Reject automatically</i>: After the second time-out period, the system automatically rejects move order requisitions.</p>
+</li>
+<li>
+<p>Select a <a name="d0e33595" id="d0e33595"></a>locator control option:</p>
+<p><i>None</i>: Inventory transactions within this organization do not require locator information.</p>
+<p><i>Prespecified only</i>: Inventory transactions within this organization require a valid, predefined locator for each item.</p>
+<p><i>Dynamic entry allowed</i>: Inventory transactions within this organization require a locator for each item. You can choose a valid, predefined locator, or define a locator dynamically at the time of transaction.</p>
+<p><i>Determined at subinventory level</i>: Inventory transactions use locator control information you define at the subinventory level.</p>
+</li>
+<li>
+<p>Select a Default On-hand Material Status tracking option. This step is optional.</p>
+<ul>
+<li>
+<p>You cannot update this field for existing organizations. To enable this field, you must submit the Activate Onhand Level Material Status Tracking concurrent program.</p>
+</li>
+<li>
+<p>After a status is enabled, it cannot be disabled or set to a null status. Also, after the status is set, the material status window for each status will have the onhand status tracking activated. Once active, this option cannot be deactivated.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Indicate whether to allow quality skipping for inspections.</p>
+</li>
+<li>
+<p>Indicate whether locator aliases must be unique across the organization.</p>
+</li>
+<li>
+<p>Indicate whether to allow negative balances.</p>
+<p>This parameter determines if inventory transactions can drive the inventory balance of an item negative.</p>
+<p><strong><span>Important:</span></strong> If insufficient quantity of on hand material exists in a supply subinventory to satisfy backflush demand, Oracle Work in Process forces the supply subinventory balance negative, and ignores this option setting.</p>
+</li>
+<li>
+<p>Indicate whether auto delete Allocations are enabled. If you select this check box, when you delete a source order, or delete or cancel the order line, the system automatically deletes the associated move order allocations. If you do not select the check box, when you delete a source order, or delete or cancel the order line, then the system does not delete the associated allocations lines. You must manually delete the move order line allocations. If you choose not to delete these lines, the system transacts these lines as subinventory transfers, and does not consider the lines as over picks.</p>
+<p><strong><span>Note:</span></strong> You can enable auto delete allocations only if you do not enable Warehouse Management for the organization. In a Warehouse Management organization, the system automatically deletes move order allocations or tasks unless a user starts work on the task.</p>
+</li>
+<li>
+<p>Indicate whether this is a manufacturing partner organization. This parameter enables you to define a subcontracting business relationship. If you enable this parameter, then you must set the Transfer to GL parameter to No. This parameter indicates if an original equipment manufacturer is a manufacturing partner. See: <i>Oracle Outsourced Manufacturing User's Guide for Discrete, Seiban-Based, and Process Manufacturing</i>.</p>
+</li>
+<li>
+<p>Select the Process Manufacturing enabled check box if the organization is a Process Manufacturing organization. If the organization is a process manufacturing organization you can use process applications such as Process Execution, Process Quality, and Process Costing. <a name="d0e33668" id="d0e33668"></a></p>
+</li>
+<li>
+<p>Select Warehouse Control System (WCS) to enable the Warehouse Control System. The Warehouse Control System provides a bridge between Warehouse Management and the control level for device automation and integration, and the coordination of task execution.</p>
+<p><strong><span>Note:</span></strong> You can only enable WCS for Warehouse Management organizations.</p>
+</li>
+<li>
+<p>Indicate whether this organization is enabled for the Oracle Enterprise Asset Management (eAM) application. For more information about enabling the organization for eAM, see <i>Oracle Enterprise Asset Management Implementation Guide</i>, Enabling Organizations for Enterprise Asset Management.</p>
+<p><a name="d0e33690" id="d0e33690"></a></p>
+<a name="d0e33698" id="d0e33698"></a></li>
+<li>
+<p>Indicate whether this organization is an Oracle Warehouse Management enabled organization. You can use Warehouse Management features such as LPNs, task management, warehouse execution rules, and cost groups in this organization. See Warehouse Setup, <i>Oracle Warehouse Management User's Guide</i>.</p>
+<p>You must enable locator control if you use Oracle Warehouse Management. After you process transactions within the organization, you cannot change the value of this parameter.</p>
+<p><strong><span>Note:</span></strong> The following considerations apply when using Oracle Transportation Management (OTM) with distributed organizations (TPW) and carrier manifesting organizations (CMS):</p>
+<ul>
+<li>
+<p>When OTM is enabled in the Shipping Parameters window, the distributed organization (TPW) and carrier manifesting organization (CMS) check boxes in the Organization Parameters window are disabled. If the organization is not OTM enabled, then these check boxes are enabled (regardless of FTE installation status).</p>
+</li>
+<li>
+<p>If you enable an organization with Oracle Transportation Management, you may get an error if one or more of the following conditions exist</p>
+<ul>
+<li>
+<p>TPW or carrier manifesting is already enabled for the organization.</p>
+</li>
+<li>
+<p>If any of the deliveries are in shipment requested (SR) or shipment advice (SA) status.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Carriers can be enabled for manifesting regardless of whether FTE is installed or whether the OTM profile is enabled or not. However, a delivery will be manifested only if the delivery's carrier and the organization are both manifest-enabled.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Select the LCM Enabled check box if the organization is a Landed Cost Management (LCM) organization.</p>
+<p><strong><span>Note:</span></strong> When LCM Enabled is selected, the Enable Project References check box in the Project Manufacturing Parameters window (in Oracle Project Manufacturing) cannot be selected. Conversely, when the Enable Project References check box in the Project Manufacturing Parameters window is selected, then the LCM Enabled check box in the Organization Parameters window cannot be selected.</p>
+</li>
+</ol>
+<p><b>To define capacity constraints</b></p>
+<p>In the Capacity region, enter values for the load weight and volume constraints for the organization. Other applications, such as Advanced Supply Chain Planning, use these measures to calculate warehouse capacity constraints.</p>
+<ul>
+<li>
+<p>Load Weight / UOM: Enter the weight storage capacity of the organization and the UOM (unit of measure) for the weight.</p>
+</li>
+<li>
+<p>Volume / UOM: Enter the storage volume capacity of the organization and the UOM for the volume.</p>
+</li>
+</ul>
+<ol start="21">
+<li>
+<p>Enter a total load weight and unit of measure for this organization.</p>
+</li>
+<li>
+<p>Enter a total volume and unit of measure for this organization.</p>
+</li>
+</ol>
+<p>Click the Costing Information tab to enter costing information.<a name="d0e33765" id="d0e33765"></a></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_t_cstparam">Defining Costing Information</a></p>
+<p><a href="T291651T291796.htm#t_rpara">Defining Revision, Lot, Serial, LPN Parameters</a></p>
+<p><a href="T291651T291796.htm#t_atp_source">Defining ATP, Pick, Item-Sourcing Parameters</a></p>
+<p><a href="T291651T291796.htm#I_t_iorgparam">Defining Inter-Organization Information</a></p>
+<p><a href="T291651T291796.htm#I_tx2Dothpar">Defining Other Account Parameters</a></p>
+<p>Locator Alias, <i>Oracle Warehouse Management User's Guide</i></p>
+<h2><a name="1753328"></a><a id="T291814"></a><b>Defining Costing Information</b></h2>
+<p><a name="d0e33802" id="d0e33802"></a><a name="I_t_cstparam" id="I_t_cstparam"></a><b>To define costing parameters and accounts</b></p>
+<ol>
+<li>
+<p>Navigate to the Organization Parameters window.</p>
+<p><img width="679" height="614" src="./img/invug_Org_costing.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the Costing Information tab.</p>
+<p><strong><span>Note:</span></strong> Note this tab applies only to discrete organizations.</p>
+<p>The costing organization that controls the costs in your current organization and the <a name="d0e33829" id="d0e33829"></a>costing method are displayed. You cannot make changes to these fields.</p>
+<p>See: Cost Structure, <i>Oracle Cost Management User's Guide</i>, Standard Costing, <i>Oracle Cost Management User's Guide</i>, and Average Costing, <i>Oracle Cost Management User's Guide</i>.</p>
+</li>
+<li>
+<p>When the Costing Method is Average, you can enter the Average Rates Cost Type. See: Defining Cost Types, <i>Oracle Cost Management User's Guide</i>.</p>
+</li>
+<li>
+<p>From the Transfer to GL drop-down list, select whether the transaction needs to be transferred to general ledger (GL):</p>
+<ul>
+<li>
+<p>Yes: Indicates that the material/WIP transactions performed in this organization will be transferred to GL.</p>
+</li>
+<li>
+<p>No: Indicates that the events sent by the JMS/XLA API pertaining to the transactions of this organization are marked as non-transferable in subledger accounting (SLA).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Indicate whether to reverse <a name="d0e33868" id="d0e33868"></a>encumbrance entry upon receipt in inventory.</p>
+<p>You normally select this option if you use encumbrances with Oracle Purchasing. See: Overview of Receipt Accounting, <i>Oracle Purchasing User's Guide</i>.</p>
+</li>
+<li>
+<p>Indicate whether subinventories can be associated with a given project and task.</p>
+<p>If the Project Cost Collect Enabled check box is selected, and the Enable Project References check box (Project Manufacturing Parameters window &gt; General tab) is also selected, then the cost collector process can transfer costs to project accounting.</p>
+<p>See, Project Manufacturing Parameters, <i>Oracle Project Manufacturing User's Guide</i> and Project Manufacturing Costing, <i>Oracle Project Manufacturing User's Guide</i> for more information.</p>
+</li>
+<li>
+<p>Indicate whether to defer logical transactions.</p>
+</li>
+<li>
+<p>Optionally, enter a Cost Cutoff Date.</p>
+<p>If you leave this field blank, all available transactions will be costed, as usual. If you enter a date, all transactions prior to this date will be costed. All transactions on or later than this date will not be costed. For inter-organization transfers, a standard costing, receiving organization will not cost a receipt if the sending organization did not already cost the transaction.</p>
+<p>The default time is the first instant of the date. You can optionally choose another time.</p>
+<p>The standard cost update process can be performed on the cost cutoff date. You can restart cost processing by changing the cutoff date to blank, or a future date.</p>
+</li>
+<li>
+<p>For standard costing, select a material sub-element that this organization uses as a default when you define item costs. For average costing, the default material sub-element you select can be used for cost collection when <i>Project Cost Collection Enabled</i> is set.</p>
+<p><strong><span>Important:</span></strong> Since a material sub-element is organization specific you must define the organization first, then the sub-element, then the organization parameters. When you first define your parameters you can leave this field blank, save your work, then return to this field later to specify a default material sub-element.</p>
+</li>
+<li>
+<p>Optionally, select a Default Material Overhead Sub-Element from the list of values. During the Supply Chain Rollup process, when costs are merged from another organization, markup and shipping costs will use this value.</p>
+<p>The supply chain cost rollup will complete successfully, regardless of whether this field is populated. If the Cost Rollup identifies an organization with a default material overhead sub-element not set up, a corresponding warning message will be printed in the log file.</p>
+</li>
+<li>
+<p>Indicate the default cost group for the organization. This will default into the Default Cost Group field for each subinventory. If the WMS cost group rules engine fails to find a cost group, this cost group will be used. See: Overview of the WMS Rules Engine, <i>Oracle Warehouse Management User's Guide</i>. This feature is available if you have Oracle Warehouse Management installed, and you are working with a WMS enabled organization. See: <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>.</p>
+</li>
+<li>
+<p>Define default Valuation Account details. See: <a href="T291651T291796.htm#I_r_vacctfld">Valuation Accounts</a> and <a href="T291651T291796.htm#I_t_dsubinv">Defining Subinventories</a>.</p>
+</li>
+</ol>
+<p><b>To continue defining organization parameters</b></p>
+<p>Select the Revision, Lot, Serial, LPN tabbed regions. See: <a href="T291651T291796.htm#t_rpara">Defining Revision, Lot, Serial, LPN Parameters</a>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a></p>
+<p><a href="T291651T291796.htm#t_atp_source">Defining ATP, Pick, Item-Sourcing Parameters</a></p>
+<p><a href="T291651T291796.htm#I_t_iorgparam">Defining Inter-Organization Information</a></p>
+<p><a href="T291651T291796.htm#I_tx2Dothpar">Defining Other Account Parameters</a></p>
+<h2><a name="1753331"></a><a id="T291815"></a><b>Valuation Accounts</b></h2>
+<p><a name="d0e33973" id="d0e33973"></a><a name="d0e33980" id="d0e33980"></a><a name="d0e33987" id="d0e33987"></a><a name="I_r_vacctfld" id="I_r_vacctfld"></a>You choose a default valuation account when you define organization parameters. Under standard costing, these accounts are defaulted when you define subinventories and can be overridden. Under average costing, these accounts (except for Expense) are used for subinventory transactions and cannot be updated. For a detailed discussion of cost elements see: Cost Structure, <i>Oracle Cost Management User's Guide</i>.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Material</td>
+<td>An asset account that tracks material cost. For average costing, this account holds your inventory and intransit values. Once you perform transactions, you cannot change this account.</td>
+</tr>
+<tr valign="top">
+<td>Material Overhead</td>
+<td>An asset account that tracks material overhead cost.</td>
+</tr>
+<tr valign="top">
+<td>Resource</td>
+<td>An asset account that tracks resource cost.</td>
+</tr>
+<tr valign="top">
+<td>Overhead</td>
+<td>An asset account that tracks resource and outside processing overheads.</td>
+</tr>
+<tr valign="top">
+<td>Outside processing</td>
+<td>An asset account that tracks outside processing cost.</td>
+</tr>
+<tr valign="top">
+<td>Expense</td>
+<td>The expense account used when tracking a non-asset item.</td>
+</tr>
+</table>
+<p>The following tables shows the other accounts:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>Other Accounts</caption>
+<tr valign="top">
+<td>Sales</td>
+<td>The profit and loss (income statement) account that tracks the default revenue account.</td>
+</tr>
+<tr valign="top">
+<td>Cost of Goods Sold</td>
+<td>The profit and loss (income statement) account that tracks the default cost of goods sold account.</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>The variance account used to record differences between purchase order price and standard cost. This account is not used with the average cost method.</td>
+</tr>
+<tr valign="top">
+<td>Inventory A/P Accrual</td>
+<td>The liability account that represents all inventory purchase order receipts not matched in Accounts Payable, such as the uninvoiced receipts account.</td>
+</tr>
+<tr valign="top">
+<td>Invoice Price Variance</td>
+<td>The variance account used to record differences between purchase order price and invoice price. This account is used by Accounts Payable to record invoice price variance.</td>
+</tr>
+<tr valign="top">
+<td>Encumbrance</td>
+<td>An expense account used to recognize the reservation of funds when a purchase order is approved.</td>
+</tr>
+<tr valign="top">
+<td>Project Clearance Account</td>
+<td>When performing miscellaneous issues to capital projects, the project clearance account is used to post the distributions.</td>
+</tr>
+<tr valign="top">
+<td>Average Cost Variance</td>
+<td>Under average costing with negative quantity balances, this account represents the inventory valuation error caused by issuing your inventory before your receipts.</td>
+</tr>
+</table>
+<ul>
+<li>
+<p>For standard costing, only the Purchase Price Variance, Inventory A/P Accrual, Invoice Price Variance, Expense, Sales and Cost of Goods Sold accounts are required. The other accounts are used as defaults to speed your set up.</p>
+</li>
+<li>
+<p>For average costing, only the Material, Average Cost Variance, Inventory A/P Accrual, Invoice Price Variance, Expense, Sales and Cost of Goods Sold accounts are required. The other accounts are used as defaults or are not required.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_t_cstparam">Defining Costing Information</a></p>
+<p><a href="T291651T291796.htm#I_tx2Dothpar">Defining Other Account Parameters</a>.</p>
+<p><a href="T291651T291796.htm#I_r_subgl">Subinventory General Ledger Account Fields</a>.</p>
+<h2><a name="1753333"></a><a id="T291816"></a><b>Defining Revision, Lot, Serial, and LPN Parameters</b></h2>
+<p><a name="d0e34140" id="d0e34140"></a><a name="d0e34147" id="d0e34147"></a><a name="d0e34152" id="d0e34152"></a><a name="d0e34157" id="d0e34157"></a><a name="d0e34164" id="d0e34164"></a><a name="d0e34171" id="d0e34171"></a><a name="t_rpara" id="t_rpara"></a><b>To define revision, lot, serial, and LPN parameters</b></p>
+<ol>
+<li>
+<p>Click the Revision, Lot, Serial And LPN tab on the Organization Parameters window.</p>
+<p><img width="716" height="619" src="./img/invug_orgprmtr2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the following data:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>Starting Revision</td>
+<td>Enter a starting revision to be the default for each new item.</td>
+</tr>
+<tr valign="top">
+<td>Uniqueness</td>
+<td>Select an option for lot number uniqueness.
+<ul>
+<li>
+<p>Across items: Enforce unique lot numbers for items across all organizations.</p>
+</li>
+<li>
+<p>None: Unique lot numbers are not required.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Generation</td>
+<td>
+<ul>
+<li>
+<p>At organization level: The system uses values you enter in the Zero Pad Suffix, Prefix, and Total Length fields to automatically generate a lot number for an item when you receive it.</p>
+</li>
+<li>
+<p>At item level: The system uses the starting lot number prefix and the starting lot number you define in the item master to automatically generate a lot number for an item when you receive it.</p>
+</li>
+<li>
+<p>User Defined: You can define a lot number for an item when you receive it.</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Enter the following data for lot name generation:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>Zero Pad Suffix</td>
+<td>Indicate whether to add zeroes to right-justify the numeric portion of lot numbers.<a name="d0e34268" id="d0e34268"></a></td>
+</tr>
+<tr valign="top">
+<td>Prefix</td>
+<td>If <i>At organization level</i> is selected, optionally, enter an alphanumeric lot number prefix for lot numbers generated by the system at the organization level.<a name="d0e34285" id="d0e34285"></a></td>
+</tr>
+<tr valign="top">
+<td>Total Length</td>
+<td>Optionally, define the maximum length for lot numbers.
+<p><strong><span>Additional Information:</span></strong> When using Oracle Work in Process (WIP): if the WIP parameter is set to default the lot number based on inventory rules, then WIP validates the length of the lot number against the length that you enter in this field.</p>
+<a name="d0e34302" id="d0e34302"></a></td>
+</tr>
+<tr valign="top">
+<td>Allocate Lot</td>
+<td>The Allocate Lot feature enables you to bypass the system allocation to manually allocate lots. For example, with the Allocate Lot feature enabled, an operator has the flexibility to allocate lots that are easier or more convenient to retrieve than those allocated by the system.
+<p><strong><span>Important:</span></strong> For more information on using the Allocate Lot feature in Oracle Process Manufacturing Process Execution, see the <i>Oracle Process Manufacturing Process Execution User's Guide</i>.</p>
+<p>For additional flexibility, Oracle Inventory provides an API stub <code>INV_FLEX_LOT_ALLOCATION_PUB</code> that overrides the parameter setting of Yes or No so you can enable or disable the allocate lot feature for a particular source.</p>
+<br>
+Select one of the following values:
+<ul>
+<li>
+<p>Yes (default value): The system allocates lots during the allocation process.</p>
+</li>
+<li>
+<p>No: Lots will not be allocated even though material will be allocated.</p>
+<p>If Allocate Lot is set to No, then the Item Details page on the mobile application will simply display the lot field with a LOV where the operator can pick the desired lot and continue the picking process.</p>
+<p>Also, from the Transact Move Order window, when allocations are created for a move order line, you can review or modify the allocations in the Select Available Inventory window. For more information, see <a href="T291651T428143.htm#I_trnmo">Allocating and Transacting Move Orders</a>.</p>
+<p><strong><span>Note:</span></strong> When No is selected, if you try to pick release with auto allocate as Yes, allocations will not be detailed up to the lot level.</p>
+</li>
+</ul>
+<p><b>Notes</b></p>
+<ul>
+<li>
+<p>Oracle recommends not enabling the Allocate Lot feature if your system requires lot-level controls that are dependent on specific lots. Otherwise, unwanted issues may arise with lot indivisibility, lot-specific UOM conversions, lot consistency, lot specific rules, and so on.</p>
+</li>
+<li>
+<p>The optional lot allocation feature is not applicable to OPM organizations. The Allocate Lot value of No is not applicable for the process manufacturing (OPM) batch move order auto-detailing process. The system will override this value as Yes and will always allocate the lot for OPM batch auto-detail processing.</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Enter the following data to generate child lots for lot control at the organization level:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>Child Generation</td>
+<td>Select the value for generating child lots:
+<ul>
+<li>
+<p>Parent: The system bases the child lot numbers on the same sequence as the lot number. For example, if a parent lot is P1, then the child lot is P2.</p>
+</li>
+<li>
+<p>Parent + Child: The parent lot acts as a prefix, and the system adds the next available number to form the child lot. For example, if the parent lot is P1, then the child lot is P1-1.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Zero Pad</td>
+<td>Indicate whether to add zeroes to right-justify the numeric portion of lot numbers.<a name="d0e34394" id="d0e34394"></a></td>
+</tr>
+<tr valign="top">
+<td>Prefix</td>
+<td>Enter an alphanumeric prefix if the child lot generation is set to Parent + Child.</td>
+</tr>
+<tr valign="top">
+<td>Total Length</td>
+<td>Enter the total amount of characters for the child lot. This includes the prefix if applicable.</td>
+</tr>
+<tr valign="top">
+<td>Format Validation</td>
+<td>Select Format Validation to ensure that manually-entered lots conform to the predetermined naming convention.</td>
+</tr>
+<tr valign="top">
+<td>Copy Lot Attributes</td>
+<td>Select Copy Lot Attributes to ensure the child lots inherit the parent lot information.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Select the desired value for Auto Create Lot UOM Conversion:</p>
+<ul>
+<li>
+<p>Yes</p>
+</li>
+<li>
+<p>No</p>
+</li>
+<li>
+<p>User Confirmation</p>
+</li>
+<li>
+<p>Null</p>
+</li>
+</ul>
+<p>If Yes or User Confirmation is selected, then the system automatically creates lot-specific unit of measure conversions. The system bases the conversion on lot quantities that you receive in the transactional UOM, and creates a conversion between the transactional UOM and the secondary UOM. The system creates a lot conversion only if the item is under dual unit of measure control and the lot conversion is different from the item conversion. For example, a conversion would be created only if the user changes the secondary quantity (or the primary quantity without changing the secondary quantity) so that the conversion between primary and secondary is different from the item level conversion.</p>
+<p><strong><span>Note:</span></strong> If you enable this parameter, then the system automatically creates lot level UOM conversions for lots that are created in Inventory and Process Manufacturing. It does not automatically create lot-level UOM conversions for lots that are created in Work in Process.</p>
+</li>
+<li>
+<p>Select the value for Allow Different Material Status to control the action that occurs when material statuses differ when you perform transactions (differences in material status of non-lot controlled items are included as well):</p>
+<ul>
+<li>
+<p>Yes: You can transfer out of, receive into, or produce material into an existing status and the new quantity inherits the status of the existing material.</p>
+</li>
+<li>
+<p>No: You cannot transfer out of, receive into, or produce material into an existing status.</p>
+</li>
+<li>
+<p>With exception: You can transfer out of, receive into, or produce material into an existing status only if the on-hand balance of the destination organization is zero.</p>
+</li>
+</ul>
+<p><b>Default Lot On-hand Status During Organization Transfer Receiving</b></p>
+<p><a name="d0e34468" id="d0e34468"></a>When a lot is transferred from one organization to another, if the lot exists in the destination organization, then the onhand/lot status of the lot in destination organization is retained. If the lot does not exist in the destination organization, and the Allow Different Material Status is set to:</p>
+<ul>
+<li>
+<p>No or With exception: On-hand/lot status will be transferred from the source organization.</p>
+</li>
+<li>
+<p>Yes: On-hand status defaults from the on-hand status defaulting logic in the destination organization.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> This feature is extended to Intra-Org Transactions like subinventory transfer, and staging transfer.</p>
+</li>
+<li>
+<p>Enter the following data to define serial control parameters:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>Uniqueness</td>
+<td>Select the level at which you want to enforce serial number uniqueness for your organization (the levels for serial uniqueness are cumulative):
+<ul>
+<li>
+<p>Across organizations: Enforces unique serial numbers throughout all organizations. In addition to the <i>Within organization</i> restrictions, you cannot assign the same serial number to any other item regardless of the organization.</p>
+<p>For example, if you assign SN100 to item A you cannot receive item B with the serial number SN100 in any organization. If you assign <i>Across organizations</i> uniqueness to any organization it restricts the serial generation in all other organizations. If one organization dictates <i>Across organizations</i>, all other organizations must do so.</p>
+</li>
+<li>
+<p>Within inventory model and items: Enables configurations of the same model to be assigned the same serial number as the base model item. For example, this is useful in ATO (assemble-to-order) configurations where you generate a serial number for the base configuration, and need to generate the same serial number for the next configuration of the same model.</p>
+</li>
+<li>
+<p>Within organization: Enforces unique serial numbers within the current organization. In addition to the <i>Within inventory items</i> restrictions, the same serial number cannot exist twice within the same organization. For example, if you assign SN100 to item A, you cannot receive item B with the serial number SN100 in the same organization. You can, however, receive item B with the serial number SN100 in any other organization.</p>
+</li>
+<li>
+<p>Within inventory items: Enforce unique serial numbers for inventory items.</p>
+<p>After a serial number is assigned to a particular item, you cannot assign the same serial number to the same item regardless of the organization. For example, if you assign serial number SN100 to item A, you cannot assign serial number SN100 to any other instance of item A in any organization. This also includes CTO items derived from base model A. However, you could receive item B with serial number SN100 in any organization.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Generation</td>
+<td>Defines the level at which serial control is generated:
+<ul>
+<li>
+<p>At item level: Define the starting serial number prefix and the starting serial number when you define the item.</p>
+</li>
+<li>
+<p>At organization level: Define the starting prefix and serial number information for items using the information you enter in the following fields of this window.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Prefix</td>
+<td>Optionally, select an alphanumeric serial number prefix to use for system-generated serial numbers when generation is at the organization level.</td>
+</tr>
+<tr valign="top">
+<td>Starting Serial Number</td>
+<td>Optionally, enter a starting serial number to use for system-generated serial numbers.<br>
+If serial number generation is at the organization level, you must enter a starting serial number.</td>
+</tr>
+<tr valign="top">
+<td>Allocate Serial Numbers</td>
+<td>Select whether the system suggests serial numbers as part of the move order line allocating process. If you select No, then you must manually enter the serial numbers to transact the move order.</td>
+</tr>
+</table>
+<p><strong><span>Additional Information:</span></strong> Serial number control for an inventory item is defined on the Item Master window. You can select from No control, Predefined, At inventory receipt, or At sales order issue. For more information, see <a href="T291651T427994.htm#I_t_sersetup">Setting Up Serial Number Control</a>.</p>
+</li>
+</ol>
+<p><b>To define LPN generating options</b></p>
+<p>If your organization has installed Oracle Warehouse Management, and you are working with a Warehouse Management enabled organization, you can define LPN Generating Options. LPNs must be unique across organizations. Setting the parameters on this tab enables the system to generate LPNs on demand, or through a concurrent request. As long as the number is unique, Oracle Warehouse Management also enables you to generate your own LPNs.</p>
+<ol>
+<li>
+<p>Enter the prefix to append to every LPN generated in this organization.</p>
+</li>
+<li>
+<p>Enter the suffix to append to every LPN generated in this organization.</p>
+</li>
+<li>
+<p>Enter the starting number from which LPNs the system generates LPNs.</p>
+</li>
+<li>
+<p>Indicate if a UCC-128 suffix is appended to the LPN.</p>
+</li>
+</ol>
+<p><b>To generate LPNs using the Serial Shipping Container Code (SSCC-18) standard</b></p>
+<p>You can generate LPNs using the 18-digit serial shipping container code (SSCC-18) standard. The SSCC-18 number ensures a unique LPN number for shipping containers across the supply chain. This number is required to generate a UCC-128 shipping label. SSCC-18 or the license plate number appearing on UCC-128 label is also required on outbound ASNs that the system transmits customers. Consequently, it is important that LPNs are generated using SSCC-18 standard within Oracle Warehouse Management. Oracle Shipping Execution refers to this LPN in the outbound ASN. The data structure for the 18-digit number consists of the following:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>SSCC-18 Standards</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Extension Digit</b></th>
+<th scope="col"><b>UCC Company Prefix</b></th>
+<th scope="col"><b>Container Serial Number</b></th>
+<th scope="col"><b>Check Digit</b></th>
+</tr>
+<tr valign="top">
+<td>0</td>
+<td>123556</td>
+<td>3047</td>
+<td>4</td>
+</tr>
+<tr valign="top">
+<td>Extension Digit No Intelligence</td>
+<td>Company Prefix</td>
+<td>Serial Number</td>
+<td>Mod 10 Check digit</td>
+</tr>
+</table>
+<p>In Oracle Warehouse Management, you can also set up LPN generation parameters to auto-generate LPNs conforming to SSCC-18 standards. To do this, use the LPN Prefix to define the UCC Company Prefix and Extension Digit and enter the value of 18 for the Total Length of the LPN. The serial number is the starting serial number for LPN generation. This system increments this number when it generates LPNs. This number will be padded by leading '0' to generate LPN with the desired length.</p>
+<p><strong><span>Important:</span></strong> To comply with UCC standards, the combined length of UCC company prefix and container serial numbers cannot exceed 16 digits</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>LPN generation setup in Oracle Warehouse Management to auto-create LPNs using SSCC-18 standard</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Total Length</b></th>
+<th scope="col"><b>LPN Prefix</b></th>
+<th scope="col"><b>Serial Number</b></th>
+<th scope="col"><b>UCC-128 Suffix Flag</b></th>
+</tr>
+<tr valign="top">
+<td>18</td>
+<td>123556</td>
+<td>3047</td>
+<td>Yes</td>
+</tr>
+</table>
+<p>The previous table auto-generates LPNs confirming to SSCC-18 standards as follows:</p>
+<ul>
+<li>
+<p>012355600000030474</p>
+</li>
+<li>
+<p>012355600000030481</p>
+</li>
+<li>
+<p>012355600000030498</p>
+</li>
+<li>
+<p>012355600000030504</p>
+</li>
+</ul>
+<p>Sometimes, the UCC Application Identifier (AI) for LPN 00 is also added in the LPN prefix and the LPN number with AI is transmitted in EDI messages. In such a case, the LPN length is entered as 20 and the Application Identifier 00 is added to the LPN Prefix. The following example illustrates this type of scenario:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>LPN generation setup in WMS to auto-create LPNs using SSCC-18 standard</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Total Length</b></th>
+<th scope="col"><b>LPN Prefix</b></th>
+<th scope="col"><b>Serial Number</b></th>
+<th scope="col"><b>UCC-128 Suffix Flag</b></th>
+</tr>
+<tr valign="top">
+<td>20</td>
+<td>123556</td>
+<td>3047</td>
+<td>Yes</td>
+</tr>
+</table>
+<p>In the previous table, the system auto-generates LPNs that confirm to SSCC-18 standards as follows:</p>
+<ul>
+<li>
+<p>00012355600000030474</p>
+</li>
+<li>
+<p>00012355600000030481</p>
+</li>
+<li>
+<p>00012355600000030498</p>
+</li>
+<li>
+<p>00012355600000030504</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> The Modulo-10 check digit remains the same even when Application Identifier 00 is included in the LPN generation prefix.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<p><a href="T291651T427992.htm#I_r_invcattr">Inventory Attribute Group</a></p>
+<p><a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a></p>
+<p><a href="T291651T291796.htm#I_t_cstparam">Defining Costing Information</a></p>
+<p><a href="T291651T291796.htm#t_atp_source">Defining ATP, Pick, Item-Sourcing Parameters</a></p>
+<p><a href="T291651T291796.htm#I_t_iorgparam">Defining Inter-Organization Information</a></p>
+<p><a href="T291651T291796.htm#I_tx2Dothpar">Defining Other Account Parameters</a></p>
+<p><a href="T291651T427993.htm#c_lotcntrl">Overview of Lot Control</a></p>
+<p><a href="T291651T427994.htm#I_t_sersetup">Setting Up Serial Number Control</a></p>
+<h2><a name="1753339"></a><a id="T291817"></a><b>Defining ATP, Pick, Item-Sourcing Parameters</b></h2>
+<p><a name="d0e34809" id="d0e34809"></a><a name="d0e34816" id="d0e34816"></a><a name="d0e34821" id="d0e34821"></a><a name="t_atp_source" id="t_atp_source"></a>Available to promise (ATP) features are used across various modules in the Oracle E-Business Suite to determine demand/supply patterns. You can define ATP Rules and assign them as defaults at the organization, subinventory, or item level.</p>
+<p><b>To define optional ATP and Picking defaults</b></p>
+<ol>
+<li>
+<p>Navigate to the Organization Parameters window.</p>
+</li>
+<li>
+<p>Select the ATP, Pick, Item-Sourcing tab.</p>
+<p><img width="719" height="642" src="./img/invug_atppick.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a <a name="d0e34852" id="d0e34852"></a>default ATP rule.</p>
+<p>ATP rules define the options the system uses to calculate the available to promise quantity of an item. If you are using Oracle Order Management, the default is the ATP rule for the Master organization.</p>
+<p><strong><span>Important:</span></strong> Available to promise (ATP) features are used across various modules in the Oracle E-Business Suite to determine demand/supply patterns. You can define ATP Rules and assign them as defaults at the organization, subinventory, or item level. For information about defining ATP rules, see <a href="T291651T292324.htm#atpdef">Defining ATP Rules</a>.</p>
+</li>
+<li>
+<p>Select a <a name="d0e34870" id="d0e34870"></a>default picking rule.</p>
+<p>Picking rules define the priority that Order Management functions use to pick items.</p>
+<p><strong><span>Important:</span></strong> This rule will not be employed in a WMS enabled organization. The WMS picking rules will be used. See <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>.</p>
+</li>
+<li>
+<p>Enter a default subinventory <a name="d0e34888" id="d0e34888"></a>picking order.</p>
+<p>This value indicates the priority with which you pick items from a subinventory, relative to another subinventory, in which a given item resides. The value that you enter appears as the default when you define a subinventory.</p>
+</li>
+<li>
+<p>Enter a default locator picking order.</p>
+<p>This value indicates the priority with which you pick items from a locator, relative to another locator, where a given item resides. The value you that enter appears as the default when you define a locator.</p>
+<p><strong><span>Important:</span></strong> A picking order of 1 means that order management functions pick items from that subinventory or locator before others with a higher number (such as 2, 3, and so on).</p>
+</li>
+<li>
+<p>Select the Pick Confirmation Required check box if you want your pickers to manually pick confirm. If you do not select the check box, then pick confirmation occurs automatically.</p>
+<p><strong><span>Important:</span></strong> For Oracle Warehouse Management to dispatch picking tasks to users, this check box should be deselected in Warehouse Management enabled organizations.</p>
+</li>
+<li>
+<p>Select Overpicking for Manufacturing Enabled to allow operators to over pick components and ingredients for WIP jobs and process batches.</p>
+</li>
+<li>
+<p>Select Overpicking for Transfer Orders Enabled to allow over allocation for move orders.</p>
+</li>
+<li>
+<p>Select Enable Rules Override for Lot-Level Reservation to allow a reservation to take priority over an allocation, if the reservation is fully detailed. This means that if an order has a reservation that includes all necessary details such as subinventory, locator, and lot, then the system uses this reservation instead of picking rules to create the allocation.</p>
+</li>
+</ol>
+<p><b>To define Verify Pick options</b></p>
+<ol>
+<li>
+<p>Select the <b>ATP, Pick, Item-Sourcing</b> tab.</p>
+</li>
+<li>
+<p>In the <b>Verify Pick</b> region, select the <b>Sales Orders</b> or <b>Move Orders</b> check box to inspect the material belonging to the sales order or the move order respectively.</p>
+</li>
+<li>
+<p>Select the <b>Category Set Name</b> and enter the <b>Weight Tolerance %</b>.</p>
+</li>
+</ol>
+<p><b>To define optional <a name="d0e34960" id="d0e34960"></a>Item Sourcing defaults</b></p>
+<ol>
+<li>
+<p>Select the ATP, Pick, Item-Sourcing tab region.</p>
+</li>
+<li>
+<p>Select a source type for item replenishment. The source types are as follows:</p>
+<p><i>Inventory</i>: Replenish items internally from another subinventory in the same organization or another organization.</p>
+<p><i>Supplier</i>: Replenish items externally, from a supplier you specify in Oracle Purchasing.</p>
+<p><i>None</i>: No default source for item replenishment.</p>
+</li>
+<li>
+<p>Select the organization used to replenish items.</p>
+<p>You must enter a value in this field if you selected <i>Inventory</i> in the Type field.</p>
+</li>
+<li>
+<p>Select the subinventory used to replenish items.</p>
+<p>You must enter a value in this field if you selected your current organization in the Organization field. You cannot enter a value in this field if you selected <i>Supplier</i> in the Type field.</p>
+</li>
+</ol>
+<p><b>To enable Cycle Count Approval using Approvals Management Engine (AME) workflow</b></p>
+<ol>
+<li>
+<p>Select the ATP, Pick, Item-Sourcing tab.</p>
+</li>
+<li>
+<p>In the Cycle Count region, select the <b>Workflow Approval</b> check box to route the cycle counting entries approval through the INV: Cycle Count Approval workflow. The workflow uses the AME framework. Before you select the check box ensure that none of the cycle count entries are pending approval.</p>
+</li>
+<li>
+<p>Enter a number for <b>Timeout Days</b> and select a value from the <b>Timeout Action</b> LOV. Timeout days lets you define the waiting period for approval workflow notifications. Timeout action lets you define the approval action for the cycle count approval workflow notifications. The approval action can be to automatically approve, reject, or recount the cycle count entries.</p>
+</li>
+</ol>
+<p><b>To continue defining organization parameters</b></p>
+<ol>
+<li>
+<p>Select the Inter-Organization Information tabbed region. See: <a href="T291651T291796.htm#I_t_iorgparam">Defining Inter-Organization Information</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292324.htm#atpdef">Defining ATP Rules</a></p>
+<p><a href="T291651T291798.htm#I_t_defpckrul">Defining Picking Rules</a></p>
+<p><a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a></p>
+<p><a href="T291651T291796.htm#I_t_cstparam">Defining Costing Information</a></p>
+<p><a href="T291651T291796.htm#t_rpara">Defining Revision, Lot, Serial, LPN Parameters</a></p>
+<p><a href="T291651T291796.htm#I_tx2Dothpar">Defining Other Account Parameters</a></p>
+<h2><a name="1753343"></a><a id="T291818"></a><b>Defining Inter-Organization Information</b></h2>
+<p><a name="d0e35067" id="d0e35067"></a><a name="I_t_iorgparam" id="I_t_iorgparam"></a><b>To define a default inter-organization transfer charge</b></p>
+<ol>
+<li>
+<p>Navigate to the Organization Parameters window.</p>
+<p><img width="677" height="613" src="./img/invug_orgintor.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the Inter-Org Information tabbed region.</p>
+</li>
+<li>
+<p>Select an <a name="d0e35095" id="d0e35095"></a>Inter-Organization Transfer Charge option.</p>
+<p><i>None</i>: Do not add transfer charges to a material transfer between organizations.</p>
+<p><i>Predefined percent</i>: Automatically add a predefined percent of the transaction value when you perform the inter-organization transfer.</p>
+<p><i>Requested value</i>: Enter the discrete value to add when you perform the inter-organization transfer.</p>
+<p><i>Requested percent</i>: Enter the discrete percentage of the transfer value to add when you perform the inter-organization transfer.</p>
+</li>
+<li>
+<p>If you selected <i>Predefined percent</i> in the Inter-Organization Transfer Charge field, enter a percentage value to add to a material transfer.</p>
+</li>
+</ol>
+<p><b>To define optional default inter-organization transfer accounts</b></p>
+<ol>
+<li>
+<p>Select the Inter-Org Information tabbed region.</p>
+</li>
+<li>
+<p>Enter default <a name="d0e35135" id="d0e35135"></a>inter-organization cost accounts. These accounts are defaulted when you set up shipping information in the Inter-Organization Shipping Networks window. See: <a href="T291651T291796.htm#I_r_iotracctf">Inter-Organization Transfer Accounts</a>.</p>
+</li>
+</ol>
+<p><b>To continue defining organization parameters</b></p>
+<ol>
+<li>
+<p>Select the Other Accounts tabbed region. See: <a href="T291651T291796.htm#I_tx2Dothpar">Defining Other Account Parameters</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a></p>
+<p><a href="T291651T291796.htm#I_t_cstparam">Defining Costing Information</a></p>
+<p><a href="T291651T291796.htm#t_rpara">Defining Revision, Lot, Serial, LPN Parameters</a></p>
+<p><a href="T291651T291796.htm#t_atp_source">Defining ATP, Pick, Item-Sourcing Parameters</a></p>
+<h2><a name="1753347"></a><a id="T291819"></a><b>Inter-Organization Transfer Accounts</b></h2>
+<p><a name="d0e35177" id="d0e35177"></a><a name="I_r_iotracctf" id="I_r_iotracctf"></a>You define default inter-organization transfer accounts in the Organization Parameters window. These accounts are defaulted when you set up shipping information in the Inter-Organization Shipping Networks window.</p>
+<p><strong><span>Note:</span></strong> When you set up accounts the primary ledger restricts the legal entity and operating unit.</p>
+<p><b>Transfer Credit</b><a name="d0e35192" id="d0e35192"></a></p>
+<p>The default general ledger account used to collect transfer charges when this organization is the shipping organization. This is usually an expense account.</p>
+<p><b>Purchase Price Variance</b><a name="d0e35204" id="d0e35204"></a></p>
+<p>The default general ledger account used to collect the purchase price variance for inter-organization receipts into standard cost organizations. This is usually an expense account.</p>
+<p><b>Payable</b><a name="d0e35216" id="d0e35216"></a></p>
+<p>The default general ledger account used as an inter-organization clearing account when this organization is the receiving organization. This is usually a liability account.</p>
+<p><b>Receivable</b><a name="d0e35228" id="d0e35228"></a></p>
+<p>The default general ledger account used as an inter-organization clearing account when this organization is the shipping organization. This is usually an asset account.</p>
+<p><b>Intransit Inventory</b><a name="d0e35240" id="d0e35240"></a></p>
+<p>The default general ledger account used to hold intransit inventory value. This is usually an asset account. For average cost organizations, this account is the default material account.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_t_iorgparam">Defining Inter-Organization Information</a></p>
+<h2><a name="1753348"></a><a id="T291820"></a><b>Defining Other Accounts Parameters</b></h2>
+<p><a name="d0e35258" id="d0e35258"></a><a name="I_tx2Dothpar" id="I_tx2Dothpar"></a><b>To define other accounts parameters</b></p>
+<ol>
+<li>
+<p>Navigate to the Organization Parameters window.</p>
+<p><strong><span>Note:</span></strong> When you set up accounts, the primary ledger restricts the legal entity and operating unit.</p>
+</li>
+<li>
+<p>Click the Other Accounts tab.</p>
+<p><img width="590" height="507" src="./img/invug_orgprmtr_othraccts.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the data for receiving accounts:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>Enter a general ledger account to accumulate purchase price variance for this organization.<br>
+The variance, which is the difference between the purchase order cost and an item's standard cost, is recorded when you receive an item in inventory. The purchase price variance is calculated as:<br>
+<i>PPV = (PO unit price -</i><i>standard unit cost)</i> <i>quantity received</i><br>
+Purchase price variance is not used for average costing.</td>
+</tr>
+<tr valign="top">
+<td>Invoice Price Variance</td>
+<td>Enter a general ledger account to accumulate Invoice Price Variance for this organization. This is usually an expense account.<br>
+Invoice price variance is the difference between the purchase order price for an inventory item and the actual invoice price multiplied by the quantity invoiced. Oracle Inventory passes this account to Oracle Purchasing when the requisition or purchase order is created. When Oracle Payables matches and approves the invoice, Oracle Payables uses the invoice price variance account from the purchase order to record invoice price variance entries. In addition, if you have exchange rate variances, Oracle Payables also records invoice price variance for exchange rate gains and losses.</td>
+</tr>
+<tr valign="top">
+<td>Inventory AP Accrual</td>
+<td>Enter a general ledger account to accumulate Inventory Accounts Payable Accrual for this organization.<br>
+This is the account used by Oracle Purchasing to accrue your payable liabilities when you receive your items. This account represents your uninvoiced receipts and is usually part of your Accounts Payable Liabilities in the balance sheet. Oracle Payables relieves this account when the invoice is matched and approved.</td>
+</tr>
+<tr valign="top">
+<td>Encumbrance</td>
+<td>Enter a default general ledger account to accumulate encumbrance for this organization. This is the default account when you define your subinventories.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Enter the data for profit and loss accounts:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Sales</td>
+<td>Enter a default sales revenue account.<br>
+When you define your items, this account is defaulted to the item's sales account in the Invoicing attribute group.</td>
+</tr>
+<tr valign="top">
+<td>Cost of Goods Sold</td>
+<td>Enter a default cost of goods sold account.<br>
+When you define your items, this account is defaulted to the item's cost of goods sold account in the Costing attribute group.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Optionally, enter data for other accounts:</p>
+<ul>
+<li>
+<p>Project Clearance Account</p>
+</li>
+<li>
+<p>Deferred COGS Account: Enter the deferred cogs account. The Deferred COGS account holds the costs until Receivables recognizes the revenue.</p>
+</li>
+<li>
+<p>Cost Variance Account</p>
+</li>
+<li>
+<p>LCM (landed cost management) Variance Account</p>
+<p><strong><span>Note:</span></strong> For more information, see the <i>Oracle Landed Cost Management Process Guide</i>.</p>
+</li>
+<li>
+<p>On-Hand Adjustment Account: The <i>On-hand Adjustment Account</i> is the default general ledger account for catch-weight transactions that can be used for catch-weight adjustments, and for lot increase and decrease transactions. This account defaults in the Catch Weight mobile page and can be changed.</p>
+<p><strong><span>Additional Information:</span></strong> Oracle provides the following transaction types for catch weight transactions: Catch Weight Negative Adjustment and Catch Weight Positive Adjustment. For more information, see <a href="T291651T291655.htm#I_c_trntype">Transaction Types</a>.</p>
+</li>
+<li>
+<p>Lot Transaction Distribution Account</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="5841323"></a><a id="T564546"></a><b>Defining Warehouse Parameters</b></h2>
+<p><a name="d0e35427" id="d0e35427"></a>When Oracle Warehouse Management is enabled for your organization, the Organization Parameters window displays the Warehouse tab and Warehouse Task Management tab where you can define warehouse parameters. For more information, see the <i>Oracle Warehouse Management Implementation Guide</i>, Setting Up a Warehouse Organization, <i>Oracle Warehouse Management Implementation Guide</i>.</p>
+<h2><a name="1753352"></a><a id="T291821"></a><b>Defining Subinventories</b></h2>
+<p><a name="d0e35443" id="d0e35443"></a><a name="INVSDSUB.folder" id="INVSDSUB.folder"></a><a name="INVSDSUB.subinventories" id="INVSDSUB.subinventories"></a><a name="INVSDSUB.subinv" id="INVSDSUB.subinv"></a><a name="INVSDSUB.sub_detail" id="INVSDSUB.sub_detail"></a><a name="INVSDOIO.folder" id="INVSDOIO.folder"></a><a name="INVSDOIO.subinventories" id="INVSDOIO.subinventories"></a><a name="INVSDOIO.subinv" id="INVSDOIO.subinv"></a><a name="INVSDOIO.sub_detail" id="INVSDOIO.sub_detail"></a><a name="I_t_dsubinv" id="I_t_dsubinv"></a>Subinventories are unique physical or logical separations of material inventory, such as raw inventory, finished goods, or defective material. All material within an organization is held in a subinventory therefore, you must define at least one subinventory. The Subinventories window consists of the following tabs where you can define parameters for the selected subinventory:</p>
+<ul>
+<li>
+<p><a href="T291651T291796.htm#zsubt1">Main tab</a></p>
+</li>
+<li>
+<p><a href="T291651T291796.htm#zsubt2">Accounts tab</a></p>
+</li>
+<li>
+<p><a href="T291651T291796.htm#zsubt3">Warehouse tab</a> (available only if Oracle Warehouse Management is enabled for the organization)</p>
+</li>
+</ul>
+<p><strong><span>Additional Information:</span></strong> Oracle Yard Management</p>
+<p>If Oracle Yard Management (YMS) is licensed and installed, the yard areas and related locator information created in Oracle Yard Management can be viewed in the Subinventories window. (Yard areas are modeled as subinventories for a yard organization, and locations (or parking spots) in the yard area are modeled as inventory locators.) These locations are typically used to store equipment instances, and consist of the following types: Storage Locator or Dock Door. For more information, see <a href="T291651T291796.htm#invyms">Oracle Yard Management and Oracle Inventory</a> and the <i>Oracle Yard Management Process Guide</i>.</p>
+<p><b>To define subinventory information (Main tab)</b></p>
+<p><a name="zsubt1" id="zsubt1"></a>Enter the following data on the header and Main tab of the Subinventories window.</p>
+<ol>
+<li>
+<p>Navigate to the Subinventories window.</p>
+<p><img width="756" height="601" src="./img/invug_subinventory.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter your data in the header region of the Subinventories window.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Status</td>
+<td>Select the material status of this subinventory. The material status controls the enabled transactions for all material in this subinventory. The status is not overridden by the status of any locator, lot or serial, within this subinventory.<br>
+For more information, see <a href="T291651T439508.htm#material_status_setup">Setting Up Material Status</a>.
+<p><b>To update the status using the e-record and e-signatures (ERES) approval process:</b></p>
+<p>The following process is applicable if your organization has enabled the ERES framework to enable electronic record keeping and you are updating the subinventory status.</p>
+<ol>
+<li>
+<p>Update the status of the subinventory and click Save.</p>
+<p>This triggers a ERES event which gives you the option of electronically signing the update in <i>online</i> or <i>deferred</i> mode.</p>
+</li>
+<li>
+<p>Select one of the following:</p>
+<ul>
+<li>
+<p>Sign: Enables the status to be updated and approved online in a single session. Typically, the approver is required to be present/available when the transaction is performed.</p>
+</li>
+<li>
+<p>Submit: Enables you to defer the signing process in situations where the approver is not present/available. When you submit a deferred request, a notification is sent to the approver who may either approve or reject the status change.</p>
+</li>
+</ul>
+<p><strong><span>Additional Information:</span></strong> Deferring the approval process results in the following conditions:</p>
+<ul>
+<li>
+<p>If you try to update the status again for the same subinventory (while the status is pending approval), the system will not allow this transaction and displays an error.</p>
+</li>
+<li>
+<p>If you perform a transaction against a SKU in the Miscellaneous Transactions window, the transactions that are common for both the old and new statuses can be performed until the status change is approved.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The approval is completed when the approver completes the following steps:</p>
+<ol>
+<li>
+<p>In Notifications page (Oracle Workflow), the approver selects the approval notification.</p>
+</li>
+<li>
+<p>Verifies the e-record.</p>
+</li>
+<li>
+<p>Approves the status update and closes the Notification page.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> An ERES event is not triggered for the following: a locator status change from the Locator window, a serial status change from the Serial Numbers window, or a lot status change from the Lots window.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr valign="top">
+<td>Default Cost Group</td>
+<td>Select the default cost group for this subinventory. If the cost group assignment rules fail to identify a cost group for newly received material, this cost group will be assigned. This cost group will remain with the material, even through subinventory transfers, until you perform a cost group change transaction.
+<p><strong><span>Note:</span></strong> This feature is available if you have Oracle Warehouse Management installed, and you are working with a Warehouse Management enabled organization. See <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Type</td>
+<td>Select a subinventory type:
+<ul>
+<li>
+<p>Storage: Designates the subinventory as a Storage subinventory.</p>
+</li>
+<li>
+<p>Receiving: Designates the subinventory as a receiving subinventory, and links it to a receiving location. This subinventory type is used only for receiving material. Material in this type of subinventory cannot be on-hand, or reserved.</p>
+</li>
+<li>
+<p>Null: No subinventory designation.</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Enter your data in the Parameters region and Lead Times region of the Subinventories window.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Status Attributes</td>
+<td>The Status Attributes region (display-only) indicates which attributes are applicable to the material status selected for the subinventory:
+<ul>
+<li>
+<p>Include in ATP: Identifies whether the material in the subinventory can be included in ATP (available to promise).</p>
+</li>
+<li>
+<p>Allow Reservation: Identifies whether reservations are allowed for this subinventory.</p>
+</li>
+<li>
+<p>Nettable</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Quantity Tracked</td>
+<td>Indicate whether each transaction for this subinventory updates the quantity on hand for the subinventory. If deselected, on-hand balances are not maintained and you cannot select or update the Asset Subinventory option.
+<p><strong><span>Note:</span></strong> You can update this value only if there is no on-hand quantity, no pending transaction, or no uncosted transaction for the subinventory.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Asset Subinventory</td>
+<td>Select this option to maintain the value of this subinventory on the balance sheet.
+<p><strong><span>Note:</span></strong> You can update this value only if there is no on-hand quantity for the subinventory.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Depreciable</td>
+<td>Select whether this subinventory is depreciable. See: Using Network Logistics, <i>Oracle Network Logistics Concepts and Procedures.</i></td>
+</tr>
+<tr valign="top">
+<td>Enable PAR Level Planning</td>
+<td>Indicates if Periodic Automatic Replenishment (PAR) is enabled. If selected, min-max planning cannot be performed for this subinventory.</td>
+</tr>
+<tr valign="top">
+<td>Enable Locator Alias</td>
+<td>Indicate whether you can create locator aliases for locators within this subinventory. If you enable this parameter, you must create locator aliases for locators within this subinventory.
+<p><strong><span>Important:</span></strong> The Enable Locator Alias is not supported for locators of the type <i>Dock Door</i>.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Enforce Alias Uniqueness</td>
+<td>Indicate if the locator aliases are unique across the subinventory.
+<p><strong><span>Note:</span></strong> You can also set this parameter at the organization level. If set at the organization level, and you click Enable Locator Alias, you cannot update this parameter.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Locator Control</td>
+<td>Select a type of locator control:
+<ul>
+<li>
+<p>None: Inventory transactions within this subinventory do not require locator information.</p>
+</li>
+<li>
+<p>Prespecified: Inventory transactions within this subinventory require you to enter a valid predefined locator for each item.</p>
+</li>
+<li>
+<p>Dynamic entry: Inventory transactions within this subinventory require you to enter a locator for each item. You may choose a valid predefined locator, or define a locator dynamically at the time of transaction.</p>
+</li>
+<li>
+<p>Item level: Inventory transactions use locator control information that you define at the item level.</p>
+</li>
+</ul>
+<p><strong><span>Important:</span></strong> You can select an option only if you selected locator control as <i>Determined at subinventory level</i> in the Locator Control field in the Organization Parameters window. You can update this option only if there is no on-hand quantity for the subinventory.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Default Locator Status</td>
+<td>Indicates the default locator status of the locators in this subinventory.</td>
+</tr>
+<tr valign="top">
+<td>Picking Order</td>
+<td>Enter a picking order value for sequencing picking tasks. (Picking order is supported by Oracle Warehouse Management and Oracle Mobile Supply Chain Applications (for non WMS implementations).<br>
+The picking order value indicates the priority with which you pick items from this subinventory, relative to another subinventory, where a given item resides. If you have Oracle Warehouse Management installed, this field determines the picking path through the warehouse and not the order in which material is allocated for a sales order.
+<p><strong><span>Important:</span></strong> A picking order of 1 means that order management pick items from that subinventory or locator before others with a higher number (such as 2).</p>
+<br>
+For an example of how picking order is applied, see <a href="T291651T291796.htm#xpkordexmple">Example of Picking Order</a>.</td>
+</tr>
+<tr valign="top">
+<td>Dropping Order</td>
+<td>Enter a numeric dropping order value such as 1, 2 or 3. The dropping order value determines the sequence of material drops when dropping a group of tasks with different destinations (such as subinventory or locator). The dropping order is considered only at the time of the drop; so, if you load multiple LPNs that are supposed to go to different destinations then the system will suggest the subinventory / locator for drops based on the dropping order. Dropping order is evaluated in ascending order where the lowest dropping order is considered first.
+<p><strong><span>Note:</span></strong> Dropping order is available only for WMS-enabled organizations.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Inactive On</td>
+<td>Optionally, enter an inactive date on which the subinventory becomes inactive. As of this date, you can no longer assign the subinventory to any function within Oracle E-Business Suite. In addition, you cannot receive items into or issue items from the subinventory. The subinventory remains inactive until you change the inactive date to a future date, or remove the inactive date.
+<p><strong><span>Important:</span></strong> Before you disable a subinventory, you must make certain that no open jobs or schedules in Oracle Work in Process use it as the backflush subinventory and that no active bills in Oracle Bills of Material use it as the supply subinventory for pull requirements.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Location</td>
+<td>Enter a location for the subinventory. If the Subinventory type is Receiving, this field is mandatory. See: Using Network Logistics, <i>Oracle Network Logistics Concepts and Procedures</i>. See: Oracle Spares Management in CRM, <i>Oracle Spares Management Concepts and Procedures.</i></td>
+</tr>
+<tr valign="top">
+<td>Picking UOM</td>
+<td>Select the picking unit of measure used to store material in this subinventory. It is used by the WMS rules engine to divide picks across subinventories in the warehouse. See Overview of the WMS Rules Engine, <i>Oracle Warehouse Management User's Guide</i>. You must also enter a valid pick UOM if you want to print labels by case or pallet. The number of labels printed will depend on the Pick UOM. See Labeling Overview, <i>Oracle Warehouse Management User's Guide</i> These features are available if you have Oracle Warehouse Management installed, and you are working with a Oracle Warehouse Management-enabled organization. See: <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>.</td>
+</tr>
+<tr valign="top">
+<td>Default Replenishment Count Type</td>
+<td>Select the appropriate Default Replenishment Count Type. This field defaults the default count type on the Replenishment Lines window. It does not affect existing Default Count Type headers.</td>
+</tr>
+<tr valign="top">
+<td>Lead Times region (Pre-Processing, Processing, Post-Processing)</td>
+<td>Optionally, enter pre-processing, processing, and post-processing lead times for items in this subinventory. These lead times are used when you use min-max planning at the subinventory level.</td>
+</tr>
+</table>
+<a name="d0e35818" id="d0e35818"></a><a name="d0e35823" id="d0e35823"></a><a name="d0e35828" id="d0e35828"></a></li>
+<li>
+<p>Select the sourcing criteria:</p>
+<ul>
+<li>
+<p>Type: Select a source type for item replenishment.</p>
+<ul>
+<li>
+<p>Inventory: Replenish items internally, from another organization.</p>
+</li>
+<li>
+<p>Supplier: Replenish items externally, from a supplier you specify in Oracle Purchasing.</p>
+</li>
+<li>
+<p>Subinventory: Replenish items internally, from another subinventory in the same inventory organization. You must enter a value in this field if you entered <i>Inventory</i> in the Type field. The organization you select must have a shipping network defined.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Organization: Select the organization used to replenish items in this subinventory. You must enter a value in this field if you entered your current organization in the Organization field.</p>
+</li>
+<li>
+<p>Subinventory: Select the subinventory for replenishing items.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To define accounts (Accounts tab)</b></p>
+<ol>
+<li>
+<p>Select the Accounts tab.<a name="d0e35867" id="d0e35867"></a></p>
+<p><a name="zsubt2" id="zsubt2"></a><img width="755" height="600" src="./img/invug_subinv_tacct.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the general ledger accounts. See: <a href="T291651T291796.htm#I_r_subgl">Subinventory General Ledger Account Fields</a>.</p>
+<p>The default accounts are those defined for the organization in the Organization Parameters window:</p>
+<ul>
+<li>
+<p>Average costing: For average costing, you may enter the valuation accounts, but they are not used. Average costing uses only the Expense and Encumbrance accounts.</p>
+</li>
+<li>
+<p>Standard costing: For standard costing (and Oracle Bills of Material is installed), all asset accounts are required. If you use standard costing, and Oracle Bills of Material is not installed, you are only required to enter the Material and Material Overhead accounts.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To define warehouse parameters (Warehouse tab)</b></p>
+<p>The Warehouse tab is available only if Oracle Warehouse Management (WMS) is installed and enabled for your organization. (WMS is enabled when the WMS Enabled check box is selected on the Organization Parameters window.) For more information on defining warehouse parameters in the Subinventories window, see the <i>Oracle Warehouse Management Implementation Guide</i>, Setting Up Subinventory Parameters.</p>
+<p><a name="zsubt3" id="zsubt3"></a><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#t_itm_sub">Item/Subinventory button: Assigning Items to a Subinventory</a></p>
+<p><a href="T291651T291796.htm#I_t_dlocators">Locators button: Defining Stock Locators</a></p>
+<p><a href="T291651T291796.htm#I_c_strucov">Overview of Inventory Structure</a></p>
+<p>Locator Alias, <i>Oracle Warehouse Management User's Guide</i></p>
+<p>Subinventory Transfers of Depreciable Items, <i>Oracle Network Logistics Concepts and Procedures User's Guide</i></p>
+<h2><a name="1753359"></a><a id="T291802"></a><b>Subinventory General Ledger Account Fields</b></h2>
+<p><a name="d0e35934" id="d0e35934"></a><a name="d0e35939" id="d0e35939"></a><a name="I_r_subgl" id="I_r_subgl"></a>The following table describes the fields for the subinventory general ledger account:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Material</td>
+<td>Enter a general ledger account to accumulate material costs for items received into this subinventory. This is usually an asset account used for the value of goods stored in this subinventory. For asset items, use this account as a default when you generate purchase requisitions from MRP, min&ndash;max organization level planning, or reorder point planning. However, when you receive the purchase order, you use the appropriate valuation or expense account.</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing</td>
+<td>Enter a general ledger account to accumulate outside processing costs for this subinventory. This is usually an asset account. Oracle Work in Process charges this account at standard cost when you receive items for a job or schedule in Oracle Purchasing. Oracle Work in Process relieves this account at standard cost when you issue components to a job or schedule.</td>
+</tr>
+<tr valign="top">
+<td>Material Overhead</td>
+<td>Enter a general ledger account to accumulate material overhead or burden costs for this subinventory. This is usually an asset account.</td>
+</tr>
+<tr valign="top">
+<td>Overhead</td>
+<td>Enter a general ledger account to accumulate resource or department overhead costs for this subinventory. This is usually an asset account. Oracle Work in Process charges this account at standard cost when you complete assemblies from a job or schedule. Oracle Work in Process relieves this account at standard when you issue components to a job or schedule.</td>
+</tr>
+<tr valign="top">
+<td>Resource</td>
+<td>Enter a general ledger account to accumulate resource costs for this subinventory. This is usually an asset account. Oracle Work in Process charges this account at standard cost when you complete assemblies from a job or schedule. Oracle Work in Process relieves this account at standard cost when you issue components to a job or schedule.</td>
+</tr>
+<tr valign="top">
+<td>Expense</td>
+<td>Enter a general ledger account to accumulate expenses for this subinventory. For expense subinventories, this account is charged when you receive any item. For asset subinventories, this account is charged when you receive an expense item.</td>
+</tr>
+<tr valign="top">
+<td>Encumbrance</td>
+<td><b>Oracle Purchasing Only</b><br>
+Enter a general ledger account to hold the value of encumbrances against items in this subinventory. This account is used for purchase order receipts and returns.</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_t_dsubinv">Defining Subinventories</a></p>
+<h2><a name="1753367"></a><a id="T291822"></a><b>Defining Stock Locators</b></h2>
+<p><a name="d0e36022" id="d0e36022"></a><a name="INVSAFDH.loc" id="INVSAFDH.loc"></a><a name="INVSAFDH.folder" id="INVSAFDH.folder"></a><a name="INVSAFDH_LOCATOR_FIND" id="INVSAFDH_LOCATOR_FIND"></a><a name="INVSDSUB.loc" id="INVSDSUB.loc"></a><a name="I_t_dlocators" id="I_t_dlocators"></a>You use locators to identify physical areas where you store inventory items. Item quantities can be tracked by locator. Items can also be restricted to specific locators.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>The Oracle Warehouse Management System (WMS) module must be installed to enable the Type and Status fields for the stock locator on the Stock Locators window.</li>
+</ul>
+<p><b>To define required information for a locator</b></p>
+<ol>
+<li>
+<p>Navigate to the Stock Locators window.</p>
+</li>
+<li>
+<p>Select New to display the Stock Locators window ready to define a new locator.</p>
+<p>You can also enter search criteria to find existing locators.</p>
+<p><img width="726" height="414" src="./img/invug_StockLocators.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the Parameters tab.</p>
+</li>
+<li>
+<p>Enter a locator and a description. The locator must be unique across an organization.</p>
+</li>
+<li>
+<p>Indicate the locator type. Available choices are: Dock Door, Staging Lane, Storage Locator, Consolidation Locator, Packing Station, Receiving, Inspection Station.</p>
+<ul>
+<li>
+<p>The Enable Locator Alias feature is not supported for locators of the type <i>Dock Door</i>. (The Enable Locator Alias can be selected for a Subinventory on the Subinventories window.) Dock doors are used in Oracle Warehouse Management environments only. See Setting Up Dock Door to Staging Lane Relationships, <i>Oracle Warehouse Management Implementation Guide</i>.</p>
+</li>
+<li>
+<p>Oracle Yard Management and Stock Locators</p>
+<p>If Oracle Yard Management (YMS) is licensed and installed, the yard areas and related locator information created in Oracle Yard Management can be viewed in the Subinventories window and Stock Locators window. (Yard areas are modeled as subinventories for a yard organization, and locations (or parking spots) in the yard area are modeled as inventory locators.) These locations are typically used to store equipment instances, and consist of the following types: Storage Locator or Dock Door. For more information, see <a href="T291651T291796.htm#invyms">Oracle Yard Management and Oracle Inventory</a>, and the <i>Oracle Yard Management Process Guide.</i></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Indicate the material status of this locator, which controls the enabled transactions for all material in this locator. The status is not overridden by the status of any subinventory, lot, or serial within this locator. The statuses of those objects will be considered when determining transactions that are not enabled. <a name="d0e36094" id="d0e36094"></a></p>
+</li>
+<li>
+<p>Enter the subinventory where the locator resides.<a name="d0e36105" id="d0e36105"></a></p>
+</li>
+<li>
+<p>Enter a picking order value to define the priority for picking items from this locator relative to another locator and to sequence picking tasks. The <i>picking order</i> setup optimizes the picking process by sorting the locators so that in the warehouse, the nearer items are picked first.</p>
+<p><strong><span>Note:</span></strong> Picking order is supported by MSCA for non-WMS implementations, and by Oracle Warehouse Management.</p>
+<p>A picking order of 1 means that order management functions pick items from this locator before other locators with a higher number (2, 3, and so on). If Oracle Warehouse Management is installed, this field determines the picking path through the warehouse and not the order in which material is allocated for a sales order.</p>
+<p><b>Example of Picking Order</b></p>
+<p>The following example shows how Oracle Mobile Supply Chain Applications (MSCA) applies the picking order for items on a sales order.</p>
+<p><strong><span>Note:</span></strong> In this example, Oracle Warehouse Manager (WMS) is not enabled.</p>
+<p>Suppose that a sales order consists of the following items ItemA, ItemB, ItemC, and ItemD. Each item on the sales order is associated with the following default locator assignment:</p>
+<a name="xpkordexmple" id="xpkordexmple"></a><a name="d0e36135" id="d0e36135"></a>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Item on Sales Order</b></th>
+<th scope="col"><b>Locator Assignment</b></th>
+</tr>
+<tr valign="top">
+<td>ItemA</td>
+<td>Locator1</td>
+</tr>
+<tr valign="top">
+<td>ItemB</td>
+<td>Locator2</td>
+</tr>
+<tr valign="top">
+<td>ItemC</td>
+<td>Locator3</td>
+</tr>
+<tr valign="top">
+<td>ItemD</td>
+<td>Locator4</td>
+</tr>
+</table>
+<p>The following picking order sequence is defined in the Stock Locators window:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Locator</b></th>
+<th scope="col"><b>Picking Order</b></th>
+<th scope="col"><b>Item Associated With Locator</b></th>
+</tr>
+<tr valign="top">
+<td>Locator1</td>
+<td>3</td>
+<td>ItemA</td>
+</tr>
+<tr valign="top">
+<td>Locator2</td>
+<td>1</td>
+<td>ItemB</td>
+</tr>
+<tr valign="top">
+<td>Locator3</td>
+<td>4</td>
+<td>ItemC</td>
+</tr>
+<tr valign="top">
+<td>Locator4</td>
+<td>2</td>
+<td>ItemD</td>
+</tr>
+</table>
+<p>When the pick is organized, the mobile device shows the items in the following sequence:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Pick Order</b></th>
+<th scope="col"><b>Locator Assignment</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>ItemB</td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>ItemD</td>
+</tr>
+<tr valign="top">
+<td>3</td>
+<td>ItemA</td>
+</tr>
+<tr valign="top">
+<td>4</td>
+<td>ItemC</td>
+</tr>
+</table>
+<a name="d0e36281" id="d0e36281"></a></li>
+<li>
+<p>Enter a dropping order to indicate the priority for dropping items in this locator relative to another locator. Oracle warehouse management uses this value to sequence tasks.</p>
+</li>
+<li>
+<p>Enter an alias if you selected Enable Locator Alias on the Subinventories window. If you selected Enforce Alias Uniqueness on the Subinventories window, then no two locators within the same subinventory can have the same alias. If you selected Enforce Alias Uniqueness on the Organization Parameters window, then no two locators within the organization can have the same alias.</p>
+</li>
+<li>
+<p>Enter the inactive date for the locator. This is the date when the locator becomes inactive.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To define optional <a name="d0e36305" id="d0e36305"></a>capacity information for a locator</b></p>
+<ol>
+<li>
+<p>Choose the Capacity tabbed region.</p>
+</li>
+<li>
+<p>Enter a value for the maximum number of items you can store in this locator.</p>
+</li>
+<li>
+<p>Enter unit of measure and maximum volume values describing the volume of inventory that can be stored in this locator.</p>
+<p><strong><span>Note:</span></strong> The system does not track the capacity for infinite locators (where no maximum value is defined).</p>
+</li>
+<li>
+<p>Enter unit of measure and maximum weight values describing the weight of inventory that can be stored in this locator.</p>
+</li>
+</ol>
+<p><b>To define <a name="d0e36333" id="d0e36333"></a>dimension information for a locator</b></p>
+<p>These fields are used to calculate available locator capacity when determining the put away suggestion in WMS enabled organizations.</p>
+<ol>
+<li>
+<p>Choose the Dimensions tabbed region.</p>
+</li>
+<li>
+<p>Indicate the picking unit of measure used to store material in this locator. It is used to divide pick tasks by their unit of measure. See: Overview of the WMS Rules Engine, <i>Oracle Warehouse Management User's Guide</i>. This will override the pick unit of measure at the subinventory level. This feature is available if you have Oracle Warehouse Management installed, and you are working with a WMS enabled organization. See: <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>.</p>
+</li>
+<li>
+<p>Indicate the unit of measure in which the dimensions are expressed.</p>
+</li>
+<li>
+<p>Indicate the length of the locator.</p>
+</li>
+<li>
+<p>Indicate the height of the locator.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To define <a name="d0e36375" id="d0e36375"></a>coordinate information for a locator</b></p>
+<ol>
+<li>
+<p>Choose the Coordinates tabbed region.</p>
+</li>
+<li>
+<p>Indicate the X, Y, and Z coordinates of the locator. These coordinates are used in the event that the picking order on the locator has not been defined. Tasks are sequences to provide the operator with the minimal travel distance between picks. This feature is available if you have Oracle Warehouse Management installed, and you are working with a WMS enabled organization.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To make a locator <a name="d0e36396" id="d0e36396"></a>inactive</b></p>
+<ol>
+<li>
+<p>Enter the date on which the locator becomes inactive.</p>
+<p>As of this date, you can no longer issue items from or receive items to this locator.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_c_strucov">Overview of Inventory Structure</a></p>
+<p><a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a></p>
+<p><a href="T291651T298833.htm#t_itm_sub">Assigning Items to a Subinventory</a></p>
+<p>Using the Desktop Application to Pack Material, <i>Oracle Warehouse Management User's Guide</i></p>
+<p>Locator Alias, <i>Oracle Warehouse Management User's Guide</i></p>
+<h2><a name="1753373"></a><a id="T291823"></a><b>Defining Organization Access</b></h2>
+<p><a name="d0e36433" id="d0e36433"></a><a name="INVSDORA.org_access" id="INVSDORA.org_access"></a><a name="I_t_orgaccess" id="I_t_orgaccess"></a>You can specify which organizations a responsibility can access by mapping responsibilities to organizations. Once this mapping is set up, a user logging into an Oracle Manufacturing product is restricted to the organizations mapped to the responsibility chosen. The Change Organization window is restricted as well.</p>
+<p><strong><span>Important:</span></strong> Until you assign an organization to a responsibility in this window, all responsibilities have access to all organizations. Once you have restricted any responsibility to an organization, you must then explicitly define the organizations which all responsibilities can access.</p>
+<p><strong><span>Important:</span></strong> This feature does not restrict access once the user is in the product. Users with access to functions that cross multiple organizations (such as ATP, Inter-organization Transfers, Item Search, Multi-organization Quantity Report, and so on) can still specify any valid organization when running these functions.</p>
+<p>System managers determine which responsibilities a user can access when they establish system security. See: Overview of Oracle E-Business Suite Security, <i>Oracle System Administrator User's Guide</i>. If there are no restrictions entered for an organization, it can be accessed by all responsibilities.</p>
+<p><b>To define access mappings between organizations and responsibilities</b></p>
+<ol>
+<li>
+<p>Navigate to the Organization Access window.</p>
+<p><img width="691" height="362" src="./img/invug_orgacc.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the organization code for the organization to which you are restricting access.</p>
+</li>
+<li>
+<p>Enter the application assigned to the responsibility when it was defined.</p>
+</li>
+<li>
+<p>Enter the name of the responsibility you are mapping to the organization entered in the Org field. You must enter an application before entering a responsibility.</p>
+<p>The combination of organization, application, and responsibility determines the access mapping. Each combination must be unique.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_c_strucov">Overview of Inventory Structure</a></p>
+<h2><a name="1753375"></a><a id="T291824"></a><b>Defining Shortage Parameters</b></h2>
+<p><a name="d0e36495" id="d0e36495"></a><a name="INVSHDPA.SHORTAGE_PARAMETER" id="INVSHDPA.SHORTAGE_PARAMETER"></a><a name="I_dshrtpar" id="I_dshrtpar"></a>You can enable the system to send material shortage alerts and shortage notifications when a material shortage occurs in an organization. A material shortage occurs whenever unsatisfied demand exceeds available quantity for incoming supply of material. See <a href="T291651T292013.htm#I_shrtalrt">Material Shortage Alerts and Shortage Notifications</a>.</p>
+<p><b>To define shortage parameters:</b></p>
+<ol>
+<li>
+<p>Navigate to the Shortage Parameters window.</p>
+<p><img width="756" height="505" src="./img/invug_shrtpar.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Work In Process tabbed region, select shortage parameters to configure what is considered as demand.</p>
+<p><i>Check Shortages</i><b><i>:</i></b> Indicates that the material shortage check is enabled for WIP.</p>
+<p>Jobs and Schedules regions:</p>
+<p><i>Released</i>: Indicates that all jobs/schedules with status Released, whose scheduled start date is overdue, are included in the material shortage check. This parameter is separately controlled for jobs and schedules.</p>
+<p><i>Unreleased</i>: Indicates that all jobs/schedules with status Unreleased, whose scheduled start date is overdue, are included in the material shortage check. This parameter is separately controlled for jobs and schedules.</p>
+<p><i>Days Overdue</i>: Indicates how many days can go by after the jobs/schedules start date until jobs/schedules with status Released or Unreleased are included in the material shortage check. This parameter functions only if you checked Released or Unreleased. This parameter is separately controlled for jobs and schedules.</p>
+<p><i>Hold</i>: Indicates that all jobs/schedules with status Hold are included in the material shortage check. This parameter can be separately controlled for jobs and schedules.</p>
+<p>Component Is Due subregions:</p>
+<p><i>Based on required date</i>: Indicates that the required date specified for each component will be used to determine whether the open requirement is late. This parameter is separately controlled for jobs and schedules.</p>
+<p><i>If assigned operation is due</i>: Indicates that all discrete jobs or repetitive schedules with a current operation that has assigned open material requirements are included in the material shortage check. This parameter can be separately controlled for jobs and schedules.</p>
+<p><i>If operation before assigned operation is due</i>: Indicates that all discrete jobs or repetitive schedules with a current operation before an operation that has assigned open material requirements are included in the material shortage check. This parameter is separately controlled for jobs and schedules.</p>
+<p>Exclusions region:</p>
+<p>The shortage check looks at the supply type of components on the job or schedule. The supply type may be Based on Bill or manually overridden when jobs or schedules are created.</p>
+<p><i>Bulk Components</i>: Indicates that components with supply type Bulk will be excluded in the material shortage check.</p>
+<p><i>Supplier Components</i>: Indicates that components supplied by vendor will be excluded in the material shortage check.</p>
+<p><i>Pull Components</i>: Indicates that pull components will be excluded in the material shortage check.</p>
+<p>Notify region: Select who will receive a workflow notification about the material shortage.</p>
+<p><i>Component Planner</i>: The user name assigned to the item attribute Planner for the component item will be notified. See Defining Planners, <i>Oracle MRP User's Guide</i>.</p>
+<p><i>Assembly Planner</i>: The user name assigned to the item attribute Planner for the assembly item will be notified.</p>
+<p><i>Component Buyer</i>: The user name assigned to the item attribute Default Buyer for the component item will be notified. See Defining Buyers, <i>Oracle Purchasing User's Guide</i>.</p>
+<p><i>Job/Schedule Creator</i>: The user name of the job/schedule creator will be notified.</p>
+</li>
+<li>
+<p>Select the Order Management tabbed region.</p>
+</li>
+<li>
+<p>Select Order Management shortage parameters.</p>
+<p><i>Check Shortages:</i> A sales order is considered overdue when the pick wave move order is unfulfilled.</p>
+<p><strong><span>Additional Information:</span></strong> A pick wave move order can exist if no available/on-hand quantity exists at pick release, or if the pick wave move order is pick confirmed short or backordered at ship confirm.</p>
+<p><i>Item Planner</i>: The user name assigned to the item attribute Planner for the item will be notified.</p>
+<p><i>Order Creator</i>: The user name of the order creator will be notified.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292013.htm#I_shrtalrt">Material Shortage Alerts and Shortage Notifications</a></p>
+<h2><a name="1753380"></a><a id="T291826"></a><b>Copying Inventory Organizations</b></h2>
+<p><a name="d0e36658" id="d0e36658"></a><a name="INVGCPOG_CPOG_FIND" id="INVGCPOG_CPOG_FIND"></a><a name="INVGCPOG_ORGINFO" id="INVGCPOG_ORGINFO"></a><a name="INVGCPOG_XMLDETAIL" id="INVGCPOG_XMLDETAIL"></a><a name="I_c_coinvorg" id="I_c_coinvorg"></a><a name="I_t_ldinftab" id="I_t_ldinftab"></a>You can create and update a large set of inventory organizations and their business entities, such as Subinventories, Items, Bills of material, and Resources. These entities can be copied and customized as part of an inventory organization copy. This aids in the management of inventory organizational setup, which is mandatory for the use of Inventory, Costing, Bills of Material and Work in Process. This feature is useful for companies that have a large number of inventory organizations.</p>
+<p>You can copy a source inventory organization's parameters, defaults, and settings, in a single operation, to as many new organizations as you wish for the following setup entities:</p>
+<ul>
+<li>
+<p>Bills of Material</p>
+</li>
+<li>
+<p>Routings</p>
+</li>
+<li>
+<p>Items</p>
+</li>
+<li>
+<p>Categories</p>
+</li>
+<li>
+<p>Subinventories</p>
+</li>
+<li>
+<p>Shipping Networks</p>
+</li>
+<li>
+<p>Inventory Parameters</p>
+</li>
+<li>
+<p>WIP Parameters</p>
+</li>
+<li>
+<p>BOM Parameters</p>
+</li>
+</ul>
+<p>Organization Mass Copy is a two-step process. In order to copy source inventory organization structures, you must first set up entity APIs to load interface tables and then run the Copy Organization concurrent program to export and import the setup data.</p>
+<h3><b>Prerequisites</b></h3>
+<ul>
+<li>
+<p>Define an inventory organization. See: Creating an Organization, <i>Oracle HRMS Enterprise and Workforce Management Guide</i></p>
+</li>
+<li>
+<p>Define organization parameters. See: <a href="T291651T291796.htm#I_orgparam">Define Organization Parameters</a></p>
+</li>
+</ul>
+<p><b>Load interface tables</b></p>
+<p>Populate the Copy Organization Interface table with XML data to customize your new Inventory Organizations. You should create an XML document with the minimum organization specific information for each new entity you wish to create.</p>
+<ol>
+<li>
+<p>Navigate to the Organization Copy Interface program. On the Find Interface Records form, select New.</p>
+<p><img width="487" height="254" src="./img/invug_NewInterfaceRec.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Indicate the organization name, organization code, and a valid location for each new organization. You can enter any optional information to override data belonging to the source inventory organization.</p>
+<p><strong><span>Note:</span></strong> If you want to use a new location, provide the required address information in order to define and associate the location with the new organization.</p>
+<p>The following table presents example information of what you might load into the interface tables.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Organization Name</b></th>
+<th scope="col"><b>Organization Code</b></th>
+<th scope="col"><b>Location</b></th>
+</tr>
+<tr valign="top">
+<td>Retail Outlet 40001</td>
+<td>R01</td>
+<td>Harrisburg</td>
+</tr>
+<tr valign="top">
+<td>Retail Outlet 40002</td>
+<td>R02</td>
+<td>Burlington</td>
+</tr>
+<tr valign="top">
+<td>Retail Outlet 40003</td>
+<td>R03</td>
+<td>Framingham</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Save the document as an XML file and place in the Copy Organization Interface Tables.</p>
+</li>
+</ol>
+<p><b>Copy Organizations</b></p>
+<p>A Java Loader program calls Business Entity APIs to perform the mass copy by copying through the XML interfaces and using data from the interface tables.</p>
+<ol>
+<li>
+<p>Use the Setup Reports or Submit Requests window and enter <i>Copy Inventory Organization</i> in the Name field to submit the report.</p>
+<p><img width="771" height="352" src="./img/invug_CopyInvOrg.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the following parameters:</p>
+<ul>
+<li>
+<p>Model Organization:</p>
+<p>Enter the source inventory organization for the copying procedure.</p>
+</li>
+<li>
+<p>Group Code:</p>
+<p>Enter the batch name that refers to the XML document created for loading.</p>
+</li>
+<li>
+<p>Assign to Existing Hierarchies:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>No</i></td>
+<td>Do not place this organization in every organization hierarchy where the model organization is present.</td>
+</tr>
+<tr valign="top">
+<td><i>Yes</i></td>
+<td>Place this organization in every organization hierarchy where the model organization is present.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Copy Shipping Network:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>No</i></td>
+<td>Do not copy shipping network information.</td>
+</tr>
+<tr valign="top">
+<td><i>Yes</i></td>
+<td>Copy shipping network information.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Copy Items:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>No</i></td>
+<td>Do not copy all items activated in the model organization.</td>
+</tr>
+<tr valign="top">
+<td><i>Yes</i></td>
+<td>Copy all items activated in the model organization.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Copy BOM:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>No</i></td>
+<td>Do not copy BOMs and BOM parameters.</td>
+</tr>
+<tr valign="top">
+<td><i>Yes</i></td>
+<td>Copy all BOMs, BOM parameters and related setups.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Copy Routings:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>No</i></td>
+<td>Do not copy routing setup information from the model organization.</td>
+</tr>
+<tr valign="top">
+<td><i>Yes</i></td>
+<td>Copy routing setup information from the model organization.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Purge:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>No</i></td>
+<td>Do not purge Copy Organization Interface Tables.</td>
+</tr>
+<tr valign="top">
+<td><i>Yes</i></td>
+<td>Purge Copy Organization Interface Tables.</td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Creating an Organization, <i>Oracle HRMS Enterprise and Workforce Management Guide</i></p>
+<p>Creating Organization Hierarchies, <i>Oracle HRMS Enterprise and Workforce Management Guide</i></p>
+<p>Defining a New Inventory Organization, <i>Copy Inventory Organization Implementation Guide</i></p>
+<h2><a name="1750478"></a><a id="T291689"></a><b>Inter-Organization Shipping Network</b></h2>
+<p><a name="d0e36990" id="d0e36990"></a><a name="d0e36997" id="d0e36997"></a><a name="d0e37004" id="d0e37004"></a><a name="d0e37009" id="d0e37009"></a><a name="d0e37016" id="d0e37016"></a><a name="INVSDOSI.invsdosi_row_w" id="INVSDOSI.invsdosi_row_w"></a><a name="INVSDOSI.shipping_network" id="INVSDOSI.shipping_network"></a><a name="INVSDOSI.ship_method" id="INVSDOSI.ship_method"></a><a name="I_t_iorgshp" id="I_t_iorgshp"></a><a name="I_c_iorgshp" id="I_c_iorgshp"></a>Use the Inter-Organization Shipping Network window to define accounting information and the relationships that exist between shipping and destination organizations. You can specify whether an organization is a shipping organization, a destination organization, or both.</p>
+<p><a name="d0e37030" id="d0e37030"></a><a name="d0e37033" id="d0e37033"></a>For each organization relationship you create, you must indicate what type of shipment is used. If you choose to use intransit inventory, Oracle Inventory moves material to intransit inventory before it reaches the destination organization when you perform an inter-organization transfer. Typically, you transfer material through intransit inventory when transportation time is significant. If you do not choose intransit inventory, Oracle Inventory moves your material directly to the destination organization when you perform an inter-organization transfer. You must also specify whether internal orders are required from the destination organization to perform inter-organization transfers. Oracle Inventory does not allow you to perform inter-organization transfers using the Transfer Between Organizations window to an organization that requires internal requisitions. See Overview of Internal Requisitions, <i>Oracle Purchasing User's Guide</i>.</p>
+<p>If you choose to use intransit inventory, you must specify which organization has ownership of the inventory while intransit. You must also specify the primary receiving routing: Standard receipt to a receiving location, standard receipt with inspection, or direct receipt to the final destination.</p>
+<p><a name="d0e37045" id="d0e37045"></a><a name="d0e37048" id="d0e37048"></a>Regardless of the intransit type, you must define an inter-organization transfer charge type. You can choose to add a predefined percentage of the transaction value, to enter a discrete percentage of the transfer value, to enter a discrete value to add when you perform the inter-organization transfer, or not to add transfer charges at all.</p>
+<p>Also, you must provide general ledger accounts to record debits and credits involved in an inter-organization transfer.</p>
+<p>Finally, you can optionally define shipping methods in the Ship Method QuickCodes window and then enter lead times for these shipping methods in the Inter-org Shipping Methods window. These lead times are used by MRP. See Defining Bills of Distribution, <i>Oracle MRP User's Guide</i>.</p>
+<p>Oracle Inventory defaults the shipping information you entered in the Organization Parameters window when you create new organization relationships in the Inter-Organization Shipping Network window.</p>
+<p>Inter-organization shipping network information describes the relationships and accounting information that exists between a shipping (<i>from</i>) organization that ships inventory to a destination (<i>to</i>) organization.</p>
+<p>Depending on the function security assigned to your responsibility, you can define a shipping network between the current organization and another organization or between any two organizations. The function security assigned to your responsibility determines whether you have the ability to define shipping networks for all organizations or just the current organization. See Overview of Oracle E-Business Suite Security, <i>Oracle E-Business Suite Security Guide</i>.</p>
+<h3><b>Subcontracting</b></h3>
+<p>Oracle supports the following types of subcontracting business practices that involve complete outsourcing of assemblies and most importantly, component sale by an Original Equipment Manufacturer (OEM) to a Manufacturing Partner (MP):</p>
+<ul>
+<li>
+<p>Chargeable (Shikyu) Subcontracting (Japan, Taiwan, and Korea)</p>
+</li>
+<li>
+<p>Buy/Sell Subcontracting</p>
+</li>
+<li>
+<p>Full (Non-Chargeable) Outsourcing</p>
+</li>
+</ul>
+<p>When an OEM ships consigned material to a MP, the OEM treats the transaction as if the consigned materials are sold. When the OEM receives an assembly item, or outsourced service from the MP, the OEM considers the receipt as a return from consigned. For more information about subcontracting practices, see the <i>Oracle Outsourced Manufacturing User's Guide for Discrete, Seiban-Based, and Process Manufacturing</i>.</p>
+<p><b>To define shipping network basic information</b></p>
+<ol>
+<li>
+<p>Navigate to the Shipping Networks window.</p>
+<p><img width="755" height="493" src="./img/invug_ShipNet.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Determine if the organization displayed is the <i>To Organization</i>, <i>From Organization</i>, or the <i>From or To Organization</i>.</p>
+<p><strong><span>Note:</span></strong> If your function security allows multiple organization access, you can enter any organization. Otherwise, the Organization field is display only.</p>
+</li>
+<li>
+<p>To define a new shipping network for the current organization choose New Record from the Edit menu. To enter a new record in a single-row window choose the New button.</p>
+<p>To find existing shipping network information for the current organization choose Find.</p>
+</li>
+<li>
+<p>Select the Main tabbed region.</p>
+</li>
+<li>
+<p>Enter the shipping or From organization.</p>
+</li>
+<li>
+<p>Enter the destination or To organization.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e37158" id="d0e37158"></a>transfer type:</p>
+<p><i>Direct</i>: Inter-organization transfers move inventory directly from the shipping organization to the destination organization.</p>
+<p><i>Intransit</i>: Inter-organization transfers move inventory to <a name="d0e37176" id="d0e37176"></a>intransit inventory first. You can track this inventory until it arrives at the destination organization.</p>
+</li>
+<li>
+<p>If you selected <i>Intransit</i> in the Transfer Type field, then select the Freight on Board that is <a name="d0e37189" id="d0e37189"></a>FOB and the Return FOB terms:</p>
+<p><i>Receipt</i>: The shipping organization owns the shipment until the destination organization receives it.</p>
+<p><i>Shipment</i>: The destination organization owns the shipment when the from organization ships it (and while the shipment is in transit).</p>
+<p>You can select Return FOB for both the direct and in transit transfer types.</p>
+</li>
+<li>
+<p>If you selected <i>Intransit</i> in the Transfer Type field, select a <a name="d0e37214" id="d0e37214"></a>receipt routing option:</p>
+<p><i>Standard</i>: Receive this item first, then deliver without inspection.</p>
+<p><i>Direct</i>: At receipt, deliver this item directly to its location.</p>
+<p><i>Inspection</i>: Receive this item first, inspect it, then deliver.</p>
+</li>
+<li>
+<p>Indicate whether an internal order is required for each transfer.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To define transfer charge information:<a name="d0e37248" id="d0e37248"></a><a name="d0e37253" id="d0e37253"></a></b></p>
+<ol>
+<li>
+<p>Select the Transfer, Distance tabbed region.</p>
+</li>
+<li>
+<p>Select the inter-organization transfer charge type for calculating transfer charges:</p>
+<p><i>None</i>: Do not add transfer charges.</p>
+<p><i>Predefined Percent</i>: Automatically add a predefined percent of the transaction value.</p>
+<p><i>Requested Value</i>: Enter a discrete value to add.</p>
+<p><i>Requested Percent</i>: Enter a discrete percentage of the transfer value to add.</p>
+<p>The default value is the value you defined in the Organization Parameters window for the shipping organization. See <a href="T291651T291796.htm#I_t_iorgparam">Defining Organization Parameters</a>.</p>
+</li>
+<li>
+<p>If you selected <i>Predefined Percent</i> in the Transfer Charge Type field, enter the percentage value to add to a material transfer. For example, a value of 10 equals a transaction value of 10%.</p>
+<p>The default value is the value you defined in the Organization Parameters window for the shipping organization. See <a href="T291651T291796.htm#I_t_iorgparam">Defining Organization Parameters</a>.</p>
+</li>
+<li>
+<p>Optionally, you can define the following:</p>
+<ul>
+<li>
+<p>Enter the unit of measure for the distance from the shipping organization to the destination organization.</p>
+</li>
+<li>
+<p>Enter the distance value (in the unit of measure) from the shipping organization to the destination organization.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To define account information</b></p>
+<ol>
+<li>
+<p>Select the Primary Accounts tabbed region.</p>
+</li>
+<li>
+<p>Enter the general ledger <a name="d0e37327" id="d0e37327"></a>transfer credit account used to collect transfer charges for the shipping organization</p>
+<p>The default value is the value you defined in the Organization Parameters window for the shipping organization. See <a href="T291651T291796.htm#I_t_iorgparam">Defining Organization Parameters</a>.</p>
+</li>
+<li>
+<p>Enter the general ledger account used to collect the purchase price variance for inter-organization receipts into standard cost organizations. You must enter an account if your receiving organization is using standard costing.</p>
+</li>
+</ol>
+<p><b>To enter additional account information</b></p>
+<ol>
+<li>
+<p>Select the Secondary Accounts tabbed region.</p>
+<p><strong><span>Note:</span></strong> The default values for the following fields are the values you defined in the Organization Parameters window for the shipping and destination organizations. See <a href="T291651T291796.htm#I_t_iorgparam">Defining Organization Parameters</a>.</p>
+</li>
+<li>
+<p>Enter the general ledger <a name="d0e37361" id="d0e37361"></a>receivables account used as an inter-organization clearing account for the shipping organization. The inter-organization receivable account for the shipping organization should equal the inter-organization payables account for the receiving organization.</p>
+</li>
+<li>
+<p>Enter the general ledger <a name="d0e37371" id="d0e37371"></a>payables account used as an inter-organization clearing account for the receiving organization. The inter-organization receivable account for the shipping organization should equal the inter-organization payables account for the receiving organization.</p>
+</li>
+</ol>
+<p><b>To enter intransit account information<a name="d0e37380" id="d0e37380"></a></b></p>
+<ol>
+<li>
+<p>Select the <b>Other Accounts</b> tab.</p>
+</li>
+<li>
+<p>In the <b>Intransit Inventory</b> field, enter the general ledger account that holds the in transit inventory value.</p>
+</li>
+<li>
+<p>In the <b>Return Intransit Inventory</b> field, enter the general ledger account that holds the in transit inventory value for the return shipment flow.</p>
+</li>
+</ol>
+<p><b>To enter intransit lead time for shipping methods:<a name="d0e37411" id="d0e37411"></a></b></p>
+<ol>
+<li>
+<p>Select Shipping Methods on the Tools menu to open the Inter-org Shipping Methods window.</p>
+</li>
+<li>
+<p>Enter the shipping method for which you want to associate an intransit lead time for the displayed from and to organizations. See <a href="T291651T291796.htm#I_shpmtdqc">Defining Shipping Methods</a>.</p>
+</li>
+<li>
+<p>Enter the intransit lead time in days.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To add Subcontracting information</b></p>
+<ol>
+<li>
+<p>Select the Subcontracting tab.</p>
+</li>
+<li>
+<p>Select a Subcontracting Type to enable a subcontracting relationship for this shipping network:</p>
+<ul>
+<li>
+<p>Full</p>
+</li>
+<li>
+<p>Buy/Sell</p>
+<p><strong><span>Note:</span></strong> Selling components and buying assembly items are independent business transactions in buy/sell subcontracting.</p>
+</li>
+<li>
+<p>Chargeable</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter the Variance account.</p>
+</li>
+<li>
+<p>Enter the Offset account. The manufacturing partner organization uses this account.</p>
+</li>
+<li>
+<p>Enter the Default Order Type. You can enter the default order type only if you select a subcontracting type. This field determines the Order Management Order type that is used for Replenishment Sales Order for subcontracting components.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Defining Freight Carriers, <i>Oracle Order Management Implementation Guide</i></p>
+<p><a href="T291651T291796.htm#I_shpmtdqc">Defining Shipping Methods</a></p>
+<p>Defining Sourcing Rules, <i>Oracle MRP User's Guide</i></p>
+<p><i>Oracle Outsourced Manufacturing User's Guide for Discrete, Seiban-Based, and Process Manufacturing</i></p>
+<h2><a name="1750486"></a><a id="T291691"></a><b>Defining Shipping Methods</b></h2>
+<p><a name="d0e37502" id="d0e37502"></a><a name="d0e37507" id="d0e37507"></a><a name="I_shpmtdqc" id="I_shpmtdqc"></a>The Shipping Method is a QuickCode used to define specific shipping methods. For example: Ground, Express, or Air. You can associate shipping methods with lead times in the Inter-org Shipping Methods window. See: <a href="T291651T291796.htm#I_t_iorgshp">Defining Inter-organization Shipping Networks</a>.</p>
+<p><b>To define shipping methods</b></p>
+<ol>
+<li>
+<p>Navigate to the Ship Method QuickCodes window from the menu. The <i>User</i> access level is selected indicating you can add or modify QuickCodes without restriction.</p>
+<p><img width="754" height="454" src="./img/invug_shipmeth.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique alphanumeric code describing the shipping method. You can define a maximum of 250 QuickCodes for a single QuickCode type. Inventory uses this value in the list of values for the Shipping Method field in the Inter-org Shipping Methods window. See: <a href="T291651T291796.htm#I_t_iorgshp">Defining Inter-organization Shipping Networks</a>.</p>
+<p>You cannot change the values in this field after saving them. To remove an obsolete QuickCode you can either disable the code, enter an end date, or change the meaning and description to match a replacement code.</p>
+</li>
+<li>
+<p>Enter the meaning of the shipping method code.</p>
+</li>
+<li>
+<p><a name="d0e37552" id="d0e37552"></a><a name="d0e37557" id="d0e37557"></a>Optionally, enter from and to effective dates.</p>
+<p>If you enter an Effective From date you cannot use the shipping method before this date. If you leave this field blank, the shipping method is valid immediately.</p>
+<p>If you enter an Effective To date you cannot use the shipping method after this date. Once a shipping method expires, you cannot define shipping networks using the shipping method, but <i>can</i> query networks that already use the shipping method. If you do not enter an end date, the shipping method is valid indefinitely.</p>
+</li>
+<li>
+<p>Indicate whether the shipping method is enabled. A shipping method must be enabled before you can define shipping networks using it. If you disable a shipping method you cannot use it in shipping networks, but you <i>can</i> query networks that already use the shipping method.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_t_iorgshp">Defining Inter-organization Shipping Networks</a></p>
+<p>Application Utilities Lookups and Oracle Application Object Library Lookups, <i>Oracle E-Business Suite Developer&rsquo;s Guide</i></p>
+<h2><a name="1750493"></a><a id="T291694"></a><b>Defining Intercompany Relations</b></h2>
+<p><a name="d0e37594" id="d0e37594"></a><a name="INVSDICR.invsdicr" id="INVSDICR.invsdicr"></a><a name="I_t_intcom" id="I_t_intcom"></a>Use the Intercompany Relations window to define, query, and update intercompany relations between two operating units in a multi-organization environment. These relationships are between either a shipping organization and a selling organization, or a receiving organization and a purchasing organization.</p>
+<p>When you enter a sales order in an operating unit, the shipping organization is often part of a different operating unit, that has a separate ledger. Once the sales order is shipped to the customer, the inventory asset account for the shipping organization is credited and the cost of goods sold account is debited. Sales revenue must also be recognized in the sales organization. If the two organizations belong to different operating units, then the system must perform accounting distributions to record the intercompany revenue, receivable, and payable entries.</p>
+<p>Oracle Inventory and Oracle Receivables must be installed before you can define intercompany relations. If Oracle Payables is not installed, then the system does not require you to enter information in the AP Invoicing for Selling region.</p>
+<p><b>To define intercompany relations</b></p>
+<ol>
+<li>
+<p>Navigate to the Intercompany Relations window. You access the Intercompany Relations window from the Transactions Flow window. The shipping operating unit and the selling operating unit are populated automatically.</p>
+<p><img width="630" height="503" src="./img/invug_intercompanyrelation.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter either the customer name or customer number. When you enter one, Oracle Inventory displays the other automatically. See Creating a Customer, <i>Oracle Receivables User's Guide</i>. A customer is defined in Oracle Receivables to represent the shipping operating unit for AR accounting transactions. If the flow type is shipping, this information is provided automatically. If the flow type is procurement, you must enter this information.</p>
+</li>
+<li>
+<p>Enter the location, if the customer has multiple locations. The list of values displays only locations that are defined for the customer for which Site Use is set to Bill To.</p>
+</li>
+<li>
+<p>Enter the transaction type. See Transaction Types, <i>Oracle Receivables User's Guide</i> for more information.</p>
+</li>
+<li>
+<p>Enter the Intercompany COGS Account. See <a href="T291651T292529.htm#I_c_intprocs">Intercompany Invoicing Process Overview</a>.</p>
+</li>
+<li>
+<p>Optionally, select the currency code. The available choices are:</p>
+<ul>
+<li>
+<p>Currency Code of From Operating Unit</p>
+</li>
+<li>
+<p>Currency Code of To Operating Unit</p>
+</li>
+<li>
+<p>Currency Code of Order</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter the supplier and, if available, the supplier site.</p>
+</li>
+<li>
+<p>Enter the freight account. The list of values is restricted to the Chart of Accounts of the selling organization.</p>
+</li>
+<li>
+<p>Enter the Inventory Accrual account. This account is used for all logical transactions that result from the intercompany transaction such as drop ship.</p>
+</li>
+<li>
+<p>Enter the Expense Accrual account.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To update intercompany relations</b></p>
+<ol>
+<li>
+<p>Navigate to the Intercompany Relations window.</p>
+</li>
+<li>
+<p>Query on the desired operating unit in the Shipping field to display the existing relations for that unit.</p>
+</li>
+<li>
+<p>You can update information in all fields except Shipping.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292529.htm#I_c_intprocs">Intercompany Invoicing Process</a></p>
+<h2><a name="1750488"></a><a id="T291692"></a><b>Defining Economic Zones</b></h2>
+<p><a name="d0e37707" id="d0e37707"></a><a name="d0e37712" id="d0e37712"></a><a name="INVGMSTP.MTL_STAT_TYPE_USAGES" id="INVGMSTP.MTL_STAT_TYPE_USAGES"></a><a name="INVGEZON.contzone" id="INVGEZON.contzone"></a><a name="INVGMSTP.MTL_LE_ECONOMIC_ZONES" id="INVGMSTP.MTL_LE_ECONOMIC_ZONES"></a><a name="I_decozn" id="I_decozn"></a>The Economic Zones window supports Oracle Inventory movement statistics functionality for gathering, reviewing, and reporting statistical information associated with material movements. You automate the movement statistics functionality by defining parameters in the Economic Zones and Movement Statistics Parameters windows. See: <a href="T291651T292013.htm#I_movstats">Overview of Movement Statistics</a> and <a href="T291651T292013.htm#I_t_mvpara">Defining Movement Statistics Parameters</a>.</p>
+<p>Use the Economic Zones window to define the economic zones in which you conduct business. Oracle Inventory uses this information to determine which material movement transactions take place in a reporting jurisdiction.</p>
+<p><b>To define an economic zone</b></p>
+<ol>
+<li>
+<p>Navigate to the Economic Zones window.</p>
+<p><img width="667" height="434" src="./img/invug_ecozn.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a zone code.</p>
+<p><strong><span>Note:</span></strong> The European Union is seeded in the system as an economic zone. You can update countries in the European Union common market by selecting the country code from the list of values.</p>
+</li>
+<li>
+<p>Enter a name for the economic zone.</p>
+</li>
+<li>
+<p>Enter a description of the economic zone.</p>
+</li>
+<li>
+<p>Enter the countries you want to associate with this economic zone in the Name field of the Countries region.</p>
+<p>You can associate a country with more than one economic zone.</p>
+</li>
+<li>
+<p>Enter a start date for each country.</p>
+</li>
+<li>
+<p>Enter an end date for each country.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To update an economic zone</b></p>
+<ol>
+<li>
+<p>Navigate to the Economic Zones window.</p>
+</li>
+<li>
+<p>Navigate to the Find Zones window by selecting Find from the View menu.</p>
+</li>
+<li>
+<p>You can update information in all fields.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292013.htm#I_t_mvpara">Defining Movement Statistics Parameters</a>.</p>
+<p><a href="T291651T292013.htm#I_movstats">Overview of Movement Statistics</a></p>
+<h2><a name="7241461"></a><a id="T633963"></a><b>Oracle Yard Management and Oracle Inventory</b></h2>
+<p><a name="d0e37812" id="d0e37812"></a><a name="invyms" id="invyms"></a>Oracle Yard Management extends the capabilities of Oracle Inventory by providing a dedicated system for managing the resources and inventory flow within the yard of a warehouse.</p>
+<p><strong><span>Note:</span></strong> Oracle Yard Management is an optional software product available in the Oracle E-Business Suite. After you have purchased Oracle Yard Management, run license manager to enable it.</p>
+<p>Using Oracle Yard Management, you can:</p>
+<ul>
+<li>
+<p>Perform yard check-in and check-outs by registering equipment (such as trailers or containers) that enters or leaves the yard of a warehouse. Applicable to both inbound (ASN/PO/RMA) and outbound (shipments) operations.</p>
+</li>
+<li>
+<p>Manage yard operations: Manage the movement of trucks and trailers in the yard of a manufacturing facility, warehouse, or distribution center. View real-time information about the location of trailers in the yard and enable yard employees to move trailers from parking to docks to fill orders in an efficient manner.</p>
+</li>
+</ul>
+<p>If Oracle Yard Management (YMS) is licensed and installed, then the following changes will occur in Oracle Inventory to integrate with YMS:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Oracle Inventory Component</b></th>
+<th scope="col"><b>Impact After Oracle Yard Management is Licensed and Enabled</b></th>
+</tr>
+<tr valign="top">
+<td>Items</td>
+<td>Equipment type is a yard entity that is internally mapped to items in Oracle Inventory. The system provides an inventory item template named Yard Equipment to create equipment types such as yard container, power unit, and trailer. The template, which can be viewed in the Master item window, has the following attributes:
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Seeded Attributes for Yard Equipment Item Template</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attribute Name</b></th>
+<th scope="col"><b>Controlled At</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>User Item Type</td>
+<td>Org (Organization)</td>
+<td>Purchased item</td>
+</tr>
+<tr valign="top">
+<td>Item Status</td>
+<td>Master</td>
+<td>Active</td>
+</tr>
+<tr valign="top">
+<td>Primary Unit of Measure</td>
+<td>Master</td>
+<td>Each</td>
+</tr>
+<tr valign="top">
+<td>Inventory Item</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Stockable</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Transactable</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Serial Number Generation</td>
+<td>Org</td>
+<td>Predefined serial numbers</td>
+</tr>
+<tr valign="top">
+<td>Starting Serial Number</td>
+<td>Org</td>
+<td>00000000001</td>
+</tr>
+<tr valign="top">
+<td>Starting Serial Prefix</td>
+<td>Org</td>
+<td>YMS</td>
+</tr>
+<tr valign="top">
+<td>Costing Enabled</td>
+<td>Org</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Inventory Asset Value</td>
+<td>Org</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Include in Rollup</td>
+<td>Org</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Purchased</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Purchasable</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Vehicle</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Make or Buy</td>
+<td>Org</td>
+<td>Buy</td>
+</tr>
+<tr valign="top">
+<td>Internal Ordered</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Internal Orders Enabled</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Shippable</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+</table>
+<br>
+The system provides the following category sets and category codes to identify the type of equipment created.</td>
+</tr>
+<tr valign="top">
+<td>Category Sets and Categories</td>
+<td>The system provides the following category sets and associated category codes to identify the type of equipment in Oracle Yard Management. (Create equipment and equipment instances in Oracle Yard Management from these category sets and categories.)
+<p><b>Category Sets</b></p>
+<ul>
+<li>
+<p>Yard Container</p>
+</li>
+<li>
+<p>Yard Power Unit</p>
+</li>
+<li>
+<p>Yard Trailer</p>
+</li>
+</ul>
+<p><b>Category</b></p>
+<ul>
+<li>
+<p>Container (in category set <i>Yard Container</i>)</p>
+</li>
+<li>
+<p>Power Unit (in category set <i>Yard Power Unit</i>)</p>
+</li>
+<li>
+<p>Trailer (in category set <i>Yard Trailer</i>)</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Accounts</td>
+<td>The system provides the following mandatory cost accounts and their values for Oracle Yard Management:
+<ul>
+<li>
+<p>Material</p>
+</li>
+<li>
+<p>Material Overhead</p>
+</li>
+<li>
+<p>Resource</p>
+</li>
+<li>
+<p>Outside Processing</p>
+</li>
+<li>
+<p>Overhead</p>
+</li>
+<li>
+<p>Expense</p>
+</li>
+</ul>
+<br>
+For more information on project cost groups, see the <i>Oracle Cost Management User's Guide</i>.</td>
+</tr>
+<tr valign="top">
+<td>Organization</td>
+<td>A yard is defined as an organization in the Oracle E-Business Suite. The system provides default yard parameters that control the operations and transactions for a yard organization. You must use the Oracle Yard Management application to create yard organizations, but if you have installed and licensed Oracle Inventory, you can view the related setup parameters in the Organization Parameters window.<br>
+When creating a yard organization in Oracle Yard Management, you can use the WEB ADI process to export the existing EBS inventory organization parameters to a spreadsheet and create a new yard organization, or use the yard setup window to create a new yard.<br>
+If Oracle Yard Management and Oracle Inventory are licensed and installed for your organization, then the following default parameters can be viewed for the yard organization in the Organization Parameters window:
+<p><b>Inventory Parameters tab</b></p>
+<ul>
+<li>
+<p>Process Manufacturing Enabled check box = Deselected</p>
+</li>
+<li>
+<p>Manufacturing Partner Organization check box = Deselected</p>
+</li>
+<li>
+<p>LCM Enabled check box = Deselected</p>
+</li>
+<li>
+<p>EAM Enabled check box = Deselected</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> If Oracle Yard Management is enabled for your organization, then the preceding products and features are disabled.</p>
+<p><b>Costing Information tab</b></p>
+<ul>
+<li>
+<p>Default Material Sub-Element and Material Overhead Sub-Element fields are blank.</p>
+</li>
+<li>
+<p>Yard organization will always be WMS-enabled to allow use of cost groups.</p>
+</li>
+</ul>
+<p><b>Revision, Lot, Serial And LPN tab</b></p>
+<ul>
+<li>
+<p>Serial Control Uniqueness = Across organizations</p>
+</li>
+<li>
+<p>Generation = At organization level</p>
+</li>
+<li>
+<p>The starting prefix is YMS</p>
+</li>
+</ul>
+<p><b>Inter-Org Information tab</b></p>
+<ul>
+<li>
+<p>Inter-organization Transfer Charge = None option selected</p>
+</li>
+</ul>
+<p><b>Warehouse tab</b></p>
+<ul>
+<li>
+<p>Crossdock values = NULL</p>
+</li>
+<li>
+<p>Direct Shipping Allowed = Deselected</p>
+</li>
+<li>
+<p>Default Cycle Count Header = NULL</p>
+</li>
+<li>
+<p>Cartonize Sales Order = Deselected</p>
+</li>
+<li>
+<p>Enable Cartonization = Never cartonize</p>
+</li>
+</ul>
+<p><b>Warehouse Task Management tab</b></p>
+<ul>
+<li>
+<p>Pregenerate after Receipt = Deselected</p>
+</li>
+<li>
+<p>Regeneration Interval Minutes = NULL</p>
+</li>
+<li>
+<p>Skip Task Wait Minutes = NULL</p>
+</li>
+</ul>
+<p><b>Other Considerations</b></p>
+<ul>
+<li>
+<p>The <code>YARD_MANAGEMENT_ENABLED_FLAG</code> parameter in the <code>mtl_parameters</code> table identifies whether the organization is a yard organization.</p>
+</li>
+<li>
+<p>Profile option <b>Restrict receipt of serials</b>: To support reusing serial numbers and to avoid conflicts with the profile option <b>Restrict receipt of serials</b>, the yard organization is set to "NO" at the organization level and supersedes the setup at the site level.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Material Workbench</td>
+<td>If Oracle Yard Management (YMS) is licensed and installed, the Material Workbench (available only in Oracle Inventory) displays yard-specific elements like status, SCAC code, and equipment for the organization. Select Inbound as the search option on the Query Material window to find the yard-specific elements.
+<p><strong><span>Note:</span></strong> Yard-related information is available only to organizations with an associated yard organization.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Subinventories window and Locators</td>
+<td>Yard areas and related locator information created in Oracle Yard Management can be viewed in the Subinventories window and Stock Locators window. (Yard areas are modeled as subinventories for a yard organization, and locations (or parking spots) in the yard area are modeled as inventory locators.) These locations are typically used to store equipment instances, and consist of the following types: Storage Locator or Dock Door.</td>
+</tr>
+</table>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

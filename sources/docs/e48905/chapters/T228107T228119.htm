@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T228118.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107T228120.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">18/31</span> <!-- End Header -->
+<h1>Job and Repetitive Schedule Statuses</h1>
+<p>This chapter describes how discrete job and repetitive schedules statuses can be used to control production activities.</p>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#I_cx2Dovwjrss">Overview of Job and Repetitive Schedule Statuses</a></li>
+<li><a href="#I_cx2Ddjstctrl">Discrete Job Status Control</a></li>
+<li><a href="#I_rx2Ddiscstat">Discrete Job Statuses</a></li>
+<li><a href="#I_cx2Drepstctl">Repetitive Schedule Status Control</a></li>
+<li><a href="#I_rx2Drepstat">Repetitive Schedule Statuses</a></li>
+<li><a href="#I_cx2Dchgstat">Job and Repetitive Schedule Status Changes</a></li>
+<li><a href="#I_px2Dtnx78prctrl">Transaction and Process Control By Status</a></li>
+<li><a href="#I_cx2Dusestat">Business Scenarios</a></li>
+</ul>
+<h2><a name="1035051"></a><a id="I_cx2Dovwjrss"></a><b>Overview of Job and Repetitive Schedule Statuses</b></h2>
+<p><a name="d0e43701" id="d0e43701"></a><a name="d0e43707" id="d0e43707"></a>Job and repetitive schedule statuses can help you manage manufacturing operations.</p>
+<h3><a id="T228448"></a><b>Job</b></h3>
+<p>Job statuses describe various stages the life cycle of a job and control job activities. See: <a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a>.</p>
+<h3><a id="T228449"></a><b>Repetitive Schedule</b></h3>
+<p>Repetitive schedule statuses describe stages in the life cycle of a repetitive schedule and control schedule activities. See: <a href="T228107T228119.htm#I_rx2Drepstat">Repetitive Schedule Statuses</a>.</p>
+<h3><a id="T228450"></a><b>Transaction Control</b></h3>
+<p>Job and repetitive schedule statuses control issue, move, resource, overhead, completion, scrap, job close, period close, and purge transactions. See: <a href="T228107T228119.htm#I_cx2Dsttnx78ctl">Transaction Control by Status</a>.</p>
+<h3><a id="T228451"></a><b>Status Control</b></h3>
+<p>Job and repetitive schedule statuses are automatically updated after certain activities. For example, the status of a job is updated to Complete when you complete all the assemblies on the job. Statuses can also be manually changed although there are some restrictions. See: <a href="T228107T228119.htm#I_cx2Ddjstctrl">Discrete Job Status Control</a>, and <a href="T228107T228119.htm#I_cx2Drepstctl">Repetitive Schedule Status Control</a></p>
+<h3><a id="T228452"></a><b>ECO Control</b></h3>
+<p>Job and repetitive schedule statuses control engineering change order (ECO) implementation. See: <a href="T228107T228119.htm#I_cx2Dsteco">ECO Implementation by Status</a>.</p>
+<h3><a id="T228453"></a><b>Planning Control</b></h3>
+<p>Oracle planning products include supply and demands from jobs based on their status. See: <a href="T228107T228119.htm#I_cx2Dplnctlst">Planning Control by Status</a>.</p>
+<h3><a id="T228454"></a><b>Release Control</b></h3>
+<p>When you release by changing the status from Unreleased to Released - a job or schedule with a routing, the release date is automatically set and the Queue intraoperation step of the first routing operation is updated with the job or schedule quantity. You can <i>unrelease</i> jobs and schedules if there are no net issue, move, resource, completion, or scrap charges against them.</p>
+<h3><a id="T228455"></a><b>Hold Control</b></h3>
+<p>Putting jobs and schedules on hold allows you to respond to changes and to control production by temporarily preventing transactions. You can manually change jobs and repetitive schedules to On Hold. You also set the WIP <i>Respond to Sales Order Changes</i> parameter so that Unreleased jobs are automatically changed from Unreleased to On Hold when configuration items are unassigned in Oracle Order Management. See: <a href="T228107T228110.htm#I_cx2Dparmdm">Discrete Parameters</a>.</p>
+<h3><a id="T228456"></a><b>Status Based Reporting</b></h3>
+<p>Job and repetitive schedule statuses control what information is displayed in various reports and inquiries. See: <a href="T228107T228119.htm#I_cx2Drptbyst">Reporting by Status</a>.</p>
+<h3><a id="T228457"></a><b>Information Management</b></h3>
+<p>Closed jobs and Complete - No Charges and Cancelled repetitive schedules cannot be updated. Job and schedules with these statuses can be purged. You can change the status of a job or schedule so that it can be updated.</p>
+<h3><a id="T228458"></a><b>Concurrent Processing Support</b></h3>
+<p>When you define discrete jobs, the <i>WIP:Define Discrete Job form</i> profile option determines whether job bills of material and routings, if any, are created (loaded) concurrently or interactively. The status of the job tracks the progress and outcome of the concurrent load process (that is, Pending Bill Load, Pending Routing Load, Failed Bill Load, and Failed Routing Load). See: <a href="T228107T228110.htm#c_profdesc">Profile Option Descriptions</a>.</p>
+<p>Statuses also track the progress of the job close process.</p>
+<h2><a name="1035063"></a><a id="I_cx2Ddjstctrl"></a><b>Discrete Job Status Control</b></h2>
+<p><a name="d0e43830" id="d0e43830"></a>You cannot update jobs with statuses of Closed, Complete - No Charges, Cancelled, or any processing status (Pending Bill Load, Pending Routing Load, Failed Bill Load, Failed Routing Load, Pending Close, and Failed Close). You can update jobs with statuses of Unreleased, Released, On Hold, or Complete although you may not be able to update all fields. The fields you can update, based on the job's status, are listed in the following tables:</p>
+<h3><a id="T228459"></a><b>Discrete Job</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status Field</b></th>
+<th scope="col"><b>Unreleased</b></th>
+<th scope="col"><b>Released</b></th>
+<th scope="col"><b>On hold</b></th>
+<th scope="col"><b>Complete</b></th>
+</tr>
+<tr valign="top">
+<td>Job Name</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Class</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Status</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Firm</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Start Quantity</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>MRP Net Quantity</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Start Date/Time</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Completion Date/Time</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Descriptive Flexfield</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Attachments</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</table>
+<h3><a id="T228460"></a><b>Bill Information</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status Field</b></th>
+<th scope="col"><b>Unreleased</b></th>
+<th scope="col"><b>Released</b></th>
+<th scope="col"><b>On hold</b></th>
+<th scope="col"><b>Complete</b></th>
+</tr>
+<tr valign="top">
+<td>Reference</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Alternate</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Revision</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Revision Date</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Supply Type</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</table>
+<h3><a id="T228461"></a><b>Routing Information</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status Field</b></th>
+<th scope="col"><b>Unreleased</b></th>
+<th scope="col"><b>Released</b></th>
+<th scope="col"><b>On hold</b></th>
+<th scope="col"><b>Complete</b></th>
+</tr>
+<tr valign="top">
+<td>Reference (for non-standard jobs)</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Alternate</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Revision</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Revision Date</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Completion Subinventory</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Completion Locator</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</table>
+<h3><a id="T228462"></a><b>More Information</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status Field</b></th>
+<th scope="col"><b>Unreleased</b></th>
+<th scope="col"><b>Released</b></th>
+<th scope="col"><b>On hold</b></th>
+<th scope="col"><b>Complete</b></th>
+</tr>
+<tr valign="top">
+<td>Demand Class</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Lot Number</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Description</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</table>
+<h3><a id="T228463"></a><b>Schedule Group, Project</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status Field</b></th>
+<th scope="col"><b>Unreleased</b></th>
+<th scope="col"><b>Released</b></th>
+<th scope="col"><b>On hold</b></th>
+<th scope="col"><b>Complete</b></th>
+</tr>
+<tr valign="top">
+<td>Schedule Group</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Build Sequence</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Line</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Project</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Task</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</table>
+<h3><a id="T228464"></a><b>Sales Order</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status Field</b></th>
+<th scope="col"><b>Unreleased</b></th>
+<th scope="col"><b>Released</b></th>
+<th scope="col"><b>On hold</b></th>
+<th scope="col"><b>Complete</b></th>
+</tr>
+<tr valign="top">
+<td>Quantity Allocated</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228119.htm#I_cx2Dovwjrss">Overview of Job and Repetitive Schedule Statuses</a></p>
+<p><a href="T228107T228111.htm#I_cx2Dovchgdj">Overview of Changing Discrete Jobs</a></p>
+<p><a href="T228107T228111.htm#I_tx2Ddefdj">Defining Discrete Jobs Manually</a></p>
+<p><a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a></p>
+<h2><a name="1035070"></a><a id="I_rx2Ddiscstat"></a><b>Discrete Job Statuses</b></h2>
+<p><a name="d0e44514" id="d0e44514"></a>Discrete job statuses describe the various stages in the life cycle of a job and control the activities that you can perform on it.</p>
+<h3><a id="T228465"></a><b>User Controlled Statuses<a name="d0e44526" id="d0e44526"></a></b></h3>
+<p>You can manually change user-controlled statuses. For example, you can change a job's status to Released to initiate the production cycle. Some user-controlled statuses are automatically changed based on other events. For example, when you complete a job, its status is changed to Complete.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Released</b></td>
+<td><a name="d0e44542" id="d0e44542"></a>The job is available for production and can be transacted against. When a job is changed to this status, the date released is automatically set to the current date and, if a routing exists, the job quantity is moved to the Queue intraoperation step of the first routing operation.<br>
+You can change jobs to this status as you define them.</td>
+</tr>
+<tr valign="top">
+<td><b>Unreleased</b></td>
+<td><a name="d0e44557" id="d0e44557"></a>The job is not released for transaction activity. You can update but cannot transact against it.<br>
+You can assign a status of Unreleased if there are no net issue, move, resource, completion, or scrap charges associated with the job and no purchase orders or purchase requisitions linked to the job.</td>
+</tr>
+<tr valign="top">
+<td><b>Complete</b></td>
+<td><a name="d0e44572" id="d0e44572"></a>The job is completed but accepting transactions and charges. Jobs are automatically updated to this status when the quantity completed into inventory equals the job quantity.<br>
+You can manually assign this status only when you update the job, not when you define it.</td>
+</tr>
+<tr valign="top">
+<td><b>Complete-No Charges</b></td>
+<td><a name="d0e44587" id="d0e44587"></a>The job is complete and accepting no further activity. You cannot update or transact against it, but you can change its status to Complete. You can assign this status only when you update the job.</td>
+</tr>
+<tr valign="top">
+<td><b>On Hold</b></td>
+<td><a name="d0e44600" id="d0e44600"></a>You can update the job but cannot transact against it. You can assign this status to a job when you define it.</td>
+</tr>
+<tr valign="top">
+<td><b>Cancelled</b></td>
+<td><a name="d0e44613" id="d0e44613"></a>The job was cancelled before completion. You cannot update the job or transact against it, but you can change its status. You can assign this status only when you update the job.</td>
+</tr>
+<tr valign="top">
+<td><b>Closed</b></td>
+<td><a name="d0e44626" id="d0e44626"></a>The job is closed and accepting no further activity. Job are automatically updated to this status upon successful completion of the job close process. You can change jobs with this status to another status if the accounting period that the job was completed in is still open and if your functional security setup permits.</td>
+</tr>
+</table>
+<h3><a id="T228466"></a><b>Processing Statuses<a name="d0e44636" id="d0e44636"></a></b></h3>
+<p>Some job statuses are automatically updated by a process. For example, if you have the <i>WIP:Define Discrete Job Form</i> profile option set to concurrent definition, the job status is used to track the progress of the bill of material and routing load process. When you close a job, its status is used to track the progress of the concurrent close process.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Pending Bill Load</b></td>
+<td><a name="d0e44655" id="d0e44655"></a>The concurrent process is loading the bill of material for the job. You cannot update the job nor transact against it.<br>
+For non-standard discrete jobs, this is applicable only if you specified a bill reference.</td>
+</tr>
+<tr valign="top">
+<td><b>Pending Routing Load</b></td>
+<td><a name="d0e44670" id="d0e44670"></a>The bill of material load was successful and the concurrent process is now loading the routing for the job. You cannot update the job nor transact against it.<br>
+For non-standard discrete jobs, this option is applicable only if you specified a routing reference.</td>
+</tr>
+<tr valign="top">
+<td><b>Failed Bill Load</b></td>
+<td><a name="d0e44685" id="d0e44685"></a>The concurrent process was unable to load the bill of material for the job. The load may have failed for a number of reasons. For example, the job start date may be outside the last open accounting period at the time of job creation. You can close the failed job with the Close Discrete Jobs window and open another job for the assembly. Or you can resubmit the job once you change the status to Unreleased, Released, or On Hold.<br>
+For non-standard discrete jobs, this option is applicable only if you specified a bill reference.</td>
+</tr>
+<tr valign="top">
+<td><b>Failed Routing Load</b></td>
+<td><a name="d0e44700" id="d0e44700"></a>The concurrent process was unable to load the routing for the job. The load may have failed for a number of reasons. For example, the job start or completion date may be outside the organization workday calendar at the time of job creation. You can close the failed job and open another job for the assembly, or you can resubmit the job after changing its status to Unreleased, Released, or On Hold.<br>
+For non-standard discrete jobs, this option is available only if you specified a routing reference.</td>
+</tr>
+<tr valign="top">
+<td><b>Pending Close</b></td>
+<td><a name="d0e44715" id="d0e44715"></a>The concurrent process is closing the job. You cannot transact against or update it. If the close process terminates abnormally, you can change the status of the job and resubmit it.</td>
+</tr>
+<tr valign="top">
+<td><b>Failed Close</b></td>
+<td><a name="d0e44728" id="d0e44728"></a>The concurrent process was unable to close the job. The close may have failed for a number of reasons. For example, there may be pending transactions against the job. You must fix the problems before you can close the job. You cannot transact against it.</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228119.htm#I_cx2Dovwjrss">Overview of Job and Repetitive Schedule Statuses</a></p>
+<p><a href="T228107T228119.htm#I_cx2Ddjstctrl">Discrete Job Status Control</a></p>
+<p><a href="T228107T228111.htm#I_tx2Ddjstupdg">Mass Changing Discrete Job Statuses</a></p>
+<p><a href="T228107T228111.htm#I_cx2Dovclsjob">Overview of Discrete Job Close</a></p>
+<p><a href="T228107T228111.htm#I_tx2Ddefdj">Defining Discrete Jobs Manually</a></p>
+<h2><a name="1035086"></a><a id="I_cx2Drepstctl"></a><b>Repetitive Schedule Status Control</b></h2>
+<p><a name="d0e44760" id="d0e44760"></a>You cannot update repetitive schedules with user controlled statuses of Cancelled, Complete - No Charges or with the Pending - Mass Loaded processing status. You can update repetitive schedules with statuses of Unreleased, Released, On Hold, or Complete although you may not be able to update all fields. The fields you can update, based on the schedule's status, are listed in the following table:</p>
+<h3><a id="T228467"></a><b>Status and Quantity Information</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status Field</b></th>
+<th scope="col"><b>Unreleased</b></th>
+<th scope="col"><b>Released</b></th>
+<th scope="col"><b>On hold</b></th>
+<th scope="col"><b>Complete</b></th>
+</tr>
+<tr valign="top">
+<td>Line</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Assembly</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Status</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Daily Quantity</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Days</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Total Quantity</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Descriptive Flexfield</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</table>
+<h3><a id="T228468"></a><b>Scheduling Information</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status Field</b></th>
+<th scope="col"><b>Unreleased</b></th>
+<th scope="col"><b>Released</b></th>
+<th scope="col"><b>On hold</b></th>
+<th scope="col"><b>Complete</b></th>
+</tr>
+<tr valign="top">
+<td>First Unit Start Date</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Last Unit Start Date</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>First Unit Completion Date</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Last Unit Completion Date</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</table>
+<h3><a id="T228469"></a><b>Bill and Routing Information</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status Field</b></th>
+<th scope="col"><b>Unreleased</b></th>
+<th scope="col"><b>Released</b></th>
+<th scope="col"><b>On hold</b></th>
+<th scope="col"><b>Complete</b></th>
+</tr>
+<tr valign="top">
+<td>Bill Revision</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Bill Revision Date</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Routing Revision</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Routing Revision Date</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</table>
+<h3><a id="T228470"></a><b>Planning Information and Description</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status Field</b></th>
+<th scope="col"><b>Unreleased</b></th>
+<th scope="col"><b>Released</b></th>
+<th scope="col"><b>On hold</b></th>
+<th scope="col"><b>Complete</b></th>
+</tr>
+<tr valign="top">
+<td>Firm</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Demand Class</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Description</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Descriptive Flexfield</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228119.htm#I_cx2Dovwjrss">Overview of Job and Repetitive Schedule Statuses</a></p>
+<p><a href="T228107T228114.htm#I_cx2Drpovw">Overview of Repetitive Manufacturing</a></p>
+<p><a href="T228107T228114.htm#I_cx2Dovchgrs">Overview of Changing Repetitive Schedules</a></p>
+<p><a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a></p>
+<p><a href="T228107T228119.htm#I_rx2Drepstat">Repetitive Schedule Statuses</a></p>
+<h2><a name="1035091"></a><a id="I_rx2Drepstat"></a><b>Repetitive Schedule Statuses</b></h2>
+<p><a name="d0e45214" id="d0e45214"></a>Repetitive schedule statuses describe the various stages the life cycle of a repetitive schedule and control the activities that you can perform on it.</p>
+<h3><a id="T228471"></a><b>User Controlled Statuses<a name="d0e45226" id="d0e45226"></a></b></h3>
+<p>You can manually change user-controlled statuses. For example, you can change a repetitive schedule's status to Released to initiate the production cycle. Some user-controlled statuses are automatically updated based on other events. For example, when you complete all the assemblies on a schedule, its status is changed to Complete or Complete-No Charges<b>.</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Released</b></td>
+<td><a name="d0e45244" id="d0e45244"></a>The schedule is available for production and can be transacted against. When a schedule is changed to this status and a routing exists, the total number of assemblies to be built are moved to the Queue intraoperation step of the first routing operation.<br>
+You can change schedules to this status as you define them.</td>
+</tr>
+<tr valign="top">
+<td><b>Unreleased</b></td>
+<td><a name="d0e45259" id="d0e45259"></a>The schedule is not released for transaction activity. You can update but cannot transact against it.<br>
+You can change a schedule's status to Unreleased if it is not the only open schedule on a line, if there are no net issue, move, resource, completion, or scrap charges associated with the schedule, and if there are no purchase orders or purchase requisitions linked to it.</td>
+</tr>
+<tr valign="top">
+<td><b>Complete</b></td>
+<td><a name="d0e45274" id="d0e45274"></a>The schedule is completed but accepting transactions and charges.<br>
+The schedule is automatically updated to this status when the number of completed assemblies equals the total quantity of the schedule and there are no subsequent schedules for the assembly on the production line. If there is a subsequent schedule with a status of Unreleased within the autorelease days time fence, or a schedule with a status of Released, Complete, or On Hold, then the status of the current schedule changes to Complete-No Charges. If there is no subsequent schedule that meets this requirement, the status of the current schedule changes to Complete. This keeps the current schedule active, so that you can transact any unused or excess material and perform delayed resource and material transactions.<br>
+You can manually assign this status only when you update the schedule, not when you define it.</td>
+</tr>
+<tr valign="top">
+<td><b>Complete-No Charges</b></td>
+<td><a name="d0e45291" id="d0e45291"></a>The schedule is completed and accepting no further activity. You cannot update or transact against it.<br>
+The schedule is updated to this status when the number of completed assemblies equals the total quantity of the schedule and another schedule of this assembly on this line is available. If there is a subsequent schedule with a status of Unreleased and within the autorelease days time fence, or a schedule with a status of Released, Complete, or On Hold, the status of the current schedule changes to Complete-No Charges. If there is no subsequent schedule that meets this requirement, the status of the current schedule changes to Complete. This keeps the current schedule active so that you can transact unused or excess material and perform delayed resource and material transactions. Any excess material in the schedule is automatically rolled forward, that is, it is issued to the following schedule.<br>
+You can manually assign this status only when you update the schedule. If you are changing to this status manually, and there are subsequent schedules, you can choose to roll forward excess material, or you can leave it in the current schedule and write it off as a variance.</td>
+</tr>
+<tr valign="top">
+<td><b>On Hold</b></td>
+<td><a name="d0e45308" id="d0e45308"></a>You can update the schedule but cannot transact against it. You can assign this status to a schedule when you define it.</td>
+</tr>
+<tr valign="top">
+<td><b>Cancelled</b></td>
+<td><a name="d0e45321" id="d0e45321"></a>The schedule was cancelled before completion. You cannot update the schedule or transact against it, but you can change its status. You can assign this status only when you update the schedule.<br>
+You can return all remaining material back to inventory before you cancel the schedule or roll it forward to the next available schedule for the repetitive assembly on the line. The next schedule must have a status of Unreleased and be within the autorelease days time fence or have a status of Released, Complete, or On Hold. If there is no such schedule, or if you choose not to roll forward to the next schedule, the excess material is recognized as a variance at period close.</td>
+</tr>
+</table>
+<h3><a id="T228472"></a><b>Processing Status<a name="d0e45333" id="d0e45333"></a></b></h3>
+<p>There is one repetitive schedule status this is automatically updated by a process.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Pending-mass loaded</b></td>
+<td><a name="d0e45349" id="d0e45349"></a>Schedule implemented from the Open Job/Schedule Interface or Planner Workbench in Oracle planning products. You can update pending repetitive schedules as if they were unreleased schedules but cannot transact against. You can update schedules with this status to Unreleased, Released, or On Hold when you decide to implement a repetitive schedule.</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228119.htm#I_cx2Dovwjrss">Overview of Job and Repetitive Schedule Statuses</a></p>
+<p><a href="T228107T228119.htm#I_cx2Drepstctl">Repetitive Schedule Status Control</a></p>
+<p><a href="T228107T228114.htm#I_tx2Drsstupdg">Mass Changing Repetitive Schedule Statuses</a></p>
+<p><a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a></p>
+<h2><a name="1035101"></a><a id="I_cx2Dchgstat"></a><b>Job and Repetitive Schedule Status Changes</b></h2>
+<p><a name="d0e45377" id="d0e45377"></a><a name="d0e45383" id="d0e45383"></a>Statuses describe the various stages in the life cycle of a job or repetitive schedule. Statuses are either user or processing controlled. Processing controlled statuses are updated based on the progress and outcome of concurrent processes. User controlled statuses can be updated by the user or are changed based on events such as job or schedule completion.</p>
+<p>Some status changes are allowed while others are not. Some status changes are conditional. For example, you cannot change jobs and schedules from Released to Unreleased if there are net issue, move, resource, completion, or scrap charges associated with them. You also cannot unclose a job that is linked to a sales order or that was closed in a now closed accounting period.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Change To USER status From USER Status</b></th>
+<th scope="col"><b>Unreleased</b></th>
+<th scope="col"><b>Released</b></th>
+<th scope="col"><b>Complete</b></th>
+<th scope="col"><b>Complete-No Charges</b></th>
+<th scope="col"><b>On Hold</b></th>
+<th scope="col"><b>Cancelled</b></th>
+<th scope="col"><b>Closed</b></th>
+</tr>
+<tr valign="top">
+<td>Unreleased</td>
+<td>N/A</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Released</td>
+<td>Cond</td>
+<td>N/A</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Complete</td>
+<td>Cond</td>
+<td>Yes</td>
+<td>N/A</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Complete - No Charges (DIS)</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>N/A</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Complete - No charges (REP)</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>N/A</td>
+<td>No</td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>On Hold (DIS)</td>
+<td>Cond</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>N/A</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>On Hold (REP)</td>
+<td>Cond</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>N/A</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Cancelled (REP)</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Cancelled (DIS)</td>
+<td>Cond</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Pending - Mass Loaded (REP)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Pending Bill Load (DIS)</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Failed Bill Load (DIS)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Pending Routing Load (DIS)</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Failed Routing Load (DIS)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Pending Close (DIS)</td>
+<td>Cond</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Failed Close (DIS)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Closed (DIS)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_cx2Dovclsjob">Overview of Discrete Job Close</a></p>
+<p><a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a></p>
+<p><a href="T228107T228119.htm#I_rx2Drepstat">Repetitive Schedule Statuses</a></p>
+<p><a href="T228107T228111.htm#I_tx2Dchgdj">Changing Discrete Jobs</a></p>
+<p><a href="T228107T228114.htm#I_tx2Dchgrs">Changing Repetitive Schedules</a></p>
+<p><a href="T228107T228111.htm#I_tx2Ddjstupdg">Mass Changing Discrete Job Statuses</a></p>
+<p><a href="T228107T228114.htm#I_tx2Drsstupdg">Mass Changing Repetitive Schedule Statuses</a></p>
+<h2><a name="1035102"></a><a id="I_px2Dtnx78prctrl"></a><b>Transaction and Process Control By Status</b></h2>
+<p>Statuses control what transactions can be performed on discrete jobs and repetitive schedules. Discrete job statuses also help you control whether you can close and purge jobs. Statuses can also be used to control ECO implementation and the MRP planning process.</p>
+<h2><a name="1035103"></a><a id="T228302"></a><b>Transaction Control By Status</b></h2>
+<a name="d0e45896" id="d0e45896"></a><a name="d0e45902" id="d0e45902"></a><a name="I_cx2Dsttnx78ctl" id="I_cx2Dsttnx78ctl"></a>
+<h3><a id="T228473"></a><b>Material, Move, and Resource Transactions<a name="d0e45912" id="d0e45912"></a></b></h3>
+<p>You can perform issue, completion, move, scrap, and resource transactions for jobs and schedules with Released or Complete statuses. Backflush transactions and overhead charges are indirectly controlled by status since their source move or completion transactions are directly controlled by status.</p>
+<h3><a id="T228474"></a><b>Cost Update Transactions<a name="d0e45924" id="d0e45924"></a></b></h3>
+<p>Cost update transactions are created for standard discrete jobs and non-standard asset jobs with the following statuses: Unreleased, Released, Complete, Complete-No Charges, and On Hold.</p>
+<h3><a id="T228475"></a><b>Period Close Transactions<a name="d0e45936" id="d0e45936"></a></b></h3>
+<p>When you close an accounting period, accounting transactions for repetitive schedules with statuses of Released, Complete, Complete-No Charges, and On Hold or just Complete and Complete-No Charges depending on how you set the WIP <i>Recognize Period Variances</i> <i>Parameter</i> - are automatically created.</p>
+<p>When you close an accounting period, accounting transactions for non-standard expense jobs with statuses of Unreleased, Released, Complete, Complete-No Charges, and On Hold are also automatically created.</p>
+<h3><a id="T228476"></a><b>Job Close Transactions<a name="d0e45962" id="d0e45962"></a></b></h3>
+<p>You can close jobs of any status except jobs that are Closed, Pending Close, Pending Bill Load, and Pending Routing Load.</p>
+<h3><a id="T228477"></a><b>Purge Transactions<a name="d0e45974" id="d0e45974"></a></b></h3>
+<p>You can purge jobs that were closed in a now closed period. You can also purge repetitive schedules that were changed to statuses of Complete-No Charges and Cancelled in closed periods.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a></p>
+<p><a href="T228107T228119.htm#I_rx2Drepstat">Repetitive Schedule Statuses</a></p>
+<p><a href="T228107T228111.htm#I_cx2Dovdjpurg">Overview of Discrete Job Purge</a></p>
+<p><a href="T228107T228114.htm#I_cx2Dovrspurg">Overview of Repetitive Schedule Purge</a></p>
+<p><a href="T228107T228119.htm#I_cx2Dchgstat">Job and Repetitive Schedule Status Changes</a></p>
+<p>Period Close, <i>Oracle Cost Management User's Guide</i></p>
+<h2><a name="1035109"></a><a id="T228303"></a><b>ECO Implementation By Status</b></h2>
+<p><a name="d0e46012" id="d0e46012"></a><a name="d0e46018" id="d0e46018"></a><a name="I_cx2Dsteco" id="I_cx2Dsteco"></a>Oracle Engineering automatically implements engineering change orders (ECOs) with Release, Schedule, and Implement statuses for jobs with statuses of Unreleased and schedules with statuses of Unreleased, Released, and On Hold. You can optionally choose to implement Open status ECOs using the WIP:Exclude ECOs profile option. See: <a href="T228107T228110.htm#r_wippo">Work in Process Profile Options</a>, and ECO Statuses in the Engineering User's Guide.</p>
+<p><strong><span>Note:</span></strong> Oracle Engineering does not implement ECOs on non-standard discrete jobs.</p>
+<h3><a id="sschedule"></a><b>Unreleased Standard Discrete Jobs and Repetitive Schedules</b></h3>
+<p>When an ECO is implemented in Oracle Engineering, the system automatically regenerates the bills of material for unreleased jobs and schedules to reflect the impact of the ECO.</p>
+<h3><a id="rschedule"></a><b>Released, Complete, or On Hold Repetitive Schedules</b></h3>
+<p><a name="rel_sched" id="rel_sched"></a>The impact of an ECO implementation on Released, Complete, or On Hold repetitive schedules depends on whether repetitive assemblies have been moved beyond the Queue intraoperation step of the first routing operation.</p>
+<p>See Overview of Engineering Change Orders and Defining Engineering Change Orders in the Engineering User's Guide.</p>
+<h2><a name="1035112"></a><a id="T228304"></a><b>Planning Control by Status</b></h2>
+<p><a name="d0e46058" id="d0e46058"></a><a name="d0e46064" id="d0e46064"></a><a name="I_cx2Dplnctlst" id="I_cx2Dplnctlst"></a>Oracle planning products includes the assembly supply and component demand of jobs with statuses of Unreleased, Released, Complete, and On Hold. Because planning uses different planning algorithms for repetitive manufacturing, repetitive statuses do not impact how repetitive schedule supply and demand is viewed.</p>
+<p><strong>Related Topics</strong></p>
+<p>Overview of Material Requirements Planning, <i>Oracle MRP User's Guide</i></p>
+<p>Overview of the Planner Workbench, <i>Oracle Advanced Planning Implementation and User's Guide</i></p>
+<h2><a name="1035113"></a><a id="T228305"></a><b>Reporting by Status<a name="d0e46088" id="d0e46088"></a><a name="d0e46094" id="d0e46094"></a></b></h2>
+<p><a name="I_cx2Drptbyst" id="I_cx2Drptbyst"></a>Job and repetitive schedule statuses determine what information is listed on reports. For example, if a job has a status of Closed, Compete-No Charges, or Cancelled, information about that job and its component requirements is not listed on the Discrete Job Shortage Report since shortages on jobs with these statuses do not need to be filled.</p>
+<p>You can view discrete job and repetitive schedule information regardless of status. For example, you could view the component material requirements for a closed job using the View Discrete Jobs window.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status Report</b></th>
+<th scope="col"><b>Unreleased</b></th>
+<th scope="col"><b>Released</b></th>
+<th scope="col"><b>Complete</b></th>
+<th scope="col"><b>Complete No Charges</b></th>
+<th scope="col"><b>On Hold</b></th>
+<th scope="col"><b>Cancelled</b></th>
+<th scope="col"><b>Closed</b></th>
+<th scope="col"><b>Pending Mass Loaded (Rep)</b></th>
+</tr>
+<tr valign="top">
+<td>Discrete Job Data Report</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Discrete Dispatch Report</td>
+<td>Opt</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Discrete Job Listing Report</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Discrete Job Pick List Report</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Discrete Job Routing Sheet</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Discrete Job Shortage Report</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Discrete Job Value Report</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Expense Job Value Report</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Job Lot Composition Report</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Move Transaction Report</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Repetitive Line Report</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>N/A</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Repetitive Pick List Report</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Repetitive Routing Sheet</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Repetitive Schedule Data Report</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Repetitive Schedule Shortage Report</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Repetitive Value Report</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Resource Performance Report</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>Resource Transaction Report</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>WIP Account Distribution Report</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>WIP Account Summary Report</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>WIP Location Report</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>WIP Outside Processing Report</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>WIP Offsetting Account Report</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>N/A</td>
+</tr>
+<tr valign="top">
+<td>WIP Value Report</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> Reports that are printed with processes, such as importing and purging jobs and schedules, are not included in the above table.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_tx2Dvwdj">Viewing Discrete Job Information</a></p>
+<p><a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a></p>
+<p><a href="T228107T228119.htm#I_rx2Drepstat">Repetitive Schedule Statuses</a></p>
+<h2><a name="1035114"></a><a id="I_cx2Dusestat"></a><b>Business Scenarios</b></h2>
+<p><a name="d0e46840" id="d0e46840"></a><a name="d0e46846" id="d0e46846"></a>The following business cases illustrate how statuses can be used to manage manufacturing production.</p>
+<h3><a id="T228480"></a><b>Production Start<a name="d0e46858" id="d0e46858"></a></b></h3>
+<p>You are ready to define jobs. However, you do not want to kit and assemble these jobs until you have confirmed material availability and production capacity.</p>
+<p>In this case, you can begin by defining your jobs with a status of Unreleased. Once you are certain that everything is ready, you can change the status of the jobs to Released and print your shop paperwork. See: <a href="T228107T228111.htm#I_tx2Dchgdj">Changing Discrete Job</a>, <a href="T228107T228111.htm#I_tx2Ddjstupdg">Mass Changing Discrete Job Statuses</a>, <a href="T228107T228123.htm#I_rx2Ddjpckt">Discrete Shop Packet</a>, and <a href="T228107T228123.htm#I_rx2Dwipdjdsp">Discrete Job Dispatch Report</a>.</p>
+<p>To identify which jobs to kit, the stockroom staff can run a report for all jobs with a status of Released<b>.</b> See: <a href="T228107T228123.htm#I_rx2Dwipdjlis">Discrete Job Listing Report</a>.</p>
+<p>To identify which assemblies to build, the shop floor staff can run a report that lists assemblies with quantities in the Queue intraoperation step of the first routing operation. See: <a href="T228107T228123.htm#I_rx2Dwipmtlct">WIP Location Report</a>.</p>
+<h3><a id="T228481"></a><b>Production Stop<a name="d0e46897" id="d0e46897"></a></b></h3>
+<p>You need to stop a group of jobs temporarily because a quality problem has developed. You also need to stop a job that is building a configure-to-order item because the customer has just changed the configuration.</p>
+<p>In the first instance, stopping production on the group of jobs makes it possible for you to address the quality problem. In the second instance, stopping production allows you to evaluate how the customer's change affects material requirements and operations. You can temporarily stop production on the jobs involved by changing their statuses to On Hold. See: <a href="T228107T228111.htm#I_tx2Dchgdj">Changing Discrete Jobs</a> and <a href="T228107T228111.htm#I_tx2Ddjstupdg">Mass Changing Discrete Job Statuses</a>.</p>
+<p>Jobs can be defined in sequential order using the automatic sequence generator. Sequentially ordered jobs are easier to query and mass change than non-sequential jobs.</p>
+<p>Once the quality problem is resolved and the impact of the changes to the configure-to-order job have been determined, you can change the statuses of the jobs from On Hold to Unreleased or Released.</p>
+<h3><a id="T228482"></a><b>Close Discrete Jobs<a name="d0e46921" id="d0e46921"></a></b></h3>
+<p>You are preparing to close your accounting period and must review all jobs that can be closed. You can find and view all Complete, Complete-No Charges, and Cancelled jobs using the View Discrete Jobs window. Using this window, you can also check the disposition of component materials and the status of shop floor operations. See: <a href="T228107T228111.htm#I_tx2Dvwdj">Viewing Discrete Job Information</a>.</p>
+<p>If all the jobs are in order, you can view job costs either on-line or using reports. See: Viewing WIP Value Summaries, <i>Oracle Cost Management User's Guide</i> and <a href="T228107T228123.htm#I_rx2Dwiprdjvr">Discrete Job Value Report</a>.</p>
+<p>Once you are satisfied that your job cost information is correct, you can close your jobs individually or as a group based on their status. See: <a href="T228107T228111.htm#I_cx2Dovclsjob">Overview of Discrete Job Close</a>.</p>
+<h3><a id="T228483"></a><b>Repetitive Schedule First In - First Out Sequencing<a name="d0e46949" id="d0e46949"></a></b></h3>
+<p>You have implemented an ECO on a repetitive schedule in production, and the schedule has automatically split into two repetitive schedules. The first schedule uses the original bill of material and the second uses the new bill with the ECO. See: <a href="T228107T228119.htm#I_cx2Dsteco">ECO Implementation by Status</a>.</p>
+<p>Because of the production rates and lead times being used, the schedule split results in having the same assembly with two different bills on the same line at the same time. Since the first in-first out allocations are used when two schedules are released on the line at the same time, you must maintain first in-first out order when moving assemblies. Unfortunately several of the assemblies with the original bill are being may be held for repair at a Reject intraoperation step and assemblies using the new bill are beginning to pass them. This could result in the lose of physical first in-first out (FIFO) flow and improper backflushing.</p>
+<p>To correct this problem you must separate the assemblies by changing the status of the first schedule to On Hold. This freezes the first schedule removing it from the FIFO algorithm. Later, when the rejected assemblies are ready to go, you can change the status on the first schedule to Released so that assemblies on the first schedule take precedence in the FIFO algorithm. See: <a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228119.htm#I_rx2Ddiscstat">Discrete Job Statuses</a></p>
+<p><a href="T228107T228119.htm#I_rx2Drepstat">Repetitive Schedule Statuses</a></p>
+<p><a href="T228107T228119.htm#I_cx2Dchgstat">Job and Repetitive Schedule Status Changes</a></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

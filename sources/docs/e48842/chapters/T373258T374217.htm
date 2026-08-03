@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T377250.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T376576.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">19/36</span> <!-- End Header -->
+<h1>Fulfillment Flows</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T374250">Configure To Order</a></li>
+<li><a href="#T374479">Process Steps</a></li>
+<li><a href="#T374251">Configured Item Workflow</a></li>
+<li><a href="#T374252">Related Processes</a></li>
+<li><a href="#T374480">Global Order Promising for ATO Models</a></li>
+<li><a href="#T374253">Decimal Quantity for options of an ATO Model</a></li>
+<li><a href="#T374254">Enhanced ATP</a></li>
+<li><a href="#T374255">Auto Create Configuration</a></li>
+<li><a href="#T374256">Autocreate Supply Changes</a></li>
+<li><a href="#T374257">Drop Shipments</a></li>
+<li><a href="#T374258">Required Setup</a></li>
+<li><a href="#T374481">Process Steps</a></li>
+<li><a href="#T374259">Workflow</a></li>
+<li><a href="#T374260">Back-to-Back Orders</a></li>
+<li><a href="#T374482">Setup</a></li>
+<li><a href="#T374483">Sales Order Process</a></li>
+<li><a href="#T374261">Purchasing Process</a></li>
+<li><a href="#T374262">Sales Order Line Status</a></li>
+<li><a href="#T374263">Reservations</a></li>
+<li><a href="#T374264">Changes or Cancellations</a></li>
+<li><a href="#T374265">Miscellaneous</a></li>
+<li><a href="#T374266">Fulfillment</a></li>
+</ul>
+<h2><a name="2970875"></a><a id="T374250"></a><b>Configure To Order</b></h2>
+<p><a name="t_ctoovr" id="t_ctoovr"></a>The Configure-to-Order process (CTO) is a cross-modular process that enables you to select options in the sales order window to define a possibly unique item, build the item using Oracle's Manufacturing Applications Suite, and continue processing the item as if it were a standard item through the shipping and invoicing activities. This section defines the CTO process as well as the related processes of Assemble-to-Order (ATO), Pick-to-Order (PTO) and Kits. It provides an overview of how this business process is implemented, the workflow processes that support it, and the required setup.</p>
+<h3><b>See</b></h3>
+<p><i>Oracle Configure to Order Process Manual</i></p>
+<h3><b>Basic CTO Process Steps</b></h3>
+<p>The CTO process goes through these basic steps:</p>
+<p><b>CTO Process</b></p>
+<p><img width="488" height="108" src="./img/ontig_cto_1.gif" alt="the picture is described in the document text"></p>
+<p>First, you navigate to the Sales Order window and enters an ATO model as an item. Depending on your setup, you can use the Configurator or Options window to select options. The system adds the options to the sales order as new lines. The system creates a new item and a new bill of material (if necessary) and then communicates with the manufacturing applications so that the item is built. The completed item is then shipped to the customer and an invoice is generated.</p>
+<p><strong><span>Note:</span></strong> These steps are described in detail later in this chapter.</p>
+<p>The PTO process is similar to the CTO process except that all options are finished goods that are stocked in the warehouse, so no assembly operation is required. These are the basic steps for the PTO process.</p>
+<p><b>PTO Process</b></p>
+<p><img width="488" height="108" src="./img/ontig_cto_2.gif" alt="the picture is described in the document text"></p>
+<p>The ATO process is also similar to the CTO process. The item is built based on the demand from the customer order. However, for an ATO item the customer cannot select options. Therefore the item and the bill of material are already defined. You enter an ATO item and it follows this process.</p>
+<p><b>ATO Process</b></p>
+<p><img width="488" height="108" src="./img/ontig_cto_3.gif" alt="the picture is described in the document text"></p>
+<p>Finally, the kit process is similar to the CTO process, because a kit item has a bill of material structure and the included items are added as lines to the sales order. You enter a Kit item and it follows this process.</p>
+<p><b>Kit Process</b></p>
+<p><img width="488" height="108" src="./img/ontig_cto_4.gif" alt="the picture is described in the document text"></p>
+<h3><b>Setup</b></h3>
+<p>All models, option classes, options, and kits must be defined in Oracle Inventory and they must have their attributes set appropriately. Bills of material must be created for all models, option classes, and ATO items. Finally, the workflow processes must be correctly assigned to the transaction types.</p>
+<p>The key attributes that control the processing of the CTO and related processes are on the Order Management tab in the Item setup window. The flag Assemble to Order should be selected for CTO items and ATO items. The Pick Components flag should be selected for PTO models. Other attributes are also important. The best way to create your items is to copy them from the following seeded templates:</p>
+<ul>
+<li>
+<p>ATO Model (for the Configure-to-Order process)</p>
+</li>
+<li>
+<p>ATO Option Class</p>
+</li>
+<li>
+<p>ATO Item</p>
+</li>
+<li>
+<p>PTO Model</p>
+</li>
+<li>
+<p>PTO Option Class</p>
+</li>
+<li>
+<p>Kit</p>
+</li>
+</ul>
+<p>Bills of Material (BOMs) must be created for your models, option classes, ATO items, and kits. For models and option classes, some key attributes are defined on the Order Entry tab of the BOM window. The optional flag is checked if an option class or option is not required. If an option class is required then the configuration must include at least one of the options from the class. The option class that is not optional is called a mandatory option class. If an option is not optional it is considered an included item and it not shown as an available selection in the Configurator or option selection window. It is automatically added to the sales order. At least one item should be optional within the structure of an ATO model or a PTO model. No items can be optional in a kit. Another important attribute of the BOM is the required for revenue flag on the shipping tab. This flag is only enabled in PTO configurations for included items. If the flag is checked, then the option class or model which is the parent of the item will not be invoiced until this item has been shipped.</p>
+<p>See: <i>Oracle Bill of Material User's Guide</i></p>
+<p>The transaction type for an order which will include CTO items must have at least two line workflow processes associated with it - one for the model, options and option classes and one for the configured item. In the Assign Line Flows window, the item type of Configuration must be specified for the workflow of the configured item. For ATO models, ATO items, PTO models, options, option classes, and kits the seeded generic line flow can be used for all the item types.</p>
+<p><a href="T373258T377073.htm#t_oettyps">Transaction Types</a></p>
+<h3><b>Profiles</b></h3>
+<p>You can configure these profiles with the Configurator or through the Options Window within Order Management. In order to use the Configurator or Options Window in Order Management, the profile OM: Use Configurator must be set.</p>
+<p>Optional profile settings for Configurations include:</p>
+<p><b>OM: Charges for Included Items</b></p>
+<p>If set to Yes, Order Management calculates and returns charges for included items. Keep in mind that even if the profile is set to Yes the included item is not priced. This calculates only the charges.</p>
+<p><b>OM: Configuration Quick Save</b></p>
+<p>If set to Yes, Oracle Order Management creates option class order lines without applying certain business functions. This is applicable only during initial order entry when the options are selected via the options window or configurator. It does not apply to update / booking / scheduling or for lines imported via Order import OR the Process order API. The option class order lines are not subject to defaulting, processing constraints, or taxation.</p>
+<p><b>OM: Copy Model DFF to Child Lines</b></p>
+<p>This profile option enables copying Additional Line Information flexfield data to the child lines from the model line. Context sensitive flexfields are usually desired, so the default value is No. You must set this parameter to Yes in order for the values to copy.</p>
+<p><b>OM: Item View Method</b></p>
+<p>This profile is used to decide the Options Window LOV item display format for models. This can be set with the following values: Description, Description without indentation, Concatenated segment values, and Concatenated segment values without indentation. This can be set at all four levels.</p>
+<p><b>OM: Show Line Details</b></p>
+<p>This profile option determines whether the line details of a model are displayed in the Sales Orders window.</p>
+<h2><a name="2970884"></a><a id="T374479"></a><b>Process Steps</b></h2>
+<p><a name="t_procstep" id="t_procstep"></a>This section will describe to steps required to order, ship and invoice a CTO item from the Order Management point of view including:</p>
+<ul>
+<li>
+<p>Entering the item - OM</p>
+</li>
+<li>
+<p>Selecting the options - CZ or OM</p>
+</li>
+<li>
+<p>Creation of a configured item - BOM</p>
+</li>
+<li>
+<p>Creation of a work order - WIP</p>
+</li>
+<li>
+<p>Manufacturing - WIP</p>
+</li>
+<li>
+<p>Shipping and invoicing - SHP</p>
+</li>
+<li>
+<p>Associated workflows - WF</p>
+</li>
+</ul>
+<h3><b>To setup a CTO item for ordering, shipping, and invoicing:</b></h3>
+<ol>
+<li>
+<p>Enter your item.</p>
+</li>
+<li>
+<p>Enter an ATO model as the item number.</p>
+</li>
+<li>
+<p>Click Configurator.</p>
+<p>If the profile option, OM: Use Configurator is set to Yes and the Configurator product is installed, the Oracle Configurator window appears after when clicking the Configurator button.</p>
+<p><b>Oracle Configurator window</b></p>
+<p><img width="710" height="468" src="./img/ontig_cto_5.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select your options.</p>
+<p>The folders on the left side are the model and its option classes. For the selected option class (in this example the RAM option class), the available options are in the top box on the right. The options are selected by checking the box to the left of the item name. The options and option classes which are selected are in the bottom right. Required option classes which have no selections are indicated by a red asterisk on the folder icon.</p>
+<p><strong><span>Note:</span></strong> Oracle Configurator is a powerful tool that enables you to create complex rules for configurations and then validate those rules when you create configurations. It is completely integrated with Order Management. See: <i>Oracle Configurator Developer User's Guide</i> and the <i>Oracle Configurator Installation Guide</i>.</p>
+</li>
+<li>
+<p>Click OK.</p>
+<p>The model, option classes, and selected options are now all separate lines on the sales order window, as shown in. Note that the lines are related by the line number.</p>
+</li>
+<li>
+<p>If the profile option, OM: Use Configurator is set to No, the Options Window will appear.</p>
+<p><b>Options Window</b></p>
+<p><img width="799" height="558" src="./img/ontig_options.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select your options.</p>
+</li>
+<li>
+<p>Click OK.</p>
+<p><strong><span>Note:</span></strong> When using the Enhanced Effectivity functionality the options window, at the time of re-configuration also displays any previously selected options that were disabled since the last time the configuration was created/updated. Such disabled options will be flagged appropriately in the ' Disabled' column in the options window.</p>
+<p>Each of these lines has a separate workflow and chapter will discuss the workflow process for each line in the workflow section.</p>
+<p>After the options for the configuration are selected, the items on the order must be scheduled.</p>
+<p><b>Sales Order Window with Model, Option Classes and Options</b></p>
+<p><img width="772" height="525" src="./img/ontig_cto_6.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p>See: <a href="T373258T377249.htm#t_schedov">Scheduling</a></p>
+<p><b>Create the configured item</b></p>
+<p>This item could be completely new, or it could have been manufactured before because someone selected the same combination of options. A program runs looks for an existing configuration with these options (if the value of the profile option BOM: Match to Existing Configuration = Yes), and if one does not exist (or if the value of the profile option BOM: Match to Existing Configuration = No) it creates an item and BOM for this combination of options. To run this program from the sales order window, place your cursor on the model line (the one with a two segment line number), press the Actions button and select Progress Order. The line will be eligible for the Create Configuration activity. Select this from the list and click OK. Alternatively you can create one or more configuration items in batch mode by running the AutoCreate Configuration Items concurrent request in the Bills of Material application.</p>
+<p>When you have completed this step, your order will have an additional line item which is known as the configured item. The item will have an item number which was created for the first order with this exact combination of selected options. The format for the configuration item number is determined by the Numbering Method parameter in the BOM parameters window.</p>
+<p><strong><span>Note:</span></strong> There are two batch programs, AutoCreate FAS, which creates work orders, and AutoCreate Configuration, which creates configuration items, configuration BOMs and routings, and calculates cost and lead time. These batch processes update the workflow of each order line that it processes.</p>
+<p><strong><span>Note:</span></strong> AutoCreate Configuration Items picks up orders that are at the Create Configuration Item Eligible block activity and creates the configuration item, configuration BOM and routing, and calculates cost roll up and lead time roll up. It then completes the Create Configuration Item Eligible block activity with a Complete result and completes the Create Configuration BOM Eligible block activity with a Config Data Created result.</p>
+<p><strong><span>Note:</span></strong> AutoCreate FAS picks up orders for configuration items with discrete routings that are at the Create Supply Order Eligible block activity and creates work orders for them. It the completes the Create Supply Order Eligible activity with a Reserved result.</p>
+<p><strong><span>Note:</span></strong> Create the work order. Creation of the work order will trigger the manufacture of the item.</p>
+<p>The CTO process works with both Oracle's Discrete Manufacturing applications and Oracle's Flow Manufacturing applications. This section uses the terminology of the discrete manufacturing process.</p>
+<p>To create the work order from the sales order window, place your cursor on the configured item line (the one that was added in the previous step,) click Actions and select Progress Order. The line will be eligible for the Create Final Assembly Order activity. Select this from the list and click OK. Alternatively you can create one or more work orders in batch mode by running the AutoCreate FAS concurrent request in the Work in Process (WIP) application.</p>
+<p>Manufacture the Item.</p>
+<p>In a production environment this could require many steps. None directly affect Order Management until the final status of work order completion. When the completion activity is performed in WIP the item is transferred to inventory with a reservation to the sales order.</p>
+<p>At this point, the configured item is available to progress through the standard order process of shipping and the model progresses through the invoice activity. The steps are described in the sales order flow and the shipping process flows sections of this manual.</p>
+<h3><b>Workflow</b></h3>
+<p>Although there are many item types in this business process, only two top level line Oracle Workflow processes are needed to support it. The seeded flow Line Flow - Generic is used for the model, option class and option lines. The seeded flow Line Flow - Configuration is used for the configured item.</p>
+<h3><b>Model, Options and Option Classes Workflow</b></h3>
+<p>The flow for the model, options and option classes all begin with the following basic process depicted in.</p>
+<p><b>Line Flow - Generic Workflow Process</b></p>
+<p><img width="708" height="300" src="./img/ontig_cto_7.gif" alt="the picture is described in the document text"></p>
+<p>The lines progress through the Enter - Line and Schedule - Line subflows along the same path. At the Create Supply - Line subflow, their paths deviate.</p>
+<p><b>Create Supply - Line Subprocess</b></p>
+<p><img width="623" height="370" src="./img/ontig_cto_8.gif" alt="the picture is described in the document text"></p>
+<p>The graphic above shows the variety of subflow paths that can be taken within Create - Supply Line. In the Branch on Source Type function, the options follow the path for Stock and the model follows the path for Build. Purchase Release - Line, Deferred is another subflow for drop shipments. See the corresponding section in this manual for more information on drop shipments.</p>
+<p>The Build path, shown in the following figure, has an additional sub-process of Create Configuration - Line Manual which looks like this.</p>
+<p><b>Create Configuration - Line, Manual Workflow Subprocess</b></p>
+<p><img width="698" height="195" src="./img/ontig_cto_9.gif" alt="the picture is described in the document text"></p>
+<p>This subprocess creates the new line on the order for the configuration item, and its workflow begins. This flow will be addressed in a moment. The activity also creates the new item (or finds the existing one, if applicable) and creates the BOM and Routing.</p>
+<p>Once the Create Configuration - Line, Manual subflow is complete for the model line, the model line as well as the options and option classes have completed the Create Supply - Line subprocess and are ready for shipping. However, the model, options and option classes of a Configure to Order item are not shippable. The assumption is that in the manufacturing process the components are built into one indivisible item. So they pass through the shipping process with a result of Not Applicable, and proceed to the invoice process. The model line will be invoiced, so it goes through the Invoice Interface - Line activity and should complete. The options and option classes are not invoiced, so they go through the Invoice Interface - Line activity with a result of Not Applicable.</p>
+<h2><a name="2970894"></a><a id="T374251"></a><b>Configured Item Workflow</b></h2>
+<p><a name="t_confwf" id="t_confwf"></a>The configured item is created and added to the order when the model goes through the Create Configuration activity. Its workflow process is simpler than the process for models and options, shown in below.</p>
+<p><b>Line Flow - Configuration Workflow Process</b></p>
+<p><img width="658" height="193" src="./img/ontig_cto_10.gif" alt="the picture is described in the document text"></p>
+<p>The figure below shows the first subprocess in the flow is the Create Manufacturing Configuration Date - Line, Manual.</p>
+<p><b>Create Manufacturing Configuration Data - Line Manual Workflow Subprocess</b></p>
+<p><img width="697" height="221" src="./img/ontig_cto_11.gif" alt="the picture is described in the document text"></p>
+<p>This is the subprocess that performs the necessary Costing rollup and calculates the lead time for the configured item.</p>
+<p>The figure below shows the next step in the configured item workflow, Create Supply Order - Line, Manual subprocess. This subprocess interfaces with the manufacturing system to trigger the assembly of the item. The Check Supply Type activity determines whether the item should be manufactured using discrete manufacturing or flow manufacturing. If the result is Flow Schedule, the Create Flow Schedule activity is executed. If the result is a Work Order, the final subprocess, the Create Work Order - Line process is executed.</p>
+<p><b>Create Supply Order - Line, Manual Workflow Subprocess</b></p>
+<p><img width="623" height="370" src="./img/ontig_cto_8.gif" alt="the picture is described in the document text"></p>
+<p><b>Create Work Order - Line Workflow Subprocess</b></p>
+<p><img width="727" height="339" src="./img/ontig_cto_13.gif" alt="the picture is described in the document text"></p>
+<p>The above figure indicates the final subprocess flow - Create Work Order - Line. The primary activity in this flow is the AutoCreate FAS activity, which will cause the WIP application to create a work order.</p>
+<p>After the work order is created, the sales order will wait for completion of the work order before proceeding. When the work order is complete the inventory will be received into the inventory module and automatically reserved to the sales order.</p>
+<p>The configured item then continues through the normal shipping and fulfillment steps and then its workflow is complete. It does not have an Invoice Interface subprocess because it is never invoiced. Only the model line, option classes and options may be invoiced depending on their item attributes.</p>
+<h2><a name="2970899"></a><a id="T374252"></a><b>Related Processes</b></h2>
+<p><a name="t_relproc" id="t_relproc"></a>Several processes share some of the characteristics of the configure-to-order process. They include the assemble-to-order process, the pick-to-order process and the kit process. Because the configure-to-order process is the most comprehensive and includes all the steps it was described first, and the rest will be described relative to it.</p>
+<p>The assemble-to-order process is similar to the PTO model, item, or PTO/ATO models because the items that are ordered by a customer are manufactured specifically for the customer order. So the manufacturing steps of the configured item are part of this process. However, the ATO item is not configurable for a customer in the sales order window. The ATO item is entered on the sales order window and then the order is booked without selecting any options. No option class lines or option lines are added to the order. The workflow process Line Flow - Generic supports the ATO process. The ATO item takes the ATO item branch in the Create Supply - Line workflow subprocess.</p>
+<p>The pick-to-order process is similar to the configure-to-order process because you can select the options chosen by the customer. On the sales order window the PTO model is entered, and then you press the Configurator button to launch the options selection window. The configuration options are saved, and the option classes and options are added as lines on the sales order. However, there are no assembly steps in the PTO process. The options all continue their own workflows which include the standard sales order line activities. When you create your PTO model in the Inventory application, Inventory sets the attributes for the model, and you can specify whether or not it is Ship Model Complete. If this attribute is Yes, all the options will be in a ship set. If this attribute is No then the items can ship independently.</p>
+<p>The kit process is similar to the pick-to-order process except that the user cannot select options to create a configuration. All the items in the kit are required; these are known as included items. Kits are similar to configure-to-order items because the included items are added to the order and have their own workflows. They are added either when the kit line is saved, when the order is booked, or when the line is pick released depending on the value of the profile option OM: Included Item Freeze Method. Ship Model Complete logic for PTO models also applies to kits.</p>
+<p>The PTO and Kit processes support ATO items as included and mandatory items in PTO models and kits. When the application identifies ATO items as included and mandatory items in the bill of materials of the PTO model or kit, then it selects the ATO flag for the items and populates corresponding ATO attributes when you create a sales order line having these items. To enable this functionality, you must set the values of OM: Allow Standard ATO Items as PTO/Kit Included Components and BOM: Allow ATO item in a KIT or as mandatory in a PTO Model profile options to Yes at the site level. See: Profile Options and Order Management Profile Option Descriptions and Settings topics in Oracle Order Management Implementation Guide. Additionally, see Bills of Material Profile Options, Oracle Bills of Material User Guide.</p>
+<h3><b>Enhanced Date Effectivity</b></h3>
+<p>Allows control over the behavior of configuration effectivity date based on the value of a system parameter. Supported for Oracle configurator or the OM options window. See: Oracle Order Management User's Guide for more information.</p>
+<h3><b>Sample Flows for Enhanced Date Effectivity</b></h3>
+<h3><b>Sample Flow 1</b></h3>
+<ol>
+<li>
+<p>Set new system parameter OM: Configuration Effective Date to Model Creation date.</p>
+</li>
+<li>
+<p>Create an order line for a model in order management on 3/20/03.</p>
+</li>
+<li>
+<p>Launch Configurator or Options window for the Model.</p>
+</li>
+<li>
+<p>Select options and save.</p>
+</li>
+<li>
+<p>Add new option to BOM on 3/21/03. Also disable some option or option class in BOM on 3/21/03.</p>
+</li>
+<li>
+<p>Re-open Configurator or Options window, new option will not be displayed. Disabled option or classes will still be available to choose.</p>
+</li>
+<li>
+<p>User modifies the configuration and saves.</p>
+</li>
+</ol>
+<h3><b>Sample Flow 2</b></h3>
+<ol>
+<li>
+<p>Set new system parameter OM: Configuration Effective Date to System Date until Booking.</p>
+</li>
+<li>
+<p>Create an order line for a model in order management on 3/20/03.</p>
+</li>
+<li>
+<p>Launch Configurator or Options window for the Model.</p>
+</li>
+<li>
+<p>Select options and save.</p>
+</li>
+<li>
+<p>Change the BOM for the model on 3/21/03 to add a new option and disable an option or a class.</p>
+</li>
+<li>
+<p>Re-open Configurator or Options window. A message to user will be displayed saying one or more options / classes are disabled in this configuration and will be removed from the existing configuration. New options will be available to choose.</p>
+</li>
+<li>
+<p>User accepts the message and modifies the configuration in the options window or the Configurator, and saves.</p>
+</li>
+<li>
+<p>Disabled options and classes will be deleted (or cancelled) automatically.</p>
+</li>
+<li>
+<p>User Books the order on 3/21/03. User changes BOM to include new options or disable options or classes.</p>
+</li>
+<li>
+<p>Re-open the Configurator or Options window.</p>
+</li>
+<li>
+<p>Now, new option will not be displayed. Disabled option or classes will still be available to choose.</p>
+</li>
+<li>
+<p>User modifies the configuration and saves.</p>
+</li>
+</ol>
+<h3><b>Sample Flow 3</b></h3>
+<ol>
+<li>
+<p>Set new system parameter OM: Configuration Effective Date to System Date until Booking.</p>
+</li>
+<li>
+<p>Create an order line for a model in order management on 3/20/03.</p>
+</li>
+<li>
+<p>Launch Configurator or Options window for the Model.</p>
+</li>
+<li>
+<p>The BOM of this model has a mandatory option class and user selects one option under it and saves the configuration.</p>
+</li>
+<li>
+<p>Change the BOM for the model on 3/21/03 to disable the selected option under the mandatory option class.</p>
+</li>
+<li>
+<p>Book the order. System will remove the disabled option and populate an error message to indicate the same. This will result in Configuration validation error and Booking will fail.</p>
+</li>
+<li>
+<p>Re-open Configurator or Options window. Choose an options for the mandatory option class and save.</p>
+</li>
+<li>
+<p>Book the order, this time Booking will be successful.</p>
+</li>
+</ol>
+<p><b>Note:</b> Mandatory option class rule is just an example and similarly some other BOM or CZ rules may result in invalid configuration with system parameter Configuration Effective Dates set to System Date until Booking.</p>
+<h3><b>Sample Flow 4</b></h3>
+<ol>
+<li>
+<p>Do not set new system parameter OM: Configuration Effective Date. This setting should be used to retain existing behavior.</p>
+</li>
+<li>
+<p>Create an order line for a model in order management on 3/20/03.</p>
+</li>
+<li>
+<p>Launch Configurator or Options window for the Model.</p>
+</li>
+<li>
+<p>Select options and save.</p>
+</li>
+<li>
+<p>Add new option to BOM on 3/21/03. Also disable some option or option class in BOM on 3/21/03.</p>
+</li>
+<li>
+<p>Re-open Configurator or Options window, new option will not be displayed. Disabled option or classes will still be available to choose.</p>
+</li>
+<li>
+<p>User modifies the configuration and saves.</p>
+</li>
+</ol>
+<h3><b>Sample Flow 5</b></h3>
+<p><strong><span>Note:</span></strong> This procedure is specific to Configurator.</p>
+<ol>
+<li>
+<p>Set new system parameter OM: Configuration Effective Date to Model Creation Date or System Date until Booking.</p>
+</li>
+<li>
+<p>Create an order line for a model in order management on 3/20/03.</p>
+</li>
+<li>
+<p>Launch Configurator for the Model.</p>
+</li>
+<li>
+<p>Select options and save.</p>
+</li>
+<li>
+<p>Add new option to BOM on 3/21/03. Also disable some option or option class in BOM on 3/21/03.</p>
+</li>
+<li>
+<p>Copy the order on 3/22/03. Disabled options will not be saved in the new order at the time of copy. Message will be populated to user to indicate that the options were not found in the BOM of model.</p>
+</li>
+<li>
+<p>Re query the copied order and open Configurator.</p>
+</li>
+<li>
+<p>New options will be available to choose.</p>
+</li>
+<li>
+<p>User modifies the configuration and saves.</p>
+</li>
+</ol>
+<p>Note that point 6 is existing behavior even without setting the system parameter</p>
+<h3><b>Sample Flow 6</b></h3>
+<ol>
+<li>
+<p>Set new system parameter OM: Configuration Effective Date to System Date until Booking.</p>
+</li>
+<li>
+<p>Create an order line for a model in order management on 3/20/03.</p>
+</li>
+<li>
+<p>Launch Configurator or Options Window for the Model.</p>
+</li>
+<li>
+<p>Select options and save.</p>
+</li>
+<li>
+<p>Add new option to BOM on 3/21/03. Also disable some option or option class in BOM on 3/21/03 &ndash; this option or class should be one of the selected items in the configuration from step 4.</p>
+</li>
+<li>
+<p>Change the ordered quantity of an option or a class in the configuration using sales order form. System will perform configuration validation.</p>
+</li>
+<li>
+<p>System cascade the quantity change and also will remove the disabled option and populate an error message to indicate the same.</p>
+</li>
+<li>
+<p>Book the Order.</p>
+</li>
+<li>
+<p>Again change BOM to disable some options selected in the configuration.</p>
+</li>
+<li>
+<p>Query the order and change ordered quantity on some options.</p>
+</li>
+</ol>
+<p>The quantity should be cascaded and newly disabled options should not be removed from the configuration.</p>
+<p><b>Service Termination</b></p>
+<p>Service Termination allows</p>
+<ul>
+<li>
+<p>Issue of full or partial credit for service lines during returns</p>
+</li>
+<li>
+<p>Terminate service item (extended warranty) when product is returned.</p>
+</li>
+</ul>
+<p>See the <i>Oracle Order Management User's Guide</i> for more information.</p>
+<h2><a name="2970908"></a><a id="T374480"></a><b>Global Order Promising for ATO Models</b></h2>
+<p><a name="t_gopato" id="t_gopato"></a>Scheduling for ATO models allows sourcing rules to be used to select a warehouse for an ATO model: you do not need to specify a warehouse for the ATO model.</p>
+<p>If the ATO model or any of its components are ATPable, the promised availability considers the matched configuration supply if ASCP is installed. If you drill from the Availability window to ATP Details, the quantity of available matching configured items is displayed. The Days Late column identifies options that are extending the Schedule Date on the ATP Details window.</p>
+<h2><a name="2970909"></a><a id="T374253"></a><b>Decimal Quantity for options of an ATO Model</b></h2>
+<p><a name="t_decqato" id="t_decqato"></a>This feature allows decimal quantities to be used on the options of an ATO Model during order entry. Decimal quantity can also be used for the options of an ATO Model even when the ATO Model is part of a parent PTO Model. ATO items and options of a PTO Model cannot use decimal quantities.</p>
+<p>Note 1: Non-Integer ratio is allowed between the Option and its parent (Option class). It is also allowed between the Option and its Model.</p>
+<p>Note 2: Non-Integer ratio is NOT allowed between the Option class and the Model.</p>
+<p>Examples:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>CASE 1: Valid</caption>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Ordered Quantity</td>
+</tr>
+<tr valign="top">
+<td>ATO Model</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>Option Class 1</td>
+<td>10</td>
+</tr>
+<tr valign="top">
+<td>Option 1A</td>
+<td>11</td>
+</tr>
+<tr valign="top">
+<td>Option Class 2</td>
+<td>20</td>
+</tr>
+<tr valign="top">
+<td>Option 2A</td>
+<td>20</td>
+</tr>
+</table>
+<p>Ratio of Option Class: Model are integer ratios, Option level is non decimal quantity.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>CASE 2: Valid</caption>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Ordered Quantity</td>
+</tr>
+<tr valign="top">
+<td>ATO Model</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>Option Class 1</td>
+<td>10</td>
+</tr>
+<tr valign="top">
+<td>Option 1A</td>
+<td>11.5</td>
+</tr>
+<tr valign="top">
+<td>Option Class 2</td>
+<td>20</td>
+</tr>
+<tr valign="top">
+<td>Option 2A</td>
+<td>19</td>
+</tr>
+</table>
+<p>Ratio of Option Class: Model is an integer, Ratio of Option: Option Class/ Model is non-integer.</p>
+<p>Option 1A has an ordered quantity which is a decimal quantity.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>CASE 3: Invalid</caption>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Ordered Quantity</td>
+</tr>
+<tr valign="top">
+<td>PTO Model</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>ATO Model</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>Option Class 1</td>
+<td>10.4</td>
+</tr>
+<tr valign="top">
+<td>Option 1A</td>
+<td>11.5</td>
+</tr>
+<tr valign="top">
+<td>Option Class 2</td>
+<td>20</td>
+</tr>
+<tr valign="top">
+<td>Option 2A</td>
+<td>19</td>
+</tr>
+</table>
+<p>Decimal Quantity Allowed ONLY for options of an ATO Model. Decimal Quantity NOT allowed at the option class level. Ratio of Option Class: Model is a non-integer.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>CASE 4: Invalid</caption>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Ordered Quantity</td>
+</tr>
+<tr valign="top">
+<td>PTO Model</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>ATO Model</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>Option Class 1</td>
+<td>10</td>
+</tr>
+<tr valign="top">
+<td>Option 1A</td>
+<td>11.5</td>
+</tr>
+<tr valign="top">
+<td>Option Class 2</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Option 2A</td>
+<td>20</td>
+</tr>
+<tr valign="top">
+<td>PTO Option Class 2</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>PTO Option</td>
+<td>2.5</td>
+</tr>
+</table>
+<p>Decimal Quantity allowed for options of an ATO Model ONLY. Decimal Quantity NOT Allowed for options / option class of a PTO Model.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>CASE 5: Invalid</caption>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Ordered Quantity</td>
+</tr>
+<tr valign="top">
+<td>PTO Model</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>ATO Model</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>Option Class 1</td>
+<td>10</td>
+</tr>
+<tr valign="top">
+<td>Option 1A</td>
+<td>11.5</td>
+</tr>
+<tr valign="top">
+<td>Option Class 2</td>
+<td>20</td>
+</tr>
+<tr valign="top">
+<td>Option 2A</td>
+<td>20</td>
+</tr>
+<tr valign="top">
+<td>PTO Option Class 2</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>PTO Option</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>ATO item 3</td>
+<td>2</td>
+</tr>
+</table>
+<p>Decimal Quantity allowed for options of an ATO Model ONLY. Decimal NOT Allowed for options / option class of a PTO Model OR ATO items</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>CASE 6: Valid</caption>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Ordered Quantity</td>
+</tr>
+<tr valign="top">
+<td>PTO Model</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>ATO Model</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>Option Class 1</td>
+<td>10</td>
+</tr>
+<tr valign="top">
+<td>Option 1A</td>
+<td>11.5</td>
+</tr>
+<tr valign="top">
+<td>Option Class 2</td>
+<td>20</td>
+</tr>
+<tr valign="top">
+<td>Option 2A</td>
+<td>20</td>
+</tr>
+<tr valign="top">
+<td>PTO Option Class 2</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>PTO Option</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>ATO item</td>
+<td>4</td>
+</tr>
+</table>
+<p>Decimal Quantity Allowed for options of an ATO Model ONLY. All ratios between Option class and Model are integer ratios.</p>
+<h3><b>To set up global order promising for available to order models:</b></h3>
+<ol>
+<li>
+<p>Define your planning sourcing rules, such as for Make, Transfer, and Buy</p>
+</li>
+<li>
+<p>Set up the profile option BOM: Match to Existing Configurations to Yes. For the system to look for a match for your configured item at the time of scheduling, you must set this profile option to yes. The profile option for BOM: Use Custom Match Functionality is not required. If the Item attribute is null, it uses this profile option. Otherwise, it uses BOM: Match to Existing Configuration.</p>
+</li>
+<li>
+<p>On the item, set Match Configuration to Standard Match. With PDS, which refers to ATP with planning output, you can match configurations. This requires that you set the Item Level Attribute, Match Configuration, in the Item master for the model. When you Enable Configuration and set Match Configuration, the following occurs:</p>
+<ul>
+<li>
+<p>If the item attribute Match Configuration is set to No, a Match is not performed for the configuration of this base model.</p>
+</li>
+<li>
+<p>If the item attribute Match Configuration is set to Standard Match, a Match is performed for the configuration of this base model.</p>
+</li>
+<li>
+<p>If the item attribute Match Configuration is set to Custom Match, a custom hook for Models is called for configuration of this base model. If the item level attribute is set for Custom Match then you must specify custom code. If this attribute is null then no match will occur.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Run Data Collections.</p>
+</li>
+<li>
+<p>Create a plan for your items.</p>
+</li>
+<li>
+<p>Optionally, create a folder for the ATP Details summary region to provide visibility to the Days Late attribute. Use Folders to display the Days Late attribute. The summary region of the ATP Details window is modified to show the Matched Configuration. Also, you will probably want to set up a folder to improve visibility to key attributes on the summary region of the ATP Details window.</p>
+</li>
+</ol>
+<h3><b>Relaxed Order Management constraints:</b></h3>
+<p>To take full advantage of planning and create configuration features the following OM constraints have been removed:</p>
+<ul>
+<li>
+<p>If you have non-organization specific sourcing assignments set for your model, warehouse is no longer required prior to scheduling.</p>
+</li>
+<li>
+<p>Warehouse changed allowed until a reservation is made to the configuration item ONLY for order lines for models with the "Create Configuration item, BOM" attribute set to &ldquo;Based on Model." With this setting, configuration data is created from all possible sources, giving you the flexibility to change the warehouse at any time.</p>
+</li>
+<li>
+<p>In all other settings, the configuration data was created only in the sourcing chain for the shipping warehouse, and you must delink the item, change the warehouse and rerun autocreate config to create the data based on the new warehouse.</p>
+</li>
+<li>
+<p>If you are using match, the same item will be reused, and additional data created.</p>
+</li>
+<li>
+<p>Splits are now allowed on a model line until a reservation is made to the configuration item</p>
+</li>
+<li>
+<p>You can unschedule an order until it has been shipped.</p>
+</li>
+</ul>
+<h2><a name="2970912"></a><a id="T374254"></a><b>Enhanced ATP</b></h2>
+<p><a name="t_enhatp" id="t_enhatp"></a>Enhanced ATP and planning support for configurations supports the following features:</p>
+<p><strong><span>Note:</span></strong> Some of the features listed below are available only with ATP based on planning output, Advanced Planning and Scheduling, and Demand Planning.</p>
+<ul>
+<li>
+<p><b>Match during ATP and planning:</b> ATP does a match prior to performing its availability check. If a match is found, ATP is done on the matched item instead of the model and options. This provides an accurate ATP and scheduling throughout the Order lifecycle, as well as enables customers to manage a combination of make to stock and make to order business processes. ASCP identifies that a sales order for the model and option matches an existing configuration item. This allows ASCP to net existing supplies of pre-configured stock at any supply chain bill of material level.</p>
+</li>
+<li>
+<p><b>Global ATP for ATO Models and ATO Items:</b> You do not have to specify a warehouse prior to scheduling or performing an ATP. ATP chooses a source based on sourcing assignments and availability to produce the specific configuration, enabling the system to recommend the best possible source for the product.</p>
+</li>
+<li>
+<p><b>Support for Multiple Sources:</b> You can source configurations from more then one location. This can be done through sourcing assignments that are a combination of make/buy, make/transfer, transfer/transfer, and so on. Multiple Sources also requires global forecasting, which is a feature of Demand Planning.</p>
+</li>
+<li>
+<p><b>Option Specific Sourcing of ATO Models:</b> You can restrict the sourcing of a model based on the options chosen. For example, a Model could be made in organizations 1 & 2, but if option 1 is chosen, it can only be made in organization 1.</p>
+</li>
+<li>
+<p><b>Pre-configuration forecast consumption:</b> If a forecast exists for the matched item, its forecast is consumed first, then the model and option forecast is consumed, if needed.</p>
+</li>
+<li>
+<p><b>Planning for option dependant resources:</b> When planning to a forecast, APS applies the planning percentages to the option dependant resources in addition to the optional material.</p>
+</li>
+<li>
+<p><b>Supplier Capacities for ATO Models:</b> You can specify a supplier capacity for an ATO model, and sales order for configurations of that model consumes the models capacity.</p>
+</li>
+</ul>
+<p>See:</p>
+<p><i>Oracle Configure to Order Process Manual</i></p>
+<p><i>Oracle Advanced Planning Implementation Guide</i></p>
+<p><i>Oracle Global Order Promising Implementation and User's Guide</i></p>
+<p><i>Oracle Demand Planning Implementation & Users Guide</i></p>
+<h2><a name="2970913"></a><a id="T374255"></a><b>Auto Create Configuration</b></h2>
+<p><a name="t_autoconfig" id="t_autoconfig"></a>Enhancements and changes in this area include:</p>
+<ul>
+<li>
+<p><b>Match control by Model:</b> Control for matching is a model item attribute, enabling you to choose to match in some cases and not others.</p>
+</li>
+<li>
+<p><b>Control where the Configured item, BOM and Routing is created:</b> You can specify to create it only in the organizations required for this order, or in all organizations where the model exists</p>
+</li>
+<li>
+<p><b>Option Specific Sourcing:</b> BOM and routing creation are further restricted by the option specific sourcing setup used during ATP.</p>
+</li>
+<li>
+<p><b>Configured Item creation for all Scheduled Orders:</b> The auto create configured items process will now create configurations for all scheduled orders that fit the program parameters, even if scheduling happens before booking. Scheduled orders for generating the Configurations with out looking at whether the Order is booked or not. This helps planning consider the Sales order demand in the form of configured items instead of Model and Options. However, the creation of configurations through sales order workflows (Progress Order to Create Config Eligible) is not possible for scheduled orders if they are not booked. The Batch Program Auto Create Configured items when Automated to run at regular intervals picks up the scheduled and configured orders and creates configurations for them. Before creation of Configurations the demand exists as Model and Option demand. The demand is transferred to a Configured item when created and linked to the sales order De-link, Link, Match and Reserve possible before booking. For a scheduled order, de-linking the configured item, creating configured item, Match and reserve functions work before booking.</p>
+</li>
+<li>
+<p><b>Indication of Dropped Components:</b> If you select optional components, and they cannot be added to a bill in any organization in which the application attempts to create it, the program either stops the item/bill creation or creates it without the required item. In either case, a message is sent to the appropriate planners that action is needed and the order line is put on hold.</p>
+</li>
+<li>
+<p><b>Decimal Quantities for Options of an ATO Model:</b> You can enter decimal quantities on options during the configuration process. These decimals are used during the Bill creation process. Decimals are not allowed on the ATO model itself, option classes, or components of PTO models.</p>
+</li>
+<li>
+<p><b>Re-Use for Non-Matched Models:</b> If a configuration item is manually de-linked from a sales order, but the configuration is not changed, the same item number is re-linked to the configuration the next time auto create configuration is run.</p>
+</li>
+<li>
+<p><b>Flexibility to delay optional processing for configured items:</b> You can separate the optional processing (lead time roll-up, cost roll-up, purchase price roll-up) from the create config process. Batch programs do the optional processing as separate processes.</p>
+</li>
+</ul>
+<h2><a name="2970914"></a><a id="T374256"></a><b>Autocreate Supply Changes</b></h2>
+<p><a name="t_autosupply" id="t_autosupply"></a>In previous releases, if you were not using Configure to Order create supply processes to create sales orders, you were required to:</p>
+<ol>
+<li>
+<p>Modify the workflow so that it no longer required a reservation for shipment</p>
+</li>
+</ol>
+<p>or</p>
+<ol>
+<li>
+<p>Leave the workflow as is, and run an OM auto-reserve program before being able to ship your configurations.</p>
+</li>
+</ol>
+<p>In previous releases, you could use the standard workflow to bypass the create supply processes in cases where you did not want to create supply for a sales order.</p>
+<p>If you use planning to create supply for sales orders, the workflow has been modified to skip the create supply process in the following scenarios:</p>
+<ul>
+<li>
+<p>More then one source is defined for the configuration in the shipping organization in default assignment set</p>
+</li>
+<li>
+<p>Configuration has a 100% transfer from sourcing rule in shipping organization</p>
+</li>
+<li>
+<p>Customer defined logic exists.</p>
+</li>
+</ul>
+<p><b>Example</b></p>
+<p>Planning is run once per week. If an order comes in within the week, create supply through the automated process, otherwise skip it and move to ship line.</p>
+<p><b>Update Existing Configurations</b></p>
+<p>A new program has been created to allow users to update the configuration item, BOM, Routing and sourcing rules for existing configurations when the following setup changes occur on the model:</p>
+<ul>
+<li>
+<p>Addition or change of sourcing rules, assignments, or option specific sourcing</p>
+</li>
+<li>
+<p>Change of the Create Configured Item, BOM attribute setting</p>
+</li>
+<li>
+<p>Change of ATP attributes</p>
+</li>
+</ul>
+<p><b>Business Flow Support</b></p>
+<p>Oracle Supply Chain Applications have introduced support for business flows for global corporations, in which the financial ownership of goods does not necessarily follow the physical movement of goods. These include the following business flows:</p>
+<ul>
+<li>
+<p>Central Procurement</p>
+</li>
+<li>
+<p>Central Distribution</p>
+</li>
+</ul>
+<p><b>Drop Ship Across Ledgers</b></p>
+<p>If enhanced intercompany is being used, at the time of intercompany invoicing between each operating unit pair in the transaction flow:</p>
+<ol>
+<li>
+<p>The system checks to see if a transfer price already exists for the specific configuration (you may have a set price for a preconfigured item, for example).</p>
+</li>
+<li>
+<p>If no price exists, it performs a calculation of the transfer prices based on the rolled up transfer prices of the base model and all its options. Standard, mandatory components are not included in the roll-up.</p>
+</li>
+<li>
+<p>Include their prices in the price of the parent model or option class. This calculation is based on the model and options on the linked sales order (if one exists) or on the configuration bill of material.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> The system randomly chooses a BOM from those that exist in the system.</p>
+<p>See: <i>Oracle Inventory User's Guide</i>, <i>Oracle Purchasing User's Guide</i></p>
+<h2><a name="2970915"></a><a id="T374257"></a><b>Drop Shipments</b></h2>
+<a name="t_drpshp" id="t_drpshp"></a>
+<h3><b>Overview</b></h3>
+<p>Drop shipments occur when your customer orders product from you, you order the product from your supplier, and your supplier ships the product directly to your customer. Order Management sends information to the Purchasing Application to create that PO, and then when that PO is received (to indicate shipment from the supplier to your customer), the order line is automatically updated to indicate that it was fulfilled.</p>
+<p>In this process, the company running Order Management is modeled as the company to whom the end customer places the original order. We call this process Vendor Drop Shipment, to indicate that we are defining the process from this point of view.</p>
+<p>The Source Type attribute on the order line controls whether a line will be fulfilled internally or drop shipped. A source type of External indicates Drop Ship. Drop ship order lines can be processed for standard items, ATO models, Non SMC PTO models and kits. SMC PTO models cannot be used on drop ship order lines. You can define an Order Transaction type that specifies all of its lines be sourced externally.</p>
+<h2><a name="2970917"></a><a id="T374258"></a><b>Required Setup</b></h2>
+<a name="t_drpset" id="t_drpset"></a>
+<h3><b>Warehouse</b></h3>
+<p>Consider establishing a logical warehouse to receive drop shipments. This will isolate the costs of drop shipped items from items you physically stock. Order Management does not require you to use a special shipping organization for drop shipments, but you can choose to do so. In that case, define the logical warehouse as a shipping organization, and enable the items you want to be drop shipped in that warehouse.</p>
+<h3><b>Order Transaction Type/Line Transaction Type</b></h3>
+<p>Define line type/order types for your drop shipment orders that have a workflow containing the Create Supply&mdash;Line subprocess. This sub process could have the ' Purchase Release Line Deferred' activity - so drop ship lines are automatically interfaced to Purchasing via a workflow background process after Booking. You could include the ' Purchase Release Line - Manual' activity and allow Purchase Release to be a manual activity i.e. run adhoc or in batch mode via the concurrent program.</p>
+<h3><b>Defaulting Rules</b></h3>
+<p>Define defaulting rules, based on conditions that make sense to your business process, for the source type attribute of the Order Line. If you want a line to be drop shipped, make the source type equal to External. In addition, if you defined a special warehouse for drop shipped items, you might want to create a defaulting rule to default that shipping organization to your order line.</p>
+<h3><b>Processing Constraints</b></h3>
+<p>Depending on your business needs you could use various constraints for example you could prevent changes once a PO is approved or you could choose to disable this constraint provided you have a process to handle any exceptions from the supplier.</p>
+<p>Depending on the status of the PO / Requisition - some typical changes allowed from the sales order are - Quantity Increases / Decreases, Cancellations, Scheduled Ship Date, Ship To Location, or Referenced Data elements (ship method).</p>
+<p>Depending on the status of the PO / Requisition / Sales Order Line - some typical changes allowed from the PO side are - Promise Date, Delete Lines, or Cancellations.</p>
+<p>Other restrictions imposed during the change management process are included in Oracle Order Management User's Guide.</p>
+<h2><a name="2970922"></a><a id="T374481"></a><b>Process Steps</b></h2>
+<p><a name="t_defprocst" id="t_defprocst"></a>Use this procedure to perform a drop shipment:</p>
+<p><b>To Perform a Drop Shipment</b></p>
+<ol>
+<li>
+<p>Enter and book an order.</p>
+<p>Defaulting Rules may set source type attribute to External through the organization level item attribute setting&mdash;Default SO source type for the item, or you can manually select External as the source type on the sales order line. Drop ship order lines can be processed for standard items, ATO models, Non SMC PTO models, and kits. SMC PTO models cannot be used on drop ship order lines. The Create Supply workflow step loads OM information into Oracle Purchasing's Requisition Import tables. Alternatively, the Purchase Release concurrent program can be run to do the same.</p>
+</li>
+<li>
+<p>Run Requisition Import in Purchasing to create the requisition.</p>
+<p><strong><span>Note:</span></strong> The Group Requisitions By Sales Order system parameter determines whether the Requisition Import process will import all the drop ship sales order lines into a single purchase requisition even though the lines belong to multiple sales orders or whether the process will group all drop ship sales orders lines by sales order and then import them into separate purchase requisitions.</p>
+<p>For more information on this Group Requisitions By Sales Order system parameter, see <a href="T373258T374215.htm#seeded_sysparms">Seeded System Parameters</a>.</p>
+</li>
+<li>
+<p>Create a PO or autocreate a Sales Agreement PO release from the approved requisition.</p>
+</li>
+<li>
+<p>When the vendor ships product to your customer, you may receive an ASN, or even an invoice, to indicate shipment to the customer.</p>
+<p>If the vendor does not send an ASN, a receipt can be entered manually (passive receiving) to record a logical receipt.</p>
+<p>You can set the profile PO: Automatically Deliver Drop Ship ASNs to trigger automatic receipt of the ASNs in Purchasing, or choose to have manual intervention to receive the ASN. Inbound and outbound material transactions are automatically created for accounting purposes.</p>
+</li>
+<li>
+<p>Order Management workflow proceeds to the next step, typically invoicing to the end customer.</p>
+</li>
+</ol>
+<h2><a name="2970923"></a><a id="T374259"></a><b>Workflow</b></h2>
+<p><a name="t_ffworkflow" id="t_ffworkflow"></a>The Generic Line workflow contains the Create Supply activity, which branches to various sub-processes based on different characteristics of the item and sales order line.</p>
+<p>Order Management's workflows streamline the process of loading order information into the Purchasing Requisition import tables, eliminating the need to run the Purchase Release concurrent program. You can still run Purchase Release as a concurrent program, if you prefer to batch up requisition lines.</p>
+<h3><b>Drop Ship Across Ledgers</b></h3>
+<p>Within a Centralized Distribution / Manufacturing environment Drop ship across Ledgers could be used for example, in a case where you use a global/regional distribution center to gain tax advantages, you can now perform clear ' arms length' ownership transfer between the operating unit shipping the goods and the operating unit which sold the goods and possibly one or more internal organizations.</p>
+<p>Drop shipping across ledgers offers the ability to consolidate procurement functions for all global business units into one or multiple Shared Service Centers. Central Procurement Organizations:</p>
+<ul>
+<li>
+<p>Leverage buying volume by consolidating demand across organizations</p>
+</li>
+<li>
+<p>Standardize terms and conditions across all enabled organizations</p>
+</li>
+<li>
+<p>Centralize supplier relationship management</p>
+</li>
+<li>
+<p>Complete transactions across international borders through foreign subsidiaries/shared service centers</p>
+</li>
+</ul>
+<p>When goods are shipped or received, the financial ownership through these organizations does not necessarily follow the physical movement of goods.</p>
+<p>Drop Ship across Ledgers can fulfill drop shipments across multiple operating units (OU), ledger or legal entities, and automate inter-company transactions between multiple operating units, ledgers or legal entities.</p>
+<p><strong><span>Note:</span></strong> Only When using drop ship across ledgers/operating units, the requisition/purchase order is created in the operating unit of the warehouse that has been referenced on the drop ship order line.</p>
+<p>See: Oracle Purchasing Product and Functional Overviews,</p>
+<p>Oracle Inventory & Cost Management Enhanced Intercompany Product and Functional Overviews</p>
+<h3><b>Change Management</b></h3>
+<p>Change management support between Order Management and Purchasing automatically propagates user initiated changes on the sales order to the corresponding requisition/purchase order even if they are across ledgers or in different operating units.</p>
+<p>See: Change Management for Drop Ship Orders in <i>Oracle Order Management User's Guide.</i></p>
+<h3><b>Additional Information to Supplier</b></h3>
+<p>Enhanced integration between Oracle Order Management and Purchasing sends additional sales order data to the supplier.</p>
+<p>See: Sales Order Elements in <i>Oracle Order Management User's Guide.</i></p>
+<h2><a name="2970927"></a><a id="T374260"></a><b>Back-to-Back Orders</b></h2>
+<p><a name="t_btbo" id="t_btbo"></a><a name="d0e64799" id="d0e64799"></a><a name="d0e64802" id="d0e64802"></a>In an environment where lead times are often only a matter of 24 hours, you may need to create a specific supply order linked to each customer order as soon as the order is booked, with the supply order hard pegged to the customer order that it is supplying. Once the supply reaches the warehouse it must not be inadvertently taken by another order or demand. Additionally, where the Sales Order line is in the process must be visible to you at all times so you can answer customer service inquiries. This process, Back-to-Back Orders, closely links the Sales Order and the supplying Purchase Order, often where one PO is tied to one Sales Order. The following shows you how you can model this process using Oracle Order Management and Oracle Configure-to-Order workflows.</p>
+<h3><b>Overview</b></h3>
+<p>Often customers order products that you do not typically stock but that you do not manufacture either. You may want to purchase that item specifically for this order, have the supplier ship it to you, and then combine it with other items you may have purchased or stocked to create one shipment to the customer. This is a common scenario for Wholesale Distributors who use the S3, or Sell-Source-Ship business model as well as for other demand channels. We call this process back-to-back orders or procure-to-order.</p>
+<p>Keys to making this business process work are automating the Purchasing document creation, having accurate status of where the line is in the process, and pegging (or hard reservation) of the supply to the demand, so that the inventory isn't shipped to other customers once it is received.</p>
+<p>The supply-to-order process satisfies this business need through both the familiar assemble-to-order process&mdash;in which a specific work order is created to build the item&mdash;and the procure-to-order process whereby a specific purchase order is created to fulfill the sales order demand.</p>
+<p>Supply-to-order items are either standard items or models that have the assemble-to-order item attribute turned on. It is this attribute that launches the ATO workflows that deliver this feature. PTO models by definition cannot be supply-to-order, since turning on the assemble-to-order attribute would make them an ATO model. But you can fulfill the shippable options of a PTO model with back-to-back orders by checking the assemble-to-order item attribute of those components.</p>
+<p>Using this process, you can:</p>
+<ul>
+<li>
+<p>Designate the items you want to procure each time they are customer-ordered as supply-to-order.</p>
+</li>
+<li>
+<p>Set up a Buy From sourcing rule for those items or, if you don't set up sourcing rules, indicate that the item is a buy item rather than a make item.</p>
+</li>
+<li>
+<p>Enter sales order lines for these items, and have the supply automatically created via a requisition. No user decision-making is required to make this happen.</p>
+</li>
+<li>
+<p>Have the requisition converted into a Purchase Order or a release of a Sales Agreement and have the PO or release sent to the supplier.</p>
+</li>
+<li>
+<p>View the requisition number or PO number and its status from the Sales Order.</p>
+</li>
+<li>
+<p>Accept changes to the Sales Order and have the ability to notify the buyer to take appropriate action on the associated PO.</p>
+</li>
+<li>
+<p>Reserve the supply from the Requisition to the PO and finally to Inventory once the PO is received.</p>
+</li>
+<li>
+<p>Pick, ship and finally invoice the customer for the product.</p>
+</li>
+</ul>
+<h3><b>Features</b></h3>
+<p>To satisfy the above business needs, Oracle Order Management and Configure-to-Order have combined to deliver the back-to-back business flow with the following set of features:</p>
+<h3><b>Auto Create Requisitions</b></h3>
+<p>An automatic process called Auto Create Requisition is available that creates the requisition in Purchasing for the Sales Order line. This process takes information</p>
+<p>from the sales order line and puts it in the requisition import interface tables so that a purchase requisition can be created. This process can be run as a scheduled or on-request concurrent process, or can be initiated online from the Sales Order line using &lsquo;Progress Order' action.</p>
+<h3><b>Flow of Reservation Supply from Requisition to PO to Inventory</b></h3>
+<p>The supply for the reservation is first linked to the requisition, then moves to the PO, and finally to Inventory as the PO is received. Visibility to the supply for the reservation is provided in the View Reservations window.</p>
+<h3><b>Use of Workflow to Automate Process Steps</b></h3>
+<p>A branch of the existing Create Supply workflow subprocess in the seeded generic sales order line workflow initiates the autocreate purchase requisition processing when there is a Buy result.</p>
+<h2><a name="2970933"></a><a id="T374482"></a><b>Setup</b></h2>
+<a name="t_btbset" id="t_btbset"></a>
+<h3><b>To setup Back-to-Back Orders in Oracle Order Management:</b></h3>
+<ol>
+<li>
+<p>Use the Inventory Master Items window to define the items that you wish to supply to order. The following item attributes must be specified:</p>
+<ul>
+<li>
+<p>Item must be marked as Customer Orderable on the Order Management tab and Purchasable on the Purchasing tab.</p>
+</li>
+<li>
+<p>Item must be marked as Assemble-to-Order on the Order Management tab.</p>
+<p><strong><span>Note:</span></strong> The Assemble-to-Order attribute is actually called Replenish to Order in the database. The same flag also controls Procure-to-Order. (This is not related to the Oracle Warehouse Management replenishment feature.)</p>
+</li>
+<li>
+<p>Item must be marked as Build in WIP on the WIP tab.</p>
+</li>
+<li>
+<p>Item must either have the make/buy flag on the General Planning tab set to Buy, or else have a sourcing rule saying that it is to be sourced from a vendor.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you define a sourcing rule for your Supply-to-Order items, then the sourcing rule must be of type Buy From. Also, you may only define one single sourcing rule for your item, or this process will not work.</p>
+</li>
+<li>
+<p>You must add this sourcing rule to the assignment set which is specified as the MRP default assignment set in the MRP: Default Sourcing Assignment Set profile option.</p>
+<p><strong><span>Note:</span></strong> You may not have a combination of Buy From and Make sourcing rules or more than one sourcing rule in the assignment set for the same item. If you do that, Auto Create Requisition errors out and puts details about the problem in the log file.</p>
+</li>
+</ol>
+<h2><a name="2970935"></a><a id="T374483"></a><b>Sales Order Process</b></h2>
+<a name="t_soproc" id="t_soproc"></a>
+<h3><b>To enter orders using Supply-to-Order items:</b></h3>
+<ol>
+<li>
+<p>Enter the item on the Sales Order line.</p>
+<p>When the line is Booked/Scheduled, the Create Supply subprocess of the workflow will put the lines through the Buy ATO Item flow which contains the autocreate purchase requisition activity. AutoCreate Requisition can be run as a concurrent program or can be initiated for an individual order by using the Progress Order action on the sales order if it is in status Create Supply Line &ndash; Eligible. As stated above, AutoCreate Requisition takes information from the Sales Order line and loads the Requisition Import interface tables.</p>
+</li>
+<li>
+<p>Requisition Import must be run to create the purchase requisition tied to the sales order line. This can be done by manually submitting the Requisition Import concurrent program, or you can schedule it to run automatically. Requisitions created by this process all have an interface source type of CTO so you can identify and segregate these requisitions as needed. There are also message dictionary entries for CTO Note to Receiver that can be populated with custom text. The requisition column Note to Buyer is populated by the AutoCreate Requisition process with a message Supply for sales order: &lt;order number&gt; that indicates the order number of the line. Add additional custom text to the note by editing the message dictionary for CTO Note to Buyer.</p>
+</li>
+</ol>
+<h2><a name="2970937"></a><a id="T374261"></a><b>Purchasing Process</b></h2>
+<p><a name="t_purproc" id="t_purproc"></a>Once the purchase requisition is created and identified as CTO, the regular purchasing process takes place:</p>
+<ol>
+<li>
+<p>A Purchase Order is created and approved and sent to the necessary supplier, or a release of a previously created Sales Agreement is used.</p>
+</li>
+<li>
+<p>Once the PO or release is received, the items are recorded in inventory and a reservation is automatically made to the sales order line.</p>
+<p><strong><span>Note:</span></strong> View the Note to Buyer at any point in this process to find out what sales order generated this PO or release.</p>
+</li>
+<li>
+<p>The sales order can now be pick released, shipped and invoiced just like other stocked items.</p>
+</li>
+</ol>
+<h2><a name="2970938"></a><a id="T374262"></a><b>Sales Order Line Status</b></h2>
+<p><a name="t_solnstat" id="t_solnstat"></a>The following line statuses help you track where the line is in the process:</p>
+<ul>
+<li>
+<p>PO Req Requested</p>
+</li>
+<li>
+<p>PO Req Created</p>
+</li>
+<li>
+<p>PO Created</p>
+</li>
+<li>
+<p>PO Received</p>
+</li>
+</ul>
+<p>If you want to see the Requisition number or Purchase Order number created by your Sales Order line, you must go to the Reservations Details window to find that information.</p>
+<h2><a name="2970939"></a><a id="T374263"></a><b>Reservations</b></h2>
+<p><a name="t_reserv" id="t_reserv"></a>A key in making this functionality work for you is how the inventory reservation is handled. This happens automatically, and can be traced from the sales order window by using Tools-&gt;Scheduling-&gt;Reservation Details as well as by directly using Inventory's Supply/Demand forms.</p>
+<p>When Req Import processes, the purchase requisition is reserved to the sales order line. View the Inventory Reservations window supply tab to see the reservation linked to a requisition, and the requisition number and line number.</p>
+<p>When the requisition becomes a PO or a Sales Agreement release, the reservation moves with it. The Reservations window, supply tab, then shows the reservation is linked to a PO or a Sales Agreement, and you will see the PO number or the PO and release number, as well as the line number.</p>
+<p>When the PO is received into inventory, the reservation is automatically transferred into Inventory, and it now looks like any other reservation from a sales order to on-hand stock.</p>
+<p>Just as in the regular ATO process, if you manually reserve the sales order line to inventory the Create Supply workflow step will not do anything, and the line will progress to Awaiting Shipping without flowing through the requisition process.</p>
+<h2><a name="2970940"></a><a id="T374264"></a><b>Changes or Cancellations</b></h2>
+<p><a name="t_cgcanc" id="t_cgcanc"></a>What happens if you need to make changes to the sales order line that is in the back-to-back process? What if the order line is cancelled? What if you need to make changes to the PO or the requisition?</p>
+<p>If the sales order line is cancelled or the quantity is reduced, then the reservation is reduced and a notification is automatically sent to the buyer explaining that there is now a PO outstanding for a higher quantity than what is needed for the sales order. The buyer can then decide whether to cancel the PO line, or to buy the product anyway and put it into inventory.</p>
+<p>If the schedule date on the sales order line is changed, again a notification is sent to the buyer, who can then decide to either change the date on the PO or cancel it or do nothing. If the buyer decides to cancel the PO, then a new requisition will be created the next time AutoCreate Requisition is run.</p>
+<p>If the PO is cancelled or a partial quantity is cancelled, then the reservation is cancelled or reduced appropriately. The next time AutoCreate Requisition is run, it will create another requisition for the unreserved amount on the sales order.</p>
+<p><strong><span>Note:</span></strong> User initiated splits are not enabled on a back to back sales order line that is purchase released and the reservations are against Purchase Order or Purchase Requisition.</p>
+<h2><a name="2970941"></a><a id="T374265"></a><b>Miscellaneous</b></h2>
+<a name="t_misc" id="t_misc"></a>
+<h3><b>Drop Shipments</b></h3>
+<p>Drop Shipments is similar to this back-to-back process in that your sales order line creates a requisition line that becomes a PO sent to your supplier. In a drop shipment; however, you instruct your supplier to send the item or configured item directly to your customer. The items never physically pass through your warehouse, and therefore you do not pick, pack or ship them yourselves. In the back-to-back scenario, you instruct your supplier to send you the goods, and then you ship them on to your customer.</p>
+<h3><b>Supply Type for Reservations</b></h3>
+<p>There is a Supply Type of External Requisition to inventory reservations that also shows the purchase order or requisition that the reservation is made to in the Inventory Reservations window.</p>
+<h3><b>Debugging</b></h3>
+<p>The AutoCreate Requisition program uses the OM debug system. This means you can generate a debug file if you set the OM debug profile and the OM debug log directory profiles and then run the program.</p>
+<p>Purchasing has its own debug profile which is used by Requisition Import to log messages, but any messages regarding the reservations are logged using OM's debug facilities.</p>
+<h2><a name="2970945"></a><a id="T374266"></a><b>Fulfillment</b></h2>
+<p><a name="fulfill" id="fulfill"></a><a name="t_fulfillment" id="t_fulfillment"></a>Order Management provides the functionality required to recognize fulfillment of an order line, and delays processing of some order lines until related order lines have been fulfilled.</p>
+<h3><b>Introduction</b></h3>
+<p>Oracle Order Management enables you to group lines into a fulfillment set and to establish a gate activity in your workflow process. Lines in a fulfillment set will wait until all lines in the set have been fulfilled to proceed through the gate. This gate is known as the fulfillment activity. The fulfillment feature is primarily designed to allow the grouping of related lines and to keep any lines in the group from being invoiced until all lines have been fulfilled.</p>
+<h3><b>Terminology</b></h3>
+<p>The following terms will be used to describe fulfillment:</p>
+<ul>
+<li>
+<p>Fulfillment activity: The synchronization point or gate in the workflow process at which lines wait for other lines to be fulfilled.</p>
+</li>
+<li>
+<p>Fulfillment method activity: The activity in the workflow process which indicates that the line has been fulfilled.</p>
+</li>
+<li>
+<p>Fulfillment set: A group of lines which must all be fulfilled before any of the lines proceed beyond the fulfillment activity in the workflow</p>
+</li>
+</ul>
+<h3><b>How it Works</b></h3>
+<p>The fulfillment activity is a seeded workflow activity named FULFILL_LINE. This activity is the synchronization point between the lines of a fulfillment set.</p>
+<p>There are two activities that are considered fulfillment method activities in the seeded OM workflows. For a standard shippable line the fulfillment method activity is the shipping activity. For a return line the fulfillment method activity is the receiving activity. You may define any activity as the fulfillment method activity in a workflow process. The fulfillment activity must be between the fulfillment method activity and the invoice interface activity in the respective workflows.</p>
+<p>When a line workflow reaches the fulfillment activity, the activity checks to see if the fulfillment method activity (for example, shipping or receiving) completed successfully. If so, it updates the fulfilled quantity on the line with the shipped or received quantity, and sets the fulfilled flag to Yes. It then checks to see if the line is part of a fulfillment set. If not, then it completes the fulfillment activity and continues with the next activity in the workflow process. If the line is part of a fulfillment set, it checks to see if the other lines in the fulfillment set are fulfilled. If any lines are not fulfilled, it waits at the fulfillment activity. If all the lines are fulfilled it completes the fulfillment activity for all the lines in the fulfillment set.</p>
+<p>Service lines behave differently in Fulfillment Sets depending on the business scenario. The most common business scenario is to order a product with an associated Service line on the same order. In this situation, it is not necessary to assign a Fulfillment Set to the Service line as the Fulfillment activity takes care of fulfilling the product and Service line as a Fulfillment Set, implicitly. There are business scenarios where Fulfillment Sets can be assigned to Service lines. One scenario is in the case of ordering a Customer Product with an associated Service line. A second is when placing an order for a Service line associated to a product which is not in the same order.</p>
+<p>PTO Models and ATO Models are treated as inherent Fulfilment Sets by the system. As an example, A PTO Model is ordered, the Fulfilment Set field does not contain a value yet all nonshippable lines from the Model wait at the Fulfilment activity for the shippable lines prior to progressing.</p>
+<h3><b>Setup</b></h3>
+<p>No setup is required to use the fulfillment functionality with the seeded workflows. If you create your own workflows, include the fulfillment activity before invoicing in each process. This will provide two benefits: it will update the fulfilled quantity for the lines, and it will allow you to use fulfillment sets. For each workflow process that you define, you will need to check the attributes of the FULFILL_LINE activity. The FULFILLMENT_ACTIVITY attribute must be your fulfillment method activity, which in the seeded flows is either the shipping activity or the receiving activity. The COMPLETION_RESULT should be the result with which the fulfillment method activity completes if it is successful. This allows you to designate any activity as a fulfillment method activity.</p>
+<p>If you have a workflow process with two separate branches, such as a single workflow process with separate branches for ordered items and returned items, then you should have one fulfillment activity for each branch which relates to the fulfillment method activity for that branch.</p>
+<h3><b>Implementation Considerations</b></h3>
+<p>You can have multiple fulfillment sets in a single order. If a line is a member of two fulfillment sets then all lines from both fulfillment sets must be fulfilled for any of the lines to complete the fulfillment activity.</p>
+<p>If a line workflow process with a notification is in a fulfillment set, and the notification is rejected, then the other lines will not progress in their flows. You will have to delete or cancel the rejected line.</p>
+<p><b>Example</b></p>
+<p>Assume that you enter an order with four lines:</p>
+<ul>
+<li>
+<p>Standard Item 1</p>
+</li>
+<li>
+<p>Standard Item 2</p>
+</li>
+<li>
+<p>An item which is shippable</p>
+</li>
+<li>
+<p>An extended warranty for that item.</p>
+</li>
+</ul>
+<p>You would like to send the customer two separate invoices: one for the two standard items; and a second for the item with an associated extended warranty.</p>
+<p>Put the two lines with standard items into a fulfillment set. Select Sets &gt; Assign a Fulfillment Set Name, 2 from the context menu. The Fulfillment activity recognizes the service item as associated to the shippable product and considers the two in a Fulfillment set even though a Fulfillment Set name was not identified on either line. You would not want to bill for the service contract until the item was shipped. The service item will wait at the fulfill line activity until the shippable line arrives there, and then both lines will continue to invoicing at the same time.</p>
+<p>When the order is booked, the shippable lines must complete the scheduling and shipping activities. These activities are not applicable for the service contract, so they will complete immediately. The two standard items will progress through the Fulfillment activity as Fulfillment Set 2. Similarly, the shippable line and the service contract will progress through the Fulfillment activity together as an implicit Fulfillment Set.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

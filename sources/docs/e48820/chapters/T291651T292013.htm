@@ -1,0 +1,3866 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T291655.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T292014.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">17/31</span> <!-- End Header -->
+<h1>Transactions</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T292071">Overview of Inventory Transactions</a></li>
+<li><a href="#T292015">Receiving Transactions</a></li>
+<li><a href="#T656901">Using the Receiving Page</a></li>
+<li><a href="#T576020">Overview of Return to Vendor Transactions</a></li>
+<li><a href="#T292072">Transferring Between Subinventories</a></li>
+<li><a href="#T292073">Performing Miscellaneous Transactions</a></li>
+<li><a href="#T428160">Inter-organization Transfers</a></li>
+<li><a href="#T292074">Transferring Material Between Organizations</a></li>
+<li><a href="#T292089">Planning Transfer Transaction</a></li>
+<li><a href="#T292090">Transferring Consigned and VMI Material</a></li>
+<li><a href="#T292020">Shortage Alerts and Shortage Notifications</a></li>
+<li><a href="#T292077">Viewing Potential Shortages</a></li>
+<li><a href="#T292022">Overview of Movement Statistics</a></li>
+<li><a href="#T291693">Defining Movement Statistics Parameters</a></li>
+<li><a href="#T292079">Setting Up Movement Statistics</a></li>
+<li><a href="#T292080">Automatically Generating Movement Statistics</a></li>
+<li><a href="#T292081">Viewing and Maintaining Movement Statistics</a></li>
+<li><a href="#T292083">Viewing Material Transactions</a></li>
+<li><a href="#T561251">Viewing Message History</a></li>
+<li><a href="#T292084">Viewing Transaction Summaries</a></li>
+<li><a href="#T292085">Viewing Accounting Lines</a></li>
+<li><a href="#T292023">View Accounting Windows</a></li>
+<li><a href="#T292086">Drilling Down to Inventory from Oracle General Ledger</a></li>
+<li><a href="#T292087">Viewing Pending Transactions</a></li>
+<li><a href="#T292024">Pending Transactions Folder Window Available Fields</a></li>
+<li><a href="#T292088">Viewing and Updating Transaction Open Interface Activity</a></li>
+<li><a href="#T292025">Transaction Interface Folder Window Available Fields</a></li>
+<li><a href="#T292091">Purging Transaction History</a></li>
+<li><a href="#T292102">Transactions Reports</a></li>
+</ul>
+<h2><a name="1755724"></a><a id="T292071"></a><b>Overview of Inventory Transactions</b></h2>
+<p><a name="d0e75059" id="d0e75059"></a><a name="I_c_trnx78ov" id="I_c_trnx78ov"></a>Oracle Inventory, with Oracle Order Management, Oracle Purchasing, and Oracle Work in Process, provides you with a complete set of transactions and reports for maintaining inventory control. This allows you to control the flow of material from the time you receive items to the time you ship finished goods to the customer. You can:</p>
+<ul>
+<li>
+<p>Process miscellaneous issues and receipts. See: <a href="T291651T292013.htm#I_t_misctrnx78">Performing Miscellaneous Transactions</a>.</p>
+</li>
+<li>
+<p>Transfer material between subinventories. See: <a href="T291651T292013.htm#I_t_subtrnx78">Transferring Between Subinventories</a>.</p>
+</li>
+<li>
+<p>Move material from a shipping organization to a destination organization and move material to intransit inventory before it reaches its final destination. See: <a href="T291651T292013.htm#I_t_iorgtx78n">Transferring between Organizations</a>.</p>
+</li>
+<li>
+<p>Track lots and serial numbers for an item. See: <a href="T291651T427993.htm#I_t_enterlot">Assigning Lot Numbers</a> and <a href="T291651T427994.htm#I_t_enterser">Assigning Serial Numbers</a>.</p>
+</li>
+<li>
+<p>Generate shortage alerts and shortage notifications. See: <a href="T291651T292013.htm#I_shrtalrt">Material Shortage Alerts and Shortage Notifications</a>.</p>
+</li>
+<li>
+<p>Enter and maintain movement statistics information. See: <a href="T291651T292013.htm#I_t_mvstat">Entering Movement Statistics</a></p>
+</li>
+<li>
+<p>View material transactions. See: <a href="T291651T292013.htm#I_t_vwtrx78ns">Viewing Material Transactions</a>.</p>
+</li>
+<li>
+<p>View material transaction accounting distributions. See: Viewing Material Transaction Distributions, <i>Oracle Cost Management User's Guide</i>.</p>
+</li>
+<li>
+<p>View summarized transactions for a range of dates. See: <a href="T291651T292013.htm#I_t_vwtx78nsum">Viewing Transaction Summaries</a>.</p>
+</li>
+<li>
+<p>View pending transactions. See: <a href="T291651T292013.htm#I_t_vwpendtx78n">Viewing Pending Transactions</a>.</p>
+</li>
+<li>
+<p>View pending transaction interface activity. See: <a href="T291651T292013.htm#I_t_pendtrx78n">Viewing and Updating Transaction Open Interface Activity</a>.</p>
+</li>
+<li>
+<p>Purge transaction history. See: <a href="T291651T292013.htm#I_t_purgetx78n">Purging Transaction History</a>.</p>
+</li>
+<li>
+<p>View serial genealogy. See: <a href="T291651T427994.htm#I_vwsergen">Viewing Serial Genealogy</a>.</p>
+<p><strong><span>Important:</span></strong> Inventory transactions and on hand balance supports decimal precision to 5 digits after the decimal point. Oracle Work in Process supports decimal precision to 6 digits. Other Oracle E-Business Suite applications support different decimal precision. As a result of the decimal precision mismatch, transactions another Oracle Application passes may be rounded when processed by Inventory. If the transaction quantity is rounded to zero, Inventory does not process the transaction. It is therefore suggested that the base unit of measure for an item is set up such that transaction quantities in the base unit of measure not require greater than 5 digits of decimal precision.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291655.htm#I_c_transetov">Overview of Transaction Setup</a></p>
+<h2><a name="1755725"></a><a id="T292015"></a><b>Receiving Transactions</b></h2>
+<p><a name="I_c_rectrx78" id="I_c_rectrx78"></a>You must perform the following setup steps before you can perform receiving transactions:</p>
+<ul>
+<li>
+<p>Define purchasing options for your organization, such as approval or control options, in the Purchasing Options window.</p>
+</li>
+<li>
+<p>Define options that govern receipts in the Receiving Options window.</p>
+</li>
+</ul>
+<p>You can receive all or a partial list of open lines on any purchase order by using the Receipts window. You can also receive substitute items and goods or services you have not ordered. Oracle Inventory allows you to match goods you receive on the receiving dock to a purchase order they might be fulfilling. You can then record transfers and deliveries in the Receiving Transactions window, record inspections in the Inspections window, record Returns in the Returns window, and record adjustments and corrections in the Corrections window.</p>
+<h2><a name="8197373"></a><a id="T656901"></a><b>Using the Receiving Page</b></h2>
+<p><a name="d0e75178" id="d0e75178"></a><a name="d0e75181" id="d0e75181"></a><a name="d0e75186" id="d0e75186"></a><a name="d0e75191" id="d0e75191"></a><a name="recpg" id="recpg"></a>The <a href="T291651T471479.htm#c_menus">Receiving page</a> provides a tablet-optimized, centralized workspace where warehouse supervisors can manage inbound receipts against purchase orders, requisitions, advanced shipment notices (ASNs) and so on. Warehouse supervisors can identify exceptions and take quick receiving actions to:</p>
+<ul>
+<li>
+<p>Quickly receive materials while verifying quantities.</p>
+</li>
+<li>
+<p>View the buyer/initiator to confirm who ordered the material.</p>
+</li>
+<li>
+<p>Putaway and deliver receipts to appropriate subinventories/locators.</p>
+</li>
+<li>
+<p>View all overdue expected receipts and manage receipt exceptions.</p>
+</li>
+</ul>
+<p>Using the simplified Receiving user interface you can receive packed material for specific distribution into separate LPNs for a multi-distribution PO. This enables you to track the transaction flow of items at the project level and the LPN level. This applies to the receipt routing options Standard and Inspection. You can put away these LPN receipts using the MSCA UI.</p>
+<p>You can customize the WHERE conditions of the SQL query for the infotiles using the API RCV_CUSTOM_PUB. This procedure lets you increase or decrease the number of infotiles on the simplified Receiving UI up to 10. In addition, the procedure can modify the infotile name, color, and query the WHERE condition. For example, to customize the infotiles for the Deliver page, use RCV_CUSTOM_PUB.Get_Deliver_Infotile_Count.</p>
+<p>In the Receiving page, click the task icon that corresponds to the action you desire:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Task Icon</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>
+<p><img width="69" height="84" src="./img/invug_rcvwk_recev.gif" alt="the picture is described in the document text"></p>
+</td>
+<td>View and manage all the documents for current and expected receipt dates and for internal, external, and advance ship notices (ASNs).</td>
+</tr>
+<tr valign="top">
+<td>
+<p><img width="84" height="103" src="./img/invug_rcvwk_inspect.gif" alt="the picture is described in the document text"></p>
+</td>
+<td>View and inspect receipts for WMS-enabled and non-WMS-enabled organizations.</td>
+</tr>
+<tr valign="top">
+<td>
+<p><img width="69" height="80" src="./img/invug_rcvwk_deliv.gif" alt="the picture is described in the document text"></p>
+</td>
+<td>View and manage receipts for pending deliveries and for internal and external parties.</td>
+</tr>
+<tr valign="top">
+<td>
+<p><img width="70" height="87" src="./img/nvug_rcvwk_rcpt.gif" alt="the picture is described in the document text"></p>
+</td>
+<td>View and manage receipts for defined time frames, and receipts for internal and external parties.</td>
+</tr>
+<tr valign="top">
+<td>
+<p><img width="85" height="104" src="./img/invug_rcvwk_return.gif" alt="the picture is described in the document text"></p>
+</td>
+<td>View and manage all the receipts to perform returns.</td>
+</tr>
+</table>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>When you first navigate to the Receiving page, select an organization in the Context Settings page. The Organization field displays all the organizations available for your particular user/responsibility combination. Click <b>Apply</b> to save your selection.</li>
+<p><img width="1008" height="274" src="./img/invug_rcvwk_cntxt.gif" alt="the picture is described in the document text"></p>
+</ul>
+<p><b>To manage transactions on the Receive page</b></p>
+<p>Use the <b>Receive</b> page to view and manage all the documents for current and expected receipt dates and for internal, external, and advance ship notices (ASNs).</p>
+<ol>
+<li>
+<p>Click the <b>Receive</b> icon to display the Receive page.</p>
+<p><img width="993" height="588" src="./img/invug_rcvwk_rec.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click one of the following queries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Query Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Expected Today</b></td>
+<td>Displays the documents that have an expected receipt date of the current day</td>
+</tr>
+<tr valign="top">
+<td><b>Overdue</b></td>
+<td>Displays the documents that have an expected receipt date in the past</td>
+</tr>
+<tr valign="top">
+<td><b>Internal</b></td>
+<td>Displays expected receipts for inter-org and internal requisition shipments</td>
+</tr>
+<tr valign="top">
+<td><b>External</b></td>
+<td>Displays the expected receipts for purchase orders (POs) and external requisitions</td>
+</tr>
+<tr valign="top">
+<td><b>ASNs</b></td>
+<td>Displays the expected receipts for advance ship notices (ASNs)</td>
+</tr>
+</table>
+</li>
+<li>
+<p>The query displays the following information:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Document</b></td>
+<td>The document number</td>
+</tr>
+<tr valign="top">
+<td><b>Class</b></td>
+<td>The respective source for the document like PO, shipment, or RMA</td>
+</tr>
+<tr valign="top">
+<td><b>Type</b></td>
+<td>The type of document such as a standard PO, blanket PO, internal shipment, RMA Type, and so on</td>
+</tr>
+<tr valign="top">
+<td><b>Source</b></td>
+<td>Information about the party where the documented originated, such as the supplier, customer, or source organization</td>
+</tr>
+<tr valign="top">
+<td><b>Requester</b></td>
+<td>The name of the person who created the document</td>
+</tr>
+<tr valign="top">
+<td><b>Order Date</b></td>
+<td>The date when the document was created</td>
+</tr>
+<tr valign="top">
+<td><b>Progress</b></td>
+<td>The percentage of the document that has been processed. This is the average percentage of each PO line's receipt quantity over shipment quantity.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Click <b>Actions</b> and then <b>Directed</b> to display the <b>Directed Receipt</b> page, on which you can enter details for each deliverable receipt line. You can enter details like Quantity, Supplier Lot, Destination, UOM, and so on. On the <b>Directed Receipt</b> page, you can confirm or cancel the individual lines.</p>
+</li>
+<li>
+<p>Click <b>Actions</b> and then <b>Quick</b> to display the <b>Quick Receipt</b> page, where you can quickly receive purchase orders, shipments, and RMAs.</p>
+<p><img width="951" height="435" src="./img/invug_rcvwk_rec1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the <b>+</b> icon next to the <b>Receipt Number</b> field to generate a receipt number from an internal sequence. Alternatively, to add to an existing receipt, click the <b>Find</b> icon to search for an existing receipt then add to that receipt.</p>
+</li>
+<li>
+<p>Optionally, enter Subinventory and Locator values at the header level to default these values to the rows in the table (if the subinventory or locator fields in the rows are blank). To change existing Subinventory or Locator values in a row, complete the following step.</p>
+</li>
+<li>
+<p>In the <b>Actions</b> column, choose one of the following actions:</p>
+<ul>
+<li>
+<p>Click the <b>Action</b> icon to display the <b>Receipt Details</b> page. You can enter or update receipt details like the subinventory, locator, or destination. Then click <b>Apply</b> to save your changes.</p>
+<p><img width="522" height="227" src="./img/invug_rcvwk_recv3details.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the <b>X</b> icon to remove the selected line from the receipt.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>After you have completed your entries, click <b>Receive</b> to complete the receipt into the specified subinventory and locator.</p>
+</li>
+</ol>
+<p><b>To manage transactions on the Inspect page</b></p>
+<p>Use the <b>Inspection Details</b> section of the <b>Transaction Details</b> page to inspect items and review detailed information about your receiving transactions.</p>
+<p>You can reinspect receipts where the entire quantity of a receipt has already been inspected. Search for such receipts on the <b>Inspection Search</b> page and then perform the inspection. In the <b>Receiving Transactions</b> window, if you search for receipts that have to be inspected, the UI displays receipts that have been inspected, can be reinspected and delivered. However, in the <b>Receiving HTML</b> UI, the inspected receipts are not displayed on the info tiles page. For example, if four receipts require inspection and all four have been inspected then, the inspect tiles number is displayed as 4 in the <b>Receiving Transactions</b> window and as 0 in the <b>Receiving HTML</b> UI.</p>
+<ol>
+<li>
+<p>Click the <b>Inspect</b> icon.</p>
+</li>
+<li>
+<p>Click one of the following queries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Pending Inspection</td>
+<td>Lists all receipts that require inspection</td>
+</tr>
+<tr valign="top">
+<td>Internal</td>
+<td>Lists internal receipts that require inspection</td>
+</tr>
+<tr valign="top">
+<td>External</td>
+<td>Lists external receipts that require inspection</td>
+</tr>
+<tr valign="top">
+<td>ASNs</td>
+<td>Lists Advance Shipment Notice (ASN) receipts that require inspection</td>
+</tr>
+</table>
+</li>
+<li>
+<p>The <b>Inspect</b> page displays the following data about the documents:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Receipt</b></td>
+<td>The receipt number</td>
+</tr>
+<tr valign="top">
+<td><b>LPN</b></td>
+<td>The license plate number</td>
+</tr>
+<tr valign="top">
+<td><b>Class</b></td>
+<td>The source for the document, such as purchase order (PO), shipment, or RMA</td>
+</tr>
+<tr valign="top">
+<td><b>Type</b></td>
+<td>The type of document, such as standard PO, blanket PO, internal shipment, RMA Type, and so on</td>
+</tr>
+<tr valign="top">
+<td><b>Source</b></td>
+<td>The party where the document originated, such as supplier or customer</td>
+</tr>
+<tr valign="top">
+<td><b>Received By</b></td>
+<td>The name of the receiver</td>
+</tr>
+<tr valign="top">
+<td><b>Receipt Date</b></td>
+<td>The date when the document was received</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Click a <b>Receipt</b> link to display the <b>Receiving Transactions: Receipt</b> page. This page displays the receipt lines that can be inspected.</p>
+</li>
+<li>
+<p>In the <b>Actions</b> column, click the icon to display the <b>Transaction Details</b> page where you can enter inspection details.</p>
+</li>
+<li>
+<p>The <b>Transaction Details</b> page contains the <b>Inspection Details</b> section, which displays various details about the receipts, such as Status, Quantity, UOM, Inspection Date, and so on.</p>
+</li>
+<li>
+<p>Select a status and enter values in the other fields to complete the inspection process.</p>
+</li>
+<li>
+<p>Click <b>OK</b> to return to the <b>Receiving Transactions: Receipt</b> page where the Inspected column indicates whether the item has been inspected.</p>
+</li>
+</ol>
+<p><b><a name="prinspofrcptML" id="prinspofrcptML"></a>Prioritize Inspections of Receipts Using Machine Learning</b></p>
+<p>You can use Machine Learning to prioritize inspection of receipts. Machine learning calculates an inspection failure probability for each inbound line using past inspection results and returns transaction history for items, receipt sources, and carriers. This process helps in understanding rejection probability of items in the receiving area.</p>
+<p>For more information about machine learning, see <i>Oracle Machine Learning for SQL User's Guide</i>.</p>
+<p><b>Steps to generate the Rejection Probability of Items in the Receiving Area:</b></p>
+<ol>
+<li>
+<p>Run the concurrent program <i>Receiving Inspection Analytics</i>. This concurrent program:</p>
+<ul>
+<li>
+<p>Prepares the training data in the required format from the transaction history.</p>
+</li>
+<li>
+<p>Builds and trains the machine learning model.</p>
+</li>
+</ul>
+<p>Ensure that this program completes successfully.</p>
+<p><b>Receiving Inspection Analytics Concurrent Program</b></p>
+<p><img width="707" height="501" src="./img/R12215CPReceivingInspectionAnalytics.gif" alt="the picture is described in the document text"></p>
+<p><b>Parameters</b>:</p>
+<ul>
+<li>
+<p><b>Start Date</b>: The date from which the transactions will be used to train the Machine Learning Model.</p>
+</li>
+<li>
+<p><b>Model</b>: The regression algorithm that is used to build the model.</p>
+<p><b>Model Window</b></p>
+<p><img width="871" height="387" src="./img/R12215CPModel.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p><b>Train Test Split</b>: The data split percentage or ratio that will be used to train and to test the model.</p>
+<p><b>Train Test Split Window</b></p>
+<p><img width="943" height="331" src="./img/R12215CPTrainTestSplit.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Run the concurrent program <i>Receiving Inspection Recommendations</i>. You can schedule this program to run periodically.</p>
+<p>This concurrent program:</p>
+<ul>
+<li>
+<p>Identifies the items present in the Receiving area.</p>
+</li>
+<li>
+<p>Generates rejection probabilities for such items using the trained model.</p>
+</li>
+</ul>
+<p>Ensure that this program completes successfully.</p>
+<p><b>Receiving Inspection Recommendations Concurrent Program</b></p>
+<p><img width="1090" height="751" src="./img/R12215CPReceivingInspectionRecommendations.gif" alt="the picture is described in the document text"></p>
+<p><b>Parameter</b>:</p>
+<p><b>Organization Code</b>: The organization code for which the concurrent program must be run.</p>
+</li>
+<li>
+<p>To view the predictions, navigate to the <b>Inspect</b> page and view the column <b>Rejection Probability</b>. The receipts are sorted in the order of decreasing rejection probability percentage.</p>
+<p><b>Inspect Page - Rejection Probability Column</b></p>
+<p><img width="1881" height="793" src="./img/R12215InspectMain.gif" alt="the picture is described in the document text"></p>
+<p>Click the links in the <b>Receipt</b> column to drill down to the rejection probability percentage of the items in that receipt.</p>
+<p><b>Receipt Page - Rejection Probability Column</b></p>
+<p><img width="1885" height="688" src="./img/R12215InspectReceipt.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To manage transactions on the Deliver page</b></p>
+<p>Use the <b>Deliver</b> page to view information about receipts pending delivery, and expected receipts for internal, external, and advance shipping notices (ASNs).</p>
+<ol>
+<li>
+<p>Click the <b>Deliver</b> icon to display the Deliver page.</p>
+<p><img width="975" height="492" src="./img/invug_rcvwk_del1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click one of the following queries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Query Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Pending Deliver</b></td>
+<td>Displays expected deliveries</td>
+</tr>
+<tr valign="top">
+<td><b>Internal</b></td>
+<td>Displays expected receipts for inter-org and internal requisition shipments</td>
+</tr>
+<tr valign="top">
+<td><b>External</b></td>
+<td>Displays the expected receipts for purchase orders (POs) and external requisitions</td>
+</tr>
+<tr valign="top">
+<td><b>ASNs</b></td>
+<td>Displays the expected receipts for advance ship notices (ASNs)</td>
+</tr>
+</table>
+</li>
+<li>
+<p>The query displays the following data about the documents:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Receipt</b></td>
+<td>The receipt document number</td>
+</tr>
+<tr valign="top">
+<td><b>Class</b></td>
+<td>The respective source for the document like purchase order (PO), shipment, or RMA</td>
+</tr>
+<tr valign="top">
+<td><b>Type</b></td>
+<td>The type of document such as a standard PO, blanket PO, internal shipment, RMA Type, and so on</td>
+</tr>
+<tr valign="top">
+<td><b>Source</b></td>
+<td>Information about the party where the documented originated, such as the supplier, customer, or source organization</td>
+</tr>
+<tr valign="top">
+<td><b>Received By</b></td>
+<td>The name of the person who received the document</td>
+</tr>
+<tr valign="top">
+<td><b>Order Date</b></td>
+<td>The date when the document was created</td>
+</tr>
+<tr valign="top">
+<td><b>Progress</b></td>
+<td>The percentage of the document that has been processed. This is the average percentage of each purchase order line's receipt quantity over shipment quantity.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Click <b>Actions</b> and then <b>Directed</b> to display the <b>Directed Deliver</b> page, on which you can enter details for each deliverable receipt line. You can enter details like Quantity, Supplier Lot, Destination, Transaction Date, UOM, and so on. On the <b>Directed Deliver</b> page, you can go to the next item, skip, confirm, or cancel the individual lines.</p>
+</li>
+<li>
+<p>Click <b>Actions</b> and then <b>Quick</b> to display the <b>Quick Deliver</b> page. This page uses pre-filled data to provide a quick way to receive purchase orders, shipments, and RMAs.</p>
+<p><img width="969" height="323" src="./img/invug_rcvwk_del2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Optionally, enter Subinventory and Locator values at the header level to default these values to the applicable rows in the table (those rows with blank subinventory and locator values). To change existing subinventory/locator values for a row, complete the following step.</p>
+</li>
+<li>
+<p>In the <b>Actions</b> column, choose one of the following actions:</p>
+<ul>
+<li>
+<p>Click the <b>Action</b> icon to enter or update receipt details like subinventory, locator, or destination.</p>
+<p><img width="525" height="224" src="./img/invug_rcvwk_del3.gif" alt="the picture is described in the document text"></p>
+<p>Click <b>Apply</b> to save your changes.</p>
+</li>
+<li>
+<p>Click the <b>X</b> icon to remove the selected line from the receipt.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>Deliver</b> to complete the deliver process.</p>
+</li>
+</ol>
+<p><b>To manage transactions on the Return page</b></p>
+<p>Use the <b>Return</b> page to view receipt lines available for items and to view receipt lines available for items. The simplified Return user interface enables you to return material from an organization that is different from the receiving organization even though Oracle Shipping is not interfaced with Oracle Inventory.</p>
+<ol>
+<li>
+<p>Click the <b>Return</b> icon to display the Return page.</p>
+</li>
+<li>
+<p>Click one of the following queries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Rejected</b></td>
+<td>Lists all the documents that have failed inspection</td>
+</tr>
+<tr valign="top">
+<td><b>Returned to Receiving</b></td>
+<td>Lists receipts with return to receiving transactions and transaction type as Receive and Accept</td>
+</tr>
+<tr valign="top">
+<td><b>Today's Receipts</b></td>
+<td>Lists all the receipts for today's date</td>
+</tr>
+</table>
+</li>
+<li>
+<p>The <b>Return</b> page displays the following data about the documents:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Receipt</b></td>
+<td>The receipt number</td>
+</tr>
+<tr valign="top">
+<td><b>Class</b></td>
+<td>The source for the document, such as purchase order (PO), shipment, or RMA</td>
+</tr>
+<tr valign="top">
+<td><b>Type</b></td>
+<td>The type of document, such as standard PO, blanket PO, RMA Type, and so on</td>
+</tr>
+<tr valign="top">
+<td><b>Source</b></td>
+<td>The party where the document originated, such as supplier or customer</td>
+</tr>
+<tr valign="top">
+<td><b>Received By</b></td>
+<td>The name of the first receiver</td>
+</tr>
+<tr valign="top">
+<td><b>Receipt Date</b></td>
+<td>The date when the document was received</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Click a receipt to display the <b>Receiving Returns</b> page. Receipt lines that can be returned are displayed on this page.</p>
+</li>
+<li>
+<p>Enter values in the <b>Quantity</b>, <b>UOM</b>, and <b>Return To</b> fields. Add attachments, if required.</p>
+</li>
+<li>
+<p>In the <b>Actions</b> column, do one of the following:</p>
+<ul>
+<li>
+<p>Click the <b>Action</b> icon to enter return details such as RMA Number, Supplier Lot, and so on. Then click <b>Apply</b> to save your changes.</p>
+</li>
+<li>
+<p>Click the <b>X</b> icon to remove the selected line from the receipt.</p>
+</li>
+<li>
+<p>Click the <b>+L/S</b> button to enter the Lot/Serial details. This button is enabled for lot or serial controlled items.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>Return</b> to complete the return process.</p>
+<p>Set the profile option RCV: Track Shipments for Return To Vendors value to Yes to display the <b>Missing Receipt</b> button on the <b>Return</b> page. Click <b>Missing Receipt</b> to open the <b>Receiving Returns: Missing Receipt Transactions</b> page. On this page you enter details and return the items that do not have receipts.</p>
+</li>
+</ol>
+<p><b>To manage transactions on the Receipts page</b></p>
+<p>Use the <b>Receipts</b> page to view receipt details such as receiver or receipt dates of the receiving transactions.</p>
+<ol>
+<li>
+<p>Click the <b>Receipts</b> icon to display the <b>Receipts</b> page.</p>
+<p><img width="862" height="465" src="./img/invug_rcvwk_rcp1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click one of the following queries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Today's Receipts</b></td>
+<td>Lists all the receipts for today's date</td>
+</tr>
+<tr valign="top">
+<td><b>Weekly Late</b></td>
+<td>Lists all the receipts that were delayed last week</td>
+</tr>
+<tr valign="top">
+<td><b>Weekly Early</b></td>
+<td>Lists all the receipts that were early last week</td>
+</tr>
+<tr valign="top">
+<td><b>Weekly External</b></td>
+<td>Lists all the receipts that came from external parties (supplier and customer) last week</td>
+</tr>
+<tr valign="top">
+<td><b>Weekly Internal</b></td>
+<td>Lists all the receipts that came from internal parties (other warehouses) last week</td>
+</tr>
+</table>
+</li>
+<li>
+<p>The query displays the following data about the documents:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Receipt</b></td>
+<td>The receipt document number</td>
+</tr>
+<tr valign="top">
+<td><b>Received By</b></td>
+<td>The first receiver if there are multiple receivers</td>
+</tr>
+<tr valign="top">
+<td><b>Receipt Date</b></td>
+<td>The date when the document was received</td>
+</tr>
+<tr valign="top">
+<td><b>Class</b></td>
+<td>Source for the documents such as purchase order (PO), shipment, or RMA</td>
+</tr>
+<tr valign="top">
+<td><b>Type</b></td>
+<td>The type of document such as standard PO, blanket PO, internal shipment, RMA Type, and so on</td>
+</tr>
+<tr valign="top">
+<td><b>Source</b></td>
+<td>The party where the document originated such as supplier, customer, or source organization</td>
+</tr>
+<tr valign="top">
+<td><b>Actions</b></td>
+<td>The action you can perform is receipt corrections.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Click a receipt to display the <b>Receiving Transactions</b> page.</p>
+<p><img width="953" height="515" src="./img/invug_rcvwk_rcp2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the arrow in the <b>Transaction</b> column to view the transactions for the receiving record, such as accept, reject, return to receiving, return to supplier, and deliver.</p>
+</li>
+<li>
+<p>Click <b>Done</b>.</p>
+</li>
+</ol>
+<h2><a name="6039935"></a><a id="T576020"></a><b>Overview of Return to Vendor Transactions</b></h2>
+<p><a name="d0e76594" id="d0e76594"></a><a name="d0e76600" id="d0e76600"></a><a name="rtvov" id="rtvov"></a>The return to vendor process enables you to create unique return orders and to ship the return order back to the vendor (supplier). After the return order is created and the material has been picked, you can create deliveries and check for export compliance, and then ship the return order with any required shipping documents.</p>
+<p><strong><span>Important:</span></strong> The return to vendor feature can be accessed from the <b>Return</b> window and from the simplified Return user interface.</p>
+<p>You can return items that were received through a purchase order or an internal sales order shipment.</p>
+<p>The return to vendor (RTV) process begins with a requirement to return an item to a vendor, and consists of the following steps to complete the return:</p>
+<p><strong><span>Additional Information:</span></strong> For items under lot, serial, or revision control you must specify the lots, serial, and revision as appropriate. If the material resides in a locator-controlled subinventory, you must also specify the locator. (If Oracle Quality module is installed, you can enter information about quality.)</p>
+<ol>
+<li>
+<p>The initial step involves requesting a returns material authorization (RMA) from the vendor, then creating a return order in the system.</p>
+</li>
+<li>
+<p>A return order confirmation is sent to the vendor.</p>
+</li>
+<li>
+<p>The return delivery is sent to the shipping department where the item(s) are picked and shipped back along with a delivery note.</p>
+<p><strong><span>Note:</span></strong> During ship-confirm, the inventory is decremented from the system which changes the available on-hand quantity.</p>
+</li>
+<li>
+<p>A debit memo is sent to the vendor for the return.</p>
+</li>
+</ol>
+<p>The returns to vendor process also provides the ability to:</p>
+<ul>
+<li>
+<p>Return material to a vendor which differs from the receipt organization.</p>
+<p>The return to vendor process enables you to return material from an organization which differs from the receipt organization.</p>
+</li>
+<li>
+<p>Create returns without referencing a purchase order or receipt.</p>
+<p>In some situations, you may need to return a specific component to a supplier but you do not have a backing document for the receipt of the item [such as a tracking purchase order (PO) number]. This situation may arise, for example, if the:</p>
+<ul>
+<li>
+<p>PO was cancelled.</p>
+</li>
+<li>
+<p>The item received was a final assembly but you only need to return a component and not the entire assembly.</p>
+</li>
+</ul>
+<p>In the preceding situations, you can create a new return shipment without a reference document.</p>
+<p>The following example describes a situation where a return may be required without referencing a purchase order or receipt:</p>
+<ol>
+<li>
+<p>SmartBuy (a fictitious company) purchases a server from a supplier and ships it to Customer B.</p>
+</li>
+<li>
+<p>Customer B finds that the item is faulty, and returns it to SmartBuy.</p>
+</li>
+<li>
+<p>SmartBuy investigates the issue and finds that only one component is faulty.</p>
+<p><strong><span>Note:</span></strong> In this scenario, there is no purchase order or receipt to return against. You do not have a purchase order because you are returning only a component and not the entire server; however, there would be a purchase order for the original server.</p>
+</li>
+<li>
+<p>SmartBuy issues the material to send to the vendor using the RTV transaction type.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Track the status of the return orders, print shipping documents, enforce export compliance, and ship returns to vendors.</p>
+<p>Oracle returns are integrated with shipping so you can query return orders in shipping, and create deliveries, check compliance, and ship materials.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Return Order Reservations: When the return order is created, the inventory is reserved so that it cannot be picked by any other demand.</p>
+</li>
+<li>
+<p>Pending returns displayed in the Transaction Status window cannot be deleted.</p>
+</li>
+</ul>
+<h3><a id="T578879"></a><b>Process Flow for Returns</b></h3>
+<p>You can perform a return by identifying the receipt shipment, creating the return order, selecting the document printing options (and export compliance documents, if required) then shipping the return order. In this example, returns are completed from the same organization as the receipt organization. The following steps outline the return to vendor process:</p>
+<ol>
+<li>
+<p>Identify the receipt shipment.</p>
+</li>
+<li>
+<p>Create the return order shipment.</p>
+<p><strong><span>Note:</span></strong> This process is performed in Oracle Purchasing.</p>
+</li>
+<li>
+<p>Print documents, export compliance, and shipping.</p>
+<p><strong><span>Note:</span></strong> This process is performed in Oracle Shipping Execution.</p>
+</li>
+</ol>
+<p>You can also perform a return from a different organization to the receipt organization using the simplified <b>Return</b> user interface.</p>
+<h3><a id="T683252"></a><b>Return of Items Received Through an Internal Sales Order Shipment</b></h3>
+<p>Use the Return on Internal Sales Order Shipment feature to return an internal shipment. You can return the internal shipment to the source organization or to a different organization that belongs to the same operating unit as the source organization.</p>
+<p>The following section provides an overview of the process flow in the following applications: Oracle Inventory, Oracle Order Management, Oracle Purchasing, Oracle Shipping Execution, and Oracle Warehouse Management.</p>
+<ul>
+<li>
+<p>Ship material from one organization to another organization using an internal sales order (ISO). The destination organization receives this material through an ISO shipment.</p>
+</li>
+<li>
+<p>To return items received through an ISO shipment, create a return order by searching for the internal requisition on the <b>Returns</b> page.</p>
+</li>
+<li>
+<p>The return order creates delivery details in Oracle Shipping Execution.</p>
+</li>
+<li>
+<p>The return order populates the Order Management interface tables to create an internal RMA. The <i>Order Import</i> concurrent program creates this internal RMA.</p>
+</li>
+<li>
+<p>Oracle Shipping Execution logs shipping exceptions for the return order lines to prevent the lines from being shipped prematurely or in error.</p>
+</li>
+<li>
+<p>If the internal RMA uses the <i>Order Header</i> approval workflow, then Oracle Order Management removes the shipping exceptions after the internal RMA is approved. If the internal RMA does not use the <i>Order Header</i> approval workflow, then the application removes the shipping exceptions when the internal RMA is created.</p>
+</li>
+<li>
+<p>After you ship and interface the delivery details, Oracle Inventory creates a return ASN for the internal RMA.</p>
+</li>
+<li>
+<p>The source organization receives the material using this return ASN shipment number.</p>
+</li>
+<li>
+<p>You can perform corrections to the return ASNs.</p>
+</li>
+<li>
+<p>You can return the material to a different destination organization in the same operating unit as the source organization.</p>
+</li>
+</ul>
+<p><b>Prerequisite</b></p>
+<p>For the organization that receives the material through return ASN, set the value of the profile option <i>RCV: Return Order Type for Internal RMA</i>. Set the profile option at the source operating unit level for Oracle Order Management (OM) to use the profile value as the return order type of the internal RMA.</p>
+<h3><b>To return an internal shipment, complete the following steps:</b></h3>
+<ol>
+<li>
+<p>Navigate to <b>Inventory</b>, <b>Inbound</b>, and then <b>Receiving</b>.</p>
+</li>
+<li>
+<p>Select the organization from which you want to return the material.</p>
+</li>
+<li>
+<p>On the <b>Receiving Returns</b> page of your receipt:</p>
+<ul>
+<li>
+<p>Select the quantity that you want to return.</p>
+</li>
+<li>
+<p>In the <b>Return To</b> field, the organization value is automatically displayed. Select a value for the Organization, if required.</p>
+</li>
+</ul>
+<p>For items that are lot controlled, serial controlled, or plain, you can perform the following actions:</p>
+<ul>
+<li>
+<p>Return</p>
+</li>
+<li>
+<p>Receive</p>
+</li>
+<li>
+<p>Corrections for positive and negative values</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Select the items that you want to return and click <b>Return</b>. The application generates and displays a return order number.</p>
+</li>
+<li>
+<p>In Oracle Shipping Execution, navigate to the <b>Shipping Transactions Form</b> window. In the <b>Search for</b> region of <b>Query Manager</b>, select <b>Lines</b>. In the <b>Source System</b> field, select <b>Returns</b>. This creates the delivery details with an exception that you must resolve before you ship the delivery.</p>
+</li>
+<li>
+<p>Run the concurrent program <i>Order Import</i> to create an internal RMA. Enter the following parameter values:</p>
+<ul>
+<li>
+<p><b>Order Source</b>: <b>Internal Return</b></p>
+</li>
+<li>
+<p><b>Order Reference</b>: Return order number</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The organization that is receiving the RMA must approve it before the organization that is returning the RMA ships it. If the RMA is approved, the Oracle Order Management workflow removes the exception and the RMA is created.</p>
+</li>
+<li>
+<p>Navigate to the <b>Shipping Transactions</b> window, <b>Actions</b> list, select <b>Auto-create Deliveries</b>, and click <b>Go</b>.</p>
+</li>
+<li>
+<p>Click <b>Ship Confirm</b> and run the concurrent program <i>Interface Trip Stop</i>, which triggers the concurrent program <i>Receiving Transaction Processor</i>. This step in turn creates the return ASN that is the same as the delivery name.</p>
+</li>
+<li>
+<p>To receive this shipment, navigate to the <b>Receive</b> infotile of Oracle Purchasing. The number in the <b>Document</b> column is the delivery name or the return ASN number.</p>
+</li>
+<li>
+<p>In the <b>Actions</b> column, select the mode of receipt as <b>Quick</b>, <b>Directed</b>, or <b>Item</b>. If you select <b>Directed</b>, the <b>Directed Receipt: Return ASN</b> page appears.</p>
+</li>
+<li>
+<p>Select the quantity that you want to receive.</p>
+</li>
+<li>
+<p>Click <b>Confirm</b>.</p>
+</li>
+<li>
+<p>Click <b>Receive</b>. The application generates and displays a receipt number.</p>
+</li>
+<li>
+<p>On the <b>Deliver</b> infotile, enter the required details and click <b>Deliver</b>.</p>
+</li>
+</ol>
+<h3><b>To receive the receipts:</b></h3>
+<ol>
+<li>
+<p>Navigate to <b>Inventory</b>, <b>Transactions</b>, <b>Receiving</b>, and then <b>Receipts</b>.</p>
+<p>The <b>Find Expected Receipts</b> window appears.</p>
+</li>
+<li>
+<p>On the <b>Customer</b> tab, in the <b>Return ASN</b> field select a value from the list, and then click <b>Find</b>.</p>
+<p>The <b>Receipts</b> window appears.</p>
+</li>
+<li>
+<p>Enter <b>Quantity</b>. In the <b>Receiving Transactions</b> window, you can deliver the required quantity.</p>
+</li>
+<li>
+<p>Run the concurrent program <i>Receiving Transaction Processor</i>.</p>
+</li>
+</ol>
+<p>From the <b>Receiving Corrections</b> window, you can perform corrections only to the lines that are received but not yet delivered.</p>
+<p>The return flow generates two transactions:</p>
+<ol>
+<li>
+<p>A Return to organization transaction in the buying organization that is initiating the return and an Internal RMA receipt transaction in the organization that will receive back the returned goods.</p>
+</li>
+<li>
+<p>Oracle Cost Management ensures that the accounting generated in the forward flow against the Intercompany accrual, Intercompany COGS, Profit in Inventory, and Inventory valuation accounts is reversed using the same rate at which the shipment and receipt in the forward flow were costed.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> The return flow for internal order shipments is not supported for intercompany transfers involving:</p>
+<ul>
+<li>
+<p>Process manufacturing organizations</p>
+</li>
+<li>
+<p>Global procurement and drop shipment</p>
+</li>
+<li>
+<p>Expense items</p>
+</li>
+<li>
+<p>Expense subinventories</p>
+</li>
+<li>
+<p>Expense destination</p>
+</li>
+<li>
+<p>Periodic costing organizations</p>
+</li>
+<li>
+<p>Project manufacturing organizations</p>
+</li>
+<li>
+<p>Encumbrance accounting</p>
+</li>
+</ul>
+<h3><a id="T684544"></a><b>Canceling an ISO Shipment</b></h3>
+<p>You can cancel an ISO shipment and shipment lines from the Manage Shipments window.</p>
+<p><b>Prerequisites</b></p>
+<ol>
+<li>
+<p>The shipment must be in transit or partially received at the destination organization.</p>
+</li>
+<li>
+<p>Use the Application Developer responsibility to set the parameter ALLOW_CANCEL to Y for the Manage Shipments window (Function Name is RCV_RCVSHESH ).</p>
+</li>
+<li>
+<p>The shipment must not have any Receiving Transactions Interfaces (RTIs).</p>
+</li>
+</ol>
+<h3><b>To cancel an ISO shipment, complete the following steps:</b></h3>
+<ol>
+<li>
+<p>In the destination organization, navigate to the <b>Manage Shipments</b> window.</p>
+<p>The <b>Find In-Transit Shipments</b> window appears.</p>
+</li>
+<li>
+<p>In the <b>Supplier and Internal</b> tab&rsquo;s <b>Shipment</b> field, enter the shipment number that you want to cancel.</p>
+</li>
+<li>
+<p>Click <b>Find</b>.</p>
+</li>
+<li>
+<p>Place your cursor in the shipment header or line.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Cancel</b>.</p>
+<p>If you cancel a shipment at the header level, then all the individual lines are automatically canceled. You can cancel shipment lines with the status <b>Expected</b> or <b>Partially Received</b>. To cancel a shipment line that is partially received, deliver the received quantity before initiating cancellation.</p>
+<p>In WMS-enabled organizations, if you cancel a shipment line, then the application unpacks the line quantity from the corresponding LPN.</p>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+<p>A confirmation message appears with the cancel order reference number.</p>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+<p>This action initiates the <i>Order Import</i> concurrent program to import the internal RMA. After the concurrent program completes successfully, search for the same shipment to view the internal RMA number at the line level. When you cancel a shipment line, a new internal RMA number is generated for the same.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Generate Return ASN</b>.</p>
+<p>A confirmation message appears with the return ASN number.</p>
+<p>If you generate a return ASN at the header level, then all the lines will display the same return ASN number. To generate separate return ASN numbers, repeat the step at the line level.</p>
+<p>In WMS-enabled organizations:</p>
+<ul>
+<li>
+<p>At the header level, if you cancel a shipment and generate a return ASN, then the application updates the status of the corresponding LPNs from <i>Intransit</i> to <i>In transit for Return ASN</i>.</p>
+</li>
+<li>
+<p>At the line level, if you generate a return ASN, then the application unpacks the line quantity from the corresponding LPN.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+<p>This action initiates the Receiving Transaction Processor concurrent program to import the return ASN. After the concurrent program completes successfully, search for the same shipment to view the return ASN number at the line level.</p>
+<p><strong><span>Important:</span></strong> <b>Internal RMA</b> and <b>Return ASN</b> are folder fields. With the cursor in the shipment lines region, you can show or hide them from the <b>Folder</b> menu.</p>
+</li>
+<li>
+<p>Verify that the <b>Status</b> column displays <b>Canceled</b> or <b>Partially Canceled</b>.</p>
+</li>
+</ol>
+<p><b>To search for the internal RMAs that are created when an ISO shipment is canceled:</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Order Organizer</b> window.</p>
+<p>The <b>Find Orders/Quotes</b> window appears.</p>
+</li>
+<li>
+<p>In the <b>Quote/Order Information</b> tab, enter the following values:</p>
+<ul>
+<li>
+<p><b>Order Source</b>: <b>Internal In-Transit Return</b></p>
+</li>
+<li>
+<p><b>Order Reference</b>: Cancel order reference number</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>Find</b>.</p>
+</li>
+</ol>
+<h3><a id="T2006532"></a><b>Canceling an Inter-Organization Transfer Shipment</b></h3>
+<p>You can cancel an inter-organization transfer (IOT) shipment and shipment lines from the Manage Shipments window.</p>
+<p><b>Prerequisites</b></p>
+<ol>
+<li>
+<p>The shipment must be in transit or partially received at the destination organization.</p>
+</li>
+<li>
+<p>Use the Application Developer responsibility to set the parameter ALLOW_CANCEL to Y for the Manage Shipments window (Function Name is RCV_RCVSHESH ).</p>
+</li>
+<li>
+<p>The shipment must not have any Receiving Transactions Interfaces (RTIs).</p>
+</li>
+</ol>
+<h3><b>To cancel an IOT shipment, complete the following steps:</b></h3>
+<ol>
+<li>
+<p>In the destination organization, navigate to the <b>Manage Shipments</b> window. The <b>Find In-Transit Shipments</b> window appears.</p>
+</li>
+<li>
+<p>In the <b>Supplier and Internal</b> tab&rsquo;s <b>Shipment</b> field, enter the shipment number that you want to cancel.</p>
+</li>
+<li>
+<p>Click <b>Find</b>.</p>
+</li>
+<li>
+<p>Place your cursor in the shipment header or line.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Cancel</b>. If you cancel a shipment at the header level, then all the individual lines are automatically canceled.</p>
+<p>In WMS-enabled organizations, if you cancel a shipment line, then the application unpacks the line quantity from the corresponding LPN.</p>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+<p>A confirmation message appears.</p>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Generate Return ASN</b>.</p>
+<p>A confirmation message appears with the return ASN number.</p>
+<p>In WMS-enabled organizations:</p>
+<ul>
+<li>
+<p>At the header level, if you cancel a shipment and generate a return ASN, then the application updates the status of the corresponding LPNs from <i>Intransit</i> to <i>In transit for Return ASN</i>.</p>
+</li>
+<li>
+<p>At the line level, if you generate a return ASN, then the application unpacks the line quantity from the corresponding LPN.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+<p>Search for the same shipment to view the return ASN number at the line level.</p>
+<p><strong><span>Additional Information:</span></strong> <b>Return ASN</b> is a folder field. With the cursor in the shipment lines region, you can show or hide it from the <b>Folder</b> menu.</p>
+</li>
+<li>
+<p>Verify that the <b>Status</b> column displays <b>Canceled</b> or <b>Partially Canceled</b>.</p>
+</li>
+</ol>
+<h3><a id="T2010956"></a><b>Cancel ISO or IOT Shipment That is Lost During Transit</b></h3>
+<p>If a shipment is lost during transit, then the source or the destination organizations cannot receive the material, however the order can be canceled. Because the lost shipment cannot be accounted for, a write off of the material is required.</p>
+<p>To do this, you must set up a nonquantity tracked expense subinventory and then cancel the lost shipment.</p>
+<p>To define the expense subinventory and locator, complete the following set up steps:</p>
+<p>In the <b>Subinventories</b> window, <b>Main</b> tab do the following:</p>
+<ul>
+<li>
+<p>Deselect these two parameters: <b>Quantity Tracked</b> and <b>Asset Subinventory</b></p>
+</li>
+<li>
+<p>Set up the locator control as required.</p>
+</li>
+<li>
+<p>Ensure that the subinventory <b>Status</b> is set to <b>Active: Not Available for Netting, ATP and Reservations</b>.</p>
+</li>
+<li>
+<p>Verify that the following parameters <b>Status Attributes</b> are disabled: <b>Include in ATP, Allow Reservation, and Nettable</b>.</p>
+</li>
+</ul>
+<p>To set up the expense subinventory or locator for receiving the lost material, navigate to the <b>Organization Parameters</b> window, <b>Inter-Org Information</b> tab, and then <b>Lost In-Transit Shipment Processing Controls</b> region.</p>
+<p>To cancel a lost shipment which is in transit, complete the following steps:</p>
+<ol>
+<li>
+<p>In the destination organization, navigate to the <b>Manage Shipments</b> window.</p>
+<p>The <b>Find In-Transit Shipments</b> window appears.</p>
+</li>
+<li>
+<p>In the <b>Supplier and Internal</b> tab&rsquo;s <b>Shipment</b> field, enter the shipment number that you want to cancel.</p>
+</li>
+<li>
+<p>Click <b>Find</b>.</p>
+</li>
+<li>
+<p>Place your cursor in the shipment header or line.</p>
+</li>
+<li>
+<p>From the Tools menu, select <b>Cancel Lost Shipment</b>.</p>
+<p>This action automatically initiates the concurrent request <i>Process Cancellation of Lost Shipment</i>. This request marks the lost items as canceled and their receipt will be registered in the expense subinventory or locator.</p>
+<p><strong><span>Important:</span></strong> You cannot cancel a lost shipment line if the item is shipped as consigned.</p>
+</li>
+</ol>
+<h3><a id="T683253"></a><b>Receiving and Delivering Material in Inventory MSCA</b></h3>
+<p>When receiving or delivering material, verify the source to distinguish the return ASN of the shipment type; for IOT shipments the return ASN source is Inventory and for ISO shipments the return ASN source is Customer.</p>
+<h3><b>To receive material in Inventory MSCA:</b></h3>
+<ol>
+<li>
+<p>Navigate to the <b>Materials & Mfg</b> responsibility, <b>Receiving</b>, and then <b>Receipts</b>.</p>
+<p>The <b>Receipts</b> page appears.</p>
+</li>
+<li>
+<p>Select <b>Return ASN</b>.</p>
+</li>
+<li>
+<p>Select the organization where you want to receive the material.</p>
+</li>
+<li>
+<p>Enter or select values for the fields <b>Return ASN</b> and <b>Item</b>.</p>
+</li>
+<li>
+<p>Enter or select values in the other required fields.</p>
+</li>
+<li>
+<p>Click <b>Next Item</b> or <b>Done</b> to receive the material.</p>
+</li>
+</ol>
+<h3><b>To deliver material in Inventory MSCA:</b></h3>
+<ol>
+<li>
+<p>Navigate to the <b>Materials & Mfg</b> responsibility, <b>Receiving</b>, and then <b>Deliver</b>.</p>
+<p>The <b>Deliver</b> page appears.</p>
+</li>
+<li>
+<p>Select <b>Return ASN</b>.</p>
+</li>
+<li>
+<p>Select the organization where you want to deliver the material.</p>
+</li>
+<li>
+<p>Enter or select values for the fields <b>Return ASN</b> and <b>Item</b>.</p>
+</li>
+<li>
+<p>Enter or select values in the other required fields.</p>
+</li>
+<li>
+<p>Click <b>Next Item</b> or <b>Done</b> to deliver the material.</p>
+</li>
+</ol>
+<h3><b>Canceling a Return Order</b></h3>
+<p><b>To cancel a return order</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Transactions Status Summary</b> window.</p>
+<p>The <b>Find Transaction Statuses</b> window appears.</p>
+</li>
+<li>
+<p>In the <b>Supplier and Internal</b> tab, enter the number in the <b>Return Order</b> field.</p>
+</li>
+<li>
+<p>Click <b>Find</b>.</p>
+<p>The <b>Transaction Statuses</b> window appears.</p>
+</li>
+<li>
+<p>In the <b>Transactions</b> tab, select the lines that you want to return.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Cancel Return Shipment Lines</b>.</p>
+</li>
+</ol>
+<h3><b>Reversing an ISO Shipment Cancellation</b></h3>
+<p>To reverse the ISO shipment cancellation, cancel the internal RMA using the Order Manager responsibility.</p>
+<p><b>To reverse the ISO shipment cancellation:</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Order Organizer</b> window.</p>
+</li>
+<li>
+<p>Search for the internal RMA to reverse the cancellation.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Cancel</b>. To reverse the ISO shipment or line level cancellation, cancel the internal RMA at the header or line level. Complete this task to receive the shipment line at the destination organization.</p>
+</li>
+</ol>
+<p>For more information, see <i>Creating an RMA Against Internal Sales Order</i>, <i>Oracle Order Management Implementation Manual</i>.</p>
+<h3><b>Reversing an IOT Shipment Cancellation</b></h3>
+<p>To reverse the IOT shipment cancellation, cancel the return ASN.</p>
+<p><b>To reverse the IOT shipment cancellation:</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Find In-Transit Shipments</b> window in the source organization.</p>
+</li>
+<li>
+<p>In the <b>Supplier and Internal</b> tab&rsquo;s <b>Shipment</b> field, search for the return ASN for which you want to reverse the cancellation.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Cancel</b>. To reverse the IOT shipment or line level cancellation, cancel the return ASN at the header or line level. Complete this task to receive the shipment line at the destination organization.</p>
+</li>
+<li>
+<p>Search for the same return ASN.</p>
+</li>
+<li>
+<p>Verify that the Status column displays <b>Canceled</b>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>For information about the return to vendor process in Oracle Purchasing, see <i>Oracle Purchasing User's Guide</i>, Returns chapter.</p>
+<p>For information about the return to vendor process in Oracle Shipping Execution, see <i>Oracle Shipping Execution User's Guide</i>, Miscellaneous Shipments.</p>
+<h2><a name="1755726"></a><a id="T292072"></a><b>Transferring Between Subinventories</b></h2>
+<p><a name="d0e78551" id="d0e78551"></a><a name="d0e78556" id="d0e78556"></a><a name="INV_XFER.mtl_trx_header" id="INV_XFER.mtl_trx_header"></a><a name="INV_XFER.mtl_trx_line" id="INV_XFER.mtl_trx_line"></a><a name="INV_XFER.mtl_trx_single_line" id="INV_XFER.mtl_trx_single_line"></a><a name="I_t_subtrnx78" id="I_t_subtrnx78"></a>You can transfer material within your current organization between subinventories, or between two locators within the same subinventory. You can transfer from asset to expense subinventories, as well as from tracked to non-tracked subinventories. If an item has a restricted list of subinventories, you can only transfer material from and to subinventories in that list. Oracle Inventory allows you to use user-defined transaction types when performing a subinventory transfer.</p>
+<p><b>To enter a subinventory transfer</b></p>
+<ol>
+<li>
+<p>Navigate to the Subinventory Transfer window.</p>
+<p><img width="504" height="312" src="./img/invug_subtrn.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the date and time of entry for the transaction.</p>
+<p>The date you can enter is controlled by the <i>INV: Transaction Date Validation</i> profile option. See: <a href="T291651T291654.htm#I_r_profopts">Oracle Inventory Profile Options</a>.</p>
+</li>
+<li>
+<p>Enter a transaction type for the subinventory transfer. This can either be a predefined system type or one you defined. See: <a href="T291651T291655.htm#I_t_trntyp">Defining Transaction Types</a>.</p>
+</li>
+<li>
+<p>Optionally, enter the source of the transaction type. See: <a href="T291651T291655.htm#I_t_trnsrctyp">Defining and Updating Transaction Source Types</a>.</p>
+</li>
+<li>
+<p>Optionally, indicate if inventory information should be defaulted from the serial number.</p>
+</li>
+</ol>
+<p><b>To enter the item to transfer</b></p>
+<ol>
+<li>
+<p>Choose Transaction Lines in the Subinventory Transfer window. The Transaction Lines Detail folder window appears.</p>
+<p><img width="757" height="528" src="./img/invug_subtrn2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter an inventory item to transfer. If you choose to default inventory information from the serial number, enter a serial number.</p>
+</li>
+<li>
+<p>Optionally, enter the revision for the item. You must enter a value here if the item is under revision control.</p>
+</li>
+<li>
+<p>Enter the subinventories from and to which to transfer material. Enter the same subinventory in the Sub and To Sub fields to transfer material between locators.</p>
+</li>
+<li>
+<p>Optionally, enter the locators from and to which to transfer the item. You must enter a value here if you established locator control.</p>
+<p>You can enter a new value in the To Locator field only if you defined locator control as dynamic entry.</p>
+</li>
+<li>
+<p>Optionally, enter a lot number for the item. If you want to enter multiple lot numbers, complete the remaining steps, then choose the Lot/Serial button to display the Lot Entry window.</p>
+</li>
+<li>
+<p>Enter a unit of measure. This can be the primary unit of measure (the default) or any valid alternate unit of measure.</p>
+<p>If you enter an alternate unit of measure, Oracle Inventory issues the quantity you specify in this unit of measure. Oracle Inventory also converts the quantity to the primary unit of measure so that it can correctly update the on-hand quantity.</p>
+</li>
+<li>
+<p>Enter the quantity of the inventory item to transfer, based on the unit of measure you specified. If the item is under dual unit of measure control, the secondary unit of measure and the secondary quantity populate automatically in the Secondary UOM and Secondary Quantity fields</p>
+</li>
+<li>
+<p>Optionally, enter a reason code for the transaction. For example, you can use reason codes to allow you to mark exceptional charges to support a quality data collection and reporting system. See: <a href="T291651T291655.htm#I_t_trnreason">Defining Transaction Reasons</a>.</p>
+</li>
+<li>
+<p>Optionally, enter up to 240 characters of free text that describes the transaction.</p>
+</li>
+</ol>
+<p><b>To enter lot or serial number information.</b></p>
+<p>Click the Lot/Serial button. See: <a href="T291651T427993.htm#I_t_enterlot">Assigning Lot Numbers</a> and <a href="T291651T427994.htm#I_t_enterser">Assigning Serial Numbers</a>.</p>
+<p><b>To view quantity available and quantity on hand values</b></p>
+<ol>
+<li>
+<p>Review the following fields:</p>
+<p><i>Available:</i> Displays the quantity available to transfer, based on the unit of measure you specified. The available quantity is the quantity on hand less all reservations for the item. This amount could include the amount you have reserved if you enter a transaction source that has reservations against it. The available quantity includes reservations against current transaction source. The available quantity is specific to the revision level, lot number, From subinventory, and From locator you specify for the transfer.</p>
+<p><i>Secondary Available:</i> Displays the quantity available to transfer in the secondary unit of measure if the item is under dual unit of measure control.</p>
+<p><i>On hand:</i> Displays the current on-hand quantity for the item, based on the unit of measure you specified. The on-hand quantity is specific to the revision, lot number, From subinventory, and From locator you specify for the transfer. On-hand includes quantities for pending transactions in the MTL-MATERIAL-TRANSACTIONS table.</p>
+<p><i>Secondary On hand:</i> Displays the current on-hand quantity of the item in the secondary unit of measure if the item is under dual unit of measure control.</p>
+</li>
+</ol>
+<p><b>To process the transaction</b></p>
+<ol>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Customizing the Presentation of Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1755732"></a><a id="T292073"></a><b>Performing Miscellaneous Transactions</b></h2>
+<p><a name="d0e78718" id="d0e78718"></a><a name="I_t_misctrnx78" id="I_t_misctrnx78"></a><a name="MISC_TRX.mtl_trx_header" id="MISC_TRX.mtl_trx_header"></a><a name="MISC_TRX.mtl_trx_line" id="MISC_TRX.mtl_trx_line"></a><a name="MISC_TRX.mtl_trx_single_line" id="MISC_TRX.mtl_trx_single_line"></a>With a miscellaneous transaction you can issue material to or receive material from general ledger accounts in your current organization. This allows you to issue material to groups that are not inventory, receiving, or work in process such as a research and development group or an accounting department. You can also make manual adjustments to the general ledger by receiving material from one account to inventory, and then issuing that material from inventory to another account.</p>
+<p>You can use your user-defined transaction types and sources to further classify and name your transactions. You can use this feature to issue items to individuals, departments, or projects; or to issue damaged items to expense accounts such as scrap. You can perform the receipts for items that were acquired by means other than a purchase order from a supplier. You can also use this feature to load all item on-hand quantities when you start implementing Oracle Inventory.</p>
+<p>You will receive a material shortage alert while performing a miscellaneous transaction if you have enabled shortage alerts for the miscellaneous transaction type being performed. Also, a miscellaneous transaction can trigger a shortage notification to be sent to various pre-defined individuals. See: <a href="T291651T292013.htm#I_shrtalrt">Material Shortage Alerts and Shortage Notifications</a>.</p>
+<p><b>To enter a miscellaneous transaction</b></p>
+<ol>
+<li>
+<p>Navigate to the Miscellaneous Transaction window.</p>
+<p><img width="506" height="313" src="./img/invug_misctrn.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the date and time of entry for the transaction.</p>
+<p>The date you can enter is controlled by the <i>INV: Transaction Date Validation</i> profile option. See: <a href="T291651T291654.htm#I_r_profopts">Oracle Inventory Profile Options</a>.</p>
+</li>
+<li>
+<p>Enter a miscellaneous transaction type for the transfer. This can either be a predefined system type or one you defined. See: <a href="T291651T291655.htm#I_t_trntyp">Defining Transaction Types</a>.</p>
+</li>
+<li>
+<p>Optionally, enter the source of the transaction type. See: <a href="T291651T291655.htm#I_t_trnsrctyp">Defining and Updating Transaction Source Types</a>.</p>
+</li>
+<li>
+<p>Optionally, enter the general ledger account against which the material is issued or received.</p>
+</li>
+<li>
+<p>Optionally, indicate if inventory information should be defaulted from the serial number.</p>
+</li>
+</ol>
+<p><b>To enter the item to transfer</b></p>
+<ol>
+<li>
+<p>Choose Transaction Lines in the Miscellaneous Transaction window. The Transaction Lines Detail folder window appears.</p>
+<p><img width="755" height="528" src="./img/invug_misciss.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter an inventory item to issue or receive. If you choose to default inventory information from the serial number, enter a serial number.</p>
+</li>
+<li>
+<p>Enter the revision for the item to issue or receive. You must enter a value in this field if the item is under revision control.</p>
+</li>
+<li>
+<p>Enter a subinventory. For an issue transaction, you cannot enter a subinventory that does not have <i>Quantity Tracking</i> turned on.</p>
+</li>
+<li>
+<p>Enter a locator. You must enter a value here if you established locator control for the item.</p>
+</li>
+<li>
+<p>Optionally, enter a lot number for the item. If you want to enter multiple lot numbers, complete the remaining steps, then choose the Lot/Serial button to display the Lot Entry window.</p>
+</li>
+<li>
+<p>Optionally enter a transfer location for the item.</p>
+<p><strong><span>Note:</span></strong> If you enabled the Location Required parameter for this transaction type on the Transaction Types window, this field is mandatory.</p>
+</li>
+<li>
+<p>Enter a unit of measure. This can be the primary unit of measure (the default) or any valid alternate unit of measure.</p>
+<p>If you enter an alternate unit of measure, Oracle Inventory issues the quantity you specify in this unit of measure. Oracle Inventory also converts the quantity to the primary unit of measure so that it can correctly update the on-hand quantity.</p>
+</li>
+<li>
+<p>Enter the quantity of the inventory item to issue or receive, based on the unit of measure you specified. If the item is under dual unit of measure control, the secondary unit of measure and the secondary quantity populate automatically in the Secondary UOM and Secondary Quantity fields.</p>
+</li>
+<li>
+<p>If using average costing, enter the unit cost of the item to receive or issue. Leave this field blank to use the system average cost at the time of the transaction.</p>
+</li>
+<li>
+<p>Optionally, enter a reason code for the transaction. For example, you can use reason codes to allow you to mark exceptional charges to support quality data collection.</p>
+</li>
+<li>
+<p>Optionally, enter up to 240 characters of free text that describe the transaction.</p>
+</li>
+<li>
+<p>Enter a general ledger account for the item to use in the transaction. You can change this account only for miscellaneous issue/receipt or user-defined transaction types.</p>
+</li>
+<li>
+<p>Optionally, enter the owning party if the owner controls the item.</p>
+</li>
+<li>
+<p>Optionally, enter the planning party if a vendor has planning authority for the item.</p>
+<p><strong><span>Note:</span></strong> You can view fields that do not appear on the default miscellaneous transaction window. You can also hide unused fields. See Customizing the Presentation of Data, <i>Oracle E-Business Suite User's Guide</i>.</p>
+</li>
+</ol>
+<p><b>To enter lot or serial number information</b></p>
+<p>Choose the Lot/Serial button. See: <a href="T291651T427993.htm#I_t_enterlot">Assigning Lot Numbers</a> and <a href="T291651T427994.htm#I_t_enterser">Assigning Serial Numbers</a>.</p>
+<p><b>To view quantity available and quantity on hand values</b></p>
+<ol>
+<li>
+<p>Review the following fields:</p>
+<p><i>Available</i>: Displays the quantity available to transfer, based on the unit of measure you specified. The available quantity is the quantity on hand less all reservations for the item. This amount could include the amount you have reserved if you enter a transaction source that has reservations against it. The available quantity includes reservations against current transaction source. The available quantity is specific to the revision level, lot number, From subinventory, and From locator you specify for the transfer.</p>
+<p><i>Secondary Available:</i> Displays the quantity available to transfer in the secondary unit of measure if the item is under dual unit of measure control.</p>
+<p><i>On hand</i>: Displays the current on-hand quantity for the item, based on the unit of measure you specified. The on-hand quantity is specific to the revision, lot number, From subinventory, and From locator you specify for the transfer. On-hand includes quantities for pending transactions in the MTL-MATERIAL-TRANSACTIONS table.</p>
+<p><i>Secondary On hand:</i> Displays the current on-hand quantity of the item in the secondary unit of measure if the item is under dual unit of measure control.</p>
+</li>
+<li>
+<p>Save your work to process the transaction.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Customizing the Presentation of Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="3802414"></a><a id="T428160"></a><b>Inter-organization Transfers</b></h2>
+<p><a name="d0e78917" id="d0e78917"></a><a name="d0e78924" id="d0e78924"></a><a name="c_iorgtrxn" id="c_iorgtrxn"></a>You can define multiple inventories, warehouses, and manufacturing facilities as distinct organizations. With Oracle Inventory you can perform inter-organization transfers as direct or intransit shipments.</p>
+<p>You can transfer one or more items in a single transaction. You can also transfer partial quantities of the same item to different subinventories and locators in a single transaction. The items you transfer must exist in both organizations. You can also transfer expense and asset items from one organization to another using intransit inventory.</p>
+<h2><a name="3802415"></a><a id="T428161"></a><b>Direct Inter-organization Transfers</b></h2>
+<p><a name="d0e78939" id="d0e78939"></a><a name="d0e78946" id="d0e78946"></a>You can use a direct inter-organization transfer to move inventory directly from a shipping organization to a destination organization.</p>
+<p>The validity of a transfer transaction depends on the controls you have defined in both the shipping and destination organizations for the items you want to transfer. For example, you can transfer item A from organization X to organization Y, even though item A is under lot control only in organization X (you can specify the lot numbers for item A in organization X during the transfer transaction). However, you cannot transfer item B from organization X to organization Y if item B is under lot control only in organization Y (you cannot specify lot numbers for item B in the destination organization because you are performing a direct transfer).</p>
+<p>The following tables present direct, inter-organization transfers.</p>
+<h3><a id="T434783"></a><b>Dual Unit of Measure Control</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipped Item</b></th>
+<th scope="col"><b>Destination Item</b></th>
+<th scope="col"><b>Allowed</b></th>
+</tr>
+<tr valign="top">
+<td>None</td>
+<td>None</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>None</td>
+<td>Fixed</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>None</td>
+<td>Default</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>None</td>
+<td>No Default</td>
+<td>OK***</td>
+</tr>
+<tr valign="top">
+<td>Fixed</td>
+<td>None</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Fixed</td>
+<td>Fixed</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Fixed</td>
+<td>Default</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Fixed</td>
+<td>No Default</td>
+<td>OK***</td>
+</tr>
+<tr valign="top">
+<td>Default</td>
+<td>None</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Default</td>
+<td>Fixed</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Default</td>
+<td>Default</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Default</td>
+<td>No Default</td>
+<td>OK***</td>
+</tr>
+<tr valign="top">
+<td>No Default</td>
+<td>None</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>No Default</td>
+<td>Fixed</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>No Default</td>
+<td>Default</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>No Default</td>
+<td>No Default</td>
+<td>OK***</td>
+</tr>
+</table>
+<p>*** Apply default UOM conversion from destination organization.</p>
+<h3><a id="T428149"></a><b>Revision Control</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>REVISION CONTROL</b></th>
+<th scope="col"><b>Off (Shipping Organization)</b></th>
+<th scope="col"><b>On (Shipping Organization)</b></th>
+</tr>
+<tr valign="top">
+<td><b>Off (Destination Organization)</b></td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td><b>On (Destination Organization)</b></td>
+<td>-</td>
+<td>OK</td>
+</tr>
+</table>
+<h3><a id="T428150"></a><b>Lot Control</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>LOT CONTROL</b></th>
+<th scope="col"><b>Off (Shipping Organization)</b></th>
+<th scope="col"><b>On (Shipping Organization)</b></th>
+</tr>
+<tr valign="top">
+<td><b>Off (Destination Organization)</b></td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td><b>On (Destination Organization)</b></td>
+<td>-</td>
+<td>OK</td>
+</tr>
+</table>
+<h3><a id="T434784"></a><b>Grade Control</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Grade Control</b></th>
+<th scope="col"><b>Off (Shipping Organization)</b></th>
+<th scope="col"><b>On (Shipping Organization)</b></th>
+</tr>
+<tr valign="top">
+<td>Off (Destination Organization)</td>
+<td>OK**</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>On (Destination Organization)</td>
+<td>OK</td>
+<td>OK*</td>
+</tr>
+</table>
+<p>* The Shipped lot grade does not override the destination lot grade</p>
+<p>** Grade Defaults from item master</p>
+<h3><a id="T434785"></a><b>Process Manufacturing Lot Attributes</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>OPM Lot Attributes</b></th>
+<th scope="col"><b>Not Used (Shipping Organization)</b></th>
+<th scope="col"><b>Used (Shipping Organization</b></th>
+</tr>
+<tr valign="top">
+<td>Not Used (Destination Organization</td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Used (Destination Organization)</td>
+<td>OK**</td>
+<td>OK*</td>
+</tr>
+</table>
+<p>* The Shipped lot grade does not override the destination lot grade</p>
+<p>**Lot attributes default from the item master for new lots.</p>
+<h3><a id="T428151"></a><b>Serial Number Control</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>SERIAL NUMBER CONTROL</b></th>
+<th scope="col"><b>Off (Shipping Organization)</b></th>
+<th scope="col"><b>On (Shipping Organization)</b></th>
+</tr>
+<tr valign="top">
+<td><b>Off (Destination Organization)</b></td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td><b>On (Destination Organization)</b></td>
+<td>-</td>
+<td>OK</td>
+</tr>
+</table>
+<h3><a id="T428152"></a><b>Asset Expense Subinventory</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Destination Org Shipping Org</b></th>
+<th scope="col"><b>Expense sub and/or Expense item</b></th>
+<th scope="col"><b>Asset sub and Asset item</b></th>
+</tr>
+<tr valign="top">
+<td><b>Expense sub and/or Expense item</b></td>
+<td>OK</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td><b>Asset sub and Asset item</b></td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+</table>
+<h3><a id="T434786"></a><b>Unit of Measure Conversions</b></h3>
+<p><a name="d0e79907" id="d0e79907"></a><a name="d0e79919" id="d0e79919"></a>When you transfer items under dual UOM control between organization, the system honors the UOM conversion of the destination organization. Consequently, the system could potentially recalculate the secondary quantity for the item if the conversions differ between the shipping organization and the destination organization. The system always processes transaction quantities in the primary UOM.</p>
+<p>You must apply UOM conversions in both the shipping and destination organization before the system can process the transaction.</p>
+<h2><a name="1755743"></a><a id="T292018"></a><b>Inter-Organization Transfers via Intransit Inventory</b></h2>
+<p><a name="d0e79939" id="d0e79939"></a><a name="d0e79946" id="d0e79946"></a>You usually transfer material to intransit inventory when transportation time is significant. When you perform the transfer transaction, you do not need to specify the delivery location. You only need to enter the subinventory you are shipping from, a shipment number, the freight information, and, depending on the inter-organization transfer charge that applies between the organizations, a percentage of the transaction value or a discrete amount that Oracle Inventory uses to compute transfer charges.</p>
+<p>If the FOB point is set to <i>Receipt</i> in the Shipping Networks window, the destination organization owns the shipment when they receive it. If it is set to <i>Shipment</i>, the destination organization owns the shipment when the shipping organization ships it, and while it is intransit.</p>
+<p>While your shipment is intransit, you can update shipping information such as the freight carrier or arrival date in the Maintain Shipments window. See: Managing Shipments, <i>Oracle Purchasing User's Guide</i>.</p>
+<p>At the time of shipment, you must define your receiving parameters for the destination organization. You can receive and deliver your shipment in a single transaction or you can receive and store your shipment at the receiving dock. See: Receipts, <i>Oracle Purchasing User's Guide</i>.</p>
+<p>The validity of a transfer transaction depends on the controls you have defined in both the shipping and destination organizations for the items you want to transfer. For example, you can transfer item A from organization X to organization Y, even though item A is under lot control only in organization X (you can specify the lot numbers for item A in organization X during the transfer transaction). You can also transfer item B from organization X to organization Y if item B is under lot control only in organization Y (you can specify lot numbers for item B in the destination organization when you perform the receiving transaction).</p>
+<p>The following tables present inter-organization transfers via intransit inventory.</p>
+<h3><a id="T434787"></a><b>Dual Unit of Measure Control</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipped Item</b></th>
+<th scope="col"><b>Destination Item</b></th>
+<th scope="col"><b>Allowed Intransit</b></th>
+</tr>
+<tr valign="top">
+<td>None</td>
+<td>None</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>None</td>
+<td>Fixed</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>None</td>
+<td>Default</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>None</td>
+<td>No Default</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Fixed</td>
+<td>None</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Fixed</td>
+<td>Fixed</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Fixed</td>
+<td>Default</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Fixed</td>
+<td>No Default</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Default</td>
+<td>None</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Default</td>
+<td>Fixed</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Default</td>
+<td>Default</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Default</td>
+<td>No Default</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>No Default</td>
+<td>None</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>No Default</td>
+<td>Fixed</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>No Default</td>
+<td>Default</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>No Default</td>
+<td>No Default</td>
+<td>OK</td>
+</tr>
+</table>
+<h3><a id="T428029"></a> <b>Revision Control</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>REVISION CONTROL</b></th>
+<th scope="col"><b>Off (Shipping Organization)</b></th>
+<th scope="col"><b>On (Shipping Organization)</b></th>
+</tr>
+<tr valign="top">
+<td><b>Off (Destination Organization)</b></td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td><b>On (Destination Organization)</b></td>
+<td>Receive any revision</td>
+<td>Receive only the revision you ship</td>
+</tr>
+</table>
+<h3><a id="T428030"></a> <b>Lot Control</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>LOT CONTROL</b></th>
+<th scope="col"><b>Off (Shipping Organization)</b></th>
+<th scope="col"><b>On (Shipping Organization)</b></th>
+</tr>
+<tr valign="top">
+<td><b>Off (Destination Organization)</b></td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td><b>On (Destination Organization)</b></td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+</table>
+<h3><a id="T434788"></a><b>Grade Control</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Grade Control</b></th>
+<th scope="col"><b>Off (Shipping Organization)</b></th>
+<th scope="col"><b>On (Shipping Organization)</b></th>
+</tr>
+<tr valign="top">
+<td>Off (Destination Organization)</td>
+<td>OK**</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>On (Destination Organization)</td>
+<td>OK</td>
+<td>OK*</td>
+</tr>
+</table>
+<p>* The Shipped lot grade does not override the destination lot grade</p>
+<p>** Grade Defaults from item master</p>
+<h3><a id="T434789"></a><b>Process Manufacturing Lot Attributes</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>OPM Lot Attributes</b></th>
+<th scope="col"><b>Not Used (Shipping Organization)</b></th>
+<th scope="col"><b>Used (Shipping Organization</b></th>
+</tr>
+<tr valign="top">
+<td>Not Used (Destination Organization</td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td>Used (Destination Organization)</td>
+<td>OK**</td>
+<td>OK*</td>
+</tr>
+</table>
+<p>* The Shipped lot grade does not override the destination lot grade</p>
+<p>**Lot attributes default from the item master for new lots.</p>
+<h3><a id="T428031"></a><b>Serial Number Control</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>SERIAL NUMBER CONTROL</b></th>
+<th scope="col"><b>Off (Shipping Organization)</b></th>
+<th scope="col"><b>On (Shipping Organization)</b></th>
+</tr>
+<tr valign="top">
+<td><b>Off (Destination Organization)</b></td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr valign="top">
+<td><b>On (Destination Organization)</b></td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+</table>
+<h3><a id="T428032"></a> <b>Asset Expense Subinventory Item</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Item Type</b></th>
+<th scope="col"><b>Asset Subinventory</b></th>
+<th scope="col"><b>Expense Subinventory</b></th>
+</tr>
+<tr valign="top">
+<td><b>Asset item</b></td>
+<td>OK</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td><b>Expense Item</b></td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+</table>
+<h3><a id="T434790"></a><b>Unit of Measure Conversions</b></h3>
+<p><a name="d0e80922" id="d0e80922"></a><a name="d0e80934" id="d0e80934"></a>When you transfer items under dual UOM control between organization, the system honors the UOM conversion of the destination organization. Consequently, the system could potentially recalculate the secondary quantity for the item if the conversions differ between the shipping organization and the destination organization. The system always processes transaction quantities in the primary UOM.</p>
+<p>You must UOM conversions in both the shipping and destination organization before the system can process the transaction.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292013.htm#I_t_iorgtx78n">Transferring Between Organizations</a></p>
+<h2><a name="1755748"></a><a id="T292074"></a><b>Transferring Material Between Organizations</b></h2>
+<p><a name="d0e80959" id="d0e80959"></a><a name="d0e80966" id="d0e80966"></a><a name="d0e80971" id="d0e80971"></a><a name="I_t_iorgtx78n" id="I_t_iorgtx78n"></a><a name="INTERORG_XFER.mtl_trx_header" id="INTERORG_XFER.mtl_trx_header"></a><a name="INTERORG_XFER.mtl_trx_line" id="INTERORG_XFER.mtl_trx_line"></a><a name="INTERORG_XFER.mtl_trx_single_line" id="INTERORG_XFER.mtl_trx_single_line"></a>You can transfer material from your current organization to another organization, or from your current organization to intransit inventory.</p>
+<p>Material in intransit inventory belongs to the organization identified by the FOB point. See: <a href="T291651T291796.htm#I_t_iorgshp">Defining Inter-Organization Shipping Networks</a>.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define an inventory item that is common to both organizations. See: <a href="T291651T298833.htm#I_t_ditems">Defining Items</a> and <a href="T291651T298833.htm#I_t_asgnorg">Assigning Items to Organizations</a>.</li>
+<li>Define at least two organizations, one of which is valid to receive material from the other. See: Creating an Organization, <i>Oracle HRMS Enterprise and Workforce Management Guide</i> and <a href="T291651T291796.htm#I_orgparam">Defining Organization Parameters</a>.</li>
+<li>Set up inter-organization relationships and their corresponding accounts. See: <a href="T291651T291796.htm#I_t_iorgshp">Defining Inter-Organization Shipping Networks</a>.</li>
+<li>For direct transfers, if the item to transfer is under serial number control, the item must have the same unit of measure in each organization. See: <a href="T291651T298833.htm#I_t_ditems">Defining Items</a>.</li>
+</ul>
+<p><b>To enter the information to perform a transfer between organizations</b></p>
+<ol>
+<li>
+<p>Navigate to the Inter-organization Transfer window.</p>
+<p><img width="630" height="410" src="./img/invug_iotrnf.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the date of entry for the transaction.</p>
+<p>The date you can enter is controlled by the <i>INV: Transaction Date Validation</i> profile option. See: <a href="T291651T291654.htm#I_r_profopts">Oracle Inventory Profile Options</a>.</p>
+</li>
+<li>
+<p>Enter an organization to which to transfer the material. You must first define this organization as valid to receive material from your current organization. See: <a href="T291651T291796.htm#I_t_iorgshp">Defining Inter-Organization Shipping Networks</a>.</p>
+<p>In addition, if this organization uses intransit inventory, Oracle Inventory stores the material as intransit inventory when you transfer any material to this organization. You must then move the material from intransit inventory to this organization with an intransit inventory receipt.</p>
+</li>
+<li>
+<p>Enter a transaction type. This can be either a predefined system type or one you defined. See: <a href="T291651T291655.htm#I_t_trntyp">Defining and Updating Transaction Types</a>.</p>
+<p>Optionally, you can enter the source of the transaction type. See: <a href="T291651T291655.htm#I_t_trnsrctyp">Defining and Updating Transaction Source Types</a>.</p>
+</li>
+<li>
+<p>Indicate if inventory information should be defaulted from the serial number.</p>
+</li>
+<li>
+<p>Enter any optional Shipment information.</p>
+</li>
+</ol>
+<p><b>Optionally, you can enter the following Shipment information:<a name="d0e81075" id="d0e81075"></a></b></p>
+<ol>
+<li>
+<p>A shipment number to uniquely identify an item or group of items to transfer. When the <i>To Org</i> uses intransit inventory, you must enter a value here.</p>
+<p>The freight carrier for the transfer.</p>
+<p>A waybill or airbill number for the transfer.</p>
+<p>The number of containers in which the material is stored for the transfer.</p>
+<p>The date you expect to receive the material at the destination organization. You must enter a date equal to or later than the current date. Oracle Inventory uses this date for reporting purposes only.</p>
+</li>
+</ol>
+<p><b>To enter the items to transfer</b></p>
+<ol>
+<li>
+<p>Choose Transaction Lines from the Inter-organization Transfer window.</p>
+<p><img width="754" height="529" src="./img/invug_iotrnf2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter an inventory item to transfer.</p>
+<p>You can transfer the same item more than once. For example, you can specify an item more than once to transfer partial quantities to different subinventories or stock locators.</p>
+</li>
+<li>
+<p>For a direct transfer, if the item is under revision control in either organization, enter a revision that is common to the item in both organizations.</p>
+</li>
+<li>
+<p>Enter a subinventory from which to transfer the material.</p>
+</li>
+<li>
+<p>Optionally, enter the subinventory to which to transfer the material. You must enter a value in this field for direct inter-organization transfers.</p>
+</li>
+<li>
+<p>If you established locator control for the item, enter from and to locators.</p>
+</li>
+<li>
+<p>Enter a lot number for the item. If you want to enter multiple lot numbers, complete the remaining steps, then choose the Lot/Serial button to display the Lot Entry window.</p>
+<p>For receipt transactions, if you enter a lot number, enter the date the lot expires. You can enter a value here only if the Lot Expiration (Shelf Life) Control attribute is set to <i>User-defined Expiration Date</i>.</p>
+</li>
+<li>
+<p>Enter a unit of measure. This can be the primary unit of measure (the default) or any valid alternate unit of measure.</p>
+<p>If you enter an alternate unit of measure, Oracle Inventory issues the quantity you specify in this unit of measure. Oracle Inventory also converts the quantity to the primary unit of measure so that it can correctly update the on-hand quantity.</p>
+</li>
+<li>
+<p>Enter the quantity of the item to transfer. If the item is under dual unit of measure control, the secondary unit of measure and the secondary quantity populate automatically in the Secondary UOM and Secondary Quantity fields.</p>
+</li>
+<li>
+<p>Optionally enter a reason code for the transaction. For example, you can use reason codes to allow you to mark exceptional charges to support a quality data collection and reporting system.</p>
+<p>You can also enter up to 240 characters of free text in the Reference field that describe the transaction.</p>
+</li>
+</ol>
+<p><b>To enter internal transfer charges to assign to the To organization<a name="d0e81159" id="d0e81159"></a></b></p>
+<ol>
+<li>
+<p>Enter a value in the Added Value field that represents the transfer charge. You can enter a value here only if you entered <i>Requested value</i> in the Inter-Organization Transfer Charge field in the Organization Parameters window.</p>
+</li>
+<li>
+<p>Enter the percent of the transaction value that represents the transfer charge. You can enter a value here only if you entered <i>Requested percent</i> in the Inter-Organization Transfer Charge field in the Organization Parameters window. <a href="T291651T291796.htm#I_t_iorgparam">Defining Inter-Organization Information</a>.</p>
+</li>
+</ol>
+<p><b>To enter freight information costs to assign to the From (current) organization:<a name="d0e81184" id="d0e81184"></a><a name="d0e81189" id="d0e81189"></a></b></p>
+<ol>
+<li>
+<p>Enter the transportation cost to physically transfer the material; that is, the freight carrier charges.</p>
+</li>
+<li>
+<p>Enter the general ledger account to which to charge the value you entered in the Transportation Cost field. Oracle Inventory displays the account you defined for the freight carrier as the default. See: Defining Freight Carriers, <i>Oracle Order Management Implementation Guide</i>.</p>
+</li>
+</ol>
+<p><b>To enter a unit number</b></p>
+<p>If Oracle Project Manufacturing is installed and if you have enabled its end item model/unit effectivity feature, you can enter a unit number for the item. See: Model/Unit Effectivity, <i>Oracle Project Manufacturing Implementation Manual</i>.</p>
+<p><strong><span>Note:</span></strong> The Unit Number field is visible only if you have installed Project Manufacturing.</p>
+<p><b>To enter lot or serial number information.<a name="d0e81220" id="d0e81220"></a><a name="d0e81225" id="d0e81225"></a><a name="d0e81232" id="d0e81232"></a><a name="d0e81237" id="d0e81237"></a></b></p>
+<p>Click the Lot/Serial button. See: <a href="T291651T427993.htm#I_t_enterlot">Assigning Lot Numbers</a> and <a href="T291651T427994.htm#I_t_enterser">Assigning Serial Numbers</a>.</p>
+<p><b>To view quantity available and quantity on hand values:<a name="d0e81256" id="d0e81256"></a></b></p>
+<p>Review the following fields:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Available</td>
+<td>Displays the quantity available to transfer, based on the unit of measure you specified. The available quantity is the quantity on hand less all reservations for the item. This amount could include the amount you have reserved if you enter a transaction source that has reservations against it. The available quantity includes reservations against current transaction source. The available quantity is specific to the revision level, lot number, From subinventory, and From locator you specify for the transfer.</td>
+</tr>
+<tr valign="top">
+<td>Secondary Available</td>
+<td>Displays the quantity available to transfer in the secondary unit of measure if the item is under dual unit of measure control.</td>
+</tr>
+<tr valign="top">
+<td>On hand</td>
+<td>Displays the current on-hand quantity for the item, based on the unit of measure you specified. The on-hand quantity is specific to the revision, lot number, From subinventory, and From locator you specify for the transfer. On-hand includes quantities for pending transactions in the MTL-MATERIAL-TRANSACTIONS table.</td>
+</tr>
+<tr valign="top">
+<td>Secondary On hand</td>
+<td>Displays the current on-hand quantity of the item in the secondary unit of measure if the item is under dual unit of measure control.</td>
+</tr>
+</table>
+<p><b>To process the transaction</b></p>
+<p>Save your work.</p>
+<p><b>To record movement statistics:<a name="d0e81316" id="d0e81316"></a></b></p>
+<p>Use either of the following methods to record and maintain information associated with the movement of goods:</p>
+<ul>
+<li>
+<p>Navigate to the Movement Statistics window and record information manually. See: <a href="T291651T292013.htm#I_t_mvstat">Entering Movement Statistics</a>.</p>
+</li>
+<li>
+<p>Automate the collection of this information by setting up parameters in the Movement Statistics Parameters and Economic Zones windows. See: <a href="T291651T292013.htm#I_t_mvpara">Defining Movement Statistics Parameters</a> and <a href="T291651T291796.htm#I_decozn">Defining Economic Zones</a>.</p>
+</li>
+</ul>
+<h2><a name="1755839"></a><a id="T292089"></a><b>Planning Transfer Transaction</b></h2>
+<p><a name="d0e81344" id="d0e81344"></a><a name="I_c_plntrsfr" id="I_c_plntrsfr"></a><a name="VMI_XFER_MTL_TRX_HEADER" id="VMI_XFER_MTL_TRX_HEADER"></a><a name="VMI_XFER_MTL_TRX_LINE" id="VMI_XFER_MTL_TRX_LINE"></a><a name="d0e81354" id="d0e81354"></a><a name="d0e81359" id="d0e81359"></a>Vendor Managed Inventory is a procurement and planning practice in which you delegate key inventory management functions to one or more suppliers. Under this arrangement, the supplier determines the items, quantities, and delivery schedules on your behalf based on information the supplier receives from your inventory and procurement systems.</p>
+<p>Planning transfers enables you to assume the planning responsibility from the supplier. This transaction does not move goods, it changes the planning organization from the supplier site to the internal organization that holds the goods. After you perform a planning transfer and run collection, your supplier can no longer see the transferred quantity in the on hand quantity column.</p>
+<p><b>To enter a planning transfer transaction</b></p>
+<ol>
+<li>
+<p>Navigate to the Planning Transfer window.</p>
+<p><img width="505" height="313" src="./img/invug_planningtransfer1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the date and time of entry for the transaction.</p>
+<p>The date you can enter is controlled by the <i>INV: Transaction Date Validation</i> profile option. See: <a href="T291651T291654.htm#I_r_profopts">Oracle Inventory Profile Options</a>.</p>
+</li>
+<li>
+<p>Select Transaction Lines.</p>
+<p><img width="756" height="530" src="./img/invug_Planningtransfer2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter an inventory item to issue or receive. If you choose to default inventory information from the serial number, enter a serial number.</p>
+</li>
+<li>
+<p>Enter the revision for the item to issue or receive. You must enter a value in this field if the item is under revision control.</p>
+</li>
+<li>
+<p>Enter the Subinventory. This is the subinventory where the vendor managed inventory resides.</p>
+</li>
+<li>
+<p>Enter the Supplier. This is the supplier from which you receive the consigned inventory.</p>
+</li>
+<li>
+<p>Enter the Supplier Site. This is the location from which you receive the consigned inventory.</p>
+</li>
+<li>
+<p>Enter a unit of measure. This can be the primary unit of measure (the default) or any valid alternate unit of measure.</p>
+<p>If you enter an alternate unit of measure, Oracle Inventory issues the quantity you specify in this unit of measure. Oracle Inventory also converts the quantity to the primary unit of measure so that it can correctly update the on-hand quantity.</p>
+</li>
+<li>
+<p>Enter the quantity of the inventory item to issue or receive, based on the unit of measure you specified. If the item is under dual unit of measure control, the secondary unit of measure and the secondary quantity populate automatically in the Secondary UOM and Secondary Quantity fields.</p>
+</li>
+<li>
+<p>Optionally, enter a reason code for the transaction. For example, you can use reason codes to allow you to mark exceptional charges to support quality data collection.</p>
+</li>
+<li>
+<p>Optionally, enter up to 240 characters of free text that describe the transaction.</p>
+</li>
+</ol>
+<p><b>To enter lot or serial number information.</b></p>
+<ol>
+<li>
+<p>Choose the Lot/Serial button. See: <a href="T291651T427993.htm#I_t_enterlot">Assigning Lot Numbers</a> and <a href="T291651T427994.htm#I_t_enterser">Assigning Serial Numbers</a>.</p>
+</li>
+</ol>
+<p><b>To view quantity available and quantity on hand values</b></p>
+<ol>
+<li>
+<p>Review the following fields:</p>
+<p><i>Available</i>: Displays the quantity available to transfer, based on the unit of measure you specified. The available quantity is the quantity on hand less all reservations for the item. This amount could include the amount you have reserved if you enter a transaction source that has reservations against it. The available quantity includes reservations against current transaction source. The available quantity is specific to the revision level, lot number, From subinventory, and From locator you specify for the transfer.</p>
+<p><i>Secondary Available:</i> Displays the quantity available to transfer in the secondary unit of measure if the item is under dual unit of measure control</p>
+<p><i>On hand</i>: Displays the current on-hand quantity for the item, based on the unit of measure you specified. The on-hand quantity is specific to the revision, lot number, From subinventory, and From locator you specify for the transfer. On-hand includes quantities for pending transactions in the MTL-MATERIAL-TRANSACTIONS table.</p>
+<p><i>Secondary On hand:</i> Displays the current on-hand quantity of the item in the secondary unit of measure if the item is under dual unit of measure control.</p>
+</li>
+</ol>
+<p><b>To process the transaction</b></p>
+<ol>
+<li>
+<p>Save your work.</p>
+<p>See: How do I set up Collaborative Planning with Oracle Advanced Supply Chain Planning or another Oracle ERP system? <i>Oracle Collaborative Planning Online Help.</i></p>
+</li>
+</ol>
+<h2><a name="1755843"></a><a id="T292090"></a><b>Transferring Consigned and VMI Material</b></h2>
+<p><a name="d0e81489" id="d0e81489"></a><a name="CONS_XFER_MTL_TRX_HEADER" id="CONS_XFER_MTL_TRX_HEADER"></a><a name="CONS_XFER_MTL_TRX_LINE" id="CONS_XFER_MTL_TRX_LINE"></a><a name="I_conx78fr" id="I_conx78fr"></a>Use the Consigned Transaction window to transfer ownership of consigned inventory. You can transfer ownership of consigned material to or from a supplier. Material can also be returned to the consigned status after the material is consumed and the consumption advice and/or invoice is generated.</p>
+<p><strong><span>Additional Information:</span></strong> Serial and lot transaction information (if applicable) is also tracked during <i>Transfer to Regular</i> and <i>Transfer to Consigned</i> transactions. If you transfer the ownership of the material back to supplier from inventory using the <i>Transfer to Consigned</i> procedure, then the lot and serial controlled information is also transferred.</p>
+<p><b>To create a transfer transaction:<a name="d0e81513" id="d0e81513"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Consigned Transactions window.</p>
+</li>
+<li>
+<p>Choose a transaction type that defines the type of material transfer:</p>
+<ul>
+<li>
+<p>Transfer to Regular: Transfers ownership of the material from the supplier.</p>
+</li>
+<li>
+<p>Transfer to Consigned: Transfers ownership of the material to the supplier.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Optionally, enter the transaction Source.</p>
+</li>
+<li>
+<p>Select the Serial-Triggered check box if the part number is serialized.</p>
+<p><img width="502" height="312" src="./img/invug_consignedxfer1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click Transaction Lines to open the detail window.</p>
+<p><img width="757" height="528" src="./img/invug_consignedxfer2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select an item from the list of values.</p>
+</li>
+<li>
+<p>Enter the revision number if necessary.</p>
+</li>
+<li>
+<p>Select the Subinventory where the inventory resides from the list of values.</p>
+</li>
+<li>
+<p>Enter locator information if necessary.</p>
+</li>
+<li>
+<p>Enter the Lot and Serial information if necessary.</p>
+</li>
+<li>
+<p>Select the Owning Party form the list of values.</p>
+</li>
+<li>
+<p>Select the Consumption Transaction ID of the material for which the consumption advice was generated.</p>
+<p><strong><span>Note:</span></strong> If the material is consumed and the consumption advice is created, the Consumption Transaction field displays the eligible records that fall within the dates defined in the form function parameter <code>CONS_INV_RTN_DAYS</code>. For example, if the parameter value is 30, then the system displays only those records from the last 30 days. However, if the consumption advice is not created, all the records for that material appear regardless of the form function parameter setting.</p>
+</li>
+<li>
+<p>Change the default UOM if necessary.</p>
+</li>
+<li>
+<p>Enter the Item Quantity. If the item is under dual unit of measure control, the secondary unit of measure and the secondary quantity populate automatically in the Secondary UOM and Secondary Quantity fields.</p>
+</li>
+<li>
+<p>Optionally, select the appropriate transaction reason.</p>
+</li>
+<li>
+<p>Optionally, enter a reference comment.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<h3><b>Additional Notes about Consumption Advice and Debit Memos</b></h3>
+<ul>
+<li>
+<p>If the debit memo cannot be created for some reason, then the Transfer to Consigned transaction is not committed and the system displays an error message.</p>
+</li>
+<li>
+<p>If the consumption advice and invoice were created for the consumed material, then a debit memo is generated for the quantity that is returned to the consigned status. Note:</p>
+<p><strong><span>Note:</span></strong> The <i>Auto Create Debit Memo from RTS Transaction</i> check box must be selected in the Supplier Site window and an invoice must exist. If not selected, then a workflow notification is sent to the buyer to create the debit memo manually (it will not be created automatically).</p>
+</li>
+<li>
+<p>A debit memo is raised if the material transferred back to consigned has already been invoiced. This occurs when the <i>Create Debit Memo from RTS Transaction</i> check box is selected in the Supplier Site. If this parameter is not selected or the returned quantity is greater than quantity billed on the invoice, then a workflow notification should be raised to create the debit memo manually.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To view quantity available and quantity on hand values</b></p>
+<ol>
+<li>
+<p>Review the following fields:</p>
+<p><i>Available</i>: Displays the quantity available to transfer, based on the unit of measure you specified. The available quantity is the quantity on hand less all reservations for the item. This amount could include the amount you have reserved if you enter a transaction source that has reservations against it. The available quantity includes reservations against current transaction source. The available quantity is specific to the revision level, lot number, From subinventory, and From locator you specify for the transfer.</p>
+<p><i>Secondary Available:</i> Displays the quantity available to transfer in the secondary unit of measure if the item is under dual unit of measure control</p>
+<p><i>On hand</i>: Displays the current on-hand quantity for the item, based on the unit of measure you specified. The on-hand quantity is specific to the revision, lot number, From subinventory, and From locator you specify for the transfer. On-hand includes quantities for pending transactions in the MTL-MATERIAL-TRANSACTIONS table.</p>
+<p><i>Secondary On hand:</i> Displays the current on-hand quantity of the item in the secondary unit of measure if the item is under dual unit of measure control.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291655.htm#I_c_conset">Defining Consumption Transaction Rules</a></p>
+<p><a href="T291651T292013.htm#I_c_plntrsfr">Planning Transfer Transaction</a></p>
+<h2><a name="1755769"></a><a id="T292020"></a><b>Shortage Alerts and Shortage Notifications</b></h2>
+<p><a name="d0e81669" id="d0e81669"></a><a name="d0e81676" id="d0e81676"></a><a name="I_shrtalrt" id="I_shrtalrt"></a>A material shortage occurs whenever unsatisfied demand exceeds available quantity for incoming supply of material. Oracle Inventory checks, during a receipt transaction, to see if the material received is needed elsewhere in the organization. If a shortage exists, the system notifies you, either by a real-time, material shortage alert or a workflow-based notification.</p>
+<h3><a id="T428162"></a><b>Forms Generating Shortage Alerts and Notifications</b></h3>
+<p>The following receipt transaction forms generate shortage alerts and notifications when receiving items for which the system has detected a shortage.</p>
+<ul>
+<li>
+<p>Receipts</p>
+</li>
+<li>
+<p>Receiving Transactions</p>
+</li>
+<li>
+<p>Miscellaneous Transactions</p>
+</li>
+<li>
+<p>WIP Material Transactions</p>
+</li>
+<li>
+<p>WIP Completions</p>
+</li>
+<li>
+<p>Work-Orderless Completions</p>
+</li>
+</ul>
+<p>The shortage alert appears in the window during the transaction. It gives you the option to go to the View Potential Shortages form, which shows where demand exists in the organization.</p>
+<p>Notifications are sent to pre-specified individuals.</p>
+<h3><a id="T428163"></a><b>Sources of Demand</b></h3>
+<p>In generating shortage alerts and notifications, the system considers the following to be sources of demand:</p>
+<ul>
+<li>
+<p>WIP jobs</p>
+</li>
+<li>
+<p>WIP schedules</p>
+</li>
+<li>
+<p>Sales order lines that have been pick released and allocated but for which adequate quantity was not sourced</p>
+</li>
+</ul>
+<h3><a id="T428164"></a><b>Supply Types</b></h3>
+<p>You can specify which inventory transactions trigger a shortage alert or notification. The system considers only the transaction types you select to be supply for the unsatisfied demand. Shortage alerts and notifications are triggered for system-defined and user-defined transaction types that have transaction actions of:</p>
+<ul>
+<li>
+<p>Receipt into stores</p>
+</li>
+<li>
+<p>Intransit receipt</p>
+</li>
+<li>
+<p>Direct organization transfer</p>
+</li>
+<li>
+<p>Assembly completion</p>
+</li>
+<li>
+<p>Negative component issue</p>
+</li>
+</ul>
+<h3><a id="T428165"></a><b>Setting Up Shortage Alerts and Shortage Notifications</b></h3>
+<a name="d0e81826" id="d0e81826"></a> <a name="d0e81838" id="d0e81838"></a>
+<ul>
+<li>
+<p>Define the shortage parameters the system uses to detect material shortages see: <a href="T291651T291796.htm#I_dshrtpar">Defining Shortage Parameters</a></p>
+</li>
+<li>
+<p>Define the transaction action types that trigger shortage alerts and notifications see: <a href="T291651T291655.htm#I_t_trntyp">Defining and Updating Transaction Types</a></p>
+</li>
+<li>
+<p>Define which items trigger a shortage alert of notification when they are in demand. see: <a href="T291651T298833.htm#I_t_ditems">Defining Items</a> and <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a></p>
+</li>
+<li>
+<p>Define the individuals to be notified. see: <a href="T291651T291796.htm#I_dshrtpar">Defining Shortage Parameters</a></p>
+</li>
+</ul>
+<h2><a name="1755774"></a><a id="T292077"></a><b>Viewing Potential Shortages</b></h2>
+<p><a name="d0e81893" id="d0e81893"></a><a name="I_vwposhrt" id="I_vwposhrt"></a><a name="INVSHINQ.SHORT_QF" id="INVSHINQ.SHORT_QF"></a><a name="INVSHINQ.SHORT_SUMMARY" id="INVSHINQ.SHORT_SUMMARY"></a>You can view potential shortages of items for which there is an outstanding demand in the organization. (You configure the work orders to be considered as unsatisfied demand in the shortage parameters.)</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>You must define the shortage parameters, as well as the transaction action types and items that will trigger shortage alerts and notifications</li>
+</ul>
+<p><b>To view potential shortages</b></p>
+<ol>
+<li>
+<p>Navigate to the View Potential Shortages window. The Find Potential Shortages window appears.</p>
+<p><img width="648" height="506" src="./img/invug_fiposhrt.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter search criteria. The View Potential Shortages window appears, displaying a summary of the shortage.</p>
+<p><img width="753" height="432" src="./img/invug_viposhrt.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> The View Potential Shortages window displays the demand for work in process and order entry (depending on the parameters selected in the Shortage Parameters window). The shortage displays only if the total available quantity is less than the total open work in process and order entry demand.</p>
+</li>
+<li>
+<p>Select the Detail button to see detailed shortage information about a particular item.</p>
+</li>
+<li>
+<p>Select the Supply/Demand button to see supply and demand information about a particular item.</p>
+<p><strong><span>Note:</span></strong> Potential shortages for jobs and schedules display only when the starting date on the work order or schedule exists in the manufacturing calendar.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T295121.htm#I_shrtsmmrpt">Shortages Summary Report</a>.</p>
+<p><a href="T291651T295121.htm#shrtparrt">Shortage Parameter Report</a></p>
+<h2><a name="1755777"></a><a id="T292022"></a><b>Overview of Movement Statistics</b></h2>
+<p><a name="d0e81959" id="d0e81959"></a><a name="I_movstats" id="I_movstats"></a>Oracle Inventory provides the functionality for collecting statistics associated with the movement of material across the border of two countries. You can collect statistics to satisfy the European Union's reporting requirements for INTRASTAT, the declaration for imports and exports between countries belonging to the European Union, and EXTRASTAT, the declaration for imports and exports between a country belonging to the European Union and a country external to the European Union. This functionality is also a feature of Oracle Purchasing.</p>
+<p>Movement statistics features allow you to:</p>
+<ul>
+<li>
+<p>Automatically generate movement statistics records based on ship-from and ship-to information, without user intervention.</p>
+</li>
+<li>
+<p>Report your company's legal entity information, including name, address, and tax registration information.</p>
+</li>
+<li>
+<p>Capture, maintain, calculate, and report information associated with the movement of material between statistics gathering countries. This includes the ability to record and report corrections.</p>
+</li>
+<li>
+<p>Run the Movement Statistics Exception Report to validate that all movement statistics records in a period are accurate and ready for reporting.</p>
+</li>
+<li>
+<p>Capture the invoice value from accounts receivables and accounts payables for material movement. If the invoice information is not available, the system captures the statistical value from the movement transaction.</p>
+</li>
+<li>
+<p>Freeze statistical information after review and report the information to a government agency.</p>
+</li>
+<li>
+<p>Create an audit trail between statistical information and the associated material transactions.</p>
+</li>
+<li>
+<p>Generate EDI messages out of movement statistics records.</p>
+</li>
+</ul>
+<h2><a name="2136301"></a><a id="T308972"></a><b>Major Features</b></h2>
+<p>You can automatically generate movement statistics records by running the Movement Statistics Processor, a concurrent program that analyzes all the transactions that occur in the system, based on legal entity. You can then validate the records and, for INTRASTAT and EXTRASTAT, create official reporting documents. See: <a href="T291651T292013.htm#I_agenmvst">Automatically Generating Movement Statistics Records</a>.</p>
+<p>The Movement Statistics Processor analyzes the following transaction types:</p>
+<ul>
+<li>
+<p>Purchase Receipt</p>
+</li>
+<li>
+<p>RTV</p>
+</li>
+<li>
+<p>Sales order</p>
+</li>
+<li>
+<p>RMA</p>
+</li>
+<li>
+<p>Supplier drop shipment</p>
+</li>
+<li>
+<p>Multi-org intercompany drop shipment</p>
+</li>
+<li>
+<p>Inventory inter organization movements</p>
+</li>
+<li>
+<p>Canceled inventory inter organization in transit movements</p>
+</li>
+<li>
+<p>Internal requisition</p>
+</li>
+<li>
+<p>Internal return</p>
+</li>
+<li>
+<p>Internal sales order</p>
+<p><strong><span>Important:</span></strong> The system does not analyze Oracle Inventory miscellaneous receipts and issues because these transactions are considered inventory updates, not material movements.</p>
+</li>
+</ul>
+<p>To enable the system to automatically generate movement statistics records you define parameters in the Economic Zones and Movement Statistics Parameters windows. See: <a href="T291651T292013.htm#I_mvstsup">Setting Up Movement Statistics</a>.</p>
+<p><strong><span>Note:</span></strong> ISO and European Union country codes are supported. See: Territories Window, <i>Oracle System Administrator's Guide</i>.</p>
+<h3><b>Statistics Setup</b></h3>
+<p>You can capture and report movement statistics by legal entity. You can specify parameters such as calendar, currency conversion type, weight unit of measure, tax office name, and tax office information.</p>
+<h3><b>Validate Movement Statistics Records</b></h3>
+<p>You can use the Movement Statistics Exception Report to validate that all movement statistics records in a period are accurate and ready for reporting. You can identify missing or incomplete entries and make corrections before freezing the information. See: <a href="T291651T295121.htm#I_invmvex78">Movement Statistics Exception Report</a>.</p>
+<h3><b>Review and Report Movement Statistics</b></h3>
+<p>You can generate both summary and detail reports for movement statistics, including hard copies for government agencies and your own files. See: <a href="T291651T295121.htm#I_rx2Dinvstmvt">Movement Statistics Report</a>.</p>
+<h3><b>Freeze Movement Statistics</b></h3>
+<p>The Movement Statistics Report provides a run time parameter which allows you to freeze movement information for official INTRASTAT and EXTRASTAT reporting. This option updates the database with any information calculated at report run time to provide a complete history of information reported. This option also allows you to assign a reference number for the information processed by the particular run of the report. Only records that have been frozen can be used to generate EDI messages.</p>
+<h3><b>Reset Movement Statistics Status</b></h3>
+<p>After you freeze movement statistics records for official INTRASTAT and EXTRASTAT reporting, you can run the Movement Statistics Reset Status program to reset their status to open. This option allows you to add missing information to records that are frozen. See: <a href="T291651T295121.htm#I_invmvres">Movement Statistics Reset Status</a>.</p>
+<h3><b>Integrate with Legacy Systems</b></h3>
+<p>Movement statistics functionality provides the ability to integrate with Legacy systems in order to capture material movements from other logistics applications.</p>
+<h3><b>EDI Support</b></h3>
+<p>You can generate EDI messages from movement statistics records. These messages are EDIFACT compliant.</p>
+<h3><b>Link Movement Statistics to Financial Documents</b></h3>
+<p>Movement statistics records are automatically linked to various financial documents based on the transaction type. For example, purchase order receipts are linked to payables invoices, RTVs and RMAs with credit memos, and sales order shipments with receivables invoices.</p>
+<h3><b>Track Multiple Values</b></h3>
+<p>You can capture the invoice value from accounts receivables and accounts payables for material movement. If the invoice information is not available, the system captures the statistical value from the movement transaction.</p>
+<h3><b>Automatic Weight Calculation</b></h3>
+<p>Oracle Inventory calculates the weight of a material movement by converting the transaction quantity and unit of measure to the appropriate weight and weight unit of measure for the item.</p>
+<h3><b>Manually Enter Movement Information</b></h3>
+<p>You can manually enter movement information associated with material transactions that are not captured by Oracle Inventory and Purchasing, such as fixed assets. See: <a href="T291651T292013.htm#I_t_mvstat">Viewing and Maintaining Movement Statistics</a>.</p>
+<h2><a name="1750491"></a><a id="T291693"></a><b>Defining Movement Statistics Parameters</b></h2>
+<p><a name="d0e82135" id="d0e82135"></a><a name="I_t_mvpara" id="I_t_mvpara"></a><a name="INVTTMVP.entity" id="INVTTMVP.entity"></a><a name="INVGMSTP" id="INVGMSTP"></a>Use the Movement Statistics Parameters window to define the parameters for gathering movement statistics. Oracle Inventory uses this information to validate the entry of statistical movement transactions and to properly report the information. You can automate the movement statistics feature by defining parameters in the Movement Statistics Parameters and Economic Zones windows. See: <a href="T291651T292013.htm#I_movstats">Overview of Movement Statistics</a> and <a href="T291651T291796.htm#I_decozn">Defining Economic Zones</a>.</p>
+<p><b>To define movement statistics parameters</b></p>
+<ol>
+<li>
+<p>Navigate to the Movement Statistics Parameters window.</p>
+<p><img width="698" height="443" src="./img/invug_mvstpar.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a legal entity.</p>
+</li>
+<li>
+<p>In the Economic Zone block, select an economic zone.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+<li>
+<p>Click Statistical Type Usage to display the Statistical Type Usages window.</p>
+<p><img width="737" height="493" src="./img/invug_stattypeusage.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>On the Statistical Type Usages window, select the desired values:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Values</b></th>
+</tr>
+<tr valign="top">
+<td>Usage Type</td>
+<td><i>Internal</i>: Movement of goods within countries of the economic zone.<br>
+<i>External</i>: Movement of goods from a country of one economic zone to a country outside the zone.</td>
+</tr>
+<tr valign="top">
+<td>Statistical Type</td>
+<td><i>Intrastat</i>: Declaration of imports and exports within European Union borders.<br>
+<i>Extrastat</i>: Declaration of imports and exports between a member of the European Union and a country external to the European Union.</td>
+</tr>
+<tr valign="top">
+<td>Period Set</td>
+<td>Select a period set to use for statistical movement reporting.<br>
+You can select any period set that has been defined in your system. You can also define a calendar to use for statistical reporting purposes that is independent of the accounting calendar for your organization's ledger.</td>
+</tr>
+<tr valign="top">
+<td>Period Type</td>
+<td>Select a Period Type (from LOV) to use for reporting.
+<p><strong><span>Note:</span></strong> The calendar that you use for statistical reporting purposes is independent of the accounting calendar for your organization's set of books.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Start Period / End Period</td>
+<td>Assign the first period for which the Usage / Statistic type assignment is valid.<br>
+Optionally, enter the last period for which this assignment is valid.</td>
+</tr>
+<tr valign="top">
+<td>Weight UOM</td>
+<td>Select the weight unit of measure to use for movement transactions calculations. For example, the European Union requires kilogram as the weight unit of measure for the official INTRASTAT and EXTRASTAT declaration.</td>
+</tr>
+<tr valign="top">
+<td>Precision</td>
+<td>Enter the number of decimals (0 to 5) that the total weight should be rounded to. The default value is 0 (zero) meaning the weight will be rounded to the nearest digit.</td>
+</tr>
+<tr valign="top">
+<td>Reporting Rounding</td>
+<td>Select how the calculated weight will be rounded:
+<ul>
+<li>
+<p>Normal (default value): Weight is rounded to the nearest value with number decimals as defined by the precision setting.</p>
+</li>
+<li>
+<p>Truncate: Weight is truncated to the number of decimals as defined by the precision setting.</p>
+</li>
+<li>
+<p>Up: Weight is rounded to the highest value with number decimals as defined by the precision setting.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Entity Branch Reference</td>
+<td>Select the name of the legal entity branch in the Entity Branch Reference field. This reference is printed on the European Union INTRASTAT and EXTRASTAT declaration as required.</td>
+</tr>
+<tr valign="top">
+<td>Conversion Type</td>
+<td>Select the currency conversion type to use to convert foreign currency amounts to the ledger currency of your organization's ledger.</td>
+</tr>
+<tr valign="top">
+<td>Conversion Option</td>
+<td>Select the currency conversion option to be used by the Movement Statistics Report to convert foreign currency document amounts to the ledger currency of your organization's ledger.<br>
+<i>Daily</i>: The daily conversion rate on the date of the movement transaction.<br>
+<i>Last Day of Period</i>: The conversion rate and type of the last day of the reporting period.</td>
+</tr>
+<tr valign="top">
+<td>Category Set</td>
+<td>Select the category set to use with your movement statistics transactions. Oracle Inventory uses the list of categories defined in this category set to associate your items with defined codes. For INTRASTAT and EXTRASTAT reporting, select the Intrastat category set to use the appropriate European Union designated commodity codes.</td>
+</tr>
+<tr valign="top">
+<td>Tax Office Code, Tax Office, Name, Tax Office Location Code</td>
+<td>Enter the code, name, and location code for the tax office to which your legal entity reports. INTRASTAT and EXTRASTAT reporting require the name, code, and address of the tax office to which a legal entity reports to appear on the declaration. The full address associated with this location is displayed on the Movement Statistics Report.</td>
+</tr>
+<tr valign="top">
+<td>Attribute Rule Set Code</td>
+<td>Enter the validation rule set code. The default rule set is <i>Standard Validation</i>. You may define your own rule set.</td>
+</tr>
+<tr valign="top">
+<td>Alternate UOM Rule Set Code</td>
+<td>This parameter is optional. You will need to define an Alternate UOM Rule Set.</td>
+</tr>
+<tr valign="top">
+<td>Triangulation Mode</td>
+<td>The triangulation mode determines how the Movement Statistics Processor will process Triangulation (drop-shipments):
+<ul>
+<li>
+<p>Invoice Based: the processor will process movement transactions based on the flow of the invoice.</p>
+</li>
+<li>
+<p>Shipment Based: the processor will process movement transactions based on flow of goods.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Reference Period Rule</td>
+<td>Select one of the following options:
+<ul>
+<li>
+<p>Shipment Based: the date that the transaction took place.</p>
+</li>
+<li>
+<p>Invoice Based: the date the transaction was invoiced.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Pending Invoice Days</td>
+<td>Enter the number of days the processor should look for an invoice in the period following the movement transaction.</td>
+</tr>
+<tr valign="top">
+<td>Advance Invoice Days</td>
+<td>Enter the number of days the processor should look for an advance invoice.</td>
+</tr>
+<tr valign="top">
+<td>Returns Processing</td>
+<td>Select a value for the Returns Processing field. Returns processing determines if you want to aggregate return movement transactions within a reporting period:
+<ul>
+<li>
+<p>Separate Returns (default value): If you select this option, the movement transactions will not be netted. A separate movement record will be created for all source types, including purchase orders, return to vendor, sales orders, and customer returns.</p>
+</li>
+<li>
+<p>Aggregate Returns: If you select this option, the movement statistics processor will:</p>
+<ul>
+<li>
+<p>Aggregate sales order shipments with customer returns within a period (if the sales order shipment has not been declared). If the sales order shipment has been declared, customer returns will not be aggregated.</p>
+</li>
+<li>
+<p>Aggregate purchase order receipts with return to vendor (if the purchase order receipt has not been declared). If the purchase order receipt has been declared, returns to vendor will not be aggregated.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> Additional Notes for Aggregate Returns</p>
+<ul>
+<li>
+<p>For Customer Return (RMA) transactions, unless you enter the sales order reference number and order line number information on the return order line, the RMA and corresponding Sales Order will not be aggregated. A separate movement record with negative movement amount, quantity, and invoice of type <i>dispatch adjustment</i> will be created for the customer return movement transaction.</p>
+</li>
+<li>
+<p>Arrival movement records (with a source type of purchase order) and a movement status of Open, Verified, or Ignore will be aggregated with return to vendor transactions that occur within the same period.</p>
+</li>
+<li>
+<p>Movement records with a status of Frozen, Export, or EDI will not be aggregated. For example, if the arrival movement record has a status of Frozen and a return to vendor transaction is processed, the return will not be aggregated with the arrival movement record. The processor will create a separate dispatch movement record.</p>
+</li>
+<li>
+<p>Dispatch movement records (with a source type of sales order) and a movement status of Open, Verified, or Ignore will be aggregated with customer return transactions that occur within the same period.</p>
+</li>
+<li>
+<p>If the return transaction does not occur in the same period as the original arrival or dispatch, a separate adjustment movement record with negative movement amount, quantity, invoice amount and invoice quantity will be created.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Dispatch KIT Method</td>
+<td>Indicates how movement records should be created for KIT dispatches:
+<ul>
+<li>
+<p>KIT: Movement records will be created for the KIT items.</p>
+</li>
+<li>
+<p>Shipped Components: Movement records will be created for the child shippable items.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Include All Organizations</td>
+<td>Select Yes to include all organizations, or No to restrict to the current organization.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Movement Statistics Parameters, <i>Oracle Inventory Movement Statistics User's Guide</i></p>
+<p><a href="T291651T291798.htm#I_t_categset">Defining Category Sets</a></p>
+<p>Site Locations, <i>Oracle Human Resource Management System User's Guide</i></p>
+<p>Creating an Organization, <i>Oracle HRMS Enterprise and Workforce Management Guide</i></p>
+<p>Defining Calendars, <i>Oracle General Ledger User's Guide</i></p>
+<p>Defining Conversion Rate Types, <i>Oracle General Leger User's Guide</i></p>
+<h2><a name="1755791"></a><a id="T292079"></a><b>Setting Up Movement Statistics</b></h2>
+<a name="d0e82854" id="d0e82854"></a><a name="I_mvstsup" id="I_mvstsup"></a>
+<ul>
+<li>
+<p>Define a commodity code category set and assign commodity codes to items</p>
+<p>Before capturing and/or reporting movement statistics using commodity codes, you must establish a category set to store commodity codes for inventory items. Once the category set has been defined, you assign the proper commodity code to items.</p>
+<p>For INTRASTAT and EXTRASTAT reporting, you must assign an appropriate Intrastat category set to items in inventory. Once the category set has been assigned, choose from the Category Set list of values on the Movement Statistics Parameters window to assign the item a European Union-designated commodity code.</p>
+</li>
+<li>
+<p>Define calendars in General Ledger</p>
+<p>You can create a calendar and define periods for which to collect movement statistics records. The period you use to collect movement statistics records can also be your manufacturing or accounting calendar.</p>
+</li>
+<li>
+<p>Define economic zones</p>
+<p>Use the Economic Zones window to define economic zones and associate these zones with specific countries.</p>
+</li>
+<li>
+<p>Define legal entity and movement statistics parameters</p>
+<p>Use the Movement Statistics Parameters window to record information associated with any legal entity for which you are gathering and reporting movement statistics.</p>
+</li>
+</ul>
+<h2><a name="1755792"></a><a id="T292080"></a><b>Automatically Generating Movement Statistics</b></h2>
+<p><a name="d0e82888" id="d0e82888"></a><a name="I_agenmvst" id="I_agenmvst"></a>You can automatically generate movement statistics records, based on legal entity, by running the Movement Statistics Processor. You can then validate the records and, for INTRASTAT and EXTRASTAT, create official reporting documents.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define Economic Zones</li>
+<li>Define Movement Statistics Parameters</li>
+</ul>
+<p><b>To automatically generate movement statistics records</b></p>
+<ol>
+<li>
+<p>Run the Movement Statistics Processor by navigating to the Movement Statistics Reports window. See: <a href="T291651T295121.htm#I_invmvpro">Movement Statistics Processor</a>.</p>
+</li>
+<li>
+<p>Optionally, review the results of the Movement Statistics Processor by navigating to the Movement Statistics Summary window. If necessary, update the movement statistics records. See: <a href="T291651T292013.htm#I_t_mvstat">Viewing and Maintaining Movement Statistics</a>.</p>
+</li>
+<li>
+<p>Run the Movement Statistics Exception Report to check for missing data. See: <a href="T291651T295121.htm#I_invmvex78">Movement Statistics Exception Report</a>. After you run this report, the status of the movement statistics records changes to <i>Verified</i>. To view this result, navigate to the Movement Statistics Summary window. Fix any exceptions and rerun the report. You can rerun this report as many times as is necessary. See: <a href="T291651T292013.htm#I_t_mvstat">Viewing and Maintaining Movement Statistics</a>.</p>
+</li>
+<li>
+<p>Run the Movement Statistics Report in summary and detail format. See: <a href="T291651T295121.htm#I_rx2Dinvstmvt">Movement Statistics Report</a>. If necessary, update the movement statistics records.</p>
+</li>
+<li>
+<p>Run the Movement Statistics Report in Official Summary format. See: <a href="T291651T295121.htm#I_rx2Dinvstmvt">Movement Statistics Report</a>. After you run this report, the status of the movement statistics records changes to <i>Frozen</i>.</p>
+<p><strong><span>Note:</span></strong> You can reset the status of <i>Frozen</i> to <i>Open</i> by running the Movement Statistics Reset Status report. See: <a href="T291651T295121.htm#I_invmvres">Movement Statistics Reset Status</a>.</p>
+</li>
+</ol>
+<h2><a name="1755795"></a><a id="T292081"></a><b>Viewing and Maintaining Movement Statistics</b></h2>
+<p><a name="d0e82967" id="d0e82967"></a><a name="d0e82972" id="d0e82972"></a><a name="INVTTMVT.movements" id="INVTTMVT.movements"></a><a name="INVTTMVT.mvt_find" id="INVTTMVT.mvt_find"></a><a name="INVTTMVT.summary" id="INVTTMVT.summary"></a><a name="INVTTMVE.intrastat_entry" id="INVTTMVE.intrastat_entry"></a><a name="INVTTMVT_APPTREE" id="INVTTMVT_APPTREE"></a><a name="I_t_mvstat" id="I_t_mvstat"></a>Use the Movement Statistics window to view and maintain information associated with the movement of goods. You can automate the collection of this information through the Movement Statistics Parameters and Economic Zones setup windows.</p>
+<p>You can also link movement statistics to financial transaction information, such as document numbers and invoices. See: <a href="T291651T292013.htm#I_movstats">Overview of Movement Statistics</a>.</p>
+<p>You can also manually enter movement information associated with material transactions that are not captured by Oracle Inventory and Purchasing, such as fixed assets.</p>
+<h3><b>Defaults in the Movement Statistics Window</b></h3>
+<p>The following defaults are used within the Movement Statistics window. The default value has the appropriate country prefix. If the new country-specific default is valid, it is displayed. If the constructed country-specific default is not valid, there is no default.</p>
+<ul>
+<li>
+<p>Transaction Nature: Purchase order receipts line transaction reason code.</p>
+</li>
+<li>
+<p>Delivery Terms: Purchase order receipts header free-on-board</p>
+</li>
+<li>
+<p>Transport Mode: Purchase order receipts header freight carrier</p>
+</li>
+</ul>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define movement statistics parameters see: <a href="T291651T292013.htm#I_mvstsup">Setting Up Movement Statistics</a></li>
+<li>Define economic zones see: <a href="T291651T291796.htm#I_decozn">Defining Economic Zones</a></li>
+</ul>
+<p><b>To view movement statistics:<a name="d0e83022" id="d0e83022"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Movement Statistics Summary window. The Find Movement Statistics window appears.</p>
+<p><img width="756" height="348" src="./img/invug_fimostat.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter search criteria to find an existing movement statistics record or close the Find Movement Statistics window to enter a new record. The Movement Statistics window appears.</p>
+<p><img width="756" height="505" src="./img/invug_mostatsum.gif" alt="the picture is described in the document text"></p>
+<p>If you searched for an existing record, the following information is displayed at the top of the window:</p>
+<p><i>Movement ID:</i> When you save the movement statistics information, the system assigns a unique movement number to identify it. This creates a <i>movement statistics entry</i>. You can use the number to view specific movement statistics entries.</p>
+<p><i>Status:</i> The status of the entry, <i>Open</i>, <i>Unprocessed</i>, or <i>Frozen</i>. If the status is Frozen, you cannot change information associated with the entry.</p>
+<p><i>Report Reference:</i> The number entered when this entry was officially reported and frozen.</p>
+<p><i>Report Period:</i> The date this entry was officially reported and frozen.</p>
+</li>
+<li>
+<p>Select the movement type.</p>
+<p><i>Arrival:</i> Report arrival movement statistics.</p>
+<p><i>Arrival Adjustment:</i> Report adjustments to prior period arrival movement statistics.</p>
+<p><i>Dispatch:</i> Report dispatch movement statistics.</p>
+<p><i>Dispatch Adjustment:</i> Report adjustments to prior period dispatch movement statistics.</p>
+</li>
+<li>
+<p>Enter the amount that appears on the material movement transaction document.</p>
+</li>
+<li>
+<p>Select the document source type.</p>
+</li>
+<li>
+<p>Enter the name of the legal entity associated with this record.</p>
+</li>
+<li>
+<p>Enter the currency.</p>
+</li>
+</ol>
+<p><b>To enter source detail information</b></p>
+<ol>
+<li>
+<p>Select the Source Details tabbed region. When you access this window from the Tools menu, default information in this region is supplied from your window of origin.</p>
+</li>
+<li>
+<p>When the movement type is arrival and the source type is inventory, enter the organization from which the goods were sent in the From Organization field. If the movement type is dispatch, the current organization is displayed as the default.</p>
+</li>
+<li>
+<p>When the movement type is dispatch and the source type is inventory, enter the organization to which the goods were sent in the To Organization field. If the movement type is arrival, the current organization is displayed as the default.</p>
+</li>
+<li>
+<p>When the source type is sales order, enter the customer's name, number, and location.</p>
+<p>When the source type is purchase order, enter the supplier's name, number, and site.</p>
+</li>
+<li>
+<p>Enter the source document number and line number for the selected source type. For example, if you entered a source type of purchase order, enter the corresponding purchase order number and line number.</p>
+</li>
+<li>
+<p>Enter the shipment number and shipment line number associated with the movement.</p>
+</li>
+<li>
+<p>Enter the pick slip number associated with the movement.</p>
+</li>
+<li>
+<p>Enter the receipt number associated with the movement.</p>
+</li>
+</ol>
+<p><b>To enter invoice details information:<a name="d0e83151" id="d0e83151"></a></b></p>
+<ol>
+<li>
+<p>Select the Invoice Details tabbed region. This region is not available for the source type Inventory.</p>
+</li>
+<li>
+<p>When the source type is sales order, enter the customer bill-to name, customer number, and customer site.</p>
+</li>
+<li>
+<p>Enter the invoice batch, invoice number, and invoice line number associated with the invoice information.</p>
+</li>
+<li>
+<p>Enter the quantity of this movement invoice. The default is the transaction quantity if it has been entered. When the source type is sales order, the movement quantity is displayed.</p>
+</li>
+<li>
+<p>Enter either the unit price or the extended value. Oracle Inventory calculates the other value.</p>
+</li>
+</ol>
+<p><b>To enter movement details information:<a name="d0e83181" id="d0e83181"></a></b></p>
+<ol>
+<li>
+<p>Select the Movement Details tabbed region. When you access this window from the Tools menu, default information in this region is supplied from your window of origin.</p>
+</li>
+<li>
+<p>For adjustment transactions only, enter the adjustments to movement number.</p>
+</li>
+<li>
+<p>Enter the transaction date.</p>
+</li>
+<li>
+<p>Enter the inventory item number or, if you have not entered an item number, the item description.</p>
+</li>
+<li>
+<p>Enter the transaction UOM.</p>
+</li>
+<li>
+<p>If a category set to hold commodity codes and a commodity code exists for the item, it is displayed. If no default exists, or if you want to override the default value, enter the appropriate commodity code. If you do not enter a commodity code, you can enter a commodity code description.</p>
+</li>
+<li>
+<p>Enter the transaction quantity for this movement.</p>
+</li>
+</ol>
+<p><b>To enter country detail information</b></p>
+<ol>
+<li>
+<p>Select the Country Details tabbed region.</p>
+</li>
+<li>
+<p>Enter the dispatch country in the Dispatch field. Oracle Inventory displays your country for dispatches. For arrivals, it displays either the supplier's or customer's country, depending on the transaction.</p>
+</li>
+<li>
+<p>Enter the destination country in the Destination field. Oracle Inventory displays your country for arrivals. For dispatches, it displays either the supplier's or customer's country, depending on the transaction.</p>
+</li>
+<li>
+<p>Enter the country of origin in the Origin field. Inventory displays either the dispatch or destination country based on the transaction.</p>
+</li>
+<li>
+<p>Enter the transaction code.</p>
+</li>
+<li>
+<p>Enter the delivery terms code.</p>
+</li>
+<li>
+<p>Enter the transport mode.</p>
+</li>
+<li>
+<p>Enter the port where the goods entered the country for arrivals or left the country for dispatches.</p>
+</li>
+<li>
+<p>Enter the area where the goods entered the country for arrivals or left the country for dispatches.</p>
+</li>
+<li>
+<p>Enter the statistical type for the movement. This can also be the import type, the regime, or a user-defined type.</p>
+</li>
+<li>
+<p>Enter the unit weight or total weight for the item, and Oracle Inventory will calculate the other value. If you leave both weight fields blank, Inventory calculates the weight at report time using the item unit of measure conversions.</p>
+</li>
+</ol>
+<p><b>To enter additional movement details</b></p>
+<ol>
+<li>
+<p>Select the More Movement Details tabbed region.</p>
+</li>
+<li>
+<p>Enter either an adjustment percentage or an adjustment amount. Oracle Inventory calculates a statistical value by applying the adjustment percentage or adjustment amount to the transaction value.</p>
+</li>
+<li>
+<p>If you entered an adjustment percentage or amount, Oracle Inventory calculates the statistical total value for you. You can also enter the total value without entering an adjustment percentage or amount. If you do not enter any of the statistical value information, the report calculates the total value using a country specific routine.</p>
+</li>
+<li>
+<p>Enter comments associated with the movement.</p>
+</li>
+<li>
+<p>Enter an alternate quantity other than the transaction quantity to represent the amount of goods moved. If you enter an alternate quantity, you can record the alternate UOM code for the goods moved. For example, alcohol can be sold be sold by the case, but the alternate quantity can be the amount of pure alcohol in hectoliters.</p>
+</li>
+<li>
+<p>Select the outside price code. You can enter <i>Repair</i>, <i>Process</i>, or <i>Other</i>.</p>
+</li>
+<li>
+<p>Enter either the outside unit price or the outside extended value. Oracle Inventory calculates the other value.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292013.htm#I_movstats">Overview of Movement Statistics</a></p>
+<p><a href="T291651T292013.htm#I_t_mvpara">Defining Movement Statistics Parameters</a></p>
+<p><a href="T291651T291796.htm#I_decozn">Defining Economic Zones</a></p>
+<p>My Oracle Support Knowledge Document 2746198.1, <i>Oracle E-Business Suite - Update Intrastat Reporting for UK Withdrawal from the European Union or Brexit</i></p>
+<p>My Oracle Support Knowledge Document 3022847.1, <i>Oracle E-Business Suite - German Intrastat Regulations 2023</i></p>
+<p>Oracle Inventory Movement Statistics User's Guide</p>
+<h2><a name="1755803"></a><a id="T292083"></a><b>Viewing Material Transactions</b></h2>
+<p><a name="d0e83346" id="d0e83346"></a><a name="INVTVTXN.find_window" id="INVTVTXN.find_window"></a><a name="INVTVTXN.results_window" id="INVTVTXN.results_window"></a><a name="INVTVTXN.mtl_transaction_lot_numbers" id="INVTVTXN.mtl_transaction_lot_numbers"></a><a name="INVTVTXN.mtl_unit_transactions" id="INVTVTXN.mtl_unit_transactions"></a><a name="INVTVTXN.DISTRIBUTION_QF" id="INVTVTXN.DISTRIBUTION_QF"></a><a name="INVTVTXN.INV_TRANSACTION_DISTRIBUTION" id="INVTVTXN.INV_TRANSACTION_DISTRIBUTION"></a><a name="INVTVTUS.find_window" id="INVTVTUS.find_window"></a><a name="INVTVTUS.results_window" id="INVTVTUS.results_window"></a><a name="INVTVTUS.mtl_transaction_lot_numbers" id="INVTVTUS.mtl_transaction_lot_numbers"></a><a name="INVTVTUS.mtl_unit_transactions" id="INVTVTUS.mtl_unit_transactions"></a><a name="INVDVFDH.find_window" id="INVDVFDH.find_window"></a><a name="INVDVFDH.results_window" id="INVDVFDH.results_window"></a><a name="INVDVFDH.mtl_transaction_lot_numbers" id="INVDVFDH.mtl_transaction_lot_numbers"></a><a name="INVDVFDH.mtl_unit_transactions" id="INVDVFDH.mtl_unit_transactions"></a><a name="INVTTMTX.FOLDER" id="INVTTMTX.FOLDER"></a><a name="INVTTMTX.MTL_TRX_HEADER" id="INVTTMTX.MTL_TRX_HEADER"></a><a name="INVTTMTX.MTL_TRX_LINE" id="INVTTMTX.MTL_TRX_LINE"></a><a name="INVTTMTX.MTL_TRX_SINGLE_LINE" id="INVTTMTX.MTL_TRX_SINGLE_LINE"></a><a name="INVTVTXN_MTL_TRANSACTION_LOT_NUMBERS" id="INVTVTXN_MTL_TRANSACTION_LOT_NUMBERS"></a><a name="I_t_vwtrx78ns" id="I_t_vwtrx78ns"></a>You can view detail associated with inventory transactions. You can search for transaction information by entering a combination of search criteria.</p>
+<p><b>To view detail associated with inventory transactions</b></p>
+<ol>
+<li>
+<p>Navigate to the Material Transactions folder window. The Find Material Transactions window appears.</p>
+<p><img width="806" height="515" src="./img/12214invug_mattrans1.gif" alt="the picture is described in the document text"></p>
+<ul>
+<li>
+<p>Include Logical Transactions check box: Logical transactions are used for intercompany invoicing.</p>
+</li>
+<li>
+<p>Supplier field: When you enter PO Receipt as the Transaction Type, the Supplier field becomes available with a list of values for supplier/site. However, the Suppler field applies only to consigned stock and regular ownership transfer (not for common PO transactions).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter any combination of search criteria and choose Find. The results display in the Material Transactions folder window.</p>
+<p><img width="757" height="506" src="./img/invug_mattrans2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>View information in the following tabbed regions:</p>
+<p><i>Location</i>:<a name="d0e83414" id="d0e83414"></a> Displays the item, subinventory, locator, material classification code, revision, transfer locator, transfer subinventory, transfer organization, transaction date, transaction type information, location, transaction UOM, primary UOM primary quantity, secondary UOM, and secondary quantity.</p>
+<p>If you have Oracle Warehouse Management installed, and you are working with a WMS enabled organization (See: <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>), this form will also display LPN (LPN unpacked), Put Away Rule, Put Away Strategy, Pick Strategy, Pick Rule, Transfer LPN (LPN packed), and Content LPN (LPN transacted) information. See: Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i>.</p>
+<p><i>Intransit</i>: <a name="d0e83435" id="d0e83435"></a>Displays the item, shipment number, waybill/airbill number, freight code, container, quantity, and transaction type information.</p>
+<p><i>Reason, Reference</i>: <a name="d0e83448" id="d0e83448"></a> Displays the item, transaction reason, transaction reference, costed indicator, supplier lot, source code, source line ID, and transaction type information.</p>
+<p><i>Transaction ID</i>: <a name="d0e83461" id="d0e83461"></a> Displays the item, transfer transaction ID, transaction header number, receiving transaction ID, move transaction ID, transaction UOM, completion transaction ID, department code, operation sequence number, transaction quantity, transaction ID, transaction date, source type, source, transaction type, source project number, source task number, project number, task number, to project number, to task number, expenditure type, expenditure organization, error code, and error explanation information.</p>
+<p><i>Transaction Type</i>: Displays the item, source, source type, transaction type, transaction action, transaction UOM, transaction quantity, transaction ID, and transaction date information.</p>
+<p><i>Consumption Advice:</i> Displays the Revision, From Owning Party, Creation Status, and Error Explanation information.</p>
+</li>
+</ol>
+<p><b>To view message history for XML adjustment transactions</b></p>
+<p>You can review the message history for each XML message generated by the Warehouse Inventory Adjustment Advice concurrent program. (XML messages are generated for receipt transactions that affect inventory such as miscellaneous receipt/issue, subinventory transfer, direct-organization transfer, and work in process transactions.</p>
+<ol>
+<li>
+<p>From the Tools menu of the Material Transactions window, select View Message History to display the View Message History window.</p>
+</li>
+<li>
+<p>In the View Message History window, you can review information about the entity and transaction details for the selected XML message.</p>
+<p>For more information, see <a href="T291651T292013.htm#vwmesshist">Viewing Message History</a>.</p>
+</li>
+</ol>
+<p><b>To view lot/serial number information for a transaction:<a name="d0e83501" id="d0e83501"></a><a name="d0e83508" id="d0e83508"></a><a name="d0e83515" id="d0e83515"></a><a name="d0e83522" id="d0e83522"></a></b></p>
+<ol>
+<li>
+<p>Select a transaction and choose the Lot/Serial button.</p>
+</li>
+<li>
+<p>View information on lot/serial numbers, quantities, and locations.</p>
+<p><img width="832" height="494" src="./img/invug_mat_trans.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click Serial to view the related transaction serial numbers for a selected lot.</p>
+<p><strong><span>Note:</span></strong> For serial tagged items, you can view the serial numbers that were tagged during the issue transactions.</p>
+<p><img width="433" height="505" src="./img/invug_mat_trans2.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To view transaction distribution information:<a name="d0e83557" id="d0e83557"></a></b></p>
+<p>Choose the Distributions button. See: Viewing Material Transaction Distributions, <i>Oracle Cost Management User's Guide</i>.</p>
+<p><b>To view Oracle Quality results:<a name="d0e83573" id="d0e83573"></a></b></p>
+<p>If Oracle Quality is installed and if quality results exist for the current line, click the Quality button to open the View Quality Results window.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292013.htm#I_c_trnx78ov">Inventory Transactions</a></p>
+<p><a href="T291651T292013.htm#I_c_trnx78ov">Overview of Inventory Transactions</a></p>
+<p><a href="T291651T291655.htm#I_c_transetov">Transaction Setup</a></p>
+<p><a href="T291651T291655.htm#I_c_transetov">Overview of Transaction Setup</a></p>
+<p>Customizing the Presentation of Data in a Folder, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="5807700"></a><a id="T561251"></a><b>Viewing Message History</b></h2>
+<p><a name="d0e83608" id="d0e83608"></a><a name="d0e83611" id="d0e83611"></a><a name="vwmesshist" id="vwmesshist"></a>The Warehouse Inventory Adjustment Advice concurrent program generates XML messages about the receipt transactions that affect inventory (such as miscellaneous receipt/issue, subinventory transfer, direct-organization transfer, and work in process transactions). In the View Message History window, you can review the history for each generated XML message that contains data about adjustment transactions.</p>
+<p><b>To view message history for XML adjustment transactions</b></p>
+<ol>
+<li>
+<p>Navigate to the Material Transactions window.</p>
+</li>
+<li>
+<p>From the Tools menu, select View Message History to display the View Message History window.</p>
+</li>
+<li>
+<p>In the Entity region, you can view the following information:</p>
+<ul>
+<li>
+<p>Number: Identifies the receipt number.</p>
+</li>
+<li>
+<p>Type: Identifies the lookup type for the receipt confirmation.</p>
+</li>
+<li>
+<p>Organization: Identifies the inventory organization.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the Transactions region, you can view the following information:</p>
+<ul>
+<li>
+<p>Type: The type is Inventory Adjustment.</p>
+</li>
+<li>
+<p>Direction: The status OUT identifies an outbound transaction.</p>
+</li>
+<li>
+<p>Document Number: Identifies the transaction that generates the XML message.</p>
+</li>
+<li>
+<p>Trading Partner ID: Indicates the ID of the trading partner.</p>
+</li>
+<li>
+<p>Action: Identifies the action related to the inventory transaction. For example, an <i>Add</i> action indicates that XML transactions are added for each adjustment transaction affecting inventory.</p>
+</li>
+<li>
+<p>Status: Identifies the status of the XML transaction such as Process, Error, or Sent.</p>
+</li>
+<li>
+<p>Event Name: Identifies the business event that is associated with the XML message generation transaction.</p>
+</li>
+<li>
+<p>Event Key: Identifies the event key that is specific to the workflow process execution.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To view workflow monitor and workflow status</b></p>
+<ol>
+<li>
+<p>Navigate to the View Message History window.</p>
+</li>
+<li>
+<p>From the Tools menu, select one of the following items to view the corresponding information:</p>
+<ul>
+<li>
+<p>Workflow Monitor</p>
+</li>
+<li>
+<p>Workflow Status</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2><a name="1755808"></a><a id="T292084"></a><b>Viewing Transaction Summaries</b></h2>
+<p><a name="d0e83697" id="d0e83697"></a><a name="INVTVTUS.find" id="INVTVTUS.find"></a><a name="INVTVTUS.summary_transactions" id="INVTVTUS.summary_transactions"></a><a name="INVTVTXN.BLOCKNAME" id="INVTVTXN.BLOCKNAME"></a><a name="INVTVTMP.MTL_TRANSACTION_LOTS_TEMP" id="INVTVTMP.MTL_TRANSACTION_LOTS_TEMP"></a><a name="INVTVTMP.MTL_SERIAL_NUMBERS_TEMP" id="INVTVTMP.MTL_SERIAL_NUMBERS_TEMP"></a><a name="I_t_vwtx78nsum" id="I_t_vwtx78nsum"></a>You can view transaction summaries for items transacted within a specified date range. You can use search criteria to further narrow the focus of the information summarized. You can use this information for input/output and transaction history analysis.</p>
+<p><b>To view transaction summaries</b></p>
+<ol>
+<li>
+<p>Navigate to the Summarize Transactions window.</p>
+<p><img width="587" height="362" src="./img/invug_transsum.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the date range to summarize.</p>
+</li>
+<li>
+<p>Enter an item or a subinventory. If you do not enter an item, the search includes all items with transactions falling within the date range specified.</p>
+</li>
+<li>
+<p>Optionally, enter additional search criteria to narrow the focus of the summarized information.</p>
+</li>
+<li>
+<p>Choose the Summarize button. The results appear in the Item Transaction Summaries window.</p>
+<p><img width="756" height="505" src="./img/invug_ittranssum.gif" alt="the picture is described in the document text"></p>
+<p>Values displayed for each item include the unit of measure, net quantity, net value, volume (number of transactions), absolute quantity, and absolute value. Transaction totals include total value in, total volume in, total value out, total volume out, and net value. These values are for the date range you specified.</p>
+<p><strong><span>Note:</span></strong> The Net Value amount in the Transaction Summaries window is rounded based on the currency precision of the organization; the same rounded value is used for general ledger (GL) distributions.</p>
+</li>
+<li>
+<p>Select from the different tabbed regions to view the summary information by Items Only, Source Type, Action, Transaction Type, and Source/Transaction Type.</p>
+</li>
+</ol>
+<p><b>To view detail information for an item in the Item Transaction Summaries window</b></p>
+<ol>
+<li>
+<p>Select an item.</p>
+</li>
+<li>
+<p>Choose the Transaction Details button. See: <a href="T291651T292013.htm#I_t_vwtrx78ns">Viewing Material Transactions</a>.</p>
+</li>
+</ol>
+<p><b>To view detail accounting lines</b></p>
+<ol>
+<li>
+<p>Choose View Accounting from the Tools menu to open the View Material Accounting window. In this window, you can view the detail accounting lines for the transaction in the form of a balanced accounting entry (where debits equal credits). You can also choose to view the detail accounting as t-accounts. See: <a href="T291651T292013.htm#I_t_x78la_view">Viewing Accounting Lines</a>.</p>
+</li>
+</ol>
+<h2><a name="1755812"></a><a id="T292085"></a><b>Viewing Accounting Lines</b></h2>
+<p><a name="d0e83783" id="d0e83783"></a><a name="d0e83790" id="d0e83790"></a><a name="I_t_x78la_view" id="I_t_x78la_view"></a><a name="INV.SLA_VIEW_ACCT" id="INV.SLA_VIEW_ACCT"></a>When you query a material transaction in Inventory, you can choose to view the detail accounting lines for the queried transaction in the form of a balanced accounting entry (where debits equal credits). You can also choose to view the detail accounting as t-accounts. Use these features to see how a transaction will affect the account balances in your general ledger.</p>
+<p><b>To view accounting lines</b></p>
+<ol>
+<li>
+<p>Query the material transaction for which you want to view accounting lines.</p>
+</li>
+<li>
+<p>Choose View Accounting from the Tools menu.</p>
+<p>The View Material Accounting window will appear.</p>
+<p>See: View Accounting Windows, below.</p>
+<p>See: <a href="T291651T292013.htm#I_tx2Dx78lax2Dvawin">View Accounting Windows</a></p>
+</li>
+<li>
+<p>(Optional) To view the accounting detail as t-accounts, choose the T-Accounts button.</p>
+<p>See: Viewing T-Accounts, <i>Oracle General Ledger User's Guide</i></p>
+</li>
+</ol>
+<h2><a name="1755814"></a><a id="T292023"></a><b>View Accounting Windows</b></h2>
+<p><a name="accountwindow" id="accountwindow"></a>The first time you open the <b>View Material Accounting</b> window, the following information will be displayed for the detailed accounting lines:</p>
+<ul>
+<li>
+<p>Account</p>
+</li>
+<li>
+<p>Accounted Credit</p>
+</li>
+<li>
+<p>Accounted Debit</p>
+</li>
+<li>
+<p>Accounting Date</p>
+</li>
+<li>
+<p>Cost Element</p>
+</li>
+<li>
+<p>Curr Conversion Rate</p>
+</li>
+<li>
+<p>Entered Credit</p>
+</li>
+<li>
+<p>Entered Curr</p>
+</li>
+<li>
+<p>Entered Debit</p>
+</li>
+<li>
+<p>GL Batch</p>
+</li>
+<li>
+<p>Item</p>
+</li>
+<li>
+<p>Line Type</p>
+</li>
+<li>
+<p>Locator</p>
+</li>
+<li>
+<p>Operation Sequence</p>
+</li>
+<li>
+<p>Primary Quantity</p>
+</li>
+<li>
+<p>Reference</p>
+</li>
+<li>
+<p>Subinventory</p>
+</li>
+<li>
+<p>Revision</p>
+</li>
+<li>
+<p>Trans Reason</p>
+</li>
+<li>
+<p>Trans Source Type</p>
+</li>
+<li>
+<p>Trans Source</p>
+</li>
+<li>
+<p>Transaction Date</p>
+</li>
+<li>
+<p>Transaction Type</p>
+</li>
+<li>
+<p>Unit Cost</p>
+</li>
+<li>
+<p>UOM</p>
+</li>
+</ul>
+<p>When you select a detailed accounting line, the system displays the following information at the bottom of the View Material Accounting window:</p>
+<ul>
+<li>
+<p>Account Desc</p>
+</li>
+<li>
+<p>Description</p>
+</li>
+<li>
+<p>Item</p>
+</li>
+<li>
+<p>Quantity</p>
+</li>
+<li>
+<p>Revision</p>
+</li>
+<li>
+<p>Unit Cost</p>
+</li>
+<li>
+<p>UOM</p>
+</li>
+</ul>
+<h3><b>Customizing the View Accounting Window</b></h3>
+<p><a name="I_tx2Dx78lax2Dvawin" id="I_tx2Dx78lax2Dvawin"></a>The View Material Accounting window is a <i>folder</i>. You can easily customize the information that is displayed in the window, as described in the <i>Oracle E-Business Suite User's Guide</i>.</p>
+<p>See: Customizing the Presentation of Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<p>When customizing the View Material Accounting window, you can hide the columns that normally appear in the window and you can choose to display any additional columns that are available.</p>
+<p>When you select a detailed accounting line, the system displays additional information at the bottom of the View Material Accounting window.</p>
+<p>Following is a list of all the hidden columns that you can choose to display:</p>
+<ul>
+<li>
+<p>Account Description</p>
+</li>
+<li>
+<p>Curr Conversion Date</p>
+</li>
+<li>
+<p>Curr Conversion Type</p>
+</li>
+<li>
+<p>Item Description</p>
+</li>
+<li>
+<p>Line Reference</p>
+</li>
+<li>
+<p>Trans ID</p>
+</li>
+<li>
+<p>Transferred to GL</p>
+</li>
+</ul>
+<h2><a name="1755816"></a><a id="T292086"></a><b>Drilling Down to Inventory from Oracle General Ledger</b></h2>
+<p><a name="I_slax2Ddrillx2Dinv" id="I_slax2Ddrillx2Dinv"></a><a name="INV.SLA_DRILLDOWN" id="INV.SLA_DRILLDOWN"></a>From General Ledger, you can drill down to subledger details from the Account Inquiry, Journal Entry Inquiry, or Enter Journals windows for journals that have specific journal sources assigned to them. For example, if a journal source is Inventory, you can drill down to the transaction details in Oracle Inventory.</p>
+<p>When you drill down from General Ledger, the Inventory Accounting Lines window will open. The first time you open this window, the following information will be displayed:</p>
+<ul>
+<li>
+<p>Accounting Date</p>
+</li>
+<li>
+<p>Cost Element</p>
+</li>
+<li>
+<p>Credit</p>
+</li>
+<li>
+<p>Currency</p>
+</li>
+<li>
+<p>Curr Conversion Rate</p>
+</li>
+<li>
+<p>Debit</p>
+</li>
+<li>
+<p>Entered Credit</p>
+</li>
+<li>
+<p>Entered Debit</p>
+</li>
+<li>
+<p>GL Batch</p>
+</li>
+<li>
+<p>Item</p>
+</li>
+<li>
+<p>Line Type</p>
+</li>
+<li>
+<p>Locator</p>
+</li>
+<li>
+<p>Operation Sequence</p>
+</li>
+<li>
+<p>Primary Quantity</p>
+</li>
+<li>
+<p>Reference</p>
+</li>
+<li>
+<p>Rev</p>
+</li>
+<li>
+<p>Subinventory</p>
+</li>
+<li>
+<p>Trans ID</p>
+</li>
+</ul>
+<p>When you select a detailed accounting line, the system displays the following information at the bottom of the window:</p>
+<ul>
+<li>
+<p>Description</p>
+</li>
+<li>
+<p>Item</p>
+</li>
+<li>
+<p>Quantity</p>
+</li>
+<li>
+<p>Revision</p>
+</li>
+<li>
+<p>Unit Cost</p>
+</li>
+<li>
+<p>UOM</p>
+</li>
+</ul>
+<p>When you drill down from General Ledger, the Inventory Accounting Lines window will open. When you select a detailed accounting line, the system displays additional information at the bottom of the related window.</p>
+<h3><b>Customizing the Drilldown Window</b></h3>
+<p>The drilldown window is a <i>folder</i>. You can easily customize the information that is displayed in the window, as described in the <i>Oracle E-Business Suite User's Guide</i>.</p>
+<p>The drilldown window is a <i>folder</i>. You can easily customize the information that is displayed in the window.</p>
+<p>See: Customizing the Presentation of Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<p>When customizing the drilldown window, you can hide the columns that normally appear in the window and you can choose to display any additional columns that are available.</p>
+<p>Following is a list of all the hidden columns that you can choose to display:</p>
+<ul>
+<li>
+<p>Account</p>
+</li>
+<li>
+<p>Account Description</p>
+</li>
+<li>
+<p>Curr Conversion Date</p>
+</li>
+<li>
+<p>Curr Conversion Type</p>
+</li>
+<li>
+<p>Item Description</p>
+</li>
+<li>
+<p>Line Reference</p>
+</li>
+</ul>
+<p><b>Drilling Down Further</b></p>
+<p>From the <b>Inventory Accounting Lines</b> window, you can drill down even further to view detail transactions or you can choose to view the underlying transaction accounting.</p>
+<ol>
+<li>
+<p>From the Inventory Accounting Lines window, select a detail accounting line.</p>
+</li>
+<li>
+<p>Choose the Show Transaction button to view detail transactions.</p>
+</li>
+<li>
+<p>Choose the Show Transaction Accounting button to view the transaction accounting.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292013.htm#I_t_x78la_view">Viewing Accounting Lines</a></p>
+<h2><a name="1755819"></a><a id="T292087"></a><b>Viewing Pending Transactions</b></h2>
+<p><a name="d0e84146" id="d0e84146"></a><a name="INVTVTMP.temp_qf" id="INVTVTMP.temp_qf"></a><a name="INVTVTMP.temp_folder" id="INVTVTMP.temp_folder"></a><a name="I_t_vwpendtx78n" id="I_t_vwpendtx78n"></a>You can view, edit, and correct pending transactions before validation. These include transactions received through the transaction interface or those processed with the background processing option. Using the folder or single row windows, you can choose how to view the information appropriate for a particular transaction. You can also resubmit transactions for processing.</p>
+<p><b>To view pending transactions</b></p>
+<ol>
+<li>
+<p>Navigate to the Pending Transactions folder window. The Find Pending Transactions window appears.</p>
+<p><img width="755" height="504" src="./img/invug_pendtrans.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter search criteria for the pending transactions you want to view. You can search for transactions based on processing information, source, or item details.</p>
+</li>
+<li>
+<p>Choose Find to start the search. The results display in the Pending Transactions window.</p>
+</li>
+<li>
+<p>Select a tabbed region to display a type of information:</p>
+<p><i>Error</i>: Pending transaction error information.</p>
+<p><i>Location</i>: Pending transaction location information.</p>
+<p><i>Source</i>: Pending source information</p>
+<p><i>Intransit</i>: Pending intransit shipping information.</p>
+<p><i>Others</i>: Miscellaneous header and costing information.</p>
+<p><strong><span>Note:</span></strong> For a list of the available fields, you can display in each tabbed region see: <a href="T291651T292013.htm#I_r_pndtx78nfld">Pending Transactions Folder Window Available Fields</a>.</p>
+</li>
+</ol>
+<p><b>To view lot/serial number information for a transaction:<a name="d0e84217" id="d0e84217"></a><a name="d0e84224" id="d0e84224"></a><a name="d0e84231" id="d0e84231"></a><a name="d0e84238" id="d0e84238"></a></b></p>
+<ol>
+<li>
+<p>Select a transaction and choose the Lot/Serial button.</p>
+</li>
+<li>
+<p>View information on lot/serial numbers, quantities, and locations.</p>
+<p><img width="832" height="494" src="./img/invug_mat_trans.gif" alt="the picture is described in the document text"></p>
+<p><img width="433" height="505" src="./img/invug_mat_trans2.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To resubmit transactions to the demand manager for processing:<a name="d0e84266" id="d0e84266"></a></b></p>
+<ol>
+<li>
+<p>Check the Submit option next to the transactions you want to resubmit or choose Resubmit All from the Tools menu.</p>
+<p>To resubmit multiple transactions, use the Resubmit All option to select all transactions for processing and then selectively deselect individual transactions that you do not want to resubmit.</p>
+</li>
+<li>
+<p>Save your work to submit the transactions for processing.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Customizing the Presentation of Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1755822"></a><a id="T292024"></a><b>Pending Transactions Folder Window Available Fields</b></h2>
+<p><a name="I_r_pndtx78nfld" id="I_r_pndtx78nfld"></a>The Pending Transactions folder window allows you to view detailed information about pending transactions. Using folder options, you can display certain fields for each tabbed region. See: <a href="T291651T292013.htm#I_t_vwpendtx78n">Viewing Pending Transactions</a>.</p>
+<h3><b>Fields Shared by All Tabbed Regions</b></h3>
+<ul>
+<li>
+<p>Item: Inventory item referenced by the line item.</p>
+</li>
+<li>
+<p>Transaction Date: Date the transaction was entered for processing.</p>
+</li>
+<li>
+<p>Transaction Qty: Quantity of the transaction.</p>
+</li>
+<li>
+<p>Transaction Type: Displays the transaction type</p>
+</li>
+<li>
+<p>Transaction UOM: Unit of measure used in the transaction.</p>
+</li>
+</ul>
+<h3><b>Error Tabbed Region</b></h3>
+<ul>
+<li>
+<p>Error Code: Code describing the error on the last attempt to process the line item.</p>
+</li>
+<li>
+<p>Error Explanation: Full explanation of the error that occurred when attempting to process the line item.</p>
+</li>
+<li>
+<p>Process Flag: Indicates whether this row has been processed by the concurrent manager.</p>
+</li>
+<li>
+<p>Transaction Header ID: Number used to group transactions in the concurrent manager.</p>
+</li>
+<li>
+<p>Transaction Mode: Method used to process the line item, such as concurrent processing</p>
+</li>
+<li>
+<p>Transaction Temp ID: Identifier used to group line items. This is optionally provided by the product generating the internal transaction.</p>
+</li>
+<li>
+<p>Secondary Quantity: Transaction quantity in secondary unit of measure if the item is under dual of unit of measure control.</p>
+</li>
+<li>
+<p>Secondary UOM. Secondary unit of measure if the item is under dual unit of measure control.</p>
+</li>
+<li>
+<p>Transaction Status: Status of the transaction: Select <i>Pending</i> or <i>Suggested</i>. <i>Pending</i> indicates transactions that are ready to be allocated. <i>Suggested</i> indicates transactions that have been detailed and are ready to be transacted.</p>
+</li>
+</ul>
+<h3><b>Location Tabbed Region</b></h3>
+<ul>
+<li>
+<p>Org Code: Code for the organization referenced by the line item.</p>
+</li>
+<li>
+<p>Material Classification Code: Code for the material classification type referenced by the line item.</p>
+</li>
+<li>
+<p>Revision: Revision of the inventory item referenced by the line item.</p>
+</li>
+<li>
+<p>Locator: Location referenced by the line item.</p>
+</li>
+<li>
+<p>Lot Expiration Date: Date controlling the availability of the lot for transaction and planning purposes.</p>
+</li>
+<li>
+<p>Lot Number: Identifies the specific batch of the line item.</p>
+</li>
+<li>
+<p>Serial Number: Serialized unit of the line item.</p>
+</li>
+<li>
+<p>Subinventory: Subinventory referenced by the line item.</p>
+</li>
+<li>
+<p>Transfer Org Code: Code for the destination organization.</p>
+</li>
+<li>
+<p>Transfer Subinventory: Destination subinventory.</p>
+</li>
+<li>
+<p>Transfer Location: Destination location.</p>
+</li>
+</ul>
+<h3><b>Source Tabbed Region</b></h3>
+<ul>
+<li>
+<p>Distribution Account: Distribution account for the line item.</p>
+</li>
+<li>
+<p>Reason Name: Transaction reason for the line item.</p>
+</li>
+<li>
+<p>Transaction Action: Transaction action for the line item.</p>
+</li>
+<li>
+<p>Transaction Cost: Cost of the item for the transactions, such as the purchase order price.</p>
+</li>
+<li>
+<p>Transaction Reference: Up to 240 characters of free text describing the transaction.</p>
+</li>
+<li>
+<p>Transaction Source Type: Source type of the transaction, such as WIP Job or Schedule</p>
+</li>
+</ul>
+<h3><b>Intransit Tabbed Region</b></h3>
+<ul>
+<li>
+<p>Containers: Number of containers in which the material is stored for the transfer.</p>
+</li>
+<li>
+<p>Expected Arrival Date: Date you expect to receive the material at the destination organization.</p>
+</li>
+<li>
+<p>Freight Code: Freight carrier for the transaction.</p>
+</li>
+<li>
+<p>Shipment Number: Shipment number for the line item.</p>
+</li>
+<li>
+<p>Transfer Cost: Cost to process the transfer.</p>
+</li>
+<li>
+<p>Transportation Cost: Cost to physically transfer the material, such as freight carrier charges.</p>
+</li>
+<li>
+<p>Transportation Account: General ledger distribution account that collects the costs associated with using the freight carrier for the transfer.</p>
+</li>
+<li>
+<p>Waybill Airbill: The waybill or airbill number for the transfer.</p>
+</li>
+</ul>
+<h3><b>Others Tabbed Region</b></h3>
+<ul>
+<li>
+<p>Expenditure Organization: The expenditure organization.</p>
+</li>
+<li>
+<p>Expenditure Type: The expenditure type.</p>
+</li>
+<li>
+<p>Department Code: Oracle Work in Process department code for the line item.</p>
+</li>
+<li>
+<p>Employee Code: Employee who entered the transaction.</p>
+</li>
+<li>
+<p>Encumbrance Account: Account used by Oracle Purchasing to receive the item.</p>
+</li>
+<li>
+<p>Encumbrance Amount: Amount encumbered, reserved against funds, when the purchase order or requisition was approved.</p>
+</li>
+<li>
+<p>Line Code: Request ID assigned by the concurrent manager to the line item.</p>
+</li>
+<li>
+<p>Location Code: Ship-to location.</p>
+</li>
+<li>
+<p>New Average Cost: Recalculated average unit cost for the item.</p>
+</li>
+<li>
+<p>Operation Seq Number: Number associated with the job or schedule referenced by the line item</p>
+</li>
+<li>
+<p>Percentage Change: Percentage used to update the item cost.</p>
+</li>
+<li>
+<p>Project Number: The project number.</p>
+</li>
+<li>
+<p>Source Project Number: The source project number.</p>
+</li>
+<li>
+<p>Source Task Number: The source task number.</p>
+</li>
+<li>
+<p>Task Number: The task number.</p>
+</li>
+<li>
+<p>To Project Number: The to project number.</p>
+</li>
+<li>
+<p>To Task Number: The to task number.</p>
+</li>
+<li>
+<p>Transaction Source Delivery ID: Line item detail identifier of the demand source.</p>
+</li>
+<li>
+<p>Transaction Source line ID: Oracle Work in Process line description for the item.</p>
+</li>
+<li>
+<p>Value Change: Amount used to increment the current inventory value</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p>Customizing the Presentation of Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1755829"></a><a id="T292088"></a><b>Viewing and Updating Transaction Open Interface Activity</b></h2>
+<p><a name="d0e84536" id="d0e84536"></a><a name="d0e84543" id="d0e84543"></a><a name="INVTVPTX.transaction" id="INVTVPTX.transaction"></a><a name="INVTVPTX.tran_qf_win" id="INVTVPTX.tran_qf_win"></a><a name="INVTVPTX.tran_single_row" id="INVTVPTX.tran_single_row"></a><a name="INVTVPTX.tran_lot_window" id="INVTVPTX.tran_lot_window"></a><a name="INVTVPTX.tran_serial_window" id="INVTVPTX.tran_serial_window"></a><a name="I_t_pendtrx78n" id="I_t_pendtrx78n"></a>You can view, edit, and correct transactions for the current organization, or for multiple organizations in a given organization hierarchy, received through the transaction open interface. Using the folder or single row windows, you can choose how to view the information appropriate for a particular transaction. You can also resubmit transactions for processing.</p>
+<p><b>To view pending open interface transactions</b></p>
+<ol>
+<li>
+<p>Navigate to the Transaction Interface folder window. The Find Transactions window appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the transactions you want to view. You can search for transactions based on processing information or transaction details.</p>
+<p><strong><span>Note:</span></strong> You can choose any organization hierarchy in which the current inventory organization is a member. You can see the organization that a particular transaction belongs to in the Transaction Interface form.</p>
+</li>
+<li>
+<p>Choose Find to start the search. The results display in the Transaction Interface window.</p>
+</li>
+<li>
+<p>Select a tabbed region to display a type of information:</p>
+<p><i>Error</i>: Interface transaction error information.</p>
+<p><i>Location</i>: Interface transaction location information.</p>
+<p><i>Source</i>: Interlace source information</p>
+<p><i>Intransit</i>: Interface intransit shipping information.</p>
+<p><i>Others</i>: Miscellaneous header and costing information.</p>
+<p><strong><span>Note:</span></strong> For a list of the fields you can view see: <a href="T291651T292013.htm#I_r_opintflds">Transaction Interface Folder Window Available Fields</a>.</p>
+</li>
+</ol>
+<p><b>To view lot/serial number information for a transaction:<a name="d0e84615" id="d0e84615"></a><a name="d0e84622" id="d0e84622"></a><a name="d0e84629" id="d0e84629"></a><a name="d0e84636" id="d0e84636"></a></b></p>
+<ol>
+<li>
+<p>Select a transaction and choose the Lot/Serial button.</p>
+</li>
+<li>
+<p>View information on lot/serial numbers, quantities, and locations.</p>
+</li>
+</ol>
+<p><b>To resubmit transactions for processing:<a name="d0e84654" id="d0e84654"></a></b></p>
+<ol>
+<li>
+<p>Check the Submit option next to the transactions you want to resubmit or choose Resubmit All.</p>
+<p>To resubmit multiple transactions, use the Resubmit All button to select all transactions for processing and then selectively deselect individual transactions that you do not want to resubmit.</p>
+</li>
+<li>
+<p>Save your work to submit the transactions for processing.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Customizing the Presentation of Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<p>Creating Organization Hierarchies, <i>Oracle HRMS Enterprise and Workforce Management Guide</i></p>
+<h2><a name="1755832"></a><a id="T292025"></a><b>Transaction Interface Folder Window Available Fields</b></h2>
+<p><a name="I_r_opintflds" id="I_r_opintflds"></a>The Transaction Interface folder window allows you to view pending interface transactions. Using folder options, you can display certain fields for each tabbed region. See: <a href="T291651T292013.htm#I_t_pendtrx78n">Viewing and Updating Transaction Open Interface Activity</a>.</p>
+<p><img width="754" height="530" src="./img/invug_trnsint.gif" alt="the picture is described in the document text"></p>
+<h3><b>Common Fields</b></h3>
+<ul>
+<li>
+<p>Item: Inventory item referenced by the line item.</p>
+</li>
+<li>
+<p>Transaction Source: Source of the transaction, such as account number</p>
+</li>
+<li>
+<p>Transaction Source Type: Source type of the transaction, such as WIP Job or Schedule</p>
+</li>
+</ul>
+<h3><b>Error Tabbed Region</b></h3>
+<ul>
+<li>
+<p>Error Code: Code describing the error on the last attempt to process the line item.</p>
+</li>
+<li>
+<p>Error Explanation: Full explanation of the error that occurred when attempting to process the line item.</p>
+</li>
+<li>
+<p>Header ID: Line item's transaction header ID.</p>
+</li>
+<li>
+<p>Interface ID: Interface ID that is assigned by the external system to track a set of transactions through the Oracle Inventory transaction interface processor.</p>
+</li>
+<li>
+<p>Lock Flag: Indicates if the row and its child rows are locked to update from other processes.</p>
+</li>
+<li>
+<p>Process Flag: Indicates whether the row has been successfully processed by the concurrent manager, is available for processing, or processed with an error.</p>
+</li>
+<li>
+<p>Request ID: Line item's request ID.</p>
+</li>
+<li>
+<p>Transaction Mode: Method used to process the line item, such as concurrent processing.</p>
+</li>
+</ul>
+<h3><b>Location Tabbed Region</b></h3>
+<ul>
+<li>
+<p>Locator: Locator referenced by the line item.</p>
+</li>
+<li>
+<p>Organization: Organization code of the organization referenced by the line item.</p>
+</li>
+<li>
+<p>Revision: Revision of the inventory item referenced by the line item.</p>
+</li>
+<li>
+<p>Material Classification Code: Code for the material classification type referenced by the line item.</p>
+</li>
+<li>
+<p>Subinventory: Subinventory referenced by the line item.</p>
+</li>
+<li>
+<p>Transaction Date: Date the transaction was entered for processing.</p>
+</li>
+<li>
+<p>Transaction Quantity: Quantity of the transaction.</p>
+</li>
+<li>
+<p>Transaction UOM: Unit of measure used in the transaction.</p>
+</li>
+<li>
+<p>Transfer Locator: Destination location.</p>
+</li>
+<li>
+<p>Transfer Organization: Organization code of the destination organization.</p>
+</li>
+<li>
+<p>Transfer Subinventory: Destination subinventory</p>
+</li>
+<li>
+<p>Secondary Quantity: Transaction quantity in secondary unit of measure if the item is under dual of unit of measure control.</p>
+</li>
+<li>
+<p>Secondary UOM. Secondary unit of measure if the item is under dual unit of measure control.</p>
+</li>
+</ul>
+<h3><b>Source Tabbed Region</b></h3>
+<ul>
+<li>
+<p>Distribution Account: Distribution account for the line item.</p>
+</li>
+<li>
+<p>Reason: The transaction reason.</p>
+</li>
+<li>
+<p>Source Code: Source of the transaction, such as account number.</p>
+</li>
+<li>
+<p>Source Line ID: User-entered line ID of the source code for the line item.</p>
+</li>
+<li>
+<p>Transaction Action: The transaction action</p>
+</li>
+<li>
+<p>Transaction Cost: Cost to process the transaction.</p>
+</li>
+<li>
+<p>Transaction Reference: Reference text describing the transaction.</p>
+</li>
+<li>
+<p>Transaction Type: The transaction type.</p>
+</li>
+</ul>
+<h3><b>Intransit Tabbed Region</b></h3>
+<ul>
+<li>
+<p>Containers: Number of containers in which the material is stored.</p>
+</li>
+<li>
+<p>Expected Arrival Date: Date you expected to receive the material at the destination organization.</p>
+</li>
+<li>
+<p>Freight Code: The freight carrier for the transfer.</p>
+</li>
+<li>
+<p>Shipment Number: Number uniquely identifying the item or items transferred.</p>
+</li>
+<li>
+<p>Transfer Cost: Cost to process the transfer.</p>
+</li>
+<li>
+<p>Transportation Account: General ledger account charged with the value entered in the Transportation Cost field.</p>
+</li>
+<li>
+<p>Transportation Cost: Cost to physically transfer the material, such as freight carrier charges.</p>
+</li>
+<li>
+<p>Waybill Airbill: The waybill or airbill number for the transfer.</p>
+</li>
+</ul>
+<h3><b>Others Tabbed Region</b></h3>
+<ul>
+<li>
+<p>Department: Oracle Work in Process department code for the line item.</p>
+</li>
+<li>
+<p>Employee Code: Employee who entered the transaction.</p>
+</li>
+<li>
+<p>Encumbrance Account: Account used by Oracle Purchasing to receive the item.</p>
+</li>
+<li>
+<p>Encumbrance Amount: Amount encumbered, reserved against funds, when the purchase order or requisition was approved.</p>
+</li>
+<li>
+<p>Expenditure Organization: The expenditure organization.</p>
+</li>
+<li>
+<p>Expenditure Type: The expenditure type.</p>
+</li>
+<li>
+<p>Demand Source Header ID: Source of the demand for the line item, such as an account number.</p>
+</li>
+<li>
+<p>Demand Source Delivery: Line item detail identifier of the demand source</p>
+</li>
+<li>
+<p>Demand Source Line: Line number from the demand source, such as Sales Order line number.</p>
+</li>
+<li>
+<p>New Average Cost: Recalculated average unit cost for the item.</p>
+</li>
+<li>
+<p>Operation Seq Number: Number associated with the job or schedule referenced by the line item.</p>
+</li>
+<li>
+<p>Percentage Change: Percentage used to update the item cost.</p>
+</li>
+<li>
+<p>Project Number: The project number.</p>
+</li>
+<li>
+<p>Source Project Number: The source project number.</p>
+</li>
+<li>
+<p>Source Task Number: The source task number.</p>
+</li>
+<li>
+<p>Task Number: The task number.</p>
+</li>
+<li>
+<p>To Project Number: The to project number.</p>
+</li>
+<li>
+<p>To Task Number: The to task number.</p>
+</li>
+<li>
+<p>Transaction Source Delivery ID: Line item detail identifier of the demand source.</p>
+</li>
+<li>
+<p>Transaction Source Line ID: User-entered line ID of the source code for the line item.</p>
+</li>
+<li>
+<p>Value Change: Amount used to increment the current inventory value</p>
+</li>
+</ul>
+<h2><a name="1755845"></a><a id="T292091"></a><b>Purging Transaction History</b></h2>
+<p><a name="d0e84925" id="d0e84925"></a><a name="srs.invtmlpr" id="srs.invtmlpr"></a><a name="I_t_purgetx78n" id="I_t_purgetx78n"></a>You can purge all transaction history and associated accounting information for your current organization, where the transaction date is before and including the purge date you enter and is in a closed period.</p>
+<p><strong><span>Note:</span></strong> You should be extremely cautious when purging transaction information. Once you commit the process, Oracle Inventory removes all related information from the database. You cannot view or report on this information once you purge it. For example, you can no longer report purged information with the Accrual Reconciliation Report, the Transaction Register, and so on.</p>
+<p>Since the Job/Lot Composition functionality in Oracle Work in Process depends on the material transaction history, you should not enter a purge date which purges material transactions that are part of a genealogy you want to retain. See: Job Lot Composition Report, <i>Oracle Work in Process User's Guide</i>.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>At least one closed period for your organization. See: <a href="T291651T292307.htm#I_t_mntactper">Maintaining Accounting Periods</a>.</li>
+</ul>
+<p><b>To purge transactions</b></p>
+<ol>
+<li>
+<p>Navigate to the Purge Transactions or All Reports window.</p>
+</li>
+<li>
+<p>Enter <i>Transaction Purge</i> in the Name field. The Parameters window appears.</p>
+</li>
+<li>
+<p>Enter a name for your purge.</p>
+</li>
+<li>
+<p>Enter a date. Oracle Inventory purges transaction information if the transaction date is less than or equal to this date. This date must be less than or equal to the most recently closed period date.</p>
+</li>
+<li>
+<p>Choose Submit to launch the process.</p>
+<p>This concurrent process may actually spawn several independent requests, based on the number of accounting periods you are purging and the setting of the profile option INV: Max # of Txn Purge Processes.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291654.htm#I_r_profile">Implementing Profile Options Summary</a></p>
+<p><a href="T291651T292013.htm#I_c_trnx78ov">Overview of Inventory Transactions</a></p>
+<h2><a name="1755906"></a><a id="T292102"></a><b>Transactions Reports</b></h2>
+<p><a name="d0e84993" id="d0e84993"></a><a name="d0e84998" id="d0e84998"></a><a name="I_r_trnx78rpts" id="I_r_trnx78rpts"></a>Oracle Inventory and Oracle Purchasing provide you with reports to view your transactions. The following table presents these reports:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Report</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Transaction Register (INV)</td>
+<td>Use this report to report comprehensive material transaction detail (transaction date, item description, item revision, subinventory, transaction type, transaction source, quantity, unit of measure, and transaction value).</td>
+</tr>
+<tr valign="top">
+<td>Lot Transaction Register (INV)</td>
+<td>Use this report to report comprehensive lot number material transaction detail within a specific date range.</td>
+</tr>
+<tr valign="top">
+<td>Serial Number Transaction Register (INV)</td>
+<td>Use this report to report comprehensive serial number material transaction detail within a specific date range.</td>
+</tr>
+<tr valign="top">
+<td>Transaction Source Type Summary (INV)</td>
+<td>Use this report to list transactions by source types.</td>
+</tr>
+<tr valign="top">
+<td>Transaction Historical Summary (INV)</td>
+<td>Use this report to review past item quantities or past inventory balances.</td>
+</tr>
+<tr valign="top">
+<td>Expected Receipts (PO)</td>
+<td>Use this report to review all or specific expected receipts for a particular date or a range of dates.</td>
+</tr>
+<tr valign="top">
+<td>Overdue Supplier Shipments Report (PO)</td>
+<td>Use this report to review all or specific overdue shipments.</td>
+</tr>
+<tr valign="top">
+<td>Receipt Adjustments Report (PO)</td>
+<td>Use this report to review all or specific purchase order shipments with returns or corrections.</td>
+</tr>
+<tr valign="top">
+<td>Receipt Traveler (PO)</td>
+<td>Use this report to print delivery tickets that you use to facilitate delivery of goods you received within your organization.</td>
+</tr>
+<tr valign="top">
+<td>Receipt/Inspection/ Delivery Register (PO)</td>
+<td>Use this report to review detail information about your receiving transactions.</td>
+</tr>
+<tr valign="top">
+<td>Receiving Exceptions Report (PO)</td>
+<td>Use this report to review all or specific purchase order shipments you placed on exception hold.</td>
+</tr>
+<tr valign="top">
+<td>Inactive Items Report (INV)</td>
+<td>Use this report to review items with no transaction activity since the date you specify.</td>
+</tr>
+<tr valign="top">
+<td>Item Reservations Report (INV)</td>
+<td>Use this report to determine how many units of an item are reserved for an account, an account alias, or for user-defined source types.</td>
+</tr>
+<tr valign="top">
+<td>Material Account Distribution Detail (INV)</td>
+<td>Use this report to view the accounts charged for inventory quantity transactions, to review inventory quantities distributed to GL batch (one period), and to reconcile or reconcile back to the general ledger interface table.</td>
+</tr>
+<tr valign="top">
+<td>Material Account Distribution Summary (INV)</td>
+<td>Use this report to verify that inventory accounts are in balance. You can also use this report to do daily trial balances for inventory or to reconcile an account across several periods.</td>
+</tr>
+</table>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

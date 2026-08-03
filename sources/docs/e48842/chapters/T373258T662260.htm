@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T376577.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T376578.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">22/36</span> <!-- End Header -->
+<h1>Recurring Billing</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T662261">Recurring Billing Overview</a></li>
+<li><a href="#T662262">Setting Up Recurring Billing</a></li>
+</ul>
+<h2><a name="8356447"></a><a id="T662261"></a><b>Recurring Billing Overview</b></h2>
+<p><a name="d0e65853" id="d0e65853"></a><a name="d0e65858" id="d0e65858"></a><a name="recur_billing" id="recur_billing"></a>Oracle Order Management enables you to bill your customers on a recurring basis for standard items they are ordering on a sales order line. When you are entering a sales order you can create a billing plan for the sales order line. When you create the billing plan you can specify a fixed number of billing plan lines, an indefinite number of billing plan lines, or milestone-based billing plan lines. If you choose a fixed number of billing plan lines, you then enter parameters for the billing plan, including billing period, billing frequency, start date, billing amount, and number of billing plan lines. If you choose an indefinite number of billing plan lines, the parameters for the billing plan include billing period, billing frequency, start date, and billing amount. If you choose milestone-based billing plan lines, you enter parameters for the billing plan including milestone, bill percent or bill amount, and bill date for user-defined milestones.</p>
+<p>After you have created a billing plan associated with a fixed number or indefinite number of billing plan lines, before the billing lines can be created you must close the sales order source order line. After the sales order source order line is closed, you can then manually run or have the system periodically run the Create Billing Lines concurrent program. The Create Billing Lines concurrent program creates <i>bill only</i> (based on the default setup) sales order lines for each of the billing plan line associated with the billing plan in the same sales order as the billing plan. These bill only lines interface data to Oracle Accounts Receivable which then creates the invoices against them. This concurrent program only creates bill only lines for billing plan lines where the source order line is closed, the billing plan status is Billing in Progress or Open, and the system date is greater than or equal to the bill date on the billing plan line. As the recurring billing process goes along, you can view the billing plan to view the amounts you have billed to your customers and the amounts you have yet to bill to your customers. After the last billing plan line associated with the billing plan is invoiced the billing plan status is automatically changed to Closed.</p>
+<p>When you are creating a billing plan associated with milestone-based billing plan lines you can select predefined milestones and user-defined milestones. If you choose predefined milestones, the system automatically populates the bill date for a milestone billing plan line as the different milestones occur for the source sales order line. If you choose user-defined milestones, then you must manually enter the bill date for each billing plan line or use the PO API to generate the bill date.</p>
+<p>You can enter milestones between existing milestones. The application resequences milestones, when you enter a new milestone between existing milestones or when you change a milestone bill date, in ascending order by bill date. User-defined and predefined milestones display in ascending order by bill date followed by milestones without a bill date. When you enter a new milestone without a bill date or delete a milestone then there is no resequencing of milestones.</p>
+<p>After you have created a billing plan associated with milestone-based billing plan lines, you must book the source sales order before the billing lines can be created. As the different milestones occur for the source sales order line, you can then manually run or have the system periodically run the Create Billing Lines concurrent program. The Create Billing Lines concurrent program creates <i>bill-only</i> (based on the default setup) sales order lines for each of the billing plan lines associated with the billing plan in the same sales order as the billing plan. These bill-only lines interface data to Oracle Accounts Receivable, which then creates the invoices against them. This concurrent program only creates bill-only lines for billing plan lines when all of the following criteria are met:</p>
+<ul>
+<li>
+<p>The source order line is booked.</p>
+</li>
+<li>
+<p>The bill date is available on the billing plan line.</p>
+</li>
+<li>
+<p>The billing line is not generated.</p>
+</li>
+<li>
+<p>The billing plan status is Billing in Progress or Open.</p>
+</li>
+<li>
+<p>The system date is greater than or equal to the bill date on the billing plan line.</p>
+</li>
+</ul>
+<p>As the recurring billing process goes along, you can view the billing plan to view the amounts you have billed to your customers and the amounts you have yet to bill. When the last billing plan line is billed and the status of source order line is <b>Closed</b>, then the billing plan status gets changed to <b>Closed</b>.</p>
+<p><strong><span>Note:</span></strong> The major difference between fixed number and indefinite number and milestone-based billing plans is that with milestone-based billing plans the source sales order line does not need to be closed; it only needs to be booked before you can create billing lines using the Create Billing Lines concurrent program.</p>
+<p><strong><span>Note:</span></strong> If all the milestones are billed, then the billing plan is closed in the Close activity of the source order line.</p>
+<p>If the status source order line is Closed, then during the billing of the last milestone, the billing plan status is changed to Closed.</p>
+<p>For all billing plan types, until the billing plan is closed, you can make modifications to the billing plan for which billing sales order lines have not been created. This includes deleting individual plan lines or terminating all of the billing plan lines at once. Your customers may also fully or partially return items from the sales orders line associated with a billing plan. Periodically, you may need to review or make changes to the billing plan to accommodate those changes that have occurred against the sales orders lines. If all of the quantity of an item has been returned on an RMA, the system terminates the billing plan which in turn stops the invoicing of the customer.</p>
+<p><strong><span>Note:</span></strong> The recurring billing feature does not incorporate any changes to existing revenue and COGS recognition functionality in E-Business Suite. If required, it is expected that you are responsible for implementing any related changes.</p>
+<p>For more information on recurring billing user procedures, see the <i>Oracle Order Management User's Guide.</i></p>
+<p>For more information on the Creating Billing Line concurrent program, see the <i>Oracle Order Management User's Guide.</i></p>
+<h3><a id="T666867"></a><b>Recurring Billing Lookup Types</b></h3>
+<p>Order Management provides several lookup types for use with the recurring billing functionality. This table lists the predefined recurring billing lookup types.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Recurring Billing Lookup Types</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Lookup Type</b></th>
+<th scope="col"><b>Lookup Type Description</b></th>
+<th scope="col"><b>Access Level</b></th>
+<th scope="col"><b>Lookup Code</b></th>
+<th scope="col"><b>Lookup Code Description</b></th>
+</tr>
+<tr valign="top">
+<td>BILLING_PLAN_MILESTONE</td>
+<td>Billing Plan Milestone</td>
+<td>Extensible</td>
+<td>BOOK</td>
+<td>Booking</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CUSTACCEPT</td>
+<td>Customer Acceptance</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>FULFILL</td>
+<td>Fulfillment</td>
+</tr>
+<tr valign="top">
+<td>BILLING_PLAN_STATUS</td>
+<td>Billing Plan Status</td>
+<td>System</td>
+<td>BILLING_IN_PROGRESS</td>
+<td>Billing in Progress</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CLOSED</td>
+<td>Closed</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>OPEN</td>
+<td>Open</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>REVIEW_REQUIRED</td>
+<td>Review Required</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>TERMINATED</td>
+<td>Terminated</td>
+</tr>
+<tr valign="top">
+<td>BILLING_PLAN_PERIOD</td>
+<td>Billing Plan Period</td>
+<td>System</td>
+<td>D</td>
+<td>Day</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>MTH</td>
+<td>Month</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>WK</td>
+<td>Week</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>YR</td>
+<td>Year</td>
+</tr>
+<tr valign="top">
+<td>ONT_RECUR_BILLING_LINE_TYPE</td>
+<td>Recurring Billing Line Types in Order Management</td>
+<td>System</td>
+<td>BL</td>
+<td>Billing Line</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SOL</td>
+<td>Source Order Line</td>
+</tr>
+</table>
+<h2><a name="8356448"></a><a id="T662262"></a><b>Setting Up Recurring Billing</b></h2>
+<p><a name="d0e66342" id="d0e66342"></a><a name="d0e66347" id="d0e66347"></a><a name="setup_recur_bill" id="setup_recur_bill"></a><b>To Set Up Recurring Billing</b></p>
+<ol>
+<li>
+<p>Enable recurring billing in the environment:</p>
+<ol>
+<li>
+<p>Navigate to the OM System Parameters window.</p>
+<p><b>OM System Parameters window</b></p>
+<p><img width="586" height="440" src="./img/onit_scn_sys_parameters.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the operating unit in the Operating Unit field.</p>
+</li>
+<li>
+<p>Clear the Show All check box.</p>
+</li>
+<li>
+<p>Select Invoicing Parameters in the Category field.</p>
+</li>
+<li>
+<p>Locate the Enable Recurring Billing parameter and enter Yes in the Value field.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Create a folder to display the recurring billing fields (Billing Validation, Bill Amount, and Recurring Billing Line Type) in the Sales Orders window:</p>
+<p><strong><span>Note:</span></strong> The fields on the Sales Orders window that support recurring billing are folder-enabled non-mandatory fields.</p>
+<ol>
+<li>
+<p>Navigate to the <b>Line Items</b> tab in the Sales Orders window.</p>
+</li>
+<li>
+<p>Place the cursor in the row of the table where you want to add the recurring billing fields.</p>
+</li>
+<li>
+<p>Select <b>Folder</b> menu from the tool bar.</p>
+</li>
+<li>
+<p>Select <b>Show Field</b>.</p>
+</li>
+<li>
+<p>Select the <b>Billing Validation</b> field.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+<p>The field appears in the row of the table.</p>
+</li>
+<li>
+<p>Repeat steps 3 through 6 for the <b>Bill Amount</b> field and the <b>Recurring Billing Line Type</b> field.</p>
+<p><b>Sales Orders window - Line Items tab</b></p>
+<p><img width="754" height="504" src="./img/onit_scn_recbill_so.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select <b>Folder</b> menu from the tool bar.</p>
+</li>
+<li>
+<p>Select <b>New</b>.</p>
+</li>
+<li>
+<p>Enter a name for the folder in the <b>Folder</b> field.</p>
+</li>
+<li>
+<p>(Optional) Select the <b>Open as Default</b> check box if you want this folder to open by default when you access the Sales Orders window.</p>
+</li>
+<li>
+<p>(Optional) Select the <b>Public</b> check box if you want others to be able to use the folder.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+</li>
+<li>
+<p>(Optional) If you are using milestone-based billing, you can add additional customized milestone values to the BILLING_PLAN_MILESTONE lookup type:</p>
+<ol>
+<li>
+<p>Navigate to the <b>Order Management Lookups</b> window.</p>
+</li>
+<li>
+<p>Click <b>Find.</b></p>
+</li>
+<li>
+<p>Select the BILLLING_PLAN_MILESTONE lookup type and click <b>OK.</b></p>
+</li>
+<li>
+<p>Click <b>New.</b></p>
+</li>
+<li>
+<p>Enter the following information:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Code</b></td>
+<td>Enter a code for the milestone.</td>
+</tr>
+<tr valign="top">
+<td><b>Meaning</b></td>
+<td>Enter a meaning for the milestone.</td>
+</tr>
+<tr valign="top">
+<td><b>Description</b></td>
+<td>(Optional) Enter a description for the milestone.</td>
+</tr>
+<tr valign="top">
+<td><b>Effective Dates From</b> and <b>To</b></td>
+<td>Select the dates the lookup code is effective. The <b>Effective Date From</b> field defaults to today's date.</td>
+</tr>
+<tr valign="top">
+<td><b>Enabled</b> check box</td>
+<td>Select this check box to enable this lookup code. This check box is selected by default.</td>
+</tr>
+</table>
+<p><b>Order Management Lookups Window</b></p>
+<p><img width="800" height="485" src="./img/omig_scn_recbill_looktype.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click <b>Save.</b></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Define defaulting rules for billing lines and other outbound lines:</p>
+<ol>
+<li>
+<p>Navigate to the <b>Defaulting Setup - Entity Attributes</b> window.</p>
+</li>
+<li>
+<p>Click <b>Find.</b></p>
+</li>
+<li>
+<p>Select the <b>Order Line</b> entity and click <b>OK.</b></p>
+<p><b>Defaulting Setup - Entity Attributes window</b></p>
+<p><img width="522" height="443" src="./img/omug_scn_drulrb1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the <b>Attribute</b> Line Type.</p>
+</li>
+<li>
+<p>Click <b>Defaulting Rules.</b></p>
+<p><b>Attribute Defaulting Rules window</b></p>
+<p><img width="647" height="505" src="./img/omug_scn_drulrb2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Clear the <b>Enabled</b> check box for the Regular Line seeded defaulting condition.</p>
+</li>
+<li>
+<p>Click <b>Save.</b></p>
+</li>
+<li>
+<p>Enter the following information in the <b>Defaulting Conditions</b> region:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Precedence</b></td>
+<td>Enter the precedence number for the new line type you are creating.</td>
+</tr>
+<tr valign="top">
+<td><b>Defaulting Condition</b></td>
+<td>Select Regular Line.</td>
+</tr>
+<tr valign="top">
+<td><b>Enabled</b> check box</td>
+<td>Appears selected by default.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Enter the following information in the <b>Default Sourcing Rules</b> region:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Sequence</b></td>
+<td>Enter the sequence for the defaulting rule.</td>
+</tr>
+<tr valign="top">
+<td><b>Source Type</b></td>
+<td>Select the source type.</td>
+</tr>
+<tr valign="top">
+<td><b>Default Source/Value</b></td>
+<td>Select the source or value associated to the source type.<br>
+For billing lines, this can be any outbound line type which doesn't have shipping activity.</td>
+</tr>
+</table>
+<p><b>Attribute Defaulting Rules window</b></p>
+<p><img width="645" height="504" src="./img/omug_scn_drulrb3.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click <b>Save.</b></p>
+</li>
+</ol>
+<p><b>Example of PL/SQL API Procedure (XX_RECURRING_BILLING.SQL):</b></p>
+<pre>CREATE OR REPLACE PACKAGE XX_RECURRING_BILLING
+AS
+
+FUNCTION GET_LINE_TYPE
+         ( p_database_object_name  IN  VARCHAR2
+          ,p_attribute_code   IN  VARCHAR2)
+RETURN NUMBER;
+
+END XX_RECURRING_BILLING;
+
+/
+
+CREATE OR REPLACE PACKAGE BODY XX_RECURRING_BILLING
+AS
+
+FUNCTION GET_LINE_TYPE
+         ( p_database_object_name  IN  VARCHAR2
+          ,p_attribute_code   IN  VARCHAR2)
+RETURN NUMBER IS
+
+  l_debug_level CONSTANT NUMBER := oe_debug_pub.g_debug_level;
+  l_source_order_line_id NUMBER;
+
+BEGIN
+  IF l_debug_level  &gt; 0 THEN
+      oe_debug_pub.add(  'ENTERING XX_RECURRING_BILLING.GET_LINE_TYPE' , 1 ) ;
+  END IF;
+
+  l_source_order_line_id := ONT_LINE_DEF_HDLR.g_record.SOURCE_ORDER_LINE_ID;
+
+  IF  l_source_order_line_id IS NOT NULL
+  AND l_source_order_line_id &lt;&gt; FND_API.G_MISS_NUM
+  THEN
+    RETURN 1418; --Bill Only Line Type
+  END IF;
+
+  RETURN NULL;
+EXCEPTION
+WHEN OTHERS THEN
+  RETURN NULL;
+
+END GET_LINE_TYPE;
+
+END XX_RECURRING_BILLING ;
+/</pre>
+<p>For more information about defining defaulting rules, see <a href="T373258T374215.htm#t_ddefrules">Defining Defaulting Rules</a>.</p>
+</li>
+<li>
+<p>(Optional) Set up the following descriptive flexfields to enter additional information in the billing plan header and billing plan line respectively for all billing plans.</p>
+<ul>
+<li>
+<p>Additional Billing Plan Header Information</p>
+</li>
+<li>
+<p>Additional Billing Plan Line Information</p>
+</li>
+</ul>
+<p>See Defining Descriptive Flexfields, <i>Oracle E-Business Suite Flexfields Guide</i> for information about defining a descriptive flexfield.</p>
+<p>The descriptive flexfields are hidden by default. To display them, you must personalize the <b>Billing Plan</b> page as follows:</p>
+<ol>
+<li>
+<p>Navigate to the <b>Billing Plan</b> page.</p>
+</li>
+<li>
+<p>Click <b>Settings</b> and then click <b>Personalize</b> page.</p>
+</li>
+<li>
+<p>Personalize the <b>Billing Plan</b> page to display <b>Additional Billing Plan Header Information</b> and <b>Additional Billing Plan Line Information</b> descriptive flexfields.</p>
+</li>
+</ol>
+<p>See <i>Oracle Application Framework Personalization Guide</i> for information about personalizing the page.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

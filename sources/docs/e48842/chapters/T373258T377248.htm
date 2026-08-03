@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T377247.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T377249.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">16/36</span> <!-- End Header -->
+<h1>Holds and Approval Management</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T377255">Holds and Releases</a></li>
+<li><a href="#T377321">Process Flow</a></li>
+<li><a href="#T377256">Workflow</a></li>
+<li><a href="#T377257">Honor Holds in Repricing at Shipment</a></li>
+<li><a href="#T377258">Approvals</a></li>
+<li><a href="#T377322">Setup</a></li>
+</ul>
+<h2><a name="3007147"></a><a id="T377255"></a><b>Holds and Releases</b></h2>
+<a name="t_hld_rel" id="t_hld_rel"></a>
+<h3><b>Overview</b></h3>
+<p>In Oracle Order Management, applying and releasing holds can be performed directly from the Sales Order window. You can create holds based on a combination of two criteria, such as customer and item, or item and warehouse. You can manually send a notification through Oracle Workflow to specific individuals when an order hold is applied. A concurrent program can automatically release holds based on the Hold Until date. Additionally, you can track and view history information on holds at the order and/or line level.</p>
+<p>When you prevent further processing on an order through an exception, you are placing a hold on the order. However, you can arbitrarily hold all orders for a specific customer or customer site, an individual order, or all order lines for a specific item. Furthermore, you can define holds that affect existing orders, future orders, or both. Holds can be placed automatically when certain metrics, such as credit limits, are violated. Holds can be automatically released by using Oracle Workflow once the order or line no longer violates the business metric. Oracle Order Management manages exposure to these various types of risks through this holds and releases functionality.</p>
+<h3><b>Setup</b></h3>
+<h3><b>Profile Options and System Parameters</b></h3>
+<p><b>Profile Options</b></p>
+<p><b>OM: Notification Approver</b></p>
+<p>This profile enables you to send approval or FYI notifications to a role. It can be set at any level&mdash;Site, Application, Responsibility, or User. The value for this profile is retrieved based on the application context (user, responsibility, application) that was in place when the order or line was created. Notifications generated by OM flows can be sent to this role via a seeded WF item attribute (Notification Approver). This item attribute is used as a place holder for storing role information. When the Header or line is created, the item attribute Notification Approver is set based on the profile option setting. If all approvals need to go to this role, you do not need to use the Utility - Set Notification Approver. If they do not then you can use this seeded utility to set the value of the item attribute Notification Approver to various values.</p>
+<p><strong><span>Note:</span></strong> The Negotiation phase of a sales transaction does not support holds.</p>
+<p><strong><span>Note:</span></strong> Notifications can be sent via the workflow FYI Notification framework when an Order/line goes on hold. Release of the hold has to occur from an action selection on the Sales Order Pad. If a user places an order or line on hold manually and subsequently releases the hold they must perform Progress Order to move the order/line on in the workflow to the next activity.</p>
+<p><b>OM: Prevent Booking for Line Generic Holds</b></p>
+<p>This profile controls whether a transaction will fail booking if a generic hold has been applied.</p>
+<p><b>OM: Schedule Line on Hold</b></p>
+<p>This profile option has been changed to a system parameter and it controls whether scheduling should attempt to schedule lines that are on hold. The default is set to No.</p>
+<p><b>OM: Promotion Limit Violation Action</b></p>
+<p>This profile controls how and where holds are placed on order lines and headers when promotion limits are exceeded in Advanced Pricing or Trade Management.</p>
+<p>Available options are: Place holds where violated, place order on hold when any violation occurs, or no holds applied. No holds applied is the default.</p>
+<p><b>System Parameters</b></p>
+<p><b>Apply Credit Hold Based On</b></p>
+<p>Set up this system parameter to implement bill to customer based credit hold.</p>
+<p>This system parameter enables you to select the customer level where the credit hold is to be applied. The application can place orders on credit hold at order level based on Sold To Customer; when the Credit Hold check box is checked for the Sold to Customer at account level or if you have not selected any value. The value Header Level Bill To Customer places the order on credit hold if you have selected the Credit Hold check box for the Bill To Customer of the order. The value Line Level Bill To Customer places the order lines on credit hold if you have selected the Credit Hold check box for the Bill To Customer of the order line. This provides the flexibility of putting all the order lines belonging to multiple Bill To sites but under same Bill To Customer on credit hold without having to select the Credit Hold check box for each site.</p>
+<h3><b>Workflow</b></h3>
+<p>Order Management comes with seeded Oracle Workflow approval processes. Review the seeded flows, activities and notifications to determine if the seeded data can meet your business needs. Typically, the Generic - Order Flow and Line Flows are used for standard orders. The user can modify this existing seeded workflows or create new workflows to include approval activities or wait-for-flow activities in order to safeguard processing orders that are on hold. Refer to the topical essay on Workflow at the end of this manual for details on setting up workflow processes.</p>
+<h3><b>Hold Lookup Codes</b></h3>
+<p>Set up your own codes for Hold Types, Holdable Header, and Line Activities for workflow in the Order Management Quickcodes window. To do this, navigate to the Order Management Lookup window: N: Order Management &gt; Setup &gt; Quickcodes &gt; Order Management. Select the query manager (Flashlight icon) to view the existing codes or add a new code.</p>
+<h3><b>Reports</b></h3>
+<p>There are some seeded reports in Order Management for Holds. They include: Hold Source Activity Report, Lines on Credit Check Hold Report, Orders on Credit Check Hold Report and Outstanding Holds Report. You can run these reports by a variety of parameters, including, customer name, hold name, item, order, order type, etc.</p>
+<h3><b>Credit Check Rules & Profiles</b></h3>
+<p>When setting up credit checking rules, you have the ability to specify if you want to include orders currently on hold in the exposure calculation when the order flow performs a credit check. To set this option, Navigate: Setup &gt; Credit &gt; Credit Check Rules and check the box for Include orders currently on hold.</p>
+<h3><b>Customers</b></h3>
+<p>In Receivables, when setting up a Customer, you can specify whether or not to perform credit checking for this customer by checking the Credit Check box in the profile. When you process orders for that particular customer and if you use an order type and payment terms that also call for credit checking, the credit check process will run and if they do not pass based on their credit limits, the orders will go on hold automatically. In addition, there is a Credit Hold check box on the Customer window and at the address level. When you check the Credit Hold box at the Customer level, the application creates customer based hold sources in all Operating Units that have either addresses or orders for that customer. This puts all existing and future orders for that customer on hold in all those Operating Units.</p>
+<p>When you check the Credit Hold box at the Address level, the application creates an address (account site use) based hold sources in that Operating Unit. This puts all existing and future orders for that address (account site use) on hold in all that Operating Unit.</p>
+<p>To activate credit check holds on a customer or customer site, navigate to the Order Management or Receivables responsibility, and select Customers &gt; Standard. This opens an HTML page called Customers. Enter a new customer by clicking the Create button. You can also search for an existing customer, select the Profile: Transaction tab and then select the Credit Check and Credit Hold boxes. To perform credit checking, you will also need to set the credit limits for the customer in the Profile: Amounts Tab of the Customer page.</p>
+<p>The hold source can be released by deselecting the Credit Hold box. However individual holds can be released in Order Management using the Release Hold action. Please note that releasing a hold source and releasing a hold are different: The hold source is the origin of the hold and will continue to put lines on hold until the hold source itself is released. The removal of the hold source releases all orders/lines that have been placed on hold. Releasing a single order from hold is done by assessing orders on an individual basis and only affects the specific order/line selection that you have made.</p>
+<p>As a part of the customer merge process, when you merge a customer with Credit Hold check box selected with a customer having the Credit Hold check box deselected and there are active hold sources for the first customer, then the application transfers the hold sources from the first customer to the second customer. Additionally, the merge process selects the corresponding Credit Hold check box on the Customer Standard window for the second customer.</p>
+<h2><a name="3007156"></a><a id="T377321"></a><b>Process Flow</b></h2>
+<p><a name="t_hld_proflw" id="t_hld_proflw"></a>The process flows for holds in Oracle Order Management include the following:</p>
+<h3><b>Define Generic and Activity-Specific Holds</b></h3>
+<p>First Define a generic or activity-specific hold and assign the responsibilities that are authorized to apply or release the hold. A hold can be defined to be effective at certain steps of the order or line workflow or to be applied regardless of the stage of the orders flow. Because orders and returns are not affected by holds until they are applied, define all the holds you use in your business at once.</p>
+<p><b>To define a generic and hold</b></p>
+<ol>
+<li>
+<p>To define a generic hold, navigate to N: Order Management &gt; Setup &gt; Orders &gt; Holds.</p>
+</li>
+<li>
+<p>Enter a user defined hold name.</p>
+</li>
+<li>
+<p>Enter a user defined description.</p>
+</li>
+<li>
+<p>Pick and select a previously defined hold Type such as User Hold.</p>
+</li>
+<li>
+<p>Optionally, select the 'Hold Included Items' check box. Hold included items allow the user to cascade the hold placed against a model to the 'included items' defined in the model.</p>
+</li>
+<li>
+<p>Optionally, enter hold until dates.</p>
+</li>
+<li>
+<p>Assign specific responsibilities to allow access to apply or release this hold.</p>
+<p><strong><span>Note:</span></strong> If the authorization region is left blank all users may apply or remove holds.</p>
+</li>
+</ol>
+<p><b>To define an activity-specific hold</b></p>
+<ol>
+<li>
+<p>To define an activity-specific hold, Navigate to N: Order Management &gt; Setup &gt; Orders &gt; Holds.</p>
+</li>
+<li>
+<p>Enter a user defined hold name</p>
+</li>
+<li>
+<p>Enter a user defined description.</p>
+</li>
+<li>
+<p>Pick and select a previously defined hold Type such as User Hold.</p>
+</li>
+<li>
+<p>Pick and select a workflow item, order header/order line.</p>
+</li>
+<li>
+<p>Select a workflow activity.</p>
+</li>
+<li>
+<p>Optionally, select the Hold Included Items check box. Hold included items allow you to cascade the hold placed against a model to the included items defined in the model.</p>
+</li>
+<li>
+<p>If the hold is a line level hold you can select the Apply to Order and Line check box. This enables you to take advantage of line level activities at the order header level. For example, if there is an order that you need to hold up to pick release&mdash;which is not an order level action&mdash;you can check this flag and can then select the hold at the order header level, thereby allowing all lines to be processed up to pick release.</p>
+</li>
+<li>
+<p>Assign specific responsibilities to allow access to apply or release this hold.</p>
+<p><strong><span>Note:</span></strong> If the authorization region is left blank all users may apply or remove holds.</p>
+<p>By assigning a workflow item and activity, the hold will be honored based on where the activity is assigned. For instance, defining a hold with the workflow item as Order Header and the workflow activity as Book Order, the order will be placed on hold when the order has been booked. You can create activity-specific holds at the line level for shipping activities, which include: Pack Line, Pick Line, and Ship Line. You can define holds with these activities to hold lines at those particular activities.</p>
+</li>
+</ol>
+<h3><b>Define Hold Sources</b></h3>
+<p>A hold source allows you to apply a particular hold to a group of existing orders, returns or lines and to new orders and lines meeting your hold criteria. Hold Sources are created to hold all current and future orders for an item, customer, order, warehouse or customer site (Bill to or Ship To locations), Sales Agreement No or a combination two attributes.</p>
+<p><b>To define a hold source</b></p>
+<ol>
+<li>
+<p>To define a hold source, navigate to (N) Order Management &gt; Orders, Returns &gt; Order Organizer.</p>
+</li>
+<li>
+<p>Select the Tools menu, and choose Create Hold Source.</p>
+</li>
+<li>
+<p>Use the Create Hold Source window to define the entity based on which the orders and lines can be placed on hold. You can base the hold on a single entity such as customer, warehouse, bill to site, ship to site, item, order, or a combination of up to two entities. See <a href="T373258T377248.htm#t_hsmult">Create a Hold Source with Multiple Entities</a></p>
+</li>
+<li>
+<p>In the Criteria Tab, use the list of values to retrieve the hold defined in the previous step. This defaults the Hold Type and Description as defined from the hold. You can add a hold until date and comments to hold all existing or future orders or lines if needed.</p>
+<p>You can update the hold until date to a future date, if required. Click in the Hold Until Date field and select a date from the calendar and save.</p>
+<p><strong><span>Note:</span></strong> You can update the hold until date for all hold sources except for the hold sources that correspond to the following system holds: Credit Check Failure, GSA Violation, Credit Card Auth Failure, Pending Process Payment Hold.</p>
+</li>
+<li>
+<p>Select applicable hold criteria. Enter a value for the hold criteria based on the selected hold criteria, such as item number or order number.</p>
+<p>Please refer to the <i>Oracle Order Management User's Guide</i>, Order Inquiry chapter (Holds Information Tab section) for more information on creating hold sources.</p>
+</li>
+</ol>
+<h3><b>Create a Hold Source with Multiple Entities<a name="t_hsmult" id="t_hsmult"></a></b></h3>
+<p>Creating a Hold Source for Multiple Entities is the same as defining a single Apply Holds window except you must define two entities.</p>
+<p><b>To define a hold source with multiple entities</b></p>
+<ol>
+<li>
+<p>To define a hold source with multiple entities, navigate to (N) Order Management &gt; Orders, Returns &gt; Order Organizer.</p>
+</li>
+<li>
+<p>Select the Tools menu, and choose Create Hold Source.</p>
+</li>
+<li>
+<p>Use the Create Hold Source window to define the entity based on which the orders and lines can be placed on hold. This entity can either be Customer, Warehouse, Bill To Site, Ship To Site, Item or the Order itself. It can also be a combination of up to two entities. Define two entities which orders and lines can be placed on hold based on the hold criteria defined.</p>
+<p>For example, if you want to hold a specific item from being shipped to a customer, select the first Hold Criteria as Customer and the second as Item. This creates a hold source using that specific Customer and Item and does not process orders or lines that have that Item and Customer on it.</p>
+<p>Order Management supports Hold Sources with up to two entities. The combinations of two supported entities are as follows:</p>
+<ul>
+<li>
+<p>Item &gt; Customer</p>
+</li>
+<li>
+<p>Item &gt; Ship To Site</p>
+</li>
+<li>
+<p>Item &gt; Bill To Site</p>
+</li>
+<li>
+<p>Item &gt; Warehouse</p>
+</li>
+<li>
+<p>Item &gt; Sales Agreement Number</p>
+</li>
+<li>
+<p>Warehouse &gt; Customer</p>
+</li>
+<li>
+<p>Warehouse &gt; Ship To Site</p>
+</li>
+<li>
+<p>Warehouse &gt; Bill To Site</p>
+</li>
+<li>
+<p>Sales Agreement Number &gt; Ship To Site</p>
+</li>
+<li>
+<p>Sales Agreement Number &gt; Bill To Site</p>
+</li>
+<li>
+<p>Sales Agreement Number &gt; Warehouse</p>
+</li>
+<li>
+<p>Sales Agreement Number &gt; Ship To Site</p>
+</li>
+<li>
+<p>Sales Agreement Line Number</p>
+</li>
+</ul>
+<p>For more information on the application and management of holds see the <i>Oracle Order Management User's Guide</i>.</p>
+</li>
+</ol>
+<h3><b>Sequential Display of Holds</b></h3>
+<p>The application displays multiple holds in descending order of the unreleased holds and released holds, by applied date and released date. If you have two orders with the same applied date or released date, then the holds displayed in ascending order by line ID.</p>
+<p>See <i>Overview of Holds, Oracle Order Management User's Guide</i> for information on the how the holds are displayed sequentially.</p>
+<h3><b>Custom Attributes in Holds</b></h3>
+<p>The custom hook API OE_HOLDS_HOOK.CUSTOM_HOLDS enables you to get the handle to all the header and line level attributes for an order. You can write custom logic to identify the criteria, either using any attributes related to header / line OR their own custom logic. You can assign the hold details that needs to be applied (as an out parameter, that is detailed in the custom hook API).</p>
+<p>Note that the hold has to be created first using the Holds definition window in Oracle Order Management Setup, and then the corresponding hold details are used to initialise in the custom hook. Therefore, the custom hook API does not create a new hold on the fly, however, it applies a valid hold defined in Hold definition, provided the conditions in custom hook are met.</p>
+<p>If a custom hook hold gets applied on a sales order header, the following message appears: Hold applied against order based on Custom Hook.</p>
+<p>If a custom hook hold gets applied on a sales order line, the following message appears:&nbsp; Custom Hook hold applied against line &lt;&lt;Sales Order Line Number&gt;&gt;.</p>
+<p>For example: Custom Hook hold applied against line 2.1.</p>
+<p>Additionally, when viewing the custom hook holds via Actions &gt; Additional Order (or Line) Information from the Sales Order window (Holds tab), Name field is displayed with the Hold Name applied from the custom hook API; then Criteria field is displayed as Order, and Value field is displayed as Sales Order Number; and then the Criteria field is displayed as Custom Hook. The corresponding Hold Comment is displayed in the Hold Comment field as passed from the custom Hook, if any.</p>
+<p>The custom hook API OE_HOLDS_HOOK. CUSTOM_HOLDS has the handle of all&nbsp; sales order header and line attributes via p_old_header_rec/p_header_rec and p_old_line_rec/p_line_rec respectively.</p>
+<p>When a create or update operation takes place in the sales order header, all the header attributes are available in p_header_rec/ p_old_header_rec. When the create or update operation takes place in the sales order line, all the line (and header) attributes are available in p_line_rec/ p_old_line_rec and p_header_rec (same as p_old_header_rec).</p>
+<p>Users can write their required condition based on the sales order header or sales order line entity. When writing each condition for an entity, users can utilise any available attributes; this is different from the Hold Source window, where a maximum of two attributes can be used.</p>
+<p>While assigning the Hold details when the custom logic is met, Hold Until Date is one of the optional value that can be assigned. In such cases, when Hold Until Date becomes a past date that is earlier than the current date, such holds returned by the custom hook are ignored without displaying any message, and will not get applied on the corresponding entity, that is, Sales Order Header/Line. This is similar to the existing behaviour on Hold Source created using the Create Hold Source window.</p>
+<h2><a name="3007164"></a><a id="T377256"></a><b>Workflow</b></h2>
+<p><a name="t_hdl_wrkflw" id="t_hdl_wrkflw"></a>In Order Management, you can control the steps in your order process at which a hold is applied. Even with an exception, processing on an order can continue up to a certain step. More generally, when you place a hold against an item, you can disable any or all activities in its order process so the order cannot proceed unless the hold is removed.</p>
+<p>For example, you cannot Book an order that has a generic order level hold or a Booking specific hold. The Book activity posts messages indicating that a hold exists. It then completes with an On Hold result and transition back to the Book - Eligible activity.</p>
+<p>You can define custom workflow activities that honor holds. Order Management provides Public APIs that can apply holds, check whether an order or line is on hold and remove holds. You can also seed lookups (Holdable Header Activities, Holdable Line Activities) based on your custom workflow activities and define holds based on them.</p>
+<p>Additionally, the notification functionality can be used for handling business exceptions, such as orders on hold, and for approval requests. For instance, you can setup a notification that requires a manager's approval when orders go on credit check hold. The role assigned to the Notification Approver, determines to whom the notification is sent. For instance, the person assigned as Notification Approver can be a Manager where all orders that are placed on credit check hold would be routed to him via e-mail for approval before the orders are released from the hold. Refer to the Required Setup, Profile Options section for details on assigning a notification approver.</p>
+<p><b>Booking Process with Exception Handling</b></p>
+<p><img width="666" height="232" src="./img/ontig_hold_10.gif" alt="the picture is described in the document text"></p>
+<p>In this example, the booking process is designed to handle expected errors, that are validation or other errors that are expected as part of normal processing (i.e. Line on Hold, it cannot be Picked). If the Booking activity finds a hold on the Order, it will post a message that the Order is on hold and then complete with a result of ON_HOLD to the Booking eligibility block.</p>
+<p>The flow needs to transition to a block that can be completed from the Sales Order window or to a Wait Activity.</p>
+<p>The Line flow that is used with the Header flow should have the appropriate coordination wait-for-flow activity so that the line will not proceed until the appropriate action has been taken to resolve the errorWorkflow provides you the ability to customize your processes to include exception processing activities as well as approval activities in order to ensure the appropriate holds are placed on specific orders and/or lines.</p>
+<h2><a name="3007166"></a><a id="T377257"></a><b>Honor Holds in Repricing at Shipment</b></h2>
+<a name="t_hld_reprc" id="t_hld_reprc"></a>
+<h3><b>Overview</b></h3>
+<p>Order Management provides repricing at shipment functionality. Customers can put the reprice line workflow function in any place after booking, usually after shipping or fulfillment, in their order line workflow. This is a powerful feature used by customers who have long lead times between order entry and shipping and customers who want to be able to finalize their price list or discounts after an order line is entered. This activity can be selected in an activity hold. You can define a reprice line workflow activity specific hold and apply to the order lines you choose. After the pricing setup is finalized, you can release the hold and progress the order line. Also the reprice line workflow activity is enhanced to retry every twelve hours.</p>
+<h3><b>Setup</b></h3>
+<p>There are no mandatory setups to enable the functionality of this feature.</p>
+<h2><a name="3007169"></a><a id="T377258"></a><b>Approvals</b></h2>
+<a name="t_hld_appr" id="t_hld_appr"></a>
+<h3><b>Use AME for Approvals</b></h3>
+<p><a name="d0e54121" id="d0e54121"></a>This functionality is applicable only for custom holds and does not apply for seeded holds.</p>
+<p>AME Dashboard contains:</p>
+<ul>
+<li>
+<p>Order Management Hold Source Release Transaction type to intiate the approvals for Release of Hold Source</p>
+</li>
+<li>
+<p>Order Management Order Hold Release Transaction type to intiate the approvals for Release of Order Holds</p>
+</li>
+</ul>
+<p>Before you can use AME for the approval of release of holds using these transaction types, ensure to set up the list of approvers in AME. See <i>Oracle HRMS Approvals Management Implementation Guide.</i></p>
+<p>To leverage AME to release Holds, select the <b>Use Approvals Management Engine</b> checkbox in the <b>Holds</b> definition. Oracle Approvals Management Engine (AME) can be used to Release certain Holds on Orders, Returns, Order Lines, and Return Lines.</p>
+<h3><b>Approval Routing</b></h3>
+<p>After a sales document&mdash;either a quote or a sales agreement&mdash; is assembled, it can be submitted for approval. The sales document can be routed to various people in the organization for review, including people from Sales, Business Practice, Legal, or Finance. Multiple people may be required to approve a sales document.</p>
+<p>A workflow process for Approvals allows you to leverage any business process where Approvals may be required. The Approver list is set up in Oracle Order Management and tied to a specific transaction type; workflow notifications provide details of the approval or rejection. The Approval flow is seeded in the negotiation phase as well as in the Oracle iStore Returns flow. A list of approvers can be defined through the Transaction Types or Approvals window, which can be accessed from the Transaction Types window or the Transaction Types menu. In order to use the Approval list, it must be linked to a transaction type. The transaction type must be linked to a workflow which includes the Approval flow such as "Negotiation Flow - Generic with Approval."</p>
+<h3><b>Alert Approvers For Pending Approvals</b></h3>
+<p>Approvers on the approval list are notified based on the precedence defined on the Approval list. A notification provides a description of what needs approval, and provides an easy way to open the workflow notification for review. The workflow notification for a sales agreement provides the following:</p>
+<ul>
+<li>
+<p>Sales Agreement Number</p>
+</li>
+<li>
+<p>Customer</p>
+</li>
+<li>
+<p>Salesperson</p>
+</li>
+<li>
+<p>Creation Date</p>
+</li>
+<li>
+<p>Activation Date</p>
+</li>
+<li>
+<p>Expiration Date</p>
+</li>
+<li>
+<p>Ship To Customer</p>
+</li>
+<li>
+<p>Invoice To Customer</p>
+</li>
+<li>
+<p>Credit Holds</p>
+</li>
+<li>
+<p>Payment Terms</p>
+</li>
+<li>
+<p>Mix Min Amount for Sales Agreement</p>
+</li>
+<li>
+<p>Mix Max Amount for Sales Agreement</p>
+</li>
+</ul>
+<p>The workflow notification for a quote provides the following:</p>
+<ul>
+<li>
+<p>Quote number</p>
+</li>
+<li>
+<p>Customer</p>
+</li>
+<li>
+<p>Expiration Date</p>
+</li>
+<li>
+<p>Salesperson</p>
+</li>
+<li>
+<p>Creation Date</p>
+</li>
+<li>
+<p>Ship To Customer</p>
+</li>
+<li>
+<p>Invoice To Customer</p>
+</li>
+<li>
+<p>Credit Holds (yes/no)</p>
+</li>
+<li>
+<p>Currency</p>
+</li>
+<li>
+<p>Total Amt</p>
+</li>
+<li>
+<p>Gross Margin</p>
+</li>
+<li>
+<p>Payment Terms</p>
+</li>
+</ul>
+<p>The line details include:</p>
+<ul>
+<li>
+<p>Line Number</p>
+</li>
+<li>
+<p>Items</p>
+</li>
+<li>
+<p>UOM</p>
+</li>
+<li>
+<p>Quantity</p>
+</li>
+<li>
+<p>Unit Selling Price</p>
+</li>
+<li>
+<p>Margin</p>
+</li>
+</ul>
+<p>Quotes and Sales Orders can be accessed in the Order Information Portal from a link on the notification. However, Sales Agreements do not have any direct access from the notification. If you have Preview and Print enabled, the workflow notification features a link to a PDF with additional detail.</p>
+<h3><b>View sales document before approving/rejecting</b></h3>
+<p>When the next approver in the chain of approvers is notified that a document requires review and approval/rejection, the approver can either:</p>
+<ul>
+<li>
+<p>View a summary or abstract of the SA, including: SA number, Description, Customer name, Forwarded from, Requester, Total Amount (deal size), and an abstract/summary of the terms and conditions, or</p>
+</li>
+<li>
+<p>View the entire sales document as it would appear for printing, including all products/services, pricing/discounts, and all other terms and conditions</p>
+</li>
+</ul>
+<p>Approve, Reject, or Reassign</p>
+<p>The system can capture an approver's action:</p>
+<ul>
+<li>
+<p><b>Approval:</b> The approver may approve the document. After approval, the document continues in the approval chain to the next approver, or if there are no additional approvers, the document status becomes "Approved."</p>
+</li>
+<li>
+<p><b>Quotes</b>: View a summary or abstract of the Quote, including Quote number, expiration date, Customer name, gross margin, line and item information and an abstract/summary of the terms and conditions.</p>
+</li>
+<li>
+<p><b>Rejection:</b> The approver can reject the document. A rejection stops the approval process and the person who initiated the approval is notified of the rejection and rejection reason. The transaction is set back to "Draft-Internal Rejected."</p>
+<p>When rejecting, the reviewer can enter comments indicating why it was rejected, and be able to specify exactly what should be changed. This information is accessible and viewable by other approvers or by the initiator.</p>
+</li>
+<li>
+<p><b>Reassignment:</b> The approver, after reviewing the approval chain, may decide that someone else in the organization should be reviewing and approving the sales document, rather than him. By reassigning the approval to someone else, that original approver's approval is not captured, and instead, the person who has been reassigned as the approver takes his place. The approval continues to the next approver on the list.</p>
+</li>
+</ul>
+<h2><a name="3007173"></a><a id="T377322"></a><b>Setup</b></h2>
+<p><a name="OEXAPDEF_APPROVALS" id="OEXAPDEF_APPROVALS"></a>A list of approvers can be defined at the Transaction Type level. The sales document is required to be approved by each participant on the list before the transaction is eligible to progress in the Workflow. Workflow provides a notification of time-out if the approver fails to respond. System Parameters used to define behavior if there is no response from the approver are:</p>
+<ul>
+<li>
+<p>Continue&mdash;Submit to next approver if timeout occurs (default)</p>
+</li>
+<li>
+<p>Reject&mdash;if timeout occurs during the process</p>
+<p><strong><span>Note:</span></strong> A notification is sent to the approver as soon as the transaction is submitted for internal approval or approved by the previous approver. If no action is taken by the approver, a reminder is sent. The seeded time before a reminder is sent is three days. If there is no response, the system parameter determines if the transaction continues or is rejected. If the approver is the final approver and fails to respond, the transaction is rejected and returned to "Draft-Internal Rejected" status.</p>
+</li>
+</ul>
+<p><b>To set up the Approval List from the Transaction Type window</b></p>
+<ol>
+<li>
+<p>Navigate to (N) Orders, Returns &gt; Setup &gt; Transaction Type &gt; Define.</p>
+<p><b>Approvals Window</b></p>
+<p><img width="672" height="494" src="./img/ont_approvals.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the Approvals button to bring up the Approver List.</p>
+</li>
+<li>
+<p>Select the required names for approval from the Workflow Role view.</p>
+<p><strong><span>Note:</span></strong> Workflow Roles represent a union of the FND User/Responsibilities and the HR User.</p>
+</li>
+<li>
+<p>Reorder the approval list as necessary. The order displayed here determines how the sales document is routed for approval. Ensure that the seeded Negotiation-Generic with Approval (or a copy) is assigned to the transaction type. See: Define Order Management Transaction Types.</p>
+</li>
+</ol>
+<p><b>To set up the Approval List directly</b></p>
+<ol>
+<li>
+<p>Navigate to (N) Orders, Returns &gt; Setup &gt; Transaction Type &gt; Approvals.</p>
+</li>
+<li>
+<p>From the approval list window, select the required names for approval and order them in the sequence that the sales document should be routed.</p>
+</li>
+<li>
+<p>When the Approval List is defined, it can be associated to a transaction type.</p>
+<p>To setup automatic attachment of a PDF to include contract documents if Oracle Sales Contracts is enabled of contract documents to the workflow approval notification, please refer to the section Preview and Print Sales Documents..</p>
+</li>
+</ol>
+<p><b>To set up contacts and roles for approvals</b></p>
+<ol>
+<li>
+<p>To set up contacts and roles for approvals, ensure that the users are set up in HR as an FND User so that they are visible in Workflow Roles.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

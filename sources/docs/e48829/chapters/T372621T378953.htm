@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Cost Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Cost Management User's Guide">
+<meta name="dcterms.identifier" content="E48829-27">
+<meta name="dcterms.isVersionOf" content="CSTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T372621T514642.htm" title="Previous" type="text/html">
+<link rel="Next" href="T372621T2011213.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Cost Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">16/29</span> <!-- End Header -->
+<h1>Period Close</h1>
+<h2><a name="3536118"></a><a id="T412137"></a><b>Overview of Period Close</b></h2>
+<p><a name="d0e36730" id="d0e36730"></a><a name="d0e36736" id="d0e36736"></a><a name="cst_sysalertovw" id="cst_sysalertovw"></a><a name="p_period" id="p_period"></a>The period close process for perpetual costing enables you to summarize costs related to inventory and manufacturing activities for a given accounting period.</p>
+<p>Generally, you should open and close periods for each separate inventory organization independently. By keeping only one period open, you can ensure that your transactions are dated correctly and posted to the correct accounting period. (For month-end adjustment purposes, you can temporarily hold multiple open periods.)</p>
+<p>The accounting periods and the period close process in Cost Management use the same periods, fiscal calendar, and other financial information found in General Ledger (GL).</p>
+<p>Inventory and Work in Process (WIP) transactions automatically create accounting entries. All accounting entries have transaction dates that belong in one accounting period. You can report and reconcile your transaction activity to an accounting period and GL.</p>
+<p><strong><span>Note:</span></strong> Transactions use default accounts when standard costing is used. If Subledger Accounting (SLA) is enabled and SLA rules are customized, then the default accounts are not used.</p>
+<p><strong><span>Note:</span></strong> Purchasing holds the accounting entries for receipts into receiving inspection and for deliveries into expense destinations. This includes any perpetual receipt accruals. Purchasing also has a separate period open and close, and uses separate processes to load the general ledger interface.</p>
+<p>It is not required to summarize transaction records before closing one accounting period, and opening the new accounting period. The period status is set to Closed not Summarized until the summarization process is completed. You can set the profile option CST:Period Summary to perform the summarization process automatically when you close the period. You can also set the option to perform the summarization process manually, which enables you to delay or not perform summarization. The Period Close Reconciliation report can be run at any time during the period.</p>
+<ul>
+<li>
+<p>If generated for an open period, then it is a simulation of the period summarization.</p>
+</li>
+<li>
+<p>If generated for a Closed not Summarized period, then it creates summarization data that cannot be changed and sets the period status to Closed..</p>
+</li>
+<li>
+<p>If generated for a Closed period, then it retrieves the summarized data.</p>
+<p><strong><span>Caution:</span></strong> If you are using Oracle Enterprise Install Base and have the profile option 'CSE: Use eIB Costing Hook set to Y, then be aware that the accounted value and onhand value of eIB trackable items will not reconcile if your asset subinventories have quantities of these items that have already been converted to fixed assets. For details about the meaning of some of the terms used in this discussion and for a set of recommendations to avoid potential reconciliation issues for eIB trackable items, see the Oracle Enterprise Install Base and Implementation Guide.</p>
+</li>
+</ul>
+<p>See: Overview of Receipt Accounting, <i>Oracle Purchasing User's Guide</i>,</p>
+<p><a href="T372621T378953.htm#c_pfunc">Functions of Period Close Process</a>,</p>
+<p><a href="T372621T378953.htm#c_persumm">Period Summarization Process</a>,</p>
+<p><a href="T372621T378953.htm#t_period">Closing a Period</a>, and</p>
+<p><a href="T372621T406224.htm#perreport">Period Close Reconciliation Report</a></p>
+<h3><a id="T412138"></a><b><a name="c_pfunc" id="c_pfunc"></a>Functions of Period Close Process<a name="d0e36803" id="d0e36803"></a><a name="d0e36809" id="d0e36809"></a></b></h3>
+<p>The Cost Management period close process for perpetual costing performs a number of functions:</p>
+<ul>
+<li>
+<p>Closes the open period for Inventory and Work in Process</p>
+</li>
+<li>
+<p>Calculates ending period subinventory values</p>
+</li>
+</ul>
+<p><b>Closes Open Period</b></p>
+<p>The period close process permanently closes an open period. You can no longer charge transactions to a closed period. Once you close a period, you cannot reopen it. As a precaution, you can do a GL transfer without closing the period. See: <a href="T372621T378953.htm#c_xfergl">Transactions to General Ledger</a>.</p>
+<p><b>Calculates Ending Period Subinventory Values</b></p>
+<p>For each subinventory, the period close adds the net transaction value for the current period to the prior period's ending value. This, along with values intransit, creates the ending value for the current period.</p>
+<p>See: Closing an Accounting Period, <i>Oracle Accounts Payable User's Guide</i> and <a href="T372621T378953.htm#r_txmsg">Unprocessed Transaction Messages</a></p>
+<h3><a id="T412139"></a><b>Transferring Transactions to General Ledger<a name="d0e36847" id="d0e36847"></a><a name="c_xfergl" id="c_xfergl"></a></b></h3>
+<p>Transfer of accounting transaction information to General Ledger takes place through the Subledger Accounting (SLA) process. See: Transfer Journal Entries to GL Program, <i>Oracle Subledger Accounting Implementation Guide</i>.</p>
+<h3><a id="T412140"></a><b>Period Summarization Process<a name="d0e36863" id="d0e36863"></a><a name="d0e36869" id="d0e36869"></a><a name="rec" id="rec"></a><a name="c_persumm" id="c_persumm"></a></b></h3>
+<p>Summarization of transaction records for the open period is the last step in period close. You have the option to perform this process automatically or manually using the profile option CST:Period Summary. If the profile option is set to Automatic, then the period is closed and summarized when you change the period status from Open to Closed.</p>
+<p>If the profile option is set to Manual, then you can delay summarization, but you must summarize these delayed periods in accounting period order. For example, if you delay summarization for a given period, then the following period cannot be summarized until the previous period is summarized. In situations where summarization is delayed, the longer the delay, the larger the number of transaction records needed for reconciliation purposes. This situation can cause summarization to take more time to complete.</p>
+<p>If you do not choose to summarize periods, then set the period status to Closed not Summarized.</p>
+<p>The Period Close Reconciliation report is used to compare account balances with inventory value at period end. You can run the report in simulation mode by generating it for an open period. The report can be generated at any time during the period.</p>
+<p><strong><span>Warning:</span></strong> Discrepancies shown in the Period Close Reconciliation Report will not be accurate indications of error in account balances or inventory value if you have backdated transactions across periods. Such discrepancies can be prevented by setting the Cost Cutoff Date. See the Oracle Inventory User's Guide for setting the Cost Cutoff Date. You should set the Cost Cutoff Date to be the end of a period, and not change it until you summarize that period. For example, if JAN06 is your current period, set the Cost Cutoff date to the end of JAN06. In the future, when you start performing transactions in FEB06, do not move the cost cutoff date forward until you have closed and summarized JAN06.</p>
+<p>See: <a href="T372621T372759.htm#p_pos_sfs">Profile Options and Security Functions</a> and <a href="T372621T406224.htm#perreport">Period Close Reconciliation Report</a></p>
+<h2><a name="3022528"></a><a id="T451793"></a><b>Closing a Period</b></h2>
+<p><a name="d0e36901" id="d0e36901"></a><a name="d0e36907" id="d0e36907"></a><a name="t_period" id="t_period"></a><b>To close a period</b></p>
+<ol>
+<li>
+<p>Enter all transactions.</p>
+<p>Be sure you enter all transactions for the period. Perform all issues, receipts, and adjustments. Verify that no hard copy records exist or are waiting for data entry, such as packing slips in receiving.</p>
+</li>
+<li>
+<p>Perform all Period Close Diagnostics to view details of transactions that are preventing period close.</p>
+<p>See: <a href="T372621T378953.htm#cst_perclosediag">Period Close Diagnostics</a>.</p>
+</li>
+<li>
+<p>Review Inventory transactions.</p>
+<p>Before you close a period, review all of the transactions using the Material Account Distribution Report for the period with a high dollar value and/or a high transaction quantity. Check that you charged the proper accounts. Correcting improper account charges before you close a period is easier than creating manual journal entries.</p>
+</li>
+<li>
+<p>Balance perpetual inventory.</p>
+<p>Check that your ending perpetual inventory value for the period being closed matches the value you report in the general ledger. Perpetual inventory value normally balances automatically with the general ledger. However, one of the following sources can create a discrepancy:</p>
+<ul>
+<li>
+<p><i>Other inventory journal entries.</i> Journal entries from products other than Inventory that affect the inventory accounts.</p>
+<ul>
+<li>
+<p><i>Charges to improper accounts:</i> For example, you issued material from a subinventory to a miscellaneous account, but used one of the subinventory accounts as that miscellaneous account.</p>
+</li>
+<li>
+<p><i>Issue to miscellaneous account:</i> For example, the following miscellaneous transaction issue would cause an out of balance situation: <i>debit account specified at transaction 123, credit subinventory valuation account 123</i>. The debit and credit net to zero with no financial charge, but since the inventory quantity decreased, the month-end inventory valuation reports will not equal the general ledger account balance.</p>
+</li>
+<li>
+<p><i>Purging standard cost history:</i> See: <a href="T372621T373688.htm#t_fcpch">Purging Standard Cost Update History</a> for the impact of purging standard cost history on period end discrepancies.</p>
+</li>
+<li>
+<p><i>Transactions after period end reports.</i> This occurs when you run the end of month inventory valuation reports before you complete all transactions for the period.</p>
+<p><strong><span>Note:</span></strong> If you do not run the inventory reports at period end, then you can also run the following reports:</p>
+<ul>
+<li>
+<p>Period Close Summary Report</p>
+</li>
+<li>
+<p>Material Account Distribution Detail Report</p>
+</li>
+<li>
+<p>Material Account Distribution Summary Report</p>
+</li>
+<li>
+<p>Inventory Subledger Report (Average Costing Only)</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> In an organization using Project Manufacturing Average Costing, if there is more than one cost group, then the following valuation reports should not be used for reconciliation purposes because these reports list the average value across cost groups.</p>
+<ul>
+<li>
+<p>Inventory Value Report</p>
+</li>
+<li>
+<p>Transaction historical Summary Report</p>
+</li>
+<li>
+<p>Receiving Value Report</p>
+</li>
+<li>
+<p>All Inventories Value Report</p>
+</li>
+<li>
+<p>Elemental Inventory Value Report</p>
+</li>
+<li>
+<p>Subinventory Account Value Report</p>
+</li>
+<li>
+<p>Item Cost Report</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Validate Work in Process inventory.</p>
+<p>If you use Work in Process, then check work in process inventory balances against transactions with the WIP Account Distribution Report.</p>
+</li>
+<li>
+<p>Close Oracle Payables and Oracle Purchasing.</p>
+<p>If you use Payables and Purchasing, then close the accounting periods in the following order:</p>
+<ul>
+<li>
+<p>Payables</p>
+</li>
+<li>
+<p>Purchasing</p>
+</li>
+<li>
+<p>Inventory</p>
+</li>
+</ul>
+<p>If you only use Purchasing and Inventory, then close Purchasing first. Close Payables before Purchasing in preparation for accruing expenses on uninvoiced receipts. Doing so ensures that all new payables activity is for the new month and you do not inadvertently match a prior month invoice in payables to a new month receipt. When you close Purchasing or Inventory, you cannot enter a receipt for that period. However, as a manual procedure, close Purchasing <i>before</i> Inventory. This still allows miscellaneous transaction corrections in Inventory.</p>
+</li>
+<li>
+<p>Run the Period Close Reconciliation report.</p>
+<p>This report automatically runs in simulation mode for the open period. It is used to match account balances with inventory value at period end.</p>
+</li>
+<li>
+<p>Close the accounting period.</p>
+<p>This sets your Inventory Accounting Period status to Closed not Summarized. If the CST: Period Summary profile option is set to Automatic, no other steps are necessary. The period status is set to Closed when the summarization process has completed.</p>
+</li>
+<li>
+<p>If the CST: Period Summary profile option is set to Manual, create period summarization transactions by generating the Period Close Reconciliation report.</p>
+<p>The concurrent program creates summarized transaction records, and displays the differences between account balances and inventory value.</p>
+<p>See: <a href="T372621T378953.htm#c_persumm">Period Summarization Process</a>, and <a href="T372621T406224.htm#perreport">Period Close Reconciliation Report</a></p>
+<h3><b><a name="r_txmsg" id="r_txmsg"></a>Unprocessed Transaction Messages<a name="d0e37074" id="d0e37074"></a><a name="d0e37078" id="d0e37078"></a></b></h3>
+<p>If there are unprocessed transactions, then one of the following messages appears:</p>
+<p><b>Pending receiving transactions for this period</b></p>
+<p>When you use Purchasing, this message indicates you have unprocessed purchasing transactions in the RCV_TRANSACTIONS_ INTERFACE table. These transactions include purchase order receipts and returns for inventory. If this condition exists, you will receive a warning but will be able to close the accounting period. These transactions are not in your receiving value. However, after you close the period, these transactions cannot be processed because they have a transaction date for a closed period.</p>
+<p><b>Unprocessed material transactions exist for this period</b></p>
+<p>This message indicates you have unprocessed material transactions in the MTL_MATERIAL_TRANSACTIONS_TEMP table. You are unable to close the period with this condition. Please see your system administrator. Inventory considers entries in this table as part of the quantity movement.</p>
+<p>Closing the period in this situation is not allowed because the resultant accounting entries would have a transaction date for a closed period, and never be picked up by the period close or general ledger transfer process.</p>
+<p><b>Pending material transactions for this period</b></p>
+<p>This message indicates you have unprocessed material transactions in the MTL_TRANSACTIONS_INTERFACE table. If this condition exists, you will receive a warning but will be able to close the accounting period. These transactions are not in your inventory value. However, after you close the period, these transactions cannot be processed because they have a transaction date for a closed period.</p>
+<p><b>Uncosted material transactions exist for this period</b></p>
+<p>This message indicates you have material transactions in the MTL_MATERIAL_TRANSACTIONS table with no accounting entries (Standard Costing) and no accounting entries and no costs (Average Costing). You are unable to close the period with this condition. These transactions are part of your inventory value.</p>
+<p>Closing the period in this situation is not allowed because the resultant accounting entries would have a transaction date for a closed period, and never be picked up by the period close or general ledger transfer process.</p>
+<p><b>Pending move transactions for this period</b></p>
+<p>This message indicates you have unprocessed shop floor move transactions in the WIP_MOVE_TXN_INTERFACE table. If this condition exists, you will receive a warning but will be able to close the accounting period. These transactions are not in your work in process value. However, after you close the period, these transactions cannot be processed because they have a transaction date for a closed period.</p>
+<p><b>Pending WIP costing transactions exist in this period</b></p>
+<p>This message indicates you have unprocessed resource and overhead accounting transactions in the WIP_COST_TXN_INTERFACE table. You are unable to close the period with this condition. These transactions are in your work in process value, and awaiting further processing.</p>
+<p>Closing the period in this situation is not allowed because the resulting accounting entries would have a transaction date for a closed period, and never be picked up by the period close or general ledger transfer process.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Posting Journal Batches, <i>Oracle General Ledger User's Guide</i>.</p>
+<h2><a name="3780438"></a><a id="T427332"></a> <b>Period Close Diagnostics</b></h2>
+<p><a name="d0e37132" id="d0e37132"></a><a name="d0e37138" id="d0e37138"></a><a name="cst_perclosediag" id="cst_perclosediag"></a>You can view complete details of specific transactions that are preventing period close. Such transactions are spread across various products including Oracle Inventory (INV), Oracle Work in Process (WIP), Oracle Shop Floor Management (OSFM), and Oracle Purchasing. Identifying these transactions is a critical step during period close.</p>
+<p>The following transactions must be processed for closing a period:</p>
+<ul>
+<li>
+<p>Unprocessed material transactions.</p>
+</li>
+<li>
+<p>Uncosted material transactions (including uncosted Warehouse Management transactions).</p>
+</li>
+<li>
+<p>Pending Work in Process costing transactions.</p>
+</li>
+<li>
+<p>Pending WSM (OSFM) interface transactions.</p>
+</li>
+<li>
+<p>Pending Landed Cost adjustment transactions.</p>
+</li>
+<li>
+<p>Pending shipping transactions.</p>
+<p><strong><span>Note:</span></strong> When closing a period, it is not required to close pending shipping transactions if the Period Close Check for Shipping Transactions client extension (CST_PeriodCloseOption_PUB.Get_ShippingTxnHook_Value) specifies Resolution Recommended. Resolution can be optional. See: <a href="T372621T406948.htm#cst_perclosepend">Period Close Check for Shipping Transactions</a>.</p>
+</li>
+</ul>
+<p>The following transactions will not prevent period close, but may cause problems if they are not processed before closing the period:</p>
+<ul>
+<li>
+<p>Pending material interface transactions.</p>
+</li>
+<li>
+<p>Pending Work in Process move transactions.</p>
+</li>
+<li>
+<p>Pending receiving transactions</p>
+</li>
+<li>
+<p>Incomplete eAM work orders</p>
+</li>
+</ul>
+<p>Links are provided to specific windows of different Oracle products to display the details of pending, errored, or uncosted transactions. From the Inventory Accounting Periods window, select Pending to go to the Pending Transactions window. From this window, you can select the Open button to link to specific windows, reports, or pages to view pending, errored, or uncosted transactions. The windows, reports, or pages that you link to are determined by your cursor position when you select Open.</p>
+<p>The following table describes details of the links to windows and reports:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Type of Transaction</b></th>
+<th scope="col"><b>Links to Windows/Reports/Pages</b></th>
+</tr>
+<tr valign="top">
+<td>Unprocessed Material Interface transactions</td>
+<td>Inventory Transactions Open Interface window</td>
+</tr>
+<tr valign="top">
+<td>Unprocessed Material transactions</td>
+<td>Inventory Pending Transactions window</td>
+</tr>
+<tr valign="top">
+<td>Uncosted Material transactions and Uncosted WSM transactions</td>
+<td>View Material Transactions window</td>
+</tr>
+<tr valign="top">
+<td>Pending Receiving transactions</td>
+<td>Receiving Transactions window</td>
+</tr>
+<tr valign="top">
+<td>Pending WIP Costing transactions</td>
+<td>WIP Pending Resource Transactions window</td>
+</tr>
+<tr valign="top">
+<td>Pending WIP Move transactions</td>
+<td>WIP Pending Move Transactions window</td>
+</tr>
+<tr valign="top">
+<td>Incomplete eAM work orders</td>
+<td>EAM Work Orders Self-Service page</td>
+</tr>
+<tr valign="top">
+<td>Pending OSFM transactions</td>
+<td>Period Close Pending Transactions Report for Pending OSFM transactions.</td>
+</tr>
+<tr valign="top">
+<td>Pending Shipping transactions</td>
+<td>Period Close Pending Transactions Report for Pending Shipping transactions.</td>
+</tr>
+</table>
+<p>The Period Close Pending Transactions Report displays the details of the transactions preventing period close. See: Period Close Pending Transactions Report.</p>
+<h3><a id="T427333"></a><b>System Alerts<a name="cst_sysalerts" id="cst_sysalerts"></a><a name="d0e37278" id="d0e37278"></a><a name="d0e37284" id="d0e37284"></a></b></h3>
+<p>System alerts are posted to Oracle Applications Manager (OAM) console and are sent to subscribed administrators through workflow notifications. System alerts also gather a variety of context information about the user, the logging process, the operating system, and so on. Oracle Applications Manager tracks multiple occurrences of the same alert message to prevent duplicate notifications to be sent. System alerts require setting up the profile option FND:Debug Log Enabled to a value of 'Y'.</p>
+<p><img width="1025" height="698" src="./img/cst_sysalertnot.gif" alt="the picture is described in the document text"></p>
+<p>For Period Close Diagnostics, system alerts are raised when costing of transactions fails in the cost manager. One alert is raised for each cost worker where transaction(s) failed costing - not for each failed transaction. Based on the subscriptions created in the application, the application notifies users through workflow notifications. You can view details by selecting an Alert Occurrence and choosing View Details. The User Interface (UI) provides drill-down capabilities for viewing transactions and transaction details.</p>
+<p><img width="1025" height="606" src="./img/cst_sysalertdrill.gif" alt="the picture is described in the document text"></p>
+<p>See: <i>Oracle E-Business Suite System Administrator's Guide</i>.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

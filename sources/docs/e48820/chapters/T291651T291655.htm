@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T439508.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T292013.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">16/31</span> <!-- End Header -->
+<h1>Transaction Setup</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T291677">Overview of Transaction Setup</a></li>
+<li><a href="#T291663">Control Options and Restrictions</a></li>
+<li><a href="#T291666">Transaction Source Types</a></li>
+<li><a href="#T291683">Defining and Updating Transaction Source Types</a></li>
+<li><a href="#T291684">Transaction Actions</a></li>
+<li><a href="#T291685">Transaction Types</a></li>
+<li><a href="#T291686">Defining and Updating Transaction Types</a></li>
+<li><a href="#T291687">Defining Transaction Reasons</a></li>
+<li><a href="#T291688">Defining Account Aliases</a></li>
+<li><a href="#T291695">Defining Consumption Transaction Rules</a></li>
+<li><a href="#T291678">Setting Transaction Processing Profile Options</a></li>
+<li><a href="#T291679">Transaction Processing Mode</a></li>
+<li><a href="#T291682">Launching Transaction Managers</a></li>
+<li><a href="#T291662">Transaction Managers</a></li>
+</ul>
+<h2><a name="1750434"></a><a id="T291677"></a><b>Overview of Transaction Setup</b></h2>
+<p><a name="d0e72892" id="d0e72892"></a><a name="I_c_transetov" id="I_c_transetov"></a>You must set certain controls and options before performing inventory transactions. These include:</p>
+<ul>
+<li>
+<p>Setting transaction profile options: These establish the method of transaction processing to occur while you wait, on a periodic basis, or concurrently while you work. See: <a href="T291651T291655.htm#I_trprofop">Setting Transaction Processing Profile Options</a>.</p>
+</li>
+<li>
+<p>Launching transaction managers: Transaction managers process a variety of transaction processes. They run at periodic intervals you specify until you delete them with the concurrent manager. See: <a href="T291651T291655.htm#I_t_reqmgrs">Launching Transaction Managers</a>.</p>
+</li>
+<li>
+<p>Setting control options and restrictions: You can specify whether an item is under lot, serial, or revision control. If control is enabled, you must enter a valid lot number, serial number, or revision number to receive or issue the item. See: <a href="T291651T291655.htm#I_c_ctrlops">Control Options and Restrictions</a>.</p>
+</li>
+<li>
+<p>Defining subinventory and locator defaults: You can specify default shipping and receiving subinventories and locators for your items.</p>
+</li>
+<li>
+<p>Converting units of measure: If you want to perform material transactions in units of measure other than the primary unit of measure of an item, you must define unit of measure conversions. See: <a href="T291651T291655.htm#I_t_trnuom">Converting Units of Measure</a>.</p>
+</li>
+<li>
+<p>Defining transaction source types: A transaction source type is the type of entity against which Oracle Inventory charges a transaction. Along with a transaction action, it uniquely identifies the type of transaction you perform. See: <a href="T291651T291655.htm#I_t_trnsrctyp">Defining and Updating Transaction Source Types</a>.</p>
+</li>
+<li>
+<p>Defining transaction types: A transaction type is the combination of a transaction source type and a transaction action. It is used to classify a particular transaction for reporting and querying purposes. See: <a href="T291651T291655.htm#I_t_trntyp">Defining and Updating Transaction Types</a>.</p>
+</li>
+<li>
+<p>Defining transaction reasons: These are standard codes you use to classify your transactions. See: <a href="T291651T291655.htm#I_t_trnreason">Defining Transaction Reasons</a>.</p>
+</li>
+<li>
+<p>Defining account aliases: These are easily recognized names or labels representing a general ledger account number. You can view, report, and reserve against an account alias. See: <a href="T291651T291655.htm#I_t_acctalias">Defining Account Aliases</a>.</p>
+</li>
+<li>
+<p>Defining your shipping network: You can move material between two organization by means of inter-organization transfers. To define your shipping network, establish the relationships and accounting information that exists between a shipping (<i>from</i>) organization that ships inventory to a destination (<i>to</i>) organization. See: <a href="T291651T291796.htm#I_t_iorgshp">Defining Inter-Organization Shipping Network</a>.</p>
+</li>
+<li>
+<p>Defining shipping methods: You must define shipping methods if you want to set lead times for these methods in the Inter-org Shipping Methods window. See: <a href="T291651T291796.htm#I_shpmtdqc">Defining Shipping Methods</a>.</p>
+</li>
+<li>
+<p>Defining the parameters for gathering movement statistics. Inventory uses this information to validate entry of statistical movement transactions and to properly report the information. See: <a href="T291651T292013.htm#I_t_mvpara">Defining Movement Statistics Parameters</a></p>
+</li>
+<li>
+<p>Defining economic zones. You define the economic zones in which you conduct your business and associate these zones with specific countries. See: <a href="T291651T291796.htm#I_decozn">Defining Economic Zones.</a></p>
+</li>
+<li>
+<p>Defining intercompany relations between two operating units in a multi-organization environment. These operating units are the Shipping organization and the Selling organization. See: <a href="T291651T291796.htm#I_t_intcom">Defining Intercompany Relations</a>.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292013.htm#I_c_trnx78ov">Overview of Inventory Transactions</a></p>
+<h2><a name="1750450"></a><a id="T291663"></a><b>Control Options and Restrictions</b></h2>
+<p><a name="d0e72998" id="d0e72998"></a><a name="I_c_ctrlops" id="I_c_ctrlops"></a>You must set the following options and restrictions before performing inventory transactions:</p>
+<h3><a id="T291672"></a><b>Locator Control</b></h3>
+<p><a name="d0e73014" id="d0e73014"></a><a name="d0e73023" id="d0e73023"></a>You can use locator control if you divide your subinventories into physical areas such as aisle, rack, or bin locations. You can turn on locator control for the whole organization, for a specific subinventory, or a particular item.</p>
+<p>During a material transaction, Oracle Inventory checks the locator control options you have specified. If locator control is enabled, you must enter a valid locator into which to receive or from which to issue the item you are transacting. See: <a href="T291651T291796.htm#I_t_invparam">Defining Organization Parameters</a>, <a href="T291651T298833.htm#I_t_ditems">Defining Items</a>, and <a href="T291651T291796.htm#I_t_dsubinv">Defining Subinventories</a>.</p>
+<h3><a id="T291673"></a><b>Lot Control</b></h3>
+<p><a name="d0e73055" id="d0e73055"></a><a name="d0e73064" id="d0e73064"></a>You can enable lot control for specific items in your inventory and optionally assign expiration dates to them. If you enable lot control for an item, you must assign lot numbers when you receive the item into inventory. Thereafter, when you transact this item, you must provide a lot number when receiving the item. See: <a href="T291651T427993.htm#c_lotcntrl">Lot Control</a>, and <a href="T291651T298833.htm#I_t_ditems">Defining Items</a>.</p>
+<h3><a id="T291674"></a><b>Serial Number Control</b></h3>
+<p><a name="d0e73090" id="d0e73090"></a><a name="d0e73099" id="d0e73099"></a>You can enable serial number control for specific items in your inventory to track individual units. If you enable serial number control for an item, you must provide a serial number when you transact it. See: <a href="T291651T427994.htm#I_c_sercntrl">Serial Number Control</a><i>,</i> and <a href="T291651T298833.htm#I_t_ditems">Defining Items</a>.</p>
+<h3><a id="T291675"></a><b>Revision Quantity Control</b></h3>
+<p><a name="d0e73127" id="d0e73127"></a><a name="d0e73136" id="d0e73136"></a>You can define and enforce revision quantity control for any item to track quantities by revision. If you enable revision quantity control for an item, you must provide a revision number when you transact it. See: <a href="T291651T298833.htm#I_t_ditems">Defining Items</a>.</p>
+<h3><a id="T291676"></a><b>Subinventory and Locator Restrictions</b></h3>
+<p><a name="d0e73159" id="d0e73159"></a><a name="d0e73171" id="d0e73171"></a><a name="d0e73183" id="d0e73183"></a><a name="d0e73195" id="d0e73195"></a>If a number of your items have fixed locators where you stock them, you can restrict the subinventories and locators they are transacted to and from by defining a list of valid subinventories and locators for your item. See: <a href="T291651T298833.htm#t_sub_itm">Assigning Subinventories to an Item</a>, and <a href="T291651T298833.htm#t_itm_sub">Assigning Items to a Subinventory</a>.</p>
+<p>Then use the Items windows to enable the item attributes restricting the item to a list of subinventories and locators, all Inventory transaction windows ensure that you transact the item to and from a subinventory and locator included in the restricted list. See: <a href="T291651T298833.htm#I_t_ditems">Defining Items</a> and <a href="T291651T291796.htm#I_t_dsubinv">Defining Subinventories</a>.</p>
+<h2><a name="1750456"></a><a id="T291664"></a><b>Defining Default Subinventories and Locators</b></h2>
+<p><a name="d0e73231" id="d0e73231"></a><a name="d0e73238" id="d0e73238"></a><a name="d0e73245" id="d0e73245"></a>If you want your Oracle applications products to default subinventories and locators during shipping and receiving transactions, use the Item Transaction Defaults window to define default shipping and receiving subinventories and locators for your items. If you have already defined a restricted list of subinventories and locators for your item, you must choose a default subinventory and locator from that list.</p>
+<p>Oracle Order Management displays the default shipping subinventory and locator when you perform a shipment transaction where the OE: Reservations system profile option is set to <i>No</i>. Oracle Purchasing displays the default receiving subinventory and locator when you perform a receipt transaction for the item. You can always override the defaults. See: <a href="T291651T298833.htm#I_t_itmtrx78def">Defining Item Transaction Defaults</a>.</p>
+<p><strong><span>Note:</span></strong> The Item Transaction Defaults window defaults the subinventory only for non-reservable items. Pick release defaults to this subinventory only for non-reservable items.</p>
+<h2><a name="1750457"></a><a id="T291665"></a><b>Converting Units of Measure</b></h2>
+<p><a name="d0e73269" id="d0e73269"></a><a name="d0e73276" id="d0e73276"></a><a name="I_t_trnuom" id="I_t_trnuom"></a>If you want to perform material transactions in units of measure other than the primary unit of measure of an item, you must define unit of measure conversions. Oracle Inventory tracks transaction quantities for your items in both the primary unit of measure and the transaction unit of measure. See: <a href="T291651T291797.htm#I_t_duomcnv">Defining Unit of Measure Conversions</a>.</p>
+<h2><a name="1750458"></a><a id="T291666"></a><b>Transaction Source Types</b></h2>
+<p><a name="d0e73294" id="d0e73294"></a><a name="I_c_trnsrctyp" id="I_c_trnsrctyp"></a>A transaction source type is the type of entity against which Oracle Inventory charges a transaction. Along with a transaction action, it uniquely identifies the type of transaction you perform. Oracle Inventory provides the following predefined transaction source types<a name="d0e73303" id="d0e73303"></a><a name="d0e73310" id="d0e73310"></a>:</p>
+<ul>
+<li>
+<p>Account</p>
+</li>
+<li>
+<p>Account Alias</p>
+</li>
+<li>
+<p>Cycle Count</p>
+</li>
+<li>
+<p>Internal Order</p>
+</li>
+<li>
+<p>Internal Requisition</p>
+</li>
+<li>
+<p>Internal RMA</p>
+</li>
+<li>
+<p>Inventory</p>
+</li>
+<li>
+<p>Job or Schedule</p>
+</li>
+<li>
+<p>Layer Cost Update</p>
+</li>
+<li>
+<p>Move Order</p>
+</li>
+<li>
+<p>Periodic Cost Update</p>
+</li>
+<li>
+<p>Physical Inventory</p>
+</li>
+<li>
+<p>Project Contract</p>
+</li>
+<li>
+<p>Purchase Order</p>
+</li>
+<li>
+<p>RMA (Return Material Authorization)</p>
+</li>
+<li>
+<p>Sales Order</p>
+</li>
+<li>
+<p>Standard Cost Update</p>
+</li>
+</ul>
+<p><a name="d0e73371" id="d0e73371"></a>You can define additional transaction source types in the Transaction Source Types window. You can then use these user-defined transaction source types and predefined transaction actions to define a new transaction type. This user-defined transaction type is now a customized form of tracking transactions with which you can group and sort reports and inquiries. When you perform a transaction, you specify a transaction type and a source. For example, for a PO receipt transaction, the transaction source type is <i>Purchase Order</i> and the actual PO number is the source.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291655.htm#I_t_trnsrctyp">Defining and Updating Transaction Source Types</a></p>
+<h2><a name="1750459"></a><a id="T291683"></a><b>Defining and Updating Transaction Source Types</b></h2>
+<p><a name="INVTDTSR.mtl_txn_source_types" id="INVTDTSR.mtl_txn_source_types"></a><a name="I_t_trnsrctyp" id="I_t_trnsrctyp"></a>Oracle Inventory predefines a list of transaction source types for you. You can add more source types to this list or update the predefined types, however, you cannot delete the predefined types. You can add source types for miscellaneous transactions, inter-organization and subinventory transfers, and account transactions.</p>
+<p><img width="737" height="467" src="./img/invug_trnscrtp.gif" alt="the picture is described in the document text"></p>
+<p><b>To update a system-defined transaction source type</b></p>
+<ol>
+<li>
+<p>Navigate to the Transaction Source Types window.</p>
+</li>
+<li>
+<p>Select the System Defined tabbed region.</p>
+</li>
+<li>
+<p>Update the name or description for a source type.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To create a user-defined transaction source type</b></p>
+<ol>
+<li>
+<p>Select the User Defined tabbed region.</p>
+</li>
+<li>
+<p>Enter a unique name for the transaction source type.</p>
+</li>
+<li>
+<p>Select a validation type:</p>
+<p><i>None</i>: Do not validate the source against a predefined list of values.</p>
+<p><i>Value Set</i>: Validate the source against a predefined list of values.</p>
+</li>
+<li>
+<p>If you select <i>Value Set</i> in the Type field, navigate to the Context field and select a valid context field value associated with the Transaction Source descriptive flexfield.</p>
+<p><strong><span>Important:</span></strong> Values for this field are defined for the Transaction Source descriptive flexfield in the Descriptive Flexfield Segments window. See: Descriptive Flexfield Segments Window, <i>Oracle E-Business Suite Flexfields Guide</i> and Overview of Values and Value Sets, <i>Oracle E-Business Suite Flexfields Guide</i>.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To make a user-defined source type inactive:<a name="d0e73468" id="d0e73468"></a></b></p>
+<ol>
+<li>
+<p>Select the User Defined tabbed region.</p>
+</li>
+<li>
+<p>Enter the date on which the source type becomes inactive.</p>
+<p>As of this date, you can no longer use the source type.</p>
+</li>
+</ol>
+<p><b>To delete a user-defined source type:<a name="d0e73488" id="d0e73488"></a></b></p>
+<ol>
+<li>
+<p>You can delete a source type if it is not associated with a transaction type.</p>
+</li>
+</ol>
+<p><b>To navigate to the Transaction Types window</b></p>
+<ol>
+<li>
+<p>Choose the Transaction Types button. See: <a href="T291651T291655.htm#I_t_trntyp">Defining and Updating Transaction Types</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291655.htm#I_c_trnsrctyp">Transaction Source Types</a></p>
+<p><a href="T291651T291655.htm#I_c_trntype">Transaction Types</a></p>
+<p><a href="T291651T291655.htm#I_c_trnaction">Transaction Actions</a></p>
+<h2><a name="1750465"></a><a id="T291684"></a><b>Transaction Actions</b></h2>
+<p><a name="d0e73526" id="d0e73526"></a><a name="I_c_trnaction" id="I_c_trnaction"></a>A transaction action is a generic type of material movement or cost update with no specificity regarding the source of the transaction. Along with a transaction source type, a transaction action identifies a transaction type. Oracle Inventory provides the following transaction actions:</p>
+<ul>
+<li>
+<p>Issue from stores</p>
+</li>
+<li>
+<p>Subinventory transfer</p>
+</li>
+<li>
+<p>Direct organization transfer</p>
+</li>
+<li>
+<p>Cycle count adjustment</p>
+</li>
+<li>
+<p>Physical inventory adjustment</p>
+</li>
+<li>
+<p>Intransit receipt</p>
+</li>
+<li>
+<p>Intransit shipment</p>
+</li>
+<li>
+<p>Cost update</p>
+</li>
+<li>
+<p>Receipt into stores</p>
+</li>
+<li>
+<p>Delivery adjustments</p>
+</li>
+<li>
+<p>WIP assembly scrap</p>
+</li>
+<li>
+<p>Assembly completion</p>
+</li>
+<li>
+<p>Assembly return</p>
+</li>
+<li>
+<p>Negative component issue</p>
+</li>
+<li>
+<p>Negative component return</p>
+</li>
+<li>
+<p>Staging Transfer</p>
+</li>
+<li>
+<p>Ownership Transfer</p>
+</li>
+<li>
+<p>Logical Issue</p>
+</li>
+<li>
+<p>Logical Delivery Adjustment</p>
+</li>
+<li>
+<p>Retroactive Price Adjustment</p>
+</li>
+<li>
+<p>Logical Receipt</p>
+</li>
+<li>
+<p>Delivery Adjustment</p>
+</li>
+<li>
+<p>Lot Split</p>
+</li>
+<li>
+<p>Lot Merge</p>
+</li>
+<li>
+<p>Lot Translate</p>
+</li>
+<li>
+<p>Lot Update Quantity</p>
+</li>
+<li>
+<p>Logical Expense Requisition Receipt</p>
+</li>
+<li>
+<p>Planning Transfer</p>
+</li>
+<li>
+<p>Ownership Transfer</p>
+</li>
+<li>
+<p>Logical Intercompany Sales</p>
+</li>
+<li>
+<p>Logical Intercompany Receipt</p>
+</li>
+<li>
+<p>Logical Intercompany Receipt Return</p>
+</li>
+<li>
+<p>Logical Intercompany Sales Return</p>
+</li>
+<li>
+<p>Container Pack</p>
+</li>
+<li>
+<p>Container Unpack</p>
+</li>
+<li>
+<p>Container Split</p>
+</li>
+<li>
+<p>Cost Group Transfer</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291655.htm#I_t_trntyp">Defining and Updating Transaction Types</a></p>
+<p><a href="T291651T291655.htm#I_c_trntype">Transaction Types</a></p>
+<p><a href="T291651T291655.htm#I_t_trnsrctyp">Defining and Updating Transaction Source Types</a></p>
+<p><a href="T291651T291655.htm#I_c_trnsrctyp">Transaction Source Types</a></p>
+<h2><a name="1750466"></a><a id="T291685"></a><b>Transaction Types</b></h2>
+<p><a name="d0e73668" id="d0e73668"></a><a name="I_c_trntype" id="I_c_trntype"></a>A transaction type is the combination of a transaction source type and a transaction action that classifies a particular transaction for reporting and querying purposes. Oracle Inventory also uses transaction types to identify certain transactions to include in historical usage calculations for ABC analysis or forecasting.</p>
+<p>The following table shows selected predefined transaction types (to view a complete listing of available transaction types, navigate to the Transaction Types window):</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Name</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Source Type</b></th>
+<th scope="col"><b>Action</b></th>
+</tr>
+<tr valign="top">
+<td>Reverse Staging Transfer</td>
+<td>To create automatic move order requisitions for backordered material</td>
+<td>Move Order</td>
+<td>Subinventory Transfer</td>
+</tr>
+<tr valign="top">
+<td>Return to Vendor</td>
+<td>Return to vendor from stores</td>
+<td>Purchase order</td>
+<td>Issue from stores</td>
+</tr>
+<tr valign="top">
+<td>Return to Organization</td>
+<td>Return to the source or a different organization against Internal Requisition Shipment</td>
+<td>Internal Requisition</td>
+<td>Issue from stores</td>
+</tr>
+<tr valign="top">
+<td>Transfer to Regular</td>
+<td>Transfer to Regular</td>
+<td>Purchase Order</td>
+<td>Ownership Transfer</td>
+</tr>
+<tr valign="top">
+<td>Sales order issue</td>
+<td>Ship confirm external sales order</td>
+<td>Sales order</td>
+<td>Issue from stores</td>
+</tr>
+<tr valign="top">
+<td>WIP Completion Return</td>
+<td>Return assembly from stores to WIP</td>
+<td>Job or schedule</td>
+<td>Assembly return</td>
+</tr>
+<tr valign="top">
+<td>WIP Issue</td>
+<td>Issue from stores to WIP</td>
+<td>Job or schedule</td>
+<td>Issue from stores</td>
+</tr>
+<tr valign="top">
+<td>Standard cost update</td>
+<td>Update standard cost information</td>
+<td>Standard cost update</td>
+<td>Cost update</td>
+</tr>
+<tr valign="top">
+<td>RMA Receipt</td>
+<td>Return material authorization</td>
+<td>RMA</td>
+<td>Receipt into stores</td>
+</tr>
+<tr valign="top">
+<td>Internal RMA Receipt</td>
+<td>Internal Return Material Authorization</td>
+<td>Internal RMA</td>
+<td>Receipt into stores</td>
+</tr>
+<tr valign="top">
+<td>Internal RMA Intransit Shipment Receipt</td>
+<td>Internal RMA receipt for returned ISO shipment</td>
+<td>Internal RMA</td>
+<td>Intransit receipt</td>
+</tr>
+<tr valign="top">
+<td>Internal RMA Canceled Intransit Shipment Receipt</td>
+<td>Internal RMA receipt for canceled ISO shipment</td>
+<td>Internal RMA</td>
+<td>Intransit receipt</td>
+</tr>
+<tr valign="top">
+<td>Return To Organization Intransit Shipment</td>
+<td>Used to return in transit shipment to the source or a different organization</td>
+<td>Internal requisition</td>
+<td>Intransit shipment</td>
+</tr>
+<tr valign="top">
+<td>Catch Weight Positive Adjustment and Catch Weight Negative Adjustment</td>
+<td>Catch weight adjustment</td>
+<td>Inventory</td>
+<td>
+<ol>
+<li>
+<p>Issue from Stores</p>
+</li>
+<li>
+<p>Receipt into Stores</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr valign="top">
+<td>Canceled Intransit Shipment Receipt</td>
+<td>Return ASN receipt for canceled IOT shipments</td>
+<td>Inventory</td>
+<td>Intransit receipt</td>
+</tr>
+<tr valign="top">
+<td>Project Transfer</td>
+<td>Transfer to project in project manufacturing</td>
+<td>Inventory</td>
+<td>Subinventory transfer</td>
+</tr>
+<tr valign="top">
+<td>Return to Vendor without Receipt</td>
+<td>Return to Vendor from Stores</td>
+<td>Inventory</td>
+<td>Issue from stores</td>
+</tr>
+</table>
+<p>Use the Transaction Types window to define additional transaction types to customize transaction entry. A user-defined transaction type is a combination of a user-defined transaction source type and a predefined transaction action. For example, if you frequently donate items to charity, you might want to define a transaction source type called <i>Charity</i> and a transaction type called <i>Issue to Charity</i>. In this case, the transaction action would be <i>Issue from Stores</i>. You would then use the Miscellaneous Transactions window to actually issue an item to charity, using the <i>Issue to Charity</i> transaction type. You would also specify the actual charity to which you are issuing, such as Goodwill, and the expense account that specifies the source (Goodwill).</p>
+<p>You must specify a transaction type when you perform a miscellaneous receipt or issue, a subinventory transfer, a WIP transaction, or an inter-organization transfer. Therefore, when you create a user-defined transaction type, you can only choose one of the following transaction actions and transaction source types<a name="d0e73956" id="d0e73956"></a>:</p>
+<p><b>Examples of Transaction Actions</b></p>
+<ul>
+<li>
+<p>Assembly completion</p>
+</li>
+<li>
+<p>Assembly return</p>
+</li>
+<li>
+<p>Cost update</p>
+</li>
+<li>
+<p>Direct organization transfer</p>
+</li>
+<li>
+<p>Intransit shipment</p>
+</li>
+<li>
+<p>Issue from stores</p>
+</li>
+<li>
+<p>Negative component issue</p>
+</li>
+<li>
+<p>Negative component return</p>
+</li>
+<li>
+<p>Receipt into stores</p>
+</li>
+<li>
+<p>Staging transfer</p>
+</li>
+<li>
+<p>Subinventory transfer</p>
+</li>
+<li>
+<p>WIP assembly scrap</p>
+</li>
+</ul>
+<p><b>Examples of Transaction Source Types</b></p>
+<ul>
+<li>
+<p>Account</p>
+</li>
+<li>
+<p>Account Alias</p>
+</li>
+<li>
+<p>Cycle Count</p>
+</li>
+<li>
+<p>Internal Order</p>
+</li>
+<li>
+<p>Inventory</p>
+</li>
+<li>
+<p>Job or Schedule</p>
+</li>
+<li>
+<p>Move Order</p>
+</li>
+<li>
+<p>RMA</p>
+</li>
+<li>
+<p>User-defined</p>
+</li>
+</ul>
+<p>Oracle Inventory provides transaction reporting and querying capabilities by transaction type.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291655.htm#I_t_trntyp">Defining and Updating Transaction Types</a></p>
+<p><a href="T291651T291655.htm#I_c_trnaction">Transaction Actions</a></p>
+<h2><a name="1750467"></a><a id="T291686"></a><b>Defining and Updating Transaction Types</b></h2>
+<p><a name="d0e74048" id="d0e74048"></a><a name="INVTDTTY.transaction_type" id="INVTDTTY.transaction_type"></a><a name="I_t_trntyp" id="I_t_trntyp"></a><a name="INVTDTTY.invtdtty" id="INVTDTTY.invtdtty"></a><a name="INVTDTSR.transaction_type" id="INVTDTSR.transaction_type"></a><a name="INVTDTSR.invtdtty" id="INVTDTSR.invtdtty"></a>You define transaction types by combining transaction actions and transaction source types. You define transaction source types in the Transaction Source Types window. Oracle Inventory provides the list of transaction actions.</p>
+<p><img width="748" height="427" src="./img/invug_trntyp.gif" alt="the picture is described in the document text"></p>
+<p><b>To create a user-defined transaction type</b></p>
+<ol>
+<li>
+<p>Navigate to the Transaction Types window.</p>
+</li>
+<li>
+<p>Select the User tab.</p>
+</li>
+<li>
+<p>Enter a unique name for the transaction type.</p>
+</li>
+<li>
+<p>Enter a transaction source type.</p>
+<p>This field does not appear if you navigate from the Transaction Source Types window.</p>
+</li>
+<li>
+<p>Select a transaction action. The combination of the transaction source type and the transaction action limits the transaction type.</p>
+</li>
+<li>
+<p>Check Project to enable this transaction type for project use.</p>
+</li>
+<li>
+<p>Check Status Control to enable material status control for this transaction type.</p>
+</li>
+<li>
+<p>Select the location required check box to require the Location field on the transaction windows and Create Move Order window. You can select this check box if the transaction Source Type is Inventory or Move order and the transaction action is issues from stores, receipt from stores, or issue from stores. You cannot change this parameter if there are pending transactions for this transaction type.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To update a system-defined transaction type</b></p>
+<ol>
+<li>
+<p>Select the System tab.</p>
+</li>
+<li>
+<p>Update the name or description for a transaction type. You cannot modify the source type information.</p>
+</li>
+<li>
+<p>Select Status Control to enable material status control for this transaction type.</p>
+<p><strong><span>Note:</span></strong> To restrict a move order issue, you need to confirm that the transaction type of Backflush Transfer is Status Control enabled (selected).</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To make a user-defined transaction type inactive:<a name="d0e74134" id="d0e74134"></a></b></p>
+<ol>
+<li>
+<p>Enter the date on which the transaction type becomes inactive.</p>
+<p>As of this date, you can no longer use the transaction type in a transaction.</p>
+</li>
+</ol>
+<p><b>To enable Shortage Alerts and Shortage Notifications:<a name="d0e74150" id="d0e74150"></a><a name="d0e74157" id="d0e74157"></a></b></p>
+<p>You can choose to receive an online shortage alert, a workflow based notification, or both fro system-defined and user-defined transaction types that have the transaction actions of:</p>
+<ul>
+<li>
+<p>Receipt into Stores</p>
+</li>
+<li>
+<p>Intransit Receipt</p>
+</li>
+<li>
+<p>Direct Organization Transfer</p>
+</li>
+<li>
+<p>Assembly Completion</p>
+</li>
+<li>
+<p>Negative Component Issue</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>Check the box to select which transaction action types will generate material shortage alerts and notifications. See: <a href="T291651T292013.htm#I_shrtalrt">Material Shortage Alerts and Shortage Notifications</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291655.htm#I_t_trnsrctyp">Defining and Updating Transaction Source Types</a></p>
+<p><a href="T291651T291655.htm#I_c_trntype">Transaction Types</a></p>
+<p><a href="T291651T291655.htm#I_c_trnaction">Transaction Actions</a></p>
+<p><a href="T291651T291655.htm#I_c_trnsrctyp">Transaction Source Types</a></p>
+<h2><a name="1750472"></a><a id="T291687"></a><b>Defining Transaction Reasons</b></h2>
+<p><a name="d0e74211" id="d0e74211"></a><a name="d0e74218" id="d0e74218"></a><a name="INVTDTRS.trans_reasons" id="INVTDTRS.trans_reasons"></a><a name="I_t_trnreason" id="I_t_trnreason"></a>A transaction reason is a standard means of classifying or explaining the reason for a transaction. Transaction reasons can be used in all transaction forms.</p>
+<p>You can use these standard transaction reasons with any type of material transaction. Oracle Inventory provides transaction reporting and inquiring capabilities by transaction reason.</p>
+<p><b>To define a transaction reason</b></p>
+<ol>
+<li>
+<p>Navigate to the Transaction Reasons window.</p>
+<p><img width="738" height="361" src="./img/invug_Transaction_Reasons.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique name for the transaction reason.</p>
+<p>For example, you could define the following reasons to classify adjustment transactions you enter during your cycle count or physical inventory: Theft, Misplaced items, and Damaged items.</p>
+</li>
+<li>
+<p>Enter a reason description in the Description field.</p>
+</li>
+<li>
+<p>If desired, enter select a Workflow Name from the list of values.</p>
+</li>
+<li>
+<p>If you entered a workflow name, select a workflow process from the list of values.</p>
+</li>
+<li>
+<p>Select a Reason Type from the list of values. The available choices are as follows:</p>
+<p><strong><span>Note:</span></strong> To record a task exception in Oracle Warehouse Management, you must set up a transaction reason in Oracle Inventory and link it to Reason Type.</p>
+<ul>
+<li>
+<p>Cycle Count</p>
+</li>
+<li>
+<p>Drop</p>
+</li>
+<li>
+<p>Load</p>
+</li>
+<li>
+<p>QA Update Status</p>
+<p><strong><span>Note:</span></strong> The Replenishment reason type is disabled</p>
+</li>
+<li>
+<p>Receiving</p>
+</li>
+<li>
+<p>Replenishment</p>
+</li>
+<li>
+<p>Shipping</p>
+</li>
+<li>
+<p>Shipping Backorder</p>
+</li>
+<li>
+<p>Update Status</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you selected Load as the Reason Type, select a Reason Context from the list of values. The available choices are as follows:</p>
+<ul>
+<li>
+<p><i>Curtail Pick</i>: Specify a quantity less than the requested quantity (by ending the pick after picking a few LPNs or Lots and loading the contents), then back order the remaining required quantity.</p>
+</li>
+<li>
+<p><i>LPN Exception</i>: Pick partial quantity of the scanned fully consumable LPN.</p>
+</li>
+<li>
+<p><i>Pick None</i>: End the pick without picking anything.</p>
+</li>
+<li>
+<p><i>Pick Over</i>: Pick more than the requested quantity.</p>
+</li>
+<li>
+<p><i>Pick Partial</i>: Split the pick and allow confirmation of less than the requested quantity. You must still pick the entire quantity, but can pick in stages.</p>
+</li>
+<li>
+<p><i>Change Source Locator</i>: Change the location from which the material is picked.</p>
+</li>
+<li>
+<p><i>Change UOM</i>: Change the transaction unit of measure for the task.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+<li>
+<p>Close the window when complete.</p>
+</li>
+</ol>
+<p><b>To make a transaction reason inactive:<a name="d0e74349" id="d0e74349"></a></b></p>
+<p>Enter the date on which the transaction reason becomes inactive.</p>
+<p>As of this date, you can no longer assign the reason to a transaction.</p>
+<p><strong>Related Topics</strong></p>
+<p>Explaining Pick Load Setup, <i>Oracle Warehouse Management User's Guide</i></p>
+<p>Task Exceptions, <i>Oracle Warehouse Management User's Guide</i></p>
+<h2><a name="1750475"></a><a id="T291688"></a><b>Defining Account Aliases</b></h2>
+<p><a name="d0e74374" id="d0e74374"></a><a name="d0e74379" id="d0e74379"></a><a name="I_t_acctalias" id="I_t_acctalias"></a><a name="INVSDFAA.account_alias" id="INVSDFAA.account_alias"></a>An account alias is an easily recognized name or label representing a general ledger account number. You can view, report, and reserve against an account alias. During a transaction, you can use the account alias instead of an account number to refer to the account.</p>
+<p><b>To define an account alias</b></p>
+<ol>
+<li>
+<p>Navigate to the Account Aliases window.</p>
+<p><img width="755" height="409" src="./img/invug_acctals.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique account alias name derived from concatenated segments of the account alias name key flexfield.</p>
+</li>
+<li>
+<p>Enter the general ledger account to which you charge all transactions that use this account alias. You can change this account only if the account alias has not been referenced.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e74413" id="d0e74413"></a>effective date on which the account alias is enabled. Date must be greater than or equal to the current date.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To make an account alias inactive:<a name="d0e74426" id="d0e74426"></a></b></p>
+<ol>
+<li>
+<p>Enter the date on which the account alias becomes inactive. As of this date, you can no longer use the account alias. Date must be greater than or equal to both the effective date and the current date.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Defining Key Flexfield Segments, <i>Oracle E-Business Suite Flexfields Guide</i></p>
+<h2><a name="1750496"></a><a id="T291695"></a><b>Defining Consumption Transaction Rules</b></h2>
+<p><a name="d0e74444" id="d0e74444"></a><a name="INVCNSUP_CONSGN_VMI_CONSUMP" id="INVCNSUP_CONSGN_VMI_CONSUMP"></a><a name="I_c_conset" id="I_c_conset"></a><a name="d0e74455" id="d0e74455"></a><a name="d0e74460" id="d0e74460"></a><a name="d0e74463" id="d0e74463"></a><a name="d0e74468" id="d0e74468"></a> Use the consumption setup window to designate which transaction to use when consuming either consigned or VMI inventory.</p>
+<p><b>To define consumption rules</b></p>
+<ol>
+<li>
+<p>Navigate to the Consumption Setup window.</p>
+</li>
+<li>
+<p>Select a value in the Transaction Type field, such as issue or transfer type.</p>
+</li>
+<li>
+<p>Optionally, select values in the Organization, Planning Party, and Owning Party fields.</p>
+</li>
+<li>
+<p>If the organization selected is using subinventory or locator control, then select values in the applicable fields for <b>From Subinventory</b>, <b>From Locator</b>, <b>To Subinventory</b>, and <b>To Locator</b>.</p>
+</li>
+<li>
+<p>Optionally, you can enter a value in the Item field.</p>
+<p><img width="833" height="457" src="./img/invug_consumption_setup.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the Consume Consigned check box to perform consumption when the specified transaction type is processed.</p>
+</li>
+<li>
+<p>Enter the Weight value.</p>
+<p>The weight value allows you to set the processing order. For example, if three transactions satisfy the transaction criteria, the system processes the transaction with the highest weight.</p>
+</li>
+<li>
+<p>If applicable, enter these fields: <b>To Organization</b>, <b>Dest Owning Party</b>, <b>From Subinventory</b>, <b>From Locator</b>, <b>To Subinventory</b>, <b>To Locator</b>, and <b>Item Number</b>.</p>
+</li>
+<li>
+<p>If a transaction type belongs to inter-org transfers, then enter the destination organization in the <b>To Organization</b> field.</p>
+</li>
+<li>
+<p>If applicable, enter the destination owning party in the <b>Dest Owning Party</b> field. You can enter a value in this field if:</p>
+<ul>
+<li>
+<p>the destination organization is in a different operating unit from the source organization.</p>
+</li>
+<li>
+<p>you have entered a value in the <b>Owning Party</b> field.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292013.htm#I_conx78fr">Transferring Consigned and VMI Material</a></p>
+<p><a href="T291651T292013.htm#I_c_plntrsfr">Planning Transfer Transaction</a></p>
+<h2><a name="1750435"></a><a id="T291678"></a><b>Setting Transaction Processing Profile Options</b></h2>
+<p><a name="d0e74584" id="d0e74584"></a><a name="d0e74589" id="d0e74589"></a><a name="I_trprofop" id="I_trprofop"></a>Oracle Inventory provides you with the following transaction processing profiles:</p>
+<ul>
+<li>
+<p>Enter Replenishment Count</p>
+</li>
+<li>
+<p>Inter-Organization Transfer</p>
+</li>
+<li>
+<p>Miscellaneous Issue and Receipt</p>
+</li>
+<li>
+<p>Transaction Processing Mode</p>
+</li>
+<li>
+<p>Transfer Between Subinventories</p>
+</li>
+<li>
+<p>Update Average Cost</p>
+</li>
+<li>
+<p>Server Side On-line Processing</p>
+</li>
+<li>
+<p>Allow Expense to Asset Transfer</p>
+</li>
+<li>
+<p>Project Miscellaneous Transaction Expenditure Type</p>
+</li>
+<li>
+<p>RPC Timeout</p>
+</li>
+<li>
+<p>Restrict Receipt of Serials</p>
+</li>
+<li>
+<p>Transaction Date Validation</p>
+</li>
+<li>
+<p>Use New Trx Manager for Processing</p>
+</li>
+<li>
+<p>Override negative for Blackflush</p>
+</li>
+<li>
+<p>Quantity Tree Timeout for Lock</p>
+</li>
+<li>
+<p>Maximum Number of Quantity Trees</p>
+</li>
+<li>
+<p>Cycle Count Approvals</p>
+</li>
+<li>
+<p>Cycle Count Entries</p>
+</li>
+</ul>
+<h2><a name="1750436"></a><a id="T291679"></a><b>Transaction Processing Mode</b></h2>
+<p><a name="d0e74657" id="d0e74657"></a><a name="transactprocessmode" id="transactprocessmode"></a>You can set processing control globally for all transactions or you can choose different options for each type of transaction. You establish the method of transaction processing by choosing one of the following options when you set up your TP:INV Transaction Processing Mode profile:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><i>On-line processing</i></td>
+<td><a name="d0e74678" id="d0e74678"></a>Processes transactions while you wait and returns control to you once it finishes.</td>
+</tr>
+<tr valign="top">
+<td><i>Background processing</i></td>
+<td><a name="d0e74693" id="d0e74693"></a>Returns control immediately to you. With this option, Oracle Inventory processes transactions on a periodic basis via the Inventory Transaction Manager.</td>
+</tr>
+<tr valign="top">
+<td><i>Immediate concurrent processing</i></td>
+<td><a name="d0e74708" id="d0e74708"></a>Spawns a concurrent process when you commit the transaction and returns control immediately to you, allowing you to continue working.</td>
+</tr>
+<tr valign="top">
+<td><i>Form level processing</i></td>
+<td><a name="d0e74723" id="d0e74723"></a>Processes transactions using the processing control option you choose for that particular type of transaction. You must also set the Inventory profile options for Inter-Organization Transfer, Miscellaneous Issue and Receipt, Receive Customer Return, Return to Customer, and Transfer Between Subinventories. If you are using Oracle Work-in-Process, you must set the WIP profile options Completion Material Processing, Completion Transaction Form, Material Transaction Form, Move Transaction, Operation Backflush Setup, and Shop Floor Processing.</td>
+</tr>
+</table>
+<h3><b>Form Level Processing</b></h3>
+<p>If you choose Form level processing for the Transaction Processing Mode profile you can set up different processing controls for each type of transaction.</p>
+<h3><b>On-line Processing</b></h3>
+<p>If you use <i>On-line processing</i>, you can choose whether transactions are processed on the server or client-side by setting the Server Side On-line Processing profile. The default value is server-side processing.</p>
+<h3><b>Inventory Remote Procedure Manager<a name="d0e74747" id="d0e74747"></a></b></h3>
+<p>Server side on-line processing uses the Inventory Remote Procedure Manager to allow a transaction initiated on the client to process on the server. System managers maintain the Remote Procedure Manager. See: Administer Concurrent Managers Window, <i>Oracle E-Business Suite Setup Guide</i>.</p>
+<p>If you receive an error message saying that the manager is not available, you either need to restart the manager or increase the number of processes the work shift can handle. You update a manager's work shift process using the Concurrent Managers window. See: Concurrent Managers Window, <i>Oracle E-Business Suite Setup Guide</i>.</p>
+<p>An error message saying that no manager is defined may indicate that you have added a new data group and have not added a new Remote Procedure Manager for it. Inventory is installed with one Remote Procedure Manager for the Standard data group. (See: Data Groups Window, <i>Oracle E-Business Suite Setup Guide</i>.) If you add a new data group, you must define a new Remote Procedure Manager for it, referencing the same library and the same worker information as the seeded Remote Procedure Manager for the Standard data group.</p>
+<h3><b>Recommended Use</b></h3>
+<p><a name="d0e74773" id="d0e74773"></a><a name="d0e74778" id="d0e74778"></a>If you have many material transactions to process, it is recommended that you use <i>Concurrent processing</i> or <i>Background processing</i> to save on time you might spend idle while Inventory locks the transaction window and processes transactions. These processing options provide quick turnaround depending on how you configured your concurrent manager and how frequently you have specified your transaction manager to wake up. Even if Inventory does not fully process your transactions, you can always transact against them because Inventory updates all available to transact quantities after a transaction undergoes form validation. However, Inventory does not display unprocessed transactions in transaction reports and inquiries.</p>
+<p>You can also use the transaction manager to process transactions entered in the open transaction interface via custom entry forms or data collection devices, such as bar code readers.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291655.htm#I_t_reqmgrs">Launching Transaction Managers</a></p>
+<p><a href="T291651T291654.htm#I_r_profopts">Oracle Inventory Profile Options</a></p>
+<p>Open Transaction Interface<i>, Oracle Manufacturing Implementation Manual</i></p>
+<h2><a name="1750441"></a><a id="T291682"></a><b>Launching Transaction Managers</b></h2>
+<p><a name="d0e74810" id="d0e74810"></a><a name="I_t_reqmgrs" id="I_t_reqmgrs"></a><a name="INVTMSMG.mtl_interface_proc_controls" id="INVTMSMG.mtl_interface_proc_controls"></a>The transaction managers run the following processes: material transaction, demand reservation, move transaction, resource cost transaction, remote procedure call, and material cost transaction. They run until you cancel the corresponding concurrent request. They control the number of transaction workers, processing intervals, and number of transactions processed by each worker during each interval. For descriptions of the available managers see: <a href="T291651T291655.htm#I_r_tranmgrs">Transaction Managers</a>.</p>
+<p>You must start the material cost transaction manager to cost material transactions. This manager processes costing of all material transactions. You must also start the move transaction manager so that assemblies received from an outside processing supplier can be moved to the next operation.</p>
+<p>You do not have to launch these transaction managers if you decide to process all your transactions on-line and do not use the transaction interface.</p>
+<p>The use of multiple transaction workers enables parallel processing of transactions. This is especially helpful when processing a large batch of transactions.</p>
+<p><b><a name="d0e74831" id="d0e74831"></a>To view and update the transaction managers</b></p>
+<ol>
+<li>
+<p>Navigate to the Interface Managers window. All existing transaction managers and their current status are displayed.</p>
+<p><img width="716" height="383" src="./img/invug_intfmgr.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the maximum number of rows to assign to the worker.</p>
+</li>
+<li>
+<p><i>For WIP Move Transactions only</i>: Specify the processing <a name="d0e74858" id="d0e74858"></a>timeout in hours and minutes. After this time the move transaction manager no longer processes pending transactions and marks them as an error.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b><a name="d0e74870" id="d0e74870"></a>To launch a transaction manager</b></p>
+<ol>
+<li>
+<p>Select a transaction manager in the Interface Managers window.</p>
+</li>
+<li>
+<p>Choose Launch Manager from the Tools menu.</p>
+<p>The Launch Inventory Managers window appears displaying the transaction manager you choose as the process to be submitted.</p>
+<p><strong><span>Note:</span></strong> If the transaction manager is already active, Oracle Inventory displays a warning before displaying the new window.</p>
+</li>
+<li>
+<p>Choose Submit.</p>
+</li>
+</ol>
+<p><b>To see your changes reflected in the Interface Managers window</b></p>
+<ol>
+<li>
+<p>Requery the Interface Managers window.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291655.htm#I_r_tranmgrs">Transaction Managers</a></p>
+<p>Running Reports and Programs, <i>Oracle E-Business Suite User&rsquo;s Guide</i></p>
+<p>Defining Managers and their Work Shifts in the Oracle Forms UI, <i>Oracle E-Business Suite Setup Guide</i></p>
+<p>Open Transaction Interface<i>, Oracle Manufacturing Implementation Manual</i></p>
+<h2><a name="1750445"></a><a id="T291662"></a><b>Transaction Managers</b></h2>
+<a name="d0e74924" id="d0e74924"></a><a name="I_r_tranmgrs" id="I_r_tranmgrs"></a>
+<h3><a id="T291668"></a><b>Material Transactions</b></h3>
+<p><a name="d0e74937" id="d0e74937"></a>The material transaction manager immediately processes a material transaction after you save your changes in a transaction window. By starting the transaction manager, you can determine how to process transactions: immediately through immediate concurrent request submissions, or through periodic concurrent request submissions. You define this transaction mode for individual transaction windows in the Personal Profile Values window.</p>
+<p>See: <a href="T291651T291655.htm#I_trprofop">Setting Transaction Processing Profile Options</a>.</p>
+<h3><a id="T291669"></a><b>Move Transaction</b></h3>
+<p><a name="d0e74966" id="d0e74966"></a>The move transaction manager processes move transactions in Oracle Work in Process and move transactions you import from devices such as portable bar code readers or your custom data entry forms using the Open Move Transaction Interface.</p>
+<h3><a id="T291670"></a><b>Resource Cost Transactions</b></h3>
+<p><a name="d0e74989" id="d0e74989"></a><a name="d0e75001" id="d0e75001"></a>The resource cost transaction manager processes resource transactions in Oracle Work in Process and resource transactions you import from barcode readers, payroll systems, time cards, routing sheets, and custom data entry forms using the Open Resource Transaction Interface.</p>
+<h3><a id="T291671"></a><b>Material Cost Transaction</b></h3>
+<p><a name="d0e75018" id="d0e75018"></a>The material cost transaction manager costs material transactions in Oracle Inventory and Oracle Work in Process in the background.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291655.htm#I_t_reqmgrs">Launching Transaction Managers</a></p>
+<p><a href="T291651T291655.htm#I_trprofop">Setting Transaction Processing Profile Options</a></p>
+<p><a href="T291651T291655.htm#I_c_transetov">Overview of Transaction Setup</a></p>
+<p>Defining Managers and their Work Shifts in the Oracle Forms UI, <i>Oracle E-Business Suite Setup Guide</i></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

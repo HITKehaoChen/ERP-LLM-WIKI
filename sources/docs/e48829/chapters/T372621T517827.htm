@@ -1,0 +1,5672 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Cost Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Cost Management User's Guide">
+<meta name="dcterms.identifier" content="E48829-27">
+<meta name="dcterms.isVersionOf" content="CSTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T372621T465151.htm" title="Previous" type="text/html">
+<link rel="Next" href="index.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Cost Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">28/29</span> <!-- End Header -->
+<h1>Migration of AX-IC Rules Into SLA</h1>
+<h2><a name="5068204"></a><a id="T517828"></a><b>Overview of Global Accounting Rules into SLA</b></h2>
+<p><a name="d0e73072" id="d0e73072"></a><a name="cst_globalaccrules" id="cst_globalaccrules"></a>The Global Accounting Engine provides an accounting system for Oracle subledger applications, including Oracle Payables, Oracle Receivables, and Oracle Inventory that satisfies legal and fiscal requirements in certain countries.</p>
+<p>You can create subledger journal entries for Inventory and Work In Process (WIP) material transactions using permanent inventory accounting rules. There are Subledger Accounting (SLA) rules with the same functionality that is made available by the Global Accounting Engine (AX) rules in previous releases. Inventory rules from prior releases of the Global Accounting Engine (AX) are compatible with rules in the Sub Ledger Accounting (SLA) architecture.</p>
+<h2><a name="5997478"></a><a id="T573409"></a><b>Permanent Inventory Accounting</b></h2>
+<p><a name="d0e73088" id="d0e73088"></a><a name="cst_perminvacctg" id="cst_perminvacctg"></a>In European countries, a local statute requires that Inventory Accounting be expressed in revenue and expense terms.</p>
+<p>In release 11<i>i</i>, Warehouse Management (WMS) and Project Manufacturing (PJM) products were released which processes accounting for standard costing at the cost group level. However, for standard cost organizations, 11<i>i</i> AX accounting for expense was derived based on sub-inventory.</p>
+<p>European customers can use WMS and PJM in standard costing to comply with these local statutory accounting requirements. Category accounting for permanent inventory supports WMS and PJM cost group accounting derivations.</p>
+<p><strong><span>Note:</span></strong> Customers using the 11<i>i</i> AX Global Accounting engine along with PJM and WMS require functionality to derive category accounts based on cost groups in a standard accounting setup. This requirement is fulfilled in the R12.1.1+ Permanent Inventory Application Accounting setup. R12.1.1 customers must apply patch 10244514:R12.BOM.C to use this functionality.</p>
+<p>Enhanced category accounting sources in Subledger Accounting (SLA) for costing used in permanent inventory to support the flexibility required to use cost group derivation in standard costing preserves backward compatibility with current design, which is sub-inventory based. The category account for permanent inventory in a standard cost environment is derived based on sub-inventory.</p>
+<p>If you are required to change to the cost group account derivation method, then the following setup is required:</p>
+<p><b>Prerequisites</b></p>
+<ol>
+<li>
+<p>Permanent Inventory Accounting for PJM enabled organization in standard.</p>
+</li>
+<li>
+<p>Costing will use the cost group derivation method if the following parameters are met:</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>The organization is using Perpetual Standard Costing.</p>
+</li>
+<li>
+<p>The organization is a project reference-able PJM organization.</p>
+</li>
+<li>
+<p>The PJM organization Cost Group Option is by Project.</p>
+</li>
+<li>
+<p>The Profile Option <i>CST: Category Account Level</i> is Cost Group.</p>
+</li>
+</ul>
+<p>Without the above prerequisites, category accounts are derived based on sub-inventory only.</p>
+<p>If you choose to keep the sub-inventory category account derivation, then you must set the <i>CST: Category Account Level</i> profile option to Sub-Inventory.</p>
+<p><strong><span>Note:</span></strong> The category accounts setup window has been modified to support category account setup according to the profile option. Oracle has pre-seeded the category accounts derivation for PJM and WMS in Permanent Inventory AAD to support this setup.</p>
+<p>If you require more complex logic for sub-inventory or cost group for standard costing, the standard cost hook CSTPSCHK.cg_or_subinv has been released:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>CSTPSCHK.cg_or_subinv</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>(p_organization_id</td>
+<td>IN NUMBER</td>
+</tr>
+<tr valign="top">
+<td>,p_primary_cost_method</td>
+<td>IN NUMBER</td>
+</tr>
+<tr valign="top">
+<td>,p_wms_enabled</td>
+<td>IN VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>,p_pjm_reference</td>
+<td>IN NUMBER</td>
+</tr>
+<tr valign="top">
+<td>,p_cost_group_accounting</td>
+<td>IN NUMBER</td>
+</tr>
+<tr valign="top">
+<td>,p_cost_group_id</td>
+<td>IN NUMBER</td>
+</tr>
+<tr valign="top">
+<td>,p_subinv</td>
+<td>IN VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>,p_ship_recv</td>
+<td>IN VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>,p_mmt_id</td>
+<td>IN NUMBER DEFAULT NULL)</td>
+</tr>
+<tr valign="top">
+<td>RETURN VARCHAR2</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>By default, the application uses the cost group or sub-inventory derivation method according to the standard setup. However, you can change the derivation criteria at the transaction level.</p>
+<h2><a name="5078110"></a><a id="T518349"></a><b>Setting Up AX Support for SLA</b></h2>
+<p><a name="d0e73244" id="d0e73244"></a><a name="d0e73248" id="d0e73248"></a><a name="cst_axrules" id="cst_axrules"></a>This section describes the setup required for AX support in Subledger Accounting (SLA).</p>
+<p><img width="726" height="449" src="./img/cst_AXsetup1.gif" alt="the picture is described in the document text"></p>
+<p><img width="534" height="449" src="./img/cst_AXsetup_1.gif" alt="the picture is described in the document text"></p>
+<p><b>To set up the Subledger Accounting Method:</b></p>
+<ol>
+<li>
+<p>Navigate to the Subledger Accounting Methods window. In the Find Subledger Accounting Methods window, click the New button to create a new method, or enter search criteria to view existing subledger accounting methods.</p>
+<p><img width="710" height="497" src="./img/cst_AXsetup3.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click New to create a Subledger Accounting Method for the Costing application.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><img width="591" height="530" src="./img/cst_AXsetup2.gif" alt="the picture is described in the document text"></p>
+<p><b>To set up the Item Category flexfield structure:</b></p>
+<ol>
+<li>
+<p>Navigate to the Key Flexfield Segments window.</p>
+<p><img width="773" height="495" src="./img/cst_AXsetup4.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter Accounting (Item) Category details.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To set up the Product Line Category:</b></p>
+<ol>
+<li>
+<p>From the Inventory responsibility, navigate to the Categories window.</p>
+</li>
+<li>
+<p>Create a Category Code.</p>
+<p><img width="648" height="396" src="./img/cst_AXsetup5.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Create a Category Set.</p>
+<p><img width="477" height="452" src="./img/cst_AXsetup6.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Assign a Product Line Accounting functional area category set.</p>
+<p><img width="570" height="280" src="./img/cst_AXsetup7.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To set up Category Accounts:</b></p>
+<ol>
+<li>
+<p>Navigate to the Category Accounts window.</p>
+</li>
+<li>
+<p>Enter Category Account details.</p>
+<p><img width="835" height="525" src="./img/cst_AXsetup8.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p>To assign the Product Line Category to items:</p>
+<ol>
+<li>
+<p>Navigate to the Organization Item window.</p>
+</li>
+<li>
+<p>Select an Item from the Find Organization Items window..</p>
+</li>
+<li>
+<p>From the Tools menu, choose Categories. The Category Assignment window appears.</p>
+<p><img width="745" height="505" src="./img/cst_AXsetup9.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the <b>Category Set, Control Level,</b> and <b>Category</b>.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h3><a id="T520962"></a><b>Setting Up for Inter-organization Transactions and Work In Process (WIP)</b></h3>
+<ul>
+<li>
+<p>The inter-organization bridging, expense, and revenue accounts are set up in the Shipping Networks window.</p>
+</li>
+<li>
+<p>The WIP bridging and expense accounts are set up in the WIP Accounting Class window.</p>
+</li>
+</ul>
+<h2><a name="5134362"></a><a id="T520965"></a><b>Migration of Rules</b></h2>
+<p><a name="d0e73401" id="d0e73401"></a><a name="cst_AXRulesmigration" id="cst_AXRulesmigration"></a>Existing inventory rules in the Global Accounting Engine will be migrated into the Subledger Accounting Architecture. The rules have been migrated according to t</p>
+<p>he specifications defined in the following sections.</p>
+<h3><a id="T520966"></a><b>Receiving Transactions</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction</b></th>
+<th scope="col"><b>Scenario</b></th>
+<th scope="col"><b>Expected Journal Entry</b></th>
+<th scope="col"><b>DR</b></th>
+<th scope="col"><b>CR</b></th>
+</tr>
+<tr valign="top">
+<td>Receipt into receiving inspection</td>
+<td>One-time item delivered to an expense destination</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+110.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Asset item delivered to an expense destination</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+110.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Asset item delivered to an inventory destination</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Inventory AP Accrual</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+110.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Expense item delivered to an inventory destination</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Inventory AP Accrual</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+110.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>OSP Item with Shop Floor Destination</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Inventory AP Accrual</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+110.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+</tr>
+<tr valign="top">
+<td>Return to Supplier from receiving inspection</td>
+<td>Asset item delivered to an inventory destination</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Inventory AP Accrual</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+<td><br>
+<br>
+110.00</td>
+</tr>
+<tr valign="top">
+<td>PO Delivery to Expense Destination</td>
+<td>One-time item delivered to an expense destination</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+<td><br>
+<br>
+110.00<br></td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Asset item delivered to an expense destination</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+<td><br>
+<br>
+110.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Expense item delivered to an expense destination</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+<td><br>
+<br>
+110.00<br></td>
+</tr>
+<tr valign="top">
+<td>PO Delivery to Inventory Destination</td>
+<td>Asset item delivered to an asset sub inventory (standard cost)</td>
+<td><b>10 units of item @ 11.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost (excluding material overhead)<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Purchase Price Variance</b><br>
+Quantity * (PO price - standard cost excluding material<br>
+overhead)<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO price<br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+900.00<br>
+<br>
+<br>
+300.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+200.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+300.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+1100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Asset item delivered to an expense sub inventory (standard cost)</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+<td><br>
+<br>
+110.00<br></td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Expense item delivered to an asset sub inventory (standard cost)</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+<td><br>
+<br>
+110.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Expense item delivered to an expense sub inventory (standard cost)</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+<td><br>
+<br>
+110.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Asset item delivered to an asset sub inventory (average cost)</td>
+<td><b>10 units of item 200.6 @ 1500.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * PO price<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * PO price<br>
+<br>
+<b>Overhead Absorption</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO price<br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+15000.00<br>
+<br>
+<br>
+1500.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+15000.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1500.00<br>
+<br>
+<br>
+15000.00<br>
+<br>
+<br>
+15000.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Asset item delivered to an expense sub inventory (average cost)</td>
+<td><b>10 units of item 200.6 @ 1500.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+15000.00</td>
+<td><br>
+<br>
+15000.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Expense item delivered to an asset sub inventory (average cost)</td>
+<td><b>10 units of item 200.8 @ 1500.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+15000.00</td>
+<td><br>
+<br>
+15000.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Expense item delivered to an expense sub inventory (average cost)</td>
+<td><b>10 units of item 200.8 @ 1500.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+15000.00</td>
+<td><br>
+<br>
+15000.00</td>
+</tr>
+<tr valign="top">
+<td>Return to Receiving from expense destination</td>
+<td>&nbsp;</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+110.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+110.00</td>
+</tr>
+<tr valign="top">
+<td>Return to Receiving from inventory destination</td>
+<td>&nbsp;</td>
+<td><b>10 units of item @11.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost (excluding material overhead)<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Purchase Price Variance</b><br>
+Quantity * (PO price - standard cost excluding material overhead)<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO price<br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+300.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+1100.00</td>
+<td><br>
+<br>
+900.00<br>
+<br>
+<br>
+<br>
+300.00<br>
+<br>
+<br>
+<br>
+<br>
+200.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+11.00</td>
+</tr>
+<tr valign="top">
+<td>Return to Supplier from Inventory</td>
+<td>Standard cost</td>
+<td><b>3 units of item @ 11.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost (excluding material overhead)<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Purchase Price Variance</b><br>
+Quantity * (PO price - standard cost excluding material overhead)<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO price<br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+9.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+33.00<br>
+<br>
+<br>
+33.00</td>
+<td><br>
+<br>
+27.00<br>
+<br>
+<br>
+9.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+6.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+33.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Average cost</td>
+<td><b>1 unit of item @ 1500.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * PO price<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO price<br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+150.00<br>
+<br>
+<br>
+1500.00<br>
+<br>
+<br>
+1500.00</td>
+<td><br>
+<br>
+1500.00<br>
+<br>
+<br>
+150.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1500.00</td>
+</tr>
+<tr valign="top">
+<td>Transfer from Consignment to Regular Inventory</td>
+<td>Asset item delivered to an asset sub inventory (standard cost)</td>
+<td><b>10 units of item @ 11.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost (excluding material overhead)<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Purchase Price Variance</b><br>
+Quantity * (PO price - standard cost excluding material overhead)<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO price<br>
+<br>
+<b>AP Accrual</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+900.00<br>
+<br>
+<br>
+300.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+200.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+300.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+1100.00</td>
+</tr>
+<tr valign="top">
+<td>Transfer from Regular to Consignment Inventory</td>
+<td>&nbsp;</td>
+<td><b>10 units of item @ 11.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost (excluding material overhead)<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Purchase Price Variance</b><br>
+Quantity * (PO price - standard cost excluding material overhead)<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO price<br>
+<br>
+<b>AP Accrual</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+300.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+1100.00</td>
+<td><br>
+<br>
+900.00<br>
+<br>
+<br>
+300.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+200.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00</td>
+</tr>
+<tr valign="top">
+<td>Delivery Adjustment on a PO</td>
+<td>Standard cost</td>
+<td><b>2 units of item @ 11.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost (excluding material overhead)<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Purchase Price Variance</b><br>
+Quantity * (PO price - standard cost excluding material overhead)<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO price<br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+18.00<br>
+<br>
+<br>
+6.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+4.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+22.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+6.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+22.00<br>
+<br>
+<br>
+22.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Average cost</td>
+<td><b>-10 units of item @ 1500.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * PO price<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b><br>
+Quantity * material overhead cost<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO price<br>
+<br>
+<b>Receiving Area</b><br>
+Quantity * PO price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1500.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+15000.00</td>
+<td><br>
+<br>
+15000.00<br>
+<br>
+<br>
+1500.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+15000.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+15000.00</td>
+</tr>
+</table>
+<h3><a id="T521048"></a><b>Material Transactions<a name="d0e75376" id="d0e75376"></a><a name="d0e75382" id="d0e75382"></a><a name="cst_axrulesmattx" id="cst_axrulesmattx"></a></b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction</b></th>
+<th scope="col"><b>Scenario</b></th>
+<th scope="col"><b>Expected Journal Entry</b></th>
+<th scope="col"><b>DR</b></th>
+<th scope="col"><b>CR</b></th>
+</tr>
+<tr valign="top">
+<td>Miscellaneous Receipt, Account Receipt, Account Alias Receipt</td>
+<td>Miscellaneous receipt of an asset item from an asset sub inventory (standard cost)</td>
+<td><b>10 units of item @ 55.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Inventory Offset</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+500.00<br>
+<br>
+<br>
+50.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+550.00</td>
+</tr>
+<tr valign="top">
+<td>Miscellaneous Issue, Account Issue, Account Alias Issue</td>
+<td>Miscellaneous issue of an asset item from an asset sub inventory (standard cost)</td>
+<td><b>10 units of item @ 55.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Inventory Offset</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+550.00</td>
+<td><br>
+<br>
+500.00<br>
+<br>
+<br>
+50.00</td>
+</tr>
+<tr valign="top">
+<td>Miscellaneous Receipt, Account Receipt, Account Alias Receipt</td>
+<td>Miscellaneous receipt of an asset item from an asset subinventory (average cost)</td>
+<td><b>1 unit of item @ 1100.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * current cost or quantity * entered cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * current cost or quantity * entered cost<br>
+<br>
+<b>Inventory Offset</b><br>
+Quantity * current cost or quantity * entered cost</td>
+<td><br>
+<br>
+1000.00<br>
+<br>
+<br>
+100.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br></td>
+</tr>
+<tr valign="top">
+<td>Miscellaneous Issue, Account Issue, Account Alias Issue</td>
+<td>Miscellaneous issue of an asset item from an asset sub inventory (average cost)</td>
+<td><b>1 unit of item @ 1100.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * current cost or quantity * entered cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * current cost or quantity * entered cost<br>
+<br>
+<b>Inventory Offset</b><br>
+Quantity * current cost or quantity * entered cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00</td>
+<td><br>
+<br>
+1000.00<br>
+<br>
+<br>
+100.00</td>
+</tr>
+<tr valign="top">
+<td>Sub inventory Transfer</td>
+<td>Transfer of an asset item, between two asset sub inventories (standard cost)</td>
+<td><b>4 units of item @ 12.00</b><br>
+<br>
+<b>Material</b> (Sending sub inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b> (Sending sub inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Sending sub inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material</b> (Receiving sub inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material</b> (Receiving sub inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Receiving sub inventory)<br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+48.00<br>
+<br>
+<br>
+36.00<br>
+<br>
+<br>
+12.00</td>
+<td><br>
+<br>
+36.00<br>
+<br>
+<br>
+12.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+48.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transfer of an asset item, between an asset sub inventory and an expense sub inventory (standard cost)</td>
+<td><b>4 units of item @ 12.00</b><br>
+<br>
+<b>Material</b> (Sending sub inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b> (Sending sub inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Sending sub inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Expense</b> (Receiving sub inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Expense</b> (Sending sub inventory)<br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+48.00<br>
+<br>
+<br>
+48.00</td>
+<td><br>
+<br>
+36.00<br>
+<br>
+<br>
+12.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+48.00</td>
+</tr>
+<tr valign="top">
+<td>Sub inventory Transfer</td>
+<td>Transfer of an asset item, between two asset sub inventories (average cost)</td>
+<td><b>1 unit of item @ 1100.00</b><br>
+<br>
+<b>Material</b> (Sending sub inventory)<br>
+Quantity * current cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * current cost or quantity * entered cost<br>
+<br>
+<b>Bridging</b> (Sending sub-inventory)<br>
+Quantity * current cost<br>
+<br>
+<b>Material</b> (Receiving sub-inventory)<br>
+Quantity * current cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * current cost or quantity * entered cost<br>
+<br>
+<b>Bridging</b> (Receiving sub-inventory)<br>
+Quantity * current cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+1000.00<br>
+<br>
+<br>
+100.00</td>
+<td><br>
+<br>
+1000.00<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transfer of an asset item, between an asset sub inventory and an expense sub inventory (average cost)</td>
+<td><b>1 unit of item @ 1100.00</b><br>
+<br>
+<b>Material</b> (Sending sub inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b> (Sending sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Sending sub inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Expense</b> (Receiving sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Expense</b> (Sending sub-inventory)<br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+1100.00</td>
+<td><br>
+<br>
+1000.00<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00</td>
+</tr>
+<tr valign="top">
+<td>Sales Order pick, Internal Order pick</td>
+<td>Transfer of an asset item, between two asset sub-inventories (standard cost)</td>
+<td><b>4 units of item @ 12.00</b><br>
+<br>
+<b>Material</b> (Sending sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b> (Sending sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Sending sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material</b> (Receiving sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material</b> (Receiving sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Receiving sub-inventory)<br>
+Quantity * current cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+48.00<br>
+<br>
+<br>
+36.00<br>
+<br>
+<br>
+12.00</td>
+<td><br>
+<br>
+36.00<br>
+<br>
+<br>
+12.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+48.00</td>
+</tr>
+<tr valign="top">
+<td>Sales Order issue</td>
+<td>Asset item (standard cost)</td>
+<td><b>4 units of item @ 114.10</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Resources</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Deferred Cost of Goods Sold</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+456.40</td>
+<td><br>
+<br>
+96.00<br>
+<br>
+<br>
+32.00<br>
+<br>
+<br>
+284.00<br>
+<br>
+<br>
+44.44</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Asset item (average cost)</td>
+<td><b>1 unit of item @ 2956.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * current cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * current cost<br>
+<br>
+<b>Resources</b><br>
+Quantity * current cost<br>
+<br>
+<b>Overhead</b><br>
+Quantity * current cost<br>
+<br>
+<b>Deferred Cost of Goods Sold</b><br>
+Quantity * current cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+2956.00</td>
+<td><br>
+<br>
+1500.00<br>
+<br>
+<br>
+150.00<br>
+<br>
+<br>
+1110.00<br>
+<br>
+<br>
+196.00</td>
+</tr>
+<tr valign="top">
+<td>RMA Receipt</td>
+<td>Asset item in asset sub inventory (standard cost)</td>
+<td><b>2 units of item 300.1</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Resources</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Deferred Cost of Goods Sold</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+48.00<br>
+<br>
+<br>
+16.00<br>
+<br>
+<br>
+142.00<br>
+<br>
+<br>
+22.20</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+228.20</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Asset item in asset sub-inventory (average cost)</td>
+<td><b>1 unit of item @ 2956.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * current cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * current cost<br>
+<br>
+<b>Resources</b><br>
+Quantity * current cost<br>
+<br>
+<b>Overhead</b><br>
+Quantity * current cost<br>
+<br>
+<b>Deferred Cost of Goods Sold</b><br>
+Quantity * current cost</td>
+<td><br>
+<br>
+1500.00<br>
+<br>
+<br>
+150.00<br>
+<br>
+<br>
+1110.00<br>
+<br>
+<br>
+196.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+2956.00</td>
+</tr>
+<tr valign="top">
+<td>Move Order Issue</td>
+<td>Asset item issued from an asset sub-inventory (standard cost)</td>
+<td><b>10 units of item @ 55.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Move Order Account</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+550.00</td>
+<td><br>
+<br>
+500.00<br>
+<br>
+<br>
+50.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Asset item issued from an asset sub-inventory (average cost)</td>
+<td><b>10 units of item @ 55.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * average cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * average cost<br>
+<br>
+<b>Move Order Account</b><br>
+Quantity * average cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+550.00</td>
+<td><br>
+<br>
+500.00<br>
+<br>
+<br>
+50.00</td>
+</tr>
+<tr valign="top">
+<td>Move Order Transfer, Internal Order Transfer</td>
+<td>Transfer of an asset item, between two asset sub-inventories (standard cost)</td>
+<td><b>4 units of item @ 12.00</b><br>
+<br>
+<b>Material</b> (Sending sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b> (Sending sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Sending sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material</b> (Receiving sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material</b> (Receiving sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Receiving sub-inventory)<br>
+Quantity * current cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+48.00<br>
+<br>
+<br>
+36.00<br>
+<br>
+<br>
+12.00</td>
+<td><br>
+<br>
+36.00<br>
+<br>
+<br>
+12.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+48.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transfer of an asset item, between two asset sub-inventories (average cost)</td>
+<td><b>4 units of item @ 12.00</b><br>
+<br>
+<b>Material</b> (Sending sub-inventory)<br>
+Quantity * average cost<br>
+<br>
+<b>Material Overhead</b> (Sending sub-inventory)<br>
+Quantity * average cost<br>
+<br>
+<b>Bridging</b> (Sending sub-inventory)<br>
+Quantity * average cost<br>
+<br>
+<b>Material</b> (Receiving sub-inventory)<br>
+Quantity * average cost<br>
+<br>
+<b>Material</b> (Receiving sub-inventory)<br>
+Quantity * average cost<br>
+<br>
+<b>Bridging</b> (Receiving sub-inventory)<br>
+Quantity * average cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+48.00<br>
+<br>
+<br>
+36.00<br>
+<br>
+<br>
+12.00</td>
+<td><br>
+<br>
+36.00<br>
+<br>
+<br>
+12.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+48.00</td>
+</tr>
+<tr valign="top">
+<td>Internal Order Issue</td>
+<td>Asset item issued from asset sub-inventory (average cost)</td>
+<td><b>1 unit of item @ 1100.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * current cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * current cost or quantity * entered cost<br>
+<br>
+<b>Internal Requisition Distribution Charge Account</b><br>
+Quantity * current cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00</td>
+<td><br>
+<br>
+1000.00<br>
+<br>
+<br>
+100.00</td>
+</tr>
+<tr valign="top">
+<td>Cycle Count Adjustment</td>
+<td>Standard cost</td>
+<td><b>-1 unit of item @ 12.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity difference * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost difference<br>
+<br>
+<b>Inventory Offset</b><br>
+Quantity difference * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+12.00</td>
+<td><br>
+<br>
+9.00<br>
+<br>
+<br>
+3.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Average cost</td>
+<td><b>-1 unit of item @ 2200.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity difference * current cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity difference * current cost<br>
+<br>
+<b>Inventory Offset</b><br>
+Quantity difference * current cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+2200.00</td>
+<td><br>
+<br>
+2000.00<br>
+<br>
+<br>
+200.00</td>
+</tr>
+<tr valign="top">
+<td>Physical Inventory Adjustment</td>
+<td>Standard cost</td>
+<td><b>-2 units of item @ 132.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity difference * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost difference<br>
+<br>
+<b>Inventory Offset</b><br>
+Quantity difference * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+264.00</td>
+<td><br>
+<br>
+240.00<br>
+<br>
+<br>
+24.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Average cost</td>
+<td><b>-2 units of item @ 1320.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity difference * current cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity difference * current cost<br>
+<br>
+<b>Inventory Offset</b><br>
+Quantity difference * current cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+2640.00</td>
+<td><br>
+<br>
+2400.00<br>
+<br>
+<br>
+240.00</td>
+</tr>
+<tr valign="top">
+<td>Average Cost Update</td>
+<td>&nbsp;</td>
+<td><b>1 unit of item 200.6</b><br>
+<br>
+<b>Material</b><br>
+Quantity * average cost difference<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * current cost<br>
+<br>
+<b>Cost Update Adjustment Account</b><br>
+Quantity * average cost difference</td>
+<td><br>
+<br>
+200.00<br>
+<br>
+<br>
+20.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+220.00</td>
+</tr>
+<tr valign="top">
+<td>Standard Cost Update</td>
+<td>&nbsp;</td>
+<td><b>9 units of item @ 77.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost difference<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost difference<br>
+<br>
+<b>Cost Update Adjustment Account</b><br>
+Quantity * standard cost difference</td>
+<td><br>
+<br>
+630.00<br>
+<br>
+<br>
+63.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+693.00</td>
+</tr>
+</table>
+<h3><a id="T521064"></a><b>Inter-organization Transactions<a name="d0e77515" id="d0e77515"></a><a name="d0e77521" id="d0e77521"></a><a name="cst_axrulesinterorgtxns" id="cst_axrulesinterorgtxns"></a></b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction</b></th>
+<th scope="col"><b>Scenario</b></th>
+<th scope="col"><b>Expected Journal Entry</b></th>
+<th scope="col"><b>DR</b></th>
+<th scope="col"><b>CR</b></th>
+</tr>
+<tr valign="top">
+<td>Transfers Between two Organizations (In-transit, FOB : Receipt)</td>
+<td>Sending Organization: standard cost Receiving Organization: standard cost</td>
+<td><b>Ship to in-transit sourced from Inventory</b><br>
+<br>
+<b>Material</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>In-transit</b> (Sending Organization: Inter org account) Quantity * standard cost<br>
+<br>
+<b>In-transit Bridging</b> (Sending Organization: Inter org account)<br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+60.00</td>
+<td><br>
+<br>
+45.00<br>
+<br>
+<br>
+15.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><b>Receive from In-transit</b><br>
+<br>
+<b>In-transit</b> (Sending Organization: Inter org account)<br>
+Quantity * standard cost<br>
+<br>
+<b>In-transit Bridging</b> (Sending Organization: Inter org account)<br>
+Quantity * standard cost<br>
+<br>
+<b>Transfer</b> (Sending Organization: Inter org account)<br>
+Transfer cost<br>
+<br>
+<b>Freight</b> (Sending Organization: Freight account)<br>
+Freight cost<br>
+<br>
+<b>Receivables</b> (Sending Organization: Inter org account ) (Quantity * standard cost) + transfer cost + freight cost<br>
+<br>
+<b>Revenue</b> (Sending Organization: Inter org account)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material</b> (Receiving Organization)<br>
+Quantity * standard cost (excluding material overhead)<br>
+<br>
+<b>Material Overhead</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b> (Receiving Organization) Quantity * material overhead cost<br>
+<br>
+<b>Inter-org Price Variance</b> (Receiving Organization: Inter org account)<br>
+Quantity * (transaction cost - standard cost excluding material overhead)<br>
+<br>
+<b>Bridging</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Payables</b> (Receiving Organization: Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Expense</b> (Receiving Organization: Inter org account)<br>
+Quantity * transaction cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+45.00<br>
+<br>
+<br>
+15.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+33.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00</td>
+<td><br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+11.00<br>
+<br>
+<br>
+7.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+15.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+78.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Sending Organization: standard cost Receiving Organization: average cost</td>
+<td><b>Ship to in-transit sourced from Inventory</b><br>
+<br>
+<b>Material</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>In-transit</b> (Sending Organization: Inter org account)<br>
+Quantity * standard cost<br>
+<br>
+<b>In-transit Bridging</b> (Sending Organization: Inter org<br>
+account)<br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+60.00</td>
+<td><br>
+<br>
+45.00<br>
+<br>
+<br>
+15.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><b>Receive from In-transit</b><br>
+<br>
+<b>In-transit</b> (Sending Organization: Inter org account)<br>
+Quantity * standard cost<br>
+<br>
+<b>In-transit Bridging</b> (Sending Organization: Inter org account)<br>
+Quantity * standard cost<br>
+<br>
+<b>Transfer</b> (Sending Organization: Inter org account)<br>
+Transfer cost<br>
+<br>
+<b>Freight</b> (Sending Organization: Freight account)<br>
+Freight cost<br>
+<br>
+<b>Receivables</b> (Sending Organization: Inter org account ) (Quantity * standard cost) + transfer cost + freight cost<br>
+<br>
+<b>Revenue</b> (Sending Organization: Inter org account)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material</b> (Receiving Organization)<br>
+quantity * transaction cost<br>
+<br>
+<b>Material Overhead</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Bridging</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Payables</b> (Receiving Organization: Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Expense</b> (Receiving Organization: Inter org account)<br>
+Quantity * transaction cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+7.80<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00</td>
+<td><br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+11.00<br>
+<br>
+<br>
+7.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+7.80<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Sending Organization : average cost Receiving Organization : average cost</td>
+<td><b>Shipment Transaction</b><br>
+<b>1 unit of item 200.6</b><br>
+<br>
+<b>Material</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>Material Overhead</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>In-transit</b> (Sending Organization : Inter org account)<br>
+Quantity * current cost<br>
+<br>
+<b>Bridging</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>In-transit Bridging</b> (Sending Organization : Inter org account)<br>
+Quantity * current cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+1100.00</td>
+<td><br>
+<br>
+<br>
+1000.00<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><b>Receipt Transaction</b><br>
+<br>
+<b>In-transit</b> (Sending Organization: Inter org account)<br>
+Quantity * current cost<br>
+<br>
+<b>Transfer</b> (Sending Organization : Inter org account)<br>
+Transfer cost<br>
+<br>
+<b>Freight</b> (Sending Organization : Inter org account)<br>
+Freight cost<br>
+<br>
+<b>Receivables</b> (Sending Organization: Inter org account) (quantity * current cost) + transfer cost + transportation cost<br>
+<br>
+<b>In-transit Bridging</b> (Sending Organization : Inter org account)<br>
+Quantity * current cost<br>
+<br>
+<b>Revenue</b> (Sending Organization : Inter org account)<br>
+Quantity * current cost<br>
+<br>
+<b>Material</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Material Overhead</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Payables</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Bridging</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Expense</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00<br>
+<br>
+<br>
+156.50<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00</td>
+<td><br>
+<br>
+1100.00<br>
+<br>
+<br>
+145.00<br>
+<br>
+<br>
+320.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+156.50<br>
+<br>
+<br>
+1565.00<br>
+<br>
+<br>
+1565.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Sending Organization : average cost Receiving Organization : standard cost</td>
+<td><b>Shipment Transaction</b><br>
+<b>1 unit of item 200.6</b><br>
+<br>
+<b>Material</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>Material Overhead</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>In-transit</b> (Sending Organization : Inter org account)<br>
+Quantity * current cost<br>
+<br>
+<b>Bridging</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>In-transit Bridging</b> (Sending Organization : Inter org account)<br>
+Quantity * current cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+1100.00</td>
+<td><br>
+<br>
+<br>
+1000.00<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><b>Receipt Transaction</b><br>
+<br>
+<b>In-transit</b> (Sending Organization: Inter org account)<br>
+Quantity * current cost<br>
+<br>
+<b>Transfer</b> (Sending Organization : Inter org account)<br>
+Transfer cost<br>
+<br>
+<b>Freight</b> (Sending Organization : Inter org account)<br>
+Freight cost<br>
+<br>
+<b>Receivables</b> (Sending Organization: Inter org account) (quantity * current cost) + transfer cost + transportation cost<br>
+<br>
+<b>In-transit Bridging</b> (Sending Organization : Inter org account)<br>
+Quantity * current cost<br>
+<br>
+<b>Revenue</b> (Sending Organization : Inter org account)<br>
+Quantity * current cost<br>
+<br>
+<b>Material</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Material Overhead</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Inter-org Price Variance</b> (Receiving Organization)<br>
+Quantity * (transaction cost - standard cost excluding material overhead)<br>
+<br>
+<b>Payables</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Bridging</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Expense</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1200.00<br>
+<br>
+<br>
+120.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+365.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00</td>
+<td><br>
+<br>
+1100.00<br>
+<br>
+<br>
+145.00<br>
+<br>
+<br>
+320.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+120.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00<br>
+<br>
+<br>
+1565.00</td>
+</tr>
+<tr valign="top">
+<td>Transfers Between two Organizations (Intransit, FOB : Shipment)</td>
+<td>Sending Organization : standard cost Receiving Organization : standard cost</td>
+<td><b>Ship to In-transit sourced from Inventory</b><br>
+<br>
+<b>Material</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Freight</b> (Receiving Organization : Freight account)<br>
+Freight cost<br>
+<br>
+<b>Transfer</b> (Sending Organization : Inter org account)<br>
+Transfer cost<br>
+<br>
+<b>Receivables</b> (Sending Organization : Inter org account)<br>
+(quantity * standard cost) + transfer cost only<br>
+<br>
+<b>Revenue</b> (Sending Organization : Inter org account)<br>
+Quantity * standard cost<br>
+<br>
+<b>In-transit</b> (Receiving Org : Inter org account)<br>
+Quantity * standard cost excluding material overhead<br>
+<br>
+<b>Inter-org Price Variance</b> (Receiving Org : Inter org account)<br>
+Quantity * (transaction cost - standard cost excluding material overhead)<br>
+<br>
+<b>In-transit Bridging</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Payables</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Expense</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+71.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+45.00<br>
+<br>
+<br>
+33.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00</td>
+<td><br>
+<br>
+45.00<br>
+<br>
+<br>
+15.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+7.00<br>
+<br>
+<br>
+11.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+71.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><b>Receive from In-transit</b><br>
+<br>
+<b>Material</b> (Receiving Organization)<br>
+(Broken down into its cost elements)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Bridging</b> (Receiving Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>In-transit</b> (Receiving Organization : Inter org account)<br>
+Quantity * standard cost<br>
+<br>
+<b>In-transit Bridging</b> (Receiving Organization : Inter org account)<br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+45.00<br>
+<br>
+<br>
+<br>
+15.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+15.00<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+45.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Sending Organization : standard cost Receiving Organization : average cost</td>
+<td><b>Ship to In-transit sourced from Inventory</b><br>
+<br>
+<b>Materia</b>l (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Freight</b> (Receiving Organization : Freight account)<br>
+Freight cost<br>
+<br>
+<b>Transfer</b> (Sending Organization : Inter org account)<br>
+Transfer cost<br>
+<br>
+<b>Receivables</b> (Sending Organization : Inter org account)<br>
+(quantity * standard cost) + transfer cost only<br>
+<br>
+<b>Revenue</b> (Sending Organization : Inter org account)<br>
+Quantity * standard cost<br>
+<br>
+<b>In-transit</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>In-transit Bridging</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Payables</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Expense</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+71.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00</td>
+<td><br>
+<br>
+45.00<br>
+<br>
+<br>
+15.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+7.00<br>
+<br>
+<br>
+11.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+71.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><b>Receive from In-transit</b><br>
+<br>
+<b>Material</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Material Overhead</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Bridging</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>In-transit</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>In-transit Bridging</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost</td>
+<td><br>
+<br>
+78.00<br>
+<br>
+<br>
+7.80<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+7.80<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+78.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Sending Organization : average cost Receiving Organization : average cost</td>
+<td><b>Shipment Transaction</b><br>
+<b>1 unit of item 200.6</b><br>
+<br>
+<b>Material</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>Material Overhead</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>Bridging</b> (Sending Organization)<br>
+quantity * current cost<br>
+<br>
+<b>Transfer</b> (Sending Organization : Inter Org Account)<br>
+Transfer cost<br>
+<br>
+<b>Freight</b> (Receiving Organization : freight account)<br>
+Freight cost<br>
+<br>
+<b>Receivables</b> (Sending Organization : Inter Org Account)<br>
+(quantity * current cost) + transfer cost + transportation cost<br>
+<br>
+<b>Revenue</b> (Sending Organization : Inter Org Account)Quantity * current cost<br>
+<br>
+<b>In-transit</b> (Receiving Org : Inter org account)<br>
+Quantity * Transaction cost<br>
+<br>
+<b>In-transit Bridging</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Payables</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Expense</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1245.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00</td>
+<td><br>
+<br>
+<br>
+1000.00<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+145.00<br>
+<br>
+<br>
+320.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00<br>
+<br>
+<br>
+1245.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><b>Receipt Transaction</b><br>
+<br>
+<b>Material</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Material Overhead</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Bridging</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>In-transit</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>In-transit Bridging</b> (Inter org)<br>
+Quantity * transaction cost</td>
+<td><br>
+<br>
+1565.00<br>
+<br>
+<br>
+156.50<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+156.50<br>
+<br>
+<br>
+1565.00<br>
+<br>
+<br>
+1565.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Sending Organization : average cost Receiving Organization : standard cost</td>
+<td><b>Shipment Transaction</b><br>
+<b>1 unit of item 200.6</b><br>
+<br>
+<b>Material</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>Material Overhead</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>Bridging</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>Transfer</b> (Sending Organization : Inter Org Account)<br>
+Transfer cost<br>
+<br>
+<b>Freight</b> (Receiving Organization : freigth account)<br>
+Freight cost<br>
+<br>
+<b>Receivables</b> (Sending Organization : Inter Org Account)<br>
+(quantity * current cost) + transfer cost + transportation cost<br>
+<br>
+<b>Revenue</b> (Sending Organization : Inter Org Account)<br>
+Quantity * current cost<br>
+<br>
+<b>In-transit</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>In-transit Bridging</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Payables</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Expense</b> (Receiving Org : Inter org account)<br>
+Quantity * transaction cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1245.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00</td>
+<td><br>
+<br>
+<br>
+1000.00<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+145.00<br>
+<br>
+<br>
+320.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00<br>
+<br>
+<br>
+1245.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><b>Receipt Transaction</b><br>
+<br>
+<b>Material</b> (Receiving Organization)<br>
+quantity * transaction cost<br>
+<br>
+<b>Material Overhead</b> (Receiving Organization)<br>
+quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b> (Receiving Organization)<br>
+quantity * material overhead cost<br>
+<br>
+<b>Inter-org Price Variance</b> (Receiving Organization)<br>
+quantity * (transaction cost - standard cost excluding material overhead)<br>
+<br>
+<b>Bridging</b> (Receiving Organization)<br>
+quantity * transaction cost<br>
+<br>
+<b>In-transit</b> (Receiving Organization)<br>
+quantity * transaction cost<br>
+<br>
+<b>In-transit Bridging</b> (Inter org)<br>
+quantity * transaction cost</td>
+<td><br>
+<br>
+1200.00<br>
+<br>
+<br>
+120.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+365.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+120.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1565.00<br>
+<br>
+<br>
+1565.00</td>
+</tr>
+<tr valign="top">
+<td>Direct Transfer between two Organizations</td>
+<td>Sending Organization : standard cost Receiving Organization : standard cost</td>
+<td><b>5 units of item @ 12.00</b><br>
+<br>
+<b>Material</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b> (Sending sub-inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Transfer</b> (Sending Organization : Inter org account)<br>
+tTransfer cost<br>
+<br>
+<b>Freight</b> (Sending Organization : freight account)<br>
+Freight cost<br>
+<br>
+<b>Receivables</b> (Sending Organization : Inter org account)<br>
+(quantity * standard cost) + transfer cost + freight cost<br>
+<br>
+<b>Revenue</b> (Sending Organization : Inter org account)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material</b> (Receiving Organization)<br>
+Quantity * standard cost (excluding material overhead)<br>
+<br>
+<b>Material overhead</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+I<b>nter-org Price Variance</b> (Receiving Organization)<br>
+Quantity * (transaction cost - standard cost excluding material overhead)<br>
+<br>
+<b>Bridging</b> (Receiving Organization)<br>
+Quantity * transaction cost (excluding material overhead)<br>
+<br>
+<b>Payables</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Expense</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+45.00<br>
+<br>
+<br>
+15.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+33.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00</td>
+<td><br>
+<br>
+45.00<br>
+<br>
+<br>
+15.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+11.00<br>
+<br>
+<br>
+7.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+15.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+78.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Sending Organization : standard cost Receiving Organization : average cost</td>
+<td><b>5 units of item @ 12.00</b><br>
+<br>
+<b>Material</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b> (Sending sub inventory)<br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b> (Sending Organization)<br>
+Quantity * standard cost<br>
+<br>
+<b>Transfer</b> (Sending Organization : Inter org account)<br>
+transfer cost<br>
+<br>
+<b>Freight</b> (Sending Organization : freight account)<br>
+Freight cost<br>
+<br>
+<b>Receivables</b> (Sending Organization : Inter org account)<br>
+(quantity * standard cost) + transfer cost + freight cost<br>
+<br>
+<b>Revenue</b> (Sending Organization : Inter org account)<br>
+Quantity * standard cost<br>
+<br>
+<b>Material</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Material overhead</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Bridging</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Payables</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Expense</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+7.80<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+78.00</td>
+<td><br>
+<br>
+45.00<br>
+<br>
+<br>
+15.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+11.00<br>
+<br>
+<br>
+7.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+60.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+7.80<br>
+<br>
+<br>
+78.00<br>
+<br>
+<br>
+78.00</td>
+</tr>
+<tr valign="top">
+<td>Direct Transfer between two Organizations</td>
+<td>Sending Organization : average cost Receiving Organization : average cost</td>
+<td><b>1 unit of item 200.6</b><br>
+<br>
+<b>Material</b><br>
+Quantity * current cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * current cost<br>
+<br>
+<b>Transfer</b> (Sending Organization : Inter org account)<br>
+Transfer cost<br>
+<br>
+<b>Freight</b> (Sending Organization : Inter org account)<br>
+Freight cost<br>
+<br>
+<b>Receivables</b> (Sending Organization : Inter org account)<br>
+(quantity * current cost) + transfer cost + transportation cost<br>
+<br>
+<b>Bridging</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>Revenue</b> (Sending Organization : Inter org account)<br>
+Quantity * current cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1280.00<br>
+<br>
+<br>
+<br>
+1100.00</td>
+<td><br>
+<br>
+1000.00<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+80.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><b>Material</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Material overhead</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Overhead Absorption</b> (Receiving Organization)<br>
+Quantity * material overhead cost<br>
+<br>
+<b>Payables</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Bridging</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Expense</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost</td>
+<td>1280.00<br>
+<br>
+<br>
+128.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1280.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+128.00<br>
+<br>
+<br>
+1280.00<br>
+<br>
+<br>
+1280.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Sending Organization : average cost Receiving Organization : standard cost</td>
+<td><b>1 unit of item 200.6</b><br>
+<br>
+<b>Material</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * current cost<br>
+<br>
+<b>Transfer</b> (Sending Organization : Inter org account)<br>
+Transfer cost<br>
+<br>
+<b>Freight</b> (Sending Organization : Inter org account)<br>
+Freight cost<br>
+<br>
+<b>Receivables</b> (Sending Organization : Inter org account)<br>
+(quantity * current cost) + transfer cost + transportation cost<br>
+<br>
+<b>Bridging</b> (Sending Organization)<br>
+Quantity * current cost<br>
+<br>
+<b>Revenue</b> (Sending Organization : Inter org account)<br>
+Quantity * current cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1280.00<br>
+<br>
+<br>
+<br>
+1100.00</td>
+<td><br>
+<br>
+1000.00<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+80.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><b>Material</b> (Receiving Organization)<br>
+Quantity * Standard cost<br>
+<br>
+<b>Material Overhead</b> (Receiving Organization)<br>
+Quantity * material overhead standard cost<br>
+<br>
+<b>Overhead Absorption</b> (Receiving Organization)<br>
+Quantity * material overhead standard cost<br>
+<br>
+<b>Inter-org Price Variance</b> (Receiving Organization)<br>
+quantity * (transaction cost - standard cost excluding material overhead)<br>
+<br>
+<b>Payables</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Bridging</b> (Receiving Organization)<br>
+Quantity * transaction cost<br>
+<br>
+<b>Expense</b> (Receiving Organization : Inter org account)<br>
+Quantity * transaction cost</td>
+<td>1200.00<br>
+<br>
+<br>
+120.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+80.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1280.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+120.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1280.00<br>
+<br>
+<br>
+1280.00</td>
+</tr>
+</table>
+<h3><a id="T521083"></a><b>WIP Transactions<a name="d0e81695" id="d0e81695"></a><a name="d0e81701" id="d0e81701"></a></b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction</b></th>
+<th scope="col"><b>Scenario</b></th>
+<th scope="col"><b>Expected Journal Entry</b></th>
+<th scope="col"><b>DR</b></th>
+<th scope="col"><b>CR</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Component Issue</td>
+<td>&nbsp;</td>
+<td><b>10 units of item 200.1 and 10 units of item 200.2</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Bridging</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+320.00<br>
+<br>
+<br>
+240.00<br>
+<br>
+<br>
+80.00</td>
+<td><br>
+<br>
+240.00<br>
+<br>
+<br>
+80.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+320.00</td>
+</tr>
+<tr valign="top">
+<td>WIP Negative Component Issue</td>
+<td>&nbsp;</td>
+<td><b>2 units of component @ 12.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material Overhead</b><br>
+Quantity * standard cost difference<br>
+<br>
+<b>WIP Bridging</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+18.00<br>
+<br>
+<br>
+6.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+24.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+24.00<br>
+<br>
+<br>
+18.00<br>
+<br>
+<br>
+6.00</td>
+</tr>
+<tr valign="top">
+<td>WIP Component Return</td>
+<td>&nbsp;</td>
+<td><b>1 unit of item @ 12.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Bridging</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+9.00<br>
+<br>
+<br>
+3.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+12.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+12.00<br>
+<br>
+<br>
+9..00<br>
+<br>
+<br>
+3.00</td>
+</tr>
+<tr valign="top">
+<td>WIP Negative Component Return</td>
+<td></td>
+<td><b>2 units of component @ 12.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Bridging</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+24.00<br>
+<br>
+<br>
+18.00<br>
+<br>
+<br>
+6.00</td>
+<td><br>
+<br>
+18.00<br>
+<br>
+<br>
+6.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+24.00</td>
+</tr>
+<tr valign="top">
+<td>WIP Scrap</td>
+<td>&nbsp;</td>
+<td><b>1 units of assembly 300.1</b><br>
+<br>
+<b>WIP Material</b> (scrap job cost)<br>
+<br>
+<b>WIP Material Overhead</b><br>
+quantity * standard cost<br>
+<br>
+<b>WIP Resource</b><br>
+quantity * standard cost<br>
+<br>
+<b>WIP Overhead</b><br>
+quantity * standard cost<br>
+<br>
+<b>User entered</b> (depending on WIP setup options)<br>
+(scrap job cost)</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+144.10</td>
+<td><br>
+<br>
+24.00<br>
+<br>
+8.00<br>
+<br>
+<br>
+71.00<br>
+<br>
+<br>
+11.10</td>
+</tr>
+<tr valign="top">
+<td>WIP Assembly Completion</td>
+<td>Without WIP Outside Processing</td>
+<td><b>9 units of item 300.1</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+quantity * standard cost<br>
+<br>
+<b>WIP Resource</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Resource</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Bridging</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+216.00<br>
+<br>
+<br>
+72.00<br>
+<br>
+<br>
+639.00<br>
+<br>
+<br>
+99.99<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1026.99</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+1026.99<br>
+<br>
+<br>
+216.00<br>
+<br>
+<br>
+72.00<br>
+<br>
+<br>
+639.00<br>
+<br>
+<br>
+99.99</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>With WIP Outside Processing</td>
+<td><b>10 units of item @ 55.00</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+quantity * standard cost<br>
+<br>
+<b>WIP Resource</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Outside Processing</b><br>
+Qantity * standard cost<br>
+<br>
+<b>Bridging</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Resource</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Outside Processing</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Bridging</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+500.00<br>
+<br>
+<br>
+50.00<br>
+<br>
+<br>
+1600.00<br>
+<br>
+<br>
+160.00<br>
+<br>
+<br>
+300.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+2610.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+2610.00<br>
+<br>
+<br>
+500.00<br>
+<br>
+<br>
+50.00<br>
+<br>
+<br>
+1600.00<br>
+<br>
+<br>
+160.00<br>
+<br>
+<br>
+300.00</td>
+</tr>
+<tr valign="top">
+<td>WIP Assembly Return</td>
+<td>&nbsp;</td>
+<td><b>2 units of item 300.1</b><br>
+<br>
+<b>Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Resource</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Bridging</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Material Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Resource</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Overhead</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Bridging</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+228.20<br>
+<br>
+<br>
+18.00<br>
+<br>
+<br>
+16.00<br>
+<br>
+<br>
+142.00<br>
+<br>
+<br>
+22.20</td>
+<td><br>
+<br>
+48.00<br>
+<br>
+<br>
+16.00<br>
+<br>
+<br>
+142.00<br>
+<br>
+<br>
+22.20<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+228.20</td>
+</tr>
+<tr valign="top">
+<td>WIP Move at receipt PO (for outside processing)</td>
+<td>&nbsp;</td>
+<td><b>10 units of item @ 25.00</b><br>
+<br>
+<b>Receipt account</b><br>
+Quantity * PO price<br>
+<br>
+<b>Outside Processing</b><br>
+Quantity * standard cost<br>
+<br>
+<b>Variance S/T (from resource)</b><br>
+Quantity * (standard cost - PO price)<br>
+<br>
+<b>Bridging</b><br>
+Quantity * standard cost<br>
+<br>
+<b>WIP Bridging</b><br>
+Quantity * standard cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+300.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+250.00</td>
+<td><br>
+<br>
+250.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+50.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+250.00</td>
+</tr>
+</table>
+<h3><a id="T521122"></a><b>Intercompany Transactions<a name="d0e83053" id="d0e83053"></a><a name="d0e83059" id="d0e83059"></a><a name="cst_axrulesintercotxns" id="cst_axrulesintercotxns"></a></b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction</b></th>
+<th scope="col"><b>Scenario</b></th>
+<th scope="col"><b>Expected Journal Entry</b></th>
+<th scope="col"><b>DR</b></th>
+<th scope="col"><b>CR</b></th>
+</tr>
+<tr valign="top">
+<td>Intercompany Drop Ship Flow</td>
+<td>Scenario: Internal drop shipment &ndash; Sending Org Standard Costing<br>
+a) Sales Order Pick &ndash; Sending Organization</td>
+<td><b>Sending organization -10 Units @ organization frozen cost</b><br>
+<br>
+<b>Material sending sub-inventory</b><br>
+Quantity * sending organization cost<br>
+<br>
+<b>Bridging sending sub-inventory</b><br>
+Quantity * sending organization cost<br>
+<br>
+<b>Material staging sub-inventory</b><br>
+Quantity * sending organization cost<br>
+<br>
+<b>Bridging staging sub-inventory</b><br>
+Quantity * sending organization cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+10.00<br>
+<br>
+<br>
+10.00</td>
+<td><br>
+<br>
+<br>
+10.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+10.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>b) Logical Intercompany Sales Issue &ndash; Sending organization</td>
+<td><b>Sending Organization</b><br>
+<br>
+<b>Intercompany Cost of Goods Sold</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Inventory Valuation Sending organization</b><br>
+Quantity * Transfer Price</td>
+<td><br>
+<br>
+20.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+20.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>c) Logical Intercompany Shipment Receipt</td>
+<td><b>Selling Organization</b><br>
+<br>
+<b>Inventory Valuation Selling organization</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Bridging Selling Organization</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Expense</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Intercompany AP Accrual</b><br>
+Quantity * Transfer Price</td>
+<td><br>
+<br>
+20.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+20.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+20.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+20.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>d) Logical Sales Order Issue</td>
+<td><b>Selling Organization</b><br>
+<br>
+<b>Deferred Cost of Goods Sold</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Inventory Valuation</b><br>
+Quantity * Transfer Price</td>
+<td><br>
+<br>
+20.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+20.00</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Drop Ship Flow</td>
+<td>Scenario: Internal drop shipment &ndash; Sending Org Average Costing<br>
+<br>
+a) Sales Order Pick &ndash; Sending Organization</td>
+<td><b>Sending organization -10 Units @ organization current cost</b><br>
+<br>
+<b>Material Sending Cost Group</b><br>
+Quantity * sending organization cost<br>
+<br>
+<b>Bridging Sending Cost Group</b><br>
+Quantity * sending organization cost<br>
+<br>
+<b>Material Sending Cost Group</b><br>
+Quantity * sending organization cost<br>
+<br>
+<b>Bridging sending Cost Group</b><br>
+Quantity * sending organization cost</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+11.00<br>
+<br>
+<br>
+11.00</td>
+<td><br>
+<br>
+<br>
+11.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+11.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>b) Logical Intercompany Sales Issue &ndash; Sending organization</td>
+<td><b>Sending Organization</b><br>
+<br>
+<b>Intercompany Cost of Goods Sold</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Inventory Valuation Sending organization</b><br>
+Quantity * Transfer Price</td>
+<td><br>
+<br>
+30.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+30.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>c) Logical Intercompany Shipment Receipt</td>
+<td><b>Selling Organization</b><br>
+<br>
+<b>Inventory Valuation Selling organization</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Bridging Selling Organization</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Expense</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Intercompany AP Accrual</b><br>
+Quantity * Transfer Price</td>
+<td><br>
+<br>
+30.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+30.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+30.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+30.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>d) Logical Sales Order Issue</td>
+<td><b>Selling Organization</b><br>
+<br>
+<b>Deferred Cost of Goods Sold</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Inventory Valuation</b><br>
+Quantity * Transfer Price</td>
+<td><br>
+<br>
+30.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+30.00</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Global Procurement</td>
+<td>Receiving Organizaton &ndash; Standard Costing<br>
+a) Receive</td>
+<td><b>Receiving Organization</b><br>
+<br>
+I<b>nventory Valuation</b><br>
+Quantity * Frozen Cost<br>
+<br>
+<b>Intercompany AP Accrual</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Purchase Price Variance</b><br>
+Quantity * price difference<br>
+<br>
+<b>Bridging</b><br>
+Quantity * Frozen Cost<br>
+<br>
+<b>Expense</b><br>
+Quantity * Frozen Cost</td>
+<td><br>
+<br>
+130.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+130.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+30.00<br>
+<br>
+<br>
+130.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Buying Organization<br>
+b) Logical Receive</td>
+<td><b>Buying Organization</b><br>
+<br>
+<b>Clearing</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Intercompany AP Accrual</b><br>
+Quantity * PO Price</td>
+<td><br>
+<br>
+100.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>c) Logical Delivery</td>
+<td><b>Buying Organization</b><br>
+<br>
+<b>Inventory Valuation</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Clearing</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO Price</td>
+<td><br>
+<br>
+100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+100.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>d) Logical intercompany sales order issue</td>
+<td><b>Buying Organization</b><br>
+<br>
+<b>Inventory Valuation</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Intercompany COGS</b><br>
+Quantity * PO Price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+100.00</td>
+<td><br>
+<br>
+100.00</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Global Procurement</td>
+<td>Receiving Organization &ndash; Standard Costing<br>
+a) Receive</td>
+<td><b>Receiving Organization</b><br>
+<br>
+<b>Inventory Valuation</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Intercompany AP Accrual</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO Price</td>
+<td><br>
+<br>
+100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+130.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+130.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Buying Organization<br>
+b) Logical Receive</td>
+<td><b>Procuring Organization</b><br>
+<br>
+<b>Clearing</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Intercompany AP Accrual</b><br>
+Quantity * PO Price</td>
+<td><br>
+<br>
+100.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>c) Logical Delivery</td>
+<td><b>Procuring Organization</b><br>
+<br>
+<b>Inventory Valuation</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Clearing</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO Price</td>
+<td><br>
+<br>
+100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+100.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>d) Logical intercompany sales order issue</td>
+<td><b>Procuring Organizatio</b><b>n</b><br>
+<br>
+<b>Inventory Valuation</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Intercompany COGS</b><br>
+Quantity * PO Price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+100.00</td>
+<td><br>
+<br>
+100.00</td>
+</tr>
+<tr valign="top">
+<td>Intercompany External Drop Shipment</td>
+<td>a) Logical receipt</td>
+<td><b>Procuring Organization</b><br>
+<br>
+<b>Intercompany AP Accrual</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Clearing</b><br>
+Quantity * PO Price</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+100.00</td>
+<td><br>
+<br>
+100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>b) Logical deliver</td>
+<td><b>Procuring Organization</b><br>
+<br>
+<b>Inventory Valuation</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Clearing</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO Price</td>
+<td><br>
+<br>
+100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+100.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>c) Logical intercompany sales issue</td>
+<td><b>Procuring Organization</b><br>
+<br>
+<b>Intercompany COGS</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Inventory Valuation</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Bridging</b><br>
+Quantity * PO Price<br>
+<br>
+<b>Expense</b><br>
+Quantity * PO Price</td>
+<td><br>
+<br>
+100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+100.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+100.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+100.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>d) Logical intercompany shipment receipt</td>
+<td><b>Selling Organization</b><br>
+<br>
+<b>Inventory Valuation</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Intercompany AP Accrual</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Bridging</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Expense</b><br>
+Quantity * Transfer Price</td>
+<td><br>
+<br>
+130.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+130.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+130.00<br>
+<br>
+<br>
+130.00</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>e) Logical Sales Order Issue</td>
+<td><b>Selling Organization</b><br>
+<br>
+<b>Deferred Cost Of Goods Sold</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Inventory Valuation</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Bridging</b><br>
+Quantity * Transfer Price<br>
+<br>
+<b>Expense</b><br>
+Quantity * Transfer Price</td>
+<td><br>
+<br>
+130.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+130.00</td>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+130.00<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+130.00</td>
+</tr>
+</table>
+<h2><a name="5140311"></a><a id="T521123"></a><b>Supporting References</b></h2>
+<p><a name="d0e84541" id="d0e84541"></a><a name="d0e84547" id="d0e84547"></a><a name="cst_axsupportreferences" id="cst_axsupportreferences"></a>The Inventory rules in the Global Accounting Engine use the feature Control Account Balances to give you a detailed balance per account and period at the organization level by subinventory or cost group. A similar feature exists in the Subledger Accounting Architecture but it is limited to the definition of the accounts as third party control accounts, and this definition is not natural with the accounts used in Inventory (third party control accounts are used in Payables and Receivables). To keep the same functionality, the SLA PI rules uses the Supporting References functionality as follows:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Supporting Reference Header</b></th>
+<th scope="col"><b>Supporting Reference Details</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Value</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Subinventory</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Group</td>
+</tr>
+</table>
+<p>The Supporting Reference Inventory Value will be assigned to all the journal lines that use a subinventory valuation account in the events for Inventory transactions.</p>
+<h2><a name="5140312"></a><a id="T521124"></a><b>Upgrade</b></h2>
+<p><a name="d0e84597" id="d0e84597"></a><a name="cst_axupgrade" id="cst_axupgrade"></a>As part of the upgrade from release 11<i>i</i> to release 12, if you are using the inventory rules in the Global Accounting Engine, then you must migrate the accounting data from AX to SLA. The upgrade program must migrate the following data into SLA:</p>
+<ul>
+<li>
+<p>Events and transaction entities: The existing events in the Global Accounting Engine are migrated into the Subledger Accounting data model based on the following relationship between event types (the SLA event types have been defined by the Costing team as part of the uptake of SLA):</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>AX Event Type</b></th>
+<th scope="col"><b>SLA Event Class</b></th>
+<th scope="col"><b>SLA Event Type</b></th>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_1</td>
+<td>PO Delivery into Inventory</td>
+<td>Return to Receiving Inspection from Inventory</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_10</td>
+<td>Logical Intercompany</td>
+<td>Logical Intercompany Shipment Receipt</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_11</td>
+<td>PO Delivery into Inventory</td>
+<td>Logical PO Delivery Adjustment</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_121</td>
+<td>Intransit Interorg Receipt for FOB Shipment</td>
+<td>Intransit Interorg Receipt for FOB Shipment</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_122</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt, no Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_122FM</td>
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt, no Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_122FMT</td>
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt, Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_122SC</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt, no Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_122TO</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt, no Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_122TOTA</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt, Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_122TOTN</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt, Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_13</td>
+<td>Logical Intercompany</td>
+<td>Logical Intercompany Receipt Return</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_14</td>
+<td>Logical Intercompany</td>
+<td>Logical Intercompany Sales Return</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_17</td>
+<td>Internal Order to Expense</td>
+<td>Internal Order Receipt into Expense, no Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Internal Order to Expense</td>
+<td>Internal Order Receipt into Expense, Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_1M</td>
+<td>Intraorg Transfer</td>
+<td>Cost Group Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Miscellaneous</td>
+<td>Account Alias Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Miscellaneous</td>
+<td>Account Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Miscellaneous</td>
+<td>Miscellaneous Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Miscellaneous</td>
+<td>Move Order Issue</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_1SO</td>
+<td>Sales Order Issue</td>
+<td>RMA Return</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Sales Order Issue</td>
+<td>Sales Order Issue</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_2</td>
+<td>Intraorg Transfer</td>
+<td>Cycle Count Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intraorg Transfer</td>
+<td>Internal Order Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intraorg Transfer</td>
+<td>Move Order Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intraorg Transfer</td>
+<td>Physical Inventory Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intraorg Transfer</td>
+<td>Subinventory Transfer</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_211</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment, no Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_211FM</td>
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment, no Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_211FMT</td>
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment, Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_211SC</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment, no Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_211TO</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment, no Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_211TOTA</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment, Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_211TOTN</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment, Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_212</td>
+<td>Intransit Interorg Shipment for FOB Receipt</td>
+<td>Intransit Interorg Shipment for FOB Receipt</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_24A</td>
+<td>Material Cost Update</td>
+<td>Average Cost Update</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Cost Update</td>
+<td>IPV Transfer to Inventory</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Cost Update</td>
+<td>Layer Cost Update</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_24S</td>
+<td>Material Cost Update</td>
+<td>Standard Cost Update</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_26</td>
+<td>PO Delivery into Inventory</td>
+<td>Logical PO Delivery into Inventory</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_26RMA</td>
+<td>Sales Order Issue</td>
+<td>Logical RMA Receipt</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_27</td>
+<td>PO Delivery into Inventory</td>
+<td>PO Delivery into Inventory</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_27M</td>
+<td>Miscellaneous</td>
+<td>Account Alias Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Miscellaneous</td>
+<td>Account Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Miscellaneous</td>
+<td>Miscellaneous Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Miscellaneous</td>
+<td>Move Order Receipt</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_27SO</td>
+<td>Sales Order Issue</td>
+<td>RMA Receipt</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_28</td>
+<td>Intraorg Transfer</td>
+<td>Internal Order Staging Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intraorg Transfer</td>
+<td>Sales Order Staging Transfer</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_29</td>
+<td>PO Delivery into Inventory</td>
+<td>PO Delivery Adjustment</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Miscellaneous</td>
+<td>Internal Requisition Receipt Adjustment</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Miscellaneous</td>
+<td>Shipment Receipt Adjustment</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_34</td>
+<td>Internal Order to Expense</td>
+<td>Internal Order Issue to Expense, no Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Internal Order to Expense</td>
+<td>Internal Order Issue to Expense, Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_3R</td>
+<td>Direct Interorg Receipt</td>
+<td>Direct Interorg Receipt, No Transfer Price</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Direct Interorg Receipt</td>
+<td>Direct Interorg Receipt, Transfer Price</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_3RSC</td>
+<td>Direct Interorg Receipt</td>
+<td>Direct Interorg Receipt, No Transfer Price</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_3S</td>
+<td>Direct Interorg Shipment</td>
+<td>Direct Interorg Shipment, No Transfer Price</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Direct Interorg Shipment</td>
+<td>Direct Interorg Shipment, No Transfer Price</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_4M</td>
+<td>Miscellaneous</td>
+<td>Cycle Count Adjustment</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_55</td>
+<td>Intraorg Transfer</td>
+<td>Cost Group Transfer</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_6</td>
+<td>Consigned Inventory Ownership Transfer</td>
+<td>Transfer from Regular to Consigned Inventory</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Consigned Inventory Ownership Transfer</td>
+<td>Transfer from Consigned to Regular Inventory</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_7</td>
+<td>Sales Order Issue</td>
+<td>Logical Sales Order Issue</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_7RTV</td>
+<td>PO Delivery into Inventory</td>
+<td>Logical Return to Receiving Inspection from Inventory</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_8M</td>
+<td>Miscellaneous</td>
+<td>Physical Inventory Adjustment</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_9</td>
+<td>Logical Intercompany</td>
+<td>Logical Intercompany Sales Issue</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_1W</td>
+<td>WIP Material</td>
+<td>WIP Component Issue</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_1WT</td>
+<td>WIP Material</td>
+<td>WIP Component Issue</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_27W</td>
+<td>WIP Material</td>
+<td>WIP Component Return</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_27WT</td>
+<td>WIP Material</td>
+<td>WIP Component Return</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_30W</td>
+<td>WIP Material</td>
+<td>WIP Assembly Scrap</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>WIP Material</td>
+<td>WIP Estimated Scrap Reversal</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_31W</td>
+<td>WIP Material</td>
+<td>WIP Assembly Completion</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_32W</td>
+<td>WIP Material</td>
+<td>WIP Assembly Return</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_33W</td>
+<td>WIP Material</td>
+<td>WIP Negative Component Issue</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_33WT</td>
+<td>WIP Material</td>
+<td>WIP Negative Component Issue</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_34W</td>
+<td>WIP Material</td>
+<td>WIP Negative Component Return</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_34WT</td>
+<td>WIP Material</td>
+<td>WIP Negative Component Return</td>
+</tr>
+<tr valign="top">
+<td>INV_EVENT_OPW</td>
+<td>Outside Processing</td>
+<td>Outside Processing</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> In some cases, the AX event type is not enough to identify the SLA event type and some additional check must be done to identify the resulting event type.</p>
+</li>
+<li>
+<p>Journal entries: The journal entries created by the Global Accounting Engine are migrated into the Subledger Accounting data model based on a one-to-one relationship.</p>
+</li>
+<li>
+<p>Balances: The existing balances in the Global Accounting Engine are migrated into the Subledger Accounting data model based on a one-to-one relationship.</p>
+</li>
+</ul>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

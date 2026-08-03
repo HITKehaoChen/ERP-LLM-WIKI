@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management User's Guide">
+<meta name="dcterms.identifier" content="E48843-30">
+<meta name="dcterms.isVersionOf" content="ONTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T335476T429679.htm" title="Previous" type="text/html">
+<link rel="Next" href="T335476T480619.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">12/28</span> <!-- End Header -->
+<h1>Tracking Changes Through Order Actions</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T335530">Versioning Overview</a></li>
+<li><a href="#T335531">Versioning Major Features</a></li>
+<li><a href="#T335532">User Procedures</a></li>
+<li><a href="#T335483">Versioning Reasons and Comments</a></li>
+<li><a href="#T337636">Order Audit Trail</a></li>
+</ul>
+<h2><a name="2453818"></a><a id="T335530"></a><b>Versioning Overview</b></h2>
+<p><a name="t_ver_ov" id="t_ver_ov"></a><a name="d0e43349" id="d0e43349"></a>Versioning is a method to capture changes and updates made to any transaction, that includes sales orders, quotes, and Sales Agreements. Creating and managing versions can be of great assistance during the negotiation phase of any transaction and helpful when maintaining history throughout the life of a sales order, quotes, and Sales Agreement. The history of changes that are made to a transaction are captured and stored, available to be viewed and compared later. Depending on the set up in the Processing Constraint Framework, changes can automatically trigger versioning or you can choose to manually version the transaction.</p>
+<p>In quotes and Sales Agreements, versioning helps to manage extended negotiations between the customer service representative (CSR) or sales representative and the customer.</p>
+<p>Both the quote and Sales Agreement have a formal negotiation phase where versioning can be used. You can create new versions to thereby capture changes made to the transaction and have the ability to compare versions to contrast the changes between versions.</p>
+<p>You can view <a name="d0e43360" id="d0e43360"></a>previous versions and create new versions automatically for all three transactions: sales order, quote, and Sales Agreement. You can view a previous version irrespective of whether it was created manually or automatically.</p>
+<p>Example: The customer calls in for a quote on insurance, selects coverage, and the Quote, 49876: version 1, is prepared by the CSR. The customer decides to amend the coverage, the CSR inputs the change Order 49876: version 1 saves the change and a new version of the Quote, 49876: version 2 is automatically generated. (Version 1 is stored in history and can be compared against version 2 using Version History window). The Quote, 49876: version 2 is sent for the customer's approval. The customer calls back and approves to confirm the Quote, 49876: version 2. (The item field had been set up to automatically trigger versioning, when any item is amended).</p>
+<h2><a name="2453819"></a><a id="T335531"></a><b>Versioning Major Features</b></h2>
+<p><a name="t_ver_mf" id="t_ver_mf"></a>You can automatically generate or record a version manually, that can be amended if the amendment does not violate a processing constraint or the responsibility is authorized to make the change. Sales Agreements and sales orders currently support manual revisions and now incorporate automatic versioning functionality and the ability to view version history.</p>
+<p><b>Version Generation</b></p>
+<p><a name="d0e43377" id="d0e43377"></a>Versioning will default a whole number, the initial version will always be 0. The version field is a hidden attribute that can be displayed via folders and positioned to the right of the document number next to the sales order number, quote number, or the Sales Agreement (Sales Agreement). You can however, enter any number manually to create a new version, but this number must be greater than the current one. Automatic versioning can be set up via processing constraints to support automatic generation.</p>
+<p><strong><span>Note:</span></strong> Existing upgraded orders will have the version number of 1, while new orders will begin with 0.</p>
+<p>You can update a version manually at any time unless a processing constraint has been defined to disallow the action. You can disable versioning completely, or just manual versioning. You can restrict automatic versioning to increment when a specific attribute is changed, for example: a client may wish to increment a version when a change is made to:</p>
+<ul>
+<li>
+<p>Price List</p>
+<a name="d0e43391" id="d0e43391"></a></li>
+<li>
+<p>Payment terms</p>
+</li>
+<li>
+<p>Quantity</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> If processing constraints have been defined you cannot disable versioning. There is no single control feature to disable this feature</p>
+<p>When a version is updated you may amend the quote or Sales Agreement name but the original name will be retained on the former version.</p>
+<p><b>Version History</b></p>
+<p>Quotes and Sales Agreements (Sales Agreement) have a negotiation phase, a phase that can prove to be volatile as with more complex products, and can be continuously re-engineered before the document is approved.</p>
+<p>An historical view of the life of the quote or Sales Agreement is available and can be printed. Previous versions of the transaction are retained in history and it can be viewed whereas the current version of the sales order, quote, or Sales Agreement are available to amend as required.</p>
+<p>Only the active version can be amended/maintained. Previous versions are for reference or templates for creating new sales orders, quotes, or Sales Agreement via copy.</p>
+<p><a name="d0e43414" id="d0e43414"></a><b>Searching</b></p>
+<p>Find window has the version number field as one of the search fields. If the version number is not entered then only the active versions of the quote or sales order will be queried/displayed in the Order Organizer. Through the Order Organizer and Sales Orders window a drill-down capability is provided to review the prior versions.</p>
+<p>When a prior version number is specified along with some other search criteria and a find operation is performed, the Version History window displays instead of the Order Organizer. Version History window lists all the orders/quotes that match the search criteria in a tree region and the specific version that was queried is available as the child node for each of the quotes. By selecting each of the tree nodes, you can traverse across orders to look at the specific version. Sales Agreement provides a similar view from the sales agreement Organizer.</p>
+<p><a name="d0e43424" id="d0e43424"></a><b>Search and Compare</b></p>
+<p>When you initiate a find and select the version history action the Version History window opens.</p>
+<p>Prior versions are displayed on the tree and you can view any version with a click of the mouse. The display tree contains a fulfilment node listing versions of the order and a negotiation node if a quote and multiple versions exist.</p>
+<p><b>Version History Window</b></p>
+<p><img width="554" height="355" src="./img/ont_ver2.gif" alt="the picture is described in the document text"></p>
+<p><a name="OEXOEVCP_VIEW_COMPARISION_WINDOW" id="OEXOEVCP_VIEW_COMPARISION_WINDOW"></a>From the Version History window you can select a version and compare it against previous or latter versions, by using Actions &gt; Compare. The Compare screen is split into header and line regions. If you enter this screen while on the details of version 2 this column becomes fixed and you can use the directional arrows to look at previous or later changes.</p>
+<p><b>Version Comparisons Window</b></p>
+<p><img width="354" height="348" src="./img/ont_ver3.gif" alt="the picture is described in the document text"></p>
+<p><b>Line Splits</b></p>
+<p>You can define a constraint to generate a version on a line split, but manually split lines may result in multiple lines with a single version. If a line is split and another attribute that is under a constraint control is amended, the version will be incremented by two.</p>
+<p>Automatic line splits will not generate a version irrespective of any constraint as system splits do not validate against processing constraints.</p>
+<p><a name="d0e43458" id="d0e43458"></a><b>Sales Order Versioning</b></p>
+<p>When the quote transitions to a sales order, the latest version of the quote is carried over.</p>
+<p><strong><span>Note:</span></strong> To automatically version during the transition to fulfilment a constraint must be defined to generate version on update at transaction phase attribute.</p>
+<p>All edit rules for the quote will apply to the sales order except for going back to the Draft status to amend the order. Constraints will control where and when the amendments may be made.</p>
+<p>Once the customer accepts the quote, workflow will convert the quote into an order. This will trigger the change of the transaction phase from negotiation to fulfillment.</p>
+<p><a name="d0e43473" id="d0e43473"></a><b>Capturing Reason and Comments for Versioning</b></p>
+<p>You can capture the Reason for changes made to a transaction, determined by setup in the Processing Constraint Framework, and these are available on all Entities supported for versioning.</p>
+<p>Versioning can also automatically increment because of system changes. A typical example is when changes to a non-versioning attribute triggers clearing and re-defaulting of the attribute that is set to increment the version. In such cases if reason is required it will be enforced.</p>
+<p>You can enter/update a Reason and Comments for any change.</p>
+<p><strong><span>Note:</span></strong> There will be a seeded constraint requiring a reason for manual versioning. Comments are always available as an optional field.</p>
+<p><b>Changes specific to Quick Sales Orders window for Manual and Automatic Versioning</b></p>
+<p>An action <a name="d0e43493" id="d0e43493"></a>Create Version exists. This can be accessed from the Actions button, right mouse menu, and also can be displayed as a button using the configure button feature. The button when clicked opens a window where the reason and comments can be entered for automatic versioning. The version number will default to the next higher version. For manual versioning, version number can be entered even in this window in addition to the order header region. The reason and comments field are available on the order header also. They are hidden by default on the order header.</p>
+<p>The Create Version button is available from the Sales Credits & Price Adjustments window. The reason, comments & version number information for manual versioning can be entered in the window without navigating back to the order header. If the version number is entered in the Version Control window, the version number on the order header will also reflect the change.</p>
+<p><a name="d0e43500" id="d0e43500"></a>For automatic versioning, if an attribute is changed, a pop up window indicating the incremented version number and asking for reason (if it requires a reason) opens up when the user saves the transaction or navigates to the other block (header to line or vice versa) or clicks the Actions button and invokes the Version history window. If multiple attributes are changed which cause version increments, you have the option of capturing these in a single version or capturing the individual changes as separate versions. If you wish to capture all the changes in a single version, entering a reason once when the version and reason window first pops up, is sufficient for the transaction. The version window will not appear for subsequent attribute changes. If you wish to have separate versions for each attribute change, then you should save the transaction every time after you have changed an attribute and provided the reason (if it is required as per the processing constraints framework) in the version window. A version can be generated manually by selecting the Create Version action. You enter a version and reason code. If you override the version in the header block, then when you navigate from that block, the same window will open allowing you to select a reason.</p>
+<p><a name="OEXOEREA_REASONS" id="OEXOEREA_REASONS"></a>Manual versioning always requires reason. If a version number is entered and saved without the reason, the Version Control windows will appear automatically. The Version Number field will be populated with the value that was entered on the order header. All these changes are applicable for the current Sales Orders window.</p>
+<p><b>Quick Sales Orders Window - Enter Reason For Window</b></p>
+<p><img width="1016" height="630" src="./img/ont_ver_1.gif" alt="the picture is described in the document text"></p>
+<p><b>Viewing a Quote from Sales Orders</b></p>
+<p>Once a quote is transitioned to a sales order, the quote is backed up to history and is no longer available to be viewed directly in the Sales Order Pad. Click Actions button from the sales order and select the Version History option. The View History option opens the Version History window, with the last version of the quote being selected and displayed in the Version History window.</p>
+<p><strong><span>Note:</span></strong> A quote and sales order may have the same version if the version is not updated when a quote converts to a sales order depending on the processing constraints set up for the transition from quote to sales order.</p>
+<p>If the same version exists for a quote and sales order, then there will be subnodes called Quotes and the other Sales Orders where the respective version of the quote and sales order are displayed.</p>
+<p><b>Versioning History in Quick Order Entry and Sales Agreements Window</b></p>
+<p>A historical view of the previous versions of the Sales Order or Quote can be viewed through the Version History window that will be available from the Sales Order window, Order Organizer when multiple versions exist for the transaction. For Sales Agreements, this Version History window is accessed from the sales agreements & sales agreement Summary window. Only the current version is the active version. All other prior versions are available as read only. Only the active version can be viewed in the Sales Order window or Sales Agreement window (transaction windows). The version number field is disabled in the Transaction window when you switch to the query mode as the query of only the highest version of the transaction is supported from the Transaction window. For viewing prior versions a drill-down capability will be provided and all the prior versions will be displayed in a separate window.</p>
+<p>The Version History window displays the headers, lines, price adjustments, and sales credits information. All the information displayed in this window is read-only and cannot be changed.</p>
+<p>The window is also accessible from the Quick Sales Order window and Quick Order Organizer through a separate button, right mouse menu and also through the Actions menu from the header, lines, price adjustments, and sales credits regions. The Version History window uses the tree structure to list all the different versions related to the transaction. The tree structure is displayed on the left side of the window. To the right side of the tree the header and lines information corresponding to the transaction highlighted/selected in the tree region is displayed. Using the Expand/Collapse mode, we can review addition information for the quote/order in the line details region. The additional line details that can be viewed in this mode are price adjustments for orders/quotes.</p>
+<p>The tree region in the version history window when accessed from the Quick Sales Order window, lists all the versions corresponding to the current order/quote displayed in the Quick Sales Orders window. By selecting/clicking on the nodes corresponding to each version, we can look at the specific version of the quote/order.</p>
+<p>The tree region in the Version History window when accessed from the Quick Order Organizer lists all the versions corresponding to the orders/quotes that match the search criteria entered in the Find window. The order/quote nodes are displayed as collapsed. By expanding the orders/quote number nodes, the versions corresponding to that particular order/quote can be viewed. By selecting/clicking on the nodes corresponding to each version, you can look at the specific version of the quote/order.</p>
+<p><b>View Version History Window - Sales Agreements</b></p>
+<p><img width="694" height="428" src="./img/ont_vbsa1.gif" alt="the picture is described in the document text"></p>
+<p><b>Actions/Operations Allowed On Prior Versions</b></p>
+<p>Version history window will provide access to the Copy feature. Using Copy functionality, a prior version can be copied into a new sales order or quote.</p>
+<p>For Sales Agreements, a prior version could copy the sales agreement header, sales agreement lines and terms and conditions into a new Sales Agreement.</p>
+<p><a name="d0e43553" id="d0e43553"></a><b>Mass Change</b></p>
+<p>Version Reasons and comments have been added to the Mass Change window to provide the option to enter the reason and if mass change will trigger a new version creation for the transaction.</p>
+<p><b>Changes to Processing Constraints Setup Window</b></p>
+<p>Automatic versioning is available through the Processing Constraints Framework. To keep the setup simple and separate, you can specify business rules for automatic versioning separately. You can specify it in the User Action field. You can select Generate Version or Requires Reason and Generate Version.</p>
+<p>A new field Applies To is on the window.</p>
+<p>For Sales Transactions you can set it to:</p>
+<ul>
+<li>
+<p>Negotiation Phase for business rules that apply to Quote Phase</p>
+</li>
+<li>
+<p>Fulfillment Phase for business rules that apply to Sales Transactions</p>
+</li>
+</ul>
+<p>For Sales Agreement you can set it to:</p>
+<ul>
+<li>
+<p>Negotiation Phase for business rules that apply to Negotiation phase</p>
+</li>
+<li>
+<p>Fulfillment Phase for business rules that apply to Fulfillment Phase</p>
+</li>
+</ul>
+<h2><a name="2453824"></a><a id="T335532"></a><b>User Procedures</b></h2>
+<a name="t_ver_up" id="t_ver_up"></a>
+<h3><b>To perform manual versioning:</b></h3>
+<ol>
+<li>
+<p>Create and save original transaction (Sales Order, Quote, Sales Agreement).</p>
+</li>
+<li>
+<p>Make changes to the transaction. (Steps 2 and 3 are interchangeable).</p>
+</li>
+<li>
+<p><a name="OEXOEREA_VIEW_REASONS" id="OEXOEREA_VIEW_REASONS"></a>Manually select the create version action and enter a new version number, Reason, (mandatory) and Comment (The default version number is 0; the user can override this with l). Alternatively override the version number and at save, the reason window will open to allow entry.</p>
+</li>
+<li>
+<p>Save the transaction. The user transaction is the active version. The original transaction is backed up as history.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> The Cancel operation always requires a reason to be specified. For cancellations, the reason is captured either through the Reason & Comments fields on the line or through the Cancellation window. Only if there is a versioning constraint set up on the cancel operation that requires a reason, then the reason is captured through the Versioning window or the reason is captured either on the line itself or through the Cancellation window.</p>
+<h3><b>To set up automatic version generation:</b></h3>
+<p>Note: There is a seeded processing constraint which will not allow changes while in the Pending Internal Approval status. Additional Processing Constraints can be created for any additional status where your business process would not allow changes. An example of this is the Customer Accepted status.</p>
+<p>You can use the Security Framework to specify the business rules that will automatically increment the versions on a transaction. The following entities are available for setting up automatic versioning in sales orders and quotes:</p>
+<ul>
+<li>
+<p>Order Header</p>
+</li>
+<li>
+<p>Order Line</p>
+</li>
+<li>
+<p>Order Sales Credits</p>
+</li>
+<li>
+<p>Line Sales Credits</p>
+</li>
+<li>
+<p>Order Price Adjustment</p>
+</li>
+<li>
+<p>Line Price Adjustment</p>
+</li>
+</ul>
+<p>The following entities are available for setting up automatic versioning in Sales Agreements:</p>
+<ul>
+<li>
+<p>Sales Agreement Header</p>
+</li>
+<li>
+<p>Sales Agreement Line</p>
+</li>
+</ul>
+<p>New Validation Templates (seeded) for quote processing:</p>
+<ul>
+<li>
+<p>Quote is in draft status</p>
+</li>
+<li>
+<p>Quote pending approval</p>
+</li>
+<li>
+<p>Quote pending customer acceptance</p>
+</li>
+<li>
+<p>Quote Accepted by customer</p>
+</li>
+</ul>
+<p>See the <i>Oracle Order Management Implementation Guide</i> for Versioning setup information.</p>
+<h3><b>To auto generate the version:</b></h3>
+<ol>
+<li>
+<p>Set up the processing constraint for a Payment Term change to auto generate next version.</p>
+</li>
+<li>
+<p>Create and save an original transaction (Sales Order, Quote, or Sales Agreement) (version 0).</p>
+</li>
+<li>
+<p>Make changes to the payment term, and save the transaction. (You can also invoke the auto generate new version by traversing to the Lines block, or clicking on Actions button and invoking the Version history window).</p>
+</li>
+<li>
+<p>The version increments to 1. Version 1 is the active version. The original transaction version 0, is backed up to history.</p>
+</li>
+</ol>
+<h3><b>To auto generate with manual version override:</b></h3>
+<ol>
+<li>
+<p>Set up the processing constraint for a PAYMENT TERM change to auto generate the next version.</p>
+</li>
+<li>
+<p>Create and save an original transaction (Sales Order, Quote, or Sales Agreement version 0).</p>
+</li>
+<li>
+<p>Make changes to the payment term.</p>
+</li>
+<li>
+<p>Since this attribute change has been governed by the processing constraints framework for automatic versioning, the version and reason window (with version number as 1) pops up.</p>
+</li>
+<li>
+<p>Enter &lsquo;4&rsquo; for the version in the version number field by overriding 1. Save the transaction.</p>
+</li>
+<li>
+<p>Version 4 is the active version. The original transaction, version 0, is backed up to history. Version 1, 2, or 3 cannot be used for this transaction.</p>
+</li>
+</ol>
+<h3><b>To auto generate with multiple constraints:</b></h3>
+<ol>
+<li>
+<p>Set up the processing constraint for PAYMENT TERM, SHIP TO, and ITEM changes to auto generate the next version.</p>
+</li>
+<li>
+<p>Create and save an original transaction (Sales Order, Quote, or Sales Agreement) (version 0).</p>
+</li>
+<li>
+<p>Make changes to the payment term, ship to, and item.</p>
+</li>
+<li>
+<p>Make updates to item quantity and UOM, and save the transaction. The save transaction will open the version and reason window (if reason applicable) and will create a single version.</p>
+</li>
+<li>
+<p>Version and reason window also gets invoked by traversing to the other block (header) or by clicking on actions button and invoking the action history. In this case too, save the transaction.</p>
+</li>
+<li>
+<p>Version 1 is the active version. The original transaction, version 0, is backed up to history. All five changes will be reflected if you compare version 0 to version 1. It does not version based on the number of changes, simply all changes made between the previous and current saves of the transaction.</p>
+</li>
+</ol>
+<h3><b>Multiple version for multiple saves:</b></h3>
+<ol>
+<li>
+<p>Set up a processing constraint for PAYMENT TERM and SHIP TO changes, to auto generate the next version.</p>
+</li>
+<li>
+<p>Create and save an original transaction (Sales Order, Quote, or Sales Agreement) (version 0).</p>
+</li>
+<li>
+<p>Makes changes to the payment term and save.</p>
+</li>
+<li>
+<p>Automatically generate revision 1 and back up revision 0.</p>
+</li>
+<li>
+<p>Make changes to Ship To and save.</p>
+</li>
+<li>
+<p>Automatically generate revision 2 and back up revision 1.</p>
+</li>
+<li>
+<p>Makes updates to the item quantity and save.</p>
+</li>
+<li>
+<p>The transaction version will not auto generate for item quantity. Revision 2 is still the active version, as item quantity did not trigger auto generation of a new version. To reflect this change, input a value (i.e. &lsquo;3') before saving the transaction.</p>
+</li>
+</ol>
+<h3><b>Deciding Priorities for Audit Trail Vs. Versioning in the Processing Constraints Framework</b></h3>
+<p>The order in which constraints will be evaluated would be the following and only one constraint may take effect for a change</p>
+<p>User Action:</p>
+<ol>
+<li>
+<p>Not Allowed</p>
+</li>
+<li>
+<p>Generate Version, require reason and Raise integration event (VERSION ACTIVATION)</p>
+</li>
+<li>
+<p>Generate Version and require reason (VERSION ACTIVATION)</p>
+</li>
+<li>
+<p>Generate Version (VERSION ACTIVATION)</p>
+</li>
+<li>
+<p>Require reason, history and raise integration event (Audit Trail)</p>
+</li>
+<li>
+<p>Require reason and history (Audit Trail)</p>
+</li>
+<li>
+<p>Require history (only for fulfillment phase) (Audit Trail)</p>
+</li>
+<li>
+<p>Raise Integration event (Electronic Messaging)</p>
+</li>
+</ol>
+<p>For example: If multiple constraints are setup for Price List and operation = <b>UPDATE</b> so conditions for both versioning and audit constraint apply, only versioning will be captured.</p>
+<p>Seeded Reason Codes: (Extensible).</p>
+<ul>
+<li>
+<p>Re-negotiation</p>
+</li>
+<li>
+<p>Internal request</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> For more information relating to integration events, see the Oracle Integration Repository (iRepository).</p>
+<h3><b>Versioning in Sales Agreement (SA) post-acceptance:</b></h3>
+<ol>
+<li>
+<p>Set up a constraint to define on who has the ability to make changes/updates and version the Sales Agreement in Approved and/or Active status.</p>
+<p><strong><span>Note:</span></strong> It is possible to set up constraints for changes in any status.</p>
+</li>
+<li>
+<p>The system automatically creates a version.</p>
+</li>
+<li>
+<p>Put the document on hold (Manual)*.</p>
+</li>
+<li>
+<p>Make changes to the Sales Agreement and save.</p>
+</li>
+<li>
+<p>Obtain the updated approval (Manual) and print the document.</p>
+</li>
+<li>
+<p>Update the signature date (Manual and overrides the previous date) and remove the hold (Manual).</p>
+</li>
+<li>
+<p>Now you can place Releases against the new version of the Sales Agreement.</p>
+<p>*If you do not put the Active Sales Agreement on Hold, it can result in data corruption with corresponding releases.</p>
+</li>
+</ol>
+<p><b>Versioning Setup Expected Behavior</b></p>
+<p>Following tables describes the expected behavior for different setup combinations.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Expected Behavior</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Operation</b></th>
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>User Action</b></th>
+<th scope="col"><b>System Changes</b></th>
+<th scope="col"><b>User Changes</b></th>
+<th scope="col"><b>Expected Behavior</b></th>
+</tr>
+<tr valign="top">
+<td>Create</td>
+<td>Null</td>
+<td>Generate Version</td>
+<td>No Effect</td>
+<td>No Effect</td>
+<td>Will not generate the version if the Create is happening as a part of the of the Order/Quote/Sales Agreement header creation. Will not generate the version for the order header and Sales Agreement header.</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Null</td>
+<td>Generate Version</td>
+<td>No Effect</td>
+<td>No Effect</td>
+<td>Will increment the version for any UPDATE operation after the record has been created in database.</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Value</td>
+<td>Generate Version</td>
+<td>Null (will be same as Never After Insert)</td>
+<td>Null (will be same as Never After Insert)</td>
+<td>Will not increment the version if: The attribute is changed by Defaulting on a record that is not yet created. The attribute is changed by user on a to be created record. Will increment the version if: The attribute is changed by user on an existing record. The attribute is changed by defaulting on an existing record.</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Value</td>
+<td>Generate Version</td>
+<td>Always</td>
+<td>Null</td>
+<td>Will not increment the version if: The attribute is changed by Defaulting on an existing record or a record which is not yet created. The attribute is changed by the user on a record which is not yet created. Will increment the version if: The user is changing the attribute on an existing record.</td>
+</tr>
+<tr valign="top">
+<td>Update</td>
+<td>Value</td>
+<td>Generate Version</td>
+<td>Always</td>
+<td>Never</td>
+<td>Will not increment the version if: The attribute is changed by Defaulting on an existing record or a record which is not yet created. Will increment the version if: The attribute is changed by the user on an existing record.</td>
+</tr>
+</table>
+<a name="d0e43993" id="d0e43993"></a>
+<h2><a name="2453834"></a><a id="T335483"></a><b>Versioning Reasons and Comments</b></h2>
+<p><a name="d0e44000" id="d0e44000"></a><a name="t_ver_re" id="t_ver_re"></a><a name="OEXOEORD_AUDIT_REASON" id="OEXOEORD_AUDIT_REASON"></a><b>Capturing Reasons and Comments</b></p>
+<p>The following Actions (Reason Types) are supported:</p>
+<ol>
+<li>
+<p>Version Change Reason & Comment</p>
+</li>
+<li>
+<p>Audit Reason & Comment</p>
+<a name="t_ver_ms" id="t_ver_ms"></a></li>
+</ol>
+<p><b>Messages</b></p>
+<p>Message Text: <b>Version Number can not be less than &amp;current_value.</b></p>
+<h2><a name="2476312"></a><a id="T337636"></a><b>Order Audit Trail</b></h2>
+<a name="d0e44030" id="d0e44030"></a><a name="d0e44035" id="d0e44035"></a><a name="d0e44038" id="d0e44038"></a><a name="d0e44041" id="d0e44041"></a><a name="OEXAUDHF_HISTORY_WINDOW" id="OEXAUDHF_HISTORY_WINDOW"></a><a name="audit" id="audit"></a><a name="c_audtr" id="c_audtr"></a>
+<h3><b>Overview</b></h3>
+<p><a name="d0e44051" id="d0e44051"></a>Oracle Order Management now enables you to record, or track updates to specified order attributes as they occur. By utilizing the existing framework and functionality of Processing Constraints, Lookups, a system parameter, and the Audit Trail Consolidator concurrent program, Order Management enables you to view and generate reports to display comprehensive audit trail updates recorded for orders.</p>
+<p>Current Processing Constraints functionality enables you to specify exactly what business functions, by entity you wish to control when performing order modifications. You can now choose to define new processing constraints that specify when, and for what attributes of an order, audit trail updates are recorded. You must first enable the Order Management system parameter Audit Trail. See: Enabling Order Management System Parameters.</p>
+<p>You can capture updates to a given constrained order attribute based on the following entities:</p>
+<ul>
+<li>
+<p>Attribute Values</p>
+</li>
+<li>
+<p>Workflow activities</p>
+</li>
+<li>
+<p>The Oracle Responsibility initiating the update.</p>
+</li>
+</ul>
+<p>For example, you can choose to record audit trail details for:</p>
+<p>A particular field (attribute) within the sales order header or line windows that can be updated.</p>
+<p>For example, you may want to track updates made to all orders of type of Standard, but not for orders of type of Mixed.</p>
+<p>A workflow activity for which the order or both the order and line have reached. For example, you may want to track updates to orders only after the order has been shipped but not before.</p>
+<p>The responsibility that is initiating the update. For example, you may want to track updates made to orders by a particular sales representative or group of sales representatives.</p>
+<p>With this release of the Order Audit Trail functionality, Revision Control of orders is not supported. You are also limited to capturing only Processing Constraint definitions that include the operation of Update, and for attributes or entities stored in constrained columns within the database.</p>
+<p>If an attribute of an order is updated utilizing Order Management Mass Change functionality, you must provide a Reason Code if required. View and correct any errors that occur during processing within the Processing Messages window or within the Corrections window if processing mass changes utilizing Order Import.</p>
+<p><strong><span>Note:</span></strong> If you are processing order updates through the Process Order API and a reason code is required when updating constrained order attributes and no reason code value is provided, you can view the associated error message in the process order api log files, the Import Orders Correction window or the Process Message window.</p>
+<p>For schedule groups such as a configuration or Ship Set, if a change is made to an attribute which cascades changes to another attribute, then for the second attribute reason code, Order Management will populate the reason field with the seeded value SYSTEM.</p>
+<p>Quickcodes and Audit History</p>
+<p>Use the Order Management quickcode types CANCEL_CODE and CHANGE_CODE to define new reasons for recording audit history.</p>
+<p><strong><span>Note:</span></strong> The quickcode CHANGE_CODE is used for defining new audit history reasons for the entity PRICE_ADJUSTEMNTS only.</p>
+<p><b>Processing Constraints and Audit Trail</b></p>
+<p><a name="d0e44101" id="d0e44101"></a><a name="d0e44106" id="d0e44106"></a>Utilizing the existing Order Management Processing Constraints framework, you can choose to define additional constraints with a User Action of Requires Reason and History or define new constraints with a User Action of Requires History to record audit trail order updates as the updates occur.</p>
+<p>Audit Trail updates now are recorded for new or current Processing Constraint definitions that contain the following partial constraint definition:</p>
+<ul>
+<li>
+<p>For an given specific entity/attribute and operation = Update and</p>
+</li>
+<li>
+<p>User action set to either Requires Reason and History or Requires History</p>
+</li>
+</ul>
+<p>Based upon your Processing Constraint definition, if a Reason Code is required for order update and has not been provided prior to saving an order, the Reason Capture window appears as a popup to enable entry of the Reason code and any optional comments.</p>
+<p><strong><span>Note:</span></strong> The Reason Capture window is also accessible from the Tools Menu within the Sales Order window to enable data entry of the Reason Code (reason field is also available within the Sales Order Lines window, Main Tab). You can use this method to record optional reason codes for changes that Require History and for reason code changes where recording a reason code is mandatory (Requires Reason and History).</p>
+<p><strong><span>Note:</span></strong> If you are making changes to several fields at the same time and one of them has a Requires Reason constraint set up, then that reason will be displayed in the Audit History window for the fields that were updated along with the one that had a Required Reason constraint. The other fields may not have the Requires Reason set up, since they were updated along with the field which had the reason constraint set up, they also display the Reason in the Audit History window.</p>
+<p>If you have set System Changes to Always in the Processing Constraints form, then the values set up in the defaulting rules will be used and will also be shown in the Audit History window, provided a Requires Reason and History is set for that attribute. Normally, when an attribute is updated, the original and new values are reflected in the Audit History window. However, if the attribute is updated again to its original value, Audit History does not store the original value and takes its value from the defaulting rules provided System Changes is set to Always.</p>
+<p>Once you have made the selection and selected OK, save your work.</p>
+<p>Find Audit Trail Window functional processing<a name="d0e44136" id="d0e44136"></a></p>
+<p><strong><span>Note:</span></strong> You must successfully submit the Audit History Consolidator program at least once in order to view Audit Trail details within the Audit History window.</p>
+<ul>
+<li>
+<p>If you provide a value for the Entity Name field within the Audit History Find window, then you are required to enter a value for the field Attribute.</p>
+</li>
+<li>
+<p>If you provide both Order Number and Entity, then Order Management will display only audit trail for the specified order/entity combination selected.</p>
+<p>For example, if you specify Order Number 12357 and Entity Order Sales Credit, then only the audit trail of Order level Sales Credits for order 12357 will be displayed.</p>
+</li>
+</ul>
+<h3><b>Processing Constraints and Audit Trail</b></h3>
+<p><a name="OEXAUDHF_QUERY_FIND" id="OEXAUDHF_QUERY_FIND"></a> To view Audit Trail Information<a name="d0e44159" id="d0e44159"></a></p>
+<ol>
+<li>
+<p>From an Order Management Responsibility, navigate to the Audit History window.</p>
+<p><b>Find Audit History Window</b></p>
+<p><img width="558" height="301" src="./img/ont_moac_audit_history_find.gif" alt="the picture is described in the document text"></p>
+<p>Determine your search criteria to display order audit trail information. If you leave any of the Find criteria blank, Order Management includes all orders that meet your other Find criteria.</p>
+<p>Select the Order Number to display audit trail information for a specific order or range of order numbers These fields are optional.</p>
+<p>The Operating Unit field allows you to search for Audit History in a particular Operating Unit or across all Operating Units accessible to you. When there is no default or user specified value in the Operating Unit field, the Order Type LOV will show data from all Operating Units that you have access to. If you select an Order Type, the Operating Unit field will be automatically defaulted based on the selected Order Type.</p>
+</li>
+<li>
+<p>Enter a History Start and End to display order audit trail information. Order Management will display only orders changes that occurred during the date range entered. These fields are optional.</p>
+</li>
+<li>
+<p>Select the Entity for which you wish to display order audit trail information. Select from:</p>
+<ul>
+<li>
+<p>Operating Unit</p>
+</li>
+<li>
+<p>Order Header</p>
+</li>
+<li>
+<p>Order Lines</p>
+</li>
+<li>
+<p>Order Sales Credits</p>
+</li>
+<li>
+<p>Order Price Adjustments</p>
+</li>
+<li>
+<p>Line Sales Credits</p>
+</li>
+<li>
+<p>Line Price Adjustments</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Select the Attribute you wish to display order audit trail information. The LOV for this field will display only valid attributes related to the value selected within the Entity field.</p>
+<p><strong><span>Note:</span></strong> You must select a value in the Entity field prior to selecting a value in the Attribute field.</p>
+</li>
+<li>
+<p>Select a User or a Responsibility to limit display to changes made by a specific user or by a responsibility. The LOVs will show only users and responsibilities that exist in the Audit History Consolidated table.</p>
+</li>
+<li>
+<p>Select an Order Type to limit display to changes to orders of a specific order type.</p>
+</li>
+<li>
+<p>Click Find to return audit trail information for you selection criteria or click Clear to clear values selected.</p>
+</li>
+</ol>
+<h3><b>Audit History window</b></h3>
+<p><a name="d0e44234" id="d0e44234"></a><a name="d0e44239" id="d0e44239"></a>Information initially displayed within the Audit History window is based upon criteria entered within the Audit History Find window. The data displayed is based upon the last successful completion of the Audit History Consolidator concurrent program and is sorted based upon the Last Update Date of the last audit trail order update recorded for constrained order attributes in relation to the current system date.</p>
+<p><b>Audit History Window</b></p>
+<p><img width="901" height="577" src="./img/ont_moac_audit_history.gif" alt="the picture is described in the document text"></p>
+<p>The default tab displayed within the Audit History window is the Orders tab, unless a value is entered in the Entity field within the Find window. If a value is entered in the Entity field, then the default tab displayed when the Find button is selected will correspond to the value entered.</p>
+<p><strong><span>Note:</span></strong> Changing the inline Reason Code in View Adjustments window will not impact audit history</p>
+<h3><b>Audit History Window</b></h3>
+<p>The Audit History window displays the following 3 regions for each order selected:</p>
+<ul>
+<li>
+<p>Order: Order Management displays audit trail details recorded for constrained order attributes that were updated</p>
+</li>
+<li>
+<p>Reason: Order Management displays the Reason Code entered for constrained order attributes that were updated</p>
+</li>
+<li>
+<p>Comments: Order Management displays any Comments entered for constrained order attributes that were updated</p>
+<p><strong><span>Note:</span></strong> The Audit History window currently does not support the use of Folders to customize display information.</p>
+</li>
+</ul>
+<h3><b>Tabs</b></h3>
+<p>The Audit History window displays the following 6 tabs which display the following order or line attributes:</p>
+<h3><b>Orders, Order Sales Credits, and Order Price Adjustments Tabs</b></h3>
+<ul>
+<li>
+<p>History Date and Time</p>
+</li>
+<li>
+<p>Order Number</p>
+</li>
+<li>
+<p>Attribute Name</p>
+</li>
+<li>
+<p>Old Value</p>
+</li>
+<li>
+<p>New Value</p>
+</li>
+<li>
+<p>User</p>
+</li>
+<li>
+<p>Responsibility</p>
+</li>
+</ul>
+<h3><b>Lines, Line Sales Credits, and Line Price Adjustments Tabs</b></h3>
+<ul>
+<li>
+<p>History Date and Time</p>
+</li>
+<li>
+<p>Order Number</p>
+</li>
+<li>
+<p>Line Number</p>
+</li>
+<li>
+<p>Item</p>
+</li>
+<li>
+<p>Attribute Name</p>
+</li>
+<li>
+<p>Old Value</p>
+</li>
+<li>
+<p>New Value</p>
+</li>
+<li>
+<p>User</p>
+</li>
+<li>
+<p>Responsibility</p>
+</li>
+</ul>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

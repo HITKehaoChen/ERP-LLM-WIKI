@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Shipping Execution User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Shipping Execution User's Guide">
+<meta name="dcterms.identifier" content="E48847-15">
+<meta name="dcterms.isVersionOf" content="WSHUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T414830T414835.htm" title="Previous" type="text/html">
+<link rel="Next" href="T414830T414838.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Shipping Execution User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">9/23</span> <!-- End Header -->
+<h1>Managing Deliveries</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T414851">Overview of Deliveries</a></li>
+<li><a href="#T414957">Manually Creating a Delivery</a></li>
+<li><a href="#T414958">Auto-Creating Deliveries</a></li>
+<li><a href="#T414852">Consolidating Delivery Lines and Deliveries</a></li>
+<li><a href="#wshdeliv1006319">Viewing Shipping Status</a></li>
+<li><a href="#T414959">Manual Packing Delivery Lines for a Delivery</a></li>
+<li><a href="#T414960">Auto-Packing Delivery Lines Assigned to Deliveries Into LPNs</a></li>
+<li><a href="#T414961">Automated Packing</a></li>
+<li><a href="#T414962">Unpacking a Delivery Detail</a></li>
+<li><a href="#T414963">Calculating Weight and Volume for a Delivery</a></li>
+<li><a href="#T414964">Generating a Loading Sequence for Delivery Lines in a Delivery</a></li>
+<li><a href="#T414853">Example of Loading Sequence Generation</a></li>
+<li><a href="#T414965">Printing a Document Set for a Delivery</a></li>
+<li><a href="#T447309">Printing a Bill of Lading for a Delivery</a></li>
+<li><a href="#T447311">Printing a Packing Slip for a Delivery</a></li>
+<li><a href="#T414966">Assigning Deliveries to a Trip</a></li>
+<li><a href="#T414967">Assigning Freight Costs To a Delivery</a></li>
+<li><a href="#T414968">Unassigning a Delivery From a Trip</a></li>
+<li><a href="#T414854">Closing a Delivery</a></li>
+<li><a href="#T414969">Firming a Delivery</a></li>
+<li><a href="#T414970">Unfirming a Delivery</a></li>
+<li><a href="#T414971">Re-Opening a Delivery</a></li>
+<li><a href="#T434485">Delivery Workflow Status</a></li>
+<li><a href="#T434551">Purging Deliveries</a></li>
+<li><a href="#T414855">One-Step Shipping</a></li>
+<li><a href="#T414856">Using Quick Ship for Deliveries</a></li>
+<li><a href="#T414972">Locating and Confirming Quick Ship Deliveries</a></li>
+<li><a href="#T456286">XML Transactions</a></li>
+</ul>
+<h2><a name="3573580"></a><a id="T414851"></a><b>Overview of Deliveries</b></h2>
+<p><a name="d0e6470" id="d0e6470"></a><a name="o_del" id="o_del"></a><a name="WSHFTRST.EXCEPTIONS" id="WSHFTRST.EXCEPTIONS"></a><a name="WSHFSTRX.MESSAGE" id="WSHFSTRX.MESSAGE"></a><a name="WSHINTFR.MAIN" id="WSHINTFR.MAIN"></a><a name="WSHFSTRX.OUTBOUND_DOCUMENT" id="WSHFSTRX.OUTBOUND_DOCUMENT"></a><a name="WSHFTRST.TRANSACTIONS" id="WSHFTRST.TRANSACTIONS"></a><a name="hlpdel" id="hlpdel"></a><a name="DeliverySearchPG" id="DeliverySearchPG"></a><a name="DeliveryDetailsPG" id="DeliveryDetailsPG"></a>A delivery consists of a set of delivery lines that are scheduled to be shipped to a customer's ship-to location on a specific date and time. In a delivery, you can include items from different sales orders as well as back orders. You can group multiple deliveries together to create a trip.</p>
+<p>For multileg shipments, you can change the delivery legs until the delivery is closed. To do this, unassign the subsequent open legs from the in-transit delivery and assign new delivery legs to this in-transit delivery.</p>
+<p>You can perform the following delivery tasks:</p>
+<ul>
+<li>
+<p><a href="T414830T414837.htm#createdel">Manually creating new deliveries</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#autocreate">Auto-creating deliveries</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#condel">Consolidating deliveries and delivery lines</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#status">Viewing shipping status</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#manpack">Manually packing delivery lines</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#autopklpn">Auto packing delivery lines</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#upkdel">Unpacking deliveries</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#wtvol">Calculating weight and volume for a delivery</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#ldseq">Generating a load sequence</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#print">Printing a document set</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#deltotrp">Assigning a delivery to a trip</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#frtcst">Assigning freight costs to a delivery</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#unas">Unassigning a delivery from a trip</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#close">Closing a delivery</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#plan">Firming a delivery</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#unplan">Unfirming a delivery</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#reopen">Re-opening deliveries</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#onestep">One-step shipping</a></p>
+</li>
+<li>
+<p><a href="T414830T414837.htm#qs">Using Quick Ship for deliveries</a></p>
+</li>
+</ul>
+<p>You can either manually or automatically group delivery lines to create a delivery. If a delivery is auto-created, the delivery lines are grouped together by the mandatory default criteria, Ship From Location and Ship To Location. However, additional grouping criteria can be included such as:</p>
+<ul>
+<li>
+<p>Customer</p>
+</li>
+<li>
+<p>Freight Terms</p>
+</li>
+<li>
+<p>FOB Code</p>
+</li>
+<li>
+<p>Intermediate Ship To Location</p>
+</li>
+<li>
+<p>Ship Method</p>
+</li>
+<li>
+<p>Order Type</p>
+</li>
+<li>
+<p>Ship Set</p>
+</li>
+<li>
+<p>Shipment Priority</p>
+</li>
+</ul>
+<p>If you auto-create a trip for delivery lines, the process creates a delivery also. If you generate a bill of lading number, and then unassign the delivery lines from the delivery, the delivery lines are also unassigned from the trip and the delivery retains the bill of lading number. To remove the bill of lading number, unassign the delivery from the trip.</p>
+<h2><a name="3573586"></a><a id="T414957"></a><b>Manually Creating a Delivery</b></h2>
+<p><a name="d0e6602" id="d0e6602"></a><a name="t_delcre" id="t_delcre"></a><a name="createdel" id="createdel"></a>You can manually create a delivery using the Delivery window within the Shipping Transaction window or the Create Delivery page within the Shipping Execution Simplified User Interface.</p>
+<p><b>To Manually Create a Delivery Using the Shipping Transactions Window<a name="cdelstw" id="cdelstw"></a><a name="d0e6617" id="d0e6617"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Delivery window.</p>
+<p><b>Delivery window</b></p>
+<p><img width="963" height="501" src="./img/wshug_delcre.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a Name and Org Code for the delivery.</p>
+<p><strong><span>Note:</span></strong> Shipping Execution generates a delivery name for you if you leave the Name blank, enter the Org Code, and the Ultimate Ship to, then save.</p>
+</li>
+<li>
+<p>Select the Initial Ship from location and the Ultimate Ship to.</p>
+<p>At this point, you can save the delivery. Optionally, enter the following fields:</p>
+<ul>
+<li>
+<p>Initial Pick-Up Date</p>
+</li>
+<li>
+<p>Consignee</p>
+</li>
+<li>
+<p>Ultimate Ship to Date</p>
+</li>
+<li>
+<p>Freight Terms</p>
+</li>
+<li>
+<p>Waybill</p>
+</li>
+<li>
+<p>Additional Info</p>
+</li>
+<li>
+<p>Enable Auto-pack (only applicable during the use of Auto-Pack Deliveries SRS)</p>
+</li>
+<li>
+<p>FOB</p>
+</li>
+<li>
+<p>FOB Location</p>
+</li>
+<li>
+<p>Intermediate Ship to</p>
+<p>You can change Intermediate Ship-to regardless of whether it is part of the delivery grouping rule.</p>
+</li>
+<li>
+<p>Volume UOM</p>
+</li>
+<li>
+<p>Volume</p>
+</li>
+<li>
+<p>Lines Loading</p>
+</li>
+<li>
+<p>Loading Sequence</p>
+</li>
+<li>
+<p>Ship Method</p>
+</li>
+<li>
+<p>Number of LPNs</p>
+</li>
+<li>
+<p>Weight UOM</p>
+</li>
+<li>
+<p>Net Weight</p>
+</li>
+<li>
+<p>Tare Weight</p>
+</li>
+<li>
+<p>Gross Weight</p>
+</li>
+</ul>
+<p>You can add and remove fields by using the folder options Show Field and Hide Field.</p>
+<p><strong><span>Note:</span></strong> The Ship from Date is the earliest schedule date for the sales order lines assigned to the delivery.</p>
+<p>The Ship to Date is the earliest scheduled date for all of the delivery details assigned to the delivery.</p>
+<p>You can change freight terms, ship method, and FOB regardless of whether they are part of the delivery grouping rule. In addition, you can only change ship method if the delivery is not assigned to a trip.</p>
+<p><strong><span>Note:</span></strong> If your organization does not have FOB as an enforced grouping attribute, the FOB field will not be populated when you auto-create a delivery or when you assign a line to an LPN.</p>
+<p>The load sequence (Load Seq) number and the Lines Loading pattern determine the order in which lines are loaded into a container or lines loaded within a delivery, if applicable. The order lines must be associated with a Customer Production Sequence on the Sales Order line.</p>
+<p>You can select from Forward, Reverse, Forward-Inverted, or Reverse-Inverted. Refer to the topic <a href="T414830T414837.htm#ldseq">Generating a Loading Sequence</a>.</p>
+</li>
+<li>
+<p>Click <b>Done</b> to save your work.</p>
+<p><strong><span>Note:</span></strong> Order lines belonging to different operating units can be combined into a single delivery. However, the order lines will not be successfully processed during invoicing. Delivery based invoicing is not supported if order lines within the delivery belong to different operating units.</p>
+</li>
+</ol>
+<p><b>To Manually Create a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e6742" id="d0e6742"></a><a name="DeliveryCreatePG" id="DeliveryCreatePG"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Perform one of these options:</p>
+<ul>
+<li>
+<p>Click the <b>Create Delivery</b> icon (+ plus sign) at the top of the search results table in the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search</b> and then click the <b>Create Delivery</b> icon (+ plus sign) at the top of the search results table in the Search Deliveries page.</p>
+</li>
+</ul>
+<p><b>Create Delivery page</b></p>
+<p><img width="800" height="600" src="./img/wshug_scn_createdelivery.gif" alt="the picture is described in the document text"></p>
+<p>The Create Delivery page appears.</p>
+</li>
+<li>
+<p>Enter information for the delivery.</p>
+<p>For more information on how to create a delivery, see the <a href="T414830T414837.htm#cdelstw">procedure: To Manually Create a Delivery Using the Shipping Transactions window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+<p>The delivery is created.</p>
+</li>
+</ol>
+<h2><a name="3573589"></a><a id="T414958"></a><b>Auto-Creating Deliveries</b></h2>
+<p><a name="d0e6805" id="d0e6805"></a><a name="d0e6811" id="d0e6811"></a><a name="t_delautocre" id="t_delautocre"></a><a name="autocreate" id="autocreate"></a>Use the Shipping Transactions window or the Shipping Execution Simplified User Interface to automatically create deliveries for delivery lines that are not assigned to a delivery. You can also auto-create deliveries at pick release by selecting the Autocreate Deliveries check box in the Shipping Parameters window.</p>
+<p>See Shipping Execution Setup, Defining Pick Release Parameters in the <i>Oracle Order Management Implementation Manual.</i></p>
+<p>One or more deliveries can be created depending on the default delivery grouping criteria set up in the Shipping Parameters/Client Parameters. For example, if two groups of delivery lines have different Ship To addresses, a different delivery number is assigned to each group.</p>
+<p>See <i>Oracle Inventory User's Guide</i> for client parameters.</p>
+<h3><b>Prerequisites</b></h3>
+<p>Delivery status must be Open.</p>
+<p><b>To Auto-Create Deliveries Using the Shipping Transactions Window<a name="d0e6841" id="d0e6841"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery lines.</p>
+</li>
+<li>
+<p>Select the delivery lines for which you want to create a delivery.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Deliveries.</b></p>
+</li>
+<li>
+<p>Click <b>Go</b> to create a delivery or deliveries for the selected lines.</p>
+<p>You can view the delivery name created for the delivery lines in the Delivery column in the Lines/LPNs tab.</p>
+</li>
+<li>
+<p>Choose the Delivery tab to view or add additional delivery details.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p>See Shipping Execution Setup, Defining Delivery Grouping Parameters in <i>Oracle Order Management Implementation Manual</i>.</p>
+</li>
+</ol>
+<p><b>To Auto-Create Deliveries Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e6887" id="d0e6887"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Details page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Details page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the delivery lines for which you want to auto-create a delivery, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Auto-Create Deliveries Using the Search Details Page</b></p>
+<ol>
+<li>
+<p>Select one or more delivery lines by clicking the corresponding check boxes in the Select column.</p>
+<p><strong><span>Note:</span></strong> You can also click the <b>Select All</b> link at the top of the Select column to select all of the details in the table.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Deliveries.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also auto-create deliveries by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To Auto-Create Deliveries Using the Line Detail Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Detail</b> link for a delivery line in the search results table of the Search Details page.</p>
+<p>The Line Details page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-create Deliveries.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+<li>
+<p>Click <b>Save</b> to save your work and to stay on the page.</p>
+<p>Click <b>Apply</b> to save your work and to return to the previous page.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573592"></a><a id="T414852"></a><b>Consolidating Delivery Lines and Deliveries</b></h2>
+<p><a name="d0e6977" id="d0e6977"></a><a name="t_dconso" id="t_dconso"></a><a name="condel" id="condel"></a>Delivery Consolidation enables you to join a new delivery line, or a line released from backorder, to an existing delivery. You can also group deliveries with similar attributes into trips.</p>
+<p>Rather than creating a new delivery when Auto-Create Deliveries is executed, through batch or Pick Release, delivery consolidation functionality systematically assigns delivery lines to qualified existing deliveries.</p>
+<p>The Process Deliveries - SRS concurrent program is another method used to consolidate delivery lines into deliveries, and to consolidate deliveries into trips. See: <a href="T414830T414843.htm#pdsrs">Process Deliveries SRS</a></p>
+<p>The following is required to utilize delivery consolidation:</p>
+<ul>
+<li>
+<p>Delivery status is Open.</p>
+</li>
+<li>
+<p>Appending Limit is not Do Not Append (Shipping Parameters window)</p>
+</li>
+<li>
+<p>Autocreate Deliveries is enabled (Shipping Parameters window)</p>
+</li>
+<li>
+<p>Ship Confirm Rule is Null (Shipping Parameters window)</p>
+</li>
+<li>
+<p>Auto-pack Options is No (Shipping Parameters window)</p>
+</li>
+<li>
+<p>Append Deliveries is Yes (Release Sales Orders for Picking window)</p>
+</li>
+<li>
+<p>Organization is selected (Release Sales Orders for Picking window)</p>
+</li>
+<li>
+<p>Customer and Ship Method Delivery Grouping Attributes must be selected (Shipping Parameters window)</p>
+<p><strong><span>Note:</span></strong> When a line is appended to a delivery, the appending shipping exception is logged if this exception type is enabled. If this line is later unassigned from the delivery, the shipping exception is not removed. Further, when ship confirming the delivery, the exception will still be displayed despite the fact that the appended line was previously unassigned.</p>
+</li>
+</ul>
+<p>See <i>Oracle Order Management Implementation Manual,</i> Shipping Execution Setup chapter.</p>
+<h2><a name="3573593"></a><a id="wshdeliv1006319"></a><b>Viewing Shipping Status</b></h2>
+<p><a name="d0e7033" id="d0e7033"></a><a name="t_vss" id="t_vss"></a><a name="WSHFSTAT.CENTRAL_LINE_STATUS" id="WSHFSTAT.CENTRAL_LINE_STATUS"></a><a name="status" id="status"></a>Use the View Shipping Status window within the Shipping Transactions window or the Shipping Status page within the Shipping Execution Simplified User Interface to view the shipping status of all of the delivery details of a delivery from an Order Entry line. The shipping status includes this type of information:</p>
+<ul>
+<li>
+<p>Quantity: For example, ordered quantity, pick released quantity, back ordered quantity, ship confirmed quantity.</p>
+</li>
+<li>
+<p>Line status: The current status for each delivery line and the next step needed to progress the delivery line.</p>
+</li>
+</ul>
+<p>Access the View Shipping Status window from the Delivery tab of Shipping Transactions window. From the Actions menu, you can view the shipping status of all delivery lines associated with the delivery. You can also view the shipping status of delivery lines within the Order Organizer, Sales Order pad at the header level, and Sales Order pad at the line level, by selecting Action view shipping status.</p>
+<p>You can also access the View Shipping Status window by selecting View Shipping Status from the actions menu on the Order header in the Sales Order Pad or Order Organizer.</p>
+<p>You can also access the Shipping Status page in the Shipping Execution Simplified User Interface by selecting View Shipping Status from the Actions menu of the Deliveries, Search Deliveries, and Delivery pages.</p>
+<p><strong><span>Note:</span></strong> You can only utilize the View Shipping Status feature if the role that you are assigned to has the View Shipping Status check box selected in the Shipping Execution Role Definition window.</p>
+<p>The main region of the window displays each of the order lines belonging to the delivery with its summary information. Select any sales order line and view delivery detail information in the Delivery Line Details region.</p>
+<p>The main region information is as follows:</p>
+<ul>
+<li>
+<p>Delivery Name is displayed in the title bar.</p>
+</li>
+<li>
+<p>Order Number and Line: The sales order number and line associated with the delivery.</p>
+</li>
+<li>
+<p>Ordered Item, UOM, and Ordered Quantity: The delivery detail item, delivery detail unit of measure (the item primary unit of measure), and sales order line ordered quantity in primary unit of measure.</p>
+</li>
+<li>
+<p>Quantity Delivery Requested: The requested quantity assigned to the delivery from the order line.</p>
+</li>
+<li>
+<p>Quantity Not Ready to Release: Total requested quantity from the delivery lines (associated with this order line) at status Not Ready to Release.</p>
+</li>
+<li>
+<p>Quantity Ready to Release: Total requested quantity from the delivery lines (associated with this order line) at status Ready to Release.</p>
+</li>
+<li>
+<p>Quantity Released To Warehouse: Total requested quantity from the delivery lines (associated with this order line) at status Released to Warehouse.</p>
+</li>
+<li>
+<p>Quantity Back Ordered: Total back ordered quantity from the delivery lines (associated with this order line) at status Back Ordered.</p>
+</li>
+<li>
+<p>Quantity Staged/Pick Confirmed: Total picked quantity from the delivery lines (associated with this order line) at status Staged/Pick Confirmed.</p>
+</li>
+<li>
+<p>Quantity Shipped: Total shipped quantity from the delivery lines (associated with this order line) at status Shipped.</p>
+</li>
+<li>
+<p>Quantity Interfaced: Total interfaced quantity from the delivery lines (associated with this order line) at status Interfaced.</p>
+</li>
+</ul>
+<p>The Delivery Line Details region information is:</p>
+<ul>
+<li>
+<p>Delivery Name, Detail, Quantity, and Line Status: Identifying information from the delivery detail.</p>
+</li>
+<li>
+<p>Next Step: The next step for lines with statuses of Interfaced or Canceled is Not Applicable as shown in the following table.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Next Step</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Current Delivery Detail Status</b></th>
+<th scope="col"><b>Next Step</b></th>
+</tr>
+<tr valign="top">
+<td>Not Applicable</td>
+<td>Ship Confirm</td>
+</tr>
+<tr valign="top">
+<td>Not Ready to Release</td>
+<td>Progress Order to Awaiting Shipping</td>
+</tr>
+<tr valign="top">
+<td>Ready to Release</td>
+<td>Run Pick Release</td>
+</tr>
+<tr valign="top">
+<td>Back ordered</td>
+<td>Run Pick Release</td>
+</tr>
+<tr valign="top">
+<td>Released to Warehouse</td>
+<td>Transact Move Order</td>
+</tr>
+<tr valign="top">
+<td>Staged/Pick Confirmed</td>
+<td>Ship Confirm/Close Trip Stop</td>
+</tr>
+<tr valign="top">
+<td>Shipped</td>
+<td>Run Interfaces or Close Trip Stop</td>
+</tr>
+<tr valign="top">
+<td>Planned for Cross Docking</td>
+<td>Transact Move Order</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Ship Method: The carrier, service level, and mode passed from the sales order line to be used for shipping the goods. This ship method may be changed at the delivery level or at ship confirmation. The ship method in delivery line details will always display the carrier passed from the sales order line regardless of whether a different ship method is selected from within the Shipping Transactions form.</p>
+</li>
+<li>
+<p>Actual Departure Date: The date that the carrier departed on the current leg of the trip.</p>
+</li>
+<li>
+<p>Actual Arrival Date: The date that the carrier arrived from the current leg of the trip.</p>
+</li>
+<li>
+<p>Tracking Number: Delivery line tracking number. A tracking number that is assigned to an LPN will not be displayed here.</p>
+</li>
+<li>
+<p>Bill of Lading Number: Delivery bill of lading numbers. If there are bill of lading numbers for each delivery leg, a pop-up window shows the numbers.</p>
+</li>
+<li>
+<p>Waybill Number: The delivery waybill number.</p>
+</li>
+<li>
+<p>Move Order Number and Move Order Line Number: For delivery details with statuses Released to Warehouse and Staged/Pick Confirmed, the delivery detail move order number and move order line number.</p>
+</li>
+</ul>
+<p><b>To View Shipping Status Using the Shipping Transactions Window<a name="d0e7203" id="d0e7203"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window.</p>
+</li>
+<li>
+<p>Find the delivery.</p>
+</li>
+<li>
+<p>Select the delivery and from the Actions menu, select <b>View Shipping Status.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><b>View Shipping Status window</b></p>
+<p><img width="752" height="538" src="./img/wshug_vlinest.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>The View Picking Request button is enabled if the delivery detail has status Released to Warehouse, Staged/Pick Confirmed, Shipped, or Interfaced. Click it to view the pick release request for the delivery detail.</p>
+</li>
+<li>
+<p>The View Exception button is enabled if the delivery detail has exceptions associated with it. Click it to view the shipping exceptions for the delivery detail.</p>
+</li>
+<li>
+<p>Click <b>Done</b> when you are finished viewing the shipping status.</p>
+</li>
+</ol>
+<p><b>To View Shipping Status Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e7255" id="d0e7255"></a><a name="DlvyViewShippingStatusPG" id="DlvyViewShippingStatusPG"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries for which you want to view the shipping status, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To View Shipping Status Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one delivery by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>View Shipping Status.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Shipping Status page appears displaying the order line details and the delivery line details.</p>
+</li>
+<li>
+<p>Select a Delivery Line Detail.</p>
+<p><b>Shipping Status page</b></p>
+<p><img width="800" height="600" src="./img/wshug_scn_shippingstatus.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>(Optional) Click <b>View Picking Request</b> to view the pick request for the delivery line detail.</p>
+<p>This button is available if the status of the delivery line detail is Released to Warehouse, Staged/Pick Confirmed, Shipped, or Interfaced.</p>
+</li>
+<li>
+<p>(Optional) Click <b>View Exception</b> to view the shipping exceptions for the delivery line detail.</p>
+<p>This button is available if exceptions are associated with the delivery line detail.</p>
+</li>
+<li>
+<p>Click <b>Done</b> when you are finished reviewing the shipping status.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also view shipping status by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To View Shipping Status Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>View Shipping Status.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Shipping Status page appears displaying the order line details and the delivery line details.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573596"></a><a id="T414959"></a><b>Manual Packing Delivery Lines for a Delivery</b></h2>
+<p><a name="d0e7365" id="d0e7365"></a><a name="t_del_pklines" id="t_del_pklines"></a><a name="manpack" id="manpack"></a>You can pack delivery lines into containers which prevents changes to containers/lines assigned to containers within the delivery.</p>
+<p>Once a delivery is packed, the delivery line information cannot be changed until you unpack the delivery. The weight and volume is calculated automatically. However, if you manually enter a weight or volume value, the nature of the operation changes. See <a href="T414830T414837.htm#wtvoldel">Calculating Weight and Volume for a Delivery</a>.</p>
+<h3><b>Prerequisites</b></h3>
+<p>The delivery must be open.</p>
+<p>At least one delivery line must be assigned to the delivery you want to pack.</p>
+<p><b>To Pack an Entire Delivery Without Details Required Using the Shipping Transactions Window<a name="d0e7391" id="d0e7391"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery you want to pack.</p>
+</li>
+<li>
+<p>Select the Contents tab, and select the delivery lines you want to pack.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Pack.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+<li>
+<p>Select the container.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+<p>The delivery lines assigned to the delivery are packed into the container.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Pack an Entire Delivery Without Details Required Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e7436" id="d0e7436"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries you want to pack, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears displaying the delivery lines in the Details region of the page.</p>
+</li>
+<li>
+<p>In the Detail region of the page, select the delivery lines you want to pack.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Pack.</b></p>
+<p>The Pack page appears.</p>
+</li>
+<li>
+<p>Select the container in the Name field.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+<p>The delivery lines assigned to the delivery are packed into the container.</p>
+</li>
+</ol>
+<h2><a name="3573599"></a><a id="T414960"></a><b>Auto-Packing Delivery Lines Assigned to Deliveries Into LPNs</b></h2>
+<p><a name="d0e7501" id="d0e7501"></a><a name="d0e7505" id="d0e7505"></a><a name="d0e7511" id="d0e7511"></a><a name="t_delautopklines" id="t_delautopklines"></a><a name="autopklpn" id="autopklpn"></a>You can auto-pack delivery lines for a delivery into LPNs (containers). When you auto-pack a delivery, the delivery lines are grouped together by shared attributes such as the Ship To location, and are packed into LPNs based on the grouping and LPN type. If you specify LPN Name Generation defaults in the Organization Parameters, then these parameters are used for naming LPNs during auto-packing delivery lines.</p>
+<p>After a delivery is packed, the delivery line information cannot be changed until you unpack the delivery. The weight and volume is calculated automatically.</p>
+<p><strong><span>Note:</span></strong> Auto-packing is not allowed for items that are lot indivisible.</p>
+<h3><b>Prerequisites</b></h3>
+<p>All delivery lines must be assigned to a delivery.</p>
+<p>A container-item relationship must defined for the delivery line item and container item.</p>
+<p>See Setup Container-Load Relationships for Containers and Items, <i>Oracle Order Management Implementation Manual</i>.</p>
+<p><b>To Auto-Pack Delivery Lines Assigned to Deliveries Into Containers Using the Shipping Transactions Window<a name="d0e7542" id="d0e7542"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery you want to pack.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-pack</b> or <b>Auto-pack Master.</b></p>
+<p>Auto-pack Master will enable to system auto-pack the delivery then pack it again into another container. For example, you can auto-pack a delivery into a container, then pack that container into another container, such as a pallet or an export container.</p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The delivery lines assigned to the delivery are packed into containers.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Auto-Pack Delivery Lines Assigned to Deliveries Into Containers Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e7578" id="d0e7578"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries you want to pack into containers, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Auto-Pack Delivery Lines Assigned to Deliveries Into Containers Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one delivery by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-pack</b> or <b>Auto-pack Master.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The delivery lines assigned to the delivery are packed into the container.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also auto-pack delivery lines that are assigned to deliveries into containers by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To Auto-Pack Delivery Lines Assigned to Deliveries Into Containers Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Auto-pack</b> or <b>Auto-pack Master.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The delivery lines assigned to the delivery are packed into the container.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573602"></a><a id="T414961"></a><b>Automated Packing</b></h2>
+<p><a name="d0e7661" id="d0e7661"></a><a name="t_apack" id="t_apack"></a><a name="autopk" id="autopk"></a>Automated Packing enables you to auto pack individual deliveries as needed, or concurrently during pick release. This helps avoid the process of invoking auto packing for individual deliveries. You can execute Automated Packing as needed using Auto-Pack Deliveries SRS or as a concurrent process along with the pick release process. If you specify LPN Name Generation defaults in the Organization Parameters, then these parameters are used for naming LPNs during automated packing.</p>
+<p>The Auto-pack Report is printed automatically at the end of the Automated Packing procedure.</p>
+<p>Refer to the topic <a href="T414830T414843.htm#autopkrep">Auto-pack Report</a> for more information.</p>
+<h3><b>Prerequisites</b></h3>
+<p>A container-item relationship must be defined between the delivery line item and the container item.</p>
+<p>Refer to Setup Container-load Relationships for Containers and Items topic in the <i>Oracle Order Management Implementation Manual.</i></p>
+<p><b>To Automatically Execute Automated Packing During Pick Release<a name="d0e7689" id="d0e7689"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Release Sales Orders for Picking window.</p>
+</li>
+<li>
+<p>Query the specific sales order, or query the batch number.</p>
+</li>
+<li>
+<p>Within the Inventory tab, enable Auto Pick Confirm by selecting Yes from the list of values.</p>
+</li>
+<li>
+<p>Within the Shipping tab, enable Autocreate Deliveries by selecting Yes from the list of values.</p>
+<p><strong><span>Note:</span></strong> If the delivery lines are already assigned to a delivery, you must also select the Include Assigned Lines check box.</p>
+</li>
+<li>
+<p>In the Autopack Delivery field, select either Yes (the system will auto pack the delivery lines), or Autopack Master (the system will pack the delivery lines into two levels of containers.)</p>
+</li>
+<li>
+<p>Proceed with the remaining tasks to complete the release of your sales order.</p>
+<p><strong><span>Note:</span></strong> If you have defined a Release Rule with the parameter Autopack Delivery set to Yes or Autopack Master, then you can use your Release Rule when executing the Release Sales Orders SRS which will autopack your deliveries based on the rule.</p>
+</li>
+</ol>
+<p><b>To Auto Pack Deliveries Using SRS<a name="d0e7728" id="d0e7728"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Auto-Pack Deliveries SRS window.</p>
+</li>
+<li>
+<p>Populate these parameter fields as needed:</p>
+<ul>
+<li>
+<p>Auto Pack Level: Select the appropriate level (Auto-pack: packs items into containers, or Auto-pack Master: packs items into containers then packs those containers into a master container such as a pallet or export container) from the list of values. This field is required.</p>
+</li>
+<li>
+<p>Auto Pack Batch Prefix: Define a batch prefix to uniquely identify your request. Although this field is free form, it is required.</p>
+</li>
+<li>
+<p>Organization: Optionally, select the organization.</p>
+</li>
+<li>
+<p>Pick Release Batch: Optionally, select the Pick Release Batch name that contains the deliveries that you are packing.</p>
+</li>
+<li>
+<p>Delivery Name (Low): Optionally, select the low end of delivery names, if you choose to auto pack based on a range of delivery names.</p>
+</li>
+<li>
+<p>Delivery Name (High): Optionally, select the high end of delivery names, if you choose to auto pack based on a range of delivery names.</p>
+</li>
+<li>
+<p>Bill of Lading (Low): Optionally, select the low end of bill of ladings, if you choose to auto pack based on a range of bill of ladings.</p>
+</li>
+<li>
+<p>Bill of Lading (High): Optionally, select the high end of bill of ladings, if you choose to auto pack based on a range of bill of ladings.</p>
+</li>
+<li>
+<p>Firm Status: Optionally, select from the LOV to indicate whether the deliveries scheduled for automated packing are: Not Firm, Contents Firm, or Routing and Contents Firm.</p>
+</li>
+<li>
+<p>Ship From Location: Optionally, select a ship from location.</p>
+</li>
+<li>
+<p>Ship To Location: Optionally, select a ship to location.</p>
+</li>
+<li>
+<p>Intermediate Ship To Location: Optionally, select an intermediate ship to location.</p>
+</li>
+<li>
+<p>Pooled Ship To Location: Optionally, select a pooled ship to location.</p>
+</li>
+<li>
+<p>Consignee/Customer Name: Optionally, select a consignee who is a customer or a supplier.</p>
+</li>
+<li>
+<p>Ship Method: Optionally, select a ship method.</p>
+</li>
+<li>
+<p>FOB: Optionally, select FOB terms.</p>
+</li>
+<li>
+<p>Freight Terms: Optionally, select freight terms.</p>
+</li>
+<li>
+<p>Pick-up Date (Low): Optionally, select the low end of a pick up date.</p>
+</li>
+<li>
+<p>Pick-up Date (High): Optionally, select the high end of a pick up date.</p>
+</li>
+<li>
+<p>Drop-off Date (Low): Optionally, select the low end of a drop off date.</p>
+</li>
+<li>
+<p>Drop-off Date (High): Optionally, select the high end of a drop off date.</p>
+</li>
+<li>
+<p>Log Level: Optionally, select log level for this run. This determines whether a debug file is created. Select zero for no debugging log, or one to create a debugging log.</p>
+<p><b>Auto-Pack Deliveries SRS window</b></p>
+<p><img width="765" height="524" src="./img/wshug_autopakparam.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414837.htm#onestep">One Step Shipping</a></p>
+<p><a href="T414830T414840.htm#relsopk">Releasing Sales Orders for Picking</a></p>
+<h2><a name="3573607"></a><a id="T414962"></a><b>Unpacking a Delivery Detail</b></h2>
+<p><a name="d0e7835" id="d0e7835"></a><a name="t_del_upack" id="t_del_upack"></a><a name="upkdel" id="upkdel"></a><a name="upack" id="upack"></a><a name="t_unpkdl" id="t_unpkdl"></a>You can unpack delivery line items if you want to modify the delivery lines assigned to a Packed delivery. Unpacking returns the delivery to the status it held prior to packing, and allows for changes.</p>
+<h3><b>Prerequisites</b></h3>
+<p>Delivery must be packed.</p>
+<p>Contents must be Firm.</p>
+<p>Delivery must be open.</p>
+<p><b>To Unpack a Delivery Detail Using the Shipping Transactions Window<a name="d0e7858" id="d0e7858"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window.</p>
+</li>
+<li>
+<p>Find the delivery.</p>
+</li>
+<li>
+<p>Select the Contents tab.</p>
+</li>
+<li>
+<p>Select the Detail.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unpack.</b></p>
+</li>
+<li>
+<p>Click <b>Go</b> to unpack the delivery.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Unpack a Delivery Detail Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e7900" id="d0e7900"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries for which you want to unpack, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears displaying the delivery lines in the Details region of the page.</p>
+</li>
+<li>
+<p>In the Detail region of the page, select the delivery lines that you want to unpack.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unpack.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The delivery details are unpacked from the delivery.</p>
+</li>
+</ol>
+<h2><a name="3573610"></a><a id="T414963"></a><b>Calculating Weight and Volume for a Delivery</b></h2>
+<p><a name="d0e7958" id="d0e7958"></a><a name="d0e7964" id="d0e7964"></a><a name="t_delwgtvol" id="t_delwgtvol"></a><a name="wtvoldel" id="wtvoldel"></a>The weight and volume for a delivery is calculated automatically as shipping entities are processed using the default weight and volume of the item that is defined in the Master Item window. This calculation is done by multiplying the weight and quantity, and the volume and quantity.</p>
+<p>When a new delivery detail (line) is created because of change in order line quantity, the system will retrieve the unit weight and volume from the existing delivery details (belonging to same order line) so that all delivery details belonging to same order line have the same unit weight and volume. When a delivery detail is created for a new order line, the system will retrieve the latest unit weight and volume from Inventory Master Item window.</p>
+<p>You can manually enter weight and volume within the Shipping Transactions window or the Shipping Execution Simplified User Interface for delivery lines, LPNs, deliveries, and stops.</p>
+<p>The weight and volume of a delivery will automatically update whenever an action is executed that affects the weight or volume of a delivery. Also, the action Reset Weight/Vol will return the weight and volume values from the item master (the original values) for the entity level where it is invoked, as well as for any associated lower level entities. If the quantity of a delivery is changed at ship confirm, then the system will automatically recalculate the weight and volume for the delivery, unless the weight and volume information has already been entered manually.</p>
+<p>A warning is displayed if any of the delivery details have a null weight or volume depending on the Percent Fill Basis parameter (on the Shipping Parameters window.) For example, if Percent Fill Basis is set to Weight and one of the delivery details has a null weight then the system will provide a warning at ship confirmation. It will not provide a warning if one of the delivery details has null volume, since Percent Fill Basis is set to Weight. If Percent Fill Basis is set to Quantity, then the system will not give a warning if one of the delivery details has null weight or volume. There is no warning if any of the containers have null weight or volume.</p>
+<p>When the weight, volume, and Fill Percentage for a delivery is calculated, Shipping Execution:</p>
+<ul>
+<li>
+<p>Calculates the weight, volume, and fill percentage of each open delivery and adds the values to the delivery's current weight, volume, and fill percentage</p>
+</li>
+<li>
+<p>Validates that the maximum load weight, the maximum internal volume, and the maximum fill percentage are not exceeded</p>
+</li>
+<li>
+<p>Validates that minimum fill percentage requirements are attained</p>
+</li>
+<li>
+<p>Calculates (estimates) the number of containers for each delivery line based on container/load relationships and the master/detail container specified on the delivery line</p>
+</li>
+</ul>
+<p>You can enter weight and volume manually except under the following circumstances:</p>
+<ul>
+<li>
+<p>The delivery status is In-Transit or Closed</p>
+</li>
+<li>
+<p>The stop is closed</p>
+</li>
+</ul>
+<h3><b>Entering Weight and Volume</b></h3>
+<p><b>To Manually Enter Weight and Volume for a Delivery Using the Shipping Transactions Window<a name="d0e8013" id="d0e8013"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery.</p>
+</li>
+<li>
+<p>Click <b>Detail.</b></p>
+</li>
+<li>
+<p>Enter your weight and volume.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p>The Manual Wt/Vol check box is checked when you manually enter the weight and volume for a delivery. This check box will not be checked if the action Reset Weight/Vol is invoked.</p>
+</li>
+</ol>
+<p><b>To Manually Enter Weight and Volume for a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e8042" id="d0e8042"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries for which you want to enter weight and volume, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears displaying the delivery lines in the Details region of the page.</p>
+</li>
+<li>
+<p>Enter the weights and volume for the delivery.</p>
+</li>
+<li>
+<p>Click <b>Save</b> to save your work and to stay on the page.</p>
+<p>Click <b>Apply</b> to save your work and to return to the previous page.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414835.htm#wtvol">Calculating Weight and Volume for a Trip Stop</a></p>
+<p><a href="T414830T414838.htm#calcwtvol">Calculating Weight and Volume for Delivery Lines</a></p>
+<h2><a name="3573612"></a><a id="T414964"></a><b>Generating a Loading Sequence for Delivery Lines in a Delivery</b></h2>
+<p><a name="d0e8105" id="d0e8105"></a><a name="d0e8111" id="d0e8111"></a><a name="ldseq" id="ldseq"></a><a name="t_loadsqgen" id="t_loadsqgen"></a>The loading sequence defines the order in which the delivery lines are loaded into containers. You can generate a loading sequence for delivery lines within a delivery by selecting the Generate Loading Sequence item from the Actions menu.</p>
+<p>The loading sequence applies to the lowest level of packing (loading). For example, if a Detail container is specified for a delivery line, the loading sequence determines the order the item is loaded into the container. If a container is not specified, the loading sequence determines the order an item is placed in a vehicle.</p>
+<p>If an item is loaded into a container first and then into a vehicle, a loading sequence of the items can only be reviewed through the vehicle load sheet. The vehicle load sheet prints the loading sequence in the correct order.</p>
+<h3><b>Prerequisites</b></h3>
+<p>The status of the delivery must be open.</p>
+<p>The Lines Loading field (located on the Delivery tab of the Delivery Detail window) must be defined for the delivery. The Customer Production Sequence field (located in the Contents tab) must be defined for the delivery lines assigned to the delivery.</p>
+<p><strong><span>Note:</span></strong> You can manually define the Lines Loading in the Delivery tab. The Customer Production Sequence number can be defined in one of two ways: the number can be defined for the order line at the customer site and the order line can then be imported via Order Import, or you can define the number in the Others tab in the Sales Orders window.</p>
+<p>You must assign containers to each of the delivery line items.</p>
+<p>You must calculate the weight and volume of the delivery and/or trip.</p>
+<p>The Volume and Weight Unit of Measure fields must be defined for the trip and/or delivery.</p>
+<p><b>To Generate a Loading Sequence for Delivery Lines In a Delivery Using the Shipping Transactions Window<a name="d0e8143" id="d0e8143"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Delivery window.</p>
+</li>
+<li>
+<p>Select the lines loading order to determine the order the delivery lines are placed in containers.</p>
+</li>
+<li>
+<p>Click <b>Done.</b></p>
+</li>
+<li>
+<p>In the Deliveries tab, select <b>Generate Loading Sequence</b> from the Actions menu to generate a loading sequence for the delivery lines in the delivery.</p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Generate a Loading Sequence for Delivery Lines In a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e8183" id="d0e8183"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries for which you want to generate a delivery line load sequence, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Generate a Loading Sequence for Delivery Lines In a Delivery Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one or more deliveries by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Generate Loading Seq (Sequence).</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also generate a loading sequence for delivery lines in a delivery by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To Generate a Loading Sequence for Delivery Lines In a Delivery Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Generate Loading Seq (Sequence).</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414837.htm#xldseq">Example of Loading Sequence Generation</a></p>
+<h2><a name="3573615"></a><a id="T414853"></a><b>Example of Loading Sequence Generation</b></h2>
+<p><a name="d0e8261" id="d0e8261"></a><a name="d0e8267" id="d0e8267"></a><a name="d0e8275" id="d0e8275"></a><a name="t_loadsqgen_eg" id="t_loadsqgen_eg"></a><a name="xldseq" id="xldseq"></a><a name="t_autocr" id="t_autocr"></a>Assume you have the following six delivery lines with unique production sequence numbers.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Production Sequence Number</b></th>
+<th scope="col"><b>Delivery Line</b></th>
+</tr>
+<tr valign="top">
+<td>22</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>23</td>
+<td>2</td>
+</tr>
+<tr valign="top">
+<td>24</td>
+<td>3</td>
+</tr>
+<tr valign="top">
+<td>25</td>
+<td>4</td>
+</tr>
+<tr valign="top">
+<td>26</td>
+<td>5</td>
+</tr>
+<tr valign="top">
+<td>27</td>
+<td>6</td>
+</tr>
+</table>
+<p>If each container can only hold 2 items, the following loading sequence will be generated for each given loading order.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Loading Order</b></th>
+<th scope="col"><b>Container 1</b></th>
+<th scope="col"><b>Container 1</b></th>
+<th scope="col"><b>Container 2</b></th>
+<th scope="col"><b>Container 2</b></th>
+<th scope="col"><b>Container 3</b></th>
+<th scope="col"><b>Container 3</b></th>
+</tr>
+<tr valign="top">
+<td>Forward</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr valign="top">
+<td>Reverse</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>Forward Invert</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>3</td>
+<td>6</td>
+<td>5</td>
+</tr>
+<tr valign="top">
+<td>Reverse Invert</td>
+<td>5</td>
+<td>6</td>
+<td>3</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr valign="top">
+<td>Reverse</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</table>
+<h2><a name="3573616"></a><a id="T414965"></a><b>Printing a Document Set for a Delivery</b></h2>
+<p><a name="d0e8491" id="d0e8491"></a><a name="d0e8497" id="d0e8497"></a><a name="t_del_docsetprnt" id="t_del_docsetprnt"></a><a name="printdocset" id="printdocset"></a>You can print a set of shipping documents and other reports for a delivery. For example, document sets can include pick release documents, all shipping documents, and packing slip information. You can print document sets from the Shipping Transactions window, the Release Sales Orders window, the Quick Ship window, the Delivery pages in the Shipping Execution Simplified User Interface, and as part of several concurrent processes.</p>
+<p>Any XML Publisher enabled shipping document can also be included in a document set. Once included, the document is automatically printed with other documents in the document set. An XML Publisher enabled shipping document enables the flexibility to define your own report layouts, include additional fields, and print the document in PDF format.</p>
+<p>See: <a href="T414830T414843.htm#t_wshrepcustom">XML Publisher Enabled Shipping Documents</a></p>
+<p>Select the printing method and print option in the <b>Shipping Document Sets</b> window.</p>
+<ul>
+<li>
+<p>To print the shipping reports in a parallel manner or in a sequence, select the <b>Printing Method</b> as <b>Parallel</b> or <b>Sequential</b>.</p>
+</li>
+<li>
+<p>To print all the reports in the Document Set together as a set, select the <b>Print Option</b> as <b>Print Together</b>.</p>
+</li>
+</ul>
+<p>The application submits the concurrent program <i>Print Shipping Document Set</i> when you select the <b>Printing Method</b> as <b>Sequential</b> or select <b>Print Together</b>.</p>
+<p><b>To Print a Document Set for a Delivery Using the Shipping Transactions Window<a name="d0e8558" id="d0e8558"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery.</p>
+<p>The delivery displays in the Shipping Transactions window.</p>
+</li>
+<li>
+<p>Click <b>Print Document Set.</b></p>
+<p>The Document Sets window displays a list of document sets.</p>
+</li>
+<li>
+<p>Select the document set and click <b>OK.</b></p>
+<p>The document set for the delivery is printed.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p>See Defining Shipping Document Sets, <i>Oracle Order Management Implementation Manual</i></p>
+</li>
+</ol>
+<p><b>To Print a Document Set for a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e8597" id="d0e8597"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries for which you want to print a document set, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Print a Document Set for a Delivery Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one delivery by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print Document Set.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Choose Document Set page appears.</p>
+</li>
+<li>
+<p>Select the document set in the Name field.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also print a document set for a delivery by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To Print a Document Set for a Delivery Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print Document Set.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Choose Document Set page appears.</p>
+</li>
+<li>
+<p>Select the document set in the Name field.</p>
+</li>
+<li>
+<p>Click <b>OK.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414837.htm#qs">Using Quick Ship for Deliveries</a></p>
+<h2><a name="4034234"></a><a id="T447309"></a><b>Printing a Bill of Lading for a Delivery</b></h2>
+<p><a name="d0e8696" id="d0e8696"></a><a name="d0e8702" id="d0e8702"></a><a name="t_printbol_del" id="t_printbol_del"></a>You can print a bill of lading for the deliveries. The bill of lading is available to print from the Shipping Transactions window, the Quick Ship window, the Delivery pages in the Shipping Execution Simplified User Interface, and as part of a document set.</p>
+<p>Bill of lading is XML Publisher enabled and can be printed in PDF. An XML Publisher enabled shipping document enables the flexibility to define your own report layouts, include additional fields, and print the document in PDF format.</p>
+<p>See: <a href="T414830T414843.htm#t_wshrepcustom">XML Publisher Enabled Shipping Documents</a>.</p>
+<p><b>To Print a Bill of Lading for a Delivery Using the Shipping Transactions Window<a name="d0e8722" id="d0e8722"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manger window and find your delivery.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print BOL.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The bill of lading is printed.</p>
+</li>
+</ol>
+<p><b>To Print a Bill of Lading for a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e8749" id="d0e8749"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries for which you want to print a bill of lading, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Print a Bill of Lading for a Delivery Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one or more deliveries by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print BOL.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The bill of lading is printed.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also print a bill of lading for a delivery by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>Print a Bill of Lading for a Delivery Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print BOL.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The bill of lading is printed.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="4034248"></a><a id="T447311"></a><b>Printing a Packing Slip for a Delivery</b></h2>
+<p><a name="d0e8826" id="d0e8826"></a><a name="d0e8832" id="d0e8832"></a><a name="t_pkslp_del" id="t_pkslp_del"></a>You can print packing slips from the Quick Ship window, the Shipping Transactions window, the Delivery pages in the Shipping Execution Simplified User Interface, and as part of a document set.</p>
+<p>Packing Slip is XML Publisher enabled and can be printed in PDF. An XML Publisher enabled Shipping document enables the flexibility to define your own report layouts, include additional fields, and print the document in PDF format. See: <a href="T414830T414843.htm#t_wshrepcustom">XML Publisher Enabled Shipping Documents</a>.</p>
+<p><b>To Print a Packing Slip for a Delivery Using the Shipping Transactions Window<a name="d0e8850" id="d0e8850"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window and find your delivery.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print Pack Slip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The packing slip is printed.</p>
+</li>
+</ol>
+<p><b>To Print a Packing Slip for a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e8877" id="d0e8877"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries for which you want to print a packing slip, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Print a Packing Slip for a Delivery Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one or more deliveries by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print Pack Slip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The packing slip is printed.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also print a packing slip for a delivery by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To Print a Packing Slip for a Delivery Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Print Pack Slip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The packing slip is printed.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573618"></a><a id="T414966"></a><b>Assigning Deliveries to a Trip</b></h2>
+<p><a name="d0e8954" id="d0e8954"></a><a name="d0e8960" id="d0e8960"></a><a name="t_del_asstotrp" id="t_del_asstotrp"></a><a name="WSHFSTRX.ASSIGN_TRIP" id="WSHFSTRX.ASSIGN_TRIP"></a><a name="deltotrp" id="deltotrp"></a><a name="assign" id="assign"></a><a name="t_asgndl" id="t_asgndl"></a>You can create a new delivery and assign it to a trip, or assign an existing delivery to a trip.</p>
+<p><strong><span>Note:</span></strong> When a delivery is manually or automatically assigned to a trip, the Oracle Shipping Execution creates a delivery leg. If a trip for the delivery is created during ship confirmation, a delivery leg is created using the sourcing warehouse as the initial pick-up and the ultimate destination as the drop off.</p>
+<h3><b>Prerequisites</b></h3>
+<p>Status for the trip must be Open.</p>
+<p>Status for the Delivery must not be Closed.</p>
+<p><b>To Manually Assign a Delivery To a Trip Using the Shipping Transactions Window<a name="assigndtripstw" id="assigndtripstw"></a><a name="d0e8988" id="d0e8988"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign to Trip.</b></p>
+<p><b>Assign Deliveries to Trip window</b></p>
+<p><img width="569" height="425" src="./img/wshug_deltrp.gif" alt="the picture is described in the document text"></p>
+<p>The Assign Deliveries to Trip window appears.</p>
+</li>
+<li>
+<p>Select the trip name that you want the delivery assigned to.</p>
+<p>You can add a new pick up and drop-off stop for the delivery, or alternately, select an existing pick up and drop-off stop associated with the trip.</p>
+<ul>
+<li>
+<p>To assign the delivery to a new stop:</p>
+<ol>
+<li>
+<p>In the Pick-up Stop region, select the New check box if you want to add a new pick-up stop. In the Drop-off region, select the New check box if you want to add a new drop-off stop.</p>
+</li>
+<li>
+<p>Select the location, planned arrival date, and planned departure date for each stop.</p>
+<p><strong><span>Note:</span></strong> You can assign deliveries to stops that are in Open or Arrived status. You cannot assign deliveries to stops that are in Closed status.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Alternately, to assign the delivery to an existing stop:</p>
+<ol>
+<li>
+<p>Select the location for the pick-up stop and the drop-off stop.</p>
+<p>The default planned arrival date and planned departure date for each stop location appear automatically be default.</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>OK</b> and save your work.</p>
+<p>You use the Process Deliveries SRS program to automatically assign deliveries to trips.</p>
+</li>
+</ol>
+<p><b>To Manually Assign a Delivery To a Trip Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e9055" id="d0e9055"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries for which you want manually assign a trip, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Manually Assign a Delivery To a Trip Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one delivery by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign to Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><b>Assign Deliveries to Trip page</b></p>
+<p><img width="738" height="311" src="./img/wshug_scn_assigndeliverytrip.gif" alt="the picture is described in the document text"></p>
+<p>The Assign Deliveries to Trip page appears.</p>
+</li>
+<li>
+<p>Enter the trip and stops information.</p>
+<p>For more information on entering a trip and stops, see the <a href="T414830T414837.htm#assigndtripstw">procedure: To Manually Assign a Delivery To a Trip Using the Shipping Transactions Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also manually assign a delivery to a trip by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To Manually Assign a Delivery To a Trip Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign to Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Assign Deliveries to Trip page appears.</p>
+</li>
+<li>
+<p>Enter the trip and stops information.</p>
+<p>For more information on entering a trip and stops, see the <a href="T414830T414837.htm#assigndtripstw">procedure: To Manually Assign a Delivery To a Trip Using the Shipping Transactions Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414843.htm#pdsrs">Process Deliveries SRS</a></p>
+<h2><a name="3573622"></a><a id="T414967"></a><b>Assigning Freight Costs To a Delivery</b></h2>
+<p><a name="d0e9170" id="d0e9170"></a><a name="d0e9176" id="d0e9176"></a><a name="t_frtcstdel" id="t_frtcstdel"></a><a name="WSHFRCST_FREIGHT_COSTS" id="WSHFRCST_FREIGHT_COSTS"></a><a name="frtassign" id="frtassign"></a><a name="frtcst" id="frtcst"></a><a name="DlvyFreightCostsResultPG" id="DlvyFreightCostsResultPG"></a><a name="DlvyFreightCostMainPG" id="DlvyFreightCostMainPG"></a>You can assign freight costs to a specific delivery, or update existing freight costs. For example, if you want to add additional costs to a particular delivery of goods. Freight cost can also be assigned to a delivery detail, a container, a stop, or a trip.</p>
+<p><b><a name="frtcstdelv" id="frtcstdelv"></a>To Assign Freight Costs To a Delivery Using the Shipping Transactions Window or the Quick Ship Window<a name="assignfcstwqs" id="assignfcstwqs"></a><a name="d0e9196" id="d0e9196"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window or Quick Ship window and find the delivery.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><b>Freight Costs window</b></p>
+<p><img width="748" height="502" src="./img/wshug_frtcstdeliv.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter, or select from the list of values, the Freight Cost Name.</p>
+</li>
+<li>
+<p>Enter a Currency Code, or accept the default.</p>
+</li>
+<li>
+<p>Enter an Amount, or accept the default.</p>
+</li>
+<li>
+<p>Optionally, select a Conversion Type, Conversion Date, and Conversion Rate.</p>
+</li>
+<li>
+<p>Click <b>Done</b> to save your work.</p>
+<p><strong><span>Note:</span></strong> Freight cost Name and freight cost Type uniquely identify a freight cost charge. If freight costs are manually entered, then the Trip field in the Freight Costs region is null.</p>
+<p>The Order Management Interface concurrent process transfers the carrier freight costs to the sales order for invoicing if a price modifier is properly defined to pass freight cost.</p>
+<p>For more information, refer to the <i>Oracle Order Management Implementation Manual.</i></p>
+<h3><b>Freight Rate Recalculation Actions</b></h3>
+<p><a name="frtrecalc" id="frtrecalc"></a>To recalculate freight rates:</p>
+<ul>
+<li>
+<p>Ship confirm and close the pick up stop</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To Assign Freight Costs To a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e9270" id="d0e9270"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries to which you want to assign freight costs, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Assign Freight Costs To a Delivery Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one delivery by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><b>Freight Costs page</b></p>
+<p><img width="800" height="600" src="./img/wshug_scn_assignfcdel.gif" alt="the picture is described in the document text"></p>
+<p>The Freight Costs page appears.</p>
+</li>
+<li>
+<p>Click the <b>Create Freight Cost</b> icon (+ plus sign).</p>
+</li>
+<li>
+<p>Enter the freight cost information.</p>
+<p>For more information on entering freight cost, see the <a href="T414830T414837.htm#assignfcstwqs">procedure: To Assign Freight Costs To a Delivery Using the Shipping Transactions Window or the Quick Ship Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also assign freight costs to a delivery by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To Assign Freight Costs To a Delivery Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Freight Costs page appears.</p>
+</li>
+<li>
+<p>Click the <b>Create Freight Cost</b> icon (+ plus sign).</p>
+</li>
+<li>
+<p>Enter the freight cost information.</p>
+<p>For more information on entering freight cost, see the <a href="T414830T414837.htm#assignfcstwqs">procedure: To Assign Freight Costs To a Delivery Using the Shipping Transactions Window or the Quick Ship Window</a>.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<p><b>To View Freight Costs for a Delivery Using the Shipping Transactions Window<a name="d0e9391" id="d0e9391"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window and find the delivery.</p>
+</li>
+<li>
+<p>In the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+<li>
+<p>View the freight cost information as needed.</p>
+</li>
+</ol>
+<p><b>To View Freight Costs for a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e9420" id="d0e9420"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries for which you want to view freight costs, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To View Freight Costs Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one delivery by clicking the corresponding check box in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p><b>Freight Costs page</b></p>
+<p><img width="800" height="600" src="./img/wshug_scn_viewfcdel.gif" alt="the picture is described in the document text"></p>
+<p>The Freight Costs page appears displaying the freight costs for the delivery.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also view freight costs for a delivery by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To View Freight Costs Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Assign Freight Costs.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+<p>The Freight Costs page appears displaying the freight costs for the delivery.</p>
+</li>
+<li>
+<p>Click <b>Apply.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573627"></a><a id="T414968"></a><b>Unassigning a Delivery From a Trip</b></h2>
+<p><a name="d0e9514" id="d0e9514"></a><a name="d0e9520" id="d0e9520"></a><a name="t_del_unass" id="t_del_unass"></a><a name="unas" id="unas"></a><a name="t_unasnd" id="t_unasnd"></a>You can unassign a delivery from a trip. For example, if you wanted to reassign a delivery that was already assigned to a trip, you could reassign it from one trip and assign it to another.</p>
+<h3><b>Prerequisites</b></h3>
+<p>Trip status for the delivery you want to unassign must be Open.</p>
+<p>Delivery status must not be Closed.</p>
+<p><b>To Unassign a Delivery From a Trip Using the Shipping Transactions Window<a name="d0e9542" id="d0e9542"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager, and find the delivery you want to unassign.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unassign from Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go</b> to unassign the delivery from the trip.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Unassign a Delivery From a Trip Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e9572" id="d0e9572"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries you want to unassign from a trip, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Unassign a Delivery From a Trip Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one or more deliveries by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unassign from Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also unassign a delivery from a trip by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To Unassign a Delivery From a Trip Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unassign from Trip.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3573630"></a><a id="T414854"></a><b>Closing a Delivery</b></h2>
+<p><a name="d0e9645" id="d0e9645"></a><a name="d0e9651" id="d0e9651"></a><a name="t_del_close" id="t_del_close"></a><a name="close" id="close"></a>A delivery status changes to Closed after you have successfully ship confirmed the delivery. You can close an Open or Contents Firm delivery.</p>
+<p><strong><span>Note:</span></strong> After a delivery is Closed, no further actions can be performed on the delivery.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414841.htm#shipconf">Overview of Ship Confirm</a>.</p>
+<h2><a name="3573631"></a><a id="T414969"></a><b>Firming a Delivery</b></h2>
+<p><a name="d0e9675" id="d0e9675"></a><a name="d0e9681" id="d0e9681"></a><a name="t_del_plan" id="t_del_plan"></a><a name="plandel" id="plandel"></a><a name="t_plandl" id="t_plandl"></a>You can firm a delivery after delivery lines have been assigned to the delivery. Firming a delivery prevents changes from being made to the delivery. To make changes to a firm delivery, you must unfirm it first and then make the required changes.</p>
+<h3><b>Prerequisites</b></h3>
+<p>At least one delivery line must be assigned to the delivery.</p>
+<p>Delivery status must be Open.</p>
+<p><b>To Firm a Delivery Using the Shipping Transactions Window<a name="d0e9703" id="d0e9703"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Firm Contents</b> or <b>Firm Routing and Contents.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Firm a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e9735" id="d0e9735"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries you want to firm, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Firm a Delivery Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one or more deliveries by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Firm Contents</b> or <b>Firm Routing and Contents.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also firm a delivery by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To Firm a Delivery Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Firm Contents</b> or <b>Firm Routing and Contents.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414835.htm#unplan">Unfirming a Delivery</a></p>
+<h2><a name="3573634"></a><a id="T414970"></a><b>Unfirming a Delivery</b></h2>
+<p><a name="d0e9819" id="d0e9819"></a><a name="d0e9825" id="d0e9825"></a><a name="t_del_unpln" id="t_del_unpln"></a><a name="unplandel" id="unplandel"></a>You can unfirm the contents of a delivery to unassign delivery lines. When you unfirm a delivery, Shipping Execution sets the status of the delivery to Open.</p>
+<p><strong><span>Note:</span></strong> All delivery lines remain assigned when you unfirm a delivery.</p>
+<h3><b>Prerequisites</b></h3>
+<p>The delivery cannot be Closed or Cancelled.</p>
+<p><b>To Unfirm a Delivery Using the Shipping Transactions Window<a name="d0e9847" id="d0e9847"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window, and find the delivery.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unfirm.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Unfirm a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e9876" id="d0e9876"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries you want to unfirm, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Unfirm a Delivery Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one or more deliveries by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unfirm.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also unfirm a delivery by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To Unfirm a Delivery Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unfirm.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414835.htm#plan">Firming a Delivery</a></p>
+<h2><a name="3573637"></a><a id="T414971"></a><b>Re-Opening a Delivery</b></h2>
+<p><a name="d0e9954" id="d0e9954"></a><a name="d0e9960" id="d0e9960"></a><a name="t_del_ropn" id="t_del_ropn"></a><a name="reopen" id="reopen"></a>You can reopen a confirmed delivery to modify details for the delivery. You can modify and ship confirm the delivery.</p>
+<h3><b>Prerequisites</b></h3>
+<p>The delivery must not be Closed or Intransit.</p>
+<p><b>To Re-Open a Delivery Using the Shipping Transactions Window<a name="d0e9979" id="d0e9979"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager window and find the delivery.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Re-open.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To Re-Open a Delivery Using the Shipping Execution Simplified User Interface (Alternate Method)<a name="d0e10008" id="d0e10008"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Deliveries page.</p>
+</li>
+<li>
+<p>Click <b>Search.</b></p>
+<p>The Search Deliveries page appears.</p>
+</li>
+<li>
+<p>Enter search criteria for the deliveries you want to re-open, and click <b>Go.</b></p>
+</li>
+<li>
+<p>Perform one of these procedures:</p>
+<p><b>To Re-Open a Delivery Using the Search Deliveries Page</b></p>
+<ol>
+<li>
+<p>Select one or more deliveries by clicking the corresponding check boxes in the Select column.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unfirm.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> You can also re-open a delivery by performing the steps above from the Deliveries page when any infotile is selected.</p>
+<p><b>To Re-Open a Delivery Using the Delivery Page</b></p>
+<ol>
+<li>
+<p>Click the <b>Name</b> link for a delivery in the search results table of the Search Deliveries page.</p>
+<p>The Delivery page appears.</p>
+</li>
+<li>
+<p>From the Actions menu, select <b>Unfirm.</b></p>
+</li>
+<li>
+<p>Click <b>Go.</b></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2><a name="3895781"></a><a id="T434485"></a><b>Delivery Workflow Status</b></h2>
+<p><a name="d0e10081" id="d0e10081"></a><a name="d0e10085" id="d0e10085"></a><a name="d0e10091" id="d0e10091"></a><a name="del_wf" id="del_wf"></a>With the use of Oracle Workflow, Oracle Shipping Execution enables you to view the status of delivery specific workflows through the Shipping Transactions window or the Quick Ship window.</p>
+<p>The Workflow Monitor is used to graphically display the status of the workflow associated with the delivery.</p>
+<p>Delivery workflow must be enabled in Global and Shipping parameters.</p>
+<h3><b>Viewing Delivery Workflow Status<a name="d0e10106" id="d0e10106"></a><a name="d0e10112" id="d0e10112"></a></b></h3>
+<p><b>To View the Workflow Status of a Delivery<a name="d0e10121" id="d0e10121"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Query Manager, and find the delivery</p>
+</li>
+<li>
+<p>From the Tools menu, select Workflow status.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T434644.htm#viewwshwf">Workflow Status</a></p>
+<h2><a name="3897191"></a><a id="T434551"></a><b>Purging Deliveries</b></h2>
+<p><a name="d0e10144" id="d0e10144"></a><a name="d0e10148" id="d0e10148"></a><a name="d0e10152" id="d0e10152"></a><a name="deliv_purge" id="deliv_purge"></a>Oracle Shipping Execution enables you to purge (permanently delete) delivery records from the Oracle Shipping Execution tables as long as specific criteria is met. All associated delivery lines and LPNs must be eligible for purge in order for deliveries to be eligible for purge.</p>
+<p>All information associated with the purged entities is also purged, for example freight costs, weight and volume, dates, and exceptions.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414843.htm#t_shpprgrep">Shipping Purge Concurrent Process</a></p>
+<h2><a name="3573640"></a><a id="T414855"></a><b>One-Step Shipping</b></h2>
+<p><a name="d0e10173" id="d0e10173"></a><a name="d0e10177" id="d0e10177"></a><a name="t_onestep" id="t_onestep"></a><a name="onestep" id="onestep"></a>One-step shipping is the process of picking, optionally packing, and ship confirming delivery lines in one step. You can perform one-step shipping using one of these actions:</p>
+<ul>
+<li>
+<p>Pick and Ship</p>
+</li>
+<li>
+<p>Pick, Pack, and Ship</p>
+</li>
+</ul>
+<p>These actions can be performed from the Deliveries tab and Delivery Lines tab in the Shipping Transactions window and the Delivery pages in the Shipping Execution Simplified User Interface.</p>
+<p>These two actions can be utilized according to your business needs:</p>
+<ul>
+<li>
+<p>Pick and Ship:</p>
+<p>This action can be used for one or more deliveries or delivery lines. Pick and Ship performs the following:</p>
+<ul>
+<li>
+<p>Auto-create deliveries if deliveries are not associated with all or some of the lines.</p>
+</li>
+<li>
+<p>Launch Pick Release and pick confirm all lines assigned to the deliveries (auto-created as well as manually created.)</p>
+</li>
+<li>
+<p>Ship confirm all deliveries if all assigned lines have a line status of Staged/Pick Confirmed and do not require any additional actions such as serial numbers or other inventory controls. Pick and Ship uses these ship confirm options:</p>
+<p>Actual Departure Date: System date.</p>
+<p>Create Bill of Lading: Yes.</p>
+<p><strong><span>Note:</span></strong> The ship confirm options are used from the default auto ship confirm rule specified in the shipping parameter for the organization.</p>
+<p>Pick, Pack, and Ship utilizes these ship confirm options:</p>
+</li>
+<li>
+<p>Auto-create trips if manually created trips/stops are not associated with any or all of the deliveries.</p>
+</li>
+<li>
+<p>Close auto created or manually created trips.</p>
+</li>
+<li>
+<p>Perform all other shipping functions that are performed during ship confirm and trip closing, for example executing interfaces.</p>
+<p><strong><span>Note:</span></strong> If as part of Pick, Pack, and Ship process, all delivery lines of a delivery cannot be released resulting in a status of staged/pick confirmed, the entire delivery is not ship confirmed as part of the automated process. Deliveries that require additional input from you, such as inventory controls, are not ship confirmed.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Pick, Pack, and Ship:</p>
+<p>This action can be used for one or more deliveries or delivery lines.</p>
+<p>Pick, Pack, and Ship performs the following:</p>
+<p><strong><span>Note:</span></strong> For Pack to occur, you must setup a container-item relationship between the delivery lines item and the container item. For packing items into containers, then containers into containers, you must setup container-item relationships from container to container.</p>
+<p>For more information on container-item relationships, refer to the <i>Oracle Order Management Implementation Manual.</i></p>
+<ul>
+<li>
+<p>Auto-create deliveries if deliveries are not associated with all or some of the lines.</p>
+</li>
+<li>
+<p>Launch Pick Release and pick confirm all lines assigned to the deliveries (auto-created as well as manually created.)</p>
+</li>
+<li>
+<p>Auto pack all delivery lines with a status of Staged/Pick Confirmed, and all deliveries with a status of Open.</p>
+</li>
+<li>
+<p>Ship confirm all deliveries that have all line status of Staged and do not require any additional actions such as serial numbers. Pick, Pack, and Ship utilizes these ship confirm options:</p>
+<p>Actual Departure Date: System date.</p>
+<p>Defer Interface: No.</p>
+<p><strong><span>Note:</span></strong> The ship confirm options are used from the default auto ship confirm rule specified in the shipping parameter for the organization.</p>
+</li>
+<li>
+<p>Auto-create trips if manually created trips/stops are not associated with any or all of the deliveries.</p>
+</li>
+<li>
+<p>Close auto-created or manually created trips.</p>
+</li>
+<li>
+<p>Perform all other shipping functions that are performed during ship confirm and trip closing, for example executing interfaces.</p>
+<p><strong><span>Note:</span></strong> If as part of Pick and Ship process, all the delivery lines of a delivery cannot be released resulting in a status of staged/pick confirmed, the entire delivery is not ship confirmed as part of the automated process. Delivery details that require additional information from you, such as inventory controls, are not ship confirmed.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a name="3573641"></a><a id="T414856"></a><b>Using Quick Ship for Deliveries</b></h2>
+<p><a name="d0e10286" id="d0e10286"></a><a name="d0e10292" id="d0e10292"></a><a name="t_qsdell" id="t_qsdell"></a><a name="qs" id="qs"></a>The Quick Ship window enables you to process shipments quickly, using the minimum shipping requirements with the benefit of configurability. You can access deliveries and perform several actions within the Quick Ship window.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T414830T414833.htm#qs_win">Quick Ship Window</a></p>
+<p><a href="T414830T414837.htm#locqsdel">Locating and Confirming Quick Ship Deliveries</a></p>
+<h2><a name="3573642"></a><a id="T414972"></a><b>Locating and Confirming Quick Ship Deliveries</b></h2>
+<p><a name="d0e10315" id="d0e10315"></a><a name="d0e10323" id="d0e10323"></a><a name="d0e10331" id="d0e10331"></a><a name="t_qslconf" id="t_qslconf"></a><a name="WSHQSSUI_FIND_DELIVERY" id="WSHQSSUI_FIND_DELIVERY"></a><a name="WSHQSSUI_FIND_DELIVERY_RESULTS" id="WSHQSSUI_FIND_DELIVERY_RESULTS"></a><a name="locqsdel" id="locqsdel"></a>You can locate deliveries using the Quick Ship window.</p>
+<p><b>To Find a Delivery Using the Quick Ship Window<a name="d0e10349" id="d0e10349"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Quick Ship window.</p>
+</li>
+<li>
+<p>Ensure that the window view is set to <a href="T414830T414833.htm#qs_view">Delivery Confirm View</a>.</p>
+</li>
+<li>
+<p>With the cursor in the delivery Name field, press F11 or select Find from the View menu.</p>
+<p>There are several ways to find deliveries in the Quick Ship window:</p>
+<ul>
+<li>
+<p>The Find icon</p>
+</li>
+<li>
+<p>The LOV for the Delivery Name</p>
+</li>
+<li>
+<p>Enter the Delivery Name and press [Tab]</p>
+</li>
+</ul>
+<p><b>Find Deliveries window</b></p>
+<p><img width="703" height="600" src="./img/wshug_faux_qs2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the search criteria.</p>
+</li>
+<li>
+<p>Click <b>Find.</b></p>
+</li>
+</ol>
+<p><b>To Confirm a Delivery Using the Quick Ship Window<a name="d0e10402" id="d0e10402"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Quick Ship window.</p>
+</li>
+<li>
+<p>Ensure that the window view is set to <a href="T414830T414833.htm#qs_view">Delivery Confirm View</a>.</p>
+</li>
+<li>
+<p>Within the Deliveries region, enter or find the delivery Name.</p>
+</li>
+<li>
+<p>Verify all data in the header fields and update as necessary.</p>
+<p><b>Quick Ship window</b></p>
+<p><img width="1011" height="626" src="./img/wshug_faux_qs1.gif" alt="the picture is described in the document text"></p>
+<p>Any of the following actions can be executed by clicking the appropriate button at the bottom of the window, or by right-clicking and selecting the action from that menu:</p>
+<ul>
+<li>
+<p><a href="T414830T414837.htm#frtassign">Assign Freight Costs</a></p>
+</li>
+<li>
+<p><a href="T414830T414841.htm#snassign">Serial Numbers</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#wtvol">Reset Weight and Volume</a></p>
+</li>
+<li>
+<p><a href="T414830T414843.htm#rep_pkslip">Print Packing Slip</a></p>
+</li>
+<li>
+<p><a href="T414830T414843.htm#rep_bol">Print Bill of Lading (BOL)</a></p>
+</li>
+<li>
+<p><a href="T414830T414835.htm#print">Print Document Set</a></p>
+</li>
+<li>
+<p><a href="T414830T414841.htm#shipconf">Ship Confirm</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click the action to be performed.</p>
+<p><strong><span>Note:</span></strong> When you click Ship Confirm from the Quick Ship window, the Confirm Delivery window appears. If a Ship Confirm Rule is selected or defaulted however, the Ship Confirm window does not display and the ship confirm options default from the selected rule, unless the folder option Show Ship Confirm Options is selected and the folder is enabled.</p>
+</li>
+</ol>
+<h2><a name="4143267"></a><a id="T456286"></a><b>XML Transactions</b></h2>
+<p><a name="d0e10476" id="d0e10476"></a><a name="t_xmltransactions" id="t_xmltransactions"></a>Oracle Shipping Execution enables the communication of information with external sources outside of the Oracle E-Business Suite and internal sources outside of Oracle Shipping Execution through the use of XML (Extensible Markup Language). Oracle XML Gateway must be installed and configured before using XML with Oracle Shipping Execution. Oracle Shipping Execution uses XML transactions in many shipping processes such as carrier manifesting (shipment request and shipment advice).</p>
+<p>See <a href="T414830T435968.htm#t_emxml">Appendix B, Electronic Messaging</a>, for more information on XML transactions with Oracle Shipping Execution.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

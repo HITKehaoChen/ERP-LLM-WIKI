@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Using Oracle Workflow in Oracle Order Management</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Using Oracle Workflow in Oracle Order Management Guide">
+<meta name="dcterms.identifier" content="E48844-08">
+<meta name="dcterms.isVersionOf" content="OMOWF">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T393423T393432.htm" title="Previous" type="text/html">
+<link rel="Next" href="T393423T393434.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Using Oracle Workflow in Oracle Order Management","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">14/16</span> <!-- End Header -->
+<h1>Troubleshooting</h1>
+<h2><a name="3258976"></a><a id="T393557"></a><b>Expected Errors</b></h2>
+<p><a name="d0e21574" id="d0e21574"></a><a name="d0e21579" id="d0e21579"></a><a name="d0e21582" id="d0e21582"></a><a name="d0e21587" id="d0e21587"></a><a name="d0e21590" id="d0e21590"></a><a name="d0e21593" id="d0e21593"></a><a name="t_expect" id="t_expect"></a>There are two error types that can occur in order and line flows: unexpected errors and expected errors. Expected errors are errors that business processes anticipate. For example, booking requires that a customer is specified on the order. If you attempt to book an order that does not specify a customer, the order will not book. The <a href="T393423T393431.htm#t_book">Book</a> activity will end with a result of Incomplete.</p>
+<p>Other examples of expected errors include the following:</p>
+<ul>
+<li>
+<p>A line is on hold and cannot be invoice interfaced.</p>
+</li>
+<li>
+<p>Booking cannot complete because no price list is specified on the order.</p>
+</li>
+</ul>
+<p>To anticipate these errors, activities are set to end with a ON_HOLD result if it cannot complete because of a hold, or end with an INCOMPLETE result. The flow must then transition to a block (which can be completed from the Sales Order window) or to a wait activity.</p>
+<p>For example, the invoicing activity finds a hold on a line. The activity posts a message indicating the line is on hold and then completes to the Wait activity with an ON_HOLD result. The Wait activity is set to wait for a response for eight hours. After eight hours it transitions back to the invoicing activity.</p>
+<p>As another example, the booking activity finds a hold on an order. The activity posts a message indicating that the order is on hold and then completes to the booking eligibility block with an ON_HOLD result.</p>
+<p>When an activity is completed via the Sales Order window, the Processing Messages window appears to display messages that indicate errors.</p>
+<p>When an activity is process by the Background Engine (the activity is deferred), error messages are stored in the Oracle Order Management processing message table. View these messages via the Processing Message window using the concurrent program request number, the workflow activity, and/or order or line basis.</p>
+<h2><a name="3258977"></a><a id="T393558"></a><b>Repricing Errors</b></h2>
+<p><a name="d0e21626" id="d0e21626"></a><a name="d0e21633" id="d0e21633"></a><a name="d0e21638" id="d0e21638"></a><a name="d0e21643" id="d0e21643"></a>You can still reprice an order line if <a href="T393423T393430.htm#t_repln">Reprice - Line</a> encounters an expected error, such as an invalid repricing event or pricing engine failure to locate a price list. Complete the following steps to reprice a line that failed the <a href="T393423T393431.htm#t_reprice">Reprice</a> activity:</p>
+<ol>
+<li>
+<p>Navigate to the Sales Order Process Messages window to view the error condition.</p>
+</li>
+<li>
+<p>Correct the error condition.</p>
+</li>
+<li>
+<p>Navigate to the Sales Order window and query the order where the repricing error occurred.</p>
+</li>
+<li>
+<p>Select the Lines tab and locate the line with the repricing error.</p>
+</li>
+<li>
+<p>Select the line, select Actions, and then select Progress Order.</p>
+</li>
+<li>
+<p>Select Reprice Eligible from the menu to reprice the line again.</p>
+</li>
+<li>
+<p>Repeat Steps 1 through 6 until the error is resolved.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="3258978"></a><a id="T393559"></a><b>Errors Viewing Workflow Status From Within Oracle Order Management</b></h2>
+<p><a name="d0e21686" id="d0e21686"></a><a name="d0e21691" id="d0e21691"></a><a name="d0e21694" id="d0e21694"></a>If you encounter an error when trying to view workflow processes from within Oracle Order Management, your Oracle Workflow setup or your browser setup on your computer could be incorrect. For more information about workflow viewing problems from within Oracle Applications, refer to the <i>Oracle Workflow User's Guide.</i></p>
+<h2><a name="3258979"></a><a id="T393560"></a><b>Unexpected Errors</b></h2>
+<p><a name="d0e21710" id="d0e21710"></a><a name="d0e21715" id="d0e21715"></a><a name="t_unexpec" id="t_unexpec"></a>Unexpected errors are those that an Oracle Order Management function activity does not anticipate. Causes of unexpected errors can include the following:</p>
+<ul>
+<li>
+<p>Data integrity errors</p>
+</li>
+<li>
+<p>The table does not exist</p>
+</li>
+<li>
+<p>Rollback segments cannot be extended</p>
+</li>
+<li>
+<p>The package does not exist</p>
+</li>
+</ul>
+<p>To avoid unexpected errors, specify an error process when defining function activities and processes. All seeded Oracle Order Management function activities and process have a specified error process.</p>
+<p>The <a name="d0e21739" id="d0e21739"></a><a name="d0e21742" id="d0e21742"></a><a name="d0e21745" id="d0e21745"></a>default error process, Retry Only, is a seeded Oracle Workflow error process. The activity that encountered an unexpected error is marked with an Error status (in WF_ITEM_ACTIVITY_STATUSES) and a notification listing the error details is sent to the role specified in the OM Workflow Administrator item attribute. The Role item attribute WF_ADMINISTRATOR is defined for the header and line work item, and is set as SYSADMIN. The error process sends notifications about the error to this role.</p>
+<p>Once the problems have been corrected, the administrator can select the Retry option on the notification and complete it. This initiates a retry of the activity in error. The administrator can also opt to retry the activity from the Workflow Monitor.</p>
+<p>For more information on setting the OM Workflow Administrator item attribute, refer to <a href="T393423T393427.htm#t_awftt">Assigning Workflows to Transaction Types</a>.</p>
+<h2><a name="4476368"></a><a id="T477295"></a><b>Exception Management</b></h2>
+<p><a name="d0e21760" id="d0e21760"></a>The Retry Activities in Error concurrent program retries failed workflow activities across multiple transactions using the Standard Request Submission (SRS) window. The concurrent program expands the ability of Order Management functional users to recover gracefully from unexpected errors that result in stuck transactions and typically require data fixes to be able to progress the transactions. You can retry activities in batch rather than individually. The following workflow item types are supported in the retry activity:</p>
+<ul>
+<li>
+<p>OM Order Header</p>
+</li>
+<li>
+<p>OM Order Line</p>
+</li>
+<li>
+<p>OM Negotiation Header</p>
+</li>
+<li>
+<p>OM Blanket Header</p>
+</li>
+<li>
+<p>OM Order Import</p>
+</li>
+<li>
+<p>OM Send Acknowledgment</p>
+</li>
+<li>
+<p>OM Show Sales Order</p>
+</li>
+<li>
+<p>OM EDI Workflow</p>
+</li>
+<li>
+<p>OM Change Order</p>
+</li>
+<li>
+<p>OM Open Interface Tracking</p>
+</li>
+<li>
+<p>OM Error</p>
+</li>
+</ul>
+<p>If you enter an Order Number, then the header flow and all failed line flows are retried. All other parameter values are ignored. Since Item Type is mandatory, it is defaulted to order header. The Order Number parameter displays order numbers across operating units.</p>
+<p>When the Ship Line workflow activity errors out, at least one corresponding delivery detail is closed since the line was shipped. In this case, retrying the activity via the existing Exception Management functionality will always fail. When Exception Management encounters this situation, the workflow activity is set to Notified instead of being retried.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

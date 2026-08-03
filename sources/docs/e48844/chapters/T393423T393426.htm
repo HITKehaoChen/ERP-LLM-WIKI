@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Using Oracle Workflow in Oracle Order Management</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Using Oracle Workflow in Oracle Order Management Guide">
+<meta name="dcterms.identifier" content="E48844-08">
+<meta name="dcterms.isVersionOf" content="OMOWF">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T393423T393425.htm" title="Previous" type="text/html">
+<link rel="Next" href="T393423T393427.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Using Oracle Workflow in Oracle Order Management","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">5/16</span> <!-- End Header -->
+<h1>Introduction</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T393435">Using Oracle Workflow in Oracle Order Management</a></li>
+<li><a href="#T393436">Setting Up Oracle Workflow in Oracle Order Management</a></li>
+<li><a href="#T393437">Viewing Processes in Oracle Workflow Builder</a></li>
+<li><a href="#T393438">Viewing Workflows in Oracle Order Management</a></li>
+<li><a href="#T393439">Seeded Workflow Definition Files</a></li>
+<li><a href="#T393440">Seeded Workflow Definition File oexwford.wft</a></li>
+<li><a href="#T393441">Seeded Workflow Definition File ctochord.wft</a></li>
+<li><a href="#T393442">Item Types</a></li>
+<li><a href="#T393443">OM Change Order</a></li>
+<li><a href="#T393444">OM Order Header</a></li>
+<li><a href="#T393445">OM Order Line</a></li>
+<li><a href="#T393446">OM Standard</a></li>
+<li><a href="#T393447">CTO Change Order</a></li>
+<li><a href="#T393448">OM Negotiation Header</a></li>
+<li><a href="#T393449">OM Blanket Header</a></li>
+<li><a href="#T633854">OM AME Approval</a></li>
+</ul>
+<h2><a name="3258426"></a><a id="T393435"></a><b>Using Oracle Workflow in Oracle Order Management</b></h2>
+<p><a name="t_using" id="t_using"></a>Oracle Order Management uses Oracle Workflow to control the sequence of events that occur in the processing of orders, quotes, sales agreements, returns, order lines, and return lines. Oracle Workflow manages activities, executes functions, sends notifications, maintains completed activity history, detects errors, and initiates error processes. Oracle Order Management also uses Oracle Workflow to enable you to track the history of orders.</p>
+<p>Oracle Order Management enables you to model your business processes in terms of generic order processes. When defining a new workflow, you can begin with the basic activities of order processing. You can model your business processes by copying and editing seeded processes or by using seeded and custom activities as components.</p>
+<p>This guide provides details about how to extend Oracle Workflow in Oracle Order Management to best meet your business needs. This guide also provides detailed information regarding the workflow processes that come seeded with Oracle Order Management.</p>
+<p>For information regarding implementation and setup of Oracle Workflow, refer to the <i>Oracle Workflow User's Guide.</i> For information regarding the setup and implementation of Oracle Order Management, refer to the <i>Oracle Order Management Implementation Manual.</i></p>
+<h2><a name="3258427"></a><a id="T393436"></a><b>Setting Up Oracle Workflow in Oracle Order Management</b></h2>
+<p><a name="t_setting" id="t_setting"></a>There are certain setup requirements to complete before using Oracle Workflow with Oracle Order Management. This guide details the requirements for setting up and using Oracle Workflow in Oracle Order Management. First review all seeded Oracle Order Management workflow data to determine if the seeded flows meet your business requirements. You may decide to use Oracle Workflow Builder to define new workflow processes.</p>
+<p>The <i>Oracle Workflow User's Guide</i> provides a list of setup steps for Oracle Workflow, and explains the setup necessary for all modules. For example, the guide explains that an access level of 100 in Oracle Workflow Builder is necessary. Do not change this access level.</p>
+<p><strong><span>Warning:</span></strong> Oracle does not provide support if the access level of 100 is changed.</p>
+<p>For more information about extending seeded Oracle Order Management workflow processes, refer to <a href="T393423T393428.htm#t_extend">Extending Oracle Order Management Seeded Workflows</a>.</p>
+<p>For more information about setting up Oracle Workflow, refer to the <i>Oracle Workflow User's Guide</i>.</p>
+<h2><a name="3258428"></a><a id="T393437"></a><b>Viewing Processes in Oracle Workflow Builder</b></h2>
+<p>From within the Oracle Workflow Builder you can view the different workflow processes discussed in this manual and their associated functions, messages, subprocesses, notifications, and properties.</p>
+<p>To view processes in Oracle Workflow Builder, complete the following steps:</p>
+<ol>
+<li>
+<p>Within Oracle Workflow Builder, select Open from the File menu, and connect to the database.</p>
+</li>
+<li>
+<p>Expand the data source, then select the item type branch within that data source.</p>
+</li>
+<li>
+<p>Expand the processes branch within your item type and select a process activity to display the diagram of the process in a Process window.</p>
+</li>
+</ol>
+<p>The following image depicts the Oracle Workflow Builder:</p>
+<p><b>Oracle Workflow Builder</b></p>
+<p><img width="938" height="653" src="./img/wf_wfbuild.gif" alt="the picture is described in the document text"></p>
+<h2><a name="3258430"></a><a id="T393438"></a><b>Viewing Workflows in Oracle Order Management</b></h2>
+<p><a name="t_viewwf" id="t_viewwf"></a>From within Oracle Order Management you can view the active workflow processes, that are associated with the order or line, and their associated functions, messages, subprocesses, notifications, and properties. These processes must be in an active running state and also associated with a sales order or sales order line in order to view them. Please note that in the Activities List mode, you will only be able to see the activities that have already completed or are active.</p>
+<p>To view processes for specific orders within Oracle Order Management, complete the following steps:</p>
+<ol>
+<li>
+<p>Open the desired order or line in Oracle Order Management.</p>
+</li>
+<li>
+<p>Navigate to the Tools menu and select Workflow Status.</p>
+</li>
+<li>
+<p>A new window opens and displays the workflow status as an activities list.</p>
+</li>
+</ol>
+<p>The following image depicts the Activities List window in Oracle Order Management:</p>
+<p><b>Activities List Window</b></p>
+<p><img width="1005" height="887" src="./img/wf_viewapp.gif" alt="the picture is described in the document text"></p>
+<ol>
+<li>
+<p>From the Activities List window you can select the order header workflow process or the order line workflow processes associated with the order. Selecting an order line workflow process opens a new activities list for that process.</p>
+</li>
+<li>
+<p>Select View Diagram under the activities list to view the actual workflow diagram.</p>
+</li>
+</ol>
+<p>The following image depicts the View Diagram window in Oracle Order Management. The green outlines bordering an activity box in the view diagram indicate that an activity is complete and active.</p>
+<p><b>View Diagram Window</b></p>
+<p><img width="699" height="647" src="./img/wf_viewapfl.gif" alt="the picture is described in the document text"></p>
+<h2><a name="3258433"></a><a id="T393439"></a><b>Seeded Workflow Definition Files</b></h2>
+<p><a name="d0e270" id="d0e270"></a><a name="d0e273" id="d0e273"></a>Each of the Oracle Order Management seeded workflows and their associated activities are contained in the following seeded workflow definition file:</p>
+<ul>
+<li>
+<p>oexwford.wft</p>
+</li>
+</ul>
+<p>The following workflow definition file comes seeded with Oracle Discrete Manufacturing, and is used in conjunction with Oracle Order Management:</p>
+<ul>
+<li>
+<p>ctochord.wft</p>
+</li>
+</ul>
+<p>The following seeded workflow definition files belong to Order Information Portal and are used for sending notifications for approving returns:</p>
+<ul>
+<li>
+<p>oexcustf.wft</p>
+</li>
+<li>
+<p>ontdefct.wft</p>
+</li>
+</ul>
+<p>The Cost of Goods (COGS) Account Generator flows are in the following seeded workflow definition file:</p>
+<ul>
+<li>
+<p>oexwfcog.wft</p>
+</li>
+</ul>
+<p>EDI/XML flows are in the following seeded workflow definition files:</p>
+<ul>
+<li>
+<p>oexwfedi.wft</p>
+</li>
+<li>
+<p>oexwfoi.wft</p>
+</li>
+</ul>
+<p>Shipping workflows are contained in the following seeded workflow definition file:</p>
+<ul>
+<li>
+<p>wshwftrx.wft</p>
+</li>
+</ul>
+<p>For more information on Shipping workflows, please refer to the chapter <a href="T393423T479666.htm#t_wshflows">Seeded Shipping Workflows</a>.</p>
+<h2><a name="3258434"></a><a id="T393440"></a><b>Seeded Workflow Definition File oexwford.wft</b></h2>
+<a name="d0e328" id="d0e328"></a><a name="t_sdf" id="t_sdf"></a>
+<h3><a id="T393561"></a><b>Item Types</b></h3>
+<p>The seeded workflow definition file <i>oexwford.wft</i> contains the following item types:</p>
+<ul>
+<li>
+<p><a href="T393423T393426.htm#t_change">OM Change Order</a></p>
+</li>
+<li>
+<p><a href="T393423T393431.htm#t_omoh">OM Order Header</a></p>
+</li>
+<li>
+<p><a href="T393423T393431.htm#t_omol">OM Order Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393431.htm#t_omstd">OM Standard</a></p>
+</li>
+<li>
+<p><a href="T393423T393426.htm#t_omnegh">OM Negotiation Header</a></p>
+</li>
+<li>
+<p><a href="T393423T393426.htm#t_omblh">OM Blanket Header</a></p>
+</li>
+</ul>
+<h3><b>Processes</b></h3>
+<p>The seeded workflow definition file <i>oexwford.wft</i> contains the following processes:</p>
+<ul>
+<li>
+<p><a href="T393423T393429.htm#t_copros">Change Order Process</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_isocancel">ISO Cancel Process</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_isocancelline">ISO Line Cancel Process</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_isoqtyupdt">ISO Qty Update Process</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_isodateupdt">ISO Schedule Date update Process</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_isoqtydate">ISO Quantity and Schedule Date update Process</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfato">Line Flow - ATO Item</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfatom">Line Flow - ATO Model</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfconf">Line Flow - Configuration</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcfrlm">Line Flow - Configuration with Authorize to Ship (RLM)</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgen">Line Flow - Generic</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgrlm">Line Flow - Generic with Authorize to Ship (RLM)</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfghlii">Line Flow - Generic with Header Level Invoice Interface</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgexp">Line Flow - Generic, With Export Compliance</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgbo">Line Flow - Generic, Bill Only</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgboii">Line Flow - Generic, Bill Only with Inventory Interface</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgso">Line Flow - Generic, Ship Only</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgraf">Line Flow - Generic, with Repricing at Fulfillment</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcredit">Line Flow - Return for Credit Only</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcrhli">Line Flow - Return for Credit Only with Header Invoicing</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcapp">Line Flow - Return for Credit Only with Approval</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcrapphli">Line Flow - Return for Credit Only with Approval and Hdr Inv</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfrcr">Line Flow - Return for Credit with Receipt</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcrrcthli">Line Flow - Return for Credit with Receipt and Hdr Invoicing</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcraa">Line Flow - Return for Credit with Receipt and Approval</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcrrahli">Line Flow - Return for Credit, Receipt, Approval, Header Inv</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfss">Line Flow - Standard Service</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_ofgen">Order Flow - Generic</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_ofghl">Order Flow - Generic with Header Level Invoice Interface</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_ofraf">Order Flow - Return with Approval</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_bfgen">Blanket Flow - Generic</a></p>
+</li>
+</ul>
+<h3><b>Subprocesses</b></h3>
+<p>The following are the workflow subprocesses contained in <i>oexwford.wft</i>:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_atsl">Authorized to Ship - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_appro">Approve Return - Order</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_bord">Book - Order, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_boman">Book - Order, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_batoif">Buy ATO Item Flow</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_callt">Calculate Lead Time - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clord">Close - Order</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_cclm">Create Configuration - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_cmcdlm">Create Manufacturing Configuration Data - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crsupl">Create Supply - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crwo">Create Work Order - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_expsl">Export Compliance Screening - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_hliild">Header Level Invoice Interface - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_hliio">Header Level Invoice Interface - Order</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_hliirlwr">Header Level Invoice Interface for Return Line w/o Receipt</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_hliirlrcpt">Header Level Invoice Interface for Return Line with Receipt</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iinsl">Inventory Interface Non-Ship - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iinsld">Inventory Interface Non-Ship - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_purld">Purchase Release - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_purlm">Purchase Release - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_repln">Reprice - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_rrl">Return Receiving - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_schln">Schedule - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_schld">Schedule - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_basog">Blanket Agreement/Sales Order Generation</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_entb">Enter&mdash;Blanket</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_subneg">Submit Draft - Negotiation</a></p>
+</li>
+<li>
+<p><a href="T393423T393431.htm#t_offer">Offer Expired</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_negocp">Negotiation Complete</a></p>
+</li>
+<li>
+<p><a href="T393423T393431.htm#t_intapp">Internal Approved</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_custacc">Customer Accepted</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clbsa">Close - Blanket</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_exbsa">Execute Blanket</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_termbsa">Terminate&mdash;Blanket</a></p>
+</li>
+</ul>
+<h2><a name="3258438"></a><a id="T393441"></a><b>Seeded Workflow Definition File ctochord.wft</b></h2>
+<a name="d0e675" id="d0e675"></a>
+<h3><a id="T393562"></a><b>Item Types</b></h3>
+<p>The seeded workflow definition file <i>ctochord.wft</i> contains the following item types:</p>
+<ul>
+<li>
+<p><a href="T393423T393426.htm#t_ctoco">CTO Change Order</a></p>
+</li>
+<li>
+<p>Standard</p>
+</li>
+</ul>
+<p>To learn more about the Standard item type, refer to the <i>Oracle Workflow User's Guide.</i></p>
+<h3><b>Processes</b></h3>
+<p>The seeded workflow definition file <i>ctochord.wft</i> contains the following process:</p>
+<ul>
+<li>
+<p><a href="T393423T393429.htm#t_nfco">Notification for Change Order</a></p>
+</li>
+</ul>
+<h2><a name="3258441"></a><a id="T393442"></a><b>Item Types</b></h2>
+<p>The following section discusses the different item types used in Oracle Order Management seeded workflows. Oracle Order Management contains the following item types:</p>
+<ul>
+<li>
+<p><a href="T393423T393426.htm#t_change">OM Change Order</a></p>
+</li>
+<li>
+<p><a href="T393423T393431.htm#t_omoh">OM Order Header</a></p>
+</li>
+<li>
+<p><a href="T393423T393431.htm#t_omol">OM Order Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393431.htm#t_omstd">OM Standard</a></p>
+</li>
+<li>
+<p><a href="T393423T393426.htm#t_omnegh">OM Negotiation Header</a></p>
+</li>
+<li>
+<p><a href="T393423T393426.htm#t_omblh">OM Blanket Header</a></p>
+</li>
+<li>
+<p><a href="T393423T393426.htm#t_omamea">OM AME Approval</a></p>
+</li>
+<li>
+<p>Standard</p>
+</li>
+</ul>
+<p>To learn more about the Standard item type, refer to the <i>Oracle Workflow User's Guide.</i></p>
+<p>The following item type is seeded with Oracle Configure to Order and is used in conjunction with Oracle Order Management:</p>
+<ul>
+<li>
+<p><a href="T393423T393426.htm#t_ctoco">CTO Change Order</a></p>
+</li>
+</ul>
+<h2><a name="3258442"></a><a id="T393443"></a><b>OM Change Order</b></h2>
+<p><a name="d0e767" id="d0e767"></a><a name="d0e772" id="d0e772"></a><a name="t_change" id="t_change"></a>This item type is used to manage change orders. Change order notification flows are created using this item type.</p>
+<p>Currently there is one process associated with OM Change Order:</p>
+<ul>
+<li>
+<p><a href="T393423T393429.htm#t_copros">Change Order Process</a></p>
+</li>
+</ul>
+<p>OM Change Order sets up a framework for sending FYI notifications to the resolving responsibilities.</p>
+<p>The OM Change Order item type has several attributes associated with it. These attributes reference information in the Oracle Order Management application tables. The attributes are used and maintained by function activities and notification activities throughout the process. The following table lists the OM Change Order item type attributes.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>OM Change Order Item Type Attributes</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Display Name</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Type</b></th>
+<th scope="col"><b>Length/Format/Lookup/ Type/Frame Target</b></th>
+</tr>
+<tr valign="top">
+<td>Resolving Role</td>
+<td>The recipient of the notification or the resolver for the failed constraints</td>
+<td>Text</td>
+<td>150</td>
+</tr>
+<tr valign="top">
+<td>User Text</td>
+<td>Placeholder for the text entered in the Notification form</td>
+<td>Text</td>
+<td>2000</td>
+</tr>
+<tr valign="top">
+<td>Order Number</td>
+<td>Placeholder for Order Number</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Order Management Workflow Administrator</td>
+<td>Order Management Workflow Administrator</td>
+<td>Role</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>New Inventory Item</td>
+<td>The item on the ISO line after substitution</td>
+<td>Text</td>
+<td>40</td>
+</tr>
+</table>
+<h2><a name="3258444"></a><a id="T393444"></a><b>OM Order Header</b></h2>
+<p><a name="d0e882" id="d0e882"></a><a name="d0e887" id="d0e887"></a>Oracle Order Management includes the concept of an order header. A header can contain one or many lines. The OM Order Header item type identifies all Oracle Order Management order header process available. Currently there are three processes associated with OM Order Header:</p>
+<ul>
+<li>
+<p><a href="T393423T393429.htm#t_ofgen">Order Flow - Generic</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_ofghl">Order Flow - Generic with Header Level Invoice Interface</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_ofraf">Order Flow - Return with Approval</a></p>
+</li>
+<li>
+<p>Order Flow - Return with Submission and Approval</p>
+</li>
+</ul>
+<p>The following five subprocesses are associated with OM Order Header:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_appro">Approve Return - Order</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_bord">Book - Order, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_boman">Book - Order, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clord">Close - Order</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_hliio">Header Level Invoice Interface - Order</a></p>
+</li>
+</ul>
+<p>The OM Order Header item type has several attributes associated with it. These attributes reference information in the Oracle Order Management application tables. The attributes are used and maintained by function activities and notification activities throughout the process. The following table lists the OM Order Header item type attributes.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>OM Order Header Item Type Attributes</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Display Name</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Type</b></th>
+<th scope="col"><b>Length/Format/Lookup Type/Frame Target</b></th>
+</tr>
+<tr valign="top">
+<td>User ID</td>
+<td>User identifier used to set the context</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Application ID</td>
+<td>Application identifier for setting the workflow context</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Responsibility ID</td>
+<td>Responsibility identifier</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Order Management Workflow Administrator</td>
+<td>Order Management Workflow Administrator</td>
+<td>Role</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Org ID</td>
+<td>Organization ID</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Order Category</td>
+<td>Order Category</td>
+<td>Text</td>
+<td>30</td>
+</tr>
+<tr valign="top">
+<td>Header Short Descriptor</td>
+<td>Header Short Descriptor</td>
+<td>Document</td>
+<td>Full window</td>
+</tr>
+<tr valign="top">
+<td>Notification Approver</td>
+<td>Notification Approver</td>
+<td>Role</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Order Details</td>
+<td>Order details</td>
+<td>Document</td>
+<td>Full Window</td>
+</tr>
+</table>
+<h2><a name="3258446"></a><a id="T393445"></a><b>OM Order Line</b></h2>
+<p><a name="d0e1078" id="d0e1078"></a><a name="d0e1083" id="d0e1083"></a>The following section discusses processes associated with the OM Order Line item type. This item type identifies all Oracle Order Management order line processes available. The processes associated with OM Order Line include the following:</p>
+<ul>
+<li>
+<p><a href="T393423T393429.htm#t_lfato">Line Flow - ATO Item</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfatom">Line Flow - ATO Model</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfconf">Line Flow - Configuration</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcfrlm">Line Flow - Configuration with Authorize to Ship (RLM)</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgen">Line Flow - Generic</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgrlm">Line Flow - Generic with Authorize to Ship (RLM)</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfghlii">Line Flow - Generic with Header Level Invoice Interface</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgexp">Line Flow - Generic, With Export Compliance</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgbo">Line Flow - Generic, Bill Only</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgboii">Line Flow - Generic, Bill Only with Inventory Interface</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgso">Line Flow - Generic, Ship Only</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfgraf">Line Flow - Generic, with Repricing at Fulfillment</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_lfwait">Line Flow - Generic, with Wait to Fulfill</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lffreezepick">Line Flow - Generic with Freeze Included Items at Pick</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfotaitem">Line Flow &ndash; OTA Item</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcredit">Line Flow - Return for Credit Only</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcapp">Line Flow - Return for Credit Only with Approval</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfrcr">Line Flow - Return for Credit with Receipt</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfcraa">Line Flow - Return for Credit with Receipt and Approval</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_otartn">Line Flow &ndash; OTA Return for Credit Only</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_lfss">Line Flow - Standard Service</a></p>
+</li>
+</ul>
+<p>The subprocesses associated with OM Order Line include the following:</p>
+<ul>
+<li>
+<p><a href="T393423T393430.htm#t_atsl">Authorized to Ship - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_batoif">Buy ATO Item Flow</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_callt">Calculate Lead Time - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clline">Close - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_cclm">Create Configuration - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_cmcdlm">Create Manufacturing Configuration Data - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crsom">Create Supply Order - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_crwo">Create Work Order - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_entln">Enter - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_expsl">Export Compliance Screening - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_hliild">Header Level Invoice Interface - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iinsl">Inventory Interface Non-Ship - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iinsld">Inventory Interface Non-Ship - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iil">Invoice Interface - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_iild">Invoice Interface - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_purld">Purchase Release - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_purlm">Purchase Release - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_repln">Reprice - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_rrl">Return Receiving - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_schln">Schedule - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_schld">Schedule - Line, Deferred</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_shipman">Ship - Line, Manual</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_firm">Wait to Firm - Line</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_waitfulfill">Wait to Fulfill Line</a></p>
+</li>
+</ul>
+<p>The OM Order Line item type has several attributes associated with it. These attributes reference information in the Oracle Order Management application tables. The attributes are used and maintained by function activities and notification activities throughout the process. The following table lists the OM Order Line item type attributes.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>OM Order Line Item Type Attributes</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Display Name</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Type</b></th>
+<th scope="col"><b>Length/Format/Lookup/Type/Frame Target</b></th>
+</tr>
+<tr valign="top">
+<td>User ID</td>
+<td>User identifier for the workflow initiator</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Application ID</td>
+<td>Application identifier for the workflow initiator</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Responsibility ID</td>
+<td>Responsibility identifier</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Order Management Workflow Administrator</td>
+<td>Order Management Workflow Administrator</td>
+<td>Role</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Org ID</td>
+<td>Organization ID</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Lead Time Rollup Organization</td>
+<td>manufacturing organization of Config item</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Lead Time Rollup Config Item</td>
+<td>Configuration item for which to calculate the lead time</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Lead Time Date</td>
+<td>Lead time date</td>
+<td>Text</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Lead Time Category Structure</td>
+<td>Lead time category structure</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Line Category</td>
+<td>Line category</td>
+<td>Text</td>
+<td>30</td>
+</tr>
+<tr valign="top">
+<td>Lead Time Attribute Req ID</td>
+<td>Lead time attribute req ID</td>
+<td>Attribute</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Lead Time Request ID</td>
+<td>Lead time request ID</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>AFAS Line ID</td>
+<td>AFAS Line ID</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Line Short Descriptor</td>
+<td>Line short descriptor</td>
+<td>Document</td>
+<td>Full Window</td>
+</tr>
+<tr valign="top">
+<td>Notification Approver</td>
+<td>Notification Approver</td>
+<td>Role</td>
+<td>None</td>
+</tr>
+</table>
+<h2><a name="3258448"></a><a id="T393446"></a><b>OM Standard</b></h2>
+<p><a name="d0e1497" id="d0e1497"></a><a name="d0e1502" id="d0e1502"></a>OM Standard is a repository for common functions and lookups. The application does not use this item type to create any flows.</p>
+<p>There are several lookup types associated with OM Standard. A lookup type is a static list of values. These lists can be referenced by activities and by item type, message or activity attributes. The following table lists the seeded lookup types associated with OM Standard and their lookup codes:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>OM Seeded Lookup Types</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Lookup Type</b></th>
+<th scope="col"><b>Lookup Code</b></th>
+</tr>
+<tr valign="top">
+<td>Approval Timeout Actions</td>
+<td>Continue, Rejected</td>
+</tr>
+<tr valign="top">
+<td>Check Reservation Status</td>
+<td>Not Reserved, Reserved</td>
+</tr>
+<tr valign="top">
+<td>Check Supply Type Results</td>
+<td>Buy, Drop Ship, Flow Schedule, Incomplete, Work Order</td>
+</tr>
+<tr valign="top">
+<td>Concurrent Program Retry</td>
+<td>Abort, Retry</td>
+</tr>
+<tr valign="top">
+<td>Concurrent Program Status</td>
+<td>Cancelled, Error, Normal, Terminated, Warning</td>
+</tr>
+<tr valign="top">
+<td>Config Data results</td>
+<td>Config Data Created</td>
+</tr>
+<tr valign="top">
+<td>Config Incomplete</td>
+<td>Complete, Incomplete, On Hold</td>
+</tr>
+<tr valign="top">
+<td>Config Item Results</td>
+<td>Complete, Delink</td>
+</tr>
+<tr valign="top">
+<td>Config Line Result</td>
+<td>Config Data Created, Config Data Not Created, Reserved</td>
+</tr>
+<tr valign="top">
+<td>Config Process Results</td>
+<td>Complete, Incomplete</td>
+</tr>
+<tr valign="top">
+<td>Enrollment Status</td>
+<td>Attended, Placed, Requested, Waitlisted</td>
+</tr>
+<tr valign="top">
+<td>Enrollment Status for Advance</td>
+<td>Placed, Waitlisted</td>
+</tr>
+<tr valign="top">
+<td>Enrollment Status for Arrear</td>
+<td>Attended, Placed, Requested, Waitlisted</td>
+</tr>
+<tr valign="top">
+<td>Invoice Results</td>
+<td>Complete, Incomplete, Not Eligible, On Hold, Partial</td>
+</tr>
+<tr valign="top">
+<td>Invoicing Rule</td>
+<td>Advanced, Arrear</td>
+</tr>
+<tr valign="top">
+<td>Lead Time Result</td>
+<td>Complete, No Routing</td>
+</tr>
+<tr valign="top">
+<td>Line Category</td>
+<td>Order, Return</td>
+</tr>
+<tr valign="top">
+<td>Manufacturing Release Status</td>
+<td>Eligible, Work Order Completed</td>
+</tr>
+<tr valign="top">
+<td>Nonstock Flag</td>
+<td>Nonstock, Stock</td>
+</tr>
+<tr valign="top">
+<td>Notification Approver Source</td>
+<td>Created By, Order Created By, Profile Approver</td>
+</tr>
+<tr valign="top">
+<td>Notification Required</td>
+<td>Not Required, Required</td>
+</tr>
+<tr valign="top">
+<td>OM Acceptance Results</td>
+<td>Accept, Reject</td>
+</tr>
+<tr valign="top">
+<td>OM Blanket Calculate Date Results</td>
+<td>Awaiting Start Date, Expire Today, Expired, No End Date, No Reminder, Start Date Reached</td>
+</tr>
+<tr valign="top">
+<td>OM Blanket Close Results</td>
+<td>Complete, Extend</td>
+</tr>
+<tr valign="top">
+<td>OM Blanket Date Change Results</td>
+<td>Expired, Set New Date, Start Date Not Reached</td>
+</tr>
+<tr valign="top">
+<td>OM Blanket Execution Process Results</td>
+<td>Expired, Terminate</td>
+</tr>
+<tr valign="top">
+<td>OM Blanket Execution Results</td>
+<td>Date Changed, Terminate</td>
+</tr>
+<tr valign="top">
+<td>OM Blanket Start Date Reached Results</td>
+<td>Expired, Yes, No, No Pre-Expiration Reminder</td>
+</tr>
+<tr valign="top">
+<td>OM Check for Eligibility</td>
+<td>Eligible, Not Eligible</td>
+</tr>
+<tr valign="top">
+<td>OM Check Expiration Results</td>
+<td>Complete, Expired Today, Expired, No Reminder</td>
+</tr>
+<tr valign="top">
+<td>OM Date Range Results</td>
+<td>Date Changes</td>
+</tr>
+<tr valign="top">
+<td>OM Export Compliance Results</td>
+<td>Complete, Hold Applied, Incomplete, Override</td>
+</tr>
+<tr valign="top">
+<td>OM Negotiation Standard Results</td>
+<td>Complete, Incomplete, Lost</td>
+</tr>
+<tr valign="top">
+<td>OM Subprocess Results</td>
+<td>Complete, Incomplete, Not Eligible</td>
+</tr>
+<tr valign="top">
+<td>OM Subprocess Results, Handles Holds</td>
+<td>Complete, Incomplete, Not Eligible, On Hold</td>
+</tr>
+<tr valign="top">
+<td>OM Subprocess Success Results</td>
+<td>Complete, Not Eligible</td>
+</tr>
+<tr valign="top">
+<td>OM Subprocess with Partial Processing</td>
+<td>Complete, Incomplete, Not Eligible, Partial Complete, Partial Incomplete</td>
+</tr>
+<tr valign="top">
+<td>OM Subprocess with Partial Processing, Handles Holds</td>
+<td>Complete, Incomplete, Not Eligible, On Hold Partial Complete, Partial Incomplete</td>
+</tr>
+<tr valign="top">
+<td>Passes/Fails</td>
+<td>Fails, Passes</td>
+</tr>
+<tr valign="top">
+<td>Repricing Date</td>
+<td>Actual Shipment Date, Fulfillment Date, Promise Date, Request Date, Schedule Ship Date, System Date</td>
+</tr>
+<tr valign="top">
+<td>Repricing Event</td>
+<td>Line, Price, Reprice Line</td>
+</tr>
+<tr valign="top">
+<td>Reserved Status</td>
+<td>Process AutoCreate PO, Reserved</td>
+</tr>
+<tr valign="top">
+<td>RMA Wait result</td>
+<td>Complete, Correct Receiving</td>
+</tr>
+<tr valign="top">
+<td>Shipping Results</td>
+<td>Non Shippable, Over Shipped Beyond Tolerance, Ship Confirm, Unreserve</td>
+</tr>
+<tr valign="top">
+<td>Source Result</td>
+<td>Non Shippable, Shippable</td>
+</tr>
+<tr valign="top">
+<td>Source Type</td>
+<td>ATO Item, Build, Dropship, Stock</td>
+</tr>
+<tr valign="top">
+<td>Supply Source Type</td>
+<td>External, Internal</td>
+</tr>
+<tr valign="top">
+<td>Unit of Measure</td>
+<td>Enrollment, Event</td>
+</tr>
+<tr valign="top">
+<td>Upgrade Purchase Release Status</td>
+<td>Confirmed, Eligible, Interfaced</td>
+</tr>
+</table>
+<p>For more information about lookup types, refer to the <i>Oracle Workflow User's Guide</i>.</p>
+<h2><a name="3258450"></a><a id="T393447"></a><b>CTO Change Order</b></h2>
+<p><a name="d0e1877" id="d0e1877"></a><a name="d0e1882" id="d0e1882"></a><a name="t_ctoco" id="t_ctoco"></a>The CTO Change Order item type identifies all CTO Change Order workflow processes available. Currently there is one workflow processes associated with CTO Change Order:</p>
+<ul>
+<li>
+<p><a href="T393423T393429.htm#t_nfco">Notification for Change Order</a></p>
+</li>
+</ul>
+<p>The CTO Change Order item type also has several attributes associated with it. These attributes reference information in the application tables. The attributes are used and maintained by function activities as well as notification activities throughout the process. The following table lists the CTO Change Order item type attributes.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>CTO Change Order Attributes</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Display Name</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Type</b></th>
+<th scope="col"><b>Length/Format/Lookup Type/Frame Target</b></th>
+</tr>
+<tr valign="top">
+<td>Sales Order Number</td>
+<td>Sales order number</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Customer Name</td>
+<td>Customer name</td>
+<td>Text</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Line Number</td>
+<td>Line number of the model</td>
+<td>Text</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Item Name</td>
+<td>Item name</td>
+<td>Text</td>
+<td>150</td>
+</tr>
+<tr valign="top">
+<td>Request Date</td>
+<td>Request date</td>
+<td>Text</td>
+<td>40</td>
+</tr>
+<tr valign="top">
+<td>Scheduled Ship Date</td>
+<td>Scheduled ship date</td>
+<td>Text</td>
+<td>40</td>
+</tr>
+<tr valign="top">
+<td>Scheduled Arrival Date</td>
+<td>Scheduled arrival date</td>
+<td>Text</td>
+<td>40</td>
+</tr>
+<tr valign="top">
+<td>Cancelled Flag</td>
+<td>Order line is cancelled</td>
+<td>Text</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Special Text</td>
+<td>Special text</td>
+<td>Text</td>
+<td>400</td>
+</tr>
+<tr valign="top">
+<td>Change Order Administrator</td>
+<td>Change order administrator</td>
+<td>Role</td>
+<td>30</td>
+</tr>
+<tr valign="top">
+<td>Configuration Changed Flag</td>
+<td>Configuration is changed</td>
+<td>Text</td>
+<td>5</td>
+</tr>
+<tr valign="top">
+<td>Quantity Change</td>
+<td>Quantity change</td>
+<td>Text</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Notification User</td>
+<td>Notification user</td>
+<td>Text</td>
+<td>50</td>
+</tr>
+<tr valign="top">
+<td>Delink Action Flag</td>
+<td>Delink action flag</td>
+<td>Text</td>
+<td>5</td>
+</tr>
+<tr valign="top">
+<td>Action Text</td>
+<td>Action text</td>
+<td>Text</td>
+<td>20</td>
+</tr>
+</table>
+<h2><a name="3258452"></a><a id="T393448"></a><b>OM Negotiation Header</b></h2>
+<p><a name="d0e2118" id="d0e2118"></a><a name="d0e2123" id="d0e2123"></a><a name="t_omnegh" id="t_omnegh"></a>The OM Negotiation Header item type identifies the Oracle Order Management order header process available for negotiation. The main processes associated with OM Negotiation Header include the following:</p>
+<ul>
+<li>
+<p><a href="T393423T393429.htm#t_ngapp">Negotiation Flow - Generic with Approval</a></p>
+</li>
+<li>
+<p><a href="T393423T393429.htm#t_neggn">Negotiation Flow - Generic</a></p>
+</li>
+</ul>
+<p>The following are the Negotiation subprocesses:</p>
+<ul>
+<li>
+<p><a href="T393423T393431.htm#t_intapp">Internal Approval - Negotiation</a></p>
+</li>
+<li>
+<p><a href="T393423T393431.htm#t_custacpt">Customer Acceptance - Negotiation Process</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_ofexne">Offer Expiration - Negotiation Process</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_subneg">Submit Draft - Negotiation</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_negocp">Complete - Negotiation</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_basog">Blanket Agreement/Sales Order Generation</a></p>
+</li>
+</ul>
+<p>The OM Negotiation Header item type has several attributes associated with it. These attributes reference information in the Oracle Order Management application tables. The attributes are used and maintained by function activities and notification activities throughout the process.</p>
+<p>The following table lists the OM Negotiation Header item type attributes.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>OM Negotiation Header Attributes</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Display Name</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Type</b></th>
+<th scope="col"><b>Length/Format/Lookup Type/Frame Target</b></th>
+</tr>
+<tr valign="top">
+<td>User ID</td>
+<td>User ID</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Application ID</td>
+<td>Application ID</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Responsibility ID</td>
+<td>Responsibility ID</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Org ID</td>
+<td>Organization ID</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Sales Document Type</td>
+<td>Sales Document Type</td>
+<td>Text</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Negotiation Short Descriptor</td>
+<td>Negotiation Short Descriptor</td>
+<td>Document</td>
+<td>plsql:OE_NEGOTIATE_WFSet_Negotiate_Hdr_Descriptor/&amp;#NID (Default)</td>
+</tr>
+<tr valign="top">
+<td>Pre expire Time Percentage</td>
+<td>Pre-Expiration Time Percentage</td>
+<td>Number</td>
+<td>10</td>
+</tr>
+<tr valign="top">
+<td>Reject Reason</td>
+<td>Reason for rejecting</td>
+<td>Document</td>
+<td>Full Window</td>
+</tr>
+</table>
+<h2><a name="3258455"></a><a id="T393449"></a><b>OM Blanket Header</b></h2>
+<p><a name="d0e2303" id="d0e2303"></a><a name="d0e2308" id="d0e2308"></a><a name="t_omblh" id="t_omblh"></a>The OM Blanket Header item type identifies the Oracle Order Management order header process available. The processes associated with OM Blanket Header include the following:</p>
+<ul>
+<li>
+<p><a href="T393423T393429.htm#t_bfgen">Blanket Flow - Generic</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_exbsa">Execute - Blanket</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_termbsa">Terminate&mdash;Blanket</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_clbsa">Close&mdash;Blanket</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_basog">Blanket Agreement/Sales Order Generation</a></p>
+</li>
+<li>
+<p><a href="T393423T393430.htm#t_entb">Enter&mdash;Blanket</a></p>
+</li>
+</ul>
+<p>The OM Blanket Header item type has several attributes associated with it. These attributes reference information in the Oracle Order Management application tables.</p>
+<p>The attributes are used and maintained by function activities and notification activities throughout the process.</p>
+<p>The following table lists the OM Blanket Header item type attributes.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>OM Blanket Header Attributes</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Display Name</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Type</b></th>
+<th scope="col"><b>Length/Format/Lookup Type/Frame Target</b></th>
+</tr>
+<tr valign="top">
+<td>User ID</td>
+<td>User ID</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Application ID</td>
+<td>Application ID</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Responsibility ID</td>
+<td>Responsibility ID</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Org ID</td>
+<td>Organization ID</td>
+<td>Number</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Blanket Short Descriptor</td>
+<td>Blanket Short Descriptor</td>
+<td>Document</td>
+<td>plsql:OM_Blanket_WFSet_Blanket_Descriptor/&amp;#NID (Default)</td>
+</tr>
+<tr valign="top">
+<td>Pre expire Time Percentage</td>
+<td>Pre-Expiration Time Percentage</td>
+<td>Number</td>
+<td>10</td>
+</tr>
+</table>
+<h2><a name="7238609"></a><a id="T633854"></a><b>OM AME Approval</b></h2>
+<p><a name="d0e2453" id="d0e2453"></a><a name="d0e2458" id="d0e2458"></a><a name="t_omamea" id="t_omamea"></a>The OM AME Approval (OEAME) item type identifies all AME approval workflow processes available in Oracle Order Management. This item type is associated with the following workflow processes to provide an additional option to use Approvals Management Engine (AME) for the approval mechanism of order lines with these work flows:</p>
+<ul>
+<li>
+<p>Negotiation Flow Generic &ndash; With Approval</p>
+</li>
+<li>
+<p>Order Flow - Mixed or Return with Approval</p>
+</li>
+</ul>
+<p>The OM AME Approval item type has several attributes associated with it. These attributes reference information in the application tables. The attributes are used and maintained by function activities as well as notification activities throughout the process. The following table lists the OM AME Approval item type attributes.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>OM AME Approval Attributes</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Display Name</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Type</b></th>
+<th scope="col"><b>Length/Format/Look up Type/Frame Target</b></th>
+</tr>
+<tr valign="top">
+<td>AME Exception Encountered</td>
+<td>To see if any parallel child flow went into error.</td>
+<td>VARCHAR2</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Is FYI Approver</td>
+<td>Is FYI Approver</td>
+<td>VARCHAR2</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>AME Sub-approval Response</td>
+<td>AME Sub-approval Response</td>
+<td>VARCHAR2</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Application ID</td>
+<td>Application Identifier for setting the workflow context</td>
+<td>NUMBER</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Approver Response</td>
+<td>Stores the approval response for each flow.</td>
+<td>VARCHAR2</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Concurrent Request ID</td>
+<td>Concurrent Request ID</td>
+<td>NUMBER</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Contract Attachment</td>
+<td>Contract Attachment</td>
+<td>DOCUMENT</td>
+<td>Full Window</td>
+</tr>
+<tr valign="top">
+<td>Expiration Date</td>
+<td>Expiration Date</td>
+<td>VARCHAR2</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Header Short Descriptor</td>
+<td>Header Short Descriptor</td>
+<td>DOCUMENT</td>
+<td>Full Window</td>
+</tr>
+<tr valign="top">
+<td>Header ID</td>
+<td>Header ID of the transaction</td>
+<td>NUMBER</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Negotiation Details</td>
+<td>Negotiation Details</td>
+<td>DOCUMENT</td>
+<td>Full Window</td>
+</tr>
+<tr valign="top">
+<td>Negotiation Details URL</td>
+<td>Negotiation Details URL</td>
+<td>URL</td>
+<td>Full Window</td>
+</tr>
+<tr valign="top">
+<td>Negotiation Short Descriptor</td>
+<td>Negotiation Short Descriptor</td>
+<td>DOCUMENT</td>
+<td>Full Window</td>
+</tr>
+<tr valign="top">
+<td>Notification Approver</td>
+<td>Notification Approver</td>
+<td>ROLE</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Notification From Role</td>
+<td>Notification From Role</td>
+<td>ROLE</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Offer Final Expire Timer</td>
+<td>Offer Final Expire Timer</td>
+<td>NUMBER</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Offer Pre-Expire Timer</td>
+<td>Offer Pre-Expire Timer</td>
+<td>NUMBER</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Order Category</td>
+<td>Order Category</td>
+<td>VARCHAR2</td>
+<td>30</td>
+</tr>
+<tr valign="top">
+<td>Order Details URL</td>
+<td>Order Details URL</td>
+<td>URL</td>
+<td>Full Window</td>
+</tr>
+<tr valign="top">
+<td>Order Number</td>
+<td>Order Number</td>
+<td>NUMBER</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Order Details</td>
+<td>Order Details</td>
+<td>DOCUMENT</td>
+<td>Full Window</td>
+</tr>
+<tr valign="top">
+<td>Org ID</td>
+<td>Organization ID</td>
+<td>NUMBER</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYSTEM</td>
+<td>ORIG_SYSTEM</td>
+<td>VARCHAR2</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>ORIG_SYSTEM_ID</td>
+<td>ORIG_SYSTEM_ID</td>
+<td>NUMBER</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Pre-Expiration Time Percentage</td>
+<td>Pre-Expiration Time Percentage</td>
+<td>NUMBER</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Responsibility ID</td>
+<td>Responsibility Identifier</td>
+<td>NUMBER</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Salesperson</td>
+<td>Salesperson</td>
+<td>VARCHAR2</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Sales Document Type</td>
+<td>Sales Order or Sales Agreement</td>
+<td>VARCHAR2</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Sales Document Type Code</td>
+<td>Identifies if the document is Sales Order or Sales Agreement</td>
+<td>VARCHAR2</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Customer</td>
+<td>Customer</td>
+<td>VARCHAR2</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Transaction Number</td>
+<td>Transaction Number of the Negotiation</td>
+<td>NUMBER</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>User ID</td>
+<td>User Identifier used to set the context</td>
+<td>NUMBER</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Order Management Workflow Administrator</td>
+<td>Order Management Workflow Administrator</td>
+<td>ROLE</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Reject Reason</td>
+<td>Reason for rejecting</td>
+<td>Document</td>
+<td>Full Window</td>
+</tr>
+</table>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T2011557.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T376737.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">28/36</span> <!-- End Header -->
+<h1>Data Model Overview</h1>
+<p>This appendix covers the following topics:</p>
+<ul>
+<li><a href="#T376778">Overview</a></li>
+<li><a href="#T376779">Key Order Management Modules</a></li>
+</ul>
+<h2><a name="2998878"></a><a id="T376778"></a><b>Overview</b></h2>
+<p><a name="t_dmovr" id="t_dmovr"></a>The Sales Order is modeled as a business object comprised of the following entities:</p>
+<ul>
+<li>
+<p>Header Level</p>
+<ul>
+<li>
+<p>Order Header</p>
+</li>
+<li>
+<p>Header Sales Credits</p>
+</li>
+<li>
+<p>Sales Agreement Order Header</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Line Level</p>
+<ul>
+<li>
+<p>Order Lines</p>
+</li>
+<li>
+<p>Sales Agreement Order Lines</p>
+</li>
+<li>
+<p>Line Sales Credits</p>
+</li>
+<li>
+<p>Line Price Adjustments</p>
+</li>
+<li>
+<p>Line Pricing Attributes</p>
+</li>
+<li>
+<p>Line Adjustment Attributes</p>
+</li>
+<li>
+<p>Line Adjustment Associations</p>
+</li>
+<li>
+<p>Lot Serial Numbers.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Many of the attributes previously defined at the header level are now also defined at the line level. For example, Bill To is now defined at the line level. This allows for order lines on the same order to be billed to different bill-to sites. The attribute values at the header level ar used to default attribute values at the line level. See: <i>Oracle Electronic Technical Reference Manual (eTRM)</i></p>
+<p><b>Order Management Entities</b></p>
+<p><img width="578" height="825" src="./img/ontig_x_data1.gif" alt="the picture is described in the document text"></p>
+<p>Order types were previously used for defaulting information on orders, establishing processing controls such as invoicing, and most importantly, determining the order cycle that an order would have. Order cycles, in turn, controlled the processing flow of an order. Order cycles have been replaced with Oracle Order Management Workflow Definitions, and order types have been replaced by Order Management Transaction Types. Oracle Order Management provides seeded workflow process definitions for both orders and lines and enables you to define both order header and order line transaction types.</p>
+<p>The new Order Line differs functionally and technically from its R11 Order Entry counterpart. It contains attributes from old SO_HEADERS, SO_ORDER_LINES, and SO_LINE_DETAILS tables, in addition to some new attributes.</p>
+<p>Order Management offers Line level independence; each line has its own flow.</p>
+<p>Improvements of Order Management 11<i>i</i> over Order Entry:</p>
+<ul>
+<li>
+<p>In Order Entry the line followed the same cycle as the Order Header it belonged to. Now a line follows a flow that is different from that of the Header. Each Line on an Order can follow a different flow, depending on the Workflow assignment tied to its Line Type.</p>
+</li>
+<li>
+<p>In Order Entry a shipment was different from the (shipment parent) line, now every Order Line is a Shipment. The Line quintuplet (Line Number, Shipment Number, Option Number, Component Number, Service Number) is displayed as 1.1.1.1.1 on the Sales Orders form.</p>
+</li>
+<li>
+<p>Ordered Quantity on the Line indicates Open quantity as opposed to the original ordered quantity. Cancellation is modeled as a decrement in the ordered quantity along with an increment in the canceled quantity. User and System defined processing constraints define the point in the Order flow, where Cancellations functionality becomes effective. That is you can define the point, where onwards you are required to provide a reason to reduce (cancel) the ordered quantity. The application records history for ordered quantity changes whenever a reason code is provided.</p>
+</li>
+<li>
+<p>Many of the Header attributes are now available on the line and their values can be different from that of the Header attribute, such as price list, salesperson, payment terms, shipping and packing instructions, agreement, invoice to and so on.</p>
+</li>
+<li>
+<p>Scheduled Order Lines are viewed as demand by the Advanced Planning System.</p>
+</li>
+<li>
+<p>Ordering can be based on requested ship or arrival date. Delivery lead time is used to determine the schedule ship date, and it can be user specified.</p>
+</li>
+<li>
+<p>When lines were partially processed in Order Entry, they reflected partial cycle states. Now an Order Line splits on partial processing. Order Management splits a line at the following activities: Ship-Confirmation, Return Receipt and Drop-ship receipt.</p>
+<p>Order Entry did not support decimal quantities. Now decimal quantities are supported for standard items and configurations. Oracle Order Management also supports ordering, pricing and shipping in different UOMs.</p>
+</li>
+<li>
+<p>Shipping tolerances are supported. The tolerance value can be defaulted and adjusted at the line level.</p>
+</li>
+<li>
+<p>Order Lines can be entered using the Internal item number or the Customer Item number of one the Generic Item numbers (UPC, EAN, JAN, CLEI). Cross-reference types can be defined in Inventory and used to specify an item.</p>
+</li>
+<li>
+<p>Lines can be priced based on a date different from the creation date. The pricing date is exposed enabling you to re-price based on different dates until the Line is invoiced.</p>
+</li>
+<li>
+<p>Returns can be entered using Serial number information in addition to the original Order, Invoice or Purchase Order.</p>
+</li>
+<li>
+<p>The OE_ORDER_LINES_ALL table now stores Shipments, Options, Included Items Lines and Configuration Item Lines.</p>
+</li>
+<li>
+<p>Every line is a shipment and is identified via a line number and a shipment number. The user visible line number ties together all shipments belonging to a line. To split a shipment further use the Split Lines window. The LINE_SET_ID ties shipments from an original line. In Order Entry only a single attribute on SO_LINES_ALL stored the numbering. Depending on the kind of line, it stood for either the line number, the shipment number, the option number or the service line number. These numbers are now de-normalized in the separate column of the OE_ORDER_LINES_ALL table. Additionally, component number helps track included items under a given Line.</p>
+</li>
+<li>
+<p>The Category code on the line indicates whether it is an inbound ('RETURN') or an outbound ('ORDER') line. It defaults from the Line Transaction Type.</p>
+</li>
+<li>
+<p>Every line that is a part of the configuration, has the TOP_MODEL_LINE_ID pointing to the top Model. The Model line will have the TOP_MODEL_LINE_ID value set to itself. The LINK_TO_LINE_ID points to immediate parent for a line in a configuration. ITEM_TYPE_CODE identifies a item to be a STANDARD, MODEL, CLASS, OPTION or INCLUDED ITEM. For a subassembly (an ATO model within a PTO), the options, classes and included items under the subassembly has its ATO_LINE_ID column pointing to its ATO Model line.</p>
+</li>
+<li>
+<p>Order Entry used S and S Date columns to trace Order Cycle Status. In comparison, Order Management uses Workflow to track status. Core statuses are de-normalized onto the Line: Open/Closed, Booked, Fulfilled. The FLOW_STATUS column stores the Line Flow Summary Status, and its value changes as the Line progresses in its flow. The API OE_LINE_STATUS_PUB provides information about various functional statuses including the completion of the line flow.</p>
+</li>
+<li>
+<p>Order Entry used SVRID columns to manage defaulting attribute values and cascading attribute changes. Order Management uses the PL/SQL based Defaulting Framework to provide default values for records but it does not retain an audit trail of how an attribute was defaulted.</p>
+</li>
+</ul>
+<h2><a name="2998880"></a><a id="T376779"></a><b>Key Order Management Modules</b></h2>
+<a name="t_keyomm" id="t_keyomm"></a>
+<h3><b>Cancellations</b></h3>
+<p>Cancellations in Order Management is flexible. A line can be partially cancelled by directly changing ordered quantity on the line. The system seeded constraints preventing cancellations for standard item line are moved further down the order processing flow to ship-confirmation or invoice interface (for no-ship flows). If needed, you can define more restrictive constraints.</p>
+<p>Cancellations is not tracked via workflow. The canceled quantity on the line indicates whether any cancellations have been performed on the line. The canceled flag on the Order and Line indicate whether they have been fully canceled. On a full cancellation, both the Header and Line flow are forced to the close activity.</p>
+<p>Order Management enables you to set up rules that determine when a decrement in the ordered quantity is viewed as a cancellation. A cancellation reason is required only when the canceled quantity on the line is incremented over the specified amount. A copy of the old record is stored in OE_ORDER_LINES_HISTORY whenever a reason code is provided together with a quantity change.</p>
+<h3><b>Defaulting Framework</b></h3>
+<p>Order Management provides enhanced functionality with the PL/SQL based Defaulting Framework. Order attributes are defaulted based on generated PL/SQL Defaulting Rules. You can define a set of rules for each attribute on the order header or line, and you can define the conditions for when to use each rule.</p>
+<p>Updates to records do not cause a cascading effect on existing child record. For example, changing the warehouse on the Order Header does not change the warehouse on existing Order Lines. This eliminates the need to store the rule that was used to default a value the first time around. You can use the mass change feature to update a certain value for a set of records. You can use the Mass Change feature to change the warehouse on all the lines of an Order to a different value.</p>
+<p>The Defaulting Framework depends on the AK dictionary for object, object relationship and attribute definitions. Various objects can serve as defaulting sources; such as same record, related record, profile options, custom APIs etc. Defaulting Rules can be applied based on user defined conditions.</p>
+<h3><b>Fulfillment</b></h3>
+<p>Fulfillment is workflow enabled and driven off fulfillment events and sets that are system or user defined. Configurations are implicitly treated as fulfillment sets by the application. The following fulfillment events are seeded:</p>
+<ul>
+<li>
+<p>Ship-Confirmation</p>
+</li>
+<li>
+<p>Purchase Release Receipt</p>
+</li>
+<li>
+<p>Return Receipt</p>
+</li>
+</ul>
+<p>You can define your own fulfillment event activities but must configure the seeded Fulfillment activity to recognize them. You can assign an Order line to one or more fulfillment sets. A line in a fulfilment set progresses past the fulfillment activity only when all the members of the fulfillment set(s) it is a member of have been fulfilled.</p>
+<p>Columns on the Order Line (fulfilled flag, fulfilled quantity) indicate whether a Line has been fulfilled and the quantity that has been fulfilled. Over & Under shipment can result in a fulfillment quantity that is different from the Ordered quantity. The Over & Under Shipment tolerances control whether a line is considered fulfilled in cases of over or under shipment.</p>
+<h3><b>Mass Change</b></h3>
+<p>Mass Change enables updating attribute values against selected record sets. You can also copy, reprice, schedule, and apply holds.</p>
+<h3><b>Processing Constraints Framework</b></h3>
+<p>With PL/SQL based Processing Constraints Framework, Order Management provides enhanced and more flexible security. You can define constraint conditions based on various sources including Workflow Activity Statuses and custom APIs. Additionally constraints can be defined against responsibilities using both inclusion and exclusion rules.</p>
+<p>The Framework depends on AK dictionary for object and attribute definitions. Order Management checks constraints for every update, insert and delete operation on the Sales Order object.</p>
+<p>Order Management comes with fewer seeded and less stringent system constraints, which allows greater flexibility. You can define more restrictive constraints to better suit your business needs. Some constraints are seeded for backwards compatibility but can be deleted.</p>
+<p>For example:</p>
+<ul>
+<li>
+<p>A constraint that a line cannot be deleted once the Order is booked is seeded to support upgrading customers. This line can be deleted to better suit your business requirements.</p>
+</li>
+<li>
+<p>If a constraint prevents you from performing a certain action, you have the option of sending a notification to somebody who does have the authority to perform that action.</p>
+</li>
+</ul>
+<h3><b>Sets</b></h3>
+<p>Order Management supports Ship and Arrival sets. The latter specifies which lines need to arrive together. Pick Release does not look at Ship or Arrival sets to determine what can be released. At Ship-Confirmation you are informed if your are breaking a ship set (and allowed to do so). If you partially ship lines from a Ship Set, they are automatically dropped from the Ship Set. When any of the lines from a Ship or Arrival Set is ship-confirmed the set is automatically closed.</p>
+<p>There is no Shipment Parent entity. Every Line that is created is a shipment, and has both a Line and a Shipment Number. To break an existing Shipment Line further into multiple shipments you need to Split it. Splitting a Line creates a Line Set, with all the line records that were split from the original line pointing to the Line Set (via the line_set_id). The attributes that need to be common across such lines are stored on the Line Set (Item, Ordered Quantity UOM, Shipping tolerances). Line Sets are only created for outbound top level lines (standard item line, Kit Line, Top Model Lines).</p>
+<p>When a Line is partially processed the application splits it. All the child entities split as well, including the line flow. The fully processed part progresses along its flow and the partially processed part awaits processing in its flow.</p>
+<p>Partial processing at the following points triggers a Line Split:</p>
+<ul>
+<li>
+<p>Ship-Confirmation</p>
+</li>
+<li>
+<p>Drop- Ship Receipt</p>
+</li>
+<li>
+<p>Return Receipt</p>
+</li>
+</ul>
+<p>Partial processing of configurations can result in proportional or non-proportional splits. In the latter case the application also creates a remnant set that has both processed and unprocessed lines.</p>
+<p>Order Management also supports Fulfillment Sets. A line in a Fulfillment Set is marked Fulfilled only when the all the members of the fulfillment set(s) have been fulfilled.</p>
+<p>Set definitions are stored in OE_SETS. Membership in a Line Set, Ship Set and Arrival sets is de-normalized in the Order Line. Since a given Order Line can be in one or more fulfillment set, fulfillment set membership is stored in OE_LINE_SETS.</p>
+<h3><b>System Parameters</b></h3>
+<p>Some controls that drive application processing need to be definable at an Operating Unit level. Order Management simplifies the set-up of such controls via the System Parameters entity. You need to define the following controls via the OM System Parameters form:</p>
+<ul>
+<li>
+<p>Item Validation Organization</p>
+</li>
+<li>
+<p>Customer Relationships Enabled Flag</p>
+</li>
+</ul>
+<p>Order Management looks at Oracle Receivables set-up to determine your Ledger and does not require you to set the value redundantly via an OM specific profile option.</p>
+<h3><b>Transaction Types</b></h3>
+<p>The application has an entity similar to the Order Type for the Line: the Line Type. Transaction Types stores both Order Types and Line types. Most of the Transaction Type attributes are common to the two types. However there are some controls that are available only at the Header level (e.g.: Order Numbering controls) and some only at the Line level. For example, a control that dictates whether a Line is sourced internally or externally. The category code on the Order Transaction type (ORDER, RETURN, MIXED) lets you control whether you want to mix outbound and inbound lines on a given Order.</p>
+<p>Transaction Types also determines the workflow that the Order Header or Line follows. Header workflow is assigned to an Order type and a Line workflow to an Order Type, Line Type and Item type combination. The same order can contain lines with different line types following different flows.</p>
+<p><b>Relationship between orders, lines, order types, line types, and workflow processes</b></p>
+<p><img width="733" height="417" src="./img/ontig_x_data3.gif" alt="the picture is described in the document text"></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T376578.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T376580.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">24/36</span> <!-- End Header -->
+<h1>Order Import</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T376603">Overview</a></li>
+<li><a href="#T376604">Feature Functions and Basic Instruction</a></li>
+<li><a href="#T376605">Tools/Techniques of Feature - API's, Workflow</a></li>
+<li><a href="#T376606">Setup Steps to Implement Order Import</a></li>
+<li><a href="#T376607">Loading the Import tables</a></li>
+<li><a href="#T376608">Flags</a></li>
+<li><a href="#T376609">IDs vs. Codes</a></li>
+<li><a href="#T376610">Matching Changes to Orders</a></li>
+</ul>
+<h2><a name="2993988"></a><a id="T376603"></a><b>Overview</b></h2>
+<p><a name="OrderImport" id="OrderImport"></a>Order Import is Order Management's open interface for entering, changing or canceling orders and returns. Use Order Import to bring in orders from external systems, legacy systems, EDI, or from internal systems such as internal orders created by Oracle Purchasing to fulfill internal requisitions. If you have enabled Multi-Org Access Control, you can import orders for all Operating Units that are accessible to you in a single submission. For more information about using Order Import across operating units, see the Oracle Integration Repository (iRepository).</p>
+<p>Order Import has been implemented as a set of interface tables that must be loaded with the order or return data, and a set of APIs to process that data. A concurrent program is provided which calls the APIs to initiate processing of the data. In addition, Order Import provides windows that allow you to query orders from the interface tables, make corrections or changes to that data, and re-initiate the import process. Orders that fail to be imported are retained in the tables, and can be queried and corrected using the windows. Messages are provided to give you details of why the order did not import.</p>
+<p>Order Import calls base Order Management APIs (specifically, Process Order API) to validate and insert or update data in the base order tables, thereby insuring that consistent processing occurs.</p>
+<p>Queries in Order Import are optimized with the Cost Based Optimizer of the database. The Cost Based Optimizer uses generated statistical information to optimize queries. The Order Import Statistics concurrent program gathers statistics for use by the cost based optimizer. This concurrent program should be run after data is populated into the interface tables.</p>
+<p>The Cost Based Optimizer performs a table analysis of all interface tables related to Order Import for determining optimum record processing. You have the option to submit this program prior to each submission of the Order Import concurrent program. If you normally process a similar number of interface records, you typically do not need to submit this program.</p>
+<h2><a name="2993989"></a><a id="T376604"></a><b>Feature Functions and Basic Instruction</b></h2>
+<p>Order Import provides many features to ease the work of integrating order data from external and other types of system.</p>
+<h3><b>Importing Orders</b></h3>
+<p>Order Import's main task is to provide a batch-like facility for entering large numbers of orders into Order Management. You can run the concurrent request and schedule it to run at specific intervals throughout the day, for example, to coincide with schedules of your feeding systems. Once orders are imported into the base Order Management tables, the order and line workflows are started. All subsequent processing, including sourcing and scheduling activities, takes place as though the order were entered manually.</p>
+<h3><b>Importing Large Orders</b></h3>
+<p>The profile option OM: Order Lines Threshold For Large Order Processing in Order Import needs to be set to the required value by users. This value indicates the minimum number of lines in an order that are considered for large order processing in Order Import. Any order greater than this value is considered a large order by Order Import and processing happens accordingly.</p>
+<p>When submitting the Order Import concurrent request, users must set the parameter Enable Single Line Queue for Instances (whose internal name is P_Perf_Param) as No; the default value is Yes. Otherwise, data related to large order(s) will remain in Order Management interface tables. Users can verify this parameter in the concurrent program definition, if this parameter is not displayed when the Order Import concurrent request is submitted.</p>
+<p>A large order is processed using multiple child requests (according to the Order Import concurrent request parameter Number of Instances), instead of a single child request. During parent request execution, the order header is created first, and then the lines are assigned to child requests that are added to the order header created via parent request. When the lines are added via child requests, the parent request resumes, and data in the interface tables is deleted.</p>
+<p>When an Order Import request is submitted based on a combination of large orders and small orders present in Order Management interface tables; the spawned child requests get completed, and another set of child requests&nbsp; get spawned to complete. This process continues, depending on the eligible records for processing, and is based on the parameters passed to Order Import concurrent request.</p>
+<p>Large order processing will be done by Order Import concurrent request only if users intend to create orders only with the status <b>Entered</b>. Also, it processes the data present in the Order Management Headers and Lines interface tables only.</p>
+<p>Sets, Models, Configurations, Internal Orders processing, Group of Lines modifiers (Advanced Modifiers), or any other grouping business logic, Update of existing Sales Order/Line are not supported.</p>
+<h3><b>Validation</b></h3>
+<p>Order Import does not contain its own validation routines for the data. Instead, it calls the Process Orders API, which is the same API used to validate and insert orders if you are keying them through the Sales Order window. This design makes for better maintenance. Enhancements for Process Orders will immediately affect importing orders too. The Process Orders API uses Processing Constraints to evaluate whether a requested change can be made to an order. Order Import, because it uses Process Order API, evaluates all Processing Constraints, and any constraint violations are recorded and can be reviewed using the Correction windows and the Messaging window. Order Import allows you to run in validate only mode, to pre-screen the orders in a batch and correct all the errors before you run the import. If an order has any errors, then the entire order will be retained in the import tables. Importing is an all-or-nothing process per order.</p>
+<h3><b>Importing Null Values</b></h3>
+<p><a name="d0e68713" id="d0e68713"></a>In order to import a null value for certain attributes of an order and its entities, IMPORT_NULL_VALUES attribute in headers interface table (OE_HEADERS_IFACE_ALL) must be set to <b>Y</b> for that order and Null Indicators that are defined as Meanings in the lookup Null Indicators for Attributes in Order Import for each data type must be passed for those attributes.</p>
+<p>The default Null indicators for each data type in this System Lookup can be changed to meet your requirements. If you want to change the default Null Indicators, then:</p>
+<ul>
+<li>
+<p>The indicator for the NUMBER lookup code must support numeric conversion.</p>
+</li>
+<li>
+<p>The indicator for the DATE lookup code must be entered in YYYY-MM-DD format only. Character to Date conversion of that Date indicator is done using this format only.</p>
+</li>
+<li>
+<p>The indicator for SHORT_CHAR lookup code must be of one character only to support attributes with length of 1-9 characters.</p>
+</li>
+<li>
+<p>The indicator for CHAR lookup code must have a maximum of 10 characters to support attributes with length of 10 characters and above.</p>
+</li>
+</ul>
+<p><img width="753" height="456" src="./img/12215_UG_null_import.gif" alt="the picture is described in the document text"></p>
+<p>Some attributes in the interface tables are not supported to be imported with Null values via Null Indicators.</p>
+<p>For the list of attributes in the interface tables that are not supported to be imported with Null values via Null Indicators, see <a href="T373258T2011473.htm#imp_null">Appendix H.</a></p>
+<h3><b>Correction Windows</b></h3>
+<p>Order Management has a set of windows you can use to review and correct data that is in the Order Import tables. They are called the Order Import Correction windows. They are accessible from the OM Menu under the Order Import menu item. They consist of a find screen followed by a series of windows where you can view and correct data. There are windows to display order headers, order lines, sales credits, price adjustments, return lot/serial numbers, payments, new customer and address records, pricing attributes, and the actions table. The windows have buttons to enable you to re-validate or re-import data that you have selected. There is another button to transfer to the Message Window to display any error messages in your data import. Viewing error and warning messages about imported orders replaces the Order Import Processing Exception Report used in earlier versions. Most fields do not have any validation or list of values within the window, so if you key over a field to correct it, you won't know if it is good until you either validate or re-import. If you decide an order or line is in the import tables in error, you can set the Reject_Flag to Y on the Status Tab to indicate that you don't want to continue processing it. See the Flags section below for more information about the Reject_Flag. This can be useful if an order it too difficult to correct via the windows. This allows you to fix it in the feeder system and re-import it, or it can be used to purge off orders that may have resulted from duplicate runs of your feeder systems.</p>
+<p>The user interface for the Correction window is a folder window. The windows are not multi-select enabled for re-validating or re-importing using the button. The data from the header and lines import tables is presented in windows with the data organized logically onto various tabs. The other windows&mdash;discounts, sales credits, payments, pricing attributes, and actions&mdash;are single-tab windows. Screen shots of the Find screen and the Orders window are contained in the <i>Oracle Order Management User's Guide.</i></p>
+<h3><b>Importing Customer Information</b></h3>
+<p>Order Import can enter a new customer account with minimal data at the sold-to level on the order header. You can enter a new customer account at the ship-to, bill-to level or deliver_to at the order header or order line. An add customer interface table accommodates this: when the table is loaded it indicates the intention is to create a new customer account the required fields are populated for the new account. Order Import then creates a new customer account and, if all required data is present and valid in the interface tables, a party. You can associate the new customer account with an existing party by providing the party (organization or person) number in the interface tables. If that column is left null, Order Import creates the party as well as the customer account. The new customer is assigned to the Default customer profile class, which specifies various financial and credit checking information.</p>
+<p>Order Import turns off all Trading Community Architecture business events before using the Add Customer functionality. This is done by setting the profile option HZ: Raise API Events to No at the user level for the session. This profile option is used to configure the raising of Granular (V2) and Business Object business events from Trading Community Architecture Public APIs. After Order Import is over, the value of the profile option is reverted to its old value. Order Management does not have seeded subscriptions to TCA business events. However some other products do and you may need to run the TCA Full Synch concurrent program after Order Import.</p>
+<p>For more information about TCA integration, please refer to the <i>Trading Community Architecture Administration Guide (Implementation chapter)</i> or the <i>Trading Community Architecture Technical Implementation Guide (Business Events section)</i>.</p>
+<h3><b>Booking Orders via Order Import</b></h3>
+<p>Import orders and book them through Order Import. If the order fails booking validation, the order is still imported, but is left in the Entered state. The Messages Window can be used to see why the order failed booking or you can just attempt to Book using the Book button, and then errors will be displayed. There are two ways to indicate that you want the order to be booked. You can load the actions interface table OE_ACTIONS_IFACE_ALL with a value of BOOK_ORDER in the OPERATION_CODE column to import orders in a booked status, or you can set the booked flag. See the section below on the Actions table for more information.</p>
+<h3><b>Item Cross Referencing</b></h3>
+<p>Customer item numbers or UPC numbers can be entered in Order Import the same way as manually created orders, so long as you have the cross-references and cross reference types set up in advance of running order import. In the interface tables you need to put the &lsquo;item ordered' into the column named CUSTOMER_ITEM_NAME and if you know what kind of item number it is (customer, inventory item or one of the generic cross references), you can put its type into CUSTOMER_ITEM_ID_TYPE.</p>
+<h3><b>Changes and Cancellations</b></h3>
+<p>Input order changes and cancellations to existing orders via the Order Import open interface tables. There is a column in each of the interface tables called OPERATION_CODE where you put INSERT, UPDATE or DELETE. Null is equivalent to INSERT. If you want to make changes, you must specify an OPERATION_CODE of UPDATE. To cancel a line, use an operation of UPDATE and then make the ordered quantity = 0. To partially cancel, change the ordered quantity to the new quantity you want to remain on the line. To cancel an order in its entirety, use an operation of UPDATE at the header, and then set the CANCEL-FLAG to Y. All order changes and cancellations are subject to the Processing Constraints you defined.</p>
+<h3><b>Returns</b></h3>
+<p>Import returns just like you import orders, by choosing an order type that supports return line types. You can also import mixed orders &ndash; those are orders that have some outbound lines and also some inbound (return) lines. The path that the line follows is determined by the workflow attached to the line type. You might import returns or return lines from legacy systems, or from other order entry systems you might be running. There is a separate interface table where you can import anticipated lot/serial numbers &ndash; this table is only used for return lines.</p>
+<h3><b>Notes/Attachments</b></h3>
+<p>Orders that are input using Order Import will get rule-based attachments automatically applied based on the setting of the profile option <i>OM: Apply Automatic Attachments.</i> If you have this profile option set to NO, you can still apply automatic attachments on an order by order basis by using the Actions Interface table &ndash; see the discussion of that table below. There is at this time no way to import note texts, or to create attachments via an open interface.</p>
+<h3><b>Pricing</b></h3>
+<p>There are two ways to price orders being imported. You can let the system calculate the price, or you can populate the price fields in the lines interface table with the price you want to charge, and also populate the price-adjustment interface tables with price adjustments that result in that net price. You indicate which you want to use by setting a value in CALCULATE_PRICE_FLAG in the lines interface table. If the calculate price flag is Y, the system will ignore any pricing values loaded into the price fields and will calculate the price using the pricing engine. If the calculate price flag is N, you must populate unit list price, unit net price, and any price adjustments in the interface tables to account for the difference between list and net.</p>
+<p><strong><span>Note:</span></strong> If you are importing a modifier with a qualifier of type Order Amount, it will not be applied during order import. If you reprice the order after the import, the modifier with the Order Amount qualifier will be applied.</p>
+<h3><b>Pricing and Payment Terms Validation</b></h3>
+<p>A common requirement from EDI customers is the ability to validate the price and payment terms that a customer sends in against what the system determines. EDI customers do not typically accept any price or terms that the customer sends in, but they need to keep track of what the customer said they thought they should get. The Customer Service Representative usually contacts the customer to resolve any discrepancies. For example, a customer may send in one price that they have been quoted by a salesperson, which assumed they received some discount. Perhaps the discount had expired by the time the order was imported. This results in a discrepancy that a CSR needs to investigate.</p>
+<p>Order Import supports this requirement by letting you populate two attributes in the order lines interface table, CUSTOMER_ITEM_NET_PRICE and CUSTOMER_PAYMENT_TERM. If either of these columns contain data, Order Import compares the system-determined price or payment terms to these columns, and raises a warning if there is a difference. It will still import the order as long as there are no other errors in the order. In both cases, the system-determined value is what is used to process the order, and the customer value is retained on the order line in the base sales order tables for reference purposes.</p>
+<p>Following is a table with examples of what would happen in different cases of the customer price and the system price &ndash; in addition, it shows how the Calculate Price Flag affects the process:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Customer Price Versus System Price</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Calculate Price Flag</b></th>
+<th scope="col"><b>Customer Provided Price</b></th>
+<th scope="col"><b>System Calculated Price</b></th>
+<th scope="col"><b>Action</b></th>
+</tr>
+<tr valign="top">
+<td>N</td>
+<td>20</td>
+<td>-</td>
+<td>Accept customer price.</td>
+</tr>
+<tr valign="top">
+<td>Y</td>
+<td>20</td>
+<td>20</td>
+<td>Use system calculated price for processing and store customer provided price for reference. (System = Customer).</td>
+</tr>
+<tr valign="top">
+<td>Y</td>
+<td>20</td>
+<td>10</td>
+<td>Use system calculated price for processing and store customer provided price for reference. Display warning that there is a difference between customer provided price and system calculated price. (System &lt; Customer).</td>
+</tr>
+<tr valign="top">
+<td>Y</td>
+<td>20</td>
+<td>30</td>
+<td>Use system calculated price for processing and store customer provided price for reference. Display warning that there is a difference between customer provided price and system calculated price. (System &gt; Customer).</td>
+</tr>
+</table>
+<h2><a name="2994002"></a><a id="T376605"></a><b>Tools/Techniques of Feature - API's, Workflow</b></h2>
+<p>Order Import uses the Process Orders API to validate and process order data in the interface tables. For more information about open interfaces, see the Oracle Integration Repository (iRepository).</p>
+<p>There are no special workflow considerations for Order Import.</p>
+<h3><b>Profile Options</b></h3>
+<p><b>OM: Add Customer - Order Import</b></p>
+<p>This profile controls whether the user has authorization to create customers, addresses and contacts with Order Import</p>
+<p><b>OM: Order Lines Threshold For Large Order Processing in Order Import - Order Import</b></p>
+<p>This profile indicates the minimum number of lines in an order that are considered for large order processing in Order Import. Any order that contains order lines greater than what is entered in this profile option is considered a large order.</p>
+<p><b>OM: Run Order Import for XML</b></p>
+<p>This profile controls whether Order Import is run synchronously whenever XML data is imported.</p>
+<p><b>OM: Unique Order Source, Orig Sys Document Ref Combination For Each Customer</b></p>
+<p>This profile controls whether uniqueness of this data is enforced by customer or across customers.</p>
+<p><b>HZ: Raise API Events</b></p>
+<p>This profile option is used to configure the raising of Granular (V2) and Business Object business events from Trading Community Architecture Public APIs. It is updateable at the Site, Application, Responsibility, User levels. Please refer to the section on Importing Customer Information for details on how Order Import uses it.</p>
+<h2><a name="2994004"></a><a id="T376606"></a><b>Setup Steps to Implement Order Import</b></h2>
+<p>There is only one special setup for Order Import; otherwise, the same setup that you need to perform to manually key orders must be in place before you can import orders.</p>
+<h3><b>Order Import Sources</b></h3>
+<p><a name="OEXOISRS_ORDER_SOURCE" id="OEXOISRS_ORDER_SOURCE"></a>Set up the names of the sources from which you intend to import orders. There is a special setup window in Order Management that allows you to define the name and description for your source. Import Source is a parameter you can use when you submit the Order Import concurrent program, and it is also one of the queryable fields on the Find window of the Order Import Correction window. The Import Source is carried in the order header also, so you can identify the origin of the order. Seeded Order Import sources include EDI and Internal Orders.</p>
+<p>The <b>Item Validation Org</b> parameter for the operating unit of the user running Order Import determines the organization used for validating items and bill of material structures. Item Validation Org is an Order Management parameter that is set per operating unit.</p>
+<h2><a name="2994006"></a><a id="T376607"></a><b>Loading the Import tables</b></h2>
+<p>To import orders, you need some means to load the Order Import tables. In most cases, you will develop a program or script using SQL-loader or some other programming language to convert data from your feeder system into the standard data format that Order Import is expecting.</p>
+<p>Oracle Purchasing contains such a program (Create Internal Sales Order) that takes data from the Purchasing schema for internal requisitions and loads the Order Import tables. Similarly, the eCommerce Gateway product provides a program (Purchase Order Inbound) that loads the import tables for the Inbound Purchase Order EDI transaction set. You can take a look at that code to guide you in writing your own program to load the tables.</p>
+<p>It is advisable that you set up Defaulting Rules in Order Management that will default as much of the order and line information as possible for your environment, thereby reducing the amount of data that would need to be populated into the import tables.</p>
+<p>There are certain columns and tables in the set of import tables whose function is not self-evident. Here is some additional information about these attributes to help you be successful in loading the tables properly.</p>
+<h2><a name="2994007"></a><a id="T376608"></a><b>Flags</b></h2>
+<p>Several flags in the interface tables of Order Management affect Order Import processing. Valid values of these flags are Y, N and null. Null means different things depending on the particular flag. These flags are viewable and updateable from the Status Tab of both the Order Header and Lines windows of the Order Import Correction windows.</p>
+<p><b>Force Apply Flag</b></p>
+<p>(used for Change transactions only)</p>
+<p>The Force Apply flag is used to indicate that you want to apply a Change transaction even though the change sequence numbers are out of order. Default is N, and a null value is equivalent to N. Typically a user would set this flag to Y (checked in the UI) if they determine that a set of changes should be applied regardless of the change sequence. See the section below for more information on <b>Change Sequence Numbers</b> and how they are used.</p>
+<p>This flag is at the header level only.</p>
+<p><b>Closed Flag</b></p>
+<p>The Closed flag is used to indicate the line or order being imported should be imported in a Closed state. You might want to import a closed order so your historical data is all in one place, or to provide reference data for Returns. Default for this flag is N, and a null value is equivalent to N.</p>
+<p>This flag is at both the header and the line level.</p>
+<p><b>Canceled Flag</b></p>
+<p>The Canceled flag is typically used to indicate that the line or order being imported should be imported in a Canceled state. Default is N, and a null value is equivalent to N.</p>
+<p>This flag is at both the header and the line level.</p>
+<p><b>Booked Flag</b></p>
+<p>Set this flag to Y if you want this order to be booked once it is imported. Default is N and null value is equivalent to N.</p>
+<p>This flag is available at the header level only.</p>
+<p><b>Reject Flag</b></p>
+<p>There may be orders or order lines you have determined you no longer want to attempt to process further. Using the Order Import Corrections window, you can select an order or line you no longer wish to process, go to the STATUS tab, and select the Rejected check box. Default is N, and a null value is equivalent to N.</p>
+<p>This flag is at both the header and the line level.</p>
+<p><b>ERROR_FLAG</b></p>
+<p>The error flag is set on by the Order Import process whenever an error is encountered during the validation process. Default is N, and a null value is equivalent to N.</p>
+<p>This flag is at both the header and the line level.</p>
+<p><b>READY_FLAG</b></p>
+<p>The ready flag indicates that the record will be processed in the Order Import Process. Default is Y, and a null value is equivalent to Y. If the ready flag is N, the order will not be looked at when Order Import is run.</p>
+<p>This flag is at the header level.</p>
+<p><b>Validate Mode Parameter in Concurrent Manager</b></p>
+<p>There is a validate mode parameter you can set when you submit Order Import to run through the concurrent manager. This parameter tells the process to only validate the records, and not to process valid records any further. Base Order Management tables will not have records inserted, updated, or deleted.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Ready Flag</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>READY_FLAG</b></th>
+<th scope="col"><b>(Only)<br>
+Validate<br>
+Parameter</b></th>
+<th scope="col"><b>Processing</b></th>
+</tr>
+<tr valign="top">
+<td>N</td>
+<td>Y</td>
+<td>Record is not processed</td>
+</tr>
+<tr valign="top">
+<td>N</td>
+<td>N</td>
+<td>Record is not processed</td>
+</tr>
+<tr valign="top">
+<td>Y or NULL</td>
+<td>Y</td>
+<td>Process to Validate Only</td>
+</tr>
+<tr valign="top">
+<td>Y or NULL</td>
+<td>N</td>
+<td>Process to Insert/Update/Delete in Base Table</td>
+</tr>
+</table>
+<p><b>Actions Table</b></p>
+<p>One of the Order Management interface tables is the Actions table. Its purpose is to allow you to indicate what 'actions' you want to be done to the order, once it has been written to the Order Management base tables. It is the Order Import equivalent of a user pressing the Action button on the Sales Order window after you have entered an order. Load the action name into the OPERATION_CODE column of this table, and populate other data as needed, and then Process Orders will execute that action if the order import is successful. You can hold or release an order or line from hold using this method; this is one way to book an order through Order Import. Other actions you can perform are Apply Automatic Attachments and Delink Config Item and Match & Reserve a configured item. Here is the character string you need to populate in OPERATION_CODE of the OE_ACTIONS_INTERFACE table and other data you need to put in the table to achieve each action.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Actions Table</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>ACTION</b></th>
+<th scope="col"><b>OPERATION_CODE</b></th>
+<th scope="col"><b>OTHER DATA</b></th>
+</tr>
+<tr valign="top">
+<td>Apply Automatic Attachments</td>
+<td>AUTOMATIC_ATCHMT</td>
+<td>none</td>
+</tr>
+<tr valign="top">
+<td>Apply a Hold</td>
+<td>APPLY_HOLD</td>
+<td>hold_id, hold_type_code, hold_type_id, comments (optional), hold_until_date (optional)</td>
+</tr>
+<tr valign="top">
+<td>Release a Hold</td>
+<td>RELEASE_HOLD</td>
+<td>hold_id, hold_type_code, hold_type_id, comments (optional), release_reason_code</td>
+</tr>
+<tr valign="top">
+<td>Book the Order</td>
+<td>BOOK_ORDER</td>
+<td>none</td>
+</tr>
+<tr valign="top">
+<td>Delink the Config Item</td>
+<td>DELINK_CONFIG</td>
+<td>none</td>
+</tr>
+<tr valign="top">
+<td>Match and Reserve a configuration item for an ATO model</td>
+<td>MATCH_AND_RESERVE</td>
+<td>none</td>
+</tr>
+</table>
+<h2><a name="2994010"></a><a id="T376609"></a><b>IDs vs. Codes</b></h2>
+<p>Most attributes in the interface tables have two flavors &ndash; a code or name and an ID. You may choose to populate either the code or the ID for each attribute. If you populate IDs, performance will be improved. If you populate both an ID and a code for an attribute, the ID will be used and the value in the code field will be ignored.</p>
+<h2><a name="2994011"></a><a id="T376610"></a><b>Matching Changes to Orders</b></h2>
+<p>When you send in changes to orders using Order Import, you need a way to tell Order Import what order or line you are changing. Your feeding system most likely doesn't know the Order Management Order Number. If it does, you can populate the interface column ORDER_NUMBER to locate your order. There are a group of columns in the interface tables that are carried over into the Sales Order tables, and these are used to locate the order to be changed.</p>
+<p>For Order level changes, the following fields need to match between the change transaction in the interface tables and the existing order in the Sales Order tables:</p>
+<ul>
+<li>
+<p>ORIG_SYS_DOCUMENT_REF - note, this is often the customer's purchase order number</p>
+</li>
+<li>
+<p>ORDER_SOURCE_ID</p>
+</li>
+</ul>
+<p>For Line level changes, the following fields need to match between the change transaction in the interface tables and the existing order in the Sales Order tables:</p>
+<ul>
+<li>
+<p>ORIG_SYS_DOCUMENT_REF - note, this is often the Customer's Purchase Order Number</p>
+</li>
+<li>
+<p>ORDER_SOURCE_ID</p>
+</li>
+<li>
+<p>ORIG_SYS_LINE_REF - note, this is often the customer's purchase order line Number concatenated with the shipment number or current customer request date.</p>
+</li>
+</ul>
+<p>If the existing order or line do not have these fields populated, you will not be able to make changes to them using Order Import.</p>
+<p>Please note that if you need to update a line, the header should not be cancelled. In case the header is cancelled, the corresponding lines are also cancelled and if you attempt to update the lines, an error message will display.</p>
+<h3><b>Change Sequence Numbers</b></h3>
+<p>Change sequence numbers are a way to control the sequence in which a group of changes is applied to an order. The use of change sequence numbers in Order Import is optional. Change sequence numbers are most frequently used by the EDI Purchase Order Change transaction, but you can also use them to control the order of application of changes, in the event you are importing changes from a legacy or third-party system. For more information about how change sequence numbers work, see the <i>Oracle Order Management User's Guide.</i></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

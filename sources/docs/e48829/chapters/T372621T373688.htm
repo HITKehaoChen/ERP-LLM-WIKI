@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Cost Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Cost Management User's Guide">
+<meta name="dcterms.identifier" content="E48829-27">
+<meta name="dcterms.isVersionOf" content="CSTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T372621T372805.htm" title="Previous" type="text/html">
+<link rel="Next" href="T372621T374058.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Cost Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">9/29</span> <!-- End Header -->
+<h1>Standard Costing</h1>
+<h2><a name="2962724"></a><a id="T450368"></a><b>Overview of Standard Costing</b></h2>
+<p><a name="d0e11335" id="d0e11335"></a><a name="d0e11341" id="d0e11341"></a><a name="d0e11345" id="d0e11345"></a><a name="c_stdcst" id="c_stdcst"></a>Under standard costing, predetermined costs are used for valuing inventory and for charging material, resource, overhead, period close, and job close and schedule complete transactions. Differences between standard costs and actual costs are recorded as variances.</p>
+<p>Use standard costing for performance measurement and cost control. Manufacturing industries typically use standard costing. Standard costing enables you to:</p>
+<ul>
+<li>
+<p>Establish and maintain standard costs</p>
+</li>
+<li>
+<p>Define cost elements for product costing</p>
+</li>
+<li>
+<p>Value inventory and WIP balances</p>
+</li>
+<li>
+<p>Perform extensive cost simulations using unlimited cost types</p>
+</li>
+<li>
+<p>Determine profit margin using expected product costs</p>
+</li>
+<li>
+<p>Update standard costs from any cost type</p>
+</li>
+<li>
+<p>Revalue on-hand inventories, intransit inventory, and discrete WIP jobs when updating costs</p>
+</li>
+<li>
+<p>Record variances against expected product costs</p>
+</li>
+<li>
+<p>Measure your organization's performance based on predefined product costs</p>
+</li>
+</ul>
+<p>If you use Inventory without WIP, you can define your item costs once for each item (in the cost master organization) and share those costs with other organizations. If you share standard costs across multiple organizations, all reports, inquiries, and processes use those costs. You are not required to enter duplicate costs.</p>
+<p>The cost master organization can be a manufacturing organization that uses WIP or Bills of Material. No organization sharing costs with the cost master organization can use Bills of Material.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T372624.htm#c_cstov">Overview of Cost Management</a></p>
+<h2><a name="2962725"></a><a id="T373689"></a><b>Work in Process Transaction Cost Flow</b></h2>
+<p><a name="d0e11398" id="d0e11398"></a><a name="c_wipflo" id="c_wipflo"></a>The following diagram displays the cost flow associated with WIP transactions.</p>
+<p>Valuation accounts are charged when material is issued to a job or schedule, or when resources, outside processing, or overhead are earned by a job or schedule. Valuation accounts are also relieved when assemblies are completed from a job or schedule. The following graphic displays that variance accounts are charged upon job or period close, depending on how the WIP (WIP) parameters are set (for repetitive schedules) or the type of job, asset, or expense.</p>
+<p><b>Work In Process Transaction Cost Flow</b></p>
+<p><img width="423" height="405" src="./img/cst_wipcostflow.gif" alt="the picture is described in the document text"></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T372624.htm#c_wipele">Work in Process: Elemental Visibility</a></p>
+<h2><a name="2962729"></a><a id="T450369"></a><b>Standard Costing Setup</b></h2>
+<p><a name="d0e11423" id="d0e11423"></a><a name="d0e11429" id="d0e11429"></a><a name="c_suinvstd" id="c_suinvstd"></a>Follow the process in this section to set up perpetual standard costing. Steps previously covered in the Setup Prerequisites or the Setup Checklist are mentioned here only if there is setup information that is specific to standard costing.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T372759.htm#c_ovcstsu">Overview of Setting Up Cost Management</a></p>
+<p><a href="T372621T372759.htm#c_chklst">Setup Checklist</a></p>
+<h2><a name="3507987"></a><a id="T407896"></a><b>Setting Up Standard Costing</b></h2>
+<p><a name="d0e11450" id="d0e11450"></a><a name="d0e11456" id="d0e11456"></a><a name="d0e11460" id="d0e11460"></a><a name="c_invstp" id="c_invstp"></a>The following steps are required when setting up standard costing. Additional steps follow in the next section for those also using WIP or BOM or both.</p>
+<ul>
+<li>
+<p>Define organization parameters:</p>
+<ul>
+<li>
+<p>Costing Method is set to Standard.</p>
+</li>
+<li>
+<p>Transfer Detail to GL is appropriately set.</p>
+</li>
+<li>
+<p>Default Material Subelement account (required).</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>Define cost types.</p>
+</li>
+<li>
+<p>Define activities and activity costs.</p>
+</li>
+<li>
+<p>Define material overhead defaults.</p>
+</li>
+<li>
+<p>Define item and item costs, and establish item cost controls. See: Overview of Item Setup and Control, <i>Oracle Inventory User's Guide.</i></p>
+</li>
+<li>
+<p>Launch transaction managers.</p>
+</li>
+</ul>
+<p><b>To set up standard costing</b></p>
+<ol>
+<li>
+<p>Define item costs. See: <a href="T372621T372805.htm#t_fdiac">Defining Item Costs</a>.</p>
+</li>
+<li>
+<p>Set activity costs for items.</p>
+<p>You can assign an activity to any cost. If you use the activity basis type, you can directly assign the activity cost to the item. When you use the other basis types, the cost is based on the subelement, basis type, and entered rate or amount. The activity defaults from the subelement, and, if needed, you can override the default. See: <a href="T372621T372759.htm#t_fdaty">Defining Activities and Activity Costs</a>.</p>
+</li>
+<li>
+<p>Edit costs.</p>
+<p>You can mass edit item costs and activities using several predefined mass edits:</p>
+<ul>
+<li>
+<p>Reflect increases in supplier prices or other changes in business conditions.</p>
+</li>
+<li>
+<p>Change item costs to reflect new activity rates.</p>
+</li>
+<li>
+<p>Create new material costs based on a weighted average of actual payables invoice cost, open purchase orders, or historical purchase order receipts.</p>
+</li>
+<li>
+<p>Mass edit existing material and material overhead costs to a specified amount, by a percentage change, or by an absolute amount.</p>
+</li>
+<li>
+<p>For Oracle Manufacturing installations, edit manufacturing shrinkage rates to a specified rate or set it equal to planning shrinkage rates.</p>
+</li>
+</ul>
+<p>With these mass edits, you can specify a range of items or categories, a specific cost type, a basis type, an activity, or a type of item (make or buy). The weighted average mass edits enable you to specify a transaction date range. All cost mass edits can copy from an existing cost type and simultaneously submit a cost comparison report.</p>
+<p>Oracle Consulting or your MIS staff can create and add custom mass edits to the list of available mass edits. Each mass edit is a stored procedure in the database, and each stored procedure is registered in a mass edits table.</p>
+</li>
+<li>
+<p>Edit item accounts. See: <a href="T372621T372759.htm#t_fceia">Mass Editing Item Accounts</a>.</p>
+</li>
+<li>
+<p>Copy costs between cost types. See: <a href="T372621T372759.htm#t_copyc">Copying Costs Between Cost Types</a>.</p>
+</li>
+<li>
+<p>Perform cost update, if needed.</p>
+<p>This final step is optional if your frozen standard costs are complete. If you use Bills of Material, and you are updating assemblies, then you must roll up your assembly costs before you update. See: <a href="T372621T373688.htm#t_supdat">Updating Standard Costs</a>.</p>
+</li>
+</ol>
+<h2><a name="3508112"></a><a id="T407903"></a><b>Setting Up Standard Costing for Manufacturing</b></h2>
+<p><a name="d0e11574" id="d0e11574"></a><a name="d0e11578" id="d0e11578"></a><a name="c_mfgstp" id="c_mfgstp"></a>In addition to the steps required in the previous section, the following prerequisites and steps are applicable to standard costing with Bills of Material (BOM) or Work in Process (WIP), or both.</p>
+<p>Again, note that some of these steps were previously covered in the Setup Prerequisites. These steps are covered again here to highlight the setup requirements that are specific to standard costing .</p>
+<p><b>Prerequisites</b></p>
+<ul>
+<li>
+<p>Define Bills of Material parameters. See: Defining Bills of Material Parameters, <i>Oracle Bills of Material User's Guide</i></p>
+<p>This ensures that bill and routing information (resource, outside processing, and overhead cost elements) is accessible when you define item costs and define overhead.</p>
+</li>
+<li>
+<p>Define resources.</p>
+<p>You define resource subelements by creating resources, departments, bills, and routings with Bills of Material.</p>
+<p>Resources can be costed or not costed; because you can have multiple resources per operation, you could use an uncosted resource for scheduling and a costed resource for costing. The cost rollup/update process and accounting transaction processing ignore uncosted resources.</p>
+<p>You can set up the resource to apply charges at the actual rate or standard rate. If you apply actual rates and specify that the resource charges at standard, then you create rate variances. If you apply actual rates and specify that the resource does not charge at standard, then you collect actual costs in the job/schedule and recognize a variance at the end of the job or schedule. You can also set up a fixed amount for each unit earned in the routing step.</p>
+<p>For each resource, the charge type determines whether the resource is for internal (labor, machine, and so on) or outside processing. Use PO Move and PO Receipt charge types for outside processing. Each resource has its own absorption account and variance account. By cost type, you define a cost per unit of measure, and use the cost rollup/update process to change the pending rates to Frozen resource rates.</p>
+</li>
+<li>
+<p>Define departments.</p>
+</li>
+<li>
+<p>Assign resources to departments.</p>
+<p>For capacity planning and overhead assignment purposes, you must assign each resource to one or more departments. Once you assign a resource, you can select it when you define a routing.</p>
+</li>
+<li>
+<p>Define overheads and assign them to departments.</p>
+<p>The cost rollup uses the assigned basis type to apply the overhead charge, and assigns the activity to the calculated overhead cost. You can define pending rates and use the cost rollup/update process to change the pending rates to Frozen overhead rates.</p>
+</li>
+<li>
+<p>Review routing and bill structures to confirm that costs will roll up properly.</p>
+</li>
+<li>
+<p>Control overheads by resource.</p>
+<p>For overheads based on resource units or resource value, you must specify the resources on which the overhead is based. You can then charge multiple resources in the same department for the same operation, while still earning separate overhead for each resource. If you do not associate your overheads and resources, you do not apply overhead in the cost rollup or charge resource-based overhead in WIP.</p>
+</li>
+<li>
+<p>Confirm that the WIP parameters: <i>Recognize Period Variance and Require Scrap Account</i> are set as required.</p>
+</li>
+<li>
+<p>Confirm that your WIP accounting classes and their valuations and accounts are properly set up.</p>
+<p>If you use the same account numbers for different valuation and variance accounts, then Cost Management automatically maintains your inventory and WIP values by cost element. Even if you use the same cost element account in a given subinventory or WIP accounting class, Oracle recommends that you use different accounts for each and never share account numbers between subinventories and WIP accounting classes. If you do, then you will have difficulty reconciling Inventory and WIP valuation reports to your account balances.</p>
+</li>
+</ul>
+<p><b>To set up standard costing with BOM and WIP</b></p>
+<ol>
+<li>
+<p>Run a summary audit to validate your structures.</p>
+<p>After you have defined your bill and routing structures, items and unit costs, you should run the summary audits to ensure information integrity. These audits check for bill of material structures with no headers, valued items with no costs, and so on. The summary audits are generated by the Audit Information Report from Oracle MRP. See: Audit Information Report, <i>Oracle Master Scheduling/MRP and Oracle Supply Chain Planning User's Guide</i>.</p>
+</li>
+<li>
+<p>Perform cost rollup as appropriate to set initial standard costs. See: <a href="T372621T379162.htm#c_chain">Rolling Up Supply Chain Costs</a></p>
+<p>With the initial cost rollup/update, you complete the setup of the manufacturing cost structure and begin normal processing, including purchase order receipts, material issues, job/schedule creation, shop floor moves, and so on. Later, you analyze, report, and distribute costs through the period close process.</p>
+</li>
+<li>
+<p>Perform a cost update after rolling up assemblies. This revalues inventory and implements new costs. See: <a href="T372621T373688.htm#t_fcscu">Updating Pending Costs to Frozen Standard Costs</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T373688.htm#c_billrollup">Bills and Cost Rollups</a></p>
+<p><a href="T372621T373688.htm#c_phantom">Phantom Costing</a></p>
+<h2><a name="2962732"></a><a id="T450370"></a><b>Bills and Cost Rollups</b></h2>
+<p><a name="d0e11684" id="d0e11684"></a><a name="c_billrollup" id="c_billrollup"></a>Bills and routings define the foundation for cost rollups, elemental distribution, and all related manufacturing costing functions.</p>
+<p>WIP uses the bill of material to determine material requirements and control material transactions. In addition, the primary bill for an assembly determines the standard material and material overhead costs of that assembly.</p>
+<p>WIP uses the routing to do the following:</p>
+<ul>
+<li>
+<p>Determine production schedules</p>
+</li>
+<li>
+<p>Specify shop floor and operation moves</p>
+</li>
+<li>
+<p>Control resource, outside processing, and overhead cost transactions</p>
+</li>
+</ul>
+<p>In addition, the primary routing for the assembly determines the standard resource, outside processing, and resource overhead costs of that assembly.</p>
+<p>When you submit a cost rollup, you may include or not include unimplemented engineering change orders. The cost rollup also considers the effective date.</p>
+<p>Components and resources with effective dates on or before the rollup date are included in the rollup. The cost rollup does not include disabled components or resources.</p>
+<p><strong><span>Note:</span></strong> For phantom assemblies, the cost rollup includes the material costs and the routing costs in the cost of higher level assemblies. WIP charges and values phantom assembly material costs and phantom assembly routing costs at this level.</p>
+<p>Purchased assemblies show different elemental costs when you buy the assemblies rather than build or make them.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Buy Assembly</td>
+<td>The total cost consists of the material and material overhead cost elements only.</td>
+</tr>
+<tr valign="top">
+<td>Make Assembly</td>
+<td>The total cost consists of the material, resource, overhead, and outside processing cost elements.</td>
+</tr>
+</table>
+<p>Therefore, the value of the material cost element may differ in buy versus make situations. The value of the material cost element affects job cost, period close distributions, and variances.</p>
+<p>A component yield of less than 100 percent increases the usage quantity of the component and the material and material overhead value of that component in the assembly. According to your cost type controls, the cost rollup may or may not include any component yield factors. See: Yield, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p><strong><span>Important:</span></strong> Changing the Include Component Yield flag when there are open WIP jobs in the inventory organization may result in inaccurate cost variances. For example, if the standard cost rollup includes component yield and the Include Component Yield flag is cleared, backflush transactions will no longer factor in component yield. Artificial variances will result.</p>
+<p>When you roll up an assembly using a common bill, the cost rollup uses the common bill structure to determine the appropriate cost elements. The exception is assembly material overhead. You assign assembly material overhead to the assembly item itself, not the bill structure. This means that the cost rollup uses the material overhead rate of the assembly that points to the common bill, not the assembly that owns the common bill. See: Referencing Common Bills and Routings, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p>For example, suppose you have a material overhead and a bill for assembly A. Suppose further that you define assembly B using A as a common bill. However, you also define a material overhead rate for B. A cost rollup on A uses A's material overhead. A rollup on B uses B's material overhead.</p>
+<p>Common routings are similar to common bills of material. The cost rollup costs common routings like standard routings.</p>
+<p>You can define multiple alternates for a bill or routing. You can roll up alternate structures and update these costs into your Frozen cost type.</p>
+<p><strong>Related Topics</strong></p>
+<p>Overview of Bills of Material, <i>Oracle Bills of Material User's Guide</i> and</p>
+<p>Overview of Routings, <i>Oracle Bills of Material User's Guide</i>.</p>
+<h2><a name="2962735"></a><a id="T373695"></a><b>Updating Standard Costs</b></h2>
+<p><a name="d0e11772" id="d0e11772"></a><a name="d0e11776" id="d0e11776"></a><a name="cst_updstdcst" id="cst_updstdcst"></a><a name="t_supdat" id="t_supdat"></a><a name="t_fclru" id="t_fclru"></a><a name="SRS.CMCICU" id="SRS.CMCICU"></a><a name="SRS.CMCICU_XML" id="SRS.CMCICU_XML"></a><a name="CMCICU" id="CMCICU"></a>The standard cost update procedure lets you define and roll up pending costs, simulate changes to standard costs for analysis, and then update pending costs to the Frozen standard cost type.</p>
+<p><strong><span>Note:</span></strong> You can also update costs using the Supply Chain Cost Rollup. This cost rollup enables you to roll up costs across multiple organizations connected to sourcing rules. You can preserve the buy cost detail visibility and use a lot size multiplier in calculations. See: <a href="T372621T379162.htm#c_chain">Rolling Up Supply Chain Costs</a></p>
+<p>If possible, run your cost update at the beginning of your inventory accounting period before transactions have started for the new period.</p>
+<p>To update standard costs, define costs and rates, and run the following procedures:</p>
+<ul>
+<li>
+<p>Define a cost type for pending standard costs.</p>
+</li>
+<li>
+<p>Define pending costs for each of the cost elements: material (inventory items: both components and assemblies), material overhead, resources, overhead, and outside processing.</p>
+<p>If you have changed your activity rates, as well as the base material overhead on these activity rates, then you must run the activity mass edit to recalculate the activity based material overhead.</p>
+<p>You can also define pending rates for resources and overhead.</p>
+</li>
+<li>
+<p>Roll up pending costs. This adds up pending costs for all cost elements of an assembly and creates a new pending cost for the assembly.</p>
+</li>
+<li>
+<p>Print and review preliminary adjustment reports to see potential changes to the frozen standard costs.</p>
+</li>
+<li>
+<p>Update pending costs to frozen standard costs.</p>
+</li>
+<li>
+<p>(Optional) Print new standard cost reports.</p>
+<p><strong><span>Caution:</span></strong> If you are using Oracle Enterprise Install Base and have the profile option CSE: Use eIB Costing Hook set to 'Y', then be aware that standard cost adjustments for change in the standard cost of eIB trackable items will be incorrect if your asset subinventories have quantities of these items that have already been converted to fixed assets. For details about the meaning of some of the terms above and for a set of recommendations to avoid incorrect adjustments, see the Oracle Enterprise Install Base and Implementation Guide.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p>Defining Cost Types, <i>Oracle Bills of Material User's Guide</i>,</p>
+<p><a href="T372621T372805.htm#t_fdiac">Defining Item Costs</a>,</p>
+<p>Defining a Resource, <i>Oracle Bills of Material User's Guide</i>,</p>
+<p>Defining Overhead, <i>Oracle Bills of Material User's Guide</i>,</p>
+<p><a href="T372621T379162.htm#c_chain">Rolling Up Supply Chain Costs</a>,</p>
+<p>Reporting Pending Adjustments, <i>Oracle Bills of Material User's Guide</i>,</p>
+<p>Updating Pending Costs to Frozen Standard Costs, <i>Oracle Bills of Material User's Guide</i>,</p>
+<p><a href="T372621T406224.htm#r_cstrdicr">Detailed Item Cost Report</a>,</p>
+<p><a href="T372621T406224.htm#r_cstrelcr">Elemental Cost Report</a>,</p>
+<p><a href="T372621T406224.htm#r_cstrbicr">Indented Bills of Material Cost Report</a>, and</p>
+<p><a href="T372621T406224.htm#r_cstrovhd">Overhead Report</a>.</p>
+<h2><a name="2962741"></a><a id="T373697"></a><b>Phantom Costing</b></h2>
+<p><a name="d0e11888" id="d0e11888"></a><a name="d0e11894" id="d0e11894"></a><a name="T373797" id="T373797"></a><a name="c_phantomcst" id="c_phantomcst"></a><a name="c_phantom" id="c_phantom"></a>You can cost phantom assemblies in the following:</p>
+<ul>
+<li>
+<p>Work in Process</p>
+</li>
+<li>
+<p>Discrete and repetitive manufacturing environments</p>
+</li>
+<li>
+<p>Standard and average organizations</p>
+</li>
+</ul>
+<p>You can set up phantom assemblies just like any other assembly and include resource and overhead costs.</p>
+<p>Two BOM parameters control the behavior of phantoms:</p>
+<ul>
+<li>
+<p><i>Inherit Phantom Operation Sequence:</i> Controls inheritance of the parent's operation sequence.</p>
+<p><strong><span>Note:</span></strong> <i>Inherit Phantom Operation Sequence</i>, previously a WIP parameter, is now a BOM parameter.</p>
+</li>
+<li>
+<p><i>Use Phantom Routings:</i> Determines if resources and overheads on phantom routings are recognized for costing and capacity planning purposes.</p>
+</li>
+</ul>
+<p>These parameters affect the job at the time of creation and at the time of cost update or rollups. Consequently, inappropriate variances can occur if a parameter is changed after the job is created and the change remains in effect at the time of the update or rollup.</p>
+<p>The Supply Chain Cost Rollup costs the routings assigned to phantom assemblies. The bill of material for the phantom determines how the component is treated. If you are rolling up the phantom assembly, the cost of the routing is included in this level cost of the assembly in parent assembly's this level cost. For the parent assembly, when the subassembly's supply type is Phantom, the routing costs from the lower level assembly are included in the cost of the parent assembly. If you change the supply type and the subassembly is no longer a phantom, the parent assembly includes the lower level routing cost in the parent assembly's previous level costs.</p>
+<p>You can see resources in phantom routings under WIP operation resources. Resources inherit parent operation sequence numbers from the main routing but maintain their own departments as specified in the phantom routing. Resources have associated overhead from those phantom departments.</p>
+<h2><a name="2962742"></a><a id="T373698"></a><b>Reporting Pending Adjustments</b></h2>
+<p><a name="d0e11946" id="d0e11946"></a><a name="d0e11952" id="d0e11952"></a><a name="T373798" id="T373798"></a><a name="T373799" id="T373799"></a><a name="t_fcrcu" id="t_fcrcu"></a><a name="SRS.CMRICU" id="SRS.CMRICU"></a><a name="SRS.CMRICU_XML" id="SRS.CMRICU_XML"></a><a name="CMRICU" id="CMRICU"></a>Report pending adjustments to simulate a change in standard costs. This launches two processes, one to simulate a cost update from the cost type that you specify to the Frozen cost type, and one to launch the Inventory, Intransit, and WIP Standard Cost Adjustment reports. These reports enable you to preview the changes that the standard cost update would perform for current inventory balances. These same three reports are run as part of a cost update. In this case, the reports show adjustments made to the inventory valuation by the cost update process.</p>
+<p><b>To report pending adjustments</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e11974" id="d0e11974"></a>Report Pending Cost Adjustments window.</p>
+<p><img width="706" height="504" src="./img/cst_rpndgadj.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Parameters window, select a Cost Type.</p>
+<p><img width="768" height="456" src="./img/cst_rpndgapm.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select an item range to perform a simulated standard cost update and generate preliminary adjustment reports for:</p>
+<p><i>All items:</i> This is the default.</p>
+<p><i>Based on rollup items:</i> Items that have Based on Rollup turned on in the Frozen cost type. This is only available if you use Inventory with Bills of Material.</p>
+<p><i>Category:</i> All items in a category you specify.</p>
+<p><i>Not based on rollup items:</i> Items that have Based on Rollup turned off in the Frozen cost type. This is only available if you use Inventory with Bills of Material.</p>
+<p><i>Range of items:</i> Range of items you specify.</p>
+<p><i>Specific item:</i> Specific item you specify.</p>
+<p><i>Zero cost items:</i> Items with zero cost in the Frozen cost type.</p>
+</li>
+<li>
+<p>Select a <a name="d0e12038" id="d0e12038"></a>sort option for the adjustment reports: by category, by item, or by subinventory (default).</p>
+</li>
+<li>
+<p>Select an <a name="d0e12049" id="d0e12049"></a>update option:</p>
+<p><i>Item costs only:</i> This is the default.</p>
+<p><i>Resource, overhead, and item costs:</i> This is only available if you use Inventory with Bills of Material. If you use WIP, choose this option to reflect resource and overhead cost changes for actual charges to standard and non-standard asset jobs.</p>
+</li>
+<li>
+<p>Do one of the following:</p>
+<ul>
+<li>
+<p>If you selected Specific item in the Item Range field, enter the specific item to include in the simulated cost update.</p>
+</li>
+<li>
+<p>If you selected Category in the Item Range field, enter a specific category.</p>
+</li>
+<li>
+<p>If you selected Range of items in the Item Range field, enter values for Item From and Item To. A simulated standard cost update is performed for all items in this range, inclusive.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Standard Request Submission, <i>Oracle Applications User's Guide</i>.</p>
+<h2><a name="2962744"></a><a id="T373699"></a><b>Updating Pending Costs to Frozen Standard Costs</b></h2>
+<p><a name="d0e12090" id="d0e12090"></a><a name="d0e12096" id="d0e12096"></a><a name="T373800" id="T373800"></a><a name="T373801" id="T373801"></a><a name="T373802" id="T373802"></a><a name="cst_updpendcst" id="cst_updpendcst"></a><a name="t_fcscu" id="t_fcscu"></a>Updating pending costs to Frozen standard costs does the following:</p>
+<ul>
+<li>
+<p>Updates the existing standard costs with the costs created in the new cost type and creates the resulting adjustment accounting entries.</p>
+<p>If you use Work in Process, the cost update revalues discrete job balances, creates accounting adjustments, and prints the adjustments along with the new job values in its report.</p>
+</li>
+<li>
+<p>Creates item cost history.</p>
+</li>
+<li>
+<p>Prints the Inventory, Intransit, and WIP Standard Cost Adjustment reports that detail the valuation changes in your inventory due to the change in the standard costs.</p>
+</li>
+<li>
+<p>If you share costs across inventory organizations, the standard cost update automatically revalues the on-hand balances in all organizations that share costs.</p>
+<p>Oracle recommends that you also print the Cost Type Comparison Reports to display differences in item costs for any two cost types. You can compare by cost element, activity, subelement, department, this/previous level, or operation.</p>
+</li>
+<li>
+<p>Optionally, saves update details for rerunning adjustment reports</p>
+</li>
+</ul>
+<p>You can only update standard costs from the master costing organization, which must use standard costing.</p>
+<p>The standard cost update is a batch process that can run while you perform normal transactions. Doing so delays accounting transactions until the cost update is complete. (Consider scheduling large-scale cost updates for off hours.) However, if the period close, job close, or general ledger transfer processes are running, the standard cost update is delayed until they are complete.</p>
+<p>You can track item cost changes at the cost sub-element level. You can view and analyze sub-element cost details in the <b>View Cost History</b> and <b>View Cost Update</b> windows.</p>
+<p>Because this function changes the frozen standard value of inventory, Oracle recommends that you take appropriate security precautions.</p>
+<p><strong><span>Important:</span></strong> Cost Management does <i>not</i> update the standard costs of those items for which you do not define a cost. The standard cost is updated to zero only if you define a zero cost for the item.</p>
+<p>You can also</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>To define, update, or delete cost information, the Privilege to Maintain Cost security function must be included as part of the responsibility. See: <a href="T372621T372759.htm#r_secfunct">Cost Management Security Functions</a>.</li>
+</ul>
+<p><b>To update pending costs to Frozen standard costs</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e12166" id="d0e12166"></a> Update Standard Cost window.</p>
+<p><img width="706" height="504" src="./img/cst_lchcstup.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Parameters window, select a Cost Type.</p>
+<p><img width="770" height="532" src="./img/cst_stdcostupdtparam.gif" alt="the picture is described in the document text"></p>
+<p>Cost information (a set of costs for items, activities, resources, outside processing, and overhead) is copied from this cost type into the <i>Frozen</i> cost type.</p>
+</li>
+<li>
+<p>Select an <a name="d0e12196" id="d0e12196"></a>Adjustment Account.</p>
+<p>This account is used to collect the changes in value to each item, and to automatically generate transactions that adjust your inventory accounts. Your inventory is adjusted by subinventory and elemental cost account. Your discrete WIP is adjusted by job and cost element account. The WIP accounting class defines the adjustment account for your discrete jobs.</p>
+</li>
+<li>
+<p>Optionally, enter a Description.</p>
+</li>
+<li>
+<p>Select an Item Range option. The options are as follows:</p>
+<p><i>All items:</i> This is the default.</p>
+<p><i>Based on rollup items:</i> Items that have Based on Rollup turned on in the Frozen cost type.</p>
+<p><i>Category:</i> All items in a selected category.</p>
+<p><i>Not based on rollup items:</i> Items that have Based on Rollup turned off in the Frozen cost type.</p>
+<p><i>Range of items:</i> Range of items you specify.</p>
+<p><i>Specific item:</i> Specific item you specify.</p>
+<p><i>Zero cost items:</i> Items with zero cost in the Frozen cost type.</p>
+</li>
+<li>
+<p>Select a Sort Option for the adjustment report. The options are as follows:</p>
+<p><i>Item:</i> By item</p>
+<p><i>Category, Item:</i> By category, then by item within the category</p>
+<p><i>Subinventory, Item:</i> By subinventory, then by item within the subinventory (Default)</p>
+</li>
+<li>
+<p>If you selected All Items for Item Range, select an update option: either Overhead, resource, activity, and item costs, or Resource, overhead, and item costs.</p>
+<p><i>Overhead, resource, activity, and item costs:</i></p>
+<p><i>Resource, overhead, and item costs:</i> This is only available if you use Inventory with Bills of Material. If you use WIP, choose this option to reflect resource and overhead cost changes for actual charges to standard and non-standard asset jobs.</p>
+<p><i>Activity and item Costs:</i></p>
+<p><i>Item costs only:</i> This is the default.</p>
+</li>
+<li>
+<p>If you selected <i>Specific item</i> for the Item Range, select the Specific Item to be updated.</p>
+</li>
+<li>
+<p>If you selected <i>Category</i> for the Item Range, do one of the following:</p>
+<ul>
+<li>
+<p>Select a Category Set. The default is the category set defined for the costing functional area.</p>
+</li>
+<li>
+<p>Select a specific category.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you selected <i>Range of items</i> in the Item Range field, select beginning and ending Item From and To values. Standard costs are updated for all items in this range, inclusive.</p>
+</li>
+<li>
+<p>Indicate whether to <a name="d0e12306" id="d0e12306"></a>save details. Selecting Yes saves a snapshot of the inventory and WIP on-hand quantities cost update details. If you select Yes, then you can rerun the adjustment reports as long as you choose to maintain the details.</p>
+<p>You can purge standard cost history to delete these details.</p>
+</li>
+<li>
+<p>Indicate whether or not to Delete Resource Overhead. Selecting 'Yes' deletes any associations through the resource and overhead list. In order for a resource overhead association to qualify for deletion, you must ensure that both the overhead and the resource have been selected.</p>
+<p><strong><span>Note:</span></strong> If you do not provide a specific range in the resource / overhead parameters, then all resource-overhead associations that are not present in the user defined cost type will be deleted from the frozen cost type.</p>
+</li>
+<li>
+<p>Use this option to track item cost history at the cost sub-element level. Select <b>Yes</b> to enable tracking costs at the sub-element level. The default value is <b>No</b>. The next run will use the chosen value from the prior run as the default value.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T373688.htm#t_supdat">Updating Standard Costs</a>,</p>
+<p>Standard Request Submission, <i>Oracle Applications User's Guide</i>,</p>
+<p><a href="T372621T373688.htm#t_fcpch">Purging Standard Cost Update History</a>, and</p>
+<p>Defining Items, <i>Oracle Inventory User's Guide</i>.</p>
+<h2><a name="2962747"></a><a id="T373700"></a><b>Reporting Cost Update Adjustments</b></h2>
+<p><a name="d0e12357" id="d0e12357"></a><a name="d0e12363" id="d0e12363"></a><a name="T373803" id="T373803"></a><a name="t_frhcu" id="t_frhcu"></a>For previous standard cost updates where you chose to save the details, you can print Historical Inventory and Intransit Standard Cost Adjustment reports. If you use WIP, you can also print the Historical WIP Standard Cost Update Report. These reports show the adjustments made to inventory and WIP valuation due to the cost update.</p>
+<p><b>To report cost update adjustments</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e12381" id="d0e12381"></a>Report Standard Cost Adjustments window.</p>
+<p><img width="754" height="504" src="./img/cst_rpstcadj.gif" alt="the picture is described in the document text"></p>
+<p>This submits the Historical Intransit Standard Cost, Historical WIP Standard Cost Adjustment, and Historical Inventory Standard Cost reports.</p>
+</li>
+<li>
+<p>In the Parameters window, enter the date and a time of a previous cost update.</p>
+</li>
+<li>
+<p>Select a report Sort Option. The options are as follows:</p>
+<p><i>Item:</i> By item</p>
+<p><i>Category, Item:</i> By category, then by item within the category</p>
+<p><i>Subinventory, Item:</i> By subinventory, then by item within the subinventory</p>
+</li>
+<li>
+<p>Select a Cost Type.</p>
+</li>
+<li>
+<p>To restrict the report to a range of items, select a beginning and ending Item.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Standard Request Submission, <i>Oracle Applications User's Guide</i>.</p>
+<h2><a name="2962749"></a><a id="T373701"></a><b>Viewing Standard Cost History</b></h2>
+<p><a name="d0e12433" id="d0e12433"></a><a name="d0e12437" id="d0e12437"></a><a name="T373804" id="T373804"></a><a name="T373805" id="T373805"></a><a name="T373806" id="T373806"></a><a name="T373807" id="T373807"></a><a name="T373808" id="T373808"></a><a name="t_fvsch" id="t_fvsch"></a>View standard cost history and inventory adjustment values and quantities for your items. All historical cost information for your items is displayed for each cost update, even if you did not choose to save cost update details. All item costs updated or defined using the Define Item Cost window are also displayed.</p>
+<p>If you share costs and are accessing this window from the master costing organization, you can choose to view the adjustment values for the current organization only or for all organizations that share the same standard costs. If you access this window from a child organization (non-cost master organization), you can only view the adjustment values for that organization.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>To view cost information, the Privilege to View Cost security function must be included as part of the responsibility. See: <a href="T372621T372759.htm#r_secfunct">Cost Management Security Functions</a>.</li>
+</ul>
+<p><b>To view standard cost history</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e12468" id="d0e12468"></a>View Cost History window. The Find Standard Cost History window appears.</p>
+<p><img width="442" height="318" src="./img/cst_viewcsthistsrch.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter your search criteria.</p>
+</li>
+<li>
+<p>Choose Find to initiate the search, and choose History to view the Standard Cost History window.</p>
+<p><img width="774" height="484" src="./img/cst_viewcsthistory.gif" alt="the picture is described in the document text"></p>
+<p>The Standard Cost History window lists item cost updates. There are four tabbed regions: Cost Update, Cost Elements, Adjustment Values, and Adjustment Quantity. The Adjustment Values and Adjustment Quantity tabbed regions are available for the current organization. They are available for all organizations if you are in the costing master organization and there are child organizations that point to the master for cost information. Select the Sub-Element Costs Saved checkbox to view sub-element cost update history.</p>
+<p>The Cost Update tabbed region displays the update date, the unit cost, the update description, and the update ID.</p>
+<p>The Cost Elements tabbed region displays cost element information.</p>
+<p>The Adjustment Values tabbed region displays the update date, the inventory and intransit adjustment values, and, if you use WIP, the WIP adjustment value.</p>
+<p>The Adjustment Quantity tabbed region displays the update date, the inventory and intransit adjustment quantities, and, if you use WIP, the WIP adjustment quantity.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Overview of Query Find, <i>Oracle Applications User's Guide</i>,</p>
+<p>Searching For Data, <i>Oracle Applications User's Guide</i>,</p>
+<p><a href="T372621T372805.htm#t_fdiac">Defining Item Costs</a>.</p>
+<h2><a name="2962752"></a><a id="T373702"></a><b>Viewing a Standard Cost Update</b></h2>
+<p><a name="d0e12523" id="d0e12523"></a><a name="d0e12527" id="d0e12527"></a><a name="T373809" id="T373809"></a><a name="cst_viewsdcstup" id="cst_viewsdcstup"></a><a name="t_fqscu" id="t_fqscu"></a>View previous standard cost update requests, options, and ranges.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>To view cost information, the Privilege to View Cost security function must be included as part of the responsibility. See: <a href="T372621T372759.htm#r_secfunct">Cost Management Security Functions</a>.</li>
+</ul>
+<p><b>To view a standard cost updates</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e12553" id="d0e12553"></a>View Standard Cost Update window.</p>
+<p><img width="761" height="461" src="./img/cst_viewcsthistsrch2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter information by which to find a previous standard cost update to view.</p>
+</li>
+<li>
+<p>Choose the History button to view previous standard cost update requests.</p>
+<p><img width="777" height="484" src="./img/cst_viewcsthistory2.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T373688.htm#t_fcscu">Updating Pending Costs to Frozen Standard Costs</a></p>
+<h2><a name="2962755"></a><a id="T373703"></a><b>Purging Standard Cost Update History</b></h2>
+<p><a name="d0e12587" id="d0e12587"></a><a name="d0e12591" id="d0e12591"></a><a name="T373810" id="T373810"></a><a name="T373811" id="T373811"></a><a name="T373812" id="T373812"></a><a name="t_fcpch" id="t_fcpch"></a>When you update costs and choose to save details, information associated with the update is retained so that you can rerun adjustment reports. When you no longer need such information, you can purge it. Purging Standard Cost Update History also purges sub-element cost details.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>To define, update, or delete cost information, the Privilege to Maintain Cost security function must be included as part of the responsibility.</li>
+</ul>
+<p><b>To purge standard cost update history</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e12615" id="d0e12615"></a>Purge Standard Cost History window.</p>
+<p><img width="706" height="503" src="./img/cst_prgstdch.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the date and time of a standard cost update to purge.</p>
+<p><img width="738" height="247" src="./img/cst_prgstdpm.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select to purge only the cost update <a name="d0e12640" id="d0e12640"></a>adjustment details available, only the item cost history, or both.</p>
+<p><strong><span>Important:</span></strong> If you choose to purge the item cost history, then note that this impacts the period close summarization values. In the absence of item cost history, the period close summarization process assumes zero as the standard cost for the item at the end of the period that is being summarized.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Standard Request Submission, <i>Oracle Applications User's Guide</i> and</p>
+<p><a href="T372621T372759.htm#r_secfunct">Cost Management Security Functions</a>.</p>
+<h2><a name="3508143"></a><a id="T407913"></a><b>Standard Cost Valuation</b></h2>
+<p><a name="d0e12663" id="d0e12663"></a><a name="d0e12667" id="d0e12667"></a><a name="cst_stdcstval" id="cst_stdcstval"></a><a name="c_iwsval" id="c_iwsval"></a>Inventory and WIP continually update inventory value with each transaction. WIP balances are updated with each related accounting transaction. Inventory subinventory values may be reported when the quantity movement occurs.</p>
+<h3><a id="T407914"></a><b>Value by Cost Element<a name="d0e12681" id="d0e12681"></a><a name="d0e12687" id="d0e12687"></a></b></h3>
+<p>Inventory or WIP value is maintained and reported on by distinct cost element (such as material, material overhead, and so on), even if you assign the same general ledger valuation account to each cost element. You can also report WIP value by cost element within specific WIP accounting classes.</p>
+<h3><a id="T407915"></a><b>Standard Costing<a name="d0e12699" id="d0e12699"></a></b></h3>
+<p>Under standard costing, the value of inventory is determined using the material and material overhead standard costs of each inventory item. If you use Bills of Material, Inventory maintains the standard cost by cost element (material, material overhead, resource, outside processing, and overhead).</p>
+<h3><a id="T407916"></a><b>Unlimited Cost Types<a name="d0e12709" id="d0e12709"></a><a name="d0e12713" id="d0e12713"></a></b></h3>
+<p>You can define an unlimited number of cost types and use them with any inventory valuation and margin analysis reports. This allows you to see the potential effects of a cost rollup/update. You can also update your standard costs from any of the cost types you have defined.</p>
+<p>When you use Bills of Material with Inventory, you can specify the cost type in explosion reports and report these costs for simulation purposes. See: <a href="T372621T372759.htm#t_fdctp">Defining Cost Types</a> and <a href="T372621T372805.htm#t_fdiac">Defining Item Costs</a>.</p>
+<h2><a name="3508148"></a><a id="T407917"></a><b>Overview of Standard Cost Variances</b></h2>
+<p><a name="d0e12734" id="d0e12734"></a><a name="cst_ovwstdvar" id="cst_ovwstdvar"></a><a name="c_isvar" id="c_isvar"></a>This section describes standard cost variances.</p>
+<h3><a id="T407918"></a><b>Standard Cost Inventory Variances<a name="d0e12746" id="d0e12746"></a><a name="d0e12752" id="d0e12752"></a><a name="T373813" id="T373813"></a></b></h3>
+<p>In general, inventory records purchase price variance (PPV) and recognizes cycle count and physical inventory adjustments as variances.</p>
+<h3><a id="T407919"></a><b>Purchase Price Variance (PPV)<a name="d0e12763" id="d0e12763"></a><a name="d0e12769" id="d0e12769"></a><a name="T373814" id="T373814"></a></b></h3>
+<p>During a purchase order receipt, Inventory calculates purchase price variance. In general, this is the difference between what you pay the supplier and the item's standard cost. Inventory calculates this value as follows:<a name="d0e12779" id="d0e12779"></a><a name="d0e12785" id="d0e12785"></a></p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>PPV = (PO unit price - standard unit cost) x quantity received</b></td>
+</tr>
+</table>
+<p>Inventory updates the purchase price variance account with the PPV value. If the purchase order price is in a foreign currency, Inventory converts it into the ledger currency of the inventory organization and calculates the purchase price variance. Purchasing reports PPV using the Purchase Price Variance Report. You distribute this variance to the general ledger when you perform the general ledger transfer, or period close.</p>
+<h3><a id="T407920"></a><b>Invoice Price Variance<a name="d0e12805" id="d0e12805"></a><a name="d0e12811" id="d0e12811"></a><a name="T373815" id="T373815"></a></b></h3>
+<p>In general, invoice price variance is the difference between the purchase price and the invoice price paid for a purchase order receipt. Purchasing reports invoice variance. Upon invoice approval, Payables automatically records Invoice Price Variance, to both invoice price variance and exchange rate variance accounts.</p>
+<h3><a id="T407921"></a><b>Cycle Count and Physical Inventory<a name="d0e12824" id="d0e12824"></a><a name="d0e12830" id="d0e12830"></a><a name="d0e12836" id="d0e12836"></a><a name="d0e12842" id="d0e12842"></a><a name="T373816" id="T373816"></a></b></h3>
+<p>Inventory considers cycle count and physical inventory adjustments as variance.</p>
+<p>Distribute these variances to the general ledger when you perform the general ledger transfer or period close.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T378953.htm#p_period">Overview of Period Close</a></p>
+<p><a href="T372621T373688.htm#c_istx">Standard Cost Transactions</a></p>
+<h2><a name="3508159"></a><a id="T407926"></a><b>Manufacturing Standard Cost Variances</b></h2>
+<p><a name="d0e12865" id="d0e12865"></a><a name="T373817" id="T373817"></a><a name="c_wsvar" id="c_wsvar"></a>WIP provides usage, efficiency, and standard cost adjustment variances.</p>
+<h3><a id="T407927"></a><b>Usage and Efficiency Variances<a name="d0e12879" id="d0e12879"></a><a name="d0e12883" id="d0e12883"></a><a name="d0e12887" id="d0e12887"></a><a name="d0e12893" id="d0e12893"></a><a name="T373818" id="T373818"></a></b></h3>
+<p>Usage and efficiency variances result when the total costs charged to a job or schedule do not equal the total costs relieved from a job or schedule at standard. Charges occur from issues and returns, resource and overhead charges, and outside processing receipts. Cost relief occurs from assembly completions, scrap transactions, and close transactions.</p>
+<p>You can view these variances in the Discrete Job Value report, the Repetitive Value report, and by using the WIP Value Summary window.</p>
+<p>WIP reports usage and efficiency variances as you incur them, but does not update the appropriate variance accounts until you close a job or period. WIP updates the standard cost adjustment variance account at cost update.</p>
+<p>Usage and efficiency variances are primarily quantity variances. They identify the difference between the amount of material, resources, outside processing, and overheads required at standard, and the actual amounts you use to manufacture an assembly. Efficiency variance can also include rate variance as well as quantity variance if you charged resources or outside processing at actual.</p>
+<p>You can calculate and report usage and efficiency variances based on planned start quantity or the actual quantity completed. You can use the planned start quantity to check potential variances during the job or repetitive schedule. You can use the actual quantity completed to check the variances before the job or period close. Your choice of planned start quantity or actual quantity completed determines the standard requirements. These standard requirements are compared to the actual material issues, resource, outside processing, and overhead charges to determine the reported variance.</p>
+<p>WIP calculates, reports, and recognizes the following quantity variances:</p>
+<h3><a id="T407928"></a><b>Material Usage Variance<a name="d0e12916" id="d0e12916"></a><a name="d0e12922" id="d0e12922"></a><a name="T373819" id="T373819"></a></b></h3>
+<p>The material usage variance is the difference between the actual material issued and the standard material required to build a given assembly, calculated as follows:<a name="d0e12930" id="d0e12930"></a></p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>standard material cost x (quantity issued - quantity required)</b></td>
+</tr>
+</table>
+<p>This variance occurs when you over or under issue components or use an alternate bill.</p>
+<h3><a id="T407929"></a><b>Resource and Outside Processing Efficiency Variance<a name="d0e12950" id="d0e12950"></a><a name="d0e12956" id="d0e12956"></a><a name="d0e12962" id="d0e12962"></a><a name="d0e12968" id="d0e12968"></a><a name="T373820" id="T373820"></a></b></h3>
+<p>The resource and outside processing efficiency variances is the difference between the resources and outside processing charges incurred and the standard resource and outside processing charges required to build a given assembly, calculated as follows:<a name="d0e12976" id="d0e12976"></a></p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>(applied resource units x standard or actual rate) - (standard resource units at standard resource rate)</b></td>
+</tr>
+</table>
+<p>This variance occurs when you use an alternate routing, add new operations to a standard routing during production, assign costed resources to No - direct charge operations skipped by shop floor moves, overcharge or undercharge a resource, or charge a resource at actual.</p>
+<h3><a id="T407930"></a><b>Move Based Overhead Efficiency Variance<a name="d0e12996" id="d0e12996"></a><a name="d0e13002" id="d0e13002"></a><a name="d0e13006" id="d0e13006"></a><a name="T373821" id="T373821"></a></b></h3>
+<p>Move based overhead efficiency variance is the difference between overhead charges incurred for move based overheads (overhead basis of Item or Lot) and standard move based overheads required to build a given assembly, calculated as follows:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>applied move based overheads - standard move based overheads</b></td>
+</tr>
+</table>
+<p>This variance occurs when you use an alternate routing, add operations to a standard routing during production, or do not complete all the move transactions associated with the assembly quantity being built.</p>
+<h3><a id="T407931"></a><b>Resource Based Overhead Efficiency Variance<a name="d0e13030" id="d0e13030"></a><a name="d0e13036" id="d0e13036"></a><a name="d0e13040" id="d0e13040"></a><a name="T373822" id="T373822"></a></b></h3>
+<p>Resource based overhead efficiency variance is the difference between overhead charges incurred for resource based overheads (overhead basis of Resource units or Resource value) and standard resource based overheads required to build a given assembly, calculated as follows:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>applied resource based overheads - standard resource based overheads</b></td>
+</tr>
+</table>
+<p>This variance occurs when you use an alternate routing, add new operations to a standard routing during production, assign costed resources to No - direct charge operations skipped by shop floor moves, overcharge or undercharge a resource, or charge a resource at actual.</p>
+<h3><a id="T407932"></a><b>Standard Cost Adjustment Variance <a name="d0e13064" id="d0e13064"></a><a name="d0e13070" id="d0e13070"></a><a name="T373823" id="T373823"></a></b></h3>
+<p>Standard cost adjustment variance is the difference between costs at the previous standards and costs at the new standards created by cost update transactions.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T373688.htm#c_wstx">Work in Process Cost Update Transactions</a></p>
+<h2><a name="3508297"></a><a id="T407939"></a><b>Standard Cost Transactions</b></h2>
+<p><a name="d0e13087" id="d0e13087"></a><a name="cst_stdcsttrans" id="cst_stdcsttrans"></a><a name="c_istx" id="c_istx"></a>The following cost transactions can occur in distribution organizations:</p>
+<ul>
+<li>
+<p>Inter-Organization Transfer Transactions</p>
+</li>
+<li>
+<p>Standard Costing Order Management/Shipping Execution Transactions</p>
+</li>
+<li>
+<p>Standard Costing Purchasing Transactions</p>
+<p><strong><span>Note:</span></strong> For purchasing related transactions, this table applies to inventory destinations. See: Overview of Receipt Accounting, <i>Oracle Purchasing User's Guide</i>.</p>
+</li>
+</ul>
+<p>See: <a href="T372621T372624.htm#c_stdavg">Standard and Average Costing Compared</a></p>
+<h3><a id="T407946"></a><b>Purchase Order Receipt to Inventory<a name="d0e13120" id="d0e13120"></a><a name="d0e13126" id="d0e13126"></a><a name="T373829" id="T373829"></a><a name="c_laytxpori" id="c_laytxpori"></a><a name="c_atxpri" id="c_atxpri"></a><a name="c_istx03" id="c_istx03"></a></b></h3>
+<p>When you receive material from a supplier directly to inventory, the receipt and delivery transactions are performed in one step.</p>
+<p>First, the Receiving Inspection account is debited and the Inventory A/P Accrual account credited based on quantity received and the purchase order price.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Receiving Inspection account @ PO Cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory A/P Accrual account @ PO Cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Next, the Subinventory and Receiving Inspection accounts are, respectively, debited and credited based on the transaction quantity and standard cost of the received item.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory accounts @ standard cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Receiving Inspection account @ PO Cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td><b>Debit/Credit</b> Purchase Price Variance</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>If your item has material overhead(s), then the subinventory entry is debited for the material overhead and the material overhead absorption account(s) is credited.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Material Overhead Absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><strong><span>Important:</span></strong> If the subinventory account is combined with the above entry, then the material overhead absorption account adds one additional entry.</p>
+<p>See: <a href="T372621T374058.htm#c_laytxdfri">Delivery From Receiving Inspection to Inventory</a></p>
+<p>See: Overview of Receipt Accounting, <i>Oracle Purchasing User's Guide</i></p>
+<h3><a id="T407947"></a><b>Return To Supplier From Receiving<a name="d0e13280" id="d0e13280"></a><a name="d0e13286" id="d0e13286"></a><a name="T373830" id="T373830"></a></b></h3>
+<p>Use the Receiving Returns and Receiving Corrections windows to return material to suppliers. If you use receiving inspection and have delivered material into inventory, then you must first return the goods to receiving before you can return to your supplier. When items are returned to a supplier from receiving inspection, the Inventory A/P Accrual account is debited and the receiving inspection account is credited, thus reversing the accounting entry created for the original receipt.</p>
+<p>See: Entering Returns, <i>Oracle Purchasing User's Guide</i></p>
+<p>See: <a href="T372621T373688.htm#c_wstx04">Outside Processing Charges</a>.</p>
+<h3><a id="T407948"></a><b>Return To Supplier From Inventory<a name="d0e13310" id="d0e13310"></a><a name="d0e13316" id="d0e13316"></a><a name="T373831" id="T373831"></a></b></h3>
+<p>When you do not use receiving inspection, the return to supplier transaction updates the same accounts as the direct receipt to inventory, with reverse transaction amounts. The Inventory A/P Accrual account is debited and the Receiving Inspection account is credited based on quantity received and the purchase order price.</p>
+<h4><a id="T407949"></a><b>Foreign Currencies</b></h4>
+<p>As with the purchase order receipt to inventory transaction, the system converts the purchase order price to the ledger currency and uses this converted value for the return to supplier accounting entries.</p>
+<p>See: Entering Returns, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><a id="T407950"></a><b>Sales Order Shipments<a name="d0e13341" id="d0e13341"></a><a name="d0e13347" id="d0e13347"></a><a name="T373832" id="T373832"></a></b></h3>
+<p>Ship material on a sales order using Oracle Shipping Execution. Here are the accounting entries generated by a sales order shipment:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Cost of Goods Sold account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Subinventory accounts @ standard cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><strong><span>Important:</span></strong> You do not create any accounting information when you ship from an expense subinventory or ship an expense inventory item.</p>
+<h3><a id="T407951"></a><b>RMA Receipts<a name="d0e13400" id="d0e13400"></a><a name="d0e13406" id="d0e13406"></a><a name="T373833" id="T373833"></a></b></h3>
+<p>You can receive items back from a customer using the return material authorization (RMA) Receipts window. An RMA receipt results in a credit to total COGS (split appropriately between deferred COGS and COGS if necessary), and a debit to inventory.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory accounts at standard cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Cost of Goods Sold Account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Deferred Cost of Goods Sold Account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>This example uses the same account as the original cost of goods sold transaction.</p>
+<p><strong><span>Important:</span></strong> You do not create any accounting entries when you receive material for an RMA for an expense item or expense subinventory.</p>
+<p>See: Return Material Authorizations, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><a id="T407952"></a><b>RMA Returns<a name="d0e13477" id="d0e13477"></a><a name="d0e13483" id="d0e13483"></a><a name="T373834" id="T373834"></a></b></h3>
+<p>You can return items received into inventory through an RMA back to the customer using the RMA Returns window. For example, you can send back (return) an item that was returned by the customer to you for repair.</p>
+<p>This example transaction reverses an RMA receipt. It also mimics a sales order shipment and updates the same accounts as a sales order shipment.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Cost of Goods Sold Account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred Cost of Goods Sold Account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Subinventory accounts @ standard cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>The return amount is split between COGS and Deferred COGS. The application returns non-referenced RMA's at the current standard COGS. Referenced RMA's are returned at the original sales order issue cost. This leaves an unallocated balance (variance) that is due to one or more standard cost updates that must have occurred since the original sales order issue. This variance is created using the item COGS account, but the line type is the standard cost update adjustment account. The COGS account should be replaced in subledger accounting (SLA) with an actual standard cost update adjustment account.</p>
+<p><strong><span>Important:</span></strong> Do not create any accounting entries when you return material for an RMA for an expense item or expense subinventory.</p>
+<p>See: Return Material Authorizations, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><a id="T407953"></a><b>Miscellaneous Transactions<a name="d0e13556" id="d0e13556"></a><a name="d0e13562" id="d0e13562"></a><a name="T373835" id="T373835"></a></b></h3>
+<p>Using the Miscellaneous Transaction window, you can issue material from a subinventory to a general ledger account (or account alias) or receive material to a subinventory from an account or alias. An account alias identifies another name for a general ledger account.</p>
+<p><strong><span>Tip:</span></strong> Use account aliases for account numbers that you use frequently. For example, use the alias <i>SCRAP</i> for your general ledger scrap account.</p>
+<p>Issuing material from a subinventory to a general ledger account or alias generates the following accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Entered General Ledger Account @ standard cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Subinventory accounts @ standard cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Receiving material to a subinventory from an account or an alias generates the following accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory accounts @ standard cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Entered General Ledger Account @ standard cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T407954"></a><b>Expense Subinventories and Expense Items</b></h4>
+<p>When you receive into an expense location or receive an expense item, you have expensed the material. If you use the miscellaneous transaction to issue from an expense location, then you can issue to an account or to an asset subinventory if the <i>INV:Allow Expense to Asset Transfer</i> profile option in Oracle Inventory is set to Yes. If issued to an account, then the system assumes the material is consumed at the expense location and moves the quantity without any associated value. If transferred to an asset subinventory, the material moves at its current cost.</p>
+<p>When you perform a miscellaneous transaction to receive an expense item to either an asset or expense subinventory, no accounting occurs. Because the account balance could involve different costs over time, the system assumes that the cost of the expense item is unknown.</p>
+<p>See: Performing Miscellaneous Transactions, <i>Oracle Inventory User's Guide</i></p>
+<h3><a id="T407955"></a><b>Subinventory Transfers<a name="d0e13675" id="d0e13675"></a><a name="d0e13681" id="d0e13681"></a><a name="T373836" id="T373836"></a><a name="c_istx11" id="c_istx11"></a><a name="c_laytxst" id="c_laytxst"></a></b></h3>
+<p>This transaction increases the accounts of the to subinventory and decreases the from subinventory, but has no net effect on overall inventory value.</p>
+<p>If you specify the same subinventory as the fFrom and to subinventory, then you can move material between locators within a subinventory.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Subinventory</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory accounts</td>
+<td>To</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Subinventory accounts</td>
+<td>From</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T407956"></a><b>Expense Subinventories and Expense Items</b></h4>
+<p>You can issue from an asset to an expense subinventory, but you can transfer from an expense subinventory only if the Oracle Inventory <i>INV:Allow Expense to Asset Transfer</i> profile option is set to Yes. The system assumes the material is consumed at the expense location.</p>
+<p>See: Transferring Between Subinventories, <i>Oracle Inventory User's Guide</i></p>
+<h3><a id="T407957"></a><b>Internal Requisitions<a name="d0e13759" id="d0e13759"></a><a name="d0e13765" id="d0e13765"></a><a name="T373837" id="T373837"></a></b></h3>
+<p>You can use the internal requisitions to replenish inventory. You can source material from a supplier, a subinventory within your organization, or from another organization. Depending upon the source that you choose, the accounting entries are similar to one of the proceeding scenarios. However, unlike inter-organization transfers, internal requisitions do not support freight charges.</p>
+<p>See: Overview of Internal Requisitions, <i>Oracle Purchasing User's Guide</i></p>
+<p>See: <a href="T372621T373688.htm#c_istx03">Purchase Order Receipt To Inventory</a></p>
+<p>See: <a href="T372621T379162.htm#c_istx10">Inter-Organization Transfers</a></p>
+<p>See: <a href="T372621T373688.htm#c_istx11">Subinventory Transfers</a></p>
+<h3><a id="T407958"></a><b>Cycle Count and Physical Inventory<a name="d0e13798" id="d0e13798"></a><a name="d0e13804" id="d0e13804"></a><a name="d0e13810" id="d0e13810"></a><a name="d0e13816" id="d0e13816"></a><a name="T373838" id="T373838"></a></b></h3>
+<p>Use cycle counting and physical inventory to correct inventory on-hand balances. A cycle count updates the accounts of the affected subinventory and offsets the adjustment account you specify. If you physically count <i>more than</i> your on-hand balance, then here are the accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory accounts @ standard cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Adjustment account @ standard cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>If you count <i>less than</i> your on-hand balance, then here are the accounting entries:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Adjustment account @ standard cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Subinventory accounts @ standard cost</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Like a cycle count, a physical inventory adjustment also updates the accounts of the affected subinventories and the physical inventory adjustment account you specify.</p>
+<p><strong><span>Tip:</span></strong> Since the standard cost is not stored as you freeze the physical quantities, you should not perform a standard cost update until you have adjusted your physical inventory.</p>
+<h4><a id="T407959"></a><b>Expense Subinventories and Expense Items</b></h4>
+<p>The application does not record accounting entries for expense subinventories or expense items for either physical inventory or cycle count adjustments. However, the on-hand balance of an expense subinventory is corrected if you track the quantities.</p>
+<p>See: Overview of Cycle Counting, <i>Oracle Inventory User's Guide</i></p>
+<p>See: Entering Cycle Counts, <i>Oracle Inventory User's Guide</i></p>
+<p>See: Overview of Physical Inventory, <i>Oracle Inventory User's Guide</i></p>
+<p>See: Processing Physical Inventory Adjustments, <i>Oracle Inventory User's Guide</i></p>
+<p>See: <a href="T372621T373688.htm#t_fcscu">Updating Pending Costs to Frozen Standard Costs</a></p>
+<h2><a name="3508485"></a><a id="T407996"></a><b>Manufacturing Standard Cost Transactions</b></h2>
+<p><a name="d0e13948" id="d0e13948"></a><a name="c_wstx" id="c_wstx"></a>The following cost transactions can occur when Oracle Work in Process is installed:</p>
+<ul>
+<li>
+<p>Component Issue and Return Transactions</p>
+</li>
+<li>
+<p>Move Transactions</p>
+</li>
+<li>
+<p>Resource Charges</p>
+</li>
+<li>
+<p>Outside Processing Charges</p>
+</li>
+<li>
+<p>Overhead Charges</p>
+</li>
+<li>
+<p>Assembly Scrap Transactions</p>
+</li>
+<li>
+<p>Assembly Completion Transactions</p>
+</li>
+<li>
+<p>Job Close Transactions</p>
+</li>
+<li>
+<p>Period Close Transactions</p>
+</li>
+<li>
+<p>WIP Cost Update Transactions</p>
+</li>
+</ul>
+<h3><a id="T407997"></a><b>Component Issue and Return Transactions<a name="d0e13990" id="d0e13990"></a><a name="d0e13996" id="d0e13996"></a><a name="d0e14002" id="d0e14002"></a><a name="d0e14008" id="d0e14008"></a><a name="d0e14014" id="d0e14014"></a><a name="d0e14020" id="d0e14020"></a><a name="d0e14026" id="d0e14026"></a><a name="T373839" id="T373839"></a></b></h3>
+<p>Component issue and return transactions can be launched in a variety of ways. See: Component Issue and Return Transaction Options, <i>Oracle Work in Process User's Guide</i> and Backflush Transactions, <i>Oracle Work in Process User's Guide</i>.</p>
+<h4><a id="T407998"></a><b>Costing Issue and Return Transactions</b></h4>
+<p>Issue transactions increase the WIP valuation and decrease the inventory valuation. Here are the accounting entries for issue transactions:</p>
+<p><strong><span>Note:</span></strong> The accounts in the following tables are the default accounts when standard costing is used. If Subledger Accounting (SLA) is enabled and SLA rules are customized, then the following default accounts are not used.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Subinventory elemental accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Here are the accounting entries for return transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory elemental accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Subinventory accounts are defined in the Define Subinventories window in Oracle Inventory. WIP elemental accounts are defined in the WIP Accounting Classes window in WIP. See: Defining Subinventories, <i>Oracle Inventory User's Guide</i>, Subinventory General Ledger Account Fields, <i>Oracle Inventory User's Guide</i>, and WIP Accounting Classes, <i>Oracle Work in Process User's Guide</i>.</p>
+<p>See: Overview of Material Control, <i>Oracle Work in Process User's Guide</i></p>
+<h3><a id="T407999"></a><b>Move Transactions<a name="d0e14146" id="d0e14146"></a><a name="d0e14152" id="d0e14152"></a><a name="T373840" id="T373840"></a></b></h3>
+<p>A move transaction moves assemblies within an operation, such as from queue to run, or from one operation to the next. Move transactions can automatically launch operation completion backflushing and charge resources and overheads.</p>
+<p>You can perform move transactions using the Move Transactions window, Open Move Transaction Interface window, or the Enter Receipts window in purchasing.</p>
+<h4><a id="T408000"></a><b>Backflush Material Transactions<a name="d0e14167" id="d0e14167"></a><a name="d0e14173" id="d0e14173"></a><a name="d0e14179" id="d0e14179"></a></b></h4>
+<p>With backflushing, issue component material used in an assembly or subassembly by exploding the bills of material. Then multiply the bills of material by the number of assemblies produced.</p>
+<p>Move transactions can create operation pull backflush material transactions that issue component material from designated WIP supply subinventories and locators to a job or repetitive schedule. For backflush components under lot or serial number control, assign the lot or serial numbers during the move transaction.</p>
+<p>When you move backward in a routing, WIP automatically reverses operation pull backflush transactions. Here are the accounting entries for move transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Subinventory elemental accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Here are the accounting entries for return transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory elemental accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T408001"></a><b>Moved Based Resource Charging</b></h4>
+<p>As the assemblies you build pass through the operations on their routings, move transactions charge all pre-assigned resources with an auto-charge type of WIP Move at their standard rates.</p>
+<p>You can charge resources based upon a fixed amount per item moved in an operation (item basis) or based upon a fixed lot charge per item moved in an operation (lot basis). For resources with a basis of lot, WIP automatically charges the lot cost upon completion of the first assembly in the operation.</p>
+<p>You can also enter manual resource transactions associated with a move, or independent of any moves. You can manually charge resources to a job and repetitive schedule, provided that the job and repetitive schedule has a routing. You can also transact resources through the Open Resource Transaction Interface.</p>
+<p>See: Overview of Resource Management, <i>Oracle Work in Process User's Guide</i></p>
+<p>See: Charging Resources with Move Transactions, <i>Oracle Work in Process User's Guide</i></p>
+<p>See: Backflush Transactions, <i>Oracle Work in Process User's Guide</i></p>
+<h3><a id="T408002"></a><b>Resource Charges<a name="d0e14299" id="d0e14299"></a><a name="d0e14303" id="d0e14303"></a><a name="d0e14309" id="d0e14309"></a><a name="T373841" id="T373841"></a></b></h3>
+<p>WIP supports four resource autocharging methods: Manual, WIP Move, PO Move, and PO Receipt. You can charge resources at an actual rate. You can also charge resource overheads automatically as you charge resources.</p>
+<h4><a id="T408003"></a><b>WIP Move Resource Charges<a name="d0e14337" id="d0e14337"></a></b></h4>
+<p>You can automatically charge resources at their standard rate to a job or repetitive schedule when you perform a move transaction using either the Move Transactions window or the Open Move Transaction Interface. When you move assemblies from the queue or run intraoperation steps forward to the to move, reject, or scrap intraoperation steps, or to the next operation, WIP charges all pre-assigned resources with an charge type of WIP Move at their standard rates.</p>
+<p>For resources with a basis of item, WIP automatically charges the resource's usage rate or amount multiplied by the resource's standard cost upon completion of each assembly in the operation. For resources with a basis of lot, WIP automatically charges the resource's usage rate or amount multiplied by the resource's standard cost upon completion of the first assembly in the operation.</p>
+<p>You can undo the WIP move resource charges automatically by moving the assemblies from queue or run of your current operation to queue or run of any prior operation, or by moving the assemblies from the to move, reject, or scrap intraoperation steps backward to the queue or run intraoperation steps of the same operation, or to any intraoperation step of any prior operation.</p>
+<p>WIP applies WIP Move resource transactions to multiple repetitive schedules on a line based on how the assemblies being moved are allocated. WIP allocates moves across multiple repetitive schedules based on a first in, first out basis.</p>
+<h4><a id="T408004"></a><b>Manual Resource Charges<a name="d0e14356" id="d0e14356"></a></b></h4>
+<p>You can charge manual resources associated with a move transaction or independent of any moves. Manual resource transactions require you to enter the actual resource units applied rather than autocharging the resource's usage rate or amount based on the move quantity. You can charge resources using that resource's unit of measure or any valid alternate. You can manually charge resources to a job or repetitive schedule provided that the job or repetitive schedule has a routing.</p>
+<p>If you use the Move Transactions window to perform moves and manual resource transactions at the same time, then WIP displays all pre-assigned manual resources with an charge type of manual assigned to the operations completed in the move. If the resource is a person-type resource, you can enter an employee number.</p>
+<p>In addition to the resources that appear, you can manually charge any resource to a job or repetitive schedule, even if you have not previously assigned the resource to an operation in the job or repetitive schedule. You can also manually charge resources to an operation added ad hoc by entering any resource defined for the department associated with the operation. WIP applies manual resource transactions to the first open repetitive schedule on the line.</p>
+<p>You can correct or undo manual resource transactions by entering negative resource units worked.</p>
+<h4><a id="T408005"></a><b>Costing Resource Charges at Resource Standard<a name="d0e14372" id="d0e14372"></a></b></h4>
+<p>Resource charges increase WIP valuation. Here are the accounting entries for resource transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class resource valuation account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Resource absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>If Autocharge is set to WIP Move, WIP and labor are charged at standard. There are no resource rate or efficiency variances.</p>
+<p>Here are the accounting entries for negative manual resource transactions and backward moves for WIP move resources:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Resource absorption account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class resource valuation account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T408006"></a><b>Costing Labor Charges at Actual<a name="d0e14462" id="d0e14462"></a><a name="d0e14468" id="d0e14468"></a></b></h4>
+<p>You can charge labor charges at actual in two ways. You can enter an actual rate for the employee using the Open Resource Transaction Interface or when you define employee rates. Here are the accounting entries for labor charges using an actual or employee rate for a resource for which charge standard rate is turned off:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class resource valuation account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Resource absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Any difference between the total labor charged at actual and the standard labor amount is recognized as an efficiency variance at period close.</p>
+<p>If the Standard Rates check box is selected and you enter an actual rate for a resource, then the system charges the job or repetitive schedule at standard. If Autocharge is set to Manual and actual rates and quantities are recorded, then a rate variance is recognized immediately for any rate difference. Any quantity difference is recognized as an efficiency variance at period close. Here are the accounting entries for the actual labor charges:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class resource valuation account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Resource rate variance account (Debit when actual rate is greater than the standard rate. Credit when the actual rate is less than the standard rate.)</td>
+<td>XX</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Resource absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T408007"></a><b>PO Receipt and PO Move Transactions</b></h4>
+<p>You can receive purchased items associated with outside resources from an outside processing operation back into WIP in Oracle Purchasing. For these items, WIP creates resource transactions at the standard or actual rate for all outside resources with an auto charge type of PO receipt or PO move.</p>
+<p>See: Overview of Resource Management, <i>Oracle Work in Process User's Guide</i></p>
+<p>See: Managing Receipts, <i>Oracle Purchasing User's Guide</i></p>
+<p>See: Introduction to Outside Processing, <i>Oracle Work in Process User's Guide</i></p>
+<h3><a id="T408008"></a><b>Outside Processing Charges<a name="d0e14587" id="d0e14587"></a><a name="T373842" id="T373842"></a><a name="c_wstx04" id="c_wstx04"></a></b></h3>
+<p>WIP automatically creates resource transactions at the standard or actual rate for all outside processing resources with an charge type of PO Receipt or PO Move when you receive assemblies from an outside processing operation back into WIP, using the Enter Receipts window in Purchasing. For outside processing resources with an charge type of PO Move, WIP also performs a move of the assemblies from the queue or run intraoperation step of your outside processing operation into the queue intraoperation step of your next operation or into the to move intraoperation step if the outside processing operation is the last operation on your routing.</p>
+<p>If you assigned internal resources to an outside operation with an charge type of manual, then use the Move Transactions window or the Open Resource Transaction Interface to charges these resources.</p>
+<p>If you return assemblies to the supplier, then WIP automatically reverses the charges to all automatic resources associated with the operation. You must manually reverse all manual resource charges using the Move Transactions window. For outside processing resources with an charge type of PO Move, WIP automatically moves the assemblies from the queue intraoperation step of the operation immediately following the outside processing operation into the queue intraoperation step of your outside processing operation.</p>
+<p>If the outside processing operation is the last operation on your routing, then WIP automatically moves the assemblies from the to move intraoperation step to the queue intraoperation step. WIP applies PO Move resource transactions to multiple repetitive schedules on a line based on how the assemblies being moved are allocated. WIP allocates moves across multiple repetitive schedules based on a first in, first out basis. WIP applies PO Receipt resource transactions to the first open repetitive schedule on the line.</p>
+<h4><a id="T408009"></a><b>Costing Outside Processing Charges at Standard<a name="d0e14605" id="d0e14605"></a><a name="d0e14611" id="d0e14611"></a></b></h4>
+<p>When you receive the assembly from the supplier, Purchasing sends the resource charges to WIP at either standard cost or actual purchase order price, depending upon how you specified the standard rate for the outside processing resource.</p>
+<p>If the Standard Rates option is enabled for the outside processing resource being charged, then the application charges WIP at the standard rate and creates a purchase price variance for the difference between the standard rate and the purchase order price. Here are the accounting entries for outside processing items:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class outside processing valuation account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Purchase price variance account (Debit when the actual rate is greater than the standard rate. Credit when the actual rate is less than the standard rate.)</td>
+<td>XX</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Organization Receiving account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Any quantity or usage difference is recognized as an outside processing efficiency variance at period close.</p>
+<p>The accounting entries for return to supplier for outside processing are:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Organization Receiving account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Purchase price variance account (Debit when actual rate is less than the standard rate. Credit when the actual rate is greater than the standard rate.</td>
+<td>XX</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class outside processing valuation account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T408010"></a><b>Costing Outside Processing Charges at Actual Purchase Order Price</b></h4>
+<p>If the Standard Rates option is disabled for the outside processing resource being charged, then the system charges WIP the purchase order price and does not create a purchase price variance.</p>
+<p>Here are the accounting transactions for outside processing charges at purchase order price:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class outside processing valuation account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Organization Receiving account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Any difference from the standard is recognized as a resource efficiency variance at period close.</p>
+<p>See: Overview of Shop Floor Control, <i>Oracle Work in Process User's Guide</i></p>
+<h3><a id="T408011"></a><b>Overhead Charges<a name="d0e14775" id="d0e14775"></a><a name="T373843" id="T373843"></a></b></h3>
+<h4><a id="T408012"></a><b>Move Based Overhead Charging</b></h4>
+<p>WIP automatically charges appropriate overhead costs as you move assemblies through the shop floor. You can charge overheads directly based on move transactions or based on resource charges. For overheads charged based on move transactions with a basis of item, WIP automatically charges overheads upon completion of each assembly in the operation. WIP automatically reverses these charges during a backward move transaction.</p>
+<p>For overheads based on move transactions with a basis of lot, WIP automatically charges overheads upon completion of the first assembly in the operation. WIP automatically reverses these charges during a backward move transaction if it results in zero net assemblies completed in the operation.</p>
+<h4><a id="T408013"></a><b>Resource Based Overhead Charging<a name="d0e14794" id="d0e14794"></a></b></h4>
+<p>WIP automatically charges appropriate overhead costs as you charge resources. You can charge overheads based on resource units or value. WIP automatically reverses overhead charges when you reverse the underlying resource charge.</p>
+<h4><a id="T408014"></a><b>Costing Overhead Charges<a name="d0e14806" id="d0e14806"></a><a name="d0e14812" id="d0e14812"></a></b></h4>
+<p>Overhead charges increase WIP valuation. Here are the accounting entries for overhead charges:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class overhead account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Overhead absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>You can reverse overhead charges by entering negative Manual resource charges or performing backward moves for WIP Move resources. The accounting entries for reverse overhead charges are:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Overhead absorption account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class overhead account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>See: Overview of Shop Floor Control, <i>Oracle Work in Process User's Guide</i>.</p>
+<h3><a id="T408015"></a><b>Assembly Scrap Transactions<a name="d0e14909" id="d0e14909"></a><a name="T373844" id="T373844"></a></b></h3>
+<p>You can move partially completed assemblies that you consider unrecoverable to the scrap intraoperation step of that operation. If necessary, you can recover assemblies from scrap by moving them to another intraoperation step. By moving into the scrap intraoperation step, you can effectively isolate good assemblies from bad.</p>
+<p>WIP considers a move into the scrap intraoperation step from the queue or run of the same operation as an operation completion, and thus updates operation completion information, backflushes components, and charges resource and overhead costs according to the elemental cost setup.</p>
+<p>You can also move assemblies back to the scrap intraoperation step of the previous operation for queue or run if no work has been completed at the current operation.</p>
+<h4><a id="T408016"></a><b>Costing Assembly Scrap Transactions<a name="d0e14926" id="d0e14926"></a><a name="d0e14932" id="d0e14932"></a><a name="d0e14936" id="d0e14936"></a></b></h4>
+<p>When you define WIP parameters, you can specify whether moves into the scrap intraoperation step require a scrap account. If you enter a scrap account or alias when you move assemblies into scrap, then the scrap account is debited and the job or repetitive schedule elemental accounts for the standard cost of the assembly through the scrap operation are credited. This removes the cost of the scrapped assemblies from the job or repetitive schedule. If you do not enter a scrap account or select an alias, then the cost of the scrap remains in the job or schedule until job or period close. If you recover assemblies from scrap, then the scrap account is credited and the job or repetitive schedule elemental accounts for the standard cost of this assembly through this operation are debited. Here are the accounting entries for scrap transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Scrap account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts @ calculated scrap value</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>The accounting entries for reverse scrap transactions are:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts @ calculated scrap value</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Scrap account @ calculated scrap value</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Overview of Shop Floor Control, <i>Oracle Work in Process User's Guide</i>.</p>
+<h3><a id="T408017"></a><b>Assembly Completion Transactions<a name="d0e15029" id="d0e15029"></a><a name="d0e15035" id="d0e15035"></a><a name="T373845" id="T373845"></a></b></h3>
+<p>Use the Completion Transactions window, Move Transactions window, and Inventory Transaction Interface to move completed assemblies from WIP into subinventories. Completion transactions relieve the valuation account of the accounting class and charge the subinventory accounts (for example, finished goods) based upon the assembly's elemental cost structure.</p>
+<h4><a id="T408018"></a><b>Overcompletions<a name="d0e15048" id="d0e15048"></a><a name="d0e15054" id="d0e15054"></a></b></h4>
+<p>If you have overcompleted a job, it is not necessary to change the job quantity.</p>
+<p>However, if you are overcompleting assemblies associated with lot based resources and overheads, these resources and overheads are over-relieved from WIP.</p>
+<p>See: Assembly Over-Completions and Over-Moves, <i>Oracle Work in Process User's Guide</i> and Move Completion/Return Transactions, <i>Oracle Work in Process User's Guide</i>.</p>
+<h4><a id="T408019"></a><b>Costing Assembly Completion Transactions</b></h4>
+<p>Completions decrease WIP valuation and increase inventory valuation at standard costs. Here are the accounting entries for completion transactions:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory elemental accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T408020"></a><b>Earning Assembly Material Overhead on Completion</b></h4>
+<p>You can assign overheads based on item, lot or total value basis. For standard discrete jobs and repetitive schedules, you can earn these overheads as you complete assemblies from WIP to inventory.</p>
+<p>Here are the the accounting entries for material overhead on completion transactions for standard discrete jobs and repetitive schedules:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory material overhead account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory material overhead absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Use non-standard expense jobs for such activities as repair and maintenance. Use non-standard asset jobs to upgrade assemblies, for teardown, and to prototype production. Non-standard discrete jobs do not earn overhead on completion. Because you have already earned overhead to produce the assemblies as you are repairing or reworking, WIP prevents you from double earning material overhead on these assemblies.</p>
+<p>Here are the accounting entries for material overhead on completion transactions for non-standard expense and non-standard asset jobs:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory material overhead account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class material overhead account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> This accounting entry does not indicate that the jobs are earning material overhead, but rather that material overhead already in the job from a previous level is being credited. Unlike average costing, non-standard discrete jobs do not earn overhead on completion in standard costing.</p>
+<p>See: Completing and Returning Assemblies, <i>Oracle Work in Process User's Guide</i>.</p>
+<h3><a id="T408021"></a><b>Job Close Transactions<a name="d0e15214" id="d0e15214"></a><a name="d0e15220" id="d0e15220"></a><a name="T373846" id="T373846"></a></b></h3>
+<p>Until you close a job or change the status of the job to Complete - No Charges, you can make material, resource, and scrap charges to the job. Closing a discrete job prevents any further activity on the job.</p>
+<h4><a id="T408022"></a><b>Costing Job Close Transactions</b></h4>
+<p>Closing a job calculates final costs and variances. The actual close date that you specify determines the accounting period that WIP uses to recognize variances. You can back date the close to a prior open period if desired.</p>
+<p>The close process writes off the balances remaining in the WIP elemental valuation accounts to the elemental variance accounts that you defined by accounting class, leaving a zero balance remaining in the closed job.</p>
+<p>If there is a positive balance in the job at the end of the close, here are the accounting entries for a job close:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class variance accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h3><a id="T408023"></a><b>Period Close Transactions - Standard Costing<a name="d0e15280" id="d0e15280"></a><a name="d0e15286" id="d0e15286"></a><a name="T373847" id="T373847"></a></b></h3>
+<p>The period close process in Inventory recognizes variances for non-standard expense jobs and repetitive schedules. It also transfers the WIP period costs to the general ledger.</p>
+<h4><a id="T408024"></a><b>Costing Nonstandard Expense Job Period Close Transactions<a name="d0e15299" id="d0e15299"></a><a name="d0e15305" id="d0e15305"></a></b></h4>
+<p>You can close discrete jobs and recognize variances for non-standard expense jobs at any time. In addition, the period close process automatically recognizes variances on all non-standard expense job charges incurred during the period. Therefore, open non-standard expense jobs have zero WIP accounting balances at the start of a new period.</p>
+<p>If there is a positive balance in the job at the end of the period, here are the accounting entries for nonstandard expense jobs at period close:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class variance accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T408025"></a><b>Costing Repetitive Schedule Period Close Transactions<a name="d0e15356" id="d0e15356"></a><a name="d0e15362" id="d0e15362"></a></b></h4>
+<p>You do not <i>close</i> a repetitive schedule. However, you do recognize variances on a period basis that result in zero WIP accounting balances at the start of the new period. You should check your transactions and balances using the Repetitive Value Report before you close a period.</p>
+<p>When you define WIP parameters, you can specify which repetitive schedule variances that you recognize when you close an accounting period. You can either recognize variances for all repetitive schedules when you close an accounting period, or recognize variances for those repetitive schedules with statuses of either Complete - No Charges or Cancelled.</p>
+<p>Assuming positive balances in the repetitive schedules at the end of the period, here are the accounting entries for repetitive schedules at period close:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class variance accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>See: <a href="T372621T378953.htm#p_period">Overview of Period Close</a>,</p>
+<p>Overview of Discrete Job Close, <i>Oracle Work in Process User's Guide</i>, and</p>
+<p>Defining WIP Parameters, <i>Oracle Work in Process User's Guide</i>.</p>
+<h3><a id="T408026"></a><b>Work in Process Standard Cost Update Transactions<a name="d0e15434" id="d0e15434"></a><a name="d0e15440" id="d0e15440"></a><a name="T373848" id="T373848"></a></b></h3>
+<p>The standard cost update process revalues standard and non-standard asset discrete jobs and updates pending costs to frozen standard costs. Repetitive schedules and non-standard expense jobs do not get revalued by the cost update.</p>
+<p>The cost update creates accounting transactions by job and cost element valuation account. Each standard and non-standard asset discrete job is updated using the following formula:<a name="d0e15452" id="d0e15452"></a></p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Standard cost update adjustment = [new costs in (material, resource, outside processing, and overhead charges) - new costs out (scrap and assembly completion charges)] - [old costs in (material, resource, outside processing, and overhead charges) - old costs out (scrap and assembly completion charges)]</td>
+</tr>
+</table>
+<p>If the result of the cost update is an increase in the standard cost of the job, here are the accounting entries for a cost update transaction:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP Standard cost adjustment account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>If the result of the cost update is a decrease in the standard cost of the job, here are the accounting entries for a cost update transaction:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Standard cost adjustment account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>WIP accounting class valuation accounts</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>When the cost update occurs for open jobs, standards and WIP balances are revalued according to the new standard, thus retaining relief variances incurred up to the date of the update.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

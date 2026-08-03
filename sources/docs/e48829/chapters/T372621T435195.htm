@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Cost Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Cost Management User's Guide">
+<meta name="dcterms.identifier" content="E48829-27">
+<meta name="dcterms.isVersionOf" content="CSTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T372621T375126.htm" title="Previous" type="text/html">
+<link rel="Next" href="T372621T378169.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Cost Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">12/29</span> <!-- End Header -->
+<h1>Revenue and COGS Matching</h1>
+<h2><a name="3908229"></a><a id="T435196"></a><b>Overview of Revenue / COGS Matching</b></h2>
+<p><a name="d0e25876" id="d0e25876"></a><a name="cst_ovrwcogs" id="cst_ovrwcogs"></a>Financial accounting has two important Generally Accepted Accounting Principles (GAAP) that guide the statement of financial earnings:</p>
+<ul>
+<li>
+<p>Revenue recognition principle</p>
+</li>
+<li>
+<p>Cost matching principle</p>
+</li>
+</ul>
+<p>The revenue recognition principle requires revenues to be recognized when a firm has performed all, or a substantial portion of services to be provided, and cash receipt is reasonably certain. The matching principle requires that cash outlays associated directly with revenues are expensed in the period in which the firm recognizes the revenue.</p>
+<p>The Oracle E-Business Suite supports this matching principle by synchronizing the recognition of cost of goods sold (COGS) with the revenue recognized in Oracle Receivables for shipments made in Oracle Order Management, or other order fulfillment systems. With this feature, sales order revenue and the associated COGS are recognized in the same period. In addition, when sales order revenue is only partially recognized, the associated COGS is recognized in the same proportion.</p>
+<h3><a id="T465766"></a><b>Revenue / COGS Recognition Process Flow<a name="d0e25900" id="d0e25900"></a></b></h3>
+<p>When you ship confirm one or more order lines in Oracle Order Management and then run the applicable Cost Management cost and accounting processes, the cost of goods sold associated with the sales order line is immediately debited to a Deferred COGS account pending the invoicing and recognition of the sales order revenue in Oracle Receivables. When Oracle Receivables recognizes all or part of the sales revenue associated with a sales order line, you run a cost process that calculates the percentage of total billed revenue recognized. Oracle Inventory then creates a cost recognition transaction that adjusts the Deferred COGS and regular COGS amount for the order line. The proportion of total shipment cost that is recognized as COGS will always match the proportion of total billable quantity that is recognized as revenue.</p>
+<h3><a id="T625399"></a><b>Ship Only Order COGS Recognition Date</b></h3>
+<p>You can select the accounting date for which COGS for a ship only order is recognized by setting the profile option 'CST: Ship or Closure Date'. Profile option values include:</p>
+<ul>
+<li>
+<p>Sales Order Issue Date</p>
+</li>
+<li>
+<p>OM order line closure date (default)</p>
+</li>
+</ul>
+<p>Refer to <a href="T372621T372759.htm#cstprofileopt">Profile Options and Security Functions</a>.</p>
+<p><strong>Related Topics</strong></p>
+<p>Recognizing Revenue, <i>Oracle Receivables User's Guide</i></p>
+<h2><a name="4250067"></a><a id="T465774"></a><b>Revenue / COGS Recognition Methodology</b></h2>
+<p><a name="d0e25940" id="d0e25940"></a><a name="c_cogsmethod" id="c_cogsmethod"></a>The following describes how Oracle Cost Management synchronizes the recognition of earned COGS to earned sales order revenue in a variety of business scenarios.</p>
+<ol>
+<li>
+<p>Revenue / COGS recognition main business flow</p>
+<ul>
+<li>
+<p>At sales order shipment, order lines are costed and booked to a Deferred Cost of Goods Sold (COGS) account. This account is subsequently adjusted for any change in the percentage of earned or recognized revenue associated with the sales order lines. This is done to ensure that amount of earned COGS is recognized proportionately as the amount of earned revenue.</p>
+</li>
+<li>
+<p>You run a set of concurrent processes to record sales order and revenue recognition transactions and to create and cost COGS recognition transactions. These COGS recognition transactions adjust deferred and earned COGS in an amount that synchronizes the percent of earned COGS to earned revenue on sales order shipment lines.</p>
+<ol>
+<li>
+<p><i>Record Order Management Transactions</i>: records new sales order transaction activity such as shipments and RMA returns in Oracle Order Management.</p>
+</li>
+<li>
+<p><i>Collect Revenue Recognition Information</i>: determines the percentage of recognized or earned revenue related to invoiced sales order shipment lines in Oracle Receivables.</p>
+</li>
+<li>
+<p><i>Generate COGS Recognition Events</i>: creates and costs COGS recognition events for new sales order shipments/returns and changes in revenue recognition and credits for invoiced sales order shipment lines.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>COGS recognition events are created for:</p>
+<ol>
+<li>
+<p>Invoiceable and shippable order lines</p>
+</li>
+<li>
+<p>Configured items: invoiceable (parent) line if it has any shippable but not invoiceable children.</p>
+</li>
+<li>
+<p>A shippable non-invoiceable line that has no invoiceable parent.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>A COGS recognition event generates a COGS recognition transaction whose date and time stamp is the end of day as specified in the inventory organization's legal entity time zone.</p>
+</li>
+<li>
+<p>A rejected acceptance-enabled sales order line will not interface with Oracle Receivables and Oracle Order Management.</p>
+</li>
+<li>
+<p>An RMA receipt will result in a credit to total COGS (split appropriately between deferred COGS and COGS if necessary) with a debit to inventory.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Customer acceptance only affects Costing indirectly, in that:</p>
+<ul>
+<li>
+<p>It is a revenue recognition contingency for an order line.</p>
+</li>
+<li>
+<p>A rejected sales order line means all shipped quantities for that line will never be invoiced in A/R. When you close this order line, Order Management flags this as an uninvoiced line. When this occurs, Cost Management moves the balance of the sales order line from deferred COGS to COGS.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>There is no accounting when a sales order line is rejected. Costing only creates accounting when the rejected items are received and then either delivered to a regular or a scrap asset subinventory.</p>
+</li>
+<li>
+<p>In customer drop ship scenarios with advanced accounting, revenue / COGS matching occurs only in the customer-facing organization. If advanced accounting is not enabled, revenue and COGS matching does not occur. Costing books the entire sales order shipment amount to COGS.</p>
+</li>
+</ol>
+<h2><a name="4070586"></a><a id="T451276"></a><b>COGS Recognition and Concurrent Processes</b></h2>
+<p><a name="d0e26019" id="d0e26019"></a><a name="cst_cogsrecog" id="cst_cogsrecog"></a>The matching and synchronization of the earned and deferred components of sales order revenue and COGS is accomplished by running the following COGS recognition concurrent processes at user-defined intervals:</p>
+<ul>
+<li>
+<p>Record Order Management Transactions</p>
+</li>
+<li>
+<p>Collect Revenue Recognition Information</p>
+</li>
+<li>
+<p>Generate COGS Recognition Events</p>
+</li>
+</ul>
+<h3><b>Record Order Management Transactions<a name="d0e26042" id="d0e26042"></a><a name="d0e26048" id="d0e26048"></a></b></h3>
+<p><a name="c_cogsrecordrtrans" id="c_cogsrecordrtrans"></a><a name="SRS.CSTRCMCR1" id="SRS.CSTRCMCR1"></a>The Record Order Management Transactions concurrent process picks up and costs all uncosted sales order issue and RMA return transactions, and creates a record for each new order line in the costing COGS recognition matching table. This process is not for Perpetual Discrete Costing (Standard, Average, FIFO). In Discrete Costing, the cost processor selects and costs the uncosted sales order issues and inserts them into the COGS matching table.</p>
+<p>This process is used for external product integration. For example, the Oracle Process Manufacturing Costing Processor can use the Record Order Management program so that Order Management transactions done for OPM will match to Revenue.</p>
+<p><b>To record order management transactions</b></p>
+<ol>
+<li>
+<p>Navigate to the Record Order Management Transactions window. The Parameters window appears.</p>
+</li>
+<li>
+<p>Select a <b>Ledger</b> from the list of values.</p>
+<p><img width="709" height="507" src="./img/cst_cogsrecordorder.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click Submit to run the request.</p>
+</li>
+</ol>
+<h3><b>Collect Revenue Recognition Information<a name="d0e26088" id="d0e26088"></a><a name="d0e26094" id="d0e26094"></a></b></h3>
+<p><a name="c_collrevrecog" id="c_collrevrecog"></a><a name="SRS.CSTRCMCR" id="SRS.CSTRCMCR"></a>The Collect Revenue Recognition Information concurrent process calls an Oracle Receivables API to retrieve the latest revenue recognition percentage of all invoiced sales order lines in Oracle receivables for a specific ledger and with activity dates within a user-specified date range. This process must be run before the Generate COGS recognition Event concurrent process.</p>
+<p><b>To collect revenue recognition information</b></p>
+<ol>
+<li>
+<p>Navigate to the Collect Revenue Recognition Information window. The Parameters window appears.</p>
+<p><img width="709" height="507" src="./img/cst_cogscolparam2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a <b>Ledger</b> to restrict revenue recognition events within a specific ledger..</p>
+</li>
+<li>
+<p>This concurrent request has two date parameters that allow you to restrict processing of revenue recognition events to a range of dates:</p>
+<p><b>Start Date</b>: Transactions prior to this date are not selected. The default value is the date of the last successful run of the concurrent request.</p>
+<p><b>End Date</b>: Transactions after this date are not selected.</p>
+</li>
+<li>
+<p>Choose OK.</p>
+</li>
+<li>
+<p>Choose Submit to run the request.</p>
+<p><img width="707" height="504" src="./img/cst_cogscollrevrec.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<h3><b>Generate COGS Recognition Events</b></h3>
+<p><a name="d0e26151" id="d0e26151"></a><a name="d0e26157" id="d0e26157"></a><a name="SRS.CSTRCMCR3" id="SRS.CSTRCMCR3"></a><a name="c_gencogsrecog" id="c_gencogsrecog"></a>The Generate COGS Recognition Events concurrent request compares the COGS recognition percentage for each sales order line and accounting period combination to the current earned revenue percentage. When the compared percentages are different, the process raises a COGS recognition event and creates a COGS recognition transaction in Oracle Inventory that adjusts the ratio of earned and deferred COGS to match that of earned and deferred revenue. You must run this process after completion of the Collect Revenue Recognition Information concurrent process.</p>
+<p><b>To generate COGS recognition events</b></p>
+<ol>
+<li>
+<p>Navigate to the Generate COGS Recognition Events window. The Parameters window appears.</p>
+</li>
+<li>
+<p>Select a <b>Ledger</b> from the list of values.</p>
+<p><img width="709" height="507" src="./img/cst_cogsgenrecognition.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click Submit to run the request.</p>
+</li>
+</ol>
+<h3><b>Period Close Considerations</b></h3>
+<a name="d0e26196" id="d0e26196"></a><a name="d0e26202" id="d0e26202"></a><a name="c_perclosecon" id="c_perclosecon"></a>
+<ul>
+<li>
+<p>Ensure that there are open GL period in each ledger for the periods in which you run the concurrent process.</p>
+</li>
+<li>
+<p>In perpetual costing organizations, you can create backdated COGS recognition events and transactions in open and closed inventory periods.</p>
+</li>
+<li>
+<p>In periodic costing organizations, only events and transactions that are within the current periodic period's start and end dates will be processed.</p>
+</li>
+<li>
+<p>The inventory period close process must be synchronized with Oracle Receivables period close to ensure proper recognition of revenue and COGS in an accounting period.</p>
+</li>
+<li>
+<p>In periodic costing organizations, you cannot close the accounting period if Oracle Receivables has not soft closed its accounting period. Attempting to do so generates an error message. This condition ensures that all backdated revenue recognition transactions in Oracle Receivables are processed in costing prior to period close.</p>
+</li>
+<li>
+<p>In periodic costing organizations, run the Generate COGS Recognition Events concurrent process after the close of an inventory accounting period to ensure that all COGS recognition events have been processed and costed. Rerun the Periodic Cost Processor and Periodic Distribution Processor. Costing performs a validation to ensure that all organizations in a Periodic Average Costing (PAC) cost group have no mismatched revenue and COGS order lines, and generates an error message if unmatched lines are found.</p>
+</li>
+</ul>
+<h2><a name="3913290"></a><a id="T435690"></a><b>Supported Business Scenarios</b></h2>
+<p><a name="d0e26230" id="d0e26230"></a><a name="c_cogsbusscenarios" id="c_cogsbusscenarios"></a>Revenue / COGS matching is supported for the following sales order business scenarios:</p>
+<ul>
+<li>
+<p>Sales orders: no customer acceptance</p>
+</li>
+<li>
+<p>Sales orders: customer acceptance enabled</p>
+</li>
+<li>
+<p>Sales orders: configured items - ATO / PTO</p>
+</li>
+</ul>
+<h3><a id="T465900"></a><b>Sales Orders: No Customer Acceptance<a name="d0e26253" id="d0e26253"></a></b></h3>
+<p>The following scenarios illustrate Revenue / COGS matching for sales orders where customer acceptance is not in the business process flow. The underlying assumption in this set of scenarios is that ownership is transferred at the time of shipment. They apply when customer acceptance is not enabled in Oracle Order Management. Scenarios include:</p>
+<ol>
+<li>
+<p>Scenario 1: Sales order/invoicing, RMA, and credit memo</p>
+</li>
+<li>
+<p>Scenario 2: Alternate revenue allocation in credit memo</p>
+</li>
+<li>
+<p>Scenario 3: Credit memo before RMA</p>
+</li>
+<li>
+<p>Scenario 4: RMA following full revenue recognition</p>
+</li>
+<li>
+<p>Scenario 5: Sales order, multiple RMA's, revenue recognition, credit memos</p>
+</li>
+<li>
+<p>Scenario 6: RMA not tied to sales order</p>
+</li>
+<li>
+<p>Scenario 7: Uninvoiced sales order</p>
+</li>
+</ol>
+<h4><a id="T465901"></a><b>Scenario 1: Sales order/invoicing, RMA, and credit memo</b></h4>
+<p><b>Time 1 &ndash; Sales order issue: Qty = 10, Cost = $50, Price = $100</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>500</td>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>-</td>
+<td>1000</td>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>1000</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Revenue</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+<p><b>Time 2 &ndash; Revenue recognized at 50% in A/R</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Revenue</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<p>COGS accounting distributions are adjusted based on the total shipped quantity. A/R flags that 50 percent of the revenue for the 10 invoiced units has been recognized. Costing applies the same percentage to the regular and deferred COGS accounts.</p>
+<p>COGS = 500 * .50 = $250</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>250</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>250</td>
+</tr>
+</table>
+<p><b>Time 3 &ndash; RMA for 2 units received into inventory</b></p>
+<p>The A/R earned revenue percentage remains at 50 percent. When accounting for the RMA receipt, costing reduces the total COGS balance so that the proportion of deferred to earned is maintained. The value of the RMA is 2 x $50 = $100. Costing adjusts the earned and deferred COGS accounts as follows:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>-</td>
+<td>50</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<p>At this point in time, the COGS account balance is (500-100) x .50 or $200, and the Deferred COGS account balance is (500-100) x .50 or $200</p>
+<p><b>Time 4 &ndash; Credit memo created in AR related to the RMA for 2 units</b></p>
+<p>A/R elects to debit the entire amount of the credit memo in the deferred revenue account and nothing in the earned revenue account. This can occur when there is an outstanding contingency on the returned units and it's assumed that the revenue on the returned units had previously not been recognized.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>200</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>-</td>
+<td>200</td>
+</tr>
+</table>
+<p>After this transaction, total expected revenue is reduced from $1000 to $800. The earned/unearned revenue proportion has changed and costing needs to create a COGS recognition event to keep the ratio of earned/deferred COGS the same as the ratio of earned/unearned revenue.</p>
+<p>New earned revenue percentage: $500 / ($500 + $300) = 62.5 percent</p>
+<p>Required earned/deferred COGS percentages: 62.5 percent / 37.5 percent</p>
+<p>Total expected COGS balance before RMA/credit memo: $400</p>
+<p>Allocated as follows: $400 x .50 = $200 earned, $400 x .50 = $200 deferred</p>
+<p>Total expected COGS balance after RMA/credit memo: $400</p>
+<p>Allocated as follows: 400 x .625 = $250 earned, 400 x .375 = $150 deferred</p>
+<p>COGS recognition transaction: $50 adjustment from deferred to earned COGS</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<p>As the credit memo accounting distribution in A/R altered the ratio of earned to deferred revenue, costing will generate a COGS recognition adjustment transaction that keeps the associated earned/deferred COGS ratio the same as the revenue ratio.</p>
+<h4><a id="T465902"></a><b>Scenario 2 - Alternate Revenue Allocation in Credit Memo<a name="d0e26603" id="d0e26603"></a></b></h4>
+<p><strong><span>Note:</span></strong> Time 1 to Time 3 transactions are the same as those in scenario 1.</p>
+<p><b>Time 4 - Credit memo created in A/R related to the RMA for these 2 units</b></p>
+<p>Instead of applying the entire credit memo amount to deferred revenue, A/R elects to apply it equally to the earned and deferred revenue accounts.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Revenue</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>-</td>
+<td>200</td>
+</tr>
+</table>
+<p>After the credit memo is applied, costing will not create a COGS recognition transaction as the proportion of earned/deferred COGS is still equal to the proportion of earned/deferred revenue.</p>
+<p>New earned revenue percentage: $400 / ($400 + $400) = 50.0 percent</p>
+<p>Required earned/deferred COGS percentages: 50.0 percent / 50.0 percent</p>
+<p>Previous earned/deferred COGS percentages: 50.0 percent / 50.0 percent</p>
+<p>Total expected COGS balance before RMA/credit memo: $400</p>
+<p>Allocated as follows: $400 x .50 = $200 earned, $400 x .50 = $200 deferred</p>
+<p>Total expected COGS balance RMA/after credit memo: $400</p>
+<p>Allocated as follows: 400 x .50 = $200 earned, 400 x .50 = $200 deferred</p>
+<p>COGS recognition transaction: none</p>
+<h4><a id="T435832"></a><b>Scenario 3: Credit Memo Before RMA<a name="d0e26686" id="d0e26686"></a></b></h4>
+<p><strong><span>Note:</span></strong> Time 1 to time 2 transactions are the same as those in scenario 1.</p>
+<p><b>Time 3 &ndash; Credit memo pegged to originating sales order created in A/R for $200</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Revenue</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>-</td>
+<td>200</td>
+</tr>
+</table>
+<p>Costing will not need to create a COGS recognition adjustment transaction as the credit memo accounting distribution does not change the ratio of earned/deferred revenue.</p>
+<h4><a id="T435833"></a><b>Scenario 4: RMA After Full Revenue Recognition<a name="d0e26751" id="d0e26751"></a></b></h4>
+<p><b>Time 1 &ndash; Sales order issue, full revenue recognition: Qty = 10, Cost = $50, Price = $100</b></p>
+<p>When the items are shipped, the full value of the shipment is booked to the deferred COGS account.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<p>In A/R, the sales order line is billed and all of the revenue is recognized.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>1000</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Revenue</td>
+<td>-</td>
+<td>1000</td>
+</tr>
+</table>
+<p>Costing creates a COGS adjustment event to recognize the full amount of COGS as earned.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<p><b>Time 2 &ndash; RMA for 2 units received into inventory</b></p>
+<p>Since the current ratio of earned to unearned revenue is 1/0 (earned/unearned), costing applies the entire amount of the RMA to the earned COGS account.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p>This RMA could have been created to replace a defective product. As a result, no credit memo is expected and replacement units are expected to be shipped at a later date. The expected COGS is temporarily reduced to $400 pending the shipment of the replacements.</p>
+<h4><a id="T435834"></a><b>Scenario 5: Sales Order, Multiple RMA's, Revenue Recognition, Credit Memos</b></h4>
+<p><b>Time 1 &ndash; Sales order issue, full revenue recognition: Qty = 10, Cost = $50, Price = $100</b></p>
+<p>When the items are shipped, the full value of the shipment is booked to the deferred COGS account.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<p>In A/R, the sales order line is invoiced and all of the revenue is deferred.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>1000</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>-</td>
+<td>1000</td>
+</tr>
+</table>
+<p><b>Time 2 &ndash; RMA receipt for 2 units and credit memo</b></p>
+<p>An RMA for 2 units pegged to the originating sales order is received into inventory and costing books the full amount of the RMA into deferred COGS.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p><b>Time 3 &ndash; Credit memo for RMA created in A/R</b></p>
+<p>A/R creates a credit memo to reduce the expected revenue and customer receivable due to the returned units.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>200</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>-</td>
+<td>200</td>
+</tr>
+</table>
+<p>As the credit memo does not change the ratio of earned/unearned revenue, no COGS recognition adjustment transaction is needed as a result of the credit memo.</p>
+<p><b>Time 4 &ndash; RMA no receipt for 3 units and credit memo</b></p>
+<p>An RMA with no associated receipt does not generate any accounting.</p>
+<p>After the RMA no receipt is created, A/R creates a credit memo. As no revenue on the associated sales order has yet been recognized in this scenario, the full amount of the credit memo is a debit to the deferred revenue account.</p>
+<p><strong><span>Note:</span></strong> The non-receipt of RMA items may result in the understatement of COGS. For further information, see the Special Case section near the end of this chapter.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>300</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>-</td>
+<td>300</td>
+</tr>
+</table>
+<p><b>Time 5 &ndash; Revenue recognition at 40 percent on remaining 5 units</b></p>
+<p>The original sales order shipped 10 units to the customer, an RMA - with receipt and credit returned 2 units into inventory, and an RMA - no receipt but with credit for 3 units (presumably scrapped) yields an expected revenue/receivable on only 5 units. A/R recognizes 40 percent of the expected revenue on these 5 units, therefore $500 x .40 or $200 of earned revenue must be booked.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>200</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Revenue</td>
+<td>-</td>
+<td>200</td>
+</tr>
+</table>
+<p>Assuming the scrap transaction alternative in Time 4 is not performed, the total expected COGS for these 5 units is $400 ($500 minus $100 for the RMA &ndash; with receipt). Costing creates a COGS recognition transaction to recognize 40 percent of the cost on these units, which is $400 x .40, or $160.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>160</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>160</td>
+</tr>
+</table>
+<p>To revisit the topic introduced at Time 5, COGS may be understated if you expected the RMA in step Time 5 to be a scrap event. However, as explained, you should create an explicit scrap by receiving the RMA into a scrap subinventory.</p>
+<p><b>Time 6 &ndash; RMA no receipt for 1 unit and credit memo</b></p>
+<p>An RMA with no associated receipt into inventory does not generate any accounting.</p>
+<p>An additional RMA no receipt with credit memo is created. After the RMA no receipt is created, A/R creates a credit memo and allocates the amount entirely to the unearned (Deferred) revenue accounts.</p>
+<p><strong><span>Note:</span></strong> The non-receipt of RMA items may result in the understatement of COGS. For further information, see the Special Case section near the end of this chapter.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p>An additional RMA no receipt with credit memo is created. A/R creates a credit memo for the RMA and allocates the amount equally between the earned and unearned revenue accounts.</p>
+<p>At this point in time, total expected revenue is $400 ($1000 less $600 for three RMA's) of which $200 or 50 percent has been earned and recognized. As the credit memo changes the ratio of earned/deferred revenue, costing creates a COGS recognition transaction to align earned/deferred COGS and revenue.</p>
+<p>Current earned revenue percentage: $200 / ($200 + $200) = 50.0 percent.</p>
+<p>Required earned/deferred COGS percentages: 50 percent/50 percent</p>
+<p>Total expected COGS balance before credit memo: $400</p>
+<p>Total expected COGS balance after credit memo: $400</p>
+<p>COGS recognition transaction: $40 adjustment from deferred to earned COGS</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>40</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>40</td>
+</tr>
+</table>
+<p>As this scenario demonstrates, when you create an RMA with credit and do no receive the RMA units into inventory, then earned COGS will be understated (and deferred COGS overstated) by the amount of the unreceived RMA units. This under/overstatement applies from the time the RMA credit is processed to the time revenue and COGS are fully recognized and earned.</p>
+<p>For example, in Time 4, the credit memo reduces the total expected revenue by $300 from $800 to $500 with the entire amount in deferred revenue. Had the 3 RMA units been received into inventory, total COGS would have been reduced by $150 from $400 to $250 with the entire amount in deferred COGS. However, the RMA units were not received into inventory and were presumably scrapped by the customer. As a result the deferred COGS account is overstated by $150 at Time 4.</p>
+<p>For further details, see the Special Case section near the end of this chapter.</p>
+<h4><a id="T435855"></a><b>Scenario 6: RMA Not Tied to Sales Order<a name="d0e27331" id="d0e27331"></a></b></h4>
+<p>When you process an RMA that is not tied or pegged to an originating sales order, A/R cannot associate the returned items to any particular shipment or customer invoice. As a result, previously earned or deferred revenue on the returned items is not changed. In this scenario, costing assumes that all of the revenue associated with the return was previously recognized and credits the entire amount of the RMA in the earned COGS account.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<h4><a id="T435856"></a><b>Scenario 7: Uninvoiced Sales Order<a name="cstuninvso" id="cstuninvso"></a><a name="d0e27381" id="d0e27381"></a></b></h4>
+<p><b>Time 1 &ndash; New sales order is created to ship 10 units, no invoicing created</b></p>
+<p>When customers return goods, it is common practice to exchange returned units with new ones with no credit memo for the returned units, and no customer invoice for the replacement units. When the replacement units are shipped to the customer, a sales order is created. However, no invoice will be created for it. When the replacement sales order ships, costing does not know that the order will not be billed and accounts for the transaction as a regular that is to be invoiced as a sales order shipment.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<p><b>Time 2 &ndash; Order is closed</b></p>
+<p>No invoice will be created for the shipment, and the accounted amount will remain in the deferred COGS account until the sales order line is closed in Oracle Order Management. The closing of a sales order line with uninvoiced items creates an assumption that revenue has been recognized outside of the normal process, or that revenue will never be recognized. In either case, costing moves the uninvoiced amount from the Deferred COGS account to COGS.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<h3><a id="T465903"></a><b>Sales Orders: Customer Acceptance Enabled<a name="d0e27475" id="d0e27475"></a></b></h3>
+<p>The following scenarios illustrate Revenue / COGS Matching for sales orders where customer acceptance is in the business process flow. The underlying assumption in this set of scenarios is that ownership is transferred at the time of shipment. They apply when customer acceptance is not enabled in Oracle Order Management. Scenarios include:</p>
+<ul>
+<li>
+<p>Scenario 1 - Sales order, acceptance, invoicing, revenue recognition, RMA, credit memo</p>
+</li>
+<li>
+<p>Scenario 2 - Sales order, RMA replacement, acceptance, invoicing, pre-invoicing acceptance</p>
+</li>
+<li>
+<p>Scenario 3 - Sales order, invoicing, RMA receipt with credit, rejection, RMA no receipt with credit, post-invoicing acceptance</p>
+</li>
+<li>
+<p>Scenario 4 - Sales order, rejection</p>
+</li>
+<li>
+<p>Scenario 5 - Uninvoiced sales order</p>
+</li>
+</ul>
+<h4><a id="T435916"></a><b>Scenario 1 - Sales Order, Acceptance, Invoicing, Revenue Recognition, RMA, Credit Memo</b></h4>
+<p><b>Time 1 &ndash; Sales order issue: Qty = 10, Cost = $50, Price = $100</b></p>
+<p>When customer acceptance is enabled for a sales order in Oracle Order Management, revenue recognition must be deferred until the acceptance is received and recorded.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<p><b>Time 2 &ndash; Customer accepts the entire shipment</b></p>
+<p>No accounting</p>
+<p><b>Time 3 &ndash; Customer billed for the entire quantity</b></p>
+<p>Once customer acceptance is received and recorded, A/R creates a customer invoice and the pending receivable.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>1000</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>-</td>
+<td>1000</td>
+</tr>
+</table>
+<p><b>Time 4 &ndash; Revenue recognition of 50 percent</b></p>
+<p>Revenue on the customer acceptance sales order is 50 percent recognized. This can occur when contract contingencies or other revenue recognition rules require partial recognition.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Revenue</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<p>With the 50 percent recognition of sales order revenue, costing creates a COGS recognition transaction that moves 50 percent of the sales order shipment cost from the deferred to earned COGS account.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>250</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>250</td>
+</tr>
+</table>
+<p><b>Time 5 &ndash; RMA for 2 units received into Inventory</b></p>
+<p>The customer returns 2 units that are received into inventory. The RMA references the originating sales order lines on which 50 percent of the revenue has been recognized. Costing allocates the RMA amount equally between the deferred and earned COGS accounts.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>50</td>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<p><b>Time 6 &ndash; Credit memo created for RMA for 2 units</b></p>
+<p>A/R elects to debit the entire RMA amount in the deferred revenue account. Contract contingencies or other revenue recognition rules determine whether RMA/credit memos for shipments whose revenue has not been fully recognized will reduce earned or deferred revenue.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>200</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>-</td>
+<td>200</td>
+</tr>
+</table>
+<p>The allocation of the credit memo amount to the deferred revenue account changes the prior ratio of earned/deferred revenue. As a result, costing creates a COGS recognition transaction to realign the earned/deferred portions of COGS and revenue.</p>
+<p>New earned revenue percentage: $500 / ($500 + $300) = 62.5 percent</p>
+<p>Required earned/deferred COGS percentages: 62.5 percent / 37.5 percent</p>
+<p>Previous earned/deferred COGS percentages: 50.0 percent / 50.0 percent</p>
+<p>Total expected COGS balance before RMA/credit memo: $500</p>
+<p>Allocated as follows: $500 x .50 = $250 earned, $500 x .50 = $250 deferred</p>
+<p>Total expected COGS balance after RMA/credit memo: $400</p>
+<p>Allocated as follows: 400 x .50 = $200 earned, 400 x .500 = $200 deferred</p>
+<p>COGS allocation required: 400 x .625 = $250 earned, 400 x .375 = $150 deferred</p>
+<p>COGS recognition transaction: $50 adjustment from deferred to earned COGS</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<h4><a id="T435917"></a><b>Scenario 2 - Sales Order, RMA Replacement, Acceptance, Invoicing, Pre-invoicing Acceptance</b></h4>
+<p><b>Time 1 &ndash; Sales order issue Order #1: Qty = 10, Cost = $50, Price = $100</b></p>
+<p>Sales Order 1 is shipped to a customer subject to customer acceptance.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<p><b>Time 2 &ndash; RMA for 4 units on Sales Order 1</b></p>
+<p>Customer returns 4 units of sales order and these are received into inventory.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>200</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>200</td>
+</tr>
+</table>
+<p><b>Time 3 &ndash; Sales order shipment of replacements units on Sales Order 2</b></p>
+<p>Sales Order 2 is created and replacement items are shipped to customer.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>200</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>200</td>
+</tr>
+</table>
+<p><b>Time 4 &ndash; Sales Order 2 is closed</b></p>
+<p>This sales order was created to ship replacement items to the customer. Sales order lines will not be invoiced as replacements are provided to the customer at no cost as a gesture of good will. When the sales order is closed, costing moves the cost of the shipped items from the deferred to earned COGS account.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>200</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>200</td>
+</tr>
+</table>
+<p><b>Time 5 &ndash; Acceptance and invoicing of 10 units on Sales Order 1</b></p>
+<p>The customer sends a customer acceptance notification for the 10 units in sales order 1, and A/R invoices the customer for these units.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>1000</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>-</td>
+<td>1000</td>
+</tr>
+</table>
+<p>At this point in time, the proportion of earned/deferred in revenue and COGS are no longer the same. The transaction flow generated $1000 in deferred revenue and only $300 in deferred COGS. The closing of Sales Order 2 in the previous step reduced the deferred account by $200 and booked this amount to earned COGS.</p>
+<p><strong><span>Note:</span></strong> In order to keep the COGS accounts properly synchronized with the revenue accounts when the transactions span multiple accounting periods, a manual journal entry may be needed that reverses the accounting generated by the replacement order (Sales Order 2). This adjustment increases the Deferred COGS account balance to $500 and reduces the earned COGS account balance to zero which exactly synchronizes with the revenue accounts.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>200</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>-</td>
+<td>200</td>
+</tr>
+</table>
+<p><b>Time 6 &ndash; Revenue recognition of 50 percent - Sales Order 1</b></p>
+<p>A/R recognizes 50 percent of the $1000 revenue for Sales Order 1.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Revenue</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<p>With the 50 percent recognition of sales order revenue, costing creates a COGS recognition transaction that moves 50 percent of the $300 cost of Sales Order 1 from the deferred to the earned COGS account.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>150</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>150</td>
+</tr>
+</table>
+<p>At this point in time, the proportion of earned/deferred in revenue and COGS is no longer the same. The transaction flow generated $500/$500 or 50 percent in earned/deferred revenue, and the earned/deferred COGS account balances for the combined orders are $150/$350</p>
+<p><strong><span>Important:</span></strong> In order to keep the COGS accounts properly synchronized with the revenue accounts when the transactions span multiple accounting periods, a manual GL journal entry is needed to increase the earned COGS for the combined orders to $250.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Account</td>
+<td>Debit</td>
+<td>Credit</td>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p>This adjustment results in earned/deferred COGS account balances of $100/$100 or 50 percent for Sales Order 2 to $100, and $250/$250 or 50 percent for the combined orders.</p>
+<p>This procedure is required if you want to synchronize revenue/COGS matching across an originating sales order with an RMA, and an associated unbilled replacement sales order whose cost is recognized when the order is closed.</p>
+<p>If the accounting impact is not material or the transaction flow does not cross accounting periods, an alternative accounting approach is to forego the manual GL journal entries. This will result in the early recognition of COGS for unbilled replacement orders and a reduced recognition of COGS in subsequent periods on the originating sales order.</p>
+<h4><a id="T435953"></a><b>Scenario 3: Sales Order, Invoicing, RMA Receipt With Credit, Rejection, RMA no Receipt With Credit</b></h4>
+<p><b>Time 1 &ndash; Sales order issue: Qty = 10, Cost = $50, Price = $100</b></p>
+<p>A sales order is shipped to customer subject to customer acceptance.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<p><b>Time 2 &ndash; Customer billed for the entire quantity</b></p>
+<p>A/R creates an invoice that bills the customer for the sales order shipment.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>1000</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>-</td>
+<td>1000</td>
+</tr>
+</table>
+<p><b>Time 3 &ndash; Revenue recognition of 50 percent</b></p>
+<p>When customer acceptance is enabled for a sales order in Oracle Order Management, revenue recognition must be deferred until the acceptance is received and recorded. The attempt to recognize revenue fails.</p>
+<p><b>Time 4 &ndash; RMA receipt with credit for 2 units, received into inventory</b></p>
+<p>The customer returns 2 units for credit that are received into inventory.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p><b>Time 5 &ndash; Credit memo created for RMA for 2 units</b></p>
+<p>A/R creates a credit memo and the entire amount is allocated to deferred revenue because no revenue has been recognized.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred Revenue</td>
+<td>200</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Receivables</td>
+<td>-</td>
+<td>200</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> No COGS recognition transaction is needed because there is no change in proportion of earned/deferred revenue.</p>
+<p><b>Time 6 &ndash; Sales order shipment is rejected by customer</b></p>
+<p>No accounting.</p>
+<p><b>Time 7 &ndash; RMA for 4 units into scrap subinventory</b></p>
+<p>An RMA for 4 units is received into a scrap asset subinventory for inspection and subsequent disposal.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Expense Subinventory</td>
+<td>200</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>200</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> You must set up a scrap asset subinventory so that a specified scrap expense account is charged upon RMA receipt.</p>
+<h4><a id="T435954"></a><b>Scenario 4: Sales Order Rejection</b></h4>
+<p><b>Time 1 &ndash; Sales order issue: Qty = 10, Cost = $50, Price = $100</b></p>
+<p>A sales order is shipped to the customer and is subject to customer acceptance.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<p><b>Time 2 &ndash; Customer rejects the sales order shipment</b></p>
+<p>The customer rejects the sales order shipment and does not return the rejected items because these will be scrapped at the customer site. The sales order line is closed and costing creates a COGS recognition transaction to record the earned cost.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>500</td>
+</tr>
+</table>
+<h4><a id="T435955"></a><b>Scenario 5: Uninvoiced Sales Order</b></h4>
+<p>On orders where customer acceptance has been enabled, you cannot close a sales order line until the line is accepted. Once the sales order line is accepted, the transaction flow and accounting is the same as sales orders where customer acceptance has not been enabled. See: <a href="T372621T435195.htm#cstuninvso">Uninvoiced Sales Order</a>.</p>
+<h3><a id="T465921"></a><b>Sales Orders: Configured Items &ndash; PTO / ATO<a name="d0e28539" id="d0e28539"></a><a name="c_ptoatoitems" id="c_ptoatoitems"></a></b></h3>
+<p>Oracle Cost Management supports the allocation of item cost between earned and deferred COGS for Assemble to Order (ATO) and Pick to Order (PTO) items. Revenue/COGS synchronization for configured items is achieved by matching a shipped, costed line to the invoiceable line that it most closely relates to. If the shipped line is invoiced, then the revenue recognition schedule for that line drives COGS recognition. If the shipped line is not invoiced, then COGS for that line will be driven by the revenue recognition for the nearest invoiced line that it rolls up to.</p>
+<p>You can synchronize revenue/COGS for the following types of configured items:</p>
+<ul>
+<li>
+<p>Kit (PTO without options)</p>
+</li>
+<li>
+<p>ATO model</p>
+</li>
+<li>
+<p>PTO model</p>
+</li>
+<li>
+<p>PTO model with imbedded ATO model</p>
+</li>
+</ul>
+<h4><a id="T439841"></a><b>Scenario 1: Kit (Pick To Order Item Without Options)</b></h4>
+<p>A kit is a grouped set of items that are sold together as a unit and in which there are no optional items. A BOM is used to define the kit's components. In the Oracle e-Business Suite, sales orders, price lists, and invoices are created and managed at the kit level. However, order shipments and shipment costs are managed at the included item level. The following example illustrates how revenue and COGS are synchronized after the shipment of a kit.</p>
+<p>Kit item K1 is composed of two included items, A and B. Items A and B are shipped but only K1 is invoiceable.</p>
+<p><img width="146" height="122" src="./img/cst_cogspto1.gif" alt="the picture is described in the document text"></p>
+<p><b>Ship Model Complete</b></p>
+<p>When a kit is shipped with all of its included items, a deferred COGS transaction is created for each of the shippable, costed items. In this example, these are items A and B. When A/R invoices and recognizes revenue for kit K1, costing first performs a check to determine whether all of the kit's items have been shipped. In this example, if the kit is ship model complete, costing creates a COGS transaction for item A and item B which results in the recognition of earned COGS for A and B that is proportional to the earned revenue for kit K1.</p>
+<p><b>Non-ship Model Complete</b></p>
+<p>Non-ship model complete occurs when you invoice the kit, but ship only part of the included items that make up the kit. For example, item A is shipped and the model is invoiced before B is shipped. When revenue is recognized, costing only creates a COGS recognition transaction for the shipment line with item A. Only when item B is subsequently shipped will costing apply the earned revenue percentage.</p>
+<h4><a id="T439842"></a><b>Scenario 2: Assemble To Order (ATO) Model</b></h4>
+<p>An Assemble to Order (ATO) model is a configuration that is manufactured or assembled in response to a customer order that includes both mandatory and optional items. The ATO model is created using a model bill of material with included and optional items and option selection rules. It is configured during the entry of a customer order and may be shipped to the customer complete or in staged shipments.</p>
+<p>In the Oracle e-Business Suite, it's the ATO model and its optional items that are ordered, priced, and invoiced. However, it's the configured item (star item) that gets shipped and costed.</p>
+<p>The following diagram illustrates an ATO model that is defined by a bill of material and routing that produces a model with a rolled-up cost, and optional items O1 and O2. During sales order configuration, the ATO model is a mandatory order line selection while one or both of the optional items (O1 and O2) can be selected. The configured item ATO* is shipped. However, it's the ATO model (and its included items) O1 and O2 that are invoiced.</p>
+<p><img width="266" height="122" src="./img/cst_cogspto2.gif" alt="the picture is described in the document text"></p>
+<h4><a id="T439843"></a><b>Scenario 3: Pick To Order (PTO) Model</b></h4>
+<p>A Pick to Order (PTO) model is a configuration that is fulfilled in the warehouse in response to a customer order that includes both mandatory and optional items. The PTO model is created using a model bill of material with included and optional items, and option selection rules. It is configured during the entry of a customer order, picked and fulfilled in the warehouse, and may be shipped to the customer complete or in staged shipments.</p>
+<p>In the Oracle e-Business Suite, it's the PTO model and its optional items that are ordered, priced, and invoiced. However, any combination of the model line, included items, and optional items can be shipped and costed.</p>
+<p>The following diagram illustrates a PTO model item that is composed of included items A and B, optional item O1, and option class OC with included item C and optional item O2. PTO models can be shipped complete or in stages with multiple shipments, depending on the availability of the model's specified items.</p>
+<p>For example, all of the model's items (PTO Model, A, B, O1, and O2) are shipped (option classes are not shippable or costing-enabled). When A/R invoices the customer for the configured model, only three of the items are invoiced (PTO Model, O1 and O2). Items A and B are included items in the model and are not priced or invoiced separately. Model option C has no price and is not invoiceable. All items except option class OC are costed.</p>
+<p><img width="350" height="212" src="./img/cst_cogspto3.gif" alt="the picture is described in the document text"></p>
+<p>When the six sales order lines are ship confirmed, costing raises a COGS recognition event for each shipment line and books the item cost into a deferred COGS account. When A/R invoices and recognizes revenue for PTO Model and options O1 and O2, costing applies the revenue recognition percentage to the costed items and records earned COGS for those items. In cases where a model item is not invoiceable, the revenue recognition percentage of the nearest parent item is used.</p>
+<h4><a id="T439845"></a><b>Scenario 4: PTO Model With Embedded ATO Model</b></h4>
+<p>A PTO model may have one or more ATO models defined in its Bill of Material. For example, PTO Model 2 is composed of included items A and B and optional items ATO2 and C2. In this example, PTO2, A, B, ATO2* and C2 are shipped, but PTO2, ATO2 and its options and C2 are invoiced.</p>
+<p><img width="350" height="212" src="./img/cst_cogspto3.gif" alt="the picture is described in the document text"></p>
+<p>This is no different than the previous example. The ATO is just another shippable line that must have the percentage applied when it is passed from AR for the top model.</p>
+<h3><a id="T465922"></a><b>Drop Shipments and Intercompany Accounting<a name="d0e28633" id="d0e28633"></a><a name="cst_dropship" id="cst_dropship"></a></b></h3>
+<p>For internal drop shipments to customers, Cost Management only synchronizes revenue and COGS in the customer facing Operating Unit (OU) when advanced accounting is enabled. Revenue/COGS synchronization is not performed in the non-customer facing operating units.</p>
+<p>For a sales order issue out of the shipping operating unit and other intermediate operating units, the intercompany COGS is not deferred. The application applies the entire cost of the shipment in all of the non-booking operating units to Intercompany COGS and intercompany revenue.</p>
+<p><img width="578" height="113" src="./img/cst_cogspto4.gif" alt="the picture is described in the document text"></p>
+<p><b>Time 1 &ndash; Sales order issue in Booking OU from Ship OU: Qty = 10, Cost = $50, Price = $75</b></p>
+<p>An internal order is created in the booking OU (customer facing OU) and shipped directly to the customer from the shipping OU. An intermediate operating unit is part of the transaction flow. The internal transfer price is $75 in all operating units.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intercompany COGS (Shipping OU)</td>
+<td>500</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory (Shipping OU)</td>
+<td>-</td>
+<td>500</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS (Booking OU)</td>
+<td>750</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory (Booking OU)</td>
+<td>-</td>
+<td>750</td>
+</tr>
+</table>
+<h4><a id="T439856"></a><b>External Drop Shipment (from Supplier to Customer)</b></h4>
+<p>In external drop shipment scenarios where shipments are made directly from the supplier to the customer, intercompany revenue and COGS are fully recognized. The revenue and COGS deferrals take place only in the customer-facing booking operating unit.</p>
+<p><img width="698" height="107" src="./img/cst_cogspto5.gif" alt="the picture is described in the document text"></p>
+<h3><a id="T465923"></a><b>A Special Case &ndash; RMA with no Receipt<a name="c_cogsspecialcase" id="c_cogsspecialcase"></a></b></h3>
+<p>If you need to immediately recognize the scrapping of physically non-received RMA items, Oracle recommends that you create an RMA with receipt, and then perform a virtual receipt of the unreceived into an asset subinventory designated as a scrap inventory. The valuation account for this subinventory can be set up to point to a scrap valuation or expense account so the RMA receipt is immediately recognized as either an impaired asset or a realized scrap expense.</p>
+<p>If your business needs mandate that you process the unreceived RMA items as an RMA &ndash; no receipt, then the deferred COGS associated with the originating sales order shipment will be overstated and the scrapping or disposal of returned units will not be booked to a scrap or other designated expense account. Once revenue/COGS are fully recognized, the earned COGS account for the sales order shipment will include the cost of the rejected, unreceived RMA units.</p>
+<p>If this cost needs to be reclassified as a scrap/loss/disposal expense, then you can create a manual GL journal entry to transfer RMA no receipt amounts from deferred COGS to a designated expense account.</p>
+<h4><a id="T465924"></a><b>Other Special Cases</b></h4>
+<p><b>Cash and Carry</b></p>
+<p>The physical flow for cash and carry sales orders typically includes picking, staging, and shipment activities. Goods can be picked up in a warehouse or show room by the customer, and paid in cash. However, the sales order lines are ship confirmed and a sales order issue transaction is created in the same way as a non-cash sales order. Cash and carry sales orders are interfaced with Oracle Receivables that invoices the sales order and recognizes revenue as earned.</p>
+<p>When the sales order issue transaction is created, the accounting flow is the same as that of regular non-cash sales orders. The sales order issue amount is charged to the deferred COGS account and transferred to earned COGS when a revenue recognition event is received from Oracle Receivables.</p>
+<p><b>RMA Receipt after Standard Cost Update</b></p>
+<p>When you perform an RMA receipt for an item which references the originating sales order, Oracle Cost Management looks up the cost of the item at the time of shipment and credits the COGS account for that amount. If the order is shipped from a standard costing method organization and you have performed a standard cost update on the item after the item shipped, but prior to the RMA receipt, then the difference between shipped and updated cost is credited to the deferred COGS account debited at shipment.</p>
+<p>For example, an item is shipped at a cost of $100, a standard cost update changes the cost to $110, and an RMA receipt is performed. Revenue on this item has not been recognized. In this scenario, the accounting entries are as follows:</p>
+<p>Accounting when the item ships:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p>Then an RMA receipt is performed:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>110</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Deferred COGS</td>
+<td>-</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>Standard Cost Update Adjustment</td>
+<td>-</td>
+<td>10</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> The COGS account defined in the Organization Parameters window will be used for the Standard Cost Update Adjustment account.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

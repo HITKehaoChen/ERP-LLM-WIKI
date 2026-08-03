@@ -1,0 +1,4963 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Cost Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Cost Management User's Guide">
+<meta name="dcterms.identifier" content="E48829-27">
+<meta name="dcterms.isVersionOf" content="CSTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T372621T2011213.htm" title="Previous" type="text/html">
+<link rel="Next" href="T372621T464264.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Cost Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">18/29</span> <!-- End Header -->
+<h1>Business Flows Across Inventory Organizations</h1>
+<h2><a name="3023147"></a><a id="T451799"></a><b>Rolling Up Supply Chain Costs</b></h2>
+<p><a name="d0e40561" id="d0e40561"></a><a name="c_chain" id="c_chain"></a><a name="SRS.CSTRSCCRN_XML" id="SRS.CSTRSCCRN_XML"></a><a name="SRS.CSTRSCCRN" id="SRS.CSTRSCCRN"></a><a name="SRS.CSTRSCCRP" id="SRS.CSTRSCCRP"></a><a name="SRS.CSTRSCCRP_XML" id="SRS.CSTRSCCRP_XML"></a><a name="SRS.CSTRSCCRT" id="SRS.CSTRSCCRT"></a><a name="SRS.CSTRSCCRT_XML" id="SRS.CSTRSCCRT_XML"></a>Supply Chain Cost Rollup enables you to roll up costs across multiple organizations, with a mixture of costing methods and currencies, connected to sourcing rules. You can perform either a single-level cost rollup, or a full cost rollup:</p>
+<ul>
+<li>
+<p>A single-level rollup looks only at the first level of the bill structure for each assembly in the rollup - and rolls the costs for the items at this level into the parent. This method does not reflect structure or cost changes occurring at a level below the first level of assemblies. However, it does enables you to generate costs on new assemblies without changing costs on existing subassemblies.</p>
+</li>
+<li>
+<p>A full cost rollup first performs a bill of material explosion for assemblies. The rollup process builds the cost of assemblies, starting with the lowest level, and works up the structure to top-level assemblies. This method gives you the most current bill of material structure and component costs.</p>
+</li>
+</ul>
+<p>You can use any costing method to roll up costs in inventory organizations. The Supply Chain Rollup process enables you to start from any, single inventory organization.</p>
+<p>Every time that you generate the Supply Chain Cost Rollup program, costs are overwritten from previous rollups for the cost type specified.</p>
+<p><b>Sourcing Rules</b></p>
+<p>You can define sourcing rules to simulate costs resulting from those rules. The cost types resulting from the process can be:</p>
+<ul>
+<li>
+<p>Reviewed for simulation purposes</p>
+</li>
+<li>
+<p>Copied to other inventory organizations</p>
+</li>
+<li>
+<p>Used for margin analysis reports</p>
+</li>
+<li>
+<p>Used as the source cost type for a standard cost update</p>
+</li>
+</ul>
+<p>When a sourcing rule is defined in Oracle Planning applications, you can define the make, buy, and transfer rules for a specific rank. The rank determines the priority, with the lower rank having the higher priority. The Supply Chain Cost Rolllup program uses sourcing rules with the minimum rank value. See: Allocating Demand to Suppliers, <i>Oracle Advanced Planning User's Guide</i>.</p>
+<p><b>Reports</b></p>
+<p>The cost rollup process includes the option to print a report. You can select either the Supply Chain Consolidated Bills of Material Cost Report or the Supply Chain Indented Bills of Material Cost Report. You can submit both of these reports when reporting item costs. You also have the option to print a temporary rollup report, which enables you to review the rollup results before changing the cost information.</p>
+<p>See: <a href="T372621T406224.htm#supplycon">Supply Chain Consolidated Bills of Material Cost Report</a>, and <a href="T372621T406224.htm#supplyind">Supply Chain Indented Bills of Material Cost Report</a></p>
+<p><b>Phantom Items and Assemblies</b></p>
+<p>The cost rollup includes material costs and routing costs of phantom assemblies of higher-level assemblies. This process handles phantom items and produces costs used to set standard costs.</p>
+<p><b>Configure to Order</b></p>
+<p>Configure to Order items use cost type CTO for the rollup calculation. When an item is created by the AutoCreate Configuration process, the cost of the configuration is based on the options selected. Single level rollup calculations for Make and Buy CTO configurations are calculated as follows:</p>
+<ul>
+<li>
+<p>Buy Item Configurations: The configurations use the CTO cost type specified in the profile option, BOM:CTO Buy Cost Type for Configurations. The result of the rollup is the total cost for the configured item.</p>
+</li>
+<li>
+<p>Make Item Configurations: The cost type does not hold costs for the model and options. Therefore, the rollup is performed based on the valuation cost of the modeled item and optioned items. The cost type is inserted into the CTO cost type.</p>
+</li>
+</ul>
+<p>See: Configuration Item Cost Rollup<i>, Oracle Configure to Order Implementation Manual</i>.</p>
+<p><b>Prerequisites</b></p>
+<ul>
+<li>
+<p>For cost rollup requests that update changes, you must include the Privilege to Maintain Cost security function as part of the responsibility. See: <a href="T372621T372759.htm#r_secfunct">Cost Management Security Functions</a>.</p>
+</li>
+<li>
+<p>Define Oracle Bills of Material parameters. If an organization involved in the rollup does not have the necessary parameters set, the program will not run. See: Defining Bills of Material Parameters, <i>Oracle Bills of Material User's Guide</i>.</p>
+</li>
+<li>
+<p>Verify the bill structure before performing a cost rollup. See: Checking for Bill Loops, <i>Oracle Bills of Material User's Guide</i>.</p>
+</li>
+<li>
+<p>Set the profile option, CST:Cost Rollup - Wait for Table Lock, to lock Cost Management tables for the rollup. If the profile option is set to Yes, then the program will continually attempt to lock the tables. If the profile option is set to No, then the program makes 10 attempts to lock tables before ending the request. See: <a href="T372621T372759.htm#p_pos_sfs">Profile Options and Security Functions</a></p>
+</li>
+</ul>
+<p><b>To submit a supply chain rollup request</b></p>
+<ol>
+<li>
+<p>Navigate to the Supply Chain Cost Rollup Request window.</p>
+</li>
+<li>
+<p>In the Name field, select a request type option to display the Parameters window. Your choices are:</p>
+<ul>
+<li>
+<p>Supply Chain Cost Rollup - No Report: Rolls up costs and commits them to the database; does not print a report.</p>
+</li>
+<li>
+<p>Supply Chain Cost Rollup - Print Report: Rolls up and updates costs, creates a report.</p>
+</li>
+<li>
+<p>Temporary Supply Chain Cost Rollup - Print Report: Rolls up costs but does not update them, creates a report.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the Parameters window, optionally enter a Description. This can be any descriptive text referencing this request.</p>
+</li>
+<li>
+<p>Select a value in the Cost Type field.</p>
+<p>Cost type determines how the rollup is performed. If an item does not already have cost information in this cost type, costs from the organization default cost type are used. If costs do not exist in the default cost type, then costs from the current organization's valuation cost type are used.</p>
+<p><strong><span>Note:</span></strong> Every time the Supply Chain Cost Rollup program is generated, costs are overwritten from previous rollups for the cost type specified.</p>
+<p>See: <a href="T372621T372759.htm#t_fdctp">Defining Cost Types</a>.</p>
+</li>
+<li>
+<p>Use the Organization and Range fields to specify the list of the top level assemblies to roll up.</p>
+<p>Your choices are to use the current organization, or leave this field blank:</p>
+<ul>
+<li>
+<p>If you select the current organization, then the top level assemblies are rolled up from this organization.</p>
+</li>
+<li>
+<p>If the field is blank, then the top level assemblies are from all organizations are rolled up.</p>
+<p>For example, if the Range field is specified as All items, and the Organization field is specified as the current organization, then the rollup is performed with all items, from the current organization, as the top level assemblies.</p>
+<p><img width="767" height="528" src="./img/cst_rollup.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Optionally select a value in the Assignment Set field.</p>
+<p>Once you have defined your sourcing rules and bills of distribution, you assign them to particular items and/or organizations. These groupings are called assignment sets. This is where sourcing strategies are defined for a particular supply chain network. See: Setting up the Supply Chain, <i>Oracle Advanced Planning User's Guide.</i>.</p>
+</li>
+<li>
+<p>If you selected an Assignment Set, select a Buy Cost Type.</p>
+<p>If you specified a sourcing rule, all the costs defined in Buy Cost Type are summed in the material cost. For example:</p>
+<ul>
+<li>
+<p>If both the destination and buy cost types are set up as Pending, the process searches for pending costs.</p>
+</li>
+<li>
+<p>If there are no pending costs, the process then searches for default cost type.</p>
+</li>
+<li>
+<p>If there are no default costs in the current organization, the process then searches for the current organization's valuation cost type. See: Defining Costing Information, <i>Oracle Inventory User's Guide</i>.</p>
+<p>For configure to order items, select the value for the CTO Cost Type defined in the profile option, BOM:Buy Cost Type for Configurations. See: Configuration Item Cost Rollup<i>, Oracle Configure to Order Implementation Manua</i>l.</p>
+<p>See: Defining Costing Information, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the Preserve Buy Cost Details field, indicate if you want the details of the item costs saved. You choices are Yes or No.</p>
+<p>If an assignment set is specified in the rollup, then all costs defined in the Buy Cost Type are summed into this level of material cost. This parameter enables you to preserve the buy cost details for elemental and subelemental visibility.</p>
+</li>
+<li>
+<p>Select a Conversion Type from the list of values. This is the currency conversion type used if currency values need to be converted across organizations.</p>
+</li>
+<li>
+<p>Select a Rollup Option. Your choices are:</p>
+<ul>
+<li>
+<p><i>Full cost rollup:</i> Performs a bill of material explosion for assemblies, and then builds the cost of assemblies starting with the lowest level, and works up the structure to top level assemblies.</p>
+</li>
+<li>
+<p><i>Single-level cost rollup:</i> Assigns new standard costs to the top assembly, but not to the lower-level assemblies.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Select the Range of items to roll up.</p>
+<p>Your choices are: All items, Category, Range of items, Specific item, or Zero cost items.</p>
+<p>If you select Zero cost items, the rollup includes zero cost items in the current and the default cost types that have the attribute, Based on Rollup, enabled.</p>
+<p><strong><span>Note:</span></strong> Inactive items are not rolled up unless you select a Specific Item that is inactive.</p>
+</li>
+<li>
+<p>If you selected a request type that prints a report, then select a report type. Your choices are:</p>
+<ul>
+<li>
+<p><i>Consolidated:</i> Prints the Supply Chain Consolidated Bill of Material Cost report, which lists total quantities of each component used in the parent assembly regardless of level.</p>
+</li>
+<li>
+<p><i>Detail Indented:</i> Prints the Indented Supply Chain Bill of Material Cost report, which lists detailed cost structure by level.</p>
+<p>See: <a href="T372621T406224.htm#supplycon">Supply Chain Consolidated Bills of Material Cost Report</a>, and <a href="T372621T406224.htm#supplyind">Supply Chain Indented Bills of Material Cost Report</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you selected a request type that prints a report - in the Material Detail, Material Overhead Detail, and Routing Detail fields, then indicate if you want these fields to display on the report. Your choices are Yes or No.</p>
+<p>If you select Yes, then Material, Material Overhead, and Routing detail subelements display on the report.</p>
+<p><strong><span>Note:</span></strong> If you select No, then you limit the amount of subelement detail and reduce the size of the report.</p>
+</li>
+<li>
+<p>If you selected a request type that prints a report, then enter the maximum report number of levels to display on the report.</p>
+<p>For example, if your assembly had 20 levels and you enter 5 in this field, then the costs for levels 1 through 5 are detailed. The costs for levels 6 to 20 are summarized as previous level costs. The default is the maximum bill of material levels value. See: Defining Bills of Material Parameters, <i>Oracle Bills of Material User's Guide</i>.</p>
+</li>
+<li>
+<p>Enter the Effective Date and time to determine the structure of the bill of material to use in the cost rollup. You can use this to roll up historical and future bill structures using current rates and component costs.</p>
+</li>
+<li>
+<p>Indicate whether to <a name="d0e40856" id="d0e40856"></a>Include Unimplemented Engineering Change Orders ECOs in the rollup. See: Changing the ECO Status, <i>Oracle Engineering User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally, enter an <a name="d0e40868" id="d0e40868"></a>Alternate Bill name for the assembly to roll up, if applicable, for the Range you selected.</p>
+<p>For example, if an alternate bill is specified, all items in the range are still rolled up:</p>
+<ul>
+<li>
+<p>The items having an associated bill with that name are rolled up using that bill.</p>
+</li>
+<li>
+<p>The items that do not have an associated bill with that name will continue to be rolled up using the primary bill.</p>
+<p>See: Primary and Alternate Bills of Material, <i>Oracle Bills of Material User's Guide</i>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Optionally, enter an <a name="d0e40891" id="d0e40891"></a>Alternate Routing name for the assembly to roll up, if applicable, for the Range you selected.</p>
+<p>For example, if an alternate routing is specified, all items specified in the range are still rolled up:</p>
+<ul>
+<li>
+<p>The items that do have an associated routing with that name are rolled up using that routing.</p>
+</li>
+<li>
+<p>The items that do not have an associated routing with that name will continue to be rolled up using the primary routing.</p>
+<p>See: Primary and Alternate Routings, <i>Oracle Bills of Material User's Guide</i>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Indicate whether to include <a name="d0e40914" id="d0e40914"></a>Engineering Bills in the cost rollup. If you select Yes, assemblies with engineering bills are rolled up in addition to the regular assemblies.</p>
+</li>
+<li>
+<p>You can select lot size parameters in the Lot Size Option field. Select a lot size multiplier in your cost computations. Your choices are:</p>
+<ul>
+<li>
+<p>Use Existing Lot Size</p>
+</li>
+<li>
+<p>Specify Lot Size</p>
+</li>
+<li>
+<p>Use Factor of Standard Lot Size</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If the Lot Size Option field has the value of Specify Lot Size, or Use Factor of Standard Lot Size - you can enter a numeric value in the Lot Size Setting field.</p>
+<p><strong><span>Note:</span></strong> When using either the Specify Lot Size or Use Factor of Standard Lot Size, if Lot Size Setting is not specified, or the Standard Lot Size is not specified, then the application uses the existing lot size.</p>
+</li>
+<li>
+<p>Specify items to roll up:</p>
+<ul>
+<li>
+<p>If you selected Specific Item in the Range field, select an item.</p>
+</li>
+<li>
+<p>If you selected Category in the Range field, select either a category set or a specific category.</p>
+<p>If you select a category set, item costs are rolled up for items associated with this category set. The default is the category set defined for your costing functional area.</p>
+</li>
+<li>
+<p>If you selected Range of items, enter From and To values to specify the range of items for which to roll up costs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choose OK to display the Request window.</p>
+</li>
+<li>
+<p>Choose Submit to process the rollup.</p>
+<h3><b>Process Flow for Supply Chain Cost Rollup<a name="d0e40967" id="d0e40967"></a><a name="d0e40973" id="d0e40973"></a></b></h3>
+<p><a name="sccflow" id="sccflow"></a>The Supply Chain Cost Rollup creates the following process flow to calculate costs. The process:</p>
+<ul>
+<li>
+<p>Creates a snapshot of the Sourcing Rules/Bills of Distribution.</p>
+</li>
+<li>
+<p>Explodes the bill of material for each assembly in the supply chain.</p>
+<p>This explosion logic considers sourcing rules captured in the snapshot process. It tracks the item and organization combinations.</p>
+</li>
+<li>
+<p>Items from multiple sources in the supply chain are merged.</p>
+<p>Costs from different sources such as make, buy, and transfer items are merged to the rolled up cost in the destination organization.</p>
+<p>Weights are used from the sourcing snapshot.</p>
+<p>The costs transferred from other organizations are considered previous level costs, and their elemental visibility is preserved. The buy costs are summed into this level of material cost. You can save the details of the item costs by selecting Yes in the Preserve Buy Cost Details parameter.</p>
+<p><strong><span>Note:</span></strong> User defined costs for the top level assembly are not recalculated during the Supply Chain Rollup program.</p>
+</li>
+<li>
+<p>Additional markup costs are applied to item costs transferred from other organizations.</p>
+<p>This markup is based on the percentage of Transfer Charge defined in Oracle Inventory's Shipping Networks window. The markup cost is rolled as this level of material overhead cost, for the top level assembly, in the destination organization.</p>
+<p>For the destination organization, there must be a value in the Default Material Overhead Sub-Element field in the Oracle Inventory's Organization Parameters window in the Costing Information tabbed region.</p>
+</li>
+</ul>
+<p><b>Example of Process Flow for Supply Chain Cost Rollup</b><a name="d0e41011" id="d0e41011"></a></p>
+<p>A bill of material structure is defined at Organization 1 and Organization 2. Before the Supply Chain Cost Rollup program is submitted:</p>
+<ul>
+<li>
+<p>Item A (at Organization 1) has a user defined cost of $10, and a buy cost defined as $120.</p>
+</li>
+<li>
+<p>The unit cost for Item B is $100.</p>
+</li>
+<li>
+<p>The Unit cost for Item C (at Organization 2) is $80.</p>
+<p><img width="432" height="313" src="./img/cst_supply.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+<p>The Transfer Charge Type percentage is defined as 10 percent when transferring from Organization 2, to Organization 1. The sourcing rule is defined for Item a in organization 1 as the following:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Source</b></th>
+<th scope="col"><b>Rank</b></th>
+<th scope="col"><b>Percentage</b></th>
+</tr>
+<tr valign="top">
+<td>Make at Organization 1</td>
+<td>1</td>
+<td>50</td>
+</tr>
+<tr valign="top">
+<td>Transfer from Organization 2</td>
+<td>1</td>
+<td>25</td>
+</tr>
+<tr valign="top">
+<td>Buy</td>
+<td>1</td>
+<td>25</td>
+</tr>
+</table>
+<p>When a full cost rollup is submitted for item A, the following process flow occurs:</p>
+<p>A supply chain bill of material explosion is performed and the low level codes are assigned, The program starts with Item B in Organization 1, and Item C in Organization 2 - and then rolls up the cost for Item A in Organization 2. Then it completes by rolling up and merging costs for Item A in Organization 1.</p>
+<p><img width="432" height="313" src="./img/cst_supplybom.gif" alt="the picture is described in the document text"></p>
+<p>The costs of Item A at Organization 1 are calculated with a total unit cost of $112. The following information is used::</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Source</b></th>
+<th scope="col"><b>Original Cost</b></th>
+<th scope="col"><b>Weight</b></th>
+<th scope="col"><b>Extended Cost</b></th>
+</tr>
+<tr valign="top">
+<td>User Defined</td>
+<td>10</td>
+<td>No re-average</td>
+<td>10</td>
+</tr>
+<tr valign="top">
+<td>Make</td>
+<td>100</td>
+<td>50%</td>
+<td>50</td>
+</tr>
+<tr valign="top">
+<td>Buy</td>
+<td>120</td>
+<td>25%</td>
+<td>30</td>
+</tr>
+<tr valign="top">
+<td>Transfer from Organization 2</td>
+<td>80</td>
+<td>25%</td>
+<td>20</td>
+</tr>
+<tr valign="top">
+<td>Markup from Organization 2</td>
+<td>_</td>
+<td>_</td>
+<td>2</td>
+</tr>
+</table>
+<p>See: Standard Request Submission, <i>Oracle Applications User's Guide</i>, <a href="T372621T406224.htm#supplycon">Supply Chain Consolidated Bills of Material Cost Report</a>, and <a href="T372621T406224.htm#supplyind">Supply Chain Indented Bills of Material Cost Report</a></p>
+</li>
+</ol>
+<h2><a name="3536571"></a><a id="T412160"></a><b>Inter-Organization Transfers</b></h2>
+<p><a name="d0e41193" id="d0e41193"></a><a name="c_istx10" id="c_istx10"></a>You can transfer items directly from one organization to another, or transfer items through intransit inventory. You can also use internal requisitions to replenish inventory to another organization; however, internal requisitions do not support freight charges. You can also transfer inventory between discrete and process organizations. As a result, you must properly handle the costing and accounting of transfers between process and discrete organizations. Transfers between discrete and process organizations use a transfer price that is set up between the organizations. See: <a href="T372621T379162.htm#c_xferpricecst">Transfer Price Costing</a>.</p>
+<p>Inter-organizational transfers use the following functionality:</p>
+<ul>
+<li>
+<p>Intransit inventory</p>
+<p>Intransit inventory represents inventory items that have not arrived at the receiving organization. You can move items from the shipping organization to intransit inventory using the Inter-organization Transfer window. Use the Receipts window to move items to the receiving organization.</p>
+</li>
+<li>
+<p>Direct Inter-Organization transfer</p>
+<p>When the inter-organization relationship is set to direct transfer in the Shipping Networks window, an issue and receipt transaction are performed in one step.</p>
+</li>
+<li>
+<p>Inter-Organization receipt<a name="d0e41220" id="d0e41220"></a></p>
+<p>Inventory creates the following calculation for material received intransit and material received directly from another organization:<a name="d0e41226" id="d0e41226"></a></p>
+<p>Current average or standard cost from shipping organization multiplied by transaction quantity plus freight charges and transfer credit charges.</p>
+<p>For a direct receipt, the organization that receives the material does not perform a transaction. The shipping organization performs a ship transaction to the receiving organization. Inventory considers the transfer a receipt in the receiving organization and updates the cost.</p>
+</li>
+<li>
+<p>Inter-organization transfers for consigned inventory do not carry any cost and do not show any value while intransit or when arriving at the destination organization. Therefore, inter-organization transfers, returns, and cancellations for consigned items are not cost collected or accounted for, and are not included in valuation reports. Users can move consigned material from warehouse to warehouse without consuming inventory, and have the option to retain the item in consigned status for inter-organization transfers.</p>
+<p><strong><span>Additional Information:</span></strong> For additional information on setting up and transferring consigned material, and converting consigned items in inventory, refer to the <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Elemental cost visibility<a name="d0e41251" id="d0e41251"></a><a name="d0e41257" id="d0e41257"></a></p>
+<p>You can set elemental cost visibility during inter-organization transfers either to preserve the shipping organization's elemental costs or to summarize all elemental costs into the material cost element. Enable this option using the Elemental Visibility Enabled check box on the Main tab in the Shipping Networks window. This option is available for each line in the shipping network, regardless of direction.</p>
+<p>Combining all cost elements into the material cost element assures that the receiving organization does not have another organization's overhead in its calculation.</p>
+<p><strong><span>Note:</span></strong> The correct option for elemental cost visibility must be set at the time that the transaction is costed, not at the time that the transaction occurs.</p>
+</li>
+<li>
+<p>Expense subinventories and expense items</p>
+<p>When you receive an inter-organization transfer into an expense subinventory, or receive an expense inventory item, set the Oracle Inventory INV: Allow Expense to Asset Transfer profile option is set to Yes. This issues the material from the expense subinventory.</p>
+<p>When you receive to expense locations or receive expense inventory items, the subinventory expense account is debited for the receiving organization instead of the valuation accounts. The subinventory expense account is charged the total transaction value from the other organization.</p>
+</li>
+<li>
+<p>Inter-Organization transfers and ledgers</p>
+<p>The Inter-Organization Direct Transfer transaction supports transfers from any ledger, including ledgers in different currencies.</p>
+</li>
+<li>
+<p>Freight transactions</p>
+<p>The Free on Board (FOB) point influences the accounting entries generated for the shipment to intransit inventory. The FOB point is determined by how the inter-organization shipping network is defined in the Shipping Networks window.</p>
+<p>In addition to accounting for the movement of the items, these transactions also update the inter-organization receivable and payable accounts.</p>
+<p>The FOB point changes the accounting for freight. When FOB is receipt, freight is accrued on the receipt transaction by the shipping organization. When FOB is shipment, freight is accrued on the shipment transaction by the receiving organization. For direct transfers, the receipt and shipment transactions occur at the same time.</p>
+</li>
+</ul>
+<p>See:</p>
+<p>Defining Inter-Organization Shipping Networks, <i>Oracle Inventory User's Guide</i>,</p>
+<p>Transferring Between Organizations, <i>Oracle Inventory User's Guide</i>,</p>
+<p>Managing Receipts, <i>Oracle Purchasing User's Guide</i>,</p>
+<p><a href="T372621T373688.htm#c_laytxpori">Purchase Order Receipt To Inventory</a>,</p>
+<p><a href="T372621T373688.htm#c_laytxst">Subinventory Transfers</a>,</p>
+<p>Managing Receipts, <i>Oracle Purchasing User's Guide</i>, and</p>
+<p>Entering Receiving Transactions, <i>Oracle Purchasing User's Guide</i>.</p>
+<h3><a id="T412161"></a><b>Inter-Organization Transfer Transactions<a name="d0e41331" id="d0e41331"></a><a name="intorgtrans" id="intorgtrans"></a></b></h3>
+<p><b>Shipment Transactions (Intransit transfer only)</b></p>
+<p><b>FOB receipt:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory accounts</td>
+<td>Shipping</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts</td>
+<td>Shipping</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>FOB shipment:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Receivable</td>
+<td>Shipping</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation accounts</td>
+<td>Shipping</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory Material account</td>
+<td>Receiving</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Payable</td>
+<td>Receiving</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>Receipt Transaction (Intransit transfer only)</b></p>
+<p><b>FOB receipt:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Receivable</td>
+<td>Shipping</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory accounts</td>
+<td>Shipping</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Org. Inventory Material account</td>
+<td>Receiving</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Payable</td>
+<td>Receiving</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>FOB shipment:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Org. Inventory Material account</td>
+<td>Receiving</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory Material account</td>
+<td>Receiving</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>Material Overhead and Inter-Organization Transfers</b></p>
+<p>If your item has material overhead, you can earn material overhead in the receiving organization as part of the receipt transaction.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Organization Material Overhead account</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Material Overhead Absorption account</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>Direct Inter-Organization Transfer</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Receivable</td>
+<td>Shipping</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Org. Inventory Valuation accounts</td>
+<td>Shipping</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Org. Inventory Valuation accounts</td>
+<td>Receiving</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Payable</td>
+<td>Receiving</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>Freight and Transfer Charges</b></p>
+<p><b>FOB receipt:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory Account</td>
+<td>Shipping</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Freight Expense account</td>
+<td>Shipping</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Receivable</td>
+<td>Shipping</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Org. Transfer Credit</td>
+<td>Shipping</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Org. Material account</td>
+<td>Receiving</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Payable</td>
+<td>Receiving</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>FOB shipment:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Receivable</td>
+<td>Shipping</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Account</td>
+<td>Shipping</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Inter-Org. Transfer Credit</td>
+<td>Shipping</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory Material account</td>
+<td>Receiving</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Freight Expense account</td>
+<td>Receiving</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Payable</td>
+<td>Receiving</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p>Intransit includes both the freight and transfer charges. Inter-organization payable is only increased for the transfer charge.</p>
+<h3><a id="T412162"></a><b>Project Manufacturing Transfer Transactions<a name="d0e41925" id="d0e41925"></a></b></h3>
+<p><b>Direct Transfer</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Expense to Expense</td>
+<td>No entries<br>
+Receiving</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+<p><b>Standard Org. to Project excluding Expense to Expense</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Material (Standard cost of item of Shipping Org.) plus Freight and Transfer Charges</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Interorg. Payable</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Interorg. Receivable at Standard plus Freight and Transfer Charges</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Subinventory Valuation</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Freight Credit</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Transfer Credit</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>Average Org. to or from Project excluding Expense to Expense</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Material at Current Average Cost (of Shipping Org.)</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Interorg. Payable</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Interorg. Receivable at Current Average Cost (of Shipping Org.) and Freight and Transfer Charges</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Organization Valuation</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Freight Credit</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Transfer Credit</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>Project to Standard excluding Expense to Expense</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Subinventory Valuation at Standard</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance (in Receiving Organizaton) at Difference Between Cost of Shipping and Receiving Org.</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Interorg. Payable at Current Average Cost (of Shipping Org. Cost Group)</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Interorg. Receivable at Current Average Cost in Cost Group of Shipping Org.</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation (Shipper)</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>Receipt - Intransit Standard Organization into Project Organization Using Internal Orders</b></p>
+<p><b>FOB receipt:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Material (in Receiving organization) at Standard Cost (of Shipping Organization)</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Interorganization Payable</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Interorganization Receivable at Standard Cost</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Material (in Receiv-ing organization) at Current Av-erage Cost (of Shipping Orga-nization Cost Group)</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Interorganization Payable</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Interorganization Receivable at Current Average Cost (of Ship-ping Organization Cost Group)</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>Receipt - Intransit Project Organization into Project Organization Using Internal Orders</b></p>
+<p><b>FOB shipment:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Material at Current Average Cost (in Common Cost Group of Shipping Organization)</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>Receipt - Intransit into Project Organization using Internal Orders</b></p>
+<p><b>FOB receipt:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation or Expense at Current Average Cost (of Send-ing Organization) XX &ndash;</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>Transfer Project Organization from Standard Organization Using Internal Orders</b></p>
+<p><b>FOB shipment:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit Material (in Receiving Organization) at Standard Cost (of Sending Organization)</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Interorganization Payable</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Interorganization Receivable</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Subinventory Valuation</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<p><b>Transfer - Project Organization from Project Organization Using Internal Orders</b></p>
+<p><b>FOB shipment</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Account</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory at Current Average Cost (in Project Cost Group of Sending Organization)</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Interorganization Payable</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+<tr valign="top">
+<td>Interorganization Receivable</td>
+<td>XX</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Valuation</td>
+<td>-</td>
+<td>XX</td>
+</tr>
+</table>
+<h4><a id="T427206"></a><b>Periodic Average Costing (PAC) Inter-organization Transfers Across Cost Groups</b></h4>
+<p>The costing and accounting for all inter-organization transactions that do not use transfer pricing use the sending cost group's Periodic Weighted Average Cost (PWAC). However, the sending cost may not be available to the receiving cost group at the time that the receiving cost processor runs. The sending cost is known only after running the PAC processes in the sending cost group. Simply running one process before the other doesn't solve this problem, because some items will go from Cost Group A to B, others will go from B to A, and some may go in both directions.</p>
+<p>The best solution is to estimate the sending cost group's cost at the time that the application processes the receiving cost group. One method for an accurate estimate is to use the Periodic Absorption Cost Processor. This is an iterative process that can develop an exact calculation of the sending cost group's item cost along with the cost in the receiving cost group.</p>
+<p>If your organization does not use the absorption cost processor, the application estimates the sending organization's PAC cost for this period using the sending organization's PAC cost from the previous period (if the cost groups are in the same legal entity). All cost group periods are closed together for a given legal entity, which ensures that the sending and receiving cost groups both pick up the same value for the shipment cost. Both groups will use the sending cost of the last closed period. If the groups are in different legal entities, then the sending cost estimate will come from the perpetual cost of the shipment transaction.</p>
+<p><b>Example</b></p>
+<p>PAC cost of item in sending org = $110</p>
+<p>PAC cost in receiving Org = $80</p>
+<p>Estimated PWAC of sending CG = $100</p>
+<p>Quantity transferred = 1 unit</p>
+<p><b>For FOB - Shipment Transfers Using Sending CG PWAC:</b></p>
+<p>The item cost in the receiving organization is re-averaged based on the sending cost group's estimated cost.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Shipping Transaction</b></td>
+<td><b>Debit</b></td>
+<td><b>Credit</b></td>
+</tr>
+<tr valign="top">
+<td>InterOrg Receivables</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory (On Hand)</td>
+<td>-</td>
+<td>110</td>
+</tr>
+<tr valign="top">
+<td>Transfer Variance</td>
+<td>10</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>InterOrg Payables</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Receipt Transaction</b></td>
+<td><b>Debit</b></td>
+<td><b>Credit</b></td>
+</tr>
+<tr valign="top">
+<td>Inventory (On Hand)</td>
+<td>90</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>90</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> Assuming the receiving organization had one unit of the item prior to this transaction, the new item cost would be (1*100) + (1*80) / 2 = 90.</p>
+<p><b>For FOB - Receipt Transfers Using Sending CG PWAC:</b></p>
+<p>The item cost in the receiving organization is re-averaged based on the sending cost group's estimated cost.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Shipping Transaction</b></td>
+<td><b>Debit</b></td>
+<td><b>Credit</b></td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>110</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory (On Hand)</td>
+<td>-</td>
+<td>110</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Receipt Transaction</b></td>
+<td><b>Debit</b></td>
+<td><b>Credit</b></td>
+</tr>
+<tr valign="top">
+<td>InterOrg Receivables</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>110</td>
+</tr>
+<tr valign="top">
+<td>Transfer Variance</td>
+<td>10</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory (On Hand)</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>InterOrg Payables</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> Assuming the receiving organization had one unit of the item prior to this transaction, the new item cost would be (1*100) + (1*80) / 2 = 90.</p>
+<p><b>For Direct Interorganization Transfers Using Sending Cost Group PWAC:</b></p>
+<p>The item cost in the receiving organization is re-averaged based on the sending cost group's estimated cost.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Shipping Transaction</b></td>
+<td><b>Debit</b></td>
+<td><b>Credit</b></td>
+</tr>
+<tr valign="top">
+<td>InterOrg Receivables</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory (On Hand)</td>
+<td>-</td>
+<td>110</td>
+</tr>
+<tr valign="top">
+<td>Transfer Variance</td>
+<td>10</td>
+<td>-</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Receipt Transaction</b></td>
+<td><b>Debit</b></td>
+<td><b>Credit</b></td>
+</tr>
+<tr valign="top">
+<td>Inventory (On Hand)</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>InterOrg Payables</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> Assuming the receiving organization had one unit of the item prior to this transaction, the new item cost would be (1*100) + (1*80) / 2 = 90.</p>
+<p>In all cases, the inventory valuation account of the sending organization is always credited at the item's PAC cost, and the transfer variance contains the difference between the item's PAC cost and the estimated cost of the item in the sending organization. The estimate comes from either the item's PAC cost last period (same LE), or the perpetual cost of the shipment transaction (different LE). The Transfer Variance account entries will have an accounting line type of inter-org profit.</p>
+<h2><a name="3536833"></a><a id="T412167"></a><b>Transfer Price Costing</b></h2>
+<p><a name="d0e42875" id="d0e42875"></a><a name="c_xferpricecst" id="c_xferpricecst"></a>You have the option to use the transfer price for intercompany accounting. Transfer price costing occurs when a sales order is created for an intransit transfer, between two internal organizations, in two different operating units. This functionality is flagged in the Transfer Pricing Option profile option.</p>
+<p>Transfer pricing is used in calculating Profit in Inventory. The operating unit associates a price list with any operating unit. Features of this functionality include:</p>
+<ul>
+<li>
+<p>Accounting distributions for internal order transfers are the same entries as an external sales order and purchase order.</p>
+</li>
+<li>
+<p>Incoming item cost for the Receiving organization is the transfer price, rather than the item cost of the Shipping organization.</p>
+</li>
+<li>
+<p>Profit in Inventory is reported at the individual company level for internal order transfers, and eliminated at time of consolidation.</p>
+</li>
+<li>
+<p>The transfer price takes priority over the transfer charge. It is recommended that transfer credit is not set up in the Shipping Network window to avoid the value calculated in new entries. For internal order transfers, freight is not charged directly.</p>
+</li>
+</ul>
+<p><b>Setup</b></p>
+<ul>
+<li>
+<p>Define Intercompany relationships between operating units.</p>
+</li>
+<li>
+<p>In the Shipping Networks window in Oracle Inventory, add values for Intransit Inventory and Profit in Inventory accounts. These fields are located in the Other Accounts tabbed region.</p>
+</li>
+<li>
+<p>Set the profile option CST:Transfer Pricing Option to Yes.</p>
+</li>
+</ul>
+<p>See: Intercompany Invoicing Process, <i>Oracle Inventory User's Guide</i>,</p>
+<p>Intercompany Invoice Pricing, <i>Oracle Inventory User's Guide</i>,</p>
+<p>Overview of Price Lists, <i>Oracle Advanced Pricing User's Guide</i>, and</p>
+<p>Creating a Price List, <i>Oracle Advanced Pricing User's Guide</i>.</p>
+<h3><a id="T412168"></a><b>Standard Cost Examples for Transfer Pricing<a name="d0e42935" id="d0e42935"></a><a name="stanextra" id="stanextra"></a></b></h3>
+<p>The following list accounting values for standard cost transactions.</p>
+<ul>
+<li>
+<p>Cost of Goods Sold (COGS) account value is derived from the Shipping organization's inventory cost.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Intercompany Accrual value equals the transfer price.</p>
+</li>
+<li>
+<p>Profit in Inventory value equals the transfer price, minus the Shipping organization's inventory cost.</p>
+</li>
+</ul>
+<p>In these examples: .</p>
+<ul>
+<li>
+<p>Company 01 has an inventory cost of $102 - material cost of $100, and material overhead cost of $2.</p>
+</li>
+<li>
+<p>Company 02 has a standard cost of $108. - material cost of $105 and material overhead cost of $3.</p>
+</li>
+<li>
+<p>The transfer price is $120.</p>
+</li>
+</ul>
+<h4><a id="T412169"></a><b>Freight On Board (FOB) Shipment Transactions<a name="d0e42969" id="d0e42969"></a></b></h4>
+<p>Two options are available for FOB shipment transactions in standard cost organizations:</p>
+<ul>
+<li>
+<p>The incoming cost to the receiving organization is the shipping organization's inventory cost.</p>
+</li>
+<li>
+<p>The incoming cost to the receiving organization is based on the transfer price.</p>
+</li>
+</ul>
+<p><b>Receiving Inventory Valued at Sending Cost</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS Material</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>COGS Material Overhead</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material</td>
+<td>-</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material Overhead</td>
+<td>-</td>
+<td>2</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>108</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Profit in Inventory</td>
+<td>18</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>-</td>
+<td>6</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p><b>Receiving Inventory Valued at Transfer Price</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS Material</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>COGS Material Overhead</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material</td>
+<td>-</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material Overhead</td>
+<td>-</td>
+<td>2</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>108</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>12</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<h4><a id="T412170"></a><b>Freight on Board (FOB) Receipt Transactions<a name="d0e43218" id="d0e43218"></a></b></h4>
+<p>Two options are available for FOB receipt transactions when incoming cost is derived from the inventory cost:</p>
+<ul>
+<li>
+<p>The incoming cost to the receiving organization is the shipping organization's inventory cost.</p>
+</li>
+<li>
+<p>The incoming cost to the receiving organization is based on the transfer price. The Purchase Price Variance value is derived from the transfer price. The Profit in Inventory account is not used.</p>
+</li>
+</ul>
+<p><b>Receiving Inventory Valued at Sending Cost</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS Material</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>COGS Material Overhead</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>102</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material</td>
+<td>105</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material Overhead</td>
+<td>3</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Profit in Inventory</td>
+<td>18</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>-</td>
+<td>6</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p><b>Receiving Inventory Valued at Sending Cost</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS Material</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>COGS Material Overhead</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>102</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material</td>
+<td>105</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material Overhead</td>
+<td>3</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>12</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<h3><a id="T412171"></a><b>Actual Cost Examples for Transfer Pricing<a name="d0e43465" id="d0e43465"></a><a name="actextra" id="actextra"></a></b></h3>
+<p>The following are accounting values for average, FIFO, and LIFO cost organizations using transfer pricing:</p>
+<ul>
+<li>
+<p>The Cost of Goods Sold (COGS) account value is derived from the shipping organization's inventory cost.</p>
+</li>
+<li>
+<p>The Intercompany Accrual value equals the transfer price.</p>
+</li>
+<li>
+<p>The Profit in Inventory value equals the transfer price, minus the shipping organization's inventory cost.</p>
+</li>
+</ul>
+<p>In these examples, Company 01 has an inventory cost of $102, and Company 02 has a average cost of $108. The transfer price is $120.</p>
+<h4><a id="T412172"></a><b>Freight On Board (FOB) Shipment Transactions<a name="d0e43488" id="d0e43488"></a></b></h4>
+<p>Two options are available for FOB shipment transactions in actual cost organizations:</p>
+<ul>
+<li>
+<p>The incoming cost to the receiving organization is the Shipping organization's inventory cost.</p>
+</li>
+<li>
+<p>The incoming cost to the receiving organization is based on the transfer price.</p>
+</li>
+</ul>
+<p><b>Receiving Inventory Valued at Sending Cost</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS Material</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>COGS Material Overhead</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material</td>
+<td>-</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material Overhead</td>
+<td>-</td>
+<td>2</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory Material</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory Material Overhead</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Profit in Inventory</td>
+<td>18</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p><b>Receiving Inventory Valued at Transfer Price</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS Material</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>COGS Material Overhead</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material</td>
+<td>-</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material Overhead</td>
+<td>-</td>
+<td>2</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory Material</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory Material Overhead</td>
+<td>0</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<h4><a id="T412173"></a><b>Freight on Board (FOB) Receipt Transactions<a name="d0e43735" id="d0e43735"></a></b></h4>
+<p>Two options are available for FOB receipt transactions when incoming cost is derived from the inventory cost:</p>
+<ul>
+<li>
+<p>The incoming cost to the receiving organization is the shipping organization's inventory cost.</p>
+</li>
+<li>
+<p>The incoming cost to the receiving organization is based on the transfer price. The Profit in Inventory account is not used.</p>
+</li>
+</ul>
+<p><b>Receiving Inventory Valued at Sending Cost</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS Material</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>COGS Material Overhead</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>102</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material Overhead</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Profit in Inventory</td>
+<td>18</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p><b>Receiving Inventory Valued at Transfer Price</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS Material</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>COGS Material Overhead</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>102</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation Material Overhead</td>
+<td>0</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<h4><a id="T427174"></a><b>Period Average Costing (PAC) Examples for Transfer Pricing<a name="d0e43962" id="d0e43962"></a><a name="d0e43968" id="d0e43968"></a></b></h4>
+<p>The following describes transfer pricing support in PAC and includes shipping networks and intransit accounting concepts. Similar to perpetual costing, the application revalues the intransit quantities as part of on-hand inventory for the owning organization. For example, in the case of FOB shipment, the receiving cost group takes ownership of the goods at the time of shipment (goods go into the receiving CG's inventory), and re-averages its inventory with the new costed quantity. The receipt transaction is a cost-derived transaction and serves only as an accounting-only transaction. Similarly, for FOB receipts, the sending organization owns the goods in transit until the receipt is performed, and includes intransit balances when revaluing on-hand inventory before the receipt takes place.</p>
+<h4><a id="T427175"></a><b>Transfer Price</b></h4>
+<p>For setting up and using a transfer price to cost intercompany transactions, the transfer pricing functionality for perpetual costing methods is extended to PAC.</p>
+<p>There are two limitations to transfer pricing with internal sales orders:</p>
+<ol>
+<li>
+<p>Transfer pricing is supported across operating units only. Within the same operating unit, you must run the transfer as an inter-organizational transfer.</p>
+</li>
+<li>
+<p>Transfer pricing works with intransit transfers only, not with direct transfers.</p>
+</li>
+</ol>
+<p><b>Example</b></p>
+<p>For an internal sales order transaction with:</p>
+<p>INV: Intercompany Invoicing for Internal Orders = &ldquo;Yes&rdquo; and CST: Transfer Pricing Option = &ldquo;Yes, Price as Incoming Cost&rdquo;, consider the following scenario:</p>
+<ul>
+<li>
+<p>PAC cost of Item in sending org = $110</p>
+</li>
+<li>
+<p>PAC Cost in Receiving Org = $80</p>
+</li>
+<li>
+<p>Transfer Price between the Orgs = $120</p>
+</li>
+<li>
+<p>Quantity transferred = 1 unit</p>
+</li>
+<li>
+<p>Perpetual Item Cost of shipment transaction in sending org = $100</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>For FOB &ndash; Shipment transfers with CST:Transfer Pricing Option = Yes, Price As Incoming Cost:</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>110</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory (On-Hand)</td>
+<td>-</td>
+<td>110</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory (On-Hand)</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p>The item cost in the Receiving Org is re-averaged based on the transfer price, when the item is brought into the receiving cost group's inventory (intransit line type).</p>
+<p><strong><span>Note:</span></strong> The receipt is done at (80 + 100) / 2 = 100, the re-averaged cost after including the transfer price.</p>
+<p><b>For FOB &ndash; Receipt transfers with CST:Transfer Pricing Option = Yes, Price As Incoming Cost:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Shipping Organization</b></td>
+<td><b>Debit</b></td>
+<td><b>Credit</b></td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>110</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory (On-Hand)</td>
+<td>-</td>
+<td>110</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>110</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>110</td>
+</tr>
+<tr valign="top">
+<td>Inventory (On-Hand)</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> Assuming the receiving organization had 1 unit of the item prior to this transaction, the new item cost AFTER THE RECEIPT transaction would be (1*120) + (1*80) / 2 = 100.</p>
+<p><b>For FOB &ndash; Shipment transfers with CST:Transfer Pricing Option = Yes, Price Not As Incoming Cost:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Shipping Organization</b></td>
+<td><b>Debit</b></td>
+<td><b>Credit</b></td>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>Sending CG PAC Item Cost at the time of shipment</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory (On-Hand)</td>
+<td>-</td>
+<td>Sending CG PAC Item Cost at the time of shipment</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>Estimated Sending CG Cost</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>Transfer Price</td>
+</tr>
+<tr valign="top">
+<td>Profit in Inventory</td>
+<td>Difference between estimated PWAC and transfer price</td>
+<td>Difference between estimated PWAC and transfer price</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory (On-Hand)</td>
+<td>Current PWAC Cost at the time of receipt</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>Current PWAC Cost at the time of receipt</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> The item cost in the Receiving Organization is re-averaged based on the estimated sending CG cost when the item is brought into the receiving cost group's inventory (intransit line type).</p>
+<p><b>For FOB &ndash; Receipt transfers with CST:Transfer Pricing Option = Yes, Price Not As Incoming Cost:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>Sending CG PAC Item Cost at the time of shipment</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory (On-Hand)</td>
+<td>-</td>
+<td>Sending CG PAC Item Cost at the time of shipment</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td><b>Receiving Organization</b></td>
+<td><b>Debit</b></td>
+<td><b>Credit</b></td>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>Sending CG PAC Item Cost at the time of receipt</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit Inventory</td>
+<td>-</td>
+<td>Sending CG PAC Item Cost at the time of receipt</td>
+</tr>
+<tr valign="top">
+<td>Inventory (On-Hand)</td>
+<td>Estimated Sending CG Cost</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>Transfer Price</td>
+</tr>
+<tr valign="top">
+<td>Profit in Inventory</td>
+<td>Difference between estimated PWAC and transfer price</td>
+<td>Difference between estimated PWAC and transfer price</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> The item cost in the Receiving Org is re-averaged based on the estimated sending CG cost.</p>
+<h2><a name="3794879"></a><a id="T427923"></a><b>Transfers Between Process and Discrete Organizations</b></h2>
+<p><a name="d0e44446" id="d0e44446"></a><a name="c_xfrprocdisc" id="c_xfrprocdisc"></a>Discrete inventory organizations and process inventory organizations share the same inventory setup and transaction model, and Oracle Inventory and Cost Management support material transfers between process organizations and discrete organizations. Along with the transfer of materials, you can also transfer the cost of the material in one form or another to ensure that the values of inventory movements and transfers are properly tracked in the various sub-ledgers and in the General Ledger. In addition, in the case of organizations that use some form of average costing, the cost of the incoming material is considered for perpetual or periodic averaging.</p>
+<p>Consider the example where an item is transferred from an organization (the source organization) that uses a periodic method of actual costing, to another organization (the target organization) that uses a perpetual method of costing. Within the target organization, the cost of the transfer is required at the time of the transfer to accurately record the incoming inventory value and recalculate the perpetual average in the case of average costing, or to value the incoming inventory in case of perpetual standard costing. However, the cost of the item in the source organization is not known until the cost process is run (which usually occurs at the end of the period). Therefore, to properly value the inventory that is moved, a Transfer Price is used as the incoming cost in the receiving organization.</p>
+<h3><a id="T427924"></a><b>Costing Transfers Using Transfer Price<a name="d0e44461" id="d0e44461"></a></b></h3>
+<p>Transfers between discrete and process organizations use a transfer price that is set up between the organizations. A new account, Interorganization Profit, is created to capture the difference in the sending organization.</p>
+<p>The receiving organization uses this transfer price as the cost associated with the transfer, and if necessary, the receiving organization will recalculate the averages using this transfer price as the incoming cost. In the sending organization, the difference between the transfer price and the cost as calculated (possibly at the end of the period ) is recognized as interorganization profit. This profit may be manually reconciled at the end of the period when reconciling both the source and target organization's books.</p>
+<p><strong><span>Important:</span></strong> The application uses transfer price for transfer between process and discrete organizations regardless of the type of transfer, or whether it is within an operating unit or across operating units. The application always uses the transfer price as the incoming cost in the receiving organization.</p>
+<h3><a id="T427925"></a><b>Accounting Transactions for Transfer Pricing</b></h3>
+<p>Oracle Inventory allows two types of material transfers between two inventory organizations:</p>
+<ul>
+<li>
+<p><b>Direct:</b> Materials are considered to have been transferred immediately, and the quantities are decremented and incremented in the source and destination organization respectively at the same time.</p>
+</li>
+<li>
+<p><b>In-Transit</b>: There is a time lag between when the material leaves the source organization, and when it is received at the destination organization.</p>
+</li>
+</ul>
+<p>The accounting distributions are different between the various transfer types. The following table illustrates differences between the two types of transfers.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Direct Transfer</b></th>
+<th scope="col"><b>Intransit Transfer</b></th>
+</tr>
+<tr valign="top">
+<td>Material is transferred immediately and is decremented and incremented in the source and destination organization at the same time.</td>
+<td>Material goes into in-transit, and is explicitly received in the destination organization.</td>
+</tr>
+<tr valign="top">
+<td>The transactions are created using the Inventory Transfers window, and both from and to transactions are created at the same time.</td>
+<td>The shipment is created using the Inventory Transfers window, and is received using the Receiving windows.</td>
+</tr>
+<tr valign="top">
+<td>FOB options are not applicable because transfer happens immediately.</td>
+<td>The FOB option can be either shipping or receiving.</td>
+</tr>
+<tr valign="top">
+<td>Can also process using internal orders.</td>
+<td>Can also process using internal orders.</td>
+</tr>
+<tr valign="top">
+<td>No inter-company invoicing support.</td>
+<td>Inter-company invoicing is possible for transfers across operating units that are done via Internal-Orders.</td>
+</tr>
+<tr valign="top">
+<td>Freight and transfer credits can be used. However, freight is not applicable for internal-order transfers.</td>
+<td>Freight and transfer credits can be used. However, freight is not applicable for internal-order transfers.<br>
+Transfer credit is applicable only in the case where the transfer happens within the same operating unit, or when invoicing is not used.<br>
+Transfer price is required in cases of inter-company invoiced transfers.</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> Transfer price takes priority over the transfer charge. The application ignores the transfer credit setup in the Shipping Network window.</p>
+<p>The following examples illustrate the accounting entries for various types of inventory transfers that include direct and in-transit transfers.</p>
+<p><strong><span>Note:</span></strong> For the following examples, recording of the receiving transaction accounting entry may occur prior to the accounting entry for the shipping transaction. Transfer Credit is not supported for process/discrete transfer. Therefore, transfer credit is not used.</p>
+<p><b>1 - Direct Transfer (through inventory transfer, or using internal order)</b></p>
+<p><b>Example 1-1: Average Costing Organization</b></p>
+<p><strong><span>Note:</span></strong> For simplicity, the quantity transferred is assumed to be 1 unit.</p>
+<p>For direct transfers, inter-company invoicing option is not currently supported. Therefore, the accounting distribution template for inter-company option is not discussed in this document.</p>
+<ol>
+<li>
+<p>Sending Organization Cost = $100</p>
+</li>
+<li>
+<p>Receiving Organization Cost = $80</p>
+</li>
+<li>
+<p>Transfer Price between these Organizations = $120</p>
+</li>
+<li>
+<p>Qty. Transferred = 1 Unit</p>
+</li>
+<li>
+<p>Transfer Credit = 10%</p>
+</li>
+<li>
+<p>Freight = $25</p>
+</li>
+</ol>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Receivables</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>Freight Expense a/c</td>
+<td>-</td>
+<td>25</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Profit</td>
+<td>5</td>
+<td>-</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Payables</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p>The cost in the receiving organization is re-averaged based on the cost of the transfer (transfer price).</p>
+<p><b>Example 1-2: Standard Costing Organization</b></p>
+<ol>
+<li>
+<p>Sending Organization Cost = $100</p>
+</li>
+<li>
+<p>Receiving Organization Cost = $80</p>
+</li>
+<li>
+<p>Transfer Price between these Organizations = $120</p>
+</li>
+<li>
+<p>Qty. Transferred = 1 Unit</p>
+</li>
+<li>
+<p>Transfer Credit = 10%</p>
+</li>
+<li>
+<p>Freight = $25</p>
+</li>
+</ol>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Receivables</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>Freight Expense a/c</td>
+<td>-</td>
+<td>25</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Profit</td>
+<td>5</td>
+<td>-</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>80</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Payables</td>
+<td>-</td>
+<td>120</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance <b>*</b></td>
+<td>40</td>
+<td>-</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> * Purchase Price Variance (PPV) is recorded for standard costing organizations only. For average costing organizations, incoming cost becomes the cost of the transfer and is used in the average cost calculations, and there will be no PPV.</p>
+<h4><a id="T427948"></a><b>2a - In-transit Transfer (through inventory transfer, or using internal order) with FOB set to Shipping</b></h4>
+<p><strong><span>Note:</span></strong> For simplicity, the quantity transferred is assumed to be 1 unit. Inter-Company transfers are considered in the next section.</p>
+<p><b>Example 2a-1: Average Costing Organization</b></p>
+<ol>
+<li>
+<p>Sending Organization Cost = $100</p>
+</li>
+<li>
+<p>Transfer Price between these Organizations = $120</p>
+</li>
+<li>
+<p>Qty. Transferred = 1 Unit</p>
+</li>
+<li>
+<p>Transfer Credit = 10%,</p>
+</li>
+<li>
+<p>Freight = $25</p>
+</li>
+</ol>
+<p><b>After Shipment:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Receivables</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Profit</td>
+<td>-</td>
+<td>20</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>145</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Payables</td>
+<td>-</td>
+<td>120</td>
+</tr>
+<tr valign="top">
+<td>Freight Expense a/c</td>
+<td>-</td>
+<td>25</td>
+</tr>
+</table>
+<p>Receiving Organization Cost (After Re-averaging) = $80</p>
+<p><b>After Receipt</b><b>:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>80</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-transit Inventory</td>
+<td>-</td>
+<td>80</td>
+</tr>
+</table>
+<p>The Cost in the receiving organization is re-averaged based on the cost of the transfer (transfer price)</p>
+<p><b>Example 2a-2: Standard Costing Organization</b></p>
+<ol>
+<li>
+<p>Sending Organization Cost = $100</p>
+</li>
+<li>
+<p>Receiving Organization Cost = $80</p>
+</li>
+<li>
+<p>Transfer Price between these Organizations = $120</p>
+</li>
+<li>
+<p>Qty. Transferred = 1 Unit</p>
+</li>
+<li>
+<p>Transfer Credit = 10%</p>
+</li>
+<li>
+<p>Freight = $25</p>
+</li>
+</ol>
+<p><b>After Shipment:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Receivables</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Profit</td>
+<td>-</td>
+<td>20</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>80</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Payables</td>
+<td>-</td>
+<td>120</td>
+</tr>
+<tr valign="top">
+<td>Freight Expense a/c</td>
+<td>-</td>
+<td>25</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>65</td>
+<td>-</td>
+</tr>
+</table>
+<p><b>After Receipt</b><b>:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>80</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>80</td>
+</tr>
+</table>
+<h4><a id="T427955"></a><b>2b - In-transit Transfer (through Inventory Transfer or via Internal Order) with FOB set to Receiving</b></h4>
+<p><b>Example 2b-1: Average Costing Organization</b></p>
+<ol>
+<li>
+<p>Sending Organization Cost = $100</p>
+</li>
+<li>
+<p>Receiving Organization Cost = $80</p>
+</li>
+<li>
+<p>Transfer Price between these Organizations = $120</p>
+</li>
+<li>
+<p>Qty. Transferred = 1 Unit</p>
+</li>
+<li>
+<p>Transfer Credit = 10%</p>
+</li>
+<li>
+<p>Freight = $25</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> Transfer credit is not used in this case.</p>
+<p><b>After Shipment:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p><b>After Receipt:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Receivables</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>Freight Expense a/c</td>
+<td>-</td>
+<td>25</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Profit</td>
+<td>5</td>
+<td>-</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Payables</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p>The Cost in the receiving organization is re-averaged based on the cost of the transfer (transfer price).</p>
+<p><b>Example 2b-2: Standard Costing Organization</b></p>
+<ol>
+<li>
+<p>Sending Organization Cost = $100</p>
+</li>
+<li>
+<p>Receiving Organization Cost = $80</p>
+</li>
+<li>
+<p>Transfer Price between these Organizations = $120</p>
+</li>
+<li>
+<p>Qty. Transferred = 1 Unit</p>
+</li>
+<li>
+<p>Transfer Credit = 10%</p>
+</li>
+<li>
+<p>Freight = $25</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> Transfer credit is not used in this case.</p>
+<p><b>After Shipment:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p><b>After Receipt:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Receivables</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>Freight Expense a/c</td>
+<td>-</td>
+<td>25</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Profit</td>
+<td>5</td>
+<td>-</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>80</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Payables</td>
+<td>-</td>
+<td>120</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>40</td>
+<td>-</td>
+</tr>
+</table>
+<h3><a id="T427956"></a><b>Intercompany Transfers Using Internal Orders</b></h3>
+<p>When a transfer occurs between two inventory organizations that belong to two different operating units (that may or may not belong to the same ledger), the transfer is considered to be intercompany. Release 11i9 introduced an option that enables you to generate intercompany invoices for this type of transfer.</p>
+<p>The system generates intercompany invoices for internal sales orders (ISOs) with intermediate nodes. This means that:</p>
+<ul>
+<li>
+<p>An internal sales order involving physical movement of goods is placed between organizations in two operating units.</p>
+</li>
+<li>
+<p>The financial transactions may flow between one or more different internal operating units (nodes) within the larger corporate structure.</p>
+</li>
+<li>
+<p>Each intermediary node generates an invoice to the next organization in the chain, effectively requiring each transfer of ownership to be accounted for with separate intercompany invoices at the appropriate transfer price.</p>
+</li>
+<li>
+<p>In addition to the inventory accounting of the physical intercompany shipment and receipt transactions, the logical transactions representing the financial flow is also appropriately accounted at the transfer price between the nodes.</p>
+</li>
+<li>
+<p>Return logistics between the operating units with intermediate nodes is managed with reversals in inventory accounting and invoicing.</p>
+</li>
+</ul>
+<p>Along with the invoicing option, the release introduced a transfer pricing mechanism to value the transfers. You can use either the transfer price as the incoming cost, or use the sending organization cost as the incoming cost in the destination organization. However, the inter-company accounting option is available only for transfers created using internal orders.</p>
+<p>In the case of transfer with intercompany invoicing and transfer prices, the accounting entries generated are different from those that are generated for a transfer without the intercompany invoicing option. The accounting entries are also different from those that are generated for a transfer between inventory organizations belonging to the same operating unit as in examples 2a & 2b.</p>
+<p>The following two sections illustrate how the inter-company transfers are accounted for inter-company transfers between process and discrete organizations.</p>
+<p><strong><span>Important:</span></strong> For intercompany transfers between process and discrete inventory organizations, the incoming cost of an item is equal to its defined transfer price. This cost rule applies regardless of the value specified in the profile option CST: Transfer Pricing Option. The cost processor always assumes a profile option value of 'Yes, Transfer Price as Incoming Cost'. Profile option values of No or Yes, Price Not as Incoming Cost are ignored in these transfers.</p>
+<h4><a id="T427957"></a><b>3a - Inter-Company Transfers with Invoicing &ndash; FOB set to Shipping</b></h4>
+<p><b>Example 3a-1: Average Costing Organization</b></p>
+<ol>
+<li>
+<p>Sending Organization Cost = $100</p>
+</li>
+<li>
+<p>Transfer Price between these Orgs = $120</p>
+</li>
+<li>
+<p>Qty Transferred = 1 Unit</p>
+</li>
+</ol>
+<p><b>After Shipment Transaction:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p>Receiving Organization Cost (After Re-averaging) = $80</p>
+<p><b>After Receipt Transaction:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>80</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>80</td>
+</tr>
+</table>
+<p>The Cost in the receiving organization is re-averaged based on the cost of the transfer (transfer price).</p>
+<p>CST: Inter-Company Invoice = <i>YES</i></p>
+<p>CST: Transfer Pricing Option = <i>Yes, Price as Incoming Cost</i></p>
+<p><b>Inter-Company entries as created by the Inter-Company programs:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Receivable</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Revenue</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Payable</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p><b>Example 3a-2: Standard Costing Organization</b></p>
+<ol>
+<li>
+<p>Sending Organization Cost = $100</p>
+</li>
+<li>
+<p>Receiving Organization Cost = $80</p>
+</li>
+<li>
+<p>Transfer Price between these Organizations = $120</p>
+</li>
+<li>
+<p>Qty. Transferred = 1 Unit</p>
+</li>
+</ol>
+<p>CST: Inter-Company Invoice = <i>YES</i></p>
+<p>CST: Transfer Pricing Option = <i>Yes, Price as Incoming Cost</i></p>
+<p><b>After Shipment Transaction:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>80</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>40</td>
+<td>-</td>
+</tr>
+</table>
+<p>The Cost in the receiving organization is re-averaged based on the cost of the transfer (transfer price).</p>
+<p><b>After Receipt Transaction:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>80</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>80</td>
+</tr>
+</table>
+<p><b>Inter-Company entries as created by the Inter-Company programs:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Receivable</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Revenue</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Payable</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<h4><a id="T427958"></a><b>3b Inter-Company Transfers with Invoicing &ndash; FOB set to Receiving</b></h4>
+<p><b>Example 3b-1: Average Costing Organization</b></p>
+<ol>
+<li>
+<p>Sending Organization Cost = $100</p>
+</li>
+<li>
+<p>Receiving Organization Cost = $80</p>
+</li>
+<li>
+<p>Transfer Price between these Organizations = $120</p>
+</li>
+<li>
+<p>Qty. Transferred = 1 Unit</p>
+</li>
+</ol>
+<p>CST: Inter-Company Invoice = <i>YES</i></p>
+<p>CST: Transfer Pricing Option = <i>Yes, Price as Incoming Cost</i></p>
+<p><b>After Shipment:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p><b>After Receipt:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p>The Cost in the receiving organization is re-averaged based on the cost of the transfer (transfer price).</p>
+<p><b>Inter-Company entries as created by the Inter-Company programs:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Receivable</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Revenue</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Payable</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p><b>Example 3b-2: Standard Costing Organization</b></p>
+<ol>
+<li>
+<p>Sending Organization Cost = $100</p>
+</li>
+<li>
+<p>Receiving Organization Cost = $80</p>
+</li>
+<li>
+<p>Transfer Price between these Organizations = $120</p>
+</li>
+<li>
+<p>Qty. Transferred = 1 Unit</p>
+</li>
+</ol>
+<p>CST: Inter-Company Invoice = <i>YES</i></p>
+<p>CST: Transfer Pricing Option = <i>Yes, Price as Incoming Cost</i></p>
+<p><b>After Shipment:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p><b>After Receipt:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>80</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>40</td>
+<td>-</td>
+</tr>
+</table>
+<p><b>Inter-Company entries as created by the Inter-Company programs:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Receivable</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Revenue</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Payable</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<h3><a id="T427959"></a><b>Expense Inventory Items and Receiving into Expense Sub-Inventories</b></h3>
+<p>When an item is received into an expense sub-inventory, or an expense item is received, the sub-inventory expense account is debited instead of the material valuation account. The following example shows only one such transfer.</p>
+<h4><a id="T427960"></a><b>4a. In-transit transfer of an asset item received into an expense sub-inventory (FOB is Receiving)</b></h4>
+<p><b>After Shipment:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>Sending Organization Cost</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>Sending Organization Cost</td>
+</tr>
+</table>
+<p><b>After Receipt:</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Receivables</td>
+<td>Transfer Price</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>Sending Organization Cost</td>
+</tr>
+<tr valign="top">
+<td>Freight Expense a/c</td>
+<td>-</td>
+<td>Freight</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Profit</td>
+<td>&lt;Difference&gt;</td>
+<td>-</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Sub-Inventory Expense Account</td>
+<td>Transfer Price</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Organization Payables</td>
+<td>-</td>
+<td>Transfer Price</td>
+</tr>
+</table>
+<p>The Cost in the receiving organization is not re-averaged based on the cost of the transfer (transfer price).</p>
+<h2><a name="8759676"></a><a id="T683928"></a><b>Returning and Canceling Interorganization and Intercompany Shipments</b></h2>
+<p><a name="d0e46603" id="d0e46603"></a><a name="cst_returnofitems" id="cst_returnofitems"></a>Customers can return goods received against Internal Requisitions (IR) and Internal Sales Orders (ISO), and track them while they are intransit back to the shipping organization. Customers can also choose to directly ship returned goods to the sender without the intransit flow. Customers can also cancel an interorg or intercompany shipment while goods are intransit and before the shipment is received.</p>
+<ul>
+<li>
+<p><b>Support for Intransit Tracking when Goods are Returned</b></p>
+<p>In order to track intransit when goods are returned, customers must set up the shipping network to specify a return FOB and corresponding intransit account. The return transactions&rsquo; ownership transfer takes place in accordance with the return FOB setup.</p>
+</li>
+<li>
+<p><b>Support for Cancellation of Interorg and IR/ISO Intransit Shipments</b></p>
+<p>Customers can cancel intransit shipments. Depending on the FOB point (which organization owns the intransit), the goods may have left the selling organization, or may still be owned by the selling organization when the cancellation is initiated. Both scenarios are accounted for.</p>
+</li>
+<li>
+<p><b>Support for Returns to an Organization Different from the Original Shipping Organization</b></p>
+<p>Customers can return the goods to a different inventory organization than the original shipping organization. The new organization must belong to the same operating unit as the original shipping organization and there should be return FOB and an Intransit account set up in the shipping network between the new organization and the original receiving organization (buyer).</p>
+</li>
+<li>
+<p><b>Reporting the Intransit Value of Goods that are Being Returned and are Intransit From the Customer Organization to the Supplier Organization</b></p>
+<p>When the shipment is cancelled, the intransit supply exists in a cancelled status in inventory until the receipt of the goods into the seller's inventory is completed. The intransit value reports, period close reconciliation, and other valuation reports report this as intransit stock until receipt is completed.</p>
+<p>When goods are returned via intransit, the intransit inventory value is captured and reported while the goods are intransit.</p>
+</li>
+<li>
+<p><b>Support for Goods Lost Intransit</b></p>
+<p>When goods being transported between organizations are lost in transit, events and corresponding accounting records the loss. This includes removing the lost quantities from the in-transit inventory and making proportional adjustments to inventory valuation and intercompany accounting, if applicable.</p>
+<ul>
+<li>
+<p><b>Goods Lost by the Shipping Organization (FOB - Receipt):</b> You can manage Internal Sales Order (ISO) lines and Interorg Shipments that were lost while in transit. Since the goods are lost, there is no expected receipt. The shipments will be removed out of the intransit status and charged against a user-defined expense account of the intransit owning organization through an implicit logical receipt to an expense subinventory. The application addresses this scenario by utilizing a cancellation process followed by receiving the goods into the expense subinventory of the shipping organization. You can cancel internal sales orders (ISOs) and inter-organization transfers (IOTs) that are lost while in transit. Upon cancellation, the application moves the shipments out of intransit inventory and charges an expense account of the intransit owning organization defined in the Org Parameters.</p>
+</li>
+<li>
+<p><b>Goods Lost by the Receiving Organization (FOB - Shipment):</b> The application uses delivery into the expense account of the receiving organization.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Use the <b>Return an Internal Sales Order Shipment</b> feature to return an internal shipment.</p>
+<p><strong><span>Additional Information:</span></strong> For details on returning and canceling interorganization and intercompany shipments, see: <a href="https://docs.oracle.com/cd/E26401_01/doc.122/e48820/T291651T292013.htm#6039935"><i>Return of Items Received Through an Internal Sales Order Shipment</i></a> in the <a href="https://docs.oracle.com/cd/E26401_01/doc.122/e48820/toc.htm"><i>Oracle Inventory User's Guide</i></a>, Part Number E48820. You can also view the <a href="T372621T379162.htm#rtvov">Overview of Return to Vendor Transactions</a> in this guide.</p>
+<p>The following examples illustrate how the return flow is performed at the same shipping cost and transfer price as the forward flow. If the receipt was processed at the transfer price by the purchasing organization in the forward flow, then the same is used in the return flow with some exceptions that include:</p>
+<ul>
+<li>
+<p>If the transfer pricing option was for transfer price not to be used as incoming cost, then accrual and inventory will be processed at transfer price in the return flow.</p>
+</li>
+<li>
+<p>If the transfer pricing option was for transfer price to be treated as incoming cost, then inventory is processed at shipping organization's cost, accrual at transfer price and the difference is absorbed by profit in inventory. The return flow will reverse these accounting lines at the same rates.</p>
+</li>
+<li>
+<p>In both cases above for standard costing organizations, inventory is valued at the current standard cost only, and the difference from the shipping organization cost or transfer price will create purchase price variance.</p>
+</li>
+<li>
+<p>If the receipt was processed at the shipping organization's cost in the forward flow, then intercompany accounting is at the shipping organization's cost from the forward flow, and inventory accounting is either at current standard cost (if standard costing organization) or at the shipping organization's cost from the forward flow.</p>
+<p>Similarly, the selling organization's Inventory and COGS values are reversed using the costs from the forward flow.</p>
+</li>
+</ul>
+<p><b>Standard Cost Examples for Returns Against Intercompany Shipments</b></p>
+<p>In the following examples:</p>
+<ul>
+<li>
+<p>The shipped item in Organization O1 (Company 01) has an inventory cost of $10 - material cost of $10</p>
+</li>
+<li>
+<p>The shipped item in Organization O2 (Company 02) has a standard cost of $11 - material cost of $11</p>
+</li>
+<li>
+<p>The transfer price is $12</p>
+</li>
+</ul>
+<p>In cases where the standard cost is updated between shipment and return, the new costs in the organizations are:</p>
+<ul>
+<li>
+<p>O1 has a new cost of $11</p>
+</li>
+<li>
+<p>O2 has a new cost of $13</p>
+</li>
+<li>
+<p>10 units were transferred. 5 units were returned</p>
+</li>
+</ul>
+<p><b>Example 1: Standard - Standard; Transfer Price as Incoming Cost</b></p>
+<p><b>Without standard cost updates between shipment and return:</b></p>
+<p><b>Forward flow</b> - FOB: Shipment</p>
+<p>Standard cost in O1: $10 Standard cost in O2: $11 Transfer Price from O1 to O2: $12 Shipped Quantity: 10</p>
+<p><b>Return Flow</b> - FOB: Receipt Standard cost in O1: $10 Standard cost in O2: $11 Returned Quantity: 5</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit Valuation</td>
+<td>110</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>10</td>
+<td>-</td>
+</tr>
+</table>
+<p><b>After Receipt</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>110</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>110</td>
+</tr>
+</table>
+<p><b>After Return Shipment</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving</b> Organization (O2)</th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>60</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>55</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>-</td>
+<td>5</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit Valuation</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<p><b>After Return Receipt</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<p><b>Example 2: Standard - Standard; Transfer Price Not as Incoming Cost</b></p>
+<p><b>With standard cost updates between shipment and return:</b></p>
+<p><b>Forward flow</b> - FOB: Shipment Standard cost in O1: $10 Standard cost in O2: $11 Transfer Price from O1 to O2: $12 Shipped Quantity: 10</p>
+<p><b>During Cost Update</b> On-hand Quantity in O1: 0 On-hand Quantity in O2: 10</p>
+<p><b>Return Flow</b> - FOB: Receipt Standard cost in O1: $11 Standard cost in O2: $13 Returned Quantity: 5</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Valuation</td>
+<td>110</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Profit in Inventory</td>
+<td>20</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>-</td>
+<td>10</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> The Incoming cost is $10 (shipping cost from O1). Therefore, PPV = $10 - $11 (cost in O2) and Profit in inventory = $12 (transfer price) - $10 (shipping cost).</p>
+<p><b>After Receipt</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving</b> Organization (O2)</th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>110</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Valuation</td>
+<td>-</td>
+<td>110</td>
+</tr>
+</table>
+<p><b>After Return Shipment</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>60</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>15</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>65</td>
+</tr>
+<tr valign="top">
+<td>Profit in Inventory</td>
+<td>-</td>
+<td>10</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> The Incoming cost in forward flow was $10 (shipping cost from O1). Therefore, PPV is reversed at -($10 - $13 (new cost in O2)) and Profit in inventory is reversed at - ($12 (transfer price) - $10 (shipping cost)).</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Valuation</td>
+<td>55</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>-</td>
+<td>50</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>-</td>
+<td>5</td>
+</tr>
+</table>
+<p><b>After Return Receipt</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>55</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>55</td>
+</tr>
+</table>
+<p><b>Receipt of Returned IR/ISO Shipments to a Different Organization than the Original Shipping Organization</b></p>
+<p>Customers have the option to return goods received against internal orders (RMA receipts) to an organization that is different from the original shipping organization.</p>
+<p><strong><span>Note:</span></strong> The return location must belong to the same operating unit as the original shipping operating unit.</p>
+<p>Accounting of the return reverses the intercompany and other accounting that was generated as part of the original shipment and receipt in both the costing subledger and in SLA. Costing supports this flow in Valuation reports, COGS Reconciliation process, and the Margin Analysis process.</p>
+<p><b>Example: Return to a Standard Costing Organization; Return FOB: Shipment</b></p>
+<p><b>Forward flow</b></p>
+<p>An item in Organization O1 (Company 01) has an inventory cost of $10 - material cost of $10 Shipment from Org O1 (Operating Unit OU1) to Org O2 (Operating Unit OU2) Cost in O1: $10 Transfer Price from O1 to O2: $12 Shipped Quantity: 10</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p><b>Return flow</b> FOB: Shipment Return from O2 (Operating Unit OU2) to different Org O11 (Operating Unit OU1) Standard Cost in O1: $9 Returned Quantity: 5</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>60</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>60</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Different Organization in Shipping OU (O11)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>-</td>
+<td>45</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>&nbsp;</td>
+<td>5</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Different Organization in Shipping OU (O11)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>45</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>45</td>
+</tr>
+</table>
+<p><b>Actual Cost Examples for Returns against Intercompany Shipments</b></p>
+<p>In the following examples:</p>
+<ul>
+<li>
+<p>The shipped item in Organization O1 (Company 01) has an inventory cost of $10, and an item in Organization O2 (Company 02) has an average cost of $13. The transfer price is $12.</p>
+</li>
+<li>
+<p>The actual cost evolves to $10.5 for Company O1 and $12.5 or $11.5 for Company O2 due to re-averaging of costs.</p>
+</li>
+<li>
+<p>On-hand in O1 and O2 before the first transaction - 10 units.</p>
+</li>
+</ul>
+<p><b>Example 1: Average - Average; Transfer Price as Incoming Cost:</b></p>
+<p><b>Forward flow</b> - FOB: Shipment Average cost in O1: $10 Average cost in O2: $13 Current onhand in O2: 10 Transfer Price from O1 to O2: $12 Shipped Quantity: 10</p>
+<p><b>Return flow</b> - FOB: Shipment Average cost in O1: $11 Current on-hand in O1: 5 Returned Quantity: 5</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit Valuation</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p><b>After Receipt</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>125</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>125</td>
+</tr>
+</table>
+<p><b>After Return Shipment</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>60</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>60</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Valuation</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<p><b>After Return Receipt</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>52.50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>52.50</td>
+</tr>
+</table>
+<p><b>Example 2: Average - Average; Transfer Price Not as Incoming Cost:</b></p>
+<p><b>Forward flow</b> - FOB: Shipment Average cost in O1: $10 Average cost in O2: $13 Current onhand in O2: 10 Transfer Price from O1 to O2: $12 Shipped Quantity: 10</p>
+<p><b>Return flow</b> - FOB: Receipt Average cost in O1: $11 Current onhand in O1: 5 Returned Quantity: 5</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Valuation</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Profit in Inventory</td>
+<td>20</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p><b>After Receipt</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>115</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Inventory</td>
+<td>-</td>
+<td>115</td>
+</tr>
+</table>
+<p><b>After Return Shipment</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>In-Transit Valuation</td>
+<td>62.50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>-</td>
+<td>62.50</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>60</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>In-Transit Valuation</td>
+<td>-</td>
+<td>50</td>
+</tr>
+<tr valign="top">
+<td>Profit in Inventory</td>
+<td>-</td>
+<td>10</td>
+</tr>
+</table>
+<p><b>After Return Receipt</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory Valuation</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<p><b>Receipt of Returned IR/ISO Shipments to a Different Organization than the Original Shipping Organization</b></p>
+<p><b>Example: Return to an Average Costing Organization; Return FOB: Shipment</b></p>
+<p><b>Forward flow</b> Shipment from O1 (Operating Unit OU1) to OrgO2 (Operating Unit OU2) Cost in O1: $10 Transfer Price from O1 to O2: $12 Shipped Quantity: 10</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>-</td>
+<td>120</td>
+</tr>
+</table>
+<p><b>Return flow</b> FOB: Shipment Return from O2 (Operating Unit OU2) to O11 (Operating Unit OU1) Returned Quantity: 5</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>60</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>60</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Different Organization in Shipping OU (O11)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Different Organization in Shipping OU (O11)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<p><b>Standard Cost Examples for Cancellation Against Intercompany Shipments</b></p>
+<p><b>Example: Standard &ndash; Standard; Transfer Price as Incoming Cost; Forward FOB: Shipment</b></p>
+<p><b>Forward flow</b></p>
+<p>FOB: Shipment Standard Cost in O1: $10 Standard Cost in O2: $11 Transfer Price from O1 to O2: $12 Shipped Quantity: 10</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping</b> Organization (O1)</th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>110</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>10</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>&nbsp;</td>
+<td>120</td>
+</tr>
+</table>
+<p><b>Return flow</b> Standard Cost in O1: $10 Standard Cost in O2: $11 Returned Quantity: 5</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>60</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>-</td>
+<td>55</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>&nbsp;</td>
+<td>5</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<p><b>Actual Cost Examples for Cancellation Against Intercompany Shipments</b></p>
+<p><b>Example 1: Average &ndash; Average; Transfer Price as Incoming Cost; Forward FOB: Shipment</b></p>
+<p><b>Forward flow</b></p>
+<p>FOB: Shipment Average Cost in O1: $10 Average Cost in O2: $13 Current On-hand in O2: 10 Transfer Price from O1 to O2: $12 Shipped Quantity: 10</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping</b> Organization (O1)</th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>120</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>&nbsp;</td>
+<td>120</td>
+</tr>
+</table>
+<p><b>Return flow</b> Average Cost in O1: $11 Current On-hand Quantity in O1: 5 Returned Quantity: 5</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Company Accrual</td>
+<td>60</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>-</td>
+<td>60</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Company COGS</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<p><b>Example 2: Average &ndash; Average; Transfer Price as Incoming Cost; Forward FOB: Receipt</b></p>
+<p><b>Forward flow</b></p>
+<p>FOB: Receipt Average Cost in O1: $10 Shipped Quantity: 10</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping</b> Organization (O1)</th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<p><b>Return flow</b> Returned Quantity: 5</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<p><b>Standard Cost Examples for Cancellation Against Interorganization Transfers</b></p>
+<p><b>Example: Standard &ndash; Standard; Forward FOB: Shipment</b></p>
+<p><b>Forward flow</b></p>
+<p>FOB: Shipment Standard Cost in O1: $10 Standard Cost in O2: $11 Shipped Quantity: 10</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping</b> Organization (O1)</th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Org Receivables</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>110</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Org Payables</td>
+<td>&nbsp;</td>
+<td>100</td>
+</tr>
+<tr valign="top">
+<td>Purchas Price Variance</td>
+<td>&nbsp;</td>
+<td>10</td>
+</tr>
+</table>
+<p><b>Return flow</b> Standard Cost in O1: $10 Standard Cost in O2: $11 Returned Quantity: 5</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Org Payables</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Purchase Price Variance</td>
+<td>5</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>-</td>
+<td>55</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Org Receivables</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<p><b>Actual Cost Examples for Cancellation Against Interorganization Transfers</b></p>
+<p><b>Example: Average &ndash; Average; Forward FOB: Shipment</b></p>
+<p><b>Forward flow</b></p>
+<p>FOB: Shipment Average Cost in O1: $10 Average Cost in O2: $12 Current Onhand in O2: 10 Shipped Quantity: 10</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping</b> Organization (O1)</th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Org Receivables</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>-</td>
+<td>100</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>100</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Org Payables</td>
+<td>&nbsp;</td>
+<td>100</td>
+</tr>
+</table>
+<p><b>Return flow</b> Average Cost in O1: $11 Average Cost in O2: $11 Returned Quantity: 5</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Organization (O2)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inter-Org Payables</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intransit</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Shipping Organization (O1)</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inter-Org Receivables</td>
+<td>-</td>
+<td>50</td>
+</tr>
+</table>
+<h2><a name="6039935"></a><a id="T576020"></a><b>Overview of Return to Vendor Transactions</b></h2>
+<p><a name="d0e49284" id="d0e49284"></a><a name="d0e49288" id="d0e49288"></a><a name="rtvov" id="rtvov"></a>The return to vendor process enables you to create unique return orders and to ship the return order back to the vendor (supplier). After the return order is created and the material has been picked, you can create deliveries and check for export compliance, and then ship the return order with any required shipping documents.</p>
+<p><strong><span>Important:</span></strong> The return to vendor feature can be accessed from the <b>Return</b> window and from the simplified Return user interface.</p>
+<p>You can return items that were received through a purchase order or an internal sales order shipment.</p>
+<p>The return to vendor (RTV) process begins with a requirement to return an item to a vendor, and consists of the following steps to complete the return:</p>
+<p><strong><span>Additional Information:</span></strong> For items under lot, serial, or revision control you must specify the lots, serial, and revision as appropriate. If the material resides in a locator-controlled subinventory, you must also specify the locator. (If Oracle Quality module is installed, you can enter information about quality.)</p>
+<ol>
+<li>
+<p>The initial step involves requesting a returns material authorization (RMA) from the vendor, then creating a return order in the system.</p>
+</li>
+<li>
+<p>A return order confirmation is sent to the vendor.</p>
+</li>
+<li>
+<p>The return delivery is sent to the shipping department where the item(s) are picked and shipped back along with a delivery note.</p>
+<p><strong><span>Note:</span></strong> During ship-confirm, the inventory is decremented from the system which changes the available on-hand quantity.</p>
+</li>
+<li>
+<p>A debit memo is sent to the vendor for the return.</p>
+</li>
+</ol>
+<p>The returns to vendor process also provides the ability to:</p>
+<ul>
+<li>
+<p>Return material to a vendor which differs from the receipt organization.</p>
+<p>The return to vendor process enables you to return material from an organization which differs from the receipt organization.</p>
+</li>
+<li>
+<p>Create returns without referencing a purchase order or receipt.</p>
+<p>In some situations, you may need to return a specific component to a supplier but you do not have a backing document for the receipt of the item [such as a tracking purchase order (PO) number]. This situation may arise, for example, if the:</p>
+<ul>
+<li>
+<p>PO was cancelled.</p>
+</li>
+<li>
+<p>The item received was a final assembly but you only need to return a component and not the entire assembly.</p>
+</li>
+</ul>
+<p>In the preceding situations, you can create a new return shipment without a reference document.</p>
+<p>The following example describes a situation where a return may be required without referencing a purchase order or receipt:</p>
+<ol>
+<li>
+<p>SmartBuy (a fictitious company) purchases a server from a supplier and ships it to Customer B.</p>
+</li>
+<li>
+<p>Customer B finds that the item is faulty, and returns it to SmartBuy.</p>
+</li>
+<li>
+<p>SmartBuy investigates the issue and finds that only one component is faulty.</p>
+<p><strong><span>Note:</span></strong> In this scenario, there is no purchase order or receipt to return against. You do not have a purchase order because you are returning only a component and not the entire server; however, there would be a purchase order for the original server.</p>
+</li>
+<li>
+<p>SmartBuy issues the material to send to the vendor using the RTV transaction type.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Track the status of the return orders, print shipping documents, enforce export compliance, and ship returns to vendors.</p>
+<p>Oracle returns are integrated with shipping so you can query return orders in shipping, and create deliveries, check compliance, and ship materials.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Return Order Reservations: When the return order is created, the inventory is reserved so that it cannot be picked by any other demand.</p>
+</li>
+<li>
+<p>Pending returns displayed in the Transaction Status window cannot be deleted.</p>
+</li>
+</ul>
+<h3><a id="T578879"></a><b>Process Flow for Returns</b></h3>
+<p>You can perform a return by identifying the receipt shipment, creating the return order, selecting the document printing options (and export compliance documents, if required) then shipping the return order. In this example, returns are completed from the same organization as the receipt organization. The following steps outline the return to vendor process:</p>
+<ol>
+<li>
+<p>Identify the receipt shipment.</p>
+</li>
+<li>
+<p>Create the return order shipment.</p>
+<p><strong><span>Note:</span></strong> This process is performed in Oracle Purchasing.</p>
+</li>
+<li>
+<p>Print documents, export compliance, and shipping.</p>
+<p><strong><span>Note:</span></strong> This process is performed in Oracle Shipping Execution.</p>
+</li>
+</ol>
+<p>You can also perform a return from a different organization to the receipt organization using the simplified <b>Return</b> user interface.</p>
+<h3><a id="T683252"></a><b>Return of Items Received Through an Internal Sales Order Shipment</b></h3>
+<p>Use the Return on Internal Sales Order Shipment feature to return an internal shipment. You can return the internal shipment to the source organization or to a different organization that belongs to the same operating unit as the source organization.</p>
+<p>The following section provides an overview of the process flow in the following applications: Oracle Inventory, Oracle Order Management, Oracle Purchasing, Oracle Shipping Execution, and Oracle Warehouse Management.</p>
+<ul>
+<li>
+<p>Ship material from one organization to another organization using an internal sales order (ISO). The destination organization receives this material through an ISO shipment.</p>
+</li>
+<li>
+<p>To return items received through an ISO shipment, create a return order by searching for the internal requisition on the <b>Returns</b> page.</p>
+</li>
+<li>
+<p>The return order creates delivery details in Oracle Shipping Execution.</p>
+</li>
+<li>
+<p>The return order populates the Order Management interface tables to create an internal RMA. The <i>Order Import</i> concurrent program creates this internal RMA.</p>
+</li>
+<li>
+<p>Oracle Shipping Execution logs shipping exceptions for the return order lines to prevent the lines from being shipped prematurely or in error.</p>
+</li>
+<li>
+<p>If the internal RMA uses the <i>Order Header</i> approval workflow, then Oracle Order Management removes the shipping exceptions after the internal RMA is approved. If the internal RMA does not use the <i>Order Header</i> approval workflow, then the application removes the shipping exceptions when the internal RMA is created.</p>
+</li>
+<li>
+<p>After you ship and interface the delivery details, Oracle Inventory creates a return ASN for the internal RMA.</p>
+</li>
+<li>
+<p>The source organization receives the material using this return ASN shipment number.</p>
+</li>
+<li>
+<p>You can perform corrections to the return ASNs.</p>
+</li>
+<li>
+<p>You can return the material to a different destination organization in the same operating unit as the source organization.</p>
+</li>
+</ul>
+<p><b>Prerequisite</b></p>
+<p>For the organization that receives the material through return ASN, set the value of the profile option <i>RCV: Return Order Type for Internal RMA</i>. Set the profile option at the source operating unit level for Oracle Order Management (OM) to use the profile value as the return order type of the internal RMA.</p>
+<h3><b>To return an internal shipment, complete the following steps:</b></h3>
+<ol>
+<li>
+<p>Navigate to <b>Inventory</b>, <b>Inbound</b>, and then <b>Receiving</b>.</p>
+</li>
+<li>
+<p>Select the organization from which you want to return the material.</p>
+</li>
+<li>
+<p>On the <b>Receiving Returns</b> page of your receipt:</p>
+<ul>
+<li>
+<p>Select the quantity that you want to return.</p>
+</li>
+<li>
+<p>In the <b>Return To</b> field, the organization value is automatically displayed. Select a value for the Organization, if required.</p>
+</li>
+</ul>
+<p>For items that are lot controlled, serial controlled, or plain, you can perform the following actions:</p>
+<ul>
+<li>
+<p>Return</p>
+</li>
+<li>
+<p>Receive</p>
+</li>
+<li>
+<p>Corrections for positive and negative values</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Select the items that you want to return and click <b>Return</b>. The application generates and displays a return order number.</p>
+</li>
+<li>
+<p>In Oracle Shipping Execution, navigate to the <b>Shipping Transactions Form</b> window. In the <b>Search for</b> region of <b>Query Manager</b>, select <b>Lines</b>. In the <b>Source System</b> field, select <b>Returns</b>. This creates the delivery details with an exception that you must resolve before you ship the delivery.</p>
+</li>
+<li>
+<p>Run the concurrent program <i>Order Import</i> to create an internal RMA. Enter the following parameter values:</p>
+<ul>
+<li>
+<p><b>Order Source</b>: <b>Internal Return</b></p>
+</li>
+<li>
+<p><b>Order Reference</b>: Return order number</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The organization that is receiving the RMA must approve it before the organization that is returning the RMA ships it. If the RMA is approved, the Oracle Order Management workflow removes the exception and the RMA is created.</p>
+</li>
+<li>
+<p>Navigate to the <b>Shipping Transactions</b> window, <b>Actions</b> list, select <b>Auto-create Deliveries</b>, and click <b>Go</b>.</p>
+</li>
+<li>
+<p>Click <b>Ship Confirm</b> and run the concurrent program <i>Interface Trip Stop</i>, which triggers the concurrent program <i>Receiving Transaction Processor</i>. This step in turn creates the return ASN that is the same as the delivery name.</p>
+</li>
+<li>
+<p>To receive this shipment, navigate to the <b>Receive</b> infotile of Oracle Purchasing. The number in the <b>Document</b> column is the delivery name or the return ASN number.</p>
+</li>
+<li>
+<p>In the <b>Actions</b> column, select the mode of receipt as <b>Quick</b>, <b>Directed</b>, or <b>Item</b>. If you select <b>Directed</b>, the <b>Directed Receipt: Return ASN</b> page appears.</p>
+</li>
+<li>
+<p>Select the quantity that you want to receive.</p>
+</li>
+<li>
+<p>Click <b>Confirm</b>.</p>
+</li>
+<li>
+<p>Click <b>Receive</b>. The application generates and displays a receipt number.</p>
+</li>
+<li>
+<p>On the <b>Deliver</b> infotile, enter the required details and click <b>Deliver</b>.</p>
+</li>
+</ol>
+<h3><b>To receive the receipts:</b></h3>
+<ol>
+<li>
+<p>Navigate to <b>Inventory</b>, <b>Transactions</b>, <b>Receiving</b>, and then <b>Receipts</b>.</p>
+<p>The <b>Find Expected Receipts</b> window appears.</p>
+</li>
+<li>
+<p>On the <b>Customer</b> tab, in the <b>Return ASN</b> field select a value from the list, and then click <b>Find</b>.</p>
+<p>The <b>Receipts</b> window appears.</p>
+</li>
+<li>
+<p>Enter <b>Quantity</b>. In the <b>Receiving Transactions</b> window, you can deliver the required quantity.</p>
+</li>
+<li>
+<p>Run the concurrent program <i>Receiving Transaction Processor</i>.</p>
+</li>
+</ol>
+<p>From the <b>Receiving Corrections</b> window, you can perform corrections only to the lines that are received but not yet delivered.</p>
+<p>The return flow generates two transactions:</p>
+<ol>
+<li>
+<p>A Return to organization transaction in the buying organization that is initiating the return and an Internal RMA receipt transaction in the organization that will receive back the returned goods.</p>
+</li>
+<li>
+<p>Oracle Cost Management ensures that the accounting generated in the forward flow against the Intercompany accrual, Intercompany COGS, Profit in Inventory, and Inventory valuation accounts is reversed using the same rate at which the shipment and receipt in the forward flow were costed.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> The return flow for internal order shipments is not supported for intercompany transfers involving:</p>
+<ul>
+<li>
+<p>Process manufacturing organizations</p>
+</li>
+<li>
+<p>Global procurement and drop shipment</p>
+</li>
+<li>
+<p>Expense items</p>
+</li>
+<li>
+<p>Expense subinventories</p>
+</li>
+<li>
+<p>Expense destination</p>
+</li>
+<li>
+<p>Periodic costing organizations</p>
+</li>
+<li>
+<p>Project manufacturing organizations</p>
+</li>
+<li>
+<p>Encumbrance accounting</p>
+</li>
+</ul>
+<h3><a id="T684544"></a><b>Canceling an ISO Shipment</b></h3>
+<p>You can cancel an ISO shipment and shipment lines from the Manage Shipments window.</p>
+<p><b>Prerequisites</b></p>
+<ol>
+<li>
+<p>The shipment must be in transit or partially received at the destination organization.</p>
+</li>
+<li>
+<p>Use the Application Developer responsibility to set the parameter ALLOW_CANCEL to Y for the Manage Shipments window (Function Name is RCV_RCVSHESH ).</p>
+</li>
+<li>
+<p>The shipment must not have any Receiving Transactions Interfaces (RTIs).</p>
+</li>
+</ol>
+<h3><b>To cancel an ISO shipment, complete the following steps:</b></h3>
+<ol>
+<li>
+<p>In the destination organization, navigate to the <b>Manage Shipments</b> window.</p>
+<p>The <b>Find In-Transit Shipments</b> window appears.</p>
+</li>
+<li>
+<p>In the <b>Supplier and Internal</b> tab&rsquo;s <b>Shipment</b> field, enter the shipment number that you want to cancel.</p>
+</li>
+<li>
+<p>Click <b>Find</b>.</p>
+</li>
+<li>
+<p>Place your cursor in the shipment header or line.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Cancel</b>.</p>
+<p>If you cancel a shipment at the header level, then all the individual lines are automatically canceled. You can cancel shipment lines with the status <b>Expected</b> or <b>Partially Received</b>. To cancel a shipment line that is partially received, deliver the received quantity before initiating cancellation.</p>
+<p>In WMS-enabled organizations, if you cancel a shipment line, then the application unpacks the line quantity from the corresponding LPN.</p>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+<p>A confirmation message appears with the cancel order reference number.</p>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+<p>This action initiates the <i>Order Import</i> concurrent program to import the internal RMA. After the concurrent program completes successfully, search for the same shipment to view the internal RMA number at the line level. When you cancel a shipment line, a new internal RMA number is generated for the same.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Generate Return ASN</b>.</p>
+<p>A confirmation message appears with the return ASN number.</p>
+<p>If you generate a return ASN at the header level, then all the lines will display the same return ASN number. To generate separate return ASN numbers, repeat the step at the line level.</p>
+<p>In WMS-enabled organizations:</p>
+<ul>
+<li>
+<p>At the header level, if you cancel a shipment and generate a return ASN, then the application updates the status of the corresponding LPNs from <i>Intransit</i> to <i>In transit for Return ASN</i>.</p>
+</li>
+<li>
+<p>At the line level, if you generate a return ASN, then the application unpacks the line quantity from the corresponding LPN.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+<p>This action initiates the Receiving Transaction Processor concurrent program to import the return ASN. After the concurrent program completes successfully, search for the same shipment to view the return ASN number at the line level.</p>
+<p><strong><span>Important:</span></strong> <b>Internal RMA</b> and <b>Return ASN</b> are folder fields. With the cursor in the shipment lines region, you can show or hide them from the <b>Folder</b> menu.</p>
+</li>
+<li>
+<p>Verify that the <b>Status</b> column displays <b>Canceled</b> or <b>Partially Canceled</b>.</p>
+</li>
+</ol>
+<p><b>To search for the internal RMAs that are created when an ISO shipment is canceled:</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Order Organizer</b> window.</p>
+<p>The <b>Find Orders/Quotes</b> window appears.</p>
+</li>
+<li>
+<p>In the <b>Quote/Order Information</b> tab, enter the following values:</p>
+<ul>
+<li>
+<p><b>Order Source</b>: <b>Internal In-Transit Return</b></p>
+</li>
+<li>
+<p><b>Order Reference</b>: Cancel order reference number</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>Find</b>.</p>
+</li>
+</ol>
+<h3><a id="T2006532"></a><b>Canceling an Inter-Organization Transfer Shipment</b></h3>
+<p>You can cancel an inter-organization transfer (IOT) shipment and shipment lines from the Manage Shipments window.</p>
+<p><b>Prerequisites</b></p>
+<ol>
+<li>
+<p>The shipment must be in transit or partially received at the destination organization.</p>
+</li>
+<li>
+<p>Use the Application Developer responsibility to set the parameter ALLOW_CANCEL to Y for the Manage Shipments window (Function Name is RCV_RCVSHESH ).</p>
+</li>
+<li>
+<p>The shipment must not have any Receiving Transactions Interfaces (RTIs).</p>
+</li>
+</ol>
+<h3><b>To cancel an IOT shipment, complete the following steps:</b></h3>
+<ol>
+<li>
+<p>In the destination organization, navigate to the <b>Manage Shipments</b> window. The <b>Find In-Transit Shipments</b> window appears.</p>
+</li>
+<li>
+<p>In the <b>Supplier and Internal</b> tab&rsquo;s <b>Shipment</b> field, enter the shipment number that you want to cancel.</p>
+</li>
+<li>
+<p>Click <b>Find</b>.</p>
+</li>
+<li>
+<p>Place your cursor in the shipment header or line.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Cancel</b>. If you cancel a shipment at the header level, then all the individual lines are automatically canceled.</p>
+<p>In WMS-enabled organizations, if you cancel a shipment line, then the application unpacks the line quantity from the corresponding LPN.</p>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+<p>A confirmation message appears.</p>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Generate Return ASN</b>.</p>
+<p>A confirmation message appears with the return ASN number.</p>
+<p>In WMS-enabled organizations:</p>
+<ul>
+<li>
+<p>At the header level, if you cancel a shipment and generate a return ASN, then the application updates the status of the corresponding LPNs from <i>Intransit</i> to <i>In transit for Return ASN</i>.</p>
+</li>
+<li>
+<p>At the line level, if you generate a return ASN, then the application unpacks the line quantity from the corresponding LPN.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>OK</b>.</p>
+<p>Search for the same shipment to view the return ASN number at the line level.</p>
+<p><strong><span>Additional Information:</span></strong> <b>Return ASN</b> is a folder field. With the cursor in the shipment lines region, you can show or hide it from the <b>Folder</b> menu.</p>
+</li>
+<li>
+<p>Verify that the <b>Status</b> column displays <b>Canceled</b> or <b>Partially Canceled</b>.</p>
+</li>
+</ol>
+<h3><a id="T2010956"></a><b>Cancel ISO or IOT Shipment That is Lost During Transit</b></h3>
+<p>If a shipment is lost during transit, then the source or the destination organizations cannot receive the material, however the order can be canceled. Because the lost shipment cannot be accounted for, a write off of the material is required.</p>
+<p>To do this, you must set up a nonquantity tracked expense subinventory and then cancel the lost shipment.</p>
+<p>To define the expense subinventory and locator, complete the following set up steps:</p>
+<p>In the <b>Subinventories</b> window, <b>Main</b> tab do the following:</p>
+<ul>
+<li>
+<p>Deselect these two parameters: <b>Quantity Tracked</b> and <b>Asset Subinventory</b></p>
+</li>
+<li>
+<p>Set up the locator control as required.</p>
+</li>
+<li>
+<p>Ensure that the subinventory <b>Status</b> is set to <b>Active: Not Available for Netting, ATP and Reservations</b>.</p>
+</li>
+<li>
+<p>Verify that the following parameters <b>Status Attributes</b> are disabled: <b>Include in ATP, Allow Reservation, and Nettable</b>.</p>
+</li>
+</ul>
+<p>To set up the expense subinventory or locator for receiving the lost material, navigate to the <b>Organization Parameters</b> window, <b>Inter-Org Information</b> tab, and then <b>Lost In-Transit Shipment Processing Controls</b> region.</p>
+<p>To cancel a lost shipment which is in transit, complete the following steps:</p>
+<ol>
+<li>
+<p>In the destination organization, navigate to the <b>Manage Shipments</b> window.</p>
+<p>The <b>Find In-Transit Shipments</b> window appears.</p>
+</li>
+<li>
+<p>In the <b>Supplier and Internal</b> tab&rsquo;s <b>Shipment</b> field, enter the shipment number that you want to cancel.</p>
+</li>
+<li>
+<p>Click <b>Find</b>.</p>
+</li>
+<li>
+<p>Place your cursor in the shipment header or line.</p>
+</li>
+<li>
+<p>From the Tools menu, select <b>Cancel Lost Shipment</b>.</p>
+<p>This action automatically initiates the concurrent request <i>Process Cancellation of Lost Shipment</i>. This request marks the lost items as canceled and their receipt will be registered in the expense subinventory or locator.</p>
+<p><strong><span>Important:</span></strong> You cannot cancel a lost shipment line if the item is shipped as consigned.</p>
+</li>
+</ol>
+<h3><a id="T683253"></a><b>Receiving and Delivering Material in Inventory MSCA</b></h3>
+<p>When receiving or delivering material, verify the source to distinguish the return ASN of the shipment type; for IOT shipments the return ASN source is Inventory and for ISO shipments the return ASN source is Customer.</p>
+<h3><b>To receive material in Inventory MSCA:</b></h3>
+<ol>
+<li>
+<p>Navigate to the <b>Materials & Mfg</b> responsibility, <b>Receiving</b>, and then <b>Receipts</b>.</p>
+<p>The <b>Receipts</b> page appears.</p>
+</li>
+<li>
+<p>Select <b>Return ASN</b>.</p>
+</li>
+<li>
+<p>Select the organization where you want to receive the material.</p>
+</li>
+<li>
+<p>Enter or select values for the fields <b>Return ASN</b> and <b>Item</b>.</p>
+</li>
+<li>
+<p>Enter or select values in the other required fields.</p>
+</li>
+<li>
+<p>Click <b>Next Item</b> or <b>Done</b> to receive the material.</p>
+</li>
+</ol>
+<h3><b>To deliver material in Inventory MSCA:</b></h3>
+<ol>
+<li>
+<p>Navigate to the <b>Materials & Mfg</b> responsibility, <b>Receiving</b>, and then <b>Deliver</b>.</p>
+<p>The <b>Deliver</b> page appears.</p>
+</li>
+<li>
+<p>Select <b>Return ASN</b>.</p>
+</li>
+<li>
+<p>Select the organization where you want to deliver the material.</p>
+</li>
+<li>
+<p>Enter or select values for the fields <b>Return ASN</b> and <b>Item</b>.</p>
+</li>
+<li>
+<p>Enter or select values in the other required fields.</p>
+</li>
+<li>
+<p>Click <b>Next Item</b> or <b>Done</b> to deliver the material.</p>
+</li>
+</ol>
+<h3><b>Canceling a Return Order</b></h3>
+<p><b>To cancel a return order</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Transactions Status Summary</b> window.</p>
+<p>The <b>Find Transaction Statuses</b> window appears.</p>
+</li>
+<li>
+<p>In the <b>Supplier and Internal</b> tab, enter the number in the <b>Return Order</b> field.</p>
+</li>
+<li>
+<p>Click <b>Find</b>.</p>
+<p>The <b>Transaction Statuses</b> window appears.</p>
+</li>
+<li>
+<p>In the <b>Transactions</b> tab, select the lines that you want to return.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Cancel Return Shipment Lines</b>.</p>
+</li>
+</ol>
+<h3><b>Reversing an ISO Shipment Cancellation</b></h3>
+<p>To reverse the ISO shipment cancellation, cancel the internal RMA using the Order Manager responsibility.</p>
+<p><b>To reverse the ISO shipment cancellation:</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Order Organizer</b> window.</p>
+</li>
+<li>
+<p>Search for the internal RMA to reverse the cancellation.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Cancel</b>. To reverse the ISO shipment or line level cancellation, cancel the internal RMA at the header or line level. Complete this task to receive the shipment line at the destination organization.</p>
+</li>
+</ol>
+<p>For more information, see <i>Creating an RMA Against Internal Sales Order</i>, <i>Oracle Order Management Implementation Manual</i>.</p>
+<h3><b>Reversing an IOT Shipment Cancellation</b></h3>
+<p>To reverse the IOT shipment cancellation, cancel the return ASN.</p>
+<p><b>To reverse the IOT shipment cancellation:</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Find In-Transit Shipments</b> window in the source organization.</p>
+</li>
+<li>
+<p>In the <b>Supplier and Internal</b> tab&rsquo;s <b>Shipment</b> field, search for the return ASN for which you want to reverse the cancellation.</p>
+</li>
+<li>
+<p>From the <b>Tools</b> menu, select <b>Cancel</b>. To reverse the IOT shipment or line level cancellation, cancel the return ASN at the header or line level. Complete this task to receive the shipment line at the destination organization.</p>
+</li>
+<li>
+<p>Search for the same return ASN.</p>
+</li>
+<li>
+<p>Verify that the Status column displays <b>Canceled</b>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>For information about the return to vendor process in Oracle Purchasing, see <i>Oracle Purchasing User's Guide</i>, Returns chapter.</p>
+<p>For information about the return to vendor process in Oracle Shipping Execution, see <i>Oracle Shipping Execution User's Guide</i>, Miscellaneous Shipments.</p>
+<h2><a name="3546125"></a><a id="T412365"></a><b>Complex Intercompany Invoicing</b></h2>
+<p><a name="d0e50484" id="d0e50484"></a><a name="c_cominterinv" id="c_cominterinv"></a>Oracle Cost Management supports and performs the accounting for both physical and financial flows in intercompany transactions. Many companies distribute goods from a central location to parties located in other locations. These goods, or drop shipments, can pass to a controlled entity or subsidiary in the country of sales before shipping to the customer. Drop shipment is a process where goods are shipped from a company's supplier directly to the customer. These goods do not physically pass through the warehouse facilities of the companies.</p>
+<p>Corporations create a diverse set of operating unit, organization, entity, and sets of book combinations to facilitate this business flow. Global procurement enables Oracle Purchasing to request material from these operating unit combinations to other operating units. Oracle Inventory creates transactions that do not generate material movements, but are used for invoicing and accounting purposes. Procurement and sales transactions are performed across these operating units. Transactions can impact several organizations and operating units requiring a complex sequence of linked accounting entries. This functionality supports:</p>
+<ul>
+<li>
+<p>Shared procurement services: If a purchase order is placed by one operating unit, and shipped to another operating unit, then the procurement operating can invoice the receiving operating unit. The invoice is costed at either the purchase order price or the transfer price. The accounting transactions represents a transfer of ownership between the operating units.</p>
+</li>
+<li>
+<p>Ownership transfer for shipments: You can generate a transfer of ownership when shipping a sales order where the operating units are separate for selling and shipping. The intercompany invoice uses the transfer price.</p>
+</li>
+<li>
+<p>Drop ship across ledgers: On a drop shipment sales order, the warehouse organization and sales order organization can use different ledgers.</p>
+</li>
+<li>
+<p>Intercompany relationships: You can define chains of operating units for selling, procurement, shipping, and receiving. Ownership of the goods is transferred during transactions. Intercompany invoices are generated between all operating units, and accounting transactions represent ownership transfer between all operating units in the chain.</p>
+<p><b>q</b></p>
+<p><img width="432" height="198" src="./img/cst_inter.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+<h3><a id="T412366"></a><b>Accounting Transactions for Complex Intercompany Invoicing<a name="d0e50516" id="d0e50516"></a></b></h3>
+<p>The following flow of activities demonstrates this scenario for complex intercompany invoicing:</p>
+<ul>
+<li>
+<p>Operating Unit 1 (OU1) receives a sales order from a customer.</p>
+<ul>
+<li>
+<p>Order price is $25.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The material is shipped to the customer from Operating Unit 2 (OU2) warehouse.</p>
+</li>
+<li>
+<p>OU2 does not stock the material. Global Agreement Rules dictate that the item is procured by Operating Unit 3 (OU3).</p>
+</li>
+<li>
+<p>OU2 creates a requisition to OU3 to purchase the material.</p>
+</li>
+<li>
+<p>OU3 creates purchase order to the Supplier.</p>
+<ul>
+<li>
+<p>Purchase order price is $10.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The Supplier ships the material OU2:</p>
+<ul>
+<li>
+<p>OU2 has the physical receipt of the material.</p>
+</li>
+<li>
+<p>OU3 creates PO Receipt transaction because it purchased the material.</p>
+</li>
+<li>
+<p>OU3 also creates a shipping transaction to OU2.</p>
+</li>
+<li>
+<p>The transfer price is $15</p>
+</li>
+</ul>
+</li>
+<li>
+<p>OU1 created the sales order, and performs the shipping transaction to the customer.</p>
+<ul>
+<li>
+<p>The material is physically shipped from OU2</p>
+</li>
+<li>
+<p>A transfer transaction is created from OU2 to OU1,at a Transfer price of $20.</p>
+</li>
+<li>
+<p>A receipt transaction is created in OU1.</p>
+</li>
+</ul>
+<p>The accounting for this example for intercompany transactions follows this flow:</p>
+</li>
+</ul>
+<p><b>Operating Unit 3</b></p>
+<p><b>Receipt Transaction</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Processor</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>OU1 Clearing</td>
+<td>10</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Accrual</td>
+<td>-</td>
+<td>10</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Cost Processor</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>OU2 Inventory</td>
+<td>10</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>OU1 Clearing</td>
+<td>-</td>
+<td>10</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Invoicing</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intercompany Receivable</td>
+<td>15</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Revenue</td>
+<td>-</td>
+<td>15</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Cost Processor</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intercompany Cost of Goods (COGS)</td>
+<td>10</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>OU2 Inventory</td>
+<td>-</td>
+<td>10</td>
+</tr>
+</table>
+<p><b>Operating Unit 2</b></p>
+<p><b>Receipt Transaction</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Receiving Processor</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>OU1 Clearing</td>
+<td>15</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>-</td>
+<td>15</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Intercompany Invoicing</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>15</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Payable</td>
+<td>-</td>
+<td>15</td>
+</tr>
+</table>
+<p><b>Deliver Transaction</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Cost Processor</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>OU1 Inventory</td>
+<td>15</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>OU1 Receipt</td>
+<td>-</td>
+<td>15</td>
+</tr>
+</table>
+<p><b>Shipping Transaction</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Intercompany Invoicing</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intercompany Receivable</td>
+<td>20</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>OU1 Intercompany Revenue</td>
+<td>-</td>
+<td>20</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Cost Processor</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intercompany COGS</td>
+<td>15</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>OU1 Inventory</td>
+<td>-</td>
+<td>15</td>
+</tr>
+</table>
+<p><b>Operating Unit 1</b></p>
+<p><b>Shipping Transaction</b></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Cost Processor</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>OU3 Inventory</td>
+<td>20</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>OU1 Inventory</td>
+<td>-</td>
+<td>20</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Intercompany Invoicing</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>Intercompany Accrual</td>
+<td>20</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Intercompany Payable</td>
+<td>-</td>
+<td>20</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Cost Processor</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>OU3 COGS</td>
+<td>20</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>OU3 Inventory</td>
+<td>-</td>
+<td>20</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Accounts Receivable Invoicing</b></th>
+<th scope="col"><b>Debit</b></th>
+<th scope="col"><b>Credit</b></th>
+</tr>
+<tr valign="top">
+<td>OU3 Receivable</td>
+<td>25</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>OU3 Revenue</td>
+<td>-</td>
+<td>25</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p>Drop Shipments, <i>Oracle Purchasing User's Guide</i>,</p>
+<p>Intercompany Invoicing Process Overview, <i>Oracle Inventory User's Guide</i>, and</p>
+<p>Intercompany Invoicing Setup, <i>Oracle Inventory User's Guide</i>.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

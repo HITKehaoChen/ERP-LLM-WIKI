@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T374216.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T377074.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">12/36</span> <!-- End Header -->
+<h1>Order Entry Tools</h1>
+<p><a name="d0e47597" id="d0e47597"></a>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T377166">Transaction Types</a></li>
+<li><a href="#T377077">Overview</a></li>
+<li><a href="#T377078">Introduction</a></li>
+<li><a href="#T377079">Functionality</a></li>
+<li><a href="#T377080">Terminology</a></li>
+<li><a href="#T377081">Defining Line (Transaction) Types</a></li>
+<li><a href="#T377082">Defining Order Transaction Types</a></li>
+<li><a href="#T377083">Assigning Workflows to Transaction Types</a></li>
+<li><a href="#T450011">Workflow Validation</a></li>
+<li><a href="#T377084">Creating a Document Sequence</a></li>
+<li><a href="#T377085">Assign a Document Sequence</a></li>
+<li><a href="#T377086">Reports</a></li>
+<li><a href="#T377087">Example</a></li>
+<li><a href="#T377167">Using Workflow in Order Management</a></li>
+<li><a href="#T377088">Overview</a></li>
+<li><a href="#T377089">Workflow</a></li>
+<li><a href="#T377090">Fulfillment with Wait</a></li>
+<li><a href="#T377091">Line Flow: Generic, Performance</a></li>
+<li><a href="#T2006901">Using Custom Workflows</a></li>
+<li><a href="#T377092">Defaulting Rules</a></li>
+<li><a href="#T377093">Key Enhancements</a></li>
+<li><a href="#T377094">Terminology</a></li>
+<li><a href="#T377095">Attributes and Entities in Order Management</a></li>
+<li><a href="#T377096">Conditions</a></li>
+<li><a href="#T377097">Sequence of Defaulting</a></li>
+<li><a href="#T377098">Sources of Values</a></li>
+<li><a href="#T377099">Dependencies</a></li>
+<li><a href="#T377100">Examples</a></li>
+<li><a href="#T377101">Controlling Changes</a></li>
+<li><a href="#T377102">Reports</a></li>
+<li><a href="#T377103">Implementation Considerations</a></li>
+<li><a href="#T377104">New Defaulting Features</a></li>
+<li><a href="#T377106">Order Management Defaulting Rules</a></li>
+<li><a href="#T447655">Cascading</a></li>
+</ul>
+<h2><a name="3004648"></a><a id="T377166"></a><b>Transaction Types</b></h2>
+<a name="d0e47604" id="d0e47604"></a><a name="t_oettyps" id="t_oettyps"></a>
+<h2><a name="3004649"></a><a id="T377077"></a><b>Overview</b></h2>
+<p>Definition of transaction types is required in Oracle Order Management. Transaction Types provide default information for sales documents such as orders, quotes, and sales agreements, and establish process controls with Oracle Workflow.</p>
+<h2><a name="3004650"></a><a id="T377078"></a><b>Introduction</b></h2>
+<p><a name="F_23983x3Ax20H1x20Head1x3Ax20Introduction" id="F_23983x3Ax20H1x20Head1x3Ax20Introduction"></a>In this chapter, we will discuss the setup of Order Management Transaction Types and provide detailed examples. The setup steps required to create a new transaction type are described, including creating the order transaction type, the line transaction type, assigning the document sequence and associating the appropriate workflows. A detailed example is provided at the end of the chapter.</p>
+<p>Some of the features of Transaction Types/Workflow are:</p>
+<ul>
+<li>
+<p>Each line in a sales order has its own workflow so each line may follow a different flow. This allows you to have both order and return lines on the same order.</p>
+</li>
+<li>
+<p>You can create new workflow activities from custom PL/SQL code. This makes it very easy to extend OM.</p>
+</li>
+<li>
+<p>Each quote is assigned a header flow only. Please note that line flows are not assigned for quotes.</p>
+</li>
+<li>
+<p>A workflow process can have subprocesses.</p>
+</li>
+<li>
+<p>Control of how Document numbers are generated as a document moves through the negotiation phase to the fulfillment phase.</p>
+</li>
+<li>
+<p>Retain the same document number as the quote or generate a new document number when the transition to fulfillment occurs.</p>
+</li>
+<li>
+<p>A workflow process can have an unlimited number of activities</p>
+</li>
+<li>
+<p>There is no limit to the number of custom workflow activities that can be defined in Order Management.</p>
+</li>
+<li>
+<p>You can view the status of the workflow on an order or order line in either tabular or graphical format. In graphical format you can see not only the activities that the workflow has completed but also the activities that still require completion.</p>
+</li>
+<li>
+<p>Assign and sequence approvers for notifications.</p>
+</li>
+</ul>
+<h2><a name="3004651"></a><a id="T377079"></a><b>Functionality</b></h2>
+<p><a name="F_Functionality" id="F_Functionality"></a>There are transaction types associated with both order types and line types. Order numbers are now controlled by assigning a unique document sequence to your order transaction type. Creating document sequences and assigning them to order transaction types are two separate steps in Order Management, and neither can be done directly from the transaction types window. Setup is discussed later in this chapter.</p>
+<p>Note: Sales Agreements only use automatic numbering.</p>
+<h2><a name="3004652"></a><a id="T377080"></a><b>Terminology</b></h2>
+<p><b>Transaction type</b> is the generic term that refers to transaction types for sales documents in Order Management. This is not to be confused with the Receivables Transaction Type, which is a completely different object.</p>
+<p>The <b>transaction type code</b> may have values of Order or Line and determines whether the transaction type is an order transaction type or a line transaction type. In this document, order type is used synonymously with order transaction type and line type is used synonymously with line transaction type.</p>
+<p>A <b>document sequence</b> is a range of numbers used for an order type and is defined by a numbering method (automatic, manual or gapless). This sequence is the beginning order number.</p>
+<p>A <b><i>document category</i></b> is a specific type of document such as a sales order or a purchase order. These are used in many Oracle applications for key entities. In Order Management when you create an order transaction type the system automatically creates a document category with the same name attached to it, then two document sequence categories are created:</p>
+<p>one, with the same name as that of the transaction type and the other with the same name as transaction type but appended with the string '-quote'. This is used to assign the numbering sequence to the order type.</p>
+<h2><a name="3004653"></a><a id="T377081"></a><b>Defining Line (Transaction) Types</b></h2>
+<p>The Define Transaction Types window is used to define transaction types for sales documents, including both order and line types. Define your line types first. You should define line types for both order lines and return lines. Navigate to the Transaction Types window to define a line type. See <a href="T373258T374215.htm#t_defttyps">Define Order Management Transaction Types</a> for more information.</p>
+<p>Note the following when defining a line using transaction type:</p>
+<ul>
+<li>
+<p>Enter a name for the line type in the Transaction Type field. This name must be unique; you cannot create an order type and a line type with the same name.</p>
+</li>
+<li>
+<p>For the Transaction Type Code, enter &ldquo;line.&rdquo;</p>
+</li>
+<li>
+<p>Select the operating unit from the list of values.</p>
+</li>
+<li>
+<p>Enter either Order or Return for the Order Category depending on whether your new line type is for sales lines or return lines.</p>
+</li>
+<li>
+<p>Many of the other fields on this window as well as the assign line flows button are not applicable to line types so when you enter the transaction type code they will become inaccessible. The inaccessible fields include Order Workflow, Default Return Line Type, Default Order Line Type, Agreement Required, Purchase Order Required, and all the Credit Check rule fields.</p>
+</li>
+<li>
+<p>The Agreement Type field is used for validation on the order line. If you enter an agreement type here, you can only use agreements of this type on sales order lines. If the field is blank you may enter agreements of any type.</p>
+</li>
+<li>
+<p>If you want to use the line type for a defaulting source, you may enter a Price List on the Main tab and this will default your Price List on every order with this transaction type. The Enforce List Price flag will determine whether a user can apply a manual discount to the line at the time of order entry.</p>
+</li>
+<li>
+<p>On the Shipping tab the autoschedule flag is inaccessible because it only applies to order types. The inspection required flag determines whether inspection is required when return lines are received.</p>
+</li>
+</ul>
+<p>There are five Scheduling level choices to control the way scheduling works at the time of order entry for lines of this type: ATP Only, Allow all scheduling actions, No reservations, Inactive Demand with Reservations and Inactive Demand without Reservations. The remainder of the fields can be used for defaulting.</p>
+<p>Two values on the Schedule Level LOV on the Shipping tab support different requirements for reservations: Inactive Demand with Reservations and Inactive Demand without Reservations. These levels can be set on the transaction types, which would mean that the line will not be scheduled and will not be seen as demand in APS. When this level is set, Schedule Ship Date entered by the user will be accepted and no scheduling is done. If scheduling is done as an action or through WF, Request Date will be copied to the Schedule Ship Date if it is already not there. The values are:</p>
+<h3><b>Inactive Demand with Reservations</b></h3>
+<ul>
+<li>
+<p>Meaning: The line is not visible to APS demand</p>
+<ul>
+<li>
+<p>Manually enter schedule date but the system will not schedule</p>
+</li>
+<li>
+<p>The line can be reserved</p>
+</li>
+<li>
+<p>This is for standard items and does not support Ship or Arrival Sets</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><b>Inactive Demand without Reservations</b></h3>
+<ul>
+<li>
+<p>Meaning: The line is not visible to APS demand</p>
+<ul>
+<li>
+<p>Manually enter schedule date but the system will not schedule</p>
+</li>
+<li>
+<p>The line cannot be reserved</p>
+</li>
+<li>
+<p>This is for standard items and does not support Ship or Arrival Sets</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The Finance tab fields contain information which affects the interfaces with the financial applications. The Invoicing Rule and Accounting Rule fields are used as defaulting sources for the sales order, and this information is passed to Autoinvoicing. For the fields Invoice Source, Non-Delivery Invoice Source, and Receivables Transaction Type these values are required for interfacing to Receivables but they are not on the sales order header or line. When the invoice interface activity in the workflow is executed the system will look for a value in the following order: line transaction type, order transaction type, profile option. The invoice interface activity fails if no value is found. The Cost of Goods Sold Account can be used by the Account Generator function of the inventory interface when a line is ship confirmed.</p>
+<p><b>Order Management Line Transaction Types</b></p>
+<p>The following table displays the various column controls that are available for Order Management Line transaction types.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Column Controls Available for Order Management Line Transaction Types</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Column</b></th>
+<th scope="col"><b>Purpose</b></th>
+<th scope="col"><b>Usable on Line Type</b></th>
+<th scope="col"><b>Required for Line TYpe</b></th>
+<th scope="col"><b>Defaulting Source for Line</b></th>
+</tr>
+<tr valign="top">
+<td>NAME</td>
+<td>Unique within the table for a given language.</td>
+<td>Yes</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>TRANSACTION_TYPE_ CODE</td>
+<td>Distinguish between order and line types. Valid values for Line types: Order/Line.</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>ORDER_CATEGORY_CODE</td>
+<td>Defaulting for order or line; If used on Order Type, restricts line types. Valid values for Line Types: Order/Return</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>CURRENCY_CODE</td>
+<td>Defaulting Source</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>CONVERSION_TYPE_CODE</td>
+<td>Defaulting Source</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>CUST_TRX_TYPE_ID</td>
+<td>Used by Invoicing</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>COST_OF_GOODS_SOLD_ ACCOUNT</td>
+<td>Used by Inventory Interface</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>COST_OF_GOODS_SOLD_ACCOUNT</td>
+<td>Used by Inventory Interface</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>ENTRY_CREDIT_CHECK_RULE_ID</td>
+<td>Used by Credit Checking</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>SHIPPING_CREDIT_CHECK_RULE_ID</td>
+<td>Used by Credit Checking</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>PRICE_LIST_ID</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>ENFORCE_LINE_PRICES_FLAG</td>
+<td>Used for validating discount application on Order/Lines</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>WAREHOUSE_ID</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>DEMAND_CLASS_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>SHIPMENT_PRIORITY_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>SHIPPING_METHOD_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>FREIGHT_TERMS_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>FOB_POINT_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>SHIP_SOURCE_TYPE_CODE</td>
+<td>Defaulting source. Valid values: Internal/External</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>AUTO_SCHEDULE_FLAG</td>
+<td>Used by Scheduling. Valid values: Yes/No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>SCHEDULING_LEVEL_CODE</td>
+<td>Used by Scheduling. Valid values: ONE, TWO, THREE</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>AGREEMENT_TYPE_CODE</td>
+<td>Validation on Header</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>AGREEMENT_REQUIRED_FLAG</td>
+<td>Validation on Header</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>PO_REQUIRED_FLAG</td>
+<td>Validation on Header</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>INVOICING_RULE_ID</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>INVOICING_CREDIT_METHOD_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>ACCOUNTING_RULE_ID</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>ACCOUNTING_CREDIT_METHOD_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>INVOICE_SOURCE_ID</td>
+<td>Used by Invoicing</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>NON_DELIVERY_INVOICE_SOURCE_ID</td>
+<td>Used by Invoicing</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>When you define OM line transaction types, you can define the line flow that lines of this type will follow. A line transaction type can be coupled with different OM order transaction types. For example, a return transaction type can be used with a standard order type or an international order type. However, you need to specify the flow couplings for the permitted transaction type combinations.</p>
+<h2><a name="3004657"></a><a id="T377082"></a><b>Defining Order Transaction Types</b></h2>
+<p><a name="OEXDTTYP_ORDER_TYPES" id="OEXDTTYP_ORDER_TYPES"></a>Navigate to the Transaction Types window to define an order type.</p>
+<p><b>Order Management Transaction Types</b></p>
+<p><img width="775" height="582" src="./img/ontig_trntp.gif" alt="the picture is described in the document text"></p>
+<p>Note the following when defining an order transaction type:</p>
+<ul>
+<li>
+<p>Select the operating unit from the list of values that will capture this information. If Multi-Org Access Control is enabled, you can manage Transaction Types across all Operating Units accessible to you via your MO: Security Profile.</p>
+</li>
+<li>
+<p>Enter a name for the order type in the Transaction Type field. This name must be unique; you cannot create an order type and/or a line type with the same name.</p>
+</li>
+<li>
+<p>Description (optional).</p>
+</li>
+<li>
+<p>Enter Sales Document (optional).</p>
+</li>
+<li>
+<p>Enter the value Mixed, Order or Return for the Order Category. If you enter Order the order type can only have lines with transaction type of &ldquo;order.&rdquo; If you enter Return the order type can only have lines with transaction type of &ldquo;return.&rdquo; If you enter &ldquo;mixed&rdquo; the order can have lines with either Order or Return transaction types. For SAs, select 'Order' for Order Category and Sales Document Type. Note: As quotes and SAs do not support return as a type of 'order' should be selected.</p>
+</li>
+<li>
+<p>Select a Transaction Type code either Order or Line.</p>
+</li>
+<li>
+<p>Assign a fulfillment flow for the transaction type. This indicates that orders are processing using this transaction type. Quotes are Sales Orders that start with Negotiation phase - there are no line level WF in the Negotiation phase but the tabs can be used for defaulting information Assign lines only applies to the Fulfilment phase.</p>
+</li>
+<li>
+<p>Assign a negotiation phase if you are processing quotes using the same transaction type. Note: Negotiation flows are applicable for SA.</p>
+</li>
+<li>
+<p>Enter an effective date and, optionally, select a default transaction phase for use by the defaulting framework.</p>
+</li>
+<li>
+<p>Layout Template (optional) refer to the transaction type section of the setup chapter.</p>
+</li>
+<li>
+<p>Contract Template (optional) refer to the transaction type section of the setup chapter.</p>
+</li>
+<li>
+<p>Optionally, select the Retain Document Number check box. If the transaction type is associated with both a negotiation flow and fulfillment flow, the document number can be retained when the document transitions to fulfillment.</p>
+</li>
+<li>
+<p>Select the Approvals button if you want to assign a list of approvers for the transaction flow.</p>
+</li>
+<li>
+<p>Assign Line Flows button to assign the appropriate line workflows. Note: SA only uses the header flow and it does not take advantage of defaulting rules - there are no line level workflows for SAs.</p>
+</li>
+</ul>
+<p>Main Tab</p>
+<ul>
+<li>
+<p>The Agreement Type field is used for validation on the order. If you enter an agreement type here, you can only use agreements of this agreement type on sales orders of this order type. If the field is blank you may enter agreements of any type. The Agreement Required and Purchase Order Required are used for validation. If the box is checked then these fields will be required on all orders of this type when the order is booked. If you want to use the order type as a defaulting source for Price List on the order you may enter a Price List on the Main tab. The Credit Check rules for ordering and shipping determine whether credit check will occur for this order type. If the fields are blank, no credit checking will occur for orders of this type, the Minimum Margin Percent field lets you input the minimum acceptable margin that you want to allow for orders of this order type. If an order has an overall margin less than this minimum, it is put on a Margin Hold at Booking so that it can be reviewed. You must have the Calculate Margin feature enabled in the OM Parameters to use this attribute.</p>
+</li>
+<li>
+<p>The Approval and Assign Line Flow buttons Return Line Type field and the Default Order Line Type field; those will be filled in later. This applies only to quotes.</p>
+</li>
+<li>
+<p>Pricing section has optional fields for defaulting pricing information.</p>
+</li>
+<li>
+<p>Credit Check rule section has optional fields for defaulting credit check information.</p>
+</li>
+</ul>
+<p>Shipping Tab</p>
+<ul>
+<li>
+<p>On the Shipping tab the autoschedule flag determines whether scheduling will try to autoschedule the lines on orders of this type. The inspection required flag is not accessible (it only applies to lines). The rest of the fields can be used for defaulting purposes.</p>
+</li>
+</ul>
+<p>Finance Tab</p>
+<ul>
+<li>
+<p>The Finance tab fields are used for information which affects the interfaces with the financial applications. The Currency and Currency Conversion Type can be used as defaulting sources for the order header. The Invoicing Rule and Accounting Rule fields are used as defaulting sources for the sales order line, and this information on the sales order is passed to Autoinvoicing. For the fields Invoice Source, Non-Delivery Invoice Source, and Receivables Transaction Type these values are required for interfacing to Receivables but they are not on the sales order header or line. When the invoice interface activity in the workflow is executed the system will look for a value in the following order: line transaction type, order transaction type, profile option. If no value is found the invoice interface activity will fail. The Cost of Goods Sold Account is used by the inventory interface when a line is ship confirmed.</p>
+<a name="d0e48391" id="d0e48391"></a></li>
+</ul>
+<p><strong><span>Note:</span></strong> Normally the credit memo transaction type is defaulted from the following in the order in which they are written: Line Transaction Type, Order Transaction Type, and Profile option (Credit Memo Transaction Type). However if multiple operating units are being used, then the profile option value is not considered.</p>
+<p><b>Enforce Price List Flag</b></p>
+<p>The Enforce List Price flag determines whether a user can apply a manual discount to the order at the time of order entry. However this flag will not work on Pricing and Availability and Order Import windows. Please make sure this check box (Enforce List Price) is unchecked if you want to use Pricing and Availability or Order Import.</p>
+<p>At the order type and line type levels, you can check the Enforce List Price flag so that modifiers are not applied on the lines during pricing. However Freight Charges will be applied even if the flag is checked as Freight Charges do not change the selling price.</p>
+<p>Pricing does not support the Enforce List Price flag, so in order to ensure that modifiers are not applied, the following actions take place: The Calculate Price Flag is set to Y at the Price Event. For subsequent events (like Save and Book), the Calculate Price Flag is set to P (Partial) so that only the Freight Charges are calculated and no modifiers are applied.</p>
+<p><b>Order and Line Level Controls</b></p>
+<p>You can define order controls that apply to the order as a whole and are not overridable at the line level. For example, order numbering is controlled at the order level. An order can be numbered differently based on the order type, such as an order or return.</p>
+<p>You can also define line controls that affect the line type level. You can set up certain controls that default from the order level and can be overridden at the line level. For example, you can have both return and order lines on a single order, however, the return and order lines process differently. The individual line processing is controlled at a higher line type level. You need to specify the workflow couplings for the permitted transaction type combinations. If a combination has notifications or workflow activities at the header flow which need to be completed before the line can proceed, then the header flow needs to have a Continue-flow activity. The line flow needs to have the appropriate Wait-for-flow activity.</p>
+<p>The following table displays the various column controls that are available for Order Management Order transaction types.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Column Controls Available for Order Management Transaction Types</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Column Name</b></th>
+<th scope="col"><b>Purpose</b></th>
+<th scope="col"><b>Define for Order Transaction Type</b></th>
+<th scope="col"><b>Required on Order Transaction Type</b></th>
+<th scope="col"><b>Defaulting Source for Header</b></th>
+</tr>
+<tr valign="top">
+<td>NAME</td>
+<td>Unique within the table for a given language.</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>TRANSACTION_TYPE_CODE</td>
+<td>Distinguishes between order and line types. Line types are Order and Line.</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>ORDER_CATEGORY_CODE</td>
+<td>Defaulting on the order or line. Restricts the types of lines on an Order. Mixed, Order, or Return. Line types are Order or Return.</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>CURRENCY_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>CONVERSION_TYPE_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>CUST_TRX_TYPE_ID</td>
+<td>Invoicing Interface./Tax</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>COST_OF_GOODS_SOLD_ACCOUNT</td>
+<td>Invoicing Interface</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>ENTRY_CREDIT_CHECK_RULE_ID</td>
+<td>Credit Checking</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>SHIPPING_CREDIT_CHECK_RULE_ID</td>
+<td>Credit Checking</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>PRICE_LIST_ID</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>ENFORCE_LINE_PRICES_FLAG</td>
+<td>Used for validating discount application on order and lines</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>WAREHOUSE_ID</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>DEMAND_CLASS_CODE</td>
+<td>Defaulting source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>SHIPMENT_PRIORITY_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>SHIPPING_METHOD_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>FREIGHT_TERMS_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>FOB_POINT_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>SHIP_SOURCE_TYPE_CODE</td>
+<td>Defaulting source. The values are Internal, External</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>AUTO_SCHEDULE_FLAG</td>
+<td>Used by Scheduling. The values are Yes, No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>SCHEDULING_LEVEL_CODE</td>
+<td>Used by Scheduling. The values are 0, 1, 2</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>AGREEMENT_TYPE_CODE</td>
+<td>Validation at header level</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>AGREEMENT_REQUIRED_FLAG</td>
+<td>Validation on Header</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>PO_REQUIRED_FLAG</td>
+<td>Validation at header level</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>INVOICING_RULE_ID</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>INVOICING_CREDIT_METHOD_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>ACCOUNTING_RULE_ID</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>ACCOUNTING_CREDIT_METHOD_CODE</td>
+<td>Defaulting Source</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>INVOICE_SOURCE_ID</td>
+<td>Invoicing Interface</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>NON_DELIVERY_INVOICE_SOURCE_ID</td>
+<td>Invoicing Interface</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>DEFAULT_INBOUND_LINE_TYPE_ID</td>
+<td>Defaulting source for inbound lines. Use this value as Source for defaulting Line type on Line</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>DEFAULT_OUTBOUND_LINE_TYPE_ID</td>
+<td>Defaulting source for outbound lines. Use this value as Source for defaulting Line type on Line</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</table>
+<p>Defaulting source for inbound lines. Use this value as Source for defaulting Line type on Line.</p>
+<p><strong><span>Note:</span></strong> The transaction type name for the base language cannot be changed once there are orders or lines referenced.</p>
+<p><a name="d0e48945" id="d0e48945"></a><b>Line Flow Assignments</b></p>
+<p>The Line Flow Assignments window is available only for OM order transaction types only. Use this window to assign line flows to the various line types that can be used with an order type.</p>
+<p>A line flow can be assigned to an order type, line type and item type combination. Order Management enables you to define only one effective assignment for a given combination. If the item type is left blank, then that assignment will apply to all item types that do not have a specific assignment. If you plan to use a line type for ATO models then Order Management requires that you specify an assignment for the item type of configured item. Refer to Overview of Workflows and Setting up Workflow.</p>
+<p>The following table displays sample Order Line types and associated Order line workflow assignments.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Sample Order Line Types and Associated Order Line Workflow Assignments</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Line Type</b></th>
+<th scope="col"><b>Order Types used with</b></th>
+<th scope="col"><b>For Item Type</b></th>
+<th scope="col"><b>Line Flow Assignments</b></th>
+<th scope="col"><b>Comments</b></th>
+</tr>
+<tr valign="top">
+<td>Standard</td>
+<td>Domestic</td>
+<td>&nbsp;</td>
+<td>Outbound Domestic</td>
+<td>For all item types (except configured items)</td>
+</tr>
+<tr valign="top">
+<td>Standard</td>
+<td>Domestic</td>
+<td>Configured Item</td>
+<td>Outbound Domestic Configuration</td>
+<td>Workflow specific to configured items.</td>
+</tr>
+<tr valign="top">
+<td>Standard</td>
+<td>International</td>
+<td>&nbsp;</td>
+<td>Outbound International</td>
+<td>This has the appropriate <i>Wait-for Flow</i> defined for the notification activity on the International Header flow. The workflow is for all item types (except configured items).</td>
+</tr>
+<tr valign="top">
+<td>Standard</td>
+<td>International</td>
+<td>Configured Item</td>
+<td>Outbound Domestic - Configuration</td>
+<td>This workflow is specifically for configured items.</td>
+</tr>
+<tr valign="top">
+<td>Return</td>
+<td>Domestic</td>
+<td>&nbsp;</td>
+<td>Inbound Domestic</td>
+<td>For all item types.</td>
+</tr>
+<tr valign="top">
+<td>Return</td>
+<td>International</td>
+<td>&nbsp;</td>
+<td>Inbound International</td>
+<td>This has the appropriate <i>Wait-for- Flow</i> defined for the notification activity on the International Header flow. This workflow is for all item types.</td>
+</tr>
+</table>
+<h2><a name="3004661"></a><a id="T377083"></a><b>Assigning Workflows to Transaction Types</b></h2>
+<p><a name="OEXDTTYP_WORKFLOW_ASSIGNMENTS" id="OEXDTTYP_WORKFLOW_ASSIGNMENTS"></a>Select appropriate workflows for your order type and line types. Several header and line workflows are seeded. You can perform all standard OM processing including orders, returns, drop ship orders, orders for configured items and orders for assemble to order items using only seeded workflows. You can also assign a new negotiation flow for quotes. You may also define your own workflows if you need additional steps (such as notifications) or additional processes. Not all order workflows can be used with all line workflows. Some workflow steps between an order and line are dependent on each other. For example, the order flow with header level invoicing has a step which waits for a continue activity in the line flow with header level invoicing to complete. If you do not use order and line flows which are designed to work together you can have orders or lines that either complete activities when you are not ready for them to complete or which will never complete.</p>
+<p>The order type alone determines the order workflow. In the define transaction types window for the order type, enter the order workflow that you have selected. This is the name of the process in the workflow builder. Save the order type and/or the negotiation flow. You cannot select the order type in the next step if you do not save.</p>
+<p>The combination of the order type, the line type and the item type determine the workflow that a line will have. For this reason, you define the line workflows from the order type workflow definition window. Press the Assign Line Flows button. Enter the order type. For each combination of line type and item type that you want to use with this order enter a line in the Assign Workflow processes window. The line types are the ones that you defined in the first step. The item types are based on the definition of the items in the inventory module and include values such as standard item, kit, and PTO model. If you leave the item type blank the workflow process that you define will be used for all item types. (Exception: If you use the configure to order process, you must specifically assign a workflow to the configured item type; the configured item will not use a workflow where the item type field is blank.) The process name is the name of the workflow process as defined in the workflow builder. You must enter a start date for each line flow definition. Note: Once documents have been created using an order type you cannot change the associated workflow assignments. Therefore if you need to change the workflows assigned to a transaction or disable a transaction you must enter an end date for the existing assignment, and if appropriate enter a new assignment for the for the new workflow.</p>
+<p>Finally you may enter a Default Order Line Type and a Default Return Line Type on the order transaction window. These values can be used as sources for defaulting the line type to orders of this order type.</p>
+<p><b>Quotes</b></p>
+<p>The Order Management framework includes a workflow phase to support the activities that typically occur within a negotiation phase, such as internal approval and customer acceptance. A document in the negotiation phase is called a Quote. This allows you to create and manage quotes during the negotiation phase and transition the quote to a firm order.</p>
+<p>In order to use approvals with negotiations, you must first assign the &ldquo;Negotiation Flow - Generic with Approval&rdquo; workflow with the transaction type you are using. Negotiation can apply to SA as well. It uses the same workflow as quotes, the difference is that a SA is still a SA whether in the Negotiation or Fulfillment phase.</p>
+<p><b>Approvals</b></p>
+<p>Order Management provides the ability to define an approval hierarchy and associate it with a transaction type. The OM Approvals form enables setup of a list of approvers who will receive the approval notification. To access the form go to: Setup -&gt; Transaction Type -&gt; Approvals or you can set it up from the Transaction Types form from the Approvals button. Assign the list of members who will receive the approval notification and set the active flag for each. Make sure to specify the transaction type. Additionally, Order Management enables you to use the dynamic approvers list that it generates based on the rules that you set up in Oracle Approvals Management and by selecting the Use Approvals Management Engine check box on the Transaction Type window. See: <a href="T373258T376735.htm#t_hrprod">Approvals Management</a> section in Human Resources Product Family, Order Management Integration chapter.</p>
+<h3><b>Workflow Assignments<a name="d0e49112" id="d0e49112"></a></b></h3>
+<p>The order type determines the order workflow. The combination of the order type, the line type, and the item type determines the line workflow.</p>
+<p>Select appropriate workflows for order types, line types and item types:</p>
+<p>You can perform all standard processing including orders, returns, drop ship orders, orders for configured items, and orders for assemble-to-order items using seeded workflows. You can also create your own workflows if you need additional steps, for example, additional notifications or processes.</p>
+<p>You cannot select any order workflow to be used with a line workflow. Some workflow steps between an order and line are interdependent based on how Continue-flow and Wait-for-flow activities are paired. Therefore, the same line transaction type needs to follow a different line flow when used with a different order transaction type.</p>
+<p>For example, the order flow with header level invoicing waits for an activity in the line flow to complete. If you do not use order and line flows which are designed to work together you can have orders or lines which either complete activities too early or which never complete.</p>
+<p>The inventory item that a line is processing may have specific flow requirements. For example, a configuration needs to have a BOM and work order created before it can be picked and shipped. The standard item can be picked from stock and shipped. Therefore, the workflow for a configuration item is different than a standard item. However, both types of order lines can be use the same line type. The Workflow Assignments window displays the following item types for which a workflow can be assigned for a given order or order line type assignment:</p>
+<ul>
+<li>
+<p>ATO Models, Classes, Options, Items</p>
+</li>
+<li>
+<p>Configured Item</p>
+</li>
+<li>
+<p>Kits</p>
+</li>
+<li>
+<p>Included Items</p>
+</li>
+<li>
+<p>PTO Models, Classes, Options</p>
+</li>
+<li>
+<p>Standard Items</p>
+</li>
+<li>
+<p>Service Items</p>
+</li>
+</ul>
+<p>If the item type code is left blank, the specified workflow assignment applies to all item types for which there is no specific assignment.However, you should specify an assignment for the configured item type, if you plan to use the line type for ATO models.</p>
+<p><strong><span>Note:</span></strong> A workflow assignment is required for a given line type to support creation of lines using that line type.</p>
+<p>The service details region in the Quick Sales Order window is used to view the Service information for a line rather than creating a Service line. The window does allow the creation of the Service Line in the service details region but assumes that the Transaction Setup is defined correct so that defaulting happens. Line Type is not a folder item in this region and you cannot choose a value for it. You require to associate a Line Workflow to Items of type Service. Please refer to the <i>Oracle Order Management User's Guide</i> for more information on defining Transaction Types.</p>
+<p>The following table displays sample Order types and associated Order Header workflow assignments.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Sample Order Types and Associated Order Header Workflow Assignments</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Order Type</b></th>
+<th scope="col"><b>Header Flow Assignment</b></th>
+</tr>
+<tr valign="top">
+<td>Domestic</td>
+<td>Header - Standard</td>
+</tr>
+<tr valign="top">
+<td>International</td>
+<td>Header - International (This has a post-booking approval.)</td>
+</tr>
+</table>
+<h2><a name="4059388"></a><a id="T450011"></a><b>Workflow Validation</b></h2>
+<p><a name="d0e49196" id="d0e49196"></a><a name="t_wfvalid" id="t_wfvalid"></a>Oracle Workflow drives Order Management. You can use the Oracle Workflow Builder to customize and extend your Order Management workflows, so that they meet your specific Order Management needs.</p>
+<p>Sometimes customizations and modifications can bring in exceptions that cause data corruption and degrade performance. In order to ensure that a workflow process does not error out during run-time , you can use the Order Management workflow validation feature to validate the workflow process before it is actually used. The Order Management workflow validation, provides additional validation over and above the basic validation performed by the Oracle Workflow Builder.</p>
+<p>In Order Management, you can validate workflow processes in the Transaction Types window.</p>
+<p>While saving your transaction type definition, implied or mandatory validation takes places for most workflow processes. However if you need to validate a specific workflow process, you can use one of the following three options:</p>
+<ul>
+<li>
+<p>Validate Workflow button in Transaction Types window &ndash; this calls the Validate OM Workflow concurrent program.</p>
+</li>
+<li>
+<p>Validate OM Workflow concurrent program - you can run for specific parameters.</p>
+</li>
+<li>
+<p>OE_Validate_WF.validate() Public API &ndash; you can call this a custom program/UI to validate your workflow definitions.</p>
+</li>
+</ul>
+<p><img width="776" height="582" src="./img/ont_wfvalidation1.gif" alt="the picture is described in the document text"></p>
+<p>Below are the events where implied (mandatory) workflow validations take place:</p>
+<p><b>Transaction Types Main Window</b></p>
+<ul>
+<li>
+<p>When you create a new order type or assigna workflow process to an existing order type, implied (mandatory) validation will take place on saving the record. When applicable, assigned blanket and negotiation workflows are also validated against fatal errors.</p>
+</li>
+<li>
+<p>When a header workflow is updated, and it had previously assigned line flows, then implied (mandatory) validation will determine whether the new header workflow is compatible with all the existing line workflows or not. This occurs when the changes are saved</p>
+</li>
+</ul>
+<p><b>Transaction Types - Line Workflow Assignments Window</b></p>
+<p>Implied mandatory validation takes place when you create a new line flow and save the record. Some other considerations for line workflow assignments:</p>
+<ul>
+<li>
+<p>You can perform workflow validation in two modes: 'Errors Only' and 'Errors and Warnings'. Please note that the Transaction Types window and the Line Workflow Assignments window enables you to perform implied or mandatory validation checks for Errors only, and not for Warnings, on saving. However when you run the concurrent program, both errors and warnings are shown.</p>
+</li>
+<li>
+<p>While saving the record, implied (mandatory) validation for the errors occurs only after the existing form level validations and complements the existing error reporting functionality.</p>
+</li>
+<li>
+<p>Validations take place for Error and Warnings. Order Header, Order Line, Sales Agreement and Negotiation workflows.</p>
+</li>
+</ul>
+<p>A complete list of errors and warnings is in the section below.</p>
+<p><b>Errors</b></p>
+<ul>
+<li>
+<p>Activities with no OUT transitions.</p>
+</li>
+<li>
+<p>FULFILL_LINE activity not preceded in the workflow by the activity specified by its Fulfillment Activity Name item attribute: This is a two-step check. If the Fulfillment Activity (for example, SHIP_LINE) is not present in the workflow at all, it's treated as an error at workflow assignment time (during the implied (mandatory) validation). Otherwise, a message is displayed advising another validation using the validation button. If the validation can detect that the Fulfillment Activity does not come before FULFILL_LINE, it is an error. Otherwise, a warning is displayed to verify this manually.</p>
+</li>
+<li>
+<p>Header Level Invoice Interface defined only for the line flow or its corresponding header flow, or vice versa, instead of both.</p>
+</li>
+<li>
+<p>BOOK_WAIT_FOR_H present in line flow, but no BOOK_CONT_L in the header flow, or vice versa.</p>
+</li>
+<li>
+<p>CLOSE_WAIT_FOR_L present in header flow, but no CLOSE_CONT_H in the line flow, or vice versa.</p>
+</li>
+<li>
+<p>Seeded ATO Model, ATO Item, configuration item or education item workflow processes (R_ATO_ITEM_LINE, R_ATO_MODEL_LINE, R_CONFIGURATION_LINE and R_OTA_LINE) assigned to OM item types to which they are not applicable.</p>
+</li>
+</ul>
+<p><b>Warnings</b></p>
+<ul>
+<li>
+<p>WFSTD: WAIT (Standard Wait activity) has Wait Mode of Relative Time, but the time specified is 0: It is an error if it is in a loop, otherwise it displays a warning. Due to performance issues, however, this check should not be done at workflow assignment time.</p>
+</li>
+<li>
+<p>WFSTD: WAIT (Standard Wait activity) has Wait Mode of Relative Time, and the activity is in a loop. A warning is displayed stating that the wait time specified should be longer than the longest expected running time of the Workflow Background Process, otherwise performance issues with the Workflow Background process may occur.</p>
+</li>
+<li>
+<p>WFSTD: DEFER (Standard Defer activity) is in a loop. This can also cause issues with WFBG performance.</p>
+</li>
+<li>
+<p>WFSTD: WAIT (Standard Wait activity) has Wait Mode of Absolute Time: Warning to alert the user to check if the time specified is appropriate.</p>
+</li>
+<li>
+<p>No FULFILL_LINE in a line flow.</p>
+</li>
+<li>
+<p>Header flows without BOOK_ORDER or CLOSE_HEADER activity.</p>
+</li>
+<li>
+<p>Line flows without CLOSE_LINE activity.</p>
+</li>
+<li>
+<p>INVOICE_INTERFACE coming before SHIP_LINE.</p>
+</li>
+<li>
+<p>Custom workflow processes which were likely derived from the seeded ATO Model, ATO Item, configuration item or education item workflow processes (R_ATO_ITEM_LINE, R_ATO_MODEL_LINE, R_CONFIGURATION_LINE and R_OTA_LINE) assigned to OM item types to which they are not applicable.</p>
+</li>
+<li>
+<p>Performance allowing, validate all other cases of master-detail workflow synchronization besides the one mentioned above, would practically involve searching the header flow and all line flows for all activities assigned wf_standard.waitforflow() standard workflow API and checking if there exists a continuation activity in the assigned header/line workflow. Similarly, every activity assigned wf_standard.continueflow() should be matched by the specified waiting activity in the assigned header/line workflow. This should be reported as an error, but due to performance concerns, the concurrent program can only do the validation.</p>
+</li>
+</ul>
+<h2><a name="3004664"></a><a id="T377084"></a><b>Creating a Document Sequence</b></h2>
+<p>Order Management uses the AOL document sequence functionality for numbering orders. You must define at least one document sequence to be used for your order types, unless you are upgrading from a previous release of Order Entry in which case your document sequences will be upgraded. You may use this sequence for all your order types. For instance, you could define an automatic sequence beginning with 1 and assign it to all your order types. Then each new order that you enter will receive the next number in the sequence. Alternatively, you may define multiple document sequences and use different ones with different order types. One sequence could be used with your domestic orders which begins with 1 and another sequence could be used for your international orders which begins with 10000. The number ranges would be separate and order types easily identifiable.</p>
+<h2><a name="3004665"></a><a id="T377085"></a><b>Assign a Document Sequence</b></h2>
+<p>Assign your order type to a document sequence. Navigate to Order Management &gt; Setup &gt; Documents -&gt; Assign. On the Document tab enter Oracle Order Management in the Application field and the order type in the Category field. Select the ledger. Enter Manual in the method field if the number sequence is manual, otherwise enter Null. On the assignment tab enter the start date and the sequence that you defined for your order type in the previous step. Note that you cannot change the assignment for an order type and ledger. To change the assignment you must assign an end date to the existing assignment and create a new one for the new assignment. You cannot have more than one assignment for the same date range, document type and ledger.</p>
+<p>There are additional controls to be considered when a quote transitions to a sales order in reference to the document number and how the number is generated.</p>
+<p>If a gapless numbering type is a requirement, then the Retain Document Number check box should not be selected when using a transaction type for negotiation and fulfillment.</p>
+<p>See <a href="T373258T374818.htm#t_negoom">Negotiation in Order Management</a> for more information about assigning negotiation flows to transaction types.</p>
+<p><a href="T373258T374215.htm#t_ddocseq">Define Document Sequences for Order Numbering</a></p>
+<p><b>Sales Document Numbering</b></p>
+<p>Define your order numbering options using the Oracle Application Object Library (AOL) Document Sequence functionary. You can set up various OM order transaction types and different document sequences. Both OM transaction types and document sequences can control which types of orders are numbered automatically or manually.</p>
+<p>For example, you can have all your outbound orders numbered in a certain sequence and all your returns in a different sequence.When an OM order transaction type is created, a document category with the same name is automatically created. You can define sequences and assign them to the respective document category.</p>
+<h2><a name="3004666"></a><a id="T377086"></a><b>Reports</b></h2>
+<p>There is a report available which will print the setup information for your transaction types. It is called the Transaction Type Listing Report and you can print for one transaction type by name, a range of transaction types by name, only order transaction types, only line transaction types or any combination of these parameters.</p>
+<h2><a name="3004667"></a><a id="T377087"></a><b>Example</b></h2>
+<p>This example creates a new order type with associated line types, assigns the workflow processes, and creates and assigns a document sequence. After completing those steps, you can enter an order.</p>
+<p><b>Create a line type for your order lines.</b> Navigate to Setup -&gt; Transaction Types -&gt; Define. Create a new transaction type with the following information. Leave fields not in this table blank.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Create Order Lines Line Type</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Region</b></th>
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>Header</td>
+<td>Operating Unit</td>
+<td>Default</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transaction Type</td>
+<td>Standard</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Description</td>
+<td>Standard Order Line</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Order Category</td>
+<td>Order</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transaction Type Code</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Effective Dates</td>
+<td>[Today's Date</td>
+</tr>
+<tr valign="top">
+<td>Shipping</td>
+<td>Scheduling Level</td>
+<td>Allow all scheduling actions</td>
+</tr>
+<tr valign="top">
+<td>Finance</td>
+<td>Credit Method For Invoices with Rules</td>
+<td>Prorate</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Credit Method for Split Term Invoices</td>
+<td>Prorate</td>
+</tr>
+</table>
+<p><b>Next, create a line type for your return lines.</b> On the same window create a new transaction type with the following information. Leave fields not in this table blank.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Create Return Lines Line Type</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Region</b></th>
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>Header</td>
+<td>Operating Unit</td>
+<td>Default</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transaction Type</td>
+<td>Return with Receipt and Credit</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Description</td>
+<td>Standard Return Line</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Order Category</td>
+<td>Return</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transaction Type Code</td>
+<td>Line</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Effective Dates</td>
+<td>[Today's Date]</td>
+</tr>
+<tr valign="top">
+<td>Shipping</td>
+<td>Scheduling Level</td>
+<td>Allow all scheduling actions</td>
+</tr>
+<tr valign="top">
+<td>Finance</td>
+<td>Credit Method For Invoices with Rules</td>
+<td>Prorate</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Credit Method for Split Term Invoices</td>
+<td>Prorate</td>
+</tr>
+</table>
+<p><b>The last transaction type that you need to create is the order transaction type.</b> On the same window create a new transaction type with the following information. Leave fields not in this table blank.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Create Order Transaction Type</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Region</b></th>
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>Header</td>
+<td>Operating Unit</td>
+<td>Default</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transaction Type</td>
+<td>Mixed</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Description</td>
+<td>Standard Order with both Order and Return Lines</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Order Category</td>
+<td>Mixed</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transaction Type Code</td>
+<td>Order</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Effective Dates</td>
+<td>[Today's Date]</td>
+</tr>
+<tr valign="top">
+<td>Shipping</td>
+<td>Scheduling Level</td>
+<td>Allow all scheduling actions</td>
+</tr>
+<tr valign="top">
+<td>Finance</td>
+<td>Invoicing Rule</td>
+<td>ADVANCE INVOICE</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Accounting Rule</td>
+<td>IMMEDIATE</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Credit Method For Invoices with Rules</td>
+<td>Prorate</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Credit Method for Split Term Invoices</td>
+<td>Prorate</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receivables Transaction Type</td>
+<td>Invoice</td>
+</tr>
+</table>
+<p><b>Now assign your workflows to your transaction types.</b> You should still be on the define transaction type window for the Mixed order type. Add the following information to this window:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Added Information</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Tab</b></th>
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>Main</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Fulfillment Flow</td>
+<td>Order Flow - Generic</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Default Return Line Type</td>
+<td>Return with Receipt and Credit</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Default Order Line type</td>
+<td>Standard</td>
+</tr>
+</table>
+<p>Save your order transaction type so that you will be able to use it in the next step.</p>
+<p>Click Assign Line Flows and enter the following information on the Line Workflow Assignments window:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Line Workflow Assignments Window Information</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>&nbsp;</b></th>
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Order Type</td>
+<td>Mixed</td>
+</tr>
+<tr valign="top">
+<td>Line 1</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Line Type</td>
+<td>Standard</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Item Type</td>
+<td>[Blank]</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Process Name</td>
+<td>Line Flow - Generic</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Start Date</td>
+<td>[Today's Date]</td>
+</tr>
+<tr valign="top">
+<td>Line 2</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Line Type</td>
+<td>Return with Receipt and Credit</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Item Type</td>
+<td>[Blank]</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Process Name</td>
+<td>Line Flow - Return for Credit with Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Start Date</td>
+<td>[Today's Date]</td>
+</tr>
+</table>
+<p><b>Create a document sequence for Orders.</b> Navigate to Order Management &gt; Setup &gt; Documents &gt; Define. Enter the following information:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Document Sequence for Orders Information</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>&nbsp;</b></th>
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Name</td>
+<td>Mixed Orders Sequence</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Application</td>
+<td>Oracle Order Management</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Effective From Date</td>
+<td>[Today's Date]</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Type</td>
+<td>Automatic</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Initial Value</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Start Date</td>
+<td>[Today's Date]</td>
+</tr>
+</table>
+<p><b>Finally, assign the order type to the document sequence.</b> Navigate to Order Management Setup &gt; Documents &gt; Assign. Enter the following information:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>Order Type to the Document Sequence Information</caption>
+<tr valign="top">
+<td>Tab</td>
+<td>Field</td>
+<td>Value</td>
+</tr>
+<tr valign="top">
+<td>Document</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Application</td>
+<td>Oracle Order Management</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Category</td>
+<td>Mixed [This is the name of the order type]</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Ledger</td>
+<td>[The ledger for the order type]</td>
+</tr>
+<tr valign="top">
+<td>Assignment</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Start Date</td>
+<td>[Today's Date]</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Sequence</td>
+<td>Mixed Orders Sequence</td>
+</tr>
+</table>
+<p>You should now be able to enter an order of type Mixed and process both order and return lines through invoicing.</p>
+<h2><a name="3004675"></a><a id="T377167"></a><b>Using Workflow in Order Management</b></h2>
+<a name="d0e49989" id="d0e49989"></a><a name="t_wfom" id="t_wfom"></a>
+<h2><a name="3004676"></a><a id="T377088"></a><b>Overview</b></h2>
+<p>Workflow technology supports automation and continuous improvement of business processes. It supports routing information of any type according to user-defined business rules. Business transactions, such as order placements or purchase requests that involve various controls, routings, and approvals, can be managed more efficiently by leveraging Workflow technology. The primary reason why Oracle Order Management integrates with Oracle Workflow is to provide you with a comprehensive order processing and fulfillment system.</p>
+<p>Oracle Order Management uses Oracle Workflow to control the sequence of events that occurs in the processing of orders, returns, order lines, and return lines. Oracle Workflow manages activities, executes functions, sends notifications, maintains completed activity history, detects errors, and initiates error processes. Oracle Order Management also uses Oracle Workflow to enable you to track the history of orders. Oracle Order Management enables you to model your business processes in terms of generic order processes. When defining a new workflow, you can begin with the basic activities of order processing. You can extend your business processes copying and editing seeded flows, or by using seeded and custom activities as components. <i>Oracle Workflow in Oracle Order Management</i> provides details about how to extend Oracle Workflow in Oracle Order Management to best meet your business needs. This guide also provides detailed information regarding the workflow processes that come seeded with Oracle Order Management and also how to use custom workflows.</p>
+<p><i>Using Oracle Workflow in Oracle Order Management</i></p>
+<h2><a name="3004677"></a><a id="T377089"></a><b>Workflow</b></h2>
+<p><a name="d0e50014" id="d0e50014"></a>A basic order flow, from entry to invoicing, will most commonly use the Generic Order and Line flows which are assigned to a Generic order type. Figure 5 is an example of a Generic Order Workflow process (enter &gt; book &gt; close):</p>
+<p><b>Order Flow - Generic Workflow Process</b></p>
+<p><img width="651" height="143" src="./img/ontig_sf_5.gif" alt="the picture is described in the document text"></p>
+<p>Figure 6 is an example of a Generic Order Line Workflow process (enter &gt; schedule &gt; ship &gt; bill &gt; close):</p>
+<p><b>Line Flow - Generic Workflow Process</b></p>
+<p><img width="683" height="310" src="./img/ontig_sf_6.gif" alt="the picture is described in the document text"></p>
+<h2><a name="3004680"></a><a id="T377090"></a><b>Fulfillment with Wait</b></h2>
+<p><a name="d0e50040" id="d0e50040"></a>The Fulfillment Workflow activity provides a seeded workflow subprocess <i>Wait to Fulfill Line</i>. You can add this subprocess before the existing <i>defer fulfillment</i> and/or <i>fulfill line</i> subprocesses.</p>
+<p>With the <i>Wait to Fulfill Line</i> subprocess, Order Management enables more flexibility on order changes and cancellation. This subprocess can be used for shippable, non-shippable, and bill only lines alike to defer the fulfillment activity thus creating an opportunity to make changes or corrections before fulfillment.</p>
+<p>The timeout activity is set to Fulfill-Wait for Line activity in the Header workflow. You can open OEOH (Order Header Workflow) in the workflow builder and check the Order Flow - Generic with Header Level Invoice Interface process. The timeout for the above activity is set to 1 day, which would mean that the activity would be retried after a day. You can modify this value to suit your requirement.</p>
+<p><strong><span>Note:</span></strong> You can copy the <i>Wait to Fulfill Line</i> subprocess and write a procedure to handle the copied check_wait_to_fulfill_line function such that it returns a value <b>Yes</b> for order lines eligible to delayed fulfillment specific to their business requirement.</p>
+<p><strong><span>Note:</span></strong> The default logic in the OE_Fulfill_WF.check_wait_to_fulfill_line procedure will hold non-shippable order lines at the Fulfill_Line_Eligible block. The following type of non-shippable order lines will not be held at the block:</p>
+<ul>
+<li>
+<p>lines part of a configuration</p>
+</li>
+<li>
+<p>service lines referencing a shippable order line in the same order.</p>
+</li>
+</ul>
+<p>The seeded flows Line Flow - Generic, Bill Only with Wait to Fulfill and Line Flow - Generic, Bill Only with Payment Assurance and Wait to Fulfill uses the Wait to Fulfill Line subprocess. In order to block the fulfillment of non-shippable lines as and when they are booked, these seeded flows can be used on an order line by creating the line type assignments to an order type using the Transaction Types form. These flows can be assigned to Standard items, ATO Classes, ATO options, PTO Classes, PTO options, KIT and Included items.</p>
+<p>After booking, the lines using these flows pass through a block activity. Lines with standard items, shippable items of Models and Kits and Service lines that refer to a line in another order will be blocked at this activity and waits for the user to progress the lines manually via Actions &gt; Progress Order. The non-shippable lines of Models and Kits and the service lines referencing another line in the same order will not be blocked since the lines will wait for fulfillment of the dependent shippable lines.</p>
+<p>See: <i>Using Oracle Workflow in Oracle Order Management</i></p>
+<h2><a name="3004681"></a><a id="T377091"></a><b>Line Flow: Generic, Performance</b></h2>
+<p>This seeded workflow process is designed to improve workflow performance by eliminating workflow subprocesses. It contains all the activities in the Line Flow&mdash;Generic process, but most of the activities are included directly in the main flow instead of being decomposed into subprocesses.</p>
+<p><b>Line Flow: Generic, Performance</b></p>
+<p><img width="1023" height="435" src="./img/ontig_lineflow.gif" alt="the picture is described in the document text"></p>
+<p><b>Line Flow: Generic, Performance (Continued)</b></p>
+<p><img width="618" height="301" src="./img/ontig_lf_c.gif" alt="the picture is described in the document text"></p>
+<p>This process is optimized for performance and/or high volume users and is recommended when you do not need to make changes to the Generic Flow to suit their business needs. This flow is also intended as an example for process streamlining. It is not recommended to use this flow to create a customized workflow process because after the application of any patch containing workflow changes, the entire customized workflow must be compared to the seeded workflow to check if any changes need to be copied over.</p>
+<h2><a name="30043766"></a><a id="T2006901"></a><b>Using Custom Workflows</b></h2>
+<p><a name="d0e50120" id="d0e50120"></a><a name="custwkflw" id="custwkflw"></a>When you cancel or update an Internal Sales Order Header or Line, the application sends notifications. The predefined notifications and workflows cannot be modified.</p>
+<p>Oracle Order Management provides you with custom workflows to send notifications for the following actions:</p>
+<ul>
+<li>
+<p>Update Ordered Quantity on ISO line</p>
+</li>
+<li>
+<p>Update Schedule Date on ISO line</p>
+</li>
+<li>
+<p>Update Ordered Quantity and Schedule Date on ISO line</p>
+</li>
+<li>
+<p>Substitute Item in ISO line</p>
+</li>
+<li>
+<p>Cancel ISO line</p>
+</li>
+<li>
+<p>Cancel ISO order</p>
+</li>
+</ul>
+<p>Set the profile <b>OM: Send Notifications of Internal Order Change</b> to <b>Yes</b>.</p>
+<p>Oracle Order Management provides the Extension API (OE_ORDER_WF_EXTN.LOAD_CUSTOM_ROOT_WF) to replace the predefined OM Change Order workflow with your own custom workflows to meet your business requirements.</p>
+<p>The following is a sample code to replace seeded workflow ISO_CANCEL with custom workflow CUSTOM_ISO_CANCEL:</p>
+<pre> IF p_seeded_root_wf = 'ISO_CANCEL' THEN
+              l_custom_root_wf := &lsquo;CUSTOM_ISO_CANCEL&rsquo;; 
+           END IF;</pre>
+<p>Use the following code changes in the extension API to replace the seeded workflows: You can use the following code to replace ISO_CANCEL workflow:</p>
+<pre> IF p_seeded_root_wf = 'ISO_CANCEL' 
+                THEN
+                     l_custom_root_wf := &lt;custom workflow&gt;; 
+                END IF;</pre>
+<p>If you are changing the quantity of an order, you can use the following code to replace ISO_QTY_UPDATE workflow:</p>
+<pre> IF p_seeded_root_wf = 'ISO_QTY_UPDATE' 
+                THEN
+                     l_custom_root_wf := &lt;custom workflow&gt;; 
+                END IF; </pre>
+<p>If you are changing the schedule arrival date, you can use the following code to replace ISO_SCH_DATE_UPDATE workflow:</p>
+<pre> IF p_seeded_root_wf = &lsquo;ISO_SCH_DATE_UPDATE'
+                THEN
+                     l_custom_root_wf := &lt;custom workflow&gt;; 
+                END IF;</pre>
+<p>If you are changing the quantity and schedule date, you can use the following code to replace the ISO_QTY_SCH_DATE_UPDATE workflow:</p>
+<pre>IF p_seeded_root_wf = &lsquo;ISO_QTY_SCH_DATE_UPDATE' 
+                THEN
+                     l_custom_root_wf := &lt;custom workflow&gt;; 
+                END IF;</pre>
+<p>If you are substituting an item, you can use the following code to replace the ISO_ITEM_UPDATE workflow:</p>
+<pre>IF p_seeded_root_wf = &lsquo;ISO_ITEM_UPDATE' 
+                THEN
+                     l_custom_root_wf := &lt;custom workflow&gt;; 
+                END IF; </pre>
+<p>If you are canceling an order line, you can use the following code to replace ISO_LINE_CANCEL workflow</p>
+<pre>IF p_seeded_root_wf = &lsquo;ISO_LINE_CANCEL' 
+                THEN
+                     l_custom_root_wf := &lt;custom workflow&gt;; 
+                END IF; </pre>
+<h2><a name="3004685"></a><a id="T377092"></a><b>Defaulting Rules</b></h2>
+<p><a name="d0e50235" id="d0e50235"></a><a name="OEXDEFWK_DEFOBJ" id="OEXDEFWK_DEFOBJ"></a><a name="OEXDEFWK_DEFRULE" id="OEXDEFWK_DEFRULE"></a>Order Management Defaulting Rules reduce the amount of data input required when entering orders or returns. You can define business rules for defaulting values, and prioritize how conditions and validation rules are implemented. If a defaulting rule definition fails to default desired values for orders or returns, you can choose to define additional defaulting rules for most attributes (fields) within Entities such as Order or Line.</p>
+<p>Order Management provides seeded defaulting rules, and you can create additional Defaulting Rules by either:</p>
+<ul>
+<li>
+<p>Defining a new defaulting rule, either with a new Condition you create or using an existing Condition</p>
+</li>
+<li>
+<p>Disabling a seeded defaulting rule and creating your own. You can not change seeded defaulting rules but you can disable the defaulting rule's condition</p>
+<p><strong><span>Note:</span></strong> You cannot update defaulting rules marked as seeded. However, you can create additional rules based upon seeded rule definitions and consequently disable the seeded rule.</p>
+<p><strong><span>Note:</span></strong> Depending on your release level, if you wish to default the Item Identifier type attribute for an order line, select either <i>INT</i> or <i>Internal Item</i>.</p>
+</li>
+</ul>
+<p>You can use defaulting rules to default values into fields (attributes) in both the Header and Lines Entities</p>
+<ul>
+<li>
+<p>Entities include groups of related attributes such as Order or Line</p>
+</li>
+<li>
+<p>Attributes are the individual fields within a particular entity, such as Warehouse, Ship To Location, or Agreement</p>
+</li>
+</ul>
+<p>A default is a value that Order Management automatically places in an order or line field.</p>
+<p>If the Attribute name is the same on both the Order and the Line, you can initially default the value from the Header to the Line.</p>
+<p>For example, you can default Purchase Order at the Header to Purchase Order at the Line when you first create a PO number</p>
+<p><strong><span>Note:</span></strong> The initial value will default, but if you change the PO the new value will not default automatically from the header to the line unless Cascading has been enabled and all the lines can be updated.</p>
+<ul>
+<li>
+<p>You can also default the value of an attribute from another attribute within the same entity. For example, you could default Promise Date on the Line from Request Date within the Line Entity.</p>
+</li>
+</ul>
+<p>A defaulting condition is evaluated at run time to select the appropriate default source assignments for all the object attributes. You can define defaulting conditions that control defaulting of object attributes of an object (data object) in given mode of functionality. For example, you may have set up a condition for defaulting to occur one way if the Payment Terms are A, and another way if the Payment Terms are B.</p>
+<p>Defaulting conditions created for an Entity must be based on attributes within that Entity.</p>
+<p>A defaulting rule includes the following components:</p>
+<ul>
+<li>
+<p>Defaulting Source/Value (Entity and Attribute, Source Type)</p>
+</li>
+<li>
+<p>Defaulting Condition</p>
+</li>
+<li>
+<p>Precedence of Defaulting Condition (if multiple defaulting conditions exist, precedence determines the condition to use)</p>
+</li>
+<li>
+<p>Sequence (in what order is the rule applied if multiple rules exist)</p>
+</li>
+<li>
+<p>Source Type and Defaulting Source/Value: (how the attribute value is derived</p>
+</li>
+</ul>
+<p><b>Defaulting Rules</b></p>
+<p>You can define several different rules to use in different order processing situations.</p>
+<h3><b>Sequence of Initial Attribute Defaulting</b></h3>
+<p>When attributes have equal sequence numbers, defaulting takes place alphabetically. You can change these sequences, if you need defaulting to happen in some different order. For example, you might define a sourcing rule that says default attribute A on the line from attribute B on the same line. For better performance, change defaulting sequence such that attribute B defaults before attribute A.</p>
+<p>Attribute A must also be setup to be dependent on attribute B for rule to work correctly in all scenarios. Refer to 'Dependencies' section for further details on how to set this up.</p>
+<h3><b>Defaulting Rule Sequences</b></h3>
+<p>Specify the priority sequence in which you want to search for a field'sdefaulting value. Order Management looks at the lowest sequence number initially to begin searching for a default value, and continues to the next highest sequence number until it finds a value. For example, if your first and second sources are null, but your third source contains a value, Order Management uses your third source as the source.</p>
+<h3><b>Defaulting Sources</b></h3>
+<p>A defaulting rule source is the location from which you obtain a defaulting value; usually the location is another entity and attribute. For most attributes, you can assign at least one entity/attribute defaulting source, in addition to using other defaulting sources.</p>
+<p>Defaulting Sources include:</p>
+<ul>
+<li>
+<p>Same Record</p>
+</li>
+<li>
+<p>Related Record</p>
+</li>
+<li>
+<p>System Variable</p>
+</li>
+<li>
+<p>Constant Value</p>
+</li>
+<li>
+<p>Application Profile</p>
+</li>
+<li>
+<p>PL/SQL API.</p>
+</li>
+</ul>
+<p>For example, you may want to define a rule to default the Price List to the order header based upon a variety of different sources. Potential defaulting sources include customer agreement, customer, and order type; the potential attribute for all three of these entities would be Price List. You can choose any of the three source entities. Your choice may depend on your business practices, whether those sources exist for a particular order, and whether those sources have a price list defined for them. For the customer, you may have defined separate price lists for the Bill To and Ship To addresses in addition to the customer itself. All three of these fields are available as sources.</p>
+<h3><b>Examples of Defaulting Sources</b></h3>
+<p><b>Application Profile</b></p>
+<p>The profile option source enables you to use a profile option, either system- or user-defined, as a default value source. You must indicate the name of the profile option to be used as the default value in your rule. Profile options sources enable for flexible default value tailoring without complex customizations.</p>
+<p><strong><span>Note:</span></strong> If you intend to use a profile option as a defaulting source, be certain that it is defined before attempting to reference it in a defaulting rule.</p>
+<p><b>Constant Value</b></p>
+<p>The constant value source option enables you to specify a constant value instead of a field that contains a value. This is especially useful if you want your default to be the same value or to be used if no other sources you have defined for your rule can provide a value.</p>
+<p>For example, if all items in your organization are sold with the unit of measure, you could define a defaulting rule to default the value of Each for the Unit of Measure attribute within the Order Line entity.</p>
+<p><b>System Variable</b></p>
+<p>This system variable source option enables you to default system variables or functions of system variables for a field. This is commonly used to default date fields where SYSDATE expression or functions on SYSDATE can be used to default the current date or a function of the current date.</p>
+<p>For example if the policy of your organization is to ship all items on the next day, you can setup the Request Date defaulting rule with System Variable as sysdate + 1</p>
+<p><b>Same Record</b></p>
+<p>Using same record as a source, you can default an attribute from another attribute on the same entity record.</p>
+<p>For example a common requirement is to compute tax for an order line based on the scheduled ship date for that line. Set up a defaulting rule for tax date with Same Record source and Source Attribute as Schedule Ship Date.</p>
+<p><b>Related Record</b></p>
+<p>The Related Record is one of the most frequently used defaulting sources. Defaults for certain attributes can be setup when defining related object records such as Customer, Ship To, Bill To and Item.</p>
+<p>For each attribute that you can use as a default, related record source objects/ source attributes are pre-defined in the system.</p>
+<p><b>PL/SQL API</b></p>
+<p>If you have a complex defaulting rule that cannot be defined using any other defaulting source, you can use the API source. Your logic to derive default values can be coded into your custom PL/SQL API, enabling you to reference you API within a defaulting rule.</p>
+<p><b>Dependencies</b></p>
+<p>Some attributes are dependent upon the value of other attributes on the same record. Dependencies can be established only among attributes on the same entity, not across entities. The list of available Source Attribute and Dependent attributes is pre-defined; most attributes are available but some are not.</p>
+<p>If an attribute is changed, either by the user or by the system, any attributes that are dependent on it will be cleared and then re-defaulted.</p>
+<p>For example, the Freight Terms for the Header Entity is dependent on Agreement. If the Header Agreement is changed, the Freight Terms for the Header entity will be cleared and re-defaulted.</p>
+<p>If you create a rule for attribute X based on a condition using attribute Y, ensure that attribute Y is defaulted (not manually entered) before attribute X. Please note that if you manually enter Y and want to default X based upon the current value of Y, you will need to define a dependency where the source attribute is Y and the dependent attribute is X.</p>
+<p>For example, if you define a Condition for defaulting the Unit of Measure by using the Customer, ensure that Customer is defaulted before the UOM. If you were to enter the Customer and you want Unit of Measure to re-default based on this new Customer value, you must define a dependency for Unit of Measure on Customer.</p>
+<p>If you wish to create additional dependencies or disable existing dependencies, you can update a dependency extension API.</p>
+<p>For additional details on dependencies and usage of the APIs within Defaulting Rules, refer to the Order Management white paper Defaulting Rules Setup, available on Oracle<i>MetaLink</i>, http://www.oracle.com/support/metalink/.</p>
+<p><b>Effects of Modifications to Orders and Rules</b></p>
+<p>Modifications to orders may cause Order Management to re-apply defaulting values from your defaulting rules. This reapplication of defaults also may lead to changes that trigger another default.</p>
+<p>If re-application changes a value and results in inconsistent information on the order, Order Management prevents users from committing the order and provides messages to assist in correcting the data. For example, depending on the defaulting rules, changing the line type on the order line could change the price list on the line. If the line items are not in the new price list, Order Management prevents you from committing the order and issues instructions.</p>
+<p>Modifications to defaulting rules take effect for any new orders that use the modified defaulting rules when you open the Sales Order Header or Lines windows or if you update an attribute (field) on an order. If you do not or query an order or make a change to an existing order that uses the modified defaulting rules, thus activating validations for defaulting, then the order is not affected by the modification.</p>
+<p>During order and line defaulting, Order Management does not replicate the value of defaulted attributes to all common lower level entities (cascading) when performing updates to existing orders. If you want to change the value of lower level entities for defaulting attributes on existing order or line records, you should utilize Mass Change functionality.</p>
+<p>For example, assume you have a defaulting rule set up to default the line-level attribute Ship Method from the order header to all order line. You create an order using Ship Method A, and then add several lines. Since you are using Ship Method A for the order header, each subsequent order line created will use the default, Ship Method A. Now, you decide to change the Ship Method for the order header to Ship Method B.</p>
+<p>Changing this attribute at the order header will result in any subsequent new order lines created to use Ship Method B as a default. Existing order lines that have Ship Method A are not updated to Ship Method B as a result of your changing the header attribute.</p>
+<p>Use mass change to update order lines to Ship Method B.</p>
+<p><b>Generating Defaulting Packages for Rules and Conditions</b></p>
+<p>To generate or update defaulting rules or defaulting conditions, you must submit the Defaulting Generator concurrent program. When you submit the Defaulting Generator concurrent program, a defaulting handler package is generated for each attribute on each entity. The creation of new rules or conditions, as well as modified rules and conditions are not effective until the defaulting package for the attribute is successfully generated.</p>
+<p>The concurrent program must be submitted if you perform either of the following:</p>
+<ul>
+<li>
+<p>Update an existing defaulting rule</p>
+</li>
+<li>
+<p>Update a defaulting condition: When validation rules for a defaulting condition are updated, defaulting packages need to be re-generated for all attributes of the entity</p>
+</li>
+<li>
+<p>Disable a defaulting condition</p>
+</li>
+</ul>
+<h2><a name="3004690"></a><a id="T377093"></a><b>Key Enhancements</b></h2>
+<p>Some of the great new enhancements that this framework allows are:</p>
+<ul>
+<li>
+<p>the ability to define defaulting rules for returns and return lines - they used to be hard-coded.</p>
+</li>
+<li>
+<p>the ability to define formulas to create the defaulted data - see the Sources of Values section below.</p>
+</li>
+<li>
+<p>a clear distinction between <i>defaulting</i> behavior and <i>cascading</i>.</p>
+</li>
+</ul>
+<h2><a name="3004691"></a><a id="T377094"></a><b>Terminology</b></h2>
+<p>Since Defaulting Rules are now generic, and potentially can be used by other Oracle applications, generic names are used. You default to attributes and entities and default from sources.</p>
+<p>See: <a href="T373258T377073.htm#t_srcval">Sources of Values</a></p>
+<h2><a name="3004692"></a><a id="T377095"></a><b>Attributes and Entities in Order Management</b></h2>
+<p>An Entity in this context is a group of related attributes that roughly correspond to a table or a form in Order Management. There are entities of Order Header, Order Line.</p>
+<p>An Attribute is a field or column that belongs to that entity. Therefore, the ordered unit of measure is an attribute of the Order Line entity. When you query up the Defaulting Setup window for a particular entity, a list of all the attributes for which you can define defaulting rules display.</p>
+<p>You will not be able to define defaulting rules for descriptive flexfields, since their defaulting is controlled by AOL's flexfield routines.</p>
+<h2><a name="3004693"></a><a id="T377096"></a><b>Conditions</b></h2>
+<p><a name="OEXDEFWK_DEFCONDN" id="OEXDEFWK_DEFCONDN"></a><b>Defaulting Condition Validation Templates</b></p>
+<p><img width="679" height="465" src="./img/ontig_dcvtp.gif" alt="the picture is described in the document text"></p>
+<p>Conditions are rules set up that control when a particular group of default sources will be looked at. Define one or more condition validation templates <i>per entity</i> based on common business rules to meet your business needs. Then you can use them over and over for the attributes of that entity. For example, you might set up a condition template for all return lines, or another one for all internal order lines. The ALWAYS condition is seeded for each entity. When defining a set of Conditions and using them in rules, be sure to place the ALWAYS condition last in the Precedence for Defaulting Conditions.</p>
+<p>Defining Condition Validation Templates</p>
+<p>Once you query up the entity that you want to work with in the Defaulting Setup window (use the flashlight icon to get the LOV of available entities), press the Defaulting Condition Template button to get to the window to define the conditions. A window that lists all the conditions already defined for this entity displays. To add a new condition, go to a blank line (or use the green + icon to create a blank line) and key in a name and description for your new condition.</p>
+<ul>
+<li>
+<p>The lower half of the window is where you enter the details of the condition you are defining or viewing.</p>
+</li>
+<li>
+<p>The Group Number is an arbitrary number used to control AND and OR conditions. Indicate that rules are to be connected by an AND rule by giving them the same group number. Rules to be connected with OR should be given different group numbers.</p>
+</li>
+<li>
+<p>In the Attribute column, choose from the list of attributes on which a condition can be based. Available attributes that show up here are ones <b>from this entity</b> that have the 'Include in Building Defaulting Conditions check box checked on the Defaulting Setup - Entity Attributes window. The only attributes that have this check box checked are ones that are the source for a dependency relationship. See section on Dependencies below. You cannot add to this list of attributes.</p>
+</li>
+<li>
+<p>In the Operator column, choose an operator from equal, not equal, greater than, less than, not greater than or not less than.</p>
+</li>
+<li>
+<p>In the Value String column, key in (or choose from the LOV) the actual value you want to compare to.</p>
+</li>
+</ul>
+<h2><a name="3004695"></a><a id="T377097"></a><b>Sequence of Defaulting</b></h2>
+<p>On the main Defaulting Setup screen, where all the attributes of the entity are listed, there is a column called Defaulting Sequence. This number determines the order in which attribute defaulting takes place. When attributes have equal sequence numbers, defaulting takes place alphabetically. All the attributes are seeded with a sequence of 50. You can change these sequences, if you need defaulting to happen in some different order. For example, you might define a sourcing rule that says default attribute A on the line from attribute B on the same line.</p>
+<h2><a name="3004696"></a><a id="T377098"></a><b>Sources of Values</b></h2>
+<p><a name="t_srcval" id="t_srcval"></a>Sources are places where values can be defaulted from. Defaulting Rules provide a variety of sources that can be used in building your defaults. Most of them will be familiar to users of Oracle Order Entry.</p>
+<ul>
+<li>
+<p>Constant Value: A fixed value that will be used.</p>
+</li>
+<li>
+<p>Application Profile: is the value of a profile option. This can be a system provided profile option, or a new profile option that you've defined just to provide a defaulting value.</p>
+</li>
+<li>
+<p>Same Record: The value of another attribute on the same entity (or record) as the attribute you are defining the rule. For example, you might set up the Promise Date to default from the Request Date on the same line.</p>
+</li>
+<li>
+<p>Related Record: The value of another attribute on a related entity (or record). For example, you might set up the Ship Method on the line to default from the Ship Method on the header. Similarly, an attribute on the order header might default from an attribute on the related customer record.</p>
+</li>
+<li>
+<p>System Variable: The value of a system (server) variable, such as System Date. For this type of source (and this type only), you can use an expression containing a formula, for example, sysdate + 7.</p>
+</li>
+<li>
+<p>PL/SQL API: Define your own routine to provide the default. There are a few seeded defaulting rules that use this - for example, defaulting of the currency on the order header from the ledger is seeded this way.</p>
+</li>
+<li>
+<p>Others: there are several esoteric source types relating to the Web App Dictionary definitions for this attribute.</p>
+<p><b>Defining Sourcing Rules</b></p>
+<p><b>Default Sourcing Rules</b></p>
+<p><img width="642" height="506" src="./img/ontig_drlat.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+<p>Once you query up the entity that you want to work with in the Defaulting Setup window and have defined your Conditions, you are ready to define your Sourcing Rules. Select the attribute you want to work on, and then click on the Defaulting Rules button to get to a window called Attribute Defaulting Rules. This window lists all the conditions and rules that have been previously defined for this attribute. To add a new condition and its rules, go to a blank line in the Defaulting Conditions section of the window (or use the green + icon to create a blank line), key in a precedence and choose from conditions you have already defined. (The precedence controls the sequence in which the conditions are evaluated.)</p>
+<p>The lower half of the window is where you enter the details of the rule you are defining or viewing for this condition. This set of defaulting rules will be used if its corresponding Defaulting Condition is TRUE.</p>
+<ul>
+<li>
+<p>The Sequence here controls the order in which the system attempts to locate a default.</p>
+</li>
+<li>
+<p>In the Source Type column, choose from the list of Source Types as described above.</p>
+</li>
+<li>
+<p>In the Default Source Value column, specify the attribute or value you want to use for the source. Selection choices here depends on the Source Type you have selected. What you'll see in this field is a flexfield whose context is based on the Source Type. Then you can choose among pre-seeded possible source attributes.</p>
+</li>
+</ul>
+<p>There are similar restrictions to defaults. The data type has to match that of the attribute you are defaulting, and the source relationship has to be pre-defined.</p>
+<h2><a name="3004698"></a><a id="T377099"></a><b>Dependencies</b></h2>
+<p>Some attributes are dependent upon the value of other attributes on the same record. If an attribute is changed, either by you or by the system, only other attributes that are dependent on it will be cleared and then re-defaulted. For certain fields such that if re-defaulting does not come up with a default for the dependent field, the old value would be retained instead of clearing that value. These fields are: price list, salesperson, customer po number, order type.</p>
+<p>For example, the Price List is dependent on Agreement. If the Agreement is changed, the Price List will be cleared and re-defaulted. If re-defaulting does not come up with a default for the dependent field, the old value is retained instead of clearing that value.</p>
+<p>In the initial implementation of Defaulting Rules, dependencies are hard-coded. You can also check current code in the hard coded dependencies package - OE_Dependencies (file: $ONT_TOP/patch/115/sql/OEXUDEPB.pls) to get the latest list.</p>
+<p>If you need to create additional dependencies or disable existing dependencies that you do not need, you can use an API hook: package OE_Dependencies_Extn ($ONT_TOP/patch/115/sql/OEXEDEPB.pls).</p>
+<p>Adding dependencies via this hook is SUPPORTED as long as the guidelines documented in the file are followed. Following the guidelines would also ensure that patches do not over-write the changes introduced by customers.</p>
+<p>However, note that:</p>
+<ul>
+<li>
+<p>The list of source/dependent attributes that can be used to setup the dependencies is restricted. Refer to comments in file - OEXEDEPB.pls - for the complete list.</p>
+</li>
+<li>
+<p>Dependencies can be established only among attributes on the same entity, not across entities such as changing an attribute on order header will NOT result in a change to attributes on order line.</p>
+</li>
+</ul>
+<h2><a name="3004699"></a><a id="T377100"></a><b>Examples</b></h2>
+<p>There is an updated Ship To on the order but this results in Invoice To being cleared or updated. The Defaulting Rule is deleted or disabled to default <i>Invoice To</i> from <i>Ship To</i>. But still the behavior does not change, because of the hard coded dependency of Invoice To on the Ship To field. To ensure that Invoice To is not affected by a change to Ship To, the dependency should be disabled via this hook. Source Attribute: Ship To, Dependent Attribute: Invoice To.</p>
+<pre>IF p_entity_code = OE_GLOBALS.G_ENTITY_HEADER THEN</pre>
+<pre>x_extn_dep_tbl(l_index).source_attribute := OE_HEADER_UTIL.G_SHIP_TO_ORG;</pre>
+<pre>x_extn_dep_tbl(l_index).dependent_attribute := OE_HEADER_UTIL.G_INVOICE_TO_ORG;</pre>
+<pre>x_extn_dep_tbl(l_index).enabled_flag := 'N';</pre>
+<pre>l_index := l_index + 1;</pre>
+<p>If it is required that updating of <i>Ship To</i> should not change the value of <i>Invoice To</i> on the order line either, dependency should be separately disabled for line also.</p>
+<pre>ELSF p_entity_code = OE_GLOBALS.G_ENTITY_LINE THEN</pre>
+<pre>x_extn_dep_tbl(l_index).source_attribute := OE_LINE_UTIL.G_SHIP_TO_ORG;</pre>
+<pre>x_extn_dep_tbl(l_index).dependent_attribute := OE_LINE_UTIL.G_INVOICE_TO_ORG;</pre>
+<pre>x_extn_dep_tbl(l_index).enabled_flag := 'N';</pre>
+<pre>l_index := l_index + 1;</pre>
+<p>To create a dependency for a source or dependent attribute that is not listed in OEXEDEPB.pls requires CUSTOMIZATION of the existing packages, and patches in the future might over-write your changes.</p>
+<ol>
+<li>
+<p>Adding a new Source Attribute. You want to make Shipping Method on the header dependent on Shipment Priority.</p>
+<ul>
+<li>
+<p>Add a dependency in OEXDEPB.pls as with Source Attribute: Shipment Priority, Dependent Attribute: Shipping Method.</p>
+</li>
+<li>
+<p>Customize another entity specific utility package, because Shipment Priority is not listed as one of the source attributes available on Order Header.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>Add the following statement in OE_Header_Util.Clear_Dependent_Attr (file: OEXUHDRB.pls). To change in the Shipment Priority on the order line to also affect Shipping Method on the order line entity, you must add code similar to the following to OE_Line_Util_Ext.</p>
+<pre>     IF NOT OE_GLOBALS.Equal(p_x_header_rec.shipment_priority_code </pre>
+<pre>        ,p_old_header_rec.shipment_priority_code) </pre>
+<pre>     THEN </pre>
+<pre>        l_index := l_index + 1.0; </pre>
+<pre>        l_src_attr_tbl(l_index) := OE_HEADER_UTIL.G_SHIPMENT_PRIORITY; </pre>
+<pre>     END IF;</pre>
+<ol>
+<li>
+<p>Adding a new Dependent Attribute: You want to make Planning Priority on the line to be defaulted based on Demand Class. You need to add a dependency in OEXDEPB.pls with Source Attribute: Demand Class, Dependent Attribute: Planning Priority. If Demand Class is not listed as one of the source attributes available on Order Line entity, add it as a source attribute. And if Planning Priority is not listed as one of the dependent attributes for order line entity, you also need to CUSTOMIZE another section of the entity specific utility package.</p>
+<p>Add the following sub-procedure in OE_Line_Util_Ext.Clear_Dependents (file: OEXULXTB.pls).</p>
+<pre>  PROCEDURE PLANNING_PRIORITY IS</pre>
+<pre>  BEGIN</pre>
+<pre>  IF (p_initial_line_rec.PLANNING_PRIORITY = FND_API.G_MISS_CHAR</pre>
+<pre>   OR OE_GLOBAlS.Equal(p_initial_line_rec.PLANNING_PRIORITY</pre>
+<pre>             , p_old_line_rec.PLANNING_PRIORITY))</pre>
+<pre>  THEN</pre>
+<pre>    p_x_line_rec.PLANNING_PRIORITY := FND_API.G_MISS_NUM;</pre>
+<pre>  END IF;</pre>
+<pre>  END PLANNING_PRIORITY;</pre></li>
+</ol>
+<p>Note that for VARCHAR2 fields, you must replace G_MISS_NUM with G_MISS_CHAR For DATE fields, it should be G_MISS_DATE. Add a statement in the IF loop in the main procedure to call this new sub-procedure:</p>
+<pre> ELSIF l_dep_attr_tbl(I) = OE_LINE_UTIL.G_AGREEMENT THEN</pre>
+<pre>         AGREEMENT;</pre>
+<p>For adding dependent fields on Order Header entity, follow these steps and add code in header utility package: OE_Header_Util (file: OEXUHDRB.pls).</p>
+<p><b>Pricing Date</b></p>
+<p>You can add Pricing Date as a dependent attribute so that Pricing Date also gets re-defaulted at order line level.</p>
+<p>During an order cycle, the supply chain planning can change the dates based on availability of inventory. When you change any source attribute such as the Request Date, Schedule Ship Date, Promise Date, at order line level, if there is a dependency with the Pricing Date then, Pricing Date is re-defaulted based on the Defaulting Rules setup.</p>
+<p>You must add the dependency between source attribute and Pricing Date in the API hook: package OE_Dependencies_Extn ($ONT_TOP/patch/115/sql/OEXEDEPB.pls).</p>
+<p>To enable dependency between Request Date and Pricing Date and, Promise Date and Pricing Date and, Schedule Ship Date and Pricing Date, add the code in OE_Dependencies_Extn package body after ELSIF line of code for the entity order line (OE_GLOBALS.G_ENTITY_LINE):</p>
+<pre>..
+ELSIF p_entity_code = OE_GLOBALS.G_ENTITY_LINE THEN
+</pre>
+<p>To enable dependency between Request Date and Pricing Date, add the following code:</p>
+<pre>x_extn_dep_tbl(l_index).source_attribute := OE_LINE_UTIL.G_REQUEST_DATE;</pre>
+<pre>x_extn_dep_tbl(l_index).dependent_attribute := OE_LINE_UTIL.G_PRICING_DATE;
+</pre>
+<pre>x_extn_dep_tbl(l_index).enabled_flag := 'Y';</pre>
+<pre>l_index := l_index + 1;
+</pre>
+<p>To enable dependency between Promise Date and Pricing Date, add following code:</p>
+<pre>x_extn_dep_tbl(l_index).source_attribute := OE_LINE_UTIL.G_PROMISE_DATE;</pre>
+<pre>x_extn_dep_tbl(l_index).dependent_attribute := OE_LINE_UTIL.G_PRICING_DATE;</pre>
+<pre>x_extn_dep_tbl(l_index).enabled_flag := 'Y';</pre>
+<pre>l_index := l_index + 1;
+</pre>
+<p>To enable dependency between Schedule Ship Date and Pricing Date, add the following code:</p>
+<pre>x_extn_dep_tbl(l_index).source_attribute := OE_LINE_UTIL.G_SCHEDULE_SHIP_DATE;</pre>
+<pre>x_extn_dep_tbl(l_index).dependent_attribute := OE_LINE_UTIL.G_PRICING_DATE;</pre>
+<pre>x_extn_dep_tbl(l_index).enabled_flag := 'Y';</pre>
+<pre>l_index := l_index + 1;
+</pre>
+<h2><a name="3004700"></a><a id="T377101"></a><b>Controlling Changes</b></h2>
+<p>Order Management's Defaulting Rules controls who can change data and when using the Processing Constraints framework regardless of how or whether an attribute was defaulted. In addition, when defining Processing Constraints you have the ability to indicate that you want the system to be able to update an attribute, but limit your other others privileges to make changes.</p>
+<p>The only time that Defaulting Rules result in a change to an existing attribute on an entity is when that attribute has a dependency on another attribute that has been changed.</p>
+<h2><a name="3004701"></a><a id="T377102"></a><b>Reports</b></h2>
+<p>There is a new report in Order Management that lists the Defaulting Rules you have set up. It replaces the old OE Standard Value Rules Listing. The report is called Defaulting Rules Listing, and it has parameters to allow you to limit the listing to a specific object (entity), attribute or condition. One more parameter is the option to specify if it is: Seeded (yes or No).</p>
+<p>Order Management seeded defaulting rules that defaulted Order Type and Salesrep from the customer have been deleted. A report has been provided to enable you to view the deleted defaulting rule list. The report is ontkexc01.lst generated by ontkexc01.sql and is available from the patch log..</p>
+<h2><a name="3004702"></a><a id="T377103"></a><b>Implementation Considerations</b></h2>
+<p>Creating Conditions</p>
+<p>As stated previously, conditions give you powerful flexibility in designing how you will implement defaulting rules for your company. However, there are a few behaviors to take into consideration when creating Conditions.</p>
+<p><b>What Attributes can you use?</b></p>
+<p>Be aware that Conditions you create for an entity can only be based on attributes that belong to that entity. Therefore, for example, you cannot set up a Condition for a line attribute based on Contact because Contact is a header attribute. You'll have to examine carefully your business rules so you can state Conditions in terms of attributes on the same level. Fortunately, in Order Management, most attributes (with few exceptions such as Price List and Currency) at the header are also present at the line level. Even the sold-to customer is present as a line-level attribute, even though the software enforces that the customer is the same throughout an order. This way, the customer can be used in a condition template for the line.</p>
+<p><b>Sequencing of Attributes Used in Conditions</b></p>
+<p>Sequencing of defaulting of attributes plays an important role in the correct design of Conditions and Sourcing Rules. If you create a rule for attribute X based on a Condition using attribute Y, you must be sure that attribute Y gets defaulted before attribute X, or your Condition will not evaluate true. For example, if you define a Condition for defaulting the Unit of Measure by using the Customer, it will only work if you ensure Customer gets defaulted before UOM, and even then, it will only work for the initial defaulting of the UOM field. That is because of Dependencies.</p>
+<p><b>Dependencies of Attributes Used in Conditions</b></p>
+<p>So you must also regard dependencies when you are building Conditions. If a Condition involving attribute Y is used to setup the defaulting rule for attribute X, then the rule will work during subsequent updates of attribute Y only if attribute X is dependent on attribute Y. So in the UOM and Customer example above, if you later change the Customer on the order, the UOM will not re-default based on the new customer, because UOM is not dependent on Customer.</p>
+<p><b>Defaulting vs. Cascading</b></p>
+<p>In Order Management, a clear and unambiguous distinction has been made between defaulting and cascading, that will cause data to populate in the windows in different ways. In Order Entry, defaulting and cascading were intermixed, making it sometimes difficult to predict what might happen when an attribute at one level was changed. In Order Management, the defaulting logic will come into play only when the record is initially created (when you click on a new record on the window), or when an attribute upon which this attribute is dependent is changed. Cascading, on the other hand, means that if the header attributes change, the corresponding line attributes change. During Cascading either all the lines are updated or if there is a failure, none of the lines are updated. Again, this is different from the new mass change capability, where you multi-select the rows you want to change, and then they are updated on clicking Ok in the Order Mass Change window.</p>
+<p>How are these concepts applied? Assume you have a defaulting rule set up to default an attribute such as Shipping Method from the header to the line. Create an order with several lines and use Shipping Method A for the header and the line values get defaulted to Shipping Method A. Then you want to change the shipping method to Shipping Method B at the header level. Changing this attribute at the header will result in any subsequent new lines getting Shipping Method B defaulted onto them. The existing lines that have Shipping Method A will not get changed to B as a result of your changing the header attribute unless Cascading for the Shipping Method attribute is enabled. In such a situation, the Shipping Method attributes at the line level will automatically update to Shipping Method B. Apart from the Shipping Method, other related fields will also be updated automatically due to Cascading.</p>
+<h2><a name="3004703"></a><a id="T377104"></a><b>New Defaulting Features</b></h2>
+<p>Now, End Customer functionality allows defaulting for Install Base information for better accuracy. You can optionally default values for Install Base Owner, Current Location and Installed At Location at the header and line levels. The End Customer fields are located on the Others Tab of the Sales Orders form.</p>
+<p>Also with the new Pricing and Availability functionality, you can setup to default pricing & availability attributes including, demand class, item identifier type, warehouse and price list.</p>
+<p>Because of the magnitude of the changes to the fundamental architecture between SVRS and Defaulting Rules, the decision was made to not upgrade any user-defined SVRS. Defaulting Rules have been seeded that provide equivalent functionality to the R12 seeded SVRS.</p>
+<p>Users of Order Entry who created their own Standard Value Rules or customized the seeded rule sets will need to carefully review the logic behind their changes or customizations, and create equivalent Defaulting Rules for the attributes affected. Typically a user will need to create Conditions corresponding to their particular business need, and then create Defaulting Rules using those Conditions for the necessary attributes.</p>
+<h2><a name="3004707"></a><a id="T377106"></a><b>Order Management Defaulting Rules</b></h2>
+<p><a name="t_default" id="t_default"></a>The Defaulting Rules Listing Report shows the possible entities and attributes for which you can define defaulting rules. Entities like Order Header, Order Line, Line Payment, Order Payment.</p>
+<h2><a name="4035748"></a><a id="T447655"></a><b>Cascading</b></h2>
+<p><a name="d0e50872" id="d0e50872"></a><a name="cascading" id="cascading"></a>Cascading feature enables you to determine and set up a number of attributes that cascade to the order lines if required. Cascading can occur for either all or none of the lines. If there is an update failure for one line, then the cascade processing will fail for the other lines. For example, if there is a processing constraint in place at the line level that restricts an update and that attribute is updated at the header, which subsequently fails for the line, then cascading will fail for all other lines. Cascading is supported using the user interface but is not supported for APIs.</p>
+<p><strong><span>Note:</span></strong> Cascading must not be used as a substitute for or an extension of mass change or multi-select functionality.</p>
+<p><b>Setting up Cascading</b></p>
+<p>To set up the Cascading feature, complete the following steps:</p>
+<ol>
+<li>
+<p>Use the profile option <b>OM: Sales Order Form: Cascade Header Changes to Line</b> to determine when to use the Cascading feature but not to enforce cascading.</p>
+<p>Set up the profile to determine the manner in which they cascade. There are three modes that you can set for the profile:</p>
+<ul>
+<li>
+<p>Automatic - cascades the header attributes to lines automatically whenever a header attribute is updated.</p>
+</li>
+<li>
+<p>Ask Me - prompts you to choose whether to cascade or not.</p>
+</li>
+<li>
+<p>Manual - you can change the values for the attributes on the lines manually. The application does not cascade the changes from header to lines.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enable or disable the attributes in the QuickCodes lookup for cascading to take place.</p>
+<p>The lookup <b>OM: Header To Line Cascade Attributes</b> has the list of attributes that can act as a defaulting source from the order header to its lines. This lookup determines which of the attributes must be cascaded from the header to the lines when you update the attribute on the order header. You can choose to disable the attributes in the lookup if you prefer not to have changes to the value of a header attribute cascade to its lines.</p>
+</li>
+</ol>
+<p><img width="575" height="412" src="./img/ont_cascade_profile.gif" alt="the picture is described in the document text"></p>
+<p>QuickCodes lookups is set at the user level and is not extensible.</p>
+<p><img width="575" height="348" src="./img/ont_cascade_lookups.gif" alt="the picture is described in the document text"></p>
+<p>For a list of line attributes that change due to cascading, see Appendix, <a href="T373258T376739.htm#t_casclookup">Header to Line Cascade Attributes Lookup</a>.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

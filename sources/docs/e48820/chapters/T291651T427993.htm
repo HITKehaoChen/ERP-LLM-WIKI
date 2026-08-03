@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T427992.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T427994.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">13/31</span> <!-- End Header -->
+<h1>Lot Control</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T298854">Overview of Lot Control</a></li>
+<li><a href="#T298890">Setting Up Lot Control</a></li>
+<li><a href="#T588143">Setting Up and Updating Global Lot Attributes</a></li>
+<li><a href="#T436351">Setting Up Grade Control</a></li>
+<li><a href="#T298891">Item Lots</a></li>
+<li><a href="#T292075">Assigning Lot Numbers Within Transactions</a></li>
+<li><a href="#T435956">Lot Action Codes</a></li>
+<li><a href="#T292100">Viewing Lot Genealogy</a></li>
+<li><a href="#T298855">Lot Control Reports</a></li>
+</ul>
+<h2><a name="2174169"></a><a id="T298854"></a> <b>Overview of Lot Control</b></h2>
+<p><a name="d0e69153" id="d0e69153"></a><a name="c_lotcntrl" id="c_lotcntrl"></a>A lot can represent a quantity of an item that shares the same specifications, one or more receipts from the same vendor, or whatever you choose. You can divide each lot into child lots that can reflect whatever characteristics you choose for items within the lot. For example, you may divide a lot of items from a vendor into child lots to reflect differences in quality specifications. When you allocate stock for production, you can allocate specific lots to a production batch based on the potency, age, or other item characteristics. Oracle Inventory provides complete lot number support for inventory transactions. You can enable lot control for specific items in your inventory. For items under lot control, you assign lot numbers to each receipt, and thereafter reference the same lots each time you perform material transactions. This enables you to have tight control over lot controlled items in your inventory.</p>
+<h3><b>Child Lot</b></h3>
+<p>A child lot is a subdivision of a lot that you can use if you produce a lot over a period of time, but still want to group the material as a single lot. Using a child lot maintains the integrity of the lot, but enables you to consume it in manageable pieces. When you process transactions for material under child lot control, you enter the child lot as the lot number. The system also maintains a genealogy relationship between the parent lot and the child lot. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a> for information about enabling child lot control.</p>
+<h3><b>Assigning Lot Numbers</b></h3>
+<p>You must assign lot numbers when you receive items under lot control. You can also add quantities to existing lot numbers and split an inventory receipt into several lots, if necessary. Oracle Inventory uses the default lot number generation method that you entered in the Organization Parameters window to determine lot numbers. You also enter the lot prefix and starting lot number in the Item Master window when you create an item. If the item is under user-defined expiration date Lot Expiration (shelf life) Control, you must specify the expiration date for the lot.</p>
+<p>You can generate a lot number before you receive it in to the warehouse. Where you create the lot, the system determines the lot origination type. If you create the lot on the lot master, the origination type is lot master. If you generate the lot while performing a transaction, the origination type is Inventory. See, <a href="T291651T427993.htm#I_t_mntlotnum">Item Lots</a> and <a href="T291651T427993.htm#I_t_enterlot">Assigning Lots Within Transactions</a> for more information.</p>
+<h3><b>Maintaining Lot Number Information</b></h3>
+<p>You can use the Item Lots window to update the expiration date of lots for items under lot expiration (shelf&ndash;life) control. You can view all lots that you created in your current organization and the supplier lot information that is associated with the lots.</p>
+<h3><b>Issuing Material from Inventory</b></h3>
+<p>When you issue an item under lot control from inventory, you must specify a lot number for that item. You can specify more than one lot to cover the transaction quantity. If you attempt to transact an item to or from an expired lot, the system displays a warning message but does not prevent you from using the lot.</p>
+<h3><b>Expired Lots</b></h3>
+<p>You can assign lot control shelf life days, or enter a lot expiration date to determine when a lot expires. The expiration date controls the availability of the lot for transacting and planning purposes. An expired lot:</p>
+<ul>
+<li>
+<p>Is not considered as on-hand supply when you are performing min-max, reorder point, or MRP planning calculations</p>
+</li>
+<li>
+<p>Cannot be reserved for a date beyond the expiration date</p>
+</li>
+<li>
+<p>Can be transacted and is included in on-hand quantities</p>
+</li>
+<li>
+<p>Is included in all inquiries and reports, including inventory valuation reports</p>
+</li>
+<li>
+<p>Is included in a cycle count and count entry and adjustments are allowed</p>
+</li>
+<li>
+<p>Is included in a physical inventory and tag entry and adjustments are allowed</p>
+</li>
+</ul>
+<h3><b>Lot Expiration Action</b></h3>
+<p>A lot expiration action is the action that you perform on a lot when it expires. You can assign a default lot expiration to an item on the Item Master or when you generate a lot. To associate a lot expiration action with a lot, you must define shelf life days for the item.</p>
+<h3><b>Disabled Lots</b></h3>
+<p>Disabling a lot only prevents it from appearing in a list of values when you are performing receipt transactions. If you type in the lot number, it is valid and accepted even though it was not in the list of values. Disabling is used only for tailoring this specific instance of the list of values for lot numbers. A disabled lot:</p>
+<ul>
+<li>
+<p>Is included in available to transact, available to promise, and available to reserve calculations</p>
+</li>
+<li>
+<p>Is included as on-hand supply when you are performing min-max, reorder point or MRP planning calculations</p>
+</li>
+<li>
+<p>Is included as on-hand in all inquiries and reports, including inventory valuation report</p>
+</li>
+<li>
+<p>Can be transacted with Inventory functions and the Transaction Open Interface</p>
+</li>
+<li>
+<p>Can be reserved</p>
+</li>
+</ul>
+<h3><b>Cycle Counting</b></h3>
+<p>Oracle Inventory includes the lot numbers of the items to count during a cycle count when it generates a cycle count listing. You must assign lot numbers to all items under lot control for which you enter counts. If a difference exists between the count quantity and the system on-hand quantity, then the system adjusts the item quantity in that lot.</p>
+<h3><b>Performing Physical Inventories</b></h3>
+<p>Oracle Inventory includes the lot numbers of the items to count in your physical inventory when it generates tags. You must assign lot numbers to all items under lot control for which you enter counts in the Physical Inventory Tag Counts window. If a difference exists between the count quantity and the system on hand quantity, then the system adjusts the item quantity in that lot.</p>
+<h3><b>Assigning Lot Numbers to Assemblies</b></h3>
+<p>When you complete an assembly under lot control into inventory, you must assign a lot number in the WIP Completion Transaction window in Oracle Work in Process. For assembly completions on discrete jobs, Oracle Work in Process defaults the job lot number.</p>
+<h3><b>Purging Lot Transactions</b></h3>
+<p>You can purge all lot transaction information from your current organization. Note that the transactions must be in closed accounting periods.</p>
+<p><strong><span>Important:</span></strong> Purging lot transactions eliminates information that is used in lot genealogy reports and inquiries (Supplier Lot Trace Report, Job Lot Composition Report, and Job Lot Composition Inquiry).</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291796.htm#I_t_iorgparam">Organization Parameters Window</a></p>
+<p><a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a></p>
+<p><a href="T291651T427993.htm#I_t_mntlotnum">Maintaining Item Lot Information</a></p>
+<p><a href="T291651T292438.htm#I_t_entercc">Entering Cycle Counts</a></p>
+<p><a href="T291651T292013.htm#I_t_purgetx78n">Purging Transaction History</a></p>
+<p><a href="T291651T427993.htm#I_t_lotsetup">Setting Up Lot Control</a></p>
+<p>Overview of Shop Floor Control, <i>Oracle Work in Process User's Gude</i></p>
+<p>Assembly Completions and Returns, <i>Oracle Work in Process User's Guide</i></p>
+<p>WIP Parameters, <i>Oracle Work in Process User's Guide</i></p>
+<p>Overview of Material Control, <i>Oracle Work in Process User's Guide</i></p>
+<h2><a name="2063090"></a><a id="T298890"></a><b>Setting Up Lot Control</b></h2>
+<p><a name="d0e69309" id="d0e69309"></a><a name="I_t_lotsetup" id="I_t_lotsetup"></a>Before you can use lot control, you must perform the following setup activities:</p>
+<p><b>To set up item lot control</b></p>
+<ol>
+<li>
+<p>Establish lot control for an item.<a name="d0e69325" id="d0e69325"></a><a name="d0e69332" id="d0e69332"></a></p>
+<p>You can establish lot control for an item when you define it. You can select either No control or Full control. If you choose Full Control, then you must assign lot numbers when you receive the item into inventory. Thereafter, when you transact the item, you must provide a lot number that you specified when you received the item.</p>
+<p>You can update lot control options for an item if it has zero on hand quantity. In addition, you cannot change lot control when there open internal orders or inter-org intransit shipments exist.</p>
+<p>A lot number is a combination of an alphanumeric prefix and a numeric suffix. When you define an item, you can specify the starting lot prefix and the starting lot number. Oracle Inventory uses this information to generate defaults during transaction entry. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>.</p>
+</li>
+<li>
+<p>Establish lot expiration (shelf life) control. <a name="d0e69353" id="d0e69353"></a></p>
+<p>Shelf life is the amount of time that an item can reside in inventory before it expires. When defining items under lot control, you can choose no control, a certain number of item shelf life days from the date that you receive the item, or a user-defined expiration date for each lot. The system does not consider the expired lot as on-hand supply when it performs min-max, reorder point, or MRP planning calculations. You also cannot reserve an expired lot. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>.</p>
+</li>
+<li>
+<p>Establish lot number uniqueness.<a name="d0e69368" id="d0e69368"></a></p>
+<p>You use the Organization Parameters window to specify whether lot numbers should be unique for an item.</p>
+<p>If you do not establish lot number uniqueness, you can assign the same lot number to multiple items in the same organization and across organizations. If you control lot number uniqueness at the Master level, you can assign a specific lot number only to one item in the same organization and across organizations. When you perform transactions, Oracle Inventory checks the lot number uniqueness control to generate lot number defaults. See <a href="T291651T291796.htm#t_rpara">Defining Organization Parameters</a>.</p>
+</li>
+<li>
+<p>Optionally, determine whether to automatically generate lot number defaults.<a name="d0e69387" id="d0e69387"></a></p>
+<p>You use the Organization Parameters window to specify how to generate lot number defaults. You can generate sequential lot numbers based on an alphanumeric prefix that you specify when you define an item. Oracle Inventory can also generate lot number defaults for the entire organization. In this case, you must define a lot number prefix at the Organization level in the Organization Parameters window.</p>
+<p>If you do not want Oracle Inventory to automatically generate lot number defaults for you, you can enter your own lot numbers when you receive items. You can always override lot number defaults. See <a href="T291651T291796.htm#t_rpara">Defining Organization Parameters</a>.</p>
+</li>
+</ol>
+<p><b>To set up lot control in Oracle Work in Process<a name="d0e69405" id="d0e69405"></a></b></p>
+<ol>
+<li>
+<p>Use the Work in Process Parameters window to set up lot control in Oracle Work in Process. You select the option by which Oracle Work in Process defaults and verifies lot numbers during backflush transactions. You also specify the method by which Oracle Work in Process defaults lot numbers on discrete jobs for lot controlled assemblies. See Overview of Material Control, <i>Oracle Work in Process User's Guide</i> and Overview of Shop Floor Control, <i>Oracle Work in Process User's Guide</i>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T427993.htm#I_t_enterlot">Assigning Lots Within Transactions Number</a></p>
+<p><a href="T291651T427993.htm#I_t_mntlotnum">Item Lots</a></p>
+<p><a href="T291651T427993.htm#c_lotcntrl">Lot Control</a></p>
+<h2><a name="6201170"></a><a id="T588143"></a><b>Setting Up and Updating Global Lot Attributes</b></h2>
+<p><a name="d0e69439" id="d0e69439"></a><a name="lotattglbl" id="lotattglbl"></a>Lots can be global across organizations: the same lot may exist in different locations or organizations but share the same attributes such as grade or expiration date.</p>
+<p>To ensure that attribute values remain consistent across organizations, you can define <i>global</i> lot attributes. The global setting is controlled by the profile option <i>INV: Enable Global Attributes for Lot</i>. When this profile is set to Yes, then any changes to lot attributes are universal and are applied to all organizations where the lot exists.</p>
+<p><strong><span>Caution:</span></strong> Changing Lot Expiration Dates</p>
+<p>When you change a global lot attribute, a system warning advises you that the changes will be applied to every organization where the lot exists. However, the system does not validate whether there are any pending allocations such as transactions or shipments. So if a user from a different organization changes the lot expiration date, this action may impact all the pending batch/sales order transactions on that particular lot. Therefore, before you change lot expiration dates, Oracle recommends that you manually check pending transactions or shipments to ensure that the changes will not result in lot errors. If the changes cause a pending transaction or shipment to fail, then you need to manually update the transaction/shipment by replacing with a valid lot.</p>
+<ul>
+<li>
+<p>If you control lot status at the organization level (Allow Different Material Status enabled) then attributes should not be made global.</p>
+</li>
+<li>
+<p>All lot attributes can be made global except the Lot Status field.</p>
+</li>
+</ul>
+<p><b>To set up global lot attributes</b></p>
+<ol>
+<li>
+<p>Before enabling the profile option <i>INV: Enable Global Attributes for Lot</i>, run the concurrent program Mass Lot Attributes Sync to synchronize the attribute values across organizations.</p>
+<p><strong><span>Note:</span></strong> The system will not validate whether the attribute values are the same before they are made global.</p>
+</li>
+<li>
+<p>The profile option <i>INV: Enable Global Attributes for Lot</i> enables the lot attributes to be global. This profile option is set at the site-level by your system administrator. The default setting is No meaning global attributes are not enabled.</p>
+</li>
+</ol>
+<p><b>To update global lot attributes</b></p>
+<ul>
+<li>
+<p>In the Lot Entry window:</p>
+<p>When you update a global lot attribute and that lot exists in other organizations, then the changes are applied to the same lot in other organizations.</p>
+<p><strong><span>Note:</span></strong> When you make the changes, a warning message advises that the attribute values in other organizations will be updated as well. If you continue the updates, the changes will be made to the same lot in all organizations.</p>
+</li>
+<li>
+<p>In the Material Workbench window:</p>
+<p>If you update a grade that is enabled as a global attribute, then the changes will be applied to this attribute value in other organizations as well.</p>
+</li>
+<li>
+<p>During inventory receipt:</p>
+<p>If lot attributes are global and a lot is received in an organization where it does not already exist, then the attribute values will be copied from other organization where lot exists (and lot attribute fields will be disabled during the lot receipt).</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T295121.htm#rptmasslot">Mass Lot Attributes Sync</a></p>
+<h2><a name="3920866"></a><a id="T436351"></a><b>Setting Up Grade Control</b></h2>
+<p><a name="d0e69519" id="d0e69519"></a><a name="d0e69524" id="d0e69524"></a><a name="INVGRADE_INVGRADE" id="INVGRADE_INVGRADE"></a><a name="grade" id="grade"></a>A grade is a rating that you assign to an item lot for quality control purposes. Grades are usually based on criteria such as color, size, or quality of the lot. For example, the grade of a lot of paint could be excellent, average, or poor. A grade is a characteristic of an item lot, and never a lot location.</p>
+<p><b>To set up a new grade</b></p>
+<ol>
+<li>
+<p>Navigate to the Maintain Grades window.</p>
+<p><img width="756" height="361" src="./img/invug_grade.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select New from the file menu.</p>
+</li>
+<li>
+<p>Enter a grade code in the Grade field.</p>
+</li>
+<li>
+<p>Enter a description of the grade in the Description field.</p>
+</li>
+<li>
+<p>Verify the Disable field is deselected. If the Disable field is selected, then you cannot use the grade code.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To modify an existing grade</b></p>
+<ol>
+<li>
+<p>Navigate to the Maintain Grades window.</p>
+</li>
+<li>
+<p>Click the grade that you want to modify.</p>
+</li>
+<li>
+<p>Modify the grade name, description, or disable the grade.</p>
+</li>
+<li>
+<p>Save your work</p>
+</li>
+</ol>
+<h2><a name="2063093"></a><a id="T298891"></a><b>Item Lots</b></h2>
+<p><a name="d0e69587" id="d0e69587"></a><a name="I_t_mntlotnum" id="I_t_mntlotnum"></a><a name="INVTDILT.lot_find" id="INVTDILT.lot_find"></a><a name="INVTDILT.mtl_lot_numbers" id="INVTDILT.mtl_lot_numbers"></a><a name="INVTDILT.mtl_supplier_lot_view" id="INVTDILT.mtl_supplier_lot_view"></a><a name="INVTDILT_MTL_VENDOR_LOT_VIEW" id="INVTDILT_MTL_VENDOR_LOT_VIEW"></a>You can use the Edit Item Lots window to create new lots, or manage existing lot information. You can use the Edit Item Lots window to create new lots before you receive the material in the warehouse. You can search for inventory lots as well as lots created in WIP or process execution.</p>
+<p><b>To create new lots</b></p>
+<ol>
+<li>
+<p>Navigate to the Find / Jobs Lots window.</p>
+</li>
+<li>
+<p>Click New.</p>
+<p><img width="823" height="553" src="./img/invug_edit_item_lot.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the following data:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>Item</td>
+<td>Select the item. The only eligible items are items under lot control.</td>
+</tr>
+<tr valign="top">
+<td>Parent Lot</td>
+<td>If applicable, select an existing parent lot or, optionally, click Generate Parent Lot to generate a parent lot if the lot is child lot enabled.
+<p><strong><span>Note:</span></strong> This button does not appear if the item is not child-lot enabled.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Lot</td>
+<td>A lot is a unit used to group quantities of a specific item when sub quantities have slightly different characteristics. For example, two lots of item "X" may vary slightly in composition, but all of item "X" from a single lot will be uniform.<br>
+Optionally, click Generate Lot to generate a new lot number (or child lot number if the lot is child-lot enabled).</td>
+</tr>
+<tr valign="top">
+<td>Disabled</td>
+<td>Optionally, click Disabled to disable the lot. If you disable a lot, you cannot transact it in inventory. You can update this field at any time.</td>
+</tr>
+<tr valign="top">
+<td>Status</td>
+<td>Optionally change the default lot status. You cannot make changes to this field if you did not define the item as lot-status enabled on the Item Master.<br>
+The lot status is the material status associated with the lot. It allows different statuses to commingle in the same location, and at the same time, allows the same lot to have different statuses in different locations. If the organization is on-hand tracked, the lot status would be ignored.</td>
+</tr>
+<tr valign="top">
+<td>Grade</td>
+<td>Optionally, change the default Grade. You cannot make changes to this field if the lot is not grade controlled.<br>
+Grade represent specific characteristic of a lot, for example, based on color, size, or quality of a lot. An item can be grade controlled only if it is lot controlled item and the default grade has to be defined in Item Setup.<br>
+The grade of an item identifies its particular composition. It is used to separate one lot from other production lots. It is defined in the required specifications record for a lot. Grade can control the sales order and pricing logic. For more information, see <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>.</td>
+</tr>
+<tr valign="top">
+<td>Origination Date</td>
+<td>Optionally, enter an origination date for the lot. While creating the lot, the system date is defaulted as origination date, but you can change it. the maturity date, hold date, retest date and expiration date will be defaulted or calculated based on the Origination Date. The following date attributes are dependent on Origination Date; whenever the Origination Date is changed, the following dates will be recalculated or updated (all dates must set after Origination Date):
+<ul>
+<li>
+<p>Maturity date</p>
+</li>
+<li>
+<p>Hold date</p>
+</li>
+<li>
+<p>Expiration action date</p>
+</li>
+<li>
+<p>Expiration date</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Maturity Date</td>
+<td>The maturity date defaults automatically based on the lot origination date plus maturity days that you defined in the Item Master. The Maturity Date is the date when the lot reaches full maturity and is calculated as the Lot Creation Date + Maturity Days = Default Lot Maturity Date.<br>
+If the Maturity Days is not defined in the Item Master window, the system assumes the lot is mature at creation. While creating a lot in Lot Master or assigning Lot Numbers within Transactions - the maturity date defaults automatically based on the lot origination date plus maturity days defined in the Item Master (you can optionally modify the defaulted maturity date).<br>
+For more information about maturity days, see <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>.</td>
+</tr>
+<tr valign="top">
+<td>Hold Date</td>
+<td>Optionally modify the hold date. The hold date defaults automatically based on the lot origination date plus hold days that you defined in the Item Master.<br>
+For more information about hold days, see <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>.</td>
+</tr>
+<tr valign="top">
+<td>Expiration Date</td>
+<td>Optionally, modify the expiration date to define how long an item in a given lot remains available for transaction and planning purposes. You can update this field only if the lot is under expiration control. This field is populated automatically based on the lot origination date plus shelf life days that you defined in the Item Master.<br>
+An expired lot:
+<ul>
+<li>
+<p>Is not considered as on-hand supply when you are performing min-max, reorder point, or MRP planning calculations.</p>
+</li>
+<li>
+<p>Cannot be reserved for a date beyond the expiration date.</p>
+</li>
+<li>
+<p>Can be transacted and is included in on-hand quantities.</p>
+</li>
+<li>
+<p>Is included in all inquiries and reports, including inventory valuation reports.</p>
+</li>
+<li>
+<p>Is included in a cycle count and count entry and adjustments are allowed.</p>
+</li>
+<li>
+<p>Is included in a physical inventory and tag entry and adjustments are allowed.</p>
+</li>
+</ul>
+<p><strong><span>Caution:</span></strong> Changing Lot Expiration Dates (if global lot attributes are enabled)</p>
+<p>When you make changes to a global lot attribute, the system warns you that the changes will be applied to every organization where the lot exists. However, the system does not validate whether there are any allocations (such as transactions or shipments) pending. So any user from a different organization that changes the lot expiration date can impact all the pending batch/sales order transactions on that particular lot.</p>
+<p>Therefore, before you change lot expiration dates, Oracle recommends that you manually review pending transactions or shipments to ensure that the changes will not result in lot errors. If the changes cause a pending transaction or shipment to fail, then you need to manually update the transaction/shipment by replacing with a valid lot.</p>
+<p>For more information, see <a href="T291651T427993.htm#lotattglbl">Setting Up and Updating Global Lot Attributes</a> and <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Expiration Action Date</td>
+<td>Optionally, modify the expiration action date (the date for performing the lot expiration action). You can modify this field only if the lot is under expiration control. The field is populated automatically based on the expiration date plus expiration action interval.</td>
+</tr>
+<tr valign="top">
+<td>Expiration Action Code</td>
+<td>Optionally, modify the expiration action code. You can modify this field only if the lot is under expiration control. The expiration code that you defined in the Item Master defaults automatically in this field.<br>
+The Expiration Action Code defines the default action that the user performs (if the lot expires, fails quality inspection or falls within the experimental error results region). The action code is sent in the notification but the system does not automatically perform any action.<br>
+For more information about defining lot expiration action, see <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>. For information about setting up lot action codes, see <a href="T291651T427993.htm#action_code">Lot Action Codes</a>.</td>
+</tr>
+<tr valign="top">
+<td>Retest Date</td>
+<td>Optionally, modify the Retest Date. The retest date automatically defaults based on the lot origination date plus retest interval that you defined in the Item Master. For more information about the retest interval, see <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>.</td>
+</tr>
+<tr valign="top">
+<td>Attributes</td>
+<td>This descriptive flexfield holds additional information for each lot, and can be customized.</td>
+</tr>
+<tr valign="top">
+<td>Global Lot Attributes</td>
+<td>To ensure the consistency of lot attribute values across organizations, lot attributes can be enabled as <i>global</i> attributes. The values of global lot attributes must be the same across organizations and any differences are not allowed. You can update a global attribute; however, if that lot exists in other organizations then the attribute values will also be updated in the other organizations. For more information on global lot attributes, see <a href="T291651T427993.htm#lotattglbl">Setting Up and Updating Global Lot Attributes</a>.</td>
+</tr>
+</table>
+</li>
+</ol>
+<p><b>To display item lot information</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Lots window. The Find Lots window appears.</p>
+</li>
+<li>
+<p>Enter search criteria. If you do not enter criteria, a query for all lots is performed.</p>
+</li>
+<li>
+<p>Click Find to display the lot and item information in the Item Lots window.</p>
+<p><img width="902" height="421" src="./img/invug_item_lots.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To update lot information</b></p>
+<ol>
+<li>
+<p>Modify the following if necessary:</p>
+<p><a name="d0e69861" id="d0e69861"></a><a name="d0e69868" id="d0e69868"></a><strong><span>Important:</span></strong> If you change the value of a lot attribute that is global (and the same lot exists in other organizations), then the changes are applied to the same lot in other organizations. (A warning message advises that you will update attribute values in other organizations as well. If you continue the updates, the changes will be made to the same lot in all organizations.)</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>Status</td>
+<td>You can modify the status if the lot is under status control.</td>
+</tr>
+<tr valign="top">
+<td>Grade</td>
+<td>You can modify the grade if the lot is under grade control.</td>
+</tr>
+<tr valign="top">
+<td>Origination Date</td>
+<td>You can change the origination date.</td>
+</tr>
+<tr valign="top">
+<td>Expiration Date</td>
+<td>You can modify the expiration date if the lot is under shelf life control.
+<p><strong><span>Caution:</span></strong> Changing Lot Expiration Dates (if global lot attributes are enabled)</p>
+<p>When you make changes to a global lot attribute, the system warns you that the changes will be applied to every organization where the lot exists. However, the system does not validate whether there are any allocations (such as transactions or shipments) pending. So any user from a different organization that changes the lot expiration date can impact all the pending batch/sales order transactions on that particular lot.</p>
+<p>Therefore, before you change lot expiration dates, Oracle recommends that you manually review pending transactions or shipments to ensure that the changes will not result in lot errors. If the changes cause a pending transaction or shipment to fail, then you need to manually update the transaction/shipment by replacing with a valid lot.</p>
+<p>For more information, see <a href="T291651T427993.htm#lotattglbl">Setting Up and Updating Global Lot Attributes</a> and <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>Expiration Action Date</td>
+<td>You can modify the expiration action date, if the lot is under shelf life control.</td>
+</tr>
+<tr valign="top">
+<td>Action Code</td>
+<td>You can modify the action code if the lot is under shelf life control.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Update the following fields if required:</p>
+<ul>
+<li>
+<p>Retest Date</p>
+</li>
+<li>
+<p>Maturity Date</p>
+</li>
+<li>
+<p>Hold Date</p>
+</li>
+<li>
+<p>Disable the lot.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To view lot genealogy</b></p>
+<p>Click View Genealogy. See <a href="T291651T427993.htm#I_vwlotgen">Viewing Lot Genealogy</a>.<a name="d0e69978" id="d0e69978"></a></p>
+<p><b>To view supplier lot information</b></p>
+<ol>
+<li>
+<p>Click Supplier Lot. The Supplier Lots window appears.</p>
+<p><a name="d0e69992" id="d0e69992"></a><img width="679" height="386" src="./img/invug_supplier_lot.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Close the window when finished.</p>
+</li>
+</ol>
+<p><b>To view on-hand availability for an item lot</b></p>
+<ol>
+<li>
+<p>Select an item and lot.</p>
+<a name="d0e70015" id="d0e70015"></a></li>
+<li>
+<p>Click On-hand. The Material Workbench appears. See <a href="T291651T292014.htm#I_c_mtwbnch">Viewing On-hand Quantities</a>.</p>
+</li>
+</ol>
+<p><b>To view quality results</b></p>
+<p>If Oracle Quality is installed quality results exist for the current line, then you can click Quality to open the View Quality Results window.</p>
+<p><b>To view material transactions for an item lot</b></p>
+<ol>
+<li>
+<p>Select an item and lot.<a name="d0e70042" id="d0e70042"></a></p>
+</li>
+<li>
+<p>Click the Transactions. See <a href="T291651T292013.htm#I_t_vwtrx78ns">Viewing Material Transactions</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a></p>
+<p><a href="T291651T427993.htm#c_lotcntrl">Lot Control</a></p>
+<h2><a name="1755765"></a><a id="T292075"></a><b>Assigning Lot Numbers Within Transactions</b></h2>
+<p><a name="d0e70069" id="d0e70069"></a><a name="d0e70076" id="d0e70076"></a><a name="INVTOTRX_LOT_ENTRY" id="INVTOTRX_LOT_ENTRY"></a><a name="MISC_TRX_LOT_ENTRY" id="MISC_TRX_LOT_ENTRY"></a><a name="INVTVTMP.lot_entry" id="INVTVTMP.lot_entry"></a><a name="INVTTELT.lot_entry" id="INVTTELT.lot_entry"></a><a name="I_t_enterlot" id="I_t_enterlot"></a>You can choose lot numbers for the line item quantity to issue or receive.</p>
+<p><strong><span>Note:</span></strong> You can view the Lot Entry window only if the item is under lot control.</p>
+<p><b>To assign lot numbers to the item quantity to issue or receive</b></p>
+<ol>
+<li>
+<p>Click Lot/Serial from a transaction window to display the Lot Entry window and view the following item and transaction information:</p>
+<ul>
+<li>
+<p>Item</p>
+</li>
+<li>
+<p>Revision</p>
+</li>
+<li>
+<p>Subinventory</p>
+</li>
+<li>
+<p>Locator</p>
+</li>
+<li>
+<p>Description</p>
+</li>
+<li>
+<p>UOM</p>
+</li>
+<li>
+<p>Quantity</p>
+</li>
+<li>
+<p>Lot Quantity Entered</p>
+</li>
+<li>
+<p>Secondary UOM</p>
+</li>
+<li>
+<p>Secondary Quantity</p>
+</li>
+<li>
+<p>Secondary Lot Quantity Entered</p>
+</li>
+</ul>
+<p><img width="971" height="464" src="./img/invug_lot_transaction.gif" alt="the picture is described in the document text"></p>
+<p>The Quantity fields display the total quantity that you entered for the transaction in the primary and secondary UOMs if applicable. The Lot Qty Entered field displays the quantity for the item that you have assigned to lot number in the primary and secondary UOMs if applicable.</p>
+</li>
+<li>
+<p>Select the Parent Lot Number field if the lot is child-lot enabled. Enter an existing parent lot, or click Generate Parent Lot to generate a new parent lot.</p>
+</li>
+<li>
+<p>Select the Lot Number field. Enter an existing lot, or click Generate Lot to generate a new lot.</p>
+</li>
+<li>
+<p>Optionally, enter the date the lot expires. You can enter a value in this field only if you enter a new lot number in the previous field and if the Lot Expiration (Shelf Life) Control attribute for the item is set to User-defined Expiration Date.</p>
+<p>If this attribute is set to Item shelf life days, then the system adds the shelf life days to the current system date to calculate the expiration date. The system then displays the result as the default value; you cannot change this date.</p>
+</li>
+<li>
+<p>Enter the quantity of the item to issue or receive to the lot. The Available and On-Hand fields display the current quantities for each lot.</p>
+<ul>
+<li>
+<p><i>Available</i>: Displays the quantity available to issue, based on the unit of measure that you specified. This amount includes reserved items if you enter a transaction source that has reservations against it. The available quantity is specific to the revision level, subinventory, locator, and lot that you define for the issue or receipt. For receipt transactions, the system adds the receipt quantity to the available quantity when you complete the transaction.</p>
+</li>
+<li>
+<p><i>Secondary Available</i>: Displays the quantity available to issue in the secondary unit of measure if the item is under dual unit of measure control.</p>
+</li>
+<li>
+<p><i>On Hand</i>: Displays the current on-hand quantity of the item, based on the unit of measure that you specified. The on-hand quantity is specific to the revision, subinventory, locator, and lot that you specify.</p>
+</li>
+<li>
+<p><i>Secondary On Hand</i>: Displays the current on hand quantity in the secondary unit of measure if the item is under dual UOM control.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Optionally, change the default grade. You cannot make changes in this field if the lot is not grade controlled. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a> for more information.</p>
+</li>
+<li>
+<p>Optionally, enter an origination date for the lot. The current system date automatically appears, but you can modify this date if necessary.</p>
+</li>
+<li>
+<p>Optionally, modify the retest date. The retest date automatically defaults based on the lot origination date plus the retest interval that you defined in the Item Master. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a> for more information about the retest interval.</p>
+</li>
+<li>
+<p>Optionally, modify the expiration date. You can modify this field only if the lot is under expiration control. This field is populated automatically based on the lot origination date plus the shelf life days that you defined in the Item Master. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a> for more information about shelf life days.</p>
+</li>
+<li>
+<p>Optionally, modify the expiration action date. You can modify this field only if the lot is under expiration control. This field is populated automatically based on the expiration date plus the expiration action interval that you defined in the Item Master. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a> for more information about expiration action dates.</p>
+</li>
+<li>
+<p>Optionally, modify the expiration action code. You can modify this field only if the lot is under expiration control. The expiration code that you defined on the Item Master defaults automatically in this field. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a>. For more information about defining lot expiration actions see, <a href="T291651T427993.htm#action_code">Lot Action Codes</a>.</p>
+</li>
+<li>
+<p>Optionally, modify the hold date. The hold date defaults automatically based on the lot origination date plus the hold days that you defined in the Item Master. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a> for more information about hold days.</p>
+</li>
+<li>
+<p>Optionally, modify the maturity date. The maturity date defaults automatically based on the lot origination date plus maturity days that you defined in the Item Master. See <a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a> for more information about maturity days.</p>
+</li>
+<li>
+<p>Optionally, enter the supplier lot number.</p>
+</li>
+<li>
+<p>Optionally, enter the transaction reason code. For more information about transaction reasons see, <a href="T291651T291655.htm#I_t_trnreason">Defining Transaction Reasons</a>.</p>
+</li>
+<li>
+<p>Optionally, select the desired material status (such as Active) for the on-hand record that is created for this receipt transaction.</p>
+<ul>
+<li>
+<p>The Status field appears only for organizations that have on-hand status enabled.</p>
+</li>
+<li>
+<p>The Status field displays only those statuses that will not cause commingling in a particular on-hand location (commingling occurs if two distinct statuses are assigned to the same single storable unit of inventory).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Optionally, enter the values in the Lot Attributes field.</p>
+<p><b>Values of Pre-generated Lots not Defaulting</b></p>
+<p>The original entries of pre-generated lot attributes typically default in the Attributes field. However, these values may need to be re-entered for pre-defined lots when the origination date is null and the on-hand quantity is zero.</p>
+</li>
+<li>
+<p>Click Done to return to the transactions window, Cancel to cancel the lot entry, or Serial to enter serial numbers if the item is under serial control.</p>
+<p><strong><span>Note:</span></strong> Serial tagged items: The Serial button will also be enabled for items that are lot controlled plus serial tagged/controlled at sales order issue.</p>
+</li>
+</ol>
+<p><b>To enforce global lot attributes during organization transfer receiving</b></p>
+<p>During organization transfer receiving: If the lot does not exist in the destination, a new lot is created in the destination with all attribute values copied from the source organization. If the attribute is global, then all attributes are copied from the source organization.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T427993.htm#lotattglbl">Setting Up and Updating Global Lot Attributes</a></p>
+<p><a href="T291651T291797.htm#Lot_conversion">Lot Specific Unit of Measure Conversions</a></p>
+<h2><a name="3917309"></a><a id="T435956"></a><b>Lot Action Codes</b></h2>
+<p><a name="d0e70293" id="d0e70293"></a><a name="d0e70296" id="d0e70296"></a><a name="INVACODE_INVACODE" id="INVACODE_INVACODE"></a><a name="action_code" id="action_code"></a>Action codes determine the action that you perform on a lot when it expires. You use the Action Codes window to define lot expiration actions. You can assign a lot action to an item if you set the item under shelf life control on the Item Master. You can determine a default expiration action on the Item Master, or assign expiration actions on the lot master, or when you transact the item. The system does not perform these actions, but notifies you of the action to take on the lot.</p>
+<p><b>To create action codes</b></p>
+<ol>
+<li>
+<p>Navigate to the Maintain Actions window.</p>
+<p><img width="755" height="362" src="./img/invug_maintain_action.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select New from the File menu.</p>
+</li>
+<li>
+<p>Enter an action to perform on the lot in the Action field.</p>
+</li>
+<li>
+<p>Enter a description of the action in the Description field.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To disable an action</b></p>
+<ol>
+<li>
+<p>Navigate to the Maintain Actions window.</p>
+</li>
+<li>
+<p>Select the Disable check box to disable the action code.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T427993.htm#I_t_mntlotnum">Item Lots</a></p>
+<p><a href="T291651T427992.htm#I_r_invattr">Inventory Attribute Group</a></p>
+<h2><a name="1755900"></a><a id="T292100"></a><b>Viewing Lot Genealogy</b></h2>
+<p><a name="d0e70362" id="d0e70362"></a><a name="I_vwlotgen" id="I_vwlotgen"></a><a name="INVTDILT_GENEALOGY_WINDOW" id="INVTDILT_GENEALOGY_WINDOW"></a>Lot genealogy tracks the relationship between lots and provides lot traceability that results from inventory transactions. This includes all lot splits, merges, and translations.</p>
+<p>Lot genealogy also enables you to view where a particular lot is used. For example, one of your suppliers informs you that they supplied you with contaminated sugar, which needs to be recalled, and you used this sugar as an ingredient in the production of doughnuts. You can use lot genealogy to find each lot of doughnuts that contain the contaminated lots of sugar.</p>
+<p>You can use lot genealogy to view the work order details for a WIP job, material and pending transactions, and quality results for both WIP jobs and process batches.</p>
+<p>If the item is also under serial control, then you can view the serial genealogy for the item as well.</p>
+<p>You can access the Material Workbench to view the on-hand quantity of the lot from the Material Transactions, Pending Transactions, Components, Products, Quality Samples, and Quality Collections Tabs. See <a href="T291651T292014.htm#I_c_mtwbnch">Viewing On Hand Quantities</a> for more information about the Material Workbench.</p>
+<p>You can view existing reservations from items from the Material Transactions and Pending Transactions tabs. See <a href="T291651T292014.htm#I_t_itmresrv">Item Reservations</a> for more information about reservations.</p>
+<p>You can access the Grade / Status history window from the Material Transactions window.</p>
+<p>For the process manufacturing production batches, lot genealogy enables you to view particular ingredient lots consumed for specific product lots based on the manual mapping of ingredient lots with product lots. For more information, see Linking Ingredient and Product Lots or Serial Numbers, <i>Oracle Process Manufacturing Process Execution User's Guide</i>.</p>
+<p><b>To view genealogy of a lot controlled item</b></p>
+<ol>
+<li>
+<p>Navigate to the Find Lots/Jobs window.</p>
+</li>
+<li>
+<p>Enter search criteria to locate the inventory lots, jobs, or batches for which you want to view the lot genealogy.</p>
+</li>
+<li>
+<p>Click Find to display the lot information in the Item Lots window, Jobs Summary window, or Batches Summary window.</p>
+</li>
+<li>
+<p>Click the desired lot, job, or batch.</p>
+</li>
+<li>
+<p>Click View Genealogy to display the lot genealogy.</p>
+<p>The Genealogy window appears. The lot genealogy appears in a graphical display, and enables you to trace the lot history. The left pane is in a tree format and has the following two views, Source and Where Used. The right pane displays information about the lot.</p>
+<ul>
+<li>
+<p>The Source tab displays the lot source. It is designated by assembly or product name, and appended by the job or batch name, at the top node of the tree. For example, you may be producing a specific job or batch from components of a particular lot. Material used in this assembly or job combination is expanded under the top node.</p>
+</li>
+<li>
+<p>The Where Used view displays where this material is used. It is designated by assembly or product name, appended by the job or batch name, at the top node of the tree. The assembly-job combinations are expanded under the top node.</p>
+</li>
+</ul>
+<p>You can select a particular item lot in the genealogy tree on the left pane, and switch between the Where Used tab and Source tab using the highlighted item lot as the top-level node in the tree format. The Lot Attributes tab contains information about the lot. The Item Details alternative region displays details about the item, and the Lot alternative region displays information about the lot. It provides the lot number and other associated lot information such as the lot grade and lot material status. The Origination alternative region provides information about where the lot was created and the type of transaction that you used to receive it in to inventory. It also provides the document type that was used to receive it into inventory.</p>
+<p><img width="841" height="566" src="./img/invug_lotgen.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Work Order Details tab if the lot is associated with a WIP job. If the lot is not associated with a WIP job, then you cannot select the tab. The Work Order Details alternative region displays information about the job such as the job status and when it was released and completed. It also contains the job quantity, the scrapped quantity, and the remaining quantity to complete. The Product Details alternative region contains information about the product, such as the product name, description, and quantity planned for the job.</p>
+<p><img width="844" height="567" src="./img/invug_lotgen_work_order.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Serial Details tab if the item is serial controlled. If the item is lot and serial controlled, then the system displays the lot and the associated serial number in the tree. The Item Details alternative region contains information about the item, such as the item number and organization where the item resides. The Serial Details alternative region contains information about the particular serial number, such as the serial state, serial material status, current lot if the serial is under lot control, and WIP job information if the serial is part of a WIP job.</p>
+<p><img width="843" height="566" src="./img/invug_serial_detail.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Material Transactions tab to view the material transactions associated with the lot. The Item Details alternative region displays information about the item. The Transaction Details alternative region displays item transactional information, such as the transaction date, subinventory, and transaction type.</p>
+<p><img width="842" height="567" src="./img/invug_lotgen_mat_trans.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Pending Txns (Transactions) and Allocations tab to view pending transactions for the lot. Pending transactions are actions you performed on the lot that are not completed by the transaction manager. The Item Details alternative region displays information about the item. The Transaction Details Alternative region displays item transactional information such as the transaction date, subinventory, and transaction type.</p>
+<p><img width="843" height="563" src="./img/invug_lotgen_pending_trans.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Components tab to view all the components that are used in the item production with their associated quantities. You can click this tab only if you view by Source. You can also restrict the Components tab to honor formula security. You can restrict formula security by user or responsibility. There three levels of security are available: Update, View-Only, and Hidden. When a user tries to access the genealogy of a lot to which he or she does not have formula access, the system displays a warning message. The Item Details alternative region displays information about the item, such as the item number and organization where the item resides. The Component Details alternative region contains detailed component information, such as the associated job or batch if applicable, and the component item number and description.</p>
+<p><img width="841" height="565" src="./img/invug_lotgen_component.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Products tab to view the products that are manufactured with this lot as an ingredient. You can click this tab only if you view by Where Used. The Item Details alternative region contains information, about the item such as the item description, and the current organization where it resides. The Product Details alternative region displays details about the product that is manufactured with this lot as an ingredient, such as the product name and description.</p>
+<p><img width="845" height="565" src="./img/invug_lotgen_product.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click the Quality Sample tab to view process manufacturing quality information. You enable process quality on the Item Master. The Item Details alternative region displays information about the item, such as the item number and the current organization where the item resides. The Quality Data alternative region displays information, such as the sample number, sample source, and quality results.</p>
+<p><img width="839" height="571" src="./img/invug_lotgen_sample.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>If you have Oracle Quality installed, then you can set up lot number as a collection element. If the lot is not associated with the quality data, you cannot see it in the Quality Collections tab. The Item Details alternative region displays information about the item, such as the item number and the organization where the item currently resides. The Quality Data alternative region displays information about the quality collection plan.</p>
+<p><img width="842" height="566" src="./img/invug_lotgen_quality_collection.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>If you have Oracle Shop Floor Management installed, then you can see the Lot Based Job Transactions tab. The Lot Based Job Transactions tab displays the Oracle Shop Floor Management transactions, such as splitting, merging, bonus lots, and updating assemblies. It displays the previous values for WIP Lot Name, Start Quantity, and Assembly Number, and the resulting values after the transaction.</p>
+<p><img width="839" height="565" src="./img/invug_lotbased_transaction.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To view the grade status history information</b></p>
+<ol>
+<li>
+<p>Click Grade / Status from the Material Transactions tab.</p>
+<p><img width="664" height="424" src="./img/invug_grade_status_history.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>The Grade / Status History window contains the following information:</p>
+<ul>
+<li>
+<p>Item: The item number for the lot.</p>
+</li>
+<li>
+<p>Description: The item description.</p>
+</li>
+<li>
+<p>Lot: The lot number of the item.</p>
+</li>
+<li>
+<p>Serial: If applicable, the serial number.</p>
+</li>
+<li>
+<p>Grade: The current lot grade.</p>
+</li>
+<li>
+<p>Lot Status: The current lot status.</p>
+</li>
+<li>
+<p>Serial Status: The current serial status.</p>
+</li>
+<li>
+<p>Date and Timestamp: Date and time the status or grade change occurred.</p>
+</li>
+<li>
+<p>Action: The action performed on the grade or status.</p>
+</li>
+<li>
+<p>From and To: The from and to changes for the grade or status.</p>
+</li>
+<li>
+<p>Primary Qty Changed: The value of the lot primary quantity that has changed.</p>
+</li>
+<li>
+<p>Primary UOM: Primary unit of measure.</p>
+</li>
+<li>
+<p>Secondary Qty Changed: The quantity of the lot the change of the secondary unit of measure impacts.</p>
+</li>
+<li>
+<p>Secondary UOM: The secondary unit of measure.</p>
+</li>
+<li>
+<p>Update on the Mobile: Indicates whether the change was made on the mobile device.</p>
+</li>
+<li>
+<p>Reason for Change: Reason the user indicated for the change.</p>
+</li>
+<li>
+<p>User: User who performed the change.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Close the window when finished.</p>
+</li>
+</ol>
+<h2><a name="2188975"></a><a id="T298855"></a><b>Lot Control Reports</b></h2>
+<p><a name="d0e70591" id="d0e70591"></a><a name="d0e70596" id="d0e70596"></a><a name="I_r_lotrpts" id="I_r_lotrpts"></a>Oracle Inventory provides the following reports for tracking lots.</p>
+<h3><a id="T298863"></a> <b>Lot Transactions Register</b></h3>
+<p>You can use the Lot Transactions Register to report comprehensive details about material transactions for lot numbers within a specific date range. You can run the report for a range of lots, items, transaction types, transaction reasons, and subinventories. You can also specify a specific category set and display transaction quantities in their primary or transacted unit of measure. See <a href="T291651T295121.htm#I_rx2Dinvtrlnt">Lot Transaction Register</a>.</p>
+<h3><a id="T298864"></a> <b>Vendor Lot Trace Report</b></h3>
+<p>You can use the Vendor Lot Trace report to trace a specific lot to its supplier lots. You can run the report for a range of lot numbers and items and a specific supplier lot number. The report shows you the lot material transactions that are related to the selected items and prints inventory items, lot numbers, transaction dates, and transaction quantities. See <a href="T291651T295121.htm#vendor_lot_trace">Vendor Lot Trace Report</a>.</p>
+<h3><a id="T298865"></a> <b>Expired Lots Report</b></h3>
+<p>You can use the Expired Lots report to show lots in your organization that expire on or before the date that you specify. You can run the report for a range of items or for a specific item only. See <a href="T291651T295121.htm#I_rx2Dinvtrelt">Expired Lots Report</a>.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

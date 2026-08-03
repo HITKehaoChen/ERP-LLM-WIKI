@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Advanced Global Intercompany System User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Advanced Global Intercompany System User's Guide">
+<meta name="dcterms.identifier" content="E48781-06">
+<meta name="dcterms.isVersionOf" content="GISUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T463896T463898.htm" title="Previous" type="text/html">
+<link rel="Next" href="T463896T463900.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Advanced Global Intercompany System User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">5/10</span> <!-- End Header -->
+<h1>Intercompany Setup</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T463904">Introduction</a></li>
+<li><a href="#T463905">Setting up AGIS</a></li>
+</ul>
+<h2><a name="4207623"></a><a id="T463904"></a><b>Introduction</b></h2>
+<p><a name="d0e688" id="d0e688"></a><a name="interintro" id="interintro"></a>Advanced Global Intercompany System (AGIS) enables you to create, settle and reconcile intercompany transactions. Intercompany transactions are transactions that occur between two related legal entities in an enterprise or between groups in the same legal entity. Transactions that occur between two legal entities are called intercompany transactions and transactions that occur between two groups within one legal entity are called intracompany transactions.</p>
+<p>The balances of the intercompany transactions must be eliminated or adjusted when preparing the consolidated financial statement, or it might result in overstated financial results, which in turn might lead to legal repercussions against the enterprise. Intercompany transactions can be identified and eliminated by the use of specific accounts to book these transactions. Defining these accounts allows you to book transactions that are identified as intercompany transactions in the specific accounts. These accounts must be defined as a part of the General Ledger setup process.</p>
+<p>Before you start working on AGIS, you must setup the following:</p>
+<ul>
+<li>
+<p>Complete the Accounting Setup Manager to set up General Ledger and legal entities</p>
+</li>
+<li>
+<p>Set up AGIS</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> AGIS is referred to as Intercompany in this document.</p>
+<p><strong>Related Topics</strong></p>
+<p>Creating Accounting Setups, <i>Oracle Financials Implementation Guide</i></p>
+<p>Intercompany and Intracompany Balancing, <i>Oracle Financials Implementation Guide</i></p>
+<h2><a name="4207624"></a><a id="T463905"></a><b>Setting up AGIS</b></h2>
+<p><a name="intersetup" id="intersetup"></a><a name="d0e727" id="d0e727"></a>Intercompany transactions must be processed in a consistent, systematic way across the enterprise. Use the Intercompany Setup tab to define the processing rules at the enterprise level.</p>
+<h2><a name="4207625"></a><a id="T463906"></a><b>Intercompany Accounting Pages</b></h2>
+<p><a name="interacct" id="interacct"></a><a name="d0e741" id="d0e741"></a>This section describes the Intercompany Accounting page.</p>
+<h2><a name="4207626"></a><a id="T463907"></a><b>Intercompany Accounts Pages</b></h2>
+<p><a name="icpages" id="icpages"></a><a name="fun_asm_intercoaccts" id="fun_asm_intercoaccts"></a>This section describes key Intercompany accounting setup pages.</p>
+<h2><a name="4207627"></a><a id="T463908"></a><b>Common Intercompany Accounts Fields</b></h2>
+<p><a name="interacctfields" id="interacctfields"></a>This section describes some of the common fields used in the Intercompany accounts setup pages.</p>
+<h3><a id="T463948"></a><b>Transacting Legal Entity</b></h3>
+<p><a name="d0e770" id="d0e770"></a>The legal entity with the transacting (from) perspective in the intercompany trading relationship. The legal entity from which the intercompany transaction is initiated. Choose the transacting legal entity from the list of values.</p>
+<h3><a id="T463949"></a><b>Transacting Ledger</b></h3>
+<p><a name="d0e780" id="d0e780"></a>The ledger with the transacting (from) perspective in the intercompany trading relationship. You can choose any ledger that is mapped to the transacting legal entity, including both primary and secondary ledgers, since intercompany accounts can be defined for both primary and secondary ledgers.</p>
+<h3><a id="T463950"></a><b>Transacting Balancing Segment Value</b></h3>
+<p><a name="d0e790" id="d0e790"></a>The balancing segment value for the transacting (from) perspective for which intercompany accounts are defined. The list of values displays all the balancing segment values in the transacting ledger to which the transacting legal entity is mapped.</p>
+<h3><a id="T463951"></a><b>Trading Partner Legal Entity</b></h3>
+<p><a name="d0e800" id="d0e800"></a>The legal entity with the trading partner (to) perspective in the intercompany trading relationship. Choose the trading partner legal entity from the list of values. The list of values shows all legal entities to which you have access to and the value All Other.</p>
+<h3><a id="T463952"></a><b>Trading Partner Ledger</b></h3>
+<p><a name="d0e810" id="d0e810"></a>The ledger with the trading partner (to) perspective in the intercompany trading relationship.</p>
+<h3><a id="T463953"></a><b>Trading Partner Balancing Segment Value</b></h3>
+<p><a name="d0e820" id="d0e820"></a>The balancing segment value for the trading partner (to) perspective for which intercompany accounts are defined. The list of values displays all the balancing segment values in the trading partner ledger to which the trading partner legal entity is mapped.</p>
+<h2><a name="4207634"></a><a id="T463909"></a><b>Intercompany Accounts Search Page</b></h2>
+<p><a name="icsearch" id="icsearch"></a>Use this page to query, create, and update intercompany accounts. To update intercompany accounts, query the trading legal entity and transacting ledger and click Update, or choose Create Accounts to create a new Intercompany account.</p>
+<h2><a name="4207635"></a><a id="T463910"></a><b>Create Intercompany Accounts Pages</b></h2>
+<p><a name="createaccts" id="createaccts"></a>This page is the first step in creating a new intercompany account. To access the Define Accounts page, click the Define Accounts icon.</p>
+<h2><a name="4207636"></a><a id="T463911"></a><b>Define Accounts Page</b></h2>
+<p><a name="defineaccts" id="defineaccts"></a>Use this page to define Intercompany Receivables and Payables accounts. For each of these account types you must define at least one account.</p>
+<h3><a id="T463954"></a><b>Use for Balancing</b></h3>
+<p><a name="d0e854" id="d0e854"></a>Use this field to select an account to be used as the balancing account in subledgers and intercompany General Ledger journals.</p>
+<h2><a name="4207638"></a><a id="T463912"></a><b>Update Intercompany Accounts</b></h2>
+<p><a name="updateacct" id="updateacct"></a>This page is similar to the Create Intercompany Accounts page and allows you to update existing intercompany accounts.</p>
+<h3><a id="T463955"></a><b>View Reciprocal Accounts</b></h3>
+<p><a name="d0e872" id="d0e872"></a>Clicking this button displays the accounts used by the Trading Partner (to) Legal Entity and Trading Partner (to) Balancing Segment Value to book intercompany transactions with the Transacting (from) Legal Entity and Transacting (from) Balancing Segment Value. This button is inactive if the Trading Partner Legal Entity or Balancing Segment Value does not have reciprocal intercompany accounts defined, or if the Trading Partner Legal Entity resides on another applications instance, or if the value is All Other.</p>
+<h2><a name="4207640"></a><a id="T463913"></a><b>Balancing Accounts Search Page</b></h2>
+<p><a name="balrulepages" id="balrulepages"></a><a name="fun_asm_intracobal" id="fun_asm_intracobal"></a>Use this page to query, create, or update intracompany balancing rules. To update a balancing rule, query the rule and select the rule from the results table. Choose the Create Rule button to create a new intracompany balancing rule.</p>
+<h2><a name="4207641"></a><a id="T463914"></a><b>Create Intracompany Balancing Rules Page</b></h2>
+<p><a name="createbalrules" id="createbalrules"></a>Use this page to create new balancing rules. Before creating a new rule, you should query the rule on this page to ensure the rule does not already exist.</p>
+<h3><a id="T463956"></a><b>Selected Fields</b></h3>
+<p><b>Ledger:</b> Enter the ledger for which to define balancing rules. The list of values displays all the ledgers to which you have access and indicates whether the ledger is primary or secondary. The ledgers available here come from the Data Access Set assigned to your responsibility. The list of values displays only ledgers that are assigned to complete configurations in Accounting Setup Manager and that have the Enable Intracompany Balancing Journals check box checked on the Update Ledger: Ledger Options page.</p>
+<p><b>Status:</b> This field indicates whether the rule is enabled or disabled.</p>
+<p><b>Additional Information Context:</b> This field allows you to enter the context for the Intracompany Rule Descriptive flexfield. The information entered is only for your reference.</p>
+<h4><a id="T463957"></a><b>Balancing Details Tab</b></h4>
+<p><a name="d0e915" id="d0e915"></a><a name="d0e919" id="d0e919"></a><b>Debit Balancing Segment:</b> This field represents the debit (party recording receivable) balancing segment value. The list of values shows all of the balancing segment values allowed by your security profile. For each ledger-legal entity-source-category combination, there must be the default rule All Other-All Other.</p>
+<p><a name="d0e929" id="d0e929"></a><b>Credit Balancing Segment:</b> This field represents the credit (party recording payable) balancing segment value. The list of values shows all of the balancing segment values allowed by your security profile. For each ledger-legal entity-source-category combination, there must be the default rule All Other-All Other.</p>
+<p><a name="d0e939" id="d0e939"></a><b>Debit Account:</b> This is the balancing account that the debit balancing segment value uses to balance when trading with the credit balancing segment value.</p>
+<p>For balancing segment value - balancing segment value rules where values are explicitly chosen, the balancing account you choose is used exactly. However, when you select the value All Other, the Balancing API determines and substitutes the correct balancing and intercompany segment values at the time of balancing. For example, if you enter an account code combination 01.4000.02, it actually means xx.4000.yy, where xx is the balancing segment value of the debit balancing segment value on the journal and yy is the balancing segment value of the credit balancing segment value on the journal. The Balancing API substitutes these values during balancing.</p>
+<p><a name="d0e951" id="d0e951"></a><b>Credit Account:</b> This is the balancing account that the credit balancing segment value uses to balance when trading with the debit balancing segment value.</p>
+<p>For balancing segment value - balancing segment value rules where values are explicitly chosen, the balancing account you choose is used exactly. However, when you select the value All Other, the Balancing API determines and substitutes the correct balancing segment value at the time of balancing. For example, if you enter and account code combination 02.2000.01, it actually means xx.2000.yy, where xx is the balancing segment value of the credit balancing segment value on the journal and yy is the balancing segment value of the debit balancing segment value on the journal. The Balancing API substitutes these values during balancing.</p>
+<h4><a id="T463958"></a><b>Options Tab</b></h4>
+<p><a name="d0e967" id="d0e967"></a><a name="d0e971" id="d0e971"></a><b>Level of Summarization:</b></p>
+<ul>
+<li>
+<p><a name="d0e982" id="d0e982"></a><b>Summary Net:</b> If you select Summary Net, the Balancing API summarizes the debits and credits for each balancing segment value on the journal, determines the overall net debit or net credit for each balancing segment value, balances using the net amounts for each balancing segment value, and produces a summary balancing line for each balancing segment value. When processing in Summary Net mode, the Balancing API retains the differences in exchange rates for lines with the same balancing segment value. Negative debits are interpreted as positive credits and negative credits as positive debits, because each balancing segment value is summarized.</p>
+<p>Summary Net is the default.</p>
+</li>
+<li>
+<p><a name="d0e993" id="d0e993"></a><b>Detail:</b> If you select Detail, each line on the journal is balanced individually and a balancing line is generated for each line on the journal. For lines with negative amounts (debits or credits), the sign of each original line is retained in the balancing line.</p>
+</li>
+</ul>
+<p><b>Clearing Balancing Segment Value Usage:</b></p>
+<a name="d0e1004" id="d0e1004"></a>
+<ul>
+<li>
+<p><a name="d0e1012" id="d0e1012"></a><b>Use for All Journals:</b> This option specifies that a clearing balancing segment value will be used for all types of journals. You can enter a clearing balancing segment value at the journal header level (in General Ledger only), or the default clearing balancing segment value will be used if no value is manually entered. This option is the default.</p>
+</li>
+<li>
+<p><a name="d0e1021" id="d0e1021"></a><b>Use for Many-to-Many Journals Only:</b> This option specifies that a clearing balancing segment value should be used only to clear many-to-many journals. You can enter a clearing balancing segment value at the journal header level (in General Ledger only), or the default clearing balancing segment value will be used if no value is manually entered.</p>
+</li>
+</ul>
+<p><b>Default Options:</b></p>
+<p><a name="d0e1032" id="d0e1032"></a>Default options include specifying clearing options in case a clearing company should be used but none can be determined for the journal.</p>
+<ul>
+<li>
+<p><a name="d0e1042" id="d0e1042"></a><b>Default Clearing Balancing Segment Value:</b> If no clearing company is specified for the journal, use the default clearing company. The list of values for the Default Clearing Balancing Segment Value is restricted to those that are mapped to the legal entity. If you choose the Default Clearing Balancing Segment Value, you need to enter a clearing balancing segment value.</p>
+</li>
+<li>
+<p><a name="d0e1052" id="d0e1052"></a><b>Manually Entered Clearing Balancing Segment Value:</b> If no clearing company is specified for the journal then an error occurs. This option should not be used with journals coming from subledgers because the clearing company cannot be specified in Subledger Accounting.</p>
+</li>
+<li>
+<p><a name="d0e1060" id="d0e1060"></a><b>Default Rule:</b> This option can be used with either Detail or Summary Net level balancing. The Default Rule is the rule defined for All Other-All Other. When this option is specified, balancing lines are built using the All Other-All Other rule, ignoring all the other rules defined in the Balancing Rules subtab.</p>
+<p><strong><span>Note:</span></strong> This option is not available if you set the Clearing Balancing Segment Value Usage to Use for All Journals. This option is available only if you set the Clearing Balancing Segment Value Usage to Use for Many-to-Many Journals.</p>
+</li>
+</ul>
+<h2><a name="4207645"></a><a id="T463915"></a><b>Intercompany Organizations Pages</b></h2>
+<p><a name="intertcaset" id="intertcaset"></a><a name="d0e1077" id="d0e1077"></a>After defining intercompany accounts, you must create organizations and assign them to the legal entities to process intercompany transactions.</p>
+<p>Intercompany allows you to define organizations for your diverse business needs. Once defined, intercompany organizations represent the initiators and recipients in Intercompany.</p>
+<p>An initiator is an organization that initiates a transaction event with another organization.</p>
+<p>A recipient is an organization that receives a transaction from the initiator.</p>
+<p>The Trading Community Architecture (TCA) data model is used to define intercompany organizations. Each organization created in Intercompany is classified as Intercompany in the TCA model.</p>
+<p>Use the Intercompany Organizations page to search for an existing organization or create a new organization. You can either create a new organization or assign a legal entity as an intercompany organization. You can disable intercompany organizations by searching for an organization and updating the Enabled field to No.</p>
+<p><strong><span>Note:</span></strong> When you create a new organization, it must be assigned to a legal entity. When you assign a legal entity as an organization, it must be assigned to itself. Additionally, you must associate the organizations with an operating unit if invoices are required for the transactions.</p>
+<h2><a name="4207646"></a><a id="T463916"></a><b>View Intercompany Organization Page</b></h2>
+<p><a name="displayinter" id="displayinter"></a>Each intercompany organization is assigned to one or many contacts. The contacts are defined as parties of type Person and assigned to intercompany organizations.</p>
+<p>Click the Organization Name to view the Contact Information for an intercompany organization.</p>
+<p><strong>Related Topics</strong></p>
+<p>Introduction to Oracle Trading Community Architecture, <i>Oracle Trading Community Architecture User Guide</i></p>
+<p><a href="T463896T463899.htm#transtype">Intercompany Transaction Types Pages</a></p>
+<p><a href="T463896T463899.htm#recvassign">Receivables Assignments Page</a></p>
+<h2><a name="4207647"></a><a id="T463917"></a><b>Intercompany Security Pages</b></h2>
+<p><a name="intersecur" id="intersecur"></a><a name="d0e1127" id="d0e1127"></a>Intercompany has a flexible security model because users need to enter transactions for different organizations that are assigned to numerous organizations belonging to different legal entities. Users can access organizations through a single responsibility. The responsibilities available to intercompany users are the following:</p>
+<ul>
+<li>
+<p><a name="d0e1137" id="d0e1137"></a><b>Intercompany Super User:</b> Full access to intercompany transaction pages and setup pages.</p>
+</li>
+<li>
+<p><a name="d0e1146" id="d0e1146"></a><b>Intercompany User:</b> Full access to intercompany transaction pages, but only view access to setup pages.</p>
+</li>
+</ul>
+<p>Use the Security tab to assign a user to an organization.</p>
+<h2><a name="4207648"></a><a id="T463918"></a><b>Intercompany Organization Assignments Page</b></h2>
+<p><a name="securaccess" id="securaccess"></a><a name="d0e1162" id="d0e1162"></a>Use the Intercompany Organization Assignments page to search for and update an organization assignment, or to create new assignments.</p>
+<h3><a id="T463959"></a><b>Access to Transactions</b></h3>
+<p><a name="d0e1172" id="d0e1172"></a>Select this option to allow the user access to the transactions of the organization the user is assigned to.</p>
+<h3><a id="T514060"></a><b>Send Approval Notification</b></h3>
+<p>Select this option if you want the user assigned to the organization to receive approval notifications.</p>
+<p><strong><span>Additional Information:</span></strong> Regardless of the options selected in the security pages, the user will not be able to approve transactions if they do not have access to the organization.</p>
+<h2><a name="4207650"></a><a id="T463919"></a><b>Intercompany Transaction Types Pages</b></h2>
+<p><a name="transtype" id="transtype"></a><a name="d0e1195" id="d0e1195"></a><a name="d0e1201" id="d0e1201"></a>In AGIS, you can define transaction types to manage intercompany transactions, which are shared across all the intercompany organizations. Transaction types help you in setting up the processing rules for all transactions, which must be processed in a systematic way following the same rules across the enterprise. Examples of processing rules that can be set for a transaction type are transactions that require invoice and transactions that must be auto approved or manually approved.</p>
+<p><strong><span>Tip:</span></strong> Create a transaction type only if the seeded transaction type is not sufficient for your operations.</p>
+<h2><a name="4207651"></a><a id="T463920"></a><b>Creating Intercompany Transaction Types Page</b></h2>
+<p><a name="definetrans" id="definetrans"></a>This section describes the Intercompany Transaction Types page. Use the Transaction Types page to search for and update a transaction type or create a new transaction type.</p>
+<h3><a id="T463960"></a><b>Selected Fields in the Create Transaction Types Page</b></h3>
+<h4><a id="T463961"></a><b>Invoicing</b></h4>
+<p><a name="d0e1226" id="d0e1226"></a>If a legal entity requires an invoice, an invoice is created regardless of the option selected for a transaction type. If a legal entity does not require an invoice, an invoice is created only when Required is selected.</p>
+<p>Select Required to create invoices.</p>
+<h4><a id="T463962"></a><b>Manual Approval</b></h4>
+<p>Select Required to specify transaction types that require recipients' approval.</p>
+<p><strong><span>Additional Information:</span></strong> Recipients cannot reject transactions when Manual Approval is set to Not Required because transactions submitted by the initiator are processed as approved.</p>
+<h2><a name="4207655"></a><a id="T463921"></a><b>Intercompany Periods Pages</b></h2>
+<p><a name="peristat" id="peristat"></a><a name="d0e1249" id="d0e1249"></a><a name="d0e1255" id="d0e1255"></a>The period status functionality provides you with a central point to control the timing of intercompany transaction processing independent of the General Ledger, Receivables and Payables through the Intercompany Periods page.</p>
+<p>You must define the intercompany calendar before changing Intercompany Periods. See <a href="T463896T463899.htm#defintercal">Defining Intercompany Calendar</a>.</p>
+<p><strong><span>Note:</span></strong> This setup is optional. Use Periods tab to control the period status per transaction type.</p>
+<h2><a name="4207656"></a><a id="T463922"></a><b>Control Period Statuses Page</b></h2>
+<p><a name="peropenclose" id="peropenclose"></a><a name="d0e1275" id="d0e1275"></a><a name="d0e1281" id="d0e1281"></a>Intercompany transactions are recorded and accounted for in an open period. Use the Open/Close Intercompany Period Status pages to search for a period and open or close the period for a transaction. Optionally, you can close a period for all transactions.</p>
+<h2><a name="4207657"></a><a id="T463923"></a><b>Review Open Transactions Page</b></h2>
+<p><a name="revsweep" id="revsweep"></a><a name="d0e1295" id="d0e1295"></a>When you want to close a period with open transactions, you must sweep the transactions to another period. In the Control Period Statuses page, click the number in Open Transactions to navigate to the Review Open Transactions page. Use the Review Open Transactions page to review and sweep the transactions to another period.</p>
+<h2><a name="4207658"></a><a id="T463924"></a><b>Intercompany Invoicing Options Pages</b></h2>
+<p><a name="custsuppmap" id="custsuppmap"></a><a name="d0e1311" id="d0e1311"></a>It is a legal requirement, in some countries, to create invoices when intercompany transactions are transferred to Payables and Receivables. To create invoices in Payables and Receivables, customers and suppliers must be set up and associated to the transacting organizations. The Invoicing Options tab is a central point for setting up appropriate customer and supplier information between legal entities, operating units, and organizations.</p>
+<p>The Receivables Assignments and Customer and Supplier Associations subtabs in the Invoicing Options tab are prerequisites for setting up intercompany invoicing options.</p>
+<p><strong><span>Note:</span></strong> If your business requirement does not require you to create invoices, you need not use the Invoicing Options tab.</p>
+<h2><a name="4207659"></a><a id="T463925"></a><b>Receivables Assignments Page</b></h2>
+<p><a name="recvassign" id="recvassign"></a>If an invoice is required for intercompany transactions, you must associate intercompany organizations with operating units and then assign the intercompany transaction types with Receivables transaction types for each operating unit.</p>
+<p>Use the Receivables Assignments page to search for operating units and update or create assignments for operating units.</p>
+<h3><a id="T463963"></a><b>Selected Fields in the Receivables Assignments Page</b></h3>
+<h4><a id="T463964"></a><b>Operating Unit</b></h4>
+<p>Lists the operating units that are associated with an active intercompany organization.</p>
+<h4><a id="T463965"></a><b>Receivables Transaction Type</b></h4>
+<p><a name="d0e1348" id="d0e1348"></a>You can either select the seeded Receivables Transaction Type Intercompany or create a Receivables Transaction Type, or choose existing Receivables Transaction Types.</p>
+<h4><a id="T463966"></a><b>Receivables Memo Line</b></h4>
+<p><a name="d0e1358" id="d0e1358"></a>You can either select the seeded Receivables Memo Line Global Intercompany or choose an existing Receivables Standard Memo Line.</p>
+<h2><a name="4207664"></a><a id="T463926"></a><b>Customer Supplier Associations</b></h2>
+<p><a name="createassn" id="createassn"></a>You can create the following two types of associations in Intercompany:</p>
+<ul>
+<li>
+<p><a name="d0e1375" id="d0e1375"></a><b>Customer association:</b> When a legal entity is represented in another legal entity as a customer, the represented legal entity has a customer association.</p>
+</li>
+<li>
+<p><a name="d0e1386" id="d0e1386"></a><b>Supplier association:</b> When a legal entity is represented in another legal entity as a supplier, the represented legal entity has a supplier association.</p>
+</li>
+</ul>
+<p>The above associations denote how legal entities are represented in other legal entities. For example, if legal entity A has a supplier association with legal entity B, it means that in legal entity B, legal entity A is set up as a supplier that creates a Payables invoice. Setting up customer supplier associations between legal entities eliminates the need to create duplicate entities for each organization within a legal entity.</p>
+<p>You can set up an association at the following levels:</p>
+<ul>
+<li>
+<p>Legal entity level</p>
+</li>
+<li>
+<p>Operating unit level</p>
+</li>
+<li>
+<p>Organization level</p>
+</li>
+</ul>
+<p><strong><span>Tip:</span></strong> It is better to establish an association at the legal entity level because the association assigned at a legal entity level automatically defaults to the organization in it.</p>
+<h2><a name="4207665"></a><a id="T463927"></a><b>Customer and Supplier Association Page</b></h2>
+<p><a name="custsupassn" id="custsupassn"></a><a name="d0e1418" id="d0e1418"></a><a name="d0e1424" id="d0e1424"></a>Use the Customer and Supplier Association page to create customer and supplier association. You can create an association by:</p>
+<ul>
+<li>
+<p>Selecting the trading partners</p>
+</li>
+<li>
+<p><a name="d0e1437" id="d0e1437"></a><a name="d0e1441" id="d0e1441"></a><a name="d0e1445" id="d0e1445"></a><a name="d0e1449" id="d0e1449"></a><a name="d0e1453" id="d0e1453"></a><a name="d0e1457" id="d0e1457"></a>Adding a Customer or Supplier Name and a Bill-to or Pay-to Location to the organization party or selecting an existing Customer or Supplier Account and Bill-to or Pay-to Location</p>
+</li>
+</ul>
+<h3><a id="T463967"></a><b>Selected Fields in Customer and Supplier Association Page</b></h3>
+<h4><a id="T463968"></a><b>Supplier Site</b></h4>
+<p><a name="d0e1471" id="d0e1471"></a>Enter the site name for the chosen supplier. This field can only be used when the supplier is entered.</p>
+<h4><a id="T463969"></a><b>Customer Account Location</b></h4>
+<p><a name="d0e1481" id="d0e1481"></a>Enter the site name for the chosen customer. This field can only be used when the customer is entered.</p>
+<h2><a name="4207669"></a><a id="T463928"></a><b>Trading Partners Page</b></h2>
+<p><a name="tradepartner" id="tradepartner"></a><a name="d0e1493" id="d0e1493"></a>A trading partner is an organization in a corporate enterprise wherein transactions are processed. Use this page to determine if an association exists between two organizations.</p>
+<p>The Initiator/Recipient Organization can be a legal entity, an operating unit, or an organization.</p>
+<h3><a id="T463970"></a><b>Fields in the Legal Entity Customers and Suppliers Page</b></h3>
+<h4><a id="T463971"></a><b>Initiator Organization</b></h4>
+<p><a name="d0e1509" id="d0e1509"></a>The supplier initiating the transaction.</p>
+<h4><a id="T463972"></a><b>Recipient Organization</b></h4>
+<p><a name="d0e1521" id="d0e1521"></a>The customer receiving the transaction.</p>
+<h2><a name="4207673"></a><a id="T463929"></a><b>Intercompany System Options</b></h2>
+<p><a name="interoptions" id="interoptions"></a><a name="d0e1535" id="d0e1535"></a>Intercompany system options help you to manage intercompany transactions across the enterprise. By defining these options at the enterprise level, you can minimize disputes, decrease processing time and cut administrative costs. For example, if the companies in an enterprise use the same currency for all transactions, it ensures that the transactions are posted in the same currency, which in turn, simplifies reconciliation.</p>
+<p><strong><span>Note:</span></strong> Before setting up intercompany system options, you must decide how to process Intercompany transactions. You must decide whether to enforce an enterprise-wide currency or allow Intercompany transactions in local currencies, allow recipients to reject intercompany transactions, what minimum amount of transactions should be processed, and so forth.</p>
+<p>Use the Intercompany System Options page to set enterprise level settings to govern the behavior of the Intercompany system and determine how transactions are processed.</p>
+<p><strong><span>Note:</span></strong> Changing system options does not affect transactions already in progress. It affects new transactions only.</p>
+<h3><a id="T463973"></a><b>Intercompany Batch Numbering</b></h3>
+<p><a name="d0e1555" id="d0e1555"></a>In AGIS, all transactions are numbered sequentially. Use this option to manually or automatically number intercompany transactions.</p>
+<p>See: Defining a Document Sequence, <i>Oracle E-Business Suite Setup Guide</i></p>
+<h3><a id="T463974"></a><b>Intercompany Transaction Currency</b></h3>
+<p><a name="d0e1570" id="d0e1570"></a>Use this option to specify a default currency on transactions. If you do not specify a currency for this option, you can select a currency while entering a transaction. However, if you specify a currency, it defaults in the Create Batch: Header and Transactions page and cannot be changed.</p>
+<h3><a id="T463975"></a><b>Minimum Transaction Amount</b></h3>
+<p><a name="d0e1580" id="d0e1580"></a>Use this option to set the minimum intercompany transaction amount. The minimum transaction amount affects all intercompany transactions. The minimum transaction amount is validated against the amount in the transaction line.</p>
+<p><strong><span>Note:</span></strong> Before setting the minimum transaction amount, you must first set the transaction currency.</p>
+<h3><a id="T463976"></a><b>Minimum Transaction Amount Currency</b></h3>
+<p><a name="d0e1593" id="d0e1593"></a>This option is required if you enter a minimum transaction amount but do not define the intercompany transaction currency.</p>
+<h3><a id="T449794"></a><b>Intercompany Conversion Rate Type</b></h3>
+<p><a name="d0e1603" id="d0e1603"></a>Use this option to specify the conversion rate type for converting foreign currency transactions to the equivalent ledger currency.</p>
+<p><strong><span>Note:</span></strong> You cannot have user defined conversion rates in intercompany transactions.</p>
+<h3><a id="T463977"></a><b>Allow Recipients to Reject Transactions</b></h3>
+<p><a name="d0e1616" id="d0e1616"></a>Use this option to specify whether the recipients of intercompany transactions can reject transactions.</p>
+<h3><a id="T463978"></a><b>Transfer Transactions to General Ledger</b></h3>
+<p><a name="d0e1628" id="d0e1628"></a>You can transfer transactions to General Ledger online (when they reach Approved status) or in batch mode. If batch mode is selected, you must run the concurrent program.</p>
+<h3><a id="T463979"></a><b>Transferring Transactions to Payables and Receivables</b></h3>
+<p><a name="d0e1642" id="d0e1642"></a><a name="d0e1650" id="d0e1650"></a>You can transfer transactions to Payables and Receivables online (when they reach Approved status) or in batch mode. If batch mode is selected, you must run the concurrent program.</p>
+<h3><a id="T463980"></a><b><a name="defintercal" id="defintercal"></a>Intercompany Calendar</b></h3>
+<p><a name="d0e1665" id="d0e1665"></a>Use this option to define an intercompany calendar to control intercompany periods.</p>
+<h2><a name="4207683"></a><a id="T463930"></a><b>Approvals Management Setup for Intercompany</b></h2>
+<p><a name="icamesetup" id="icamesetup"></a><a name="d0e1677" id="d0e1677"></a><a name="d0e1683" id="d0e1683"></a><a name="d0e1689" id="d0e1689"></a>To derive approvers and users to whom transactions related notifications must be sent, Intercompany uses Oracle Approvals Management System (AME). There are two default rules seeded in AME that builds the list of approvers and users based on the contacts defined for the intercompany organization. The default rules are:</p>
+<ul>
+<li>
+<p><b>Default rule for Initiator Intercompany Transaction:</b> Users who receive FYI notifications.</p>
+</li>
+<li>
+<p><b>Default rule for Recipient Intercompany Transaction:</b> Users who are approvers.</p>
+</li>
+</ul>
+<h2><a name="4207684"></a><a id="T463931"></a><b>Default Accounts Rules Setup In Subledger Accounting for Intercompany</b></h2>
+<p><a name="deacctstab" id="deacctstab"></a><a name="d0e1714" id="d0e1714"></a><a name="d0e1718" id="d0e1718"></a><a name="d0e1724" id="d0e1724"></a><a name="d0e1728" id="d0e1728"></a><a name="d0e1734" id="d0e1734"></a><a name="d0e1740" id="d0e1740"></a><a name="d0e1746" id="d0e1746"></a><a name="d0e1750" id="d0e1750"></a>AGIS transactions must be consistent in distributing the expense amounts to the appropriate distribution accounts. Distribution accounts are account combination that appears in the transaction entry pages when you create an intercompany batch. The distributed accounts must be defined for each ledger and are generated as defined in the Subledger Accounting Transaction Account Builder (SLA TAB).</p>
+<p>The following must be setup in the SLA TAB to generate the default distribution account combination:</p>
+<ul>
+<li>
+<p><b>Transaction Account Type:</b> This classifies the distribution accounts that are generated for intercompany transactions. The following are the seeded intercompany transaction account types:</p>
+<ul>
+<li>
+<p><b>AGIS Initiator Intercompany Distribution Account:</b> For defaulting initiator distribution accounts</p>
+</li>
+<li>
+<p><b>AGIS Recipient Distribution Account:</b> For defaulting recipient distribution accounts</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>Account Derivation Rules:</b> Allows you to derive accounting flexfield combinations or individual transactions, based on source, constants, mapping sets, and conditions.</p>
+</li>
+<li>
+<p><b>Transaction Account Definition:</b> Allows you to assign the account derivation rules to the transaction account types. For intercompany transactions the Transaction Account Definition (TAD) is assigned to a ledger.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> You cannot create a new transaction account type. You can only create a new Transaction Account Definition in AGIS.</p>
+<p>Before creating a new Transaction Account Definition, ensure that the following are defined:</p>
+<ul>
+<li>
+<p>Legal entities and primary ledger</p>
+</li>
+<li>
+<p>Trading partners</p>
+</li>
+<li>
+<p>Intercompany accounts</p>
+</li>
+</ul>
+<p><b>To create a new Transaction Account Definition:</b></p>
+<ol>
+<li>
+<p>Create accounting derivation rules using the Account Derivation Rules window in Subledger accounting.</p>
+</li>
+<li>
+<p>Create the TAD and assign the account derivation rules to the transaction account definition.</p>
+</li>
+<li>
+<p>Log in to General Ledger using the GL responsibility and assign the TAD to the ledger.</p>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> A default account is assigned when you create a new TAD to generate the intercompany distribution accounts. This default account is generated whenever the account derivation rule satisfies none of the specified conditions.</p>
+<p><strong>Related Topics</strong></p>
+<p>Account Derivation Rules, <i>Oracle Subledger Accounting Implementation Guide</i></p>
+<p>Create Transaction Account Definitions, <i>Oracle Subledger Accounting Implementation Guide</i></p>
+<h3><a id="T466001"></a><b>Example of Setting Default Account Rules</b></h3>
+<p><a name="deacctstabeg" id="deacctstabeg"></a>This section explains creating a new TAD with the help of an example. A TAD can be set up in two ways:</p>
+<ul>
+<li>
+<p>A single balancing segment value mapped to one legal entity.</p>
+</li>
+<li>
+<p>Multiple balancing segment values mapped to one legal entity.</p>
+</li>
+</ul>
+<p>This example uses the Vision Enterprise setup that has two charts of accounts namely US Ledger and Euro Ledger, each for the Vision Corporation ledger and the Vision Europe ledger.</p>
+<p>The following comprises the Ledger: Vision Corporation:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Balancing Segment Value</b></th>
+<th scope="col"><b>Legal Entity</b></th>
+<th scope="col"><b>Intercompany Organization</b></th>
+</tr>
+<tr valign="top">
+<td>01</td>
+<td>Vision West</td>
+<td>Vision SFO</td>
+</tr>
+<tr valign="top">
+<td>02</td>
+<td>Vision East</td>
+<td>Vision Boston</td>
+</tr>
+<tr valign="top">
+<td>03</td>
+<td>Vision East</td>
+<td>Vision Jersey</td>
+</tr>
+</table>
+<p>The following comprises the Ledger: Vision Europe:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Balancing Segment Value</b></th>
+<th scope="col"><b>Legal Entity</b></th>
+<th scope="col"><b>Intercompany Organization</b></th>
+</tr>
+<tr valign="top">
+<td>10</td>
+<td>Vision France</td>
+<td>Vision Paris</td>
+</tr>
+<tr valign="top">
+<td>11</td>
+<td>Vision Germany</td>
+<td>Vision Frankfurt</td>
+</tr>
+</table>
+<h3><a id="T466000"></a><b>Single Balancing Segment Value mapped to a Legal Entity</b></h3>
+<p>When a single balancing segment value is mapped to a legal entity , the initiator and recipient balancing segment values are the Source in the Transaction Account Builder to obtain the distribution accounts. The initiator and recipient balancing segment values are identified through the From and To legal entity when entering the transactions.</p>
+<p>Assume that Vision SFO of Vision West (balancing segment value 01) in the US Ledger chart of accounts is the initiator and Vision Paris of Vision France (balancing segment value 10) in the Euro Ledger chart of accounts is the recipient. To generate the default distribution accounts you must define the account derivation rules for the initiator and distributor transaction account types, which are the following:</p>
+<ul>
+<li>
+<p>Balancing Segment Value</p>
+</li>
+<li>
+<p>Natural Account Segment</p>
+</li>
+<li>
+<p>Other Segments</p>
+</li>
+</ul>
+<p>Based on the rule for each segment a default initiator and recipient distribution account is generated when entering the transactions.</p>
+<h4><a id="T466124"></a><b>Generating the Initiator Distribution Account</b></h4>
+<p>Use the Account Derivation Rules window to create account derivation rules for generating the initiator distribution account. The following table describes the account derivation rule for the initiator balancing segment value.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Priority</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Override Segment</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Source</td>
+<td>Initiator BSV</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>The following table describes the account derivation rule for the initiator natural account.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Priority</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Override Segment</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Constant</td>
+<td>2100</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Condition</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Source</td>
+<td>Operator</td>
+<td>Value Type</td>
+<td>Value</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transaction Type</td>
+<td>=</td>
+<td>Constant</td>
+<td>Allocation</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>The following table describes the account derivation rule for initiator other segments.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Priority</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Override Segment</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Constant</td>
+<td>000</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>Using the Transaction Account Definitions page, assign the above created rules to the appropriate transaction account type as shown in the following table to create a TAD to generate the initiator distribution account of US Ledger.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Account Type</b></th>
+<th scope="col"><b>Account Derivation Rule</b></th>
+</tr>
+<tr valign="top">
+<td>Balancing Segment Value</td>
+<td>Initiator BSV Rule</td>
+</tr>
+<tr valign="top">
+<td>Natural Account Segment</td>
+<td>Initiator Distribution Account Rule</td>
+</tr>
+<tr valign="top">
+<td>Other Segments</td>
+<td>Initiator Other Segment Rule</td>
+</tr>
+</table>
+<h4><a id="T466125"></a><b>Generating the Recipient Distribution Account</b></h4>
+<p>Using the Account Derivation Rules window, create account derivation rules to generate the recipient distribution account. The following table describes the account derivation rule for the recipient balancing segment value.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Priority</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Override Segment</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Source</td>
+<td>Recipient BSV</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>The following table describes the account derivation rule for the recipient natural account.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Priority</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Override Segment</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Constant</td>
+<td>2100</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Condition</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Source</td>
+<td>Operator</td>
+<td>Value Type</td>
+<td>Value</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transaction Type</td>
+<td>=</td>
+<td>Constant</td>
+<td>Allocation</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>The following table describes the account derivation rule for recipient other segments.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Priority</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Override Segment</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Constant</td>
+<td>000</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>Using the Transaction Account Definitions page, assign the above created rules to the appropriate transaction account type as shown in the following table to create a TAD to generate the recipient distribution account of Euro Ledger.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Account Type</b></th>
+<th scope="col"><b>Account Derivation Rule</b></th>
+</tr>
+<tr valign="top">
+<td>Balancing Segment Value</td>
+<td>Recipient BSV Rule</td>
+</tr>
+<tr valign="top">
+<td>Natural Account Segment</td>
+<td>Recipient Distribution Account Rule</td>
+</tr>
+<tr valign="top">
+<td>Other Segments</td>
+<td>Recipient Other Segment Rule</td>
+</tr>
+</table>
+<h3><a id="T466126"></a><b>Multiple Balancing Segment Values mapped to a Legal Entity</b></h3>
+<p>When two or more balancing segment values are mapped to a legal entity, you must determine the balancing segment value that must be used as the initiator distribution of the initiator legal entity by defining mapping sets. Mapping sets must be defined before creating account derivation rules for each intercompany organization.</p>
+<p>Assume that Vision Boston (balancing segment value 02) of Vision East in the US Ledger chart of accounts is the initiator and Vision Paris of Vision France (balancing segment value 10) in the Euro Ledger chart of accounts is the recipient.</p>
+<p>To generate the default distribution accounts you must first define mapping sets to assign Vision Boston as the initiator distribution to derive a value and then define the account derivation rules for the initiator and distributor transaction account types. A default initiator and recipient distribution account is generated when entering the transactions based on the rules defined.</p>
+<h4><a id="T466127"></a><b>Defining Mapping Sets</b></h4>
+<p>The following is the initiator mapping set to derive the balancing segment value from the intercompany organization.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Input Value</b></th>
+<th scope="col"><b>Output Value</b></th>
+<th scope="col"><b>Effective From</b></th>
+<th scope="col"><b>Effective To</b></th>
+</tr>
+<tr valign="top">
+<td>Input</td>
+<td>Vision SFO</td>
+<td>01</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Vision Boston</td>
+<td>02</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Vision Jersey</td>
+<td>03</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>The following is the recipient mapping set.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Input Value</b></th>
+<th scope="col"><b>Output Value</b></th>
+<th scope="col"><b>Effective From</b></th>
+<th scope="col"><b>Effective To</b></th>
+</tr>
+<tr valign="top">
+<td>Input</td>
+<td>Vision Paris</td>
+<td>10</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Vision Frankfurt</td>
+<td>11</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<h4><a id="T466128"></a><b>Generating the Initiator Distribution Account</b></h4>
+<p>Use the Account Derivation Rules window to create account derivation rules for generating the initiator distribution account. The following table describes the account derivation rule for the initiator balancing segment value.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Priority</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Segment</b></th>
+<th scope="col"><b>Input Source</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Mapping Set</td>
+<td>Balancing segment value derived from intercompany organization &lt;Mapping Set Name&gt;</td>
+<td>Natural Account Segment</td>
+<td>Initiator</td>
+</tr>
+</table>
+<p>The following table describes the account derivation rule for the initiator natural account.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Priority</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Override Segment</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Constant</td>
+<td>2100</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Condition</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Source</td>
+<td>Operator</td>
+<td>Value Type</td>
+<td>Value</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transaction Type</td>
+<td>=</td>
+<td>Constant</td>
+<td>Allocation</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>The following table describes the account derivation rule for initiator other segments.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Priority</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Override Segment</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Constant</td>
+<td>000</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>Using the Transaction Account Definitions page, assign the above created rules to the appropriate transaction account type as shown in the following table to create a TAD to generate the initiator distribution account of US Ledger.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Account Type</b></th>
+<th scope="col"><b>Account Derivation Rule</b></th>
+</tr>
+<tr valign="top">
+<td>Balancing Segment Value</td>
+<td>Initiator BSV Rule</td>
+</tr>
+<tr valign="top">
+<td>Natural Account Segment</td>
+<td>Initiator Distribution Account Rule</td>
+</tr>
+<tr valign="top">
+<td>Other Segments</td>
+<td>Initiator Other Segment Rule</td>
+</tr>
+</table>
+<h4><a id="T466129"></a><b>Generating the Recipient Distribution Account</b></h4>
+<p>Use the Account Derivation Rules window to create account derivation rules for generating the recipient distribution account. The following table describes the account derivation rule for the recipient balancing segment value.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Priority</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Segment</b></th>
+<th scope="col"><b>Input Source</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Mapping Set</td>
+<td>Balancing segment value derived from intercompany organization &lt;Mapping Set Name&gt;</td>
+<td>Natural Account Segment</td>
+<td>Recipient</td>
+</tr>
+</table>
+<p>The following table describes the account derivation rule for the recipient natural account.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Priority</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Override Segment</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Constant</td>
+<td>2100</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Condition</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Source</td>
+<td>Operator</td>
+<td>Value Type</td>
+<td>Value</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Transaction Type</td>
+<td>=</td>
+<td>Constant</td>
+<td>Allocation</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>The following table describes the account derivation rule for the recipient other segments.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Priority</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Override Segment</b></th>
+<th scope="col"><b>Value Type</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>Constant</td>
+<td>000</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>Using the Transaction Account Definitions page, assign the above created rules to the appropriate transaction account type as shown in the following table to create a TAD to generate the recipient distribution account of Euro Ledger.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Transaction Account Type</b></th>
+<th scope="col"><b>Account Derivation Rule</b></th>
+</tr>
+<tr valign="top">
+<td>Balancing Segment Value</td>
+<td>Recipient BSV Rule</td>
+</tr>
+<tr valign="top">
+<td>Natural Account Segment</td>
+<td>Recipient Distribution Account Rule</td>
+</tr>
+<tr valign="top">
+<td>Other Segments</td>
+<td>Recipient Other Segment Rule</td>
+</tr>
+</table>
+<h2><a name="8355165"></a><a id="T662194"></a><b>Absent Subledger Accounting Transaction Account Builder Setup</b></h2>
+<p><a name="fun_inter_absentsla" id="fun_inter_absentsla"></a><a name="d0e2920" id="d0e2920"></a>For an AGIS transaction, distribution lines are generated based on the SLA TAB setup. If SLA TAB is not setup or an error occurs while fetching the code combination identifier (CCID) from SLA TAB, then one Liability line (Recipient Payables) and one Receivables line (Initiator Receivables) are generated based on the intercompany and intracompany setup in the system. The following section explains how these lines are generated.</p>
+<p><b>Case 1:</b> When Initiator Legal Entity (LE) and Recipient Legal Entity are different:</p>
+<ol>
+<li>
+<p>The system looks for Receivables account from Intercompany rules based on the following rules of precedence.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Order</td>
+<td>From</td>
+<td>To</td>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>LE, BSV</td>
+<td>LE, BSV</td>
+</tr>
+<tr valign="top">
+<td>2</td>
+<td>LE, BSV</td>
+<td>LE</td>
+</tr>
+<tr valign="top">
+<td>3</td>
+<td>LE</td>
+<td>LE, BSV</td>
+</tr>
+<tr valign="top">
+<td>4</td>
+<td>LE</td>
+<td>LE</td>
+</tr>
+<tr valign="top">
+<td>5</td>
+<td>LE</td>
+<td>All Others</td>
+</tr>
+</table>
+</li>
+<li>
+<p>If Receivables account is not found from the previous step, then the system looks for Debit Account from Intracompany rules setup.</p>
+<ol>
+<li>
+<p>Rules of precedence to find Intracompany rule template are as follows:</p>
+<ol>
+<li>
+<p>'Global Intercompany', 'Global Intercompany'</p>
+</li>
+<li>
+<p>'Global Intercompany', 'Other'</p>
+</li>
+<li>
+<p>'Other', 'Global Intercompany'</p>
+</li>
+<li>
+<p>'Other', 'Other'</p>
+</li>
+</ol>
+</li>
+<li>
+<p>The system fetches the Debit Account from Intracompany accounts.</p>
+<p><strong><span>Additional Information:</span></strong> The system looks only for the account with DR_BSV = 'All Other' and CR_BSV = 'All Other'.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Once the Initiator Receivables account is found, then the system fetches the Reciprocal Payables account following the same process as steps 1 and 2.</p>
+</li>
+<li>
+<p>The fetched Initiator Receivables account and Payables account act as template accounts, substituting the current Balancing and Intercompany segment values, and derive new accounts (if they do not exist).</p>
+</li>
+</ol>
+<p><b>Case 2:</b> When Initiator Legal Entity and Recipient Legal Entity are the same:</p>
+<ol>
+<li>
+<p>The system fetches the Receivables account from Intracompany rules setup.</p>
+<ol>
+<li>
+<p>Rules of precedence to find Intracompany rule are as follows:</p>
+<ol>
+<li>
+<p>'Global Intercompany', 'Global Intercompany'</p>
+</li>
+<li>
+<p>'Global Intercompany', 'Other'</p>
+</li>
+<li>
+<p>'Other', 'Global Intercompany'</p>
+</li>
+<li>
+<p>'Other', 'Other'</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Once the Intracompany rule is found, then it fetches the Debit Account from the Intracompany accounts based on the following rules of precedence:</p>
+<ol>
+<li>
+<p>Debit BSV, Credit BSV</p>
+</li>
+<li>
+<p>Debit BSV, 'Other'</p>
+</li>
+<li>
+<p>'Other', Credit BSV</p>
+</li>
+<li>
+<p>'Other', 'Other'</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>The system then fetches the Reciprocal Account (Payables Account ) as follows:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<tr valign="top">
+<td>Debit BSV</td>
+<td>Credit BSV</td>
+<td>Debit Account</td>
+<td>Credit Account</td>
+</tr>
+<tr valign="top">
+<td>01</td>
+<td>02</td>
+<td>01.XXX.02</td>
+<td>02.XXX.01</td>
+</tr>
+<tr valign="top">
+<td>02</td>
+<td>01</td>
+<td>02.YYY.01</td>
+<td>01.YYY.02</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> IF DR_CCID = 01.XXX.02, then RECIPROCAL_CCID = 02.XXX.01 and not 02.YYY.01.</p>
+</li>
+<li>
+<p>The fetched Initiator Receivables account and Payables account act as template accounts, substituting the current Balancing and Intercompany segment values and derive new accounts (if they do not exist).</p>
+</li>
+</ol>
+<h2><a name="7158175"></a><a id="T631449"></a><b>Intercompany Ledger Level Balancing</b></h2>
+<p><a name="d0e3134" id="d0e3134"></a><a name="Fun_led_lvl_bal" id="Fun_led_lvl_bal"></a>Intercompany ledger level balancing (No Legal Entity context) is supported even when the legal entities to balancing segment value associations are defined in the system. You can balance subledger and general ledger journals using a clearing balancing segment value defined for the ledger. This clearing balancing segment is used to balance regardless of whether all balancing entities in the journal are within a single legal entity or span multiple legal entities.</p>
+<p>To use ledger level balancing, set the profile option FUN: Balance Using Intracompany Rules Only to Yes. If the profile option is defined and set to yes, then the ledger level balancing rules are used instead of the rules setup at the legal entity level. The profile option can be set at the site or application level. As the profile option can be set at the application level, you can use ledger level balancing rules for some applications and legal entity specific balancing rules for other applications. This gives flexibility to decide the type of accounting generated for different subledger products.</p>
+<p><strong><span>Additional Information:</span></strong> Intercompany transactions cannot use ledger level balancing rules, they can only use inter or intracompany balancing rules set up at the legal entity level.</p>
+<p><strong><span>Additional Information:</span></strong> Reconciliation reports can report only intercompany transactions. When ledger level balancing is used, the transactions are treated as intracompany transactions, and will not be displayed in the reconciliation report.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

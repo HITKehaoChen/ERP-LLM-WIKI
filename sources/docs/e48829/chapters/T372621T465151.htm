@@ -1,0 +1,3558 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Cost Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Cost Management User's Guide">
+<meta name="dcterms.identifier" content="E48829-27">
+<meta name="dcterms.isVersionOf" content="CSTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T372621T407440.htm" title="Previous" type="text/html">
+<link rel="Next" href="T372621T517827.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Cost Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">27/29</span> <!-- End Header -->
+<h1>SLA Costing Events - Accounting</h1>
+<h2><a name="4222331"></a><a id="T465152"></a><b>SLA Costing Events Model</b></h2>
+<a name="d0e66598" id="d0e66598"></a><a name="c_slaeventsmodel" id="c_slaeventsmodel"></a>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Event Entity: WIP Accounting Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Event Class Name</b></th>
+<th scope="col"><b>Journal Line Types</b></th>
+<th scope="col"><b>Event Type Name</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Absorption</td>
+<td>Work in Process Valuation</td>
+<td>Resource Absorption</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Estimated Scrap Absorption</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Overhead Absorption</td>
+<td>Overhead Absorption</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Resource Absorption</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Resource Rate Variance</td>
+<td>Estimated Scrap Absorption</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing</td>
+<td>Work in Process Valuation</td>
+<td>Outside Processing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Resource Absorption</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Overhead Absorption</td>
+<td>Shop Floor Delivery for Direct Items</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>IPV Transfer to Work Order</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>WIP Variance</td>
+<td>Work in Process Valuation</td>
+<td>Period Close Variance</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Work in Process Variance</td>
+<td>Job Close Variance</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Final Completion Variance</td>
+</tr>
+<tr valign="top">
+<td>WIP Lot</td>
+<td>Work in Process Valuation</td>
+<td>WIP Lot Split</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>WIP Lot Merge</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>WIP Lot Update Quantity</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>WIP Lot Bonus</td>
+</tr>
+<tr valign="top">
+<td>WIP Cost Update</td>
+<td>Work in Process Valuation</td>
+<td>WIP Cost Update</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Update Adjustment</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Event Entity: Receiving Accounting Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Event Class Name</b></th>
+<th scope="col"><b>Journal Line Types</b></th>
+<th scope="col"><b>Event Type Name</b></th>
+</tr>
+<tr valign="top">
+<td>Receipt into Receiving Inspection</td>
+<td>Accrual</td>
+<td>Receipt into Receiving Inspection</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>Return to Vendor</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Clearing</td>
+<td>Logical Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Logical Return to Vendor</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Accrual</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany COGS</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Delivery to Expense Destination</td>
+<td>Charge</td>
+<td>Delivery to Expense</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>Return to Receiving Inspection from Expense</td>
+</tr>
+<tr valign="top">
+<td>Period End Accrual</td>
+<td>Accrual</td>
+<td>Period End Accrual</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Charge</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Retroactive Price Adjustment to Receipt</td>
+<td>Accrual</td>
+<td>Retroactive Price Adjustment to Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Retroactive Price Adjustment</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Cost of Goods Sold</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Retroactive Price Adjustment to Delivery</td>
+<td>Retroactive Price Adjustment</td>
+<td>Retroactive Price Adjustment to Delivery</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Charge</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Event Entity: Accrual Write-Off Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Event Class Name</b></th>
+<th scope="col"><b>Journal Line Types</b></th>
+<th scope="col"><b>Event Type Name</b></th>
+</tr>
+<tr valign="top">
+<td>Accrual Write-Off Event</td>
+<td>Accrual</td>
+<td>Accrual Write-Off</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Account</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Exchange Rate Variance</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Event Entity: Material Accounting Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Event Class Name</b></th>
+<th scope="col"><b>Journal Line Types</b></th>
+<th scope="col"><b>Event Type Name</b></th>
+</tr>
+<tr valign="top">
+<td>PO Delivery into Inventory</td>
+<td>Inventory Valuation</td>
+<td>Return to Receiving Inspection from Inventory</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>PO Delivery into Inventory</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Clearing</td>
+<td>PO Delivery Adjustment</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>Logical PO Delivery into Inventory</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>Logical PO Delivery Adjustment</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Logical Return to Receiving Inspection from Inventory</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Shikyu Variance</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Sales Order Issue</td>
+<td>Inventory Valuation</td>
+<td>RMA Return</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost of Goods Sold</td>
+<td>RMA Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Deferred COGS</td>
+<td>Sales Order Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>COGS Recognition</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Update Adjustment</td>
+<td>Logical Sales Order Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Logical RMA Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Backdated COGS Recognition</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>COGS Recognition Adjustment</td>
+</tr>
+<tr valign="top">
+<td>Internal Order to Expense</td>
+<td>Inventory Valuation</td>
+<td>Internal Order Issue to Expense</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Internal Order Receipt into Expense</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Profit (OPM)</td>
+<td>Internal Order Receipt into Expense, no Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>Internal Order Receipt into Expense, Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>Internal Order Issue to Expense, no Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Internal Order Issue to Expense, Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>WIP Material</td>
+<td>Inventory Valuation</td>
+<td>WIP Component Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Work in Process Valuation</td>
+<td>WIP Negative Component Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>WIP Component Return</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>WIP Negative Component Return</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>WIP Assembly Completion</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>WIP Assembly Return</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>WIP Assembly Scrap</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>WIP Assembly Scrap Return</td>
+</tr>
+<tr valign="top">
+<td>Consigned Inventory Ownership Transfer</td>
+<td>Inventory Valuation</td>
+<td>Transfer from Consigned to Regular Inventory</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Accrual</td>
+<td>Transfer from Regular to Consigned Inventory</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Miscellaneous</td>
+<td>Inventory Valuation</td>
+<td>Move Order Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Move Order Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Account Alias Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Account Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Account Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Account Alias Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Miscellaneous Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Miscellaneous Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Project Contract Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Inventory Lot Translate</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Internal Requisition Receipt Adjustment</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Shipment Receipt Adjustment</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Cycle Count Adjustment</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Physical Inventory Adjustment</td>
+</tr>
+<tr valign="top">
+<td>Intraorganization Transfer</td>
+<td>Inventory Valuation</td>
+<td>Move Order Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Internal Order Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Cycle Count Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Physical Inventory Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Subinventory Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Cost Group Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Planning Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Internal Order Staging Transfer</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Sales Order Staging Transfer</td>
+</tr>
+<tr valign="top">
+<td>Direct Interorg Shipment</td>
+<td>Inventory Valuation</td>
+<td>Direct Interorg Shipment</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>Direct Interorg Shipment, No Transfer Price</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Transfer Credit</td>
+<td>Direct Interorg Shipment, Transfer Price</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Freight Charge</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Profit (OPM)</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Direct Interorg Receipt</td>
+<td>Inventory Valuation</td>
+<td>Direct Interorg Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>Direct Interorg Receipt, No Transfer Price</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Transfer Credit</td>
+<td>Direct Interorg Receipt, Transfer Price</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Freight Charge</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Intransit Interorg Shipment for FOB Receipt</td>
+<td>Inventory Valuation</td>
+<td>Intransit Interorg Shipment for FOB Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intransit Valuation</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Intransit Valuation</td>
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt without Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Profit (OPM)</td>
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt with Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Transfer Credit</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Freight Charge</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost of Goods Sold</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Inventory Valuation</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt without Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt with Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Expense</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Profit in Inventory</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Inventory Valuation</td>
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment without Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Profit (OPM)</td>
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment with Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Transfer Credit</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost of Goods Sold</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Intransit Valuation</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment without Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment with Transfer Pricing</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Freight Charge</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Expense</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Profit in Inventory</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Intransit Interorg Receipt for FOB Shipment</td>
+<td>Inventory Valuation</td>
+<td>Intransit Interorg Receipt for FOB Shipment</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intransit Valuation</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Material Cost Update</td>
+<td>Inventory Valuation</td>
+<td>Standard Cost Update</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Average Cost Update</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Update Adjustment</td>
+<td>IPV Transfer to Inventory</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intransit Valuation</td>
+<td>Layer Cost Update</td>
+</tr>
+<tr valign="top">
+<td>Retroactive Price Adjustment</td>
+<td>Accrual</td>
+<td>Retroactive Price Adjustment</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Retroactive Price Adjusment</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Logical Intercompany</td>
+<td>Inventory Valuation</td>
+<td>Logical Intercompany Sales Issue</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Accrual</td>
+<td>Logical Intercompany Sales Return</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Clearing</td>
+<td>Logical Intercompany Shipment Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany COGS</td>
+<td>Logical Intercompany Receipt Return</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Logical Intercompany Procurement Receipt</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Logical Intercompany Procurement Return</td>
+</tr>
+<tr valign="top">
+<td>WIP Material Lot</td>
+<td>Work in Process Valuation</td>
+<td>Lot Split</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Lot Merge</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Lot Bonus</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>Lot Quantity Update</td>
+</tr>
+</table>
+<h2><a name="4235083"></a><a id="T465431"></a><b>Event Class Journal Line Type Conditions</b></h2>
+<a name="d0e67922" id="d0e67922"></a><a name="d0e67928" id="d0e67928"></a><a name="c_eventcond" id="c_eventcond"></a>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Event Entity: WIP Accounting Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Event Class Name</b></th>
+<th scope="col"><b>Journal Line Types</b></th>
+<th scope="col"><b>Condition to Generate the Journal Line</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Absorption</td>
+<td>Work in Process Valuation</td>
+<td>Accounting Line Type = 7</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Estimated Scrap Absorption</td>
+<td>Accounting Line Type = 29</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Overhead Absorption</td>
+<td>Accounting Line Type = 3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Resource Absorption</td>
+<td>Accounting Line Type = 4</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Resource Rate Variance</td>
+<td>Accounting Line Type = 6</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing</td>
+<td>Work in Process Valuation</td>
+<td>Accounting Line Type = 7</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Resource Absorption</td>
+<td>Accounting Line Type = 4</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Overhead Absorption</td>
+<td>Accounting Line Type = 3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>Accounting Line Type = 5</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>Accounting Line Type = 6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type = 2</td>
+</tr>
+<tr valign="top">
+<td>WIP Variance</td>
+<td>Work in Process Valuation</td>
+<td>Accounting Line Type = 7</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Work in Process Variance</td>
+<td>Accounting Line Type = 8</td>
+</tr>
+<tr valign="top">
+<td>WIP Lot</td>
+<td>Work in Process Valuation</td>
+<td>Accounting Line Type =21 OR Accounting Line Type =22 OR Accounting Line Type =23 OR Accounting Line Type =24 OR Accounting Line Type =26 OR Accounting Line Type =28</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =25 OR Accounting Line Type =27</td>
+</tr>
+<tr valign="top">
+<td>WIP Cost Update</td>
+<td>Work in Process Valuation</td>
+<td>Accounting Line Type =7</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Update Adjustment</td>
+<td>Accounting Line Type =2</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Event Entity: Receiving Accounting Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Event Class Name</b></th>
+<th scope="col"><b>Journal Line Types</b></th>
+<th scope="col"><b>Condition to Generate the Journal Line</b></th>
+</tr>
+<tr valign="top">
+<td>Receipt into Receving Inspection</td>
+<td>Accrual</td>
+<td>Receiving Accounting Line Type = 'Accrual'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>Receiving Accounting Line Type = 'Receiving Inspection'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Clearing</td>
+<td>Receiving Accounting Line Type = 'Clearing'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Accrual</td>
+<td>Receiving Accounting Line Type = 'IC Accrual'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany COGS</td>
+<td>Receiving Accounting Line Type = 'IC Cost of Sales'</td>
+</tr>
+<tr valign="top">
+<td>Delivery to Expense Destination</td>
+<td>Charge</td>
+<td>Receiving Accounting Line Type = 'Charge'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>Receiving Accounting Line Type = 'Receiving Inspection'</td>
+</tr>
+<tr valign="top">
+<td>Period End Accrual</td>
+<td>Accrual</td>
+<td>Receiving Accounting Line Type = 'Accrual'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Charge</td>
+<td>Receiving Accounting Line Type = 'Charge'</td>
+</tr>
+<tr valign="top">
+<td>Retroactive Price Adjustment to Receipt</td>
+<td>Accrual</td>
+<td>Receiving Accounting Line Type = 'Accrual'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Retroactive Price Adjustment</td>
+<td>Receiving Accounting Line Type = 'Retroprice Adjustment'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Cost of Goods Sold</td>
+<td>Receiving Accounting Line Type = 'IC Cost of Sales'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>Receiving Accounting Line Type = 'Receiving Inspection'</td>
+</tr>
+<tr valign="top">
+<td>Retroactive Price Adjustment to Delivery</td>
+<td>Retroactive Price Adjustment</td>
+<td>Receiving Accounting Line Type = 'Retroprice Adjustment'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Charge</td>
+<td>Receiving Accounting Line Type = 'Charge'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>Receiving Accounting Line Type = 'Receiving Inspection'</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Event Entity: Accrual Write-Off Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Event Class Name</b></th>
+<th scope="col"><b>Journal Line Types</b></th>
+<th scope="col"><b>Condition to Generate the Journal Line</b></th>
+</tr>
+<tr valign="top">
+<td>Accrual Write-Off Event</td>
+<td>Accrual</td>
+<td>Line Number =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Line Number =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Accrual to Offset ERV</td>
+<td>Line Number =2</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Exchange Rate Variance</td>
+<td>Line Number =2</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Event Entity: Material Accounting Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Event Class Name</b></th>
+<th scope="col"><b>Journal Line Types</b></th>
+<th scope="col"><b>Condition to Generate the Journal Line</b></th>
+</tr>
+<tr valign="top">
+<td>PO Delivery into Inventory</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>Accounting Line Type =5</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Clearing</td>
+<td>Accounting Line Type =31</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>Accounting Line Type =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>Accounting Line Type =6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Accounting Line Type =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Shikyu Variance</td>
+<td>Accounting Line Type =33</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2</td>
+</tr>
+<tr valign="top">
+<td>Sales Order Issue</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost of Goods Sold</td>
+<td>Accounting Line Type =35</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Deferred COGS</td>
+<td>Accounting Line Type =36</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Accounting Line Type =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Update Adjustment</td>
+<td>Accounting Line Type =37</td>
+</tr>
+<tr valign="top">
+<td>Internal Order to Expense</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Profit (OPM)</td>
+<td>Accounting Line Type =34</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>Accounting Line Type =10</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>Accounting Line Type =9</td>
+</tr>
+<tr valign="top">
+<td>WIP Material</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Work in Process Valuation</td>
+<td>Accounting Line Type =7</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>Accounting Line Type =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Accounting Line Type =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2</td>
+</tr>
+<tr valign="top">
+<td>Consigned Inventory Ownership Transfer</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Accrual</td>
+<td>Accounting Line Type =16</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>Accounting Line Type =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>Accounting Line Type =6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Accounting Line Type =13</td>
+</tr>
+<tr valign="top">
+<td>Miscellaneous</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Accounting Line Type =13</td>
+</tr>
+<tr valign="top">
+<td>Intraorganization Transfer</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Accounting Line Type =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2</td>
+</tr>
+<tr valign="top">
+<td>Direct Interorg Shipment</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>Accounting Line Type =10</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Transfer Credit</td>
+<td>Accounting Line Type =11</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Freight Charge</td>
+<td>Accounting Line Type =12</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>Accounting Line Type =9</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>Accounting Line Type =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>Accounting Line Type =6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Profit (OPM)</td>
+<td>Accounting Line Type =34</td>
+</tr>
+<tr valign="top">
+<td>Direct Interorg Receipt</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>Accounting Line Type =10</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Transfer Credit</td>
+<td>Accounting Line Type =11</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Freight Charge</td>
+<td>Accounting Line Type =12</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>Accounting Line Type =9</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>Accounting Line Type =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>Accounting Line Type =6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Accounting Line Type =13</td>
+</tr>
+<tr valign="top">
+<td>Intransit Interorg Shipment for FOB Receipt</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intransit Valuation</td>
+<td>Accounting Line Type =14</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2</td>
+</tr>
+<tr valign="top">
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Intransit Valuation</td>
+<td>Accounting Line Type =14</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Profit (OPM)</td>
+<td>Accounting Line Type =34</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Transfer Credit</td>
+<td>Accounting Line Type =11</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Freight Charge</td>
+<td>Accounting Line Type =12</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>Accounting Line Type =10</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost of Goods Sold</td>
+<td>Accounting Line Type =2 AND Accounted Amount &gt;0</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2 AND Accounted Amount &lt;=0</td>
+</tr>
+<tr valign="top">
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>Accounting Line Type =9</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>Accounting Line Type =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>Accounting Line Type =6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Expense</td>
+<td>Accounting Line Type =2 AND Accounted Amount &lt;0</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Profit in Inventory</td>
+<td>Accounting Line Type =30</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Accounting Line Type =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2 AND Accounted Amount &gt;=0</td>
+</tr>
+<tr valign="top">
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Profit (OPM)</td>
+<td>Accounting Line Type =34</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Transfer Credit</td>
+<td>Accounting Line Type =11</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>Accounting Line Type =10</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost of Goods Sold</td>
+<td>Accounting Line Type =2 AND Accounted Amount &gt;0</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2 AND Accounted Amount &lt;=0</td>
+</tr>
+<tr valign="top">
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Intransit Valuation</td>
+<td>Accounting Line Type =14</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>Accounting Line Type =9</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Freight Charge</td>
+<td>Accounting Line Type =12</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>Accounting Line Type =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>Accounting Line Type =6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Expense</td>
+<td>Accounting Line Type =2 AND Accounted Amount &lt;0</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Profit in Inventory</td>
+<td>Accounting Line Type =30</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Accounting Line Type =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2 AND Accounted Amount &gt;=0</td>
+</tr>
+<tr valign="top">
+<td>Intransit Interorg Receipt for FOB Shipment</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intransit Valuation</td>
+<td>Accounting Line Type =14</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2</td>
+</tr>
+<tr valign="top">
+<td>Material Cost Update</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>Accounting Line Type =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Update Adjustment</td>
+<td>Accounting Line Type =2</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intransit Valuation</td>
+<td>Accounting Line Type =14</td>
+</tr>
+<tr valign="top">
+<td>Retroactive Price Adjustment</td>
+<td>Accrual</td>
+<td>Accounting Line Type =16</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Retroactive Price Adjusment</td>
+<td>Accounting Line Type =32</td>
+</tr>
+<tr valign="top">
+<td>Logical Intercompany</td>
+<td>Inventory Valuation</td>
+<td>Accounting Line Type =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Accrual</td>
+<td>Accounting Line Type =16</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Clearing</td>
+<td>Accounting Line Type =31</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany COGS</td>
+<td>Accounting Line Type =2 AND ( ( Accounted Amount &gt;=0 AND Transaction Action Name =Logical Intercompany Sales ) OR ( Accounted Amount &lt;=0 AND Transaction Action Name =Logical Intercompany Sales Return ) )</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =2 AND ( ( Accounted Amount &lt;=0 AND Transaction Action Name =Logical Intercompany Receipt Return ) OR ( Accounted Amount &gt;=0 AND Transaction Action Name =Logical Intercompany Receipt ) )</td>
+</tr>
+<tr valign="top">
+<td>WIP Material Lot</td>
+<td>Work in Process Valuation</td>
+<td>Accounting Line Type =21 OR Accounting Line Type =22 OR Accounting Line Type =23 OR Accounting Line Type =24 OR Accounting Line Type =26 OR Accounting Line Type =28</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>Accounting Line Type =25 OR Accounting Line Type =27</td>
+</tr>
+</table>
+<h2><a name="4236648"></a><a id="T465561"></a><b>Event Class and Journal Line Type Assignments</b></h2>
+<a name="d0e69178" id="d0e69178"></a><a name="d0e69184" id="d0e69184"></a><a name="c_slaeventjltass" id="c_slaeventjltass"></a>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Receiving Accounting Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Event Class Name</b></th>
+<th scope="col"><b>Journal Line Types</b></th>
+<th scope="col"><b>JLT Selected when &hellip;</b></th>
+</tr>
+<tr valign="top">
+<td>Receipt into Receiving Inspection</td>
+<td>Accrual</td>
+<td>RALT = 'Accrual'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>RALT = 'Receiving Inspection'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Clearing</td>
+<td>RALT = 'Clearing'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Accrual</td>
+<td>RALT = 'IC Accrual'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany COGS</td>
+<td>RALT = 'IC Cost of Sales'</td>
+</tr>
+<tr valign="top">
+<td>Delivery to Expense Destination</td>
+<td>Charge</td>
+<td>RALT = 'Charge'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>RALT = 'Receiving Inspection'</td>
+</tr>
+<tr valign="top">
+<td>Period End Accrual</td>
+<td>Accrual</td>
+<td>RALT = 'Accrual'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Charge</td>
+<td>RALT = 'Charge'</td>
+</tr>
+<tr valign="top">
+<td>Retroactive Price Adjustment to Receipt</td>
+<td>Accrual</td>
+<td>RALT = 'Accrual'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Retroactive Price Adjustment</td>
+<td>RALT = 'Retroprice Adjustment'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Cost of Goods Sold</td>
+<td>RALT = 'IC Cost of Sales'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>RALT = 'Receiving Inspection'</td>
+</tr>
+<tr valign="top">
+<td>Retroactive Price Adjustment to Delivery</td>
+<td>Retroactive Price Adjustment</td>
+<td>RALT = 'Retroprice Adjustment'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Charge</td>
+<td>RALT = 'Charge'</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>RALT = 'Receiving Inspection'</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Material Accounting Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Event Class Name</b></th>
+<th scope="col"><b>Journal Line Types</b></th>
+<th scope="col"><b>JLT Selected when &hellip;</b></th>
+</tr>
+<tr valign="top">
+<td>PO Delivery into Inventory</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>ALT =5</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Clearing</td>
+<td>ALT =31</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>ALT =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>ALT =6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>ALT =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Shikyu Variance</td>
+<td>ALT =33</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2</td>
+</tr>
+<tr valign="top">
+<td>Sales Order Issue</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost of Goods Sold</td>
+<td>ALT =35</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Deferred COGS</td>
+<td>ALT =36</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>ALT =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Update Adjustment</td>
+<td>ALT =37</td>
+</tr>
+<tr valign="top">
+<td>Internal Order to Expense</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Profit (OPM)</td>
+<td>ALT =34</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>ALT =10</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>Interorg Payables</td>
+</tr>
+<tr valign="top">
+<td>WIP Material</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Work in Process Valuation</td>
+<td>ALT =7</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>ALT =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>ALT =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2</td>
+</tr>
+<tr valign="top">
+<td>Consigned Inventory Ownership Transfer</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Accrual</td>
+<td>ALT =16</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>ALT =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>ALT =6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>ALT =13</td>
+</tr>
+<tr valign="top">
+<td>Miscellaneous</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>ALT =13</td>
+</tr>
+<tr valign="top">
+<td>Intraorganization Transfer</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>ALT =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2</td>
+</tr>
+<tr valign="top">
+<td>Direct Interorg Shipment</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>ALT =10</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Transfer Credit</td>
+<td>ALT =11</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Freight Charge</td>
+<td>ALT =12</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>ALT =9</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>ALT =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>ALT =6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Profit (OPM)</td>
+<td>ALT =34</td>
+</tr>
+<tr valign="top">
+<td>Direct Interorg Receipt</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>ALT =10</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Transfer Credit</td>
+<td>ALT =11</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Freight Charge</td>
+<td>ALT =12</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>ALT =9</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>ALT =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>ALT =6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>ALT =13</td>
+</tr>
+<tr valign="top">
+<td>Intransit Interorg Shipment for FOB Receipt</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intransit Valuation</td>
+<td>ALT =14</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2</td>
+</tr>
+<tr valign="top">
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Intransit Valuation</td>
+<td>ALT =14</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Profit (OPM)</td>
+<td>ALT =34</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Transfer Credit</td>
+<td>ALT =11</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Freight Charge</td>
+<td>ALT =12</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>ALT =10</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost of Goods Sold</td>
+<td>ALT =2 <b>AND</b> AA &gt;0</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2 <b>AND</b> AA &lt;=0</td>
+</tr>
+<tr valign="top">
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>ALT =9</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>ALT =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>ALT =6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Expense</td>
+<td>ALT =2 <b>AND</b> AA &lt;0</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Profit in Inventory</td>
+<td>ALT =30</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>ALT =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2 <b>AND</b> AA &gt;=0</td>
+</tr>
+<tr valign="top">
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Profit (OPM)</td>
+<td>ALT =34</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Transfer Credit</td>
+<td>ALT =11</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Receivables</td>
+<td>ALT =10</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost of Goods Sold</td>
+<td>ALT =2 <b>AND</b> AA &gt;0</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2 <b>AND</b> AA &lt;=0</td>
+</tr>
+<tr valign="top">
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment</td>
+<td>Intransit Valuation</td>
+<td>ALT =14</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Payables</td>
+<td>ALT =9</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Interorg Freight Charge</td>
+<td>ALT =12</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Material Overhead Absorption</td>
+<td>ALT =3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>ALT =6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Expense</td>
+<td>ALT =2 <b>AND</b> AA &lt;0</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Profit in Inventory</td>
+<td>ALT =30</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>ALT =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2 <b>AND</b> AA &gt;=0</td>
+</tr>
+<tr valign="top">
+<td>Intransit Interorg Receipt for FOB Shipment</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intransit Valuation</td>
+<td>ALT =14</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2</td>
+</tr>
+<tr valign="top">
+<td>Material Cost Update</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Variance</td>
+<td>ALT =13</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Update Adjustment</td>
+<td>ALT =2</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intransit Valuation</td>
+<td>ALT =14</td>
+</tr>
+<tr valign="top">
+<td>Retroactive Price Adjustment</td>
+<td>Accrual</td>
+<td>ALT =16</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Retroactive Price Adjusment</td>
+<td>ALT =32</td>
+</tr>
+<tr valign="top">
+<td>Logical Intercompany</td>
+<td>Inventory Valuation</td>
+<td>ALT =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany Accrual</td>
+<td>ALT =16</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Clearing</td>
+<td>ALT =31</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Intercompany COGS</td>
+<td>ALT =2 <b>AND</b> ( ( AA &gt;=0 <b>AND</b> Transaction Action Name =Logical Intercompany Sales ) <b>OR</b> ( AA &lt;=0 <b>AND</b> Transaction Action Name =Logical Intercompany Sales Return ) )</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =2 <b>AND</b> ( ( AA &lt;=0 <b>AND</b> Transaction Action Name =Logical Intercompany Receipt Return ) <b>OR</b> ( AA &gt;=0 <b>AND</b> Transaction Action Name =Logical Intercompany Receipt ) )</td>
+</tr>
+<tr valign="top">
+<td>WIP Material Lot</td>
+<td>Work in Process Valuation</td>
+<td>ALT =21 <b>OR</b> ALT =22 <b>OR</b> ALT =23 <b>OR</b> ALT =24 <b>OR</b> ALT =26 <b>OR</b> ALT =28</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =25 <b>OR</b> ALT =27</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>WIP Accounting Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Event Class Name</b></th>
+<th scope="col"><b>Journal Line Types</b></th>
+<th scope="col"><b>JLT Selected when &hellip;</b></th>
+</tr>
+<tr valign="top">
+<td>WIP Absorption</td>
+<td>Work in Process Valuation</td>
+<td>ALT = 7</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Estimated Scrap Absorption</td>
+<td>ALT = 29</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Overhead Absorption</td>
+<td>ALT = 3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Resource Absorption</td>
+<td>ALT = 4</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Resource Rate Variance</td>
+<td>ALT = 6</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing</td>
+<td>Work in Process Valuation</td>
+<td>ALT = 7</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Resource Absorption</td>
+<td>ALT = 4</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Overhead Absorption</td>
+<td>ALT = 3</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Receiving Inspection</td>
+<td>ALT = 5</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Purchase Price Variance</td>
+<td>ALT = 6</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT = 2</td>
+</tr>
+<tr valign="top">
+<td>WIP Variance</td>
+<td>Work in Process Valuation</td>
+<td>ALT = 7</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Work in Process Variance</td>
+<td>ALT = 8</td>
+</tr>
+<tr valign="top">
+<td>WIP Lot</td>
+<td>Work in Process Valuation</td>
+<td>ALT =21 <b>OR</b> ALT =22 <b>OR</b> ALT =23 <b>OR</b> ALT =24 <b>OR</b> ALT =26 <b>OR</b> ALT =28</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>ALT =25 <b>OR</b> ALT =27</td>
+</tr>
+<tr valign="top">
+<td>WIP Cost Update</td>
+<td>Work in Process Valuation</td>
+<td>ALT =7</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Cost Update Adjustment</td>
+<td>ALT =2</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Accrual Write-Off Events</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Event Class Name</b></th>
+<th scope="col"><b>Journal Line Types</b></th>
+<th scope="col"><b>JLT Selected when &hellip;</b></th>
+</tr>
+<tr valign="top">
+<td>Accrual Write-Off Event</td>
+<td>Accrual</td>
+<td>LN =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Account</td>
+<td>LN =1</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Offset</td>
+<td>LN =2</td>
+</tr>
+<tr valign="top">
+<td>&nbsp;</td>
+<td>Exchange Rate Variance</td>
+<td>LN =2</td>
+</tr>
+</table>
+<p><b>Legend</b></p>
+<p>AA = Accounted Amount</p>
+<p>ALT = Accounting Line Type</p>
+<p>LN = Line Number</p>
+<p>RALT = Receiving Accounting Line Type</p>
+<p>TAN = Transaction Action Name</p>
+<h2><a name="4358546"></a><a id="T471176"></a><b>Event Transaction Type Mapping</b></h2>
+<a name="d0e70533" id="d0e70533"></a><a name="d0e70539" id="d0e70539"></a><a name="c_slaeventtrasmap" id="c_slaeventtrasmap"></a>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Receiving Event Transaction Mapping</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Existing Transaction Type</b></th>
+<th scope="col"><b>Transaction Type it Corrects</b></th>
+<th scope="col"><b>Transaction Type Identifier</b></th>
+<th scope="col"><b>SLA Event Type Name</b></th>
+</tr>
+<tr valign="top">
+<td>Receive</td>
+<td>&nbsp;</td>
+<td>1</td>
+<td>Receipt into Receiving Inspection</td>
+</tr>
+<tr valign="top">
+<td>Deliver</td>
+<td>&nbsp;</td>
+<td>2</td>
+<td>Delivery to Expense</td>
+</tr>
+<tr valign="top">
+<td>Correct</td>
+<td>Deliver</td>
+<td>3</td>
+<td>Delivery to Expense</td>
+</tr>
+<tr valign="top">
+<td>Correct</td>
+<td>Return to Vendor</td>
+<td>3</td>
+<td>Return to Vendor</td>
+</tr>
+<tr valign="top">
+<td>Correct</td>
+<td>Return to Receiving</td>
+<td>3</td>
+<td>Return to Receiving</td>
+</tr>
+<tr valign="top">
+<td>Correct</td>
+<td>Receive</td>
+<td>3</td>
+<td>Receipt into Receiving Inspection</td>
+</tr>
+<tr valign="top">
+<td>Correct</td>
+<td>Match</td>
+<td>3</td>
+<td>Receipt into Receiving Inspection</td>
+</tr>
+<tr valign="top">
+<td>Match</td>
+<td>&nbsp;</td>
+<td>4</td>
+<td>Receipt into Receiving Inspection</td>
+</tr>
+<tr valign="top">
+<td>Return to Receiving</td>
+<td>&nbsp;</td>
+<td>5</td>
+<td>Return to Receiving</td>
+</tr>
+<tr valign="top">
+<td>Return to Supplier</td>
+<td>&nbsp;</td>
+<td>6</td>
+<td>Return to Vendor</td>
+</tr>
+<tr valign="top">
+<td>Retroactive Price Adjustment to Receipt</td>
+<td>&nbsp;</td>
+<td>7</td>
+<td>Retroactive Price Adjustment to Receipt</td>
+</tr>
+<tr valign="top">
+<td>Retroactive Price Adjustment to Delivery</td>
+<td>&nbsp;</td>
+<td>8</td>
+<td>Retroactive Price Adjustment to Delivery</td>
+</tr>
+<tr valign="top">
+<td>Logical Receipt</td>
+<td>&nbsp;</td>
+<td>9</td>
+<td>Logical Receipt</td>
+</tr>
+<tr valign="top">
+<td>Logical Return to Vendor</td>
+<td>&nbsp;</td>
+<td>10</td>
+<td>Logical Return to Vendor</td>
+</tr>
+<tr valign="top">
+<td>Period End Accrual</td>
+<td>&nbsp;</td>
+<td>14</td>
+<td>Period End Accrual</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>WIP Event Transaction Mapping</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Existing Transaction Type</b></th>
+<th scope="col"><b>Existing Transaction Type ID</b></th>
+<th scope="col"><b>Special Case</b></th>
+<th scope="col"><b>SLA Event Type Name</b></th>
+</tr>
+<tr valign="top">
+<td>Resource transaction</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>Resource Absorption</td>
+</tr>
+<tr valign="top">
+<td>Overhead transaction</td>
+<td>2</td>
+<td>&nbsp;</td>
+<td>Overhead Absorption</td>
+</tr>
+<tr valign="top">
+<td>Outside processing</td>
+<td>3</td>
+<td>&nbsp;</td>
+<td>Outside Processing</td>
+</tr>
+<tr valign="top">
+<td>Outside processing</td>
+<td>3</td>
+<td>IPV transfer to Work Order</td>
+<td>IPV Transfer to Work Order</td>
+</tr>
+<tr valign="top">
+<td>Cost update</td>
+<td>4</td>
+<td>&nbsp;</td>
+<td>WIP Cost Update</td>
+</tr>
+<tr valign="top">
+<td>Period close variance</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>Period Close Variance</td>
+</tr>
+<tr valign="top">
+<td>Job close variance</td>
+<td>6</td>
+<td>&nbsp;</td>
+<td>Job close variance</td>
+</tr>
+<tr valign="top">
+<td>Final completion variance</td>
+<td>7</td>
+<td>&nbsp;</td>
+<td>Final completion variance</td>
+</tr>
+<tr valign="top">
+<td>WIP Lot Split</td>
+<td>11</td>
+<td>&nbsp;</td>
+<td>WIP Lot Split</td>
+</tr>
+<tr valign="top">
+<td>WIP Lot Merge</td>
+<td>12</td>
+<td>&nbsp;</td>
+<td>WIP Lot Merge</td>
+</tr>
+<tr valign="top">
+<td>WIP Lot Bonus</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>WIP Lot Bonus</td>
+</tr>
+<tr valign="top">
+<td>WIP Lot Quantity Update</td>
+<td>14</td>
+<td>&nbsp;</td>
+<td>WIP Lot Quantity Update</td>
+</tr>
+<tr valign="top">
+<td>Estimated Scrap Absorption</td>
+<td>15</td>
+<td>&nbsp;</td>
+<td>Estimated Scrap Absorption</td>
+</tr>
+<tr valign="top">
+<td>Estimated Scrap Reallocation</td>
+<td>16</td>
+<td>&nbsp;</td>
+<td>Job Close Variance</td>
+</tr>
+<tr valign="top">
+<td>Direct Shopfloor Delivery</td>
+<td>17</td>
+<td>&nbsp;</td>
+<td>Shop Floor Delivery for Direct Items</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Inventory Event Transaction Mapping</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Existing Transaction Type</b></th>
+<th scope="col"><b>Transaction Action ID</b></th>
+<th scope="col"><b>Transaction Source Type ID</b></th>
+<th scope="col"><b>Transfer Pricing Enabled</b></th>
+<th scope="col"><b>SLA Event Type Name</b></th>
+<th scope="col"><b>Event Created In</b></th>
+</tr>
+<tr valign="top">
+<td>Return to Vendor</td>
+<td>1</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>Return to Receiving Inspection from Inventory</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Transfer to Regular</td>
+<td>6</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>Transfer from Consigned to Regular Inventory</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Return to Vendor</td>
+<td>7</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>Logical Return to Receiving Inspection from Inventory</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical PO Receipt Adjustment</td>
+<td>11</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>Logical PO Delivery Adjustment</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Retroactive Price Update</td>
+<td>25</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>Retroactive Price Adjustment</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical PO Receipt</td>
+<td>26</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>Logical PO Delivery into Inventory</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>PO Receipt</td>
+<td>27</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>PO Delivery into Inventory</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>PO Rcpt Adjust</td>
+<td>29</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>PO Delivery Adjustment</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Sales order issue</td>
+<td>1</td>
+<td>2</td>
+<td>&nbsp;</td>
+<td>Sales Order Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Sales Order Issue</td>
+<td>7</td>
+<td>2</td>
+<td>&nbsp;</td>
+<td>Logical Sales Order Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Sales Order Pick</td>
+<td>28</td>
+<td>2</td>
+<td>&nbsp;</td>
+<td>Sales Order Staging Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Account issue</td>
+<td>1</td>
+<td>3</td>
+<td>&nbsp;</td>
+<td>Account Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Account receipt</td>
+<td>27</td>
+<td>3</td>
+<td>&nbsp;</td>
+<td>Account Receipt</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Move Order Issue</td>
+<td>1</td>
+<td>4</td>
+<td>&nbsp;</td>
+<td>Move Order Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Move Order Receipt</td>
+<td>27</td>
+<td>4</td>
+<td>&nbsp;</td>
+<td>Move Order Receipt</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Move Order Transfer</td>
+<td>2</td>
+<td>4</td>
+<td>&nbsp;</td>
+<td>Move Order Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Issue</td>
+<td>1</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>WIP Component Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Return</td>
+<td>27</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>WIP Component Return</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP assembly scrap</td>
+<td>30</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>WIP Assembly Scrap</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP return from scrap</td>
+<td>30</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>WIP Assembly Scrap</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP estimated scrap</td>
+<td>30</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>WIP Assembly Scrap</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Completion</td>
+<td>31</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>WIP Assembly Completion</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Byproduct Completion</td>
+<td>31</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>WIP Assembly Completion</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Completion Return</td>
+<td>32</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>WIP Assembly Return</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Byproduct Return</td>
+<td>32</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>WIP Assembly Return</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Negative Issue</td>
+<td>33</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>WIP Negative Component Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Negative Return</td>
+<td>34</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>WIP Negative Component Return</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Lot Split</td>
+<td>40</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>Lot Split</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Lot Merge</td>
+<td>41</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>Lot Merge</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Lot Bonus</td>
+<td>42</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>Lot Bonus</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Lot Quantity Update</td>
+<td>43</td>
+<td>5</td>
+<td>&nbsp;</td>
+<td>Lot Quantity Update</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Account alias issue</td>
+<td>1</td>
+<td>6</td>
+<td>&nbsp;</td>
+<td>Account Alias Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Account alias receipt</td>
+<td>27</td>
+<td>6</td>
+<td>&nbsp;</td>
+<td>Account Alias Receipt</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Req Intr Rcpt</td>
+<td>12</td>
+<td>7</td>
+<td>&nbsp;</td>
+<td>Intransit Interorg Receipt for FOB Shipment</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Req Intr Rcpt</td>
+<td>12</td>
+<td>7</td>
+<td>Yes</td>
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt, Transfer Pricing</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Req Intr Rcpt</td>
+<td>12</td>
+<td>7</td>
+<td>Yes</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt, Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Req Intr Rcpt</td>
+<td>12</td>
+<td>7</td>
+<td>No</td>
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt, no Transfer Pricing</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Req Intr Rcpt</td>
+<td>12</td>
+<td>7</td>
+<td>No</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt, no Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Req Rcpt Adjust</td>
+<td>29</td>
+<td>7</td>
+<td>&nbsp;</td>
+<td>Internal Requisition Receipt Adjustment</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Internal Order Xfer</td>
+<td>2</td>
+<td>8</td>
+<td>&nbsp;</td>
+<td>Internal Order Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Order Intr Ship</td>
+<td>21</td>
+<td>8</td>
+<td>Yes</td>
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment, Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Order Intr Ship</td>
+<td>21</td>
+<td>8</td>
+<td>Yes</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment, Transfer Pricing</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Order Intr Ship</td>
+<td>21</td>
+<td>8</td>
+<td>&nbsp;</td>
+<td>Intransit Interorg Shipment for FOB Receipt</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Order Intr Ship</td>
+<td>21</td>
+<td>8</td>
+<td>No</td>
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment, no Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Order Intr Ship</td>
+<td>21</td>
+<td>8</td>
+<td>No</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment, no Transfer Pricing</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Internal Order Pick</td>
+<td>28</td>
+<td>8</td>
+<td>&nbsp;</td>
+<td>Internal Order Staging Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Cycle Count Transfer</td>
+<td>2</td>
+<td>9</td>
+<td>&nbsp;</td>
+<td>Cycle Count Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Cycle Count Adjust</td>
+<td>4</td>
+<td>9</td>
+<td>&nbsp;</td>
+<td>Cycle Count Adjustment</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Physical Inv Transfer</td>
+<td>2</td>
+<td>10</td>
+<td>&nbsp;</td>
+<td>Physical Inventory Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Physical Inv Adjust</td>
+<td>8</td>
+<td>10</td>
+<td>&nbsp;</td>
+<td>Physical Inventory Adjustment</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Standard cost update</td>
+<td>24</td>
+<td>11</td>
+<td>&nbsp;</td>
+<td>Standard Cost Update</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>RMA Return</td>
+<td>1</td>
+<td>12</td>
+<td>&nbsp;</td>
+<td>RMA Return</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical RMA Receipt</td>
+<td>26</td>
+<td>12</td>
+<td>&nbsp;</td>
+<td>Logical RMA Receipt</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>RMA Receipt</td>
+<td>27</td>
+<td>12</td>
+<td>&nbsp;</td>
+<td>RMA Receipt</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Miscellaneous Issue</td>
+<td>1</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Miscellaneous Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Field Service Usage</td>
+<td>1</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Miscellaneous Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Lot Conversion Decrease</td>
+<td>1</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Miscellaneous Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Deduct Sample Qty</td>
+<td>1</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Miscellaneous Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Miscellaneous issue</td>
+<td>1</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Cost Group Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Field Service Usage</td>
+<td>1</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Cost Group Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Lot Conversion Decrease</td>
+<td>1</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Cost Group Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Deduct Sample Qty</td>
+<td>1</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Cost Group Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Subinventory Transfer</td>
+<td>2</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Subinventory Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Backflush Transfer</td>
+<td>2</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Subinventory Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Project Borrow</td>
+<td>2</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Subinventory Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Project Transfer</td>
+<td>2</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Subinventory Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Project Payback</td>
+<td>2</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Subinventory Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Planning Transfer</td>
+<td>5</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Planning Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Transfer to Consigned</td>
+<td>6</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Transfer from Regular to Consigned Inventory</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Intercompany Sales Issue</td>
+<td>9</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Logical Intercompany Sales Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Intercompany Shipment Receipt</td>
+<td>10</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Logical Intercompany Shipment Receipt</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Intercompany Procurement Receipt</td>
+<td>10</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Logical Intercompany Shipment Receipt</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Intransit Receipt</td>
+<td>12</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Intransit Interorg Receipt for FOB Shipment</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Intransit Receipt</td>
+<td>12</td>
+<td>13</td>
+<td>Yes</td>
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt, Transfer Pricing</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Intransit Receipt</td>
+<td>12</td>
+<td>13</td>
+<td>Yes</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt, Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Intransit Receipt</td>
+<td>12</td>
+<td>13</td>
+<td>No</td>
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt, no Transfer Pricing</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Intransit Receipt</td>
+<td>12</td>
+<td>13</td>
+<td>No</td>
+<td>Recipient-side Intransit Interorg Receipt for FOB Receipt, no Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Intercompany Receipt Return</td>
+<td>13</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Logical Intercompany Receipt Return</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Intercompany Procurement Return</td>
+<td>13</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Logical Intercompany Receipt Return</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Intercompany Sales Return</td>
+<td>14</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Logical Intercompany Sales Return</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Intransit Shipment</td>
+<td>21</td>
+<td>13</td>
+<td>Yes</td>
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment, Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Intransit Shipment</td>
+<td>21</td>
+<td>13</td>
+<td>Yes</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment, Transfer Pricing</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Intransit Shipment</td>
+<td>21</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Intransit Interorg Shipment for FOB Receipt</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Intransit Shipment</td>
+<td>21</td>
+<td>13</td>
+<td>No</td>
+<td>Sender-side Intransit Interorg Shipment for FOB Shipment, no Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Intransit Shipment</td>
+<td>21</td>
+<td>13</td>
+<td>No</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment, no Transfer Pricing</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Average cost update</td>
+<td>24</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Average Cost Update</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Average cost update</td>
+<td>24</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>IPV Transfer to Inventory</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Miscellaneous receipt</td>
+<td>27</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Miscellaneous Receipt</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Field Service Recovery</td>
+<td>27</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Miscellaneous Receipt</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Lot Conversion Increase</td>
+<td>27</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Miscellaneous Receipt</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Shipment Rcpt Adjust</td>
+<td>29</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Shipment Receipt Adjustment</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Inventory Lot Translate</td>
+<td>42</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Inventory Lot Translate</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Cost Group Transfer</td>
+<td>55</td>
+<td>13</td>
+<td>&nbsp;</td>
+<td>Cost Group Transfer</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Layer Cost Update</td>
+<td>24</td>
+<td>15</td>
+<td>&nbsp;</td>
+<td>Layer Cost Update</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Project Contract Issue</td>
+<td>1</td>
+<td>16</td>
+<td>&nbsp;</td>
+<td>Project Contract Issue</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>COGS Recognition</td>
+<td>36</td>
+<td>2</td>
+<td>&nbsp;</td>
+<td>COGS Recognition Adjustment</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>COGS Recognition</td>
+<td>36</td>
+<td>2</td>
+<td>&nbsp;</td>
+<td>COGS Recognition</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Direct Org Transfer</td>
+<td>3</td>
+<td>13</td>
+<td>Yes</td>
+<td>Direct Interorg Shipment, Transfer Price</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Direct Org Transfer</td>
+<td>3</td>
+<td>13</td>
+<td>No</td>
+<td>Direct Interorg Shipment, No Transfer Price</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Direct Org Transfer</td>
+<td>3</td>
+<td>13</td>
+<td>Yes</td>
+<td>Direct Interorg Receipt, Transfer Price</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Direct Org Transfer</td>
+<td>3</td>
+<td>13</td>
+<td>No</td>
+<td>Direct Interorg Receipt, No Transfer Price</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Intransit Shipment</td>
+<td>22</td>
+<td>8</td>
+<td>Yes</td>
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt, Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Intransit Shipment</td>
+<td>22</td>
+<td>13</td>
+<td>Yes</td>
+<td>Sender-side Intransit Interorg Receipt for FOB Receipt, Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Intransit Receipt</td>
+<td>15</td>
+<td>7</td>
+<td>Yes</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment, Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Intransit Receipt</td>
+<td>15</td>
+<td>13</td>
+<td>Yes</td>
+<td>Recipient-side Intransit Interorg Shipment for FOB Shipment, Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Order Direct Ship</td>
+<td>3</td>
+<td>8</td>
+<td>Yes</td>
+<td>Direct Interorg Shipment, Transfer Price</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Order Direct Ship</td>
+<td>3</td>
+<td>8</td>
+<td>No</td>
+<td>Direct Interorg Shipment, No Transfer Price</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Order Direct Ship</td>
+<td>3</td>
+<td>8</td>
+<td>Yes</td>
+<td>Direct Interorg Receipt, Transfer Price</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Order Direct Ship</td>
+<td>3</td>
+<td>8</td>
+<td>No</td>
+<td>Direct Interorg Receipt, No Transfer Price</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Expense Requisition Receipt</td>
+<td>17</td>
+<td>7</td>
+<td>Yes</td>
+<td>Internal Order Receipt into Expense, Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Logical Expense Requisition Receipt</td>
+<td>17</td>
+<td>7</td>
+<td>No</td>
+<td>Internal Order Receipt into Expense, no Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Internal order issue</td>
+<td>1</td>
+<td>8</td>
+<td>Yes</td>
+<td>Internal Order Issue to Expense, Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Internal order issue</td>
+<td>1</td>
+<td>8</td>
+<td>No</td>
+<td>Internal Order Issue to Expense, no Transfer Pricing</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Req Direct Org Xfer</td>
+<td>3</td>
+<td>7</td>
+<td>Yes</td>
+<td>Direct Interorg Receipt, Transfer Price</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Req Direct Org Xfer</td>
+<td>3</td>
+<td>7</td>
+<td>No</td>
+<td>Direct Interorg Receipt, No Transfer Price</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Direct Org Transfer</td>
+<td>3</td>
+<td>13</td>
+<td>Yes</td>
+<td>Direct Interorg Receipt, Transfer Price</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Direct Org Transfer</td>
+<td>3</td>
+<td>13</td>
+<td>No</td>
+<td>Direct Interorg Receipt, No Transfer Price</td>
+<td>Transaction Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Req Direct Org Xfer</td>
+<td>3</td>
+<td>7</td>
+<td>Yes</td>
+<td>Direct Interorg Receipt, Transfer Price</td>
+<td>Transfer Organization</td>
+</tr>
+<tr valign="top">
+<td>Int Req Direct Org Xfer</td>
+<td>3</td>
+<td>7</td>
+<td>No</td>
+<td>Direct Interorg Receipt, No Transfer Price</td>
+<td>Transfer Organization</td>
+</tr>
+</table>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

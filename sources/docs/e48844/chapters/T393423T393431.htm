@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Using Oracle Workflow in Oracle Order Management</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Using Oracle Workflow in Oracle Order Management Guide">
+<meta name="dcterms.identifier" content="E48844-08">
+<meta name="dcterms.isVersionOf" content="OMOWF">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T393423T393430.htm" title="Previous" type="text/html">
+<link rel="Next" href="T393423T479666.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Using Oracle Workflow in Oracle Order Management","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">10/16</span> <!-- End Header -->
+<h1>Seeded Function Activity Definitions</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T393547">OM Order Header</a></li>
+<li><a href="#T393549">OM Order Line</a></li>
+<li><a href="#T393550">OM Standard</a></li>
+<li><a href="#T393551">Standard</a></li>
+<li><a href="#T393552">Negotiation</a></li>
+<li><a href="#T393553">Quotes</a></li>
+<li><a href="#T393554">Sales Agreements</a></li>
+<li><a href="#T393555">Fulfillment</a></li>
+<li><a href="#T478237">Listing of Seeded COGS Functions</a></li>
+</ul>
+<h2><a name="3258837"></a><a id="T393547"></a><b>OM Order Header</b></h2>
+<a name="d0e17694" id="d0e17694"></a><a name="d0e17697" id="d0e17697"></a><a name="t_omoh" id="t_omoh"></a>
+<h3><a id="T393633"></a><b>Approve - Continue Line<a name="d0e17704" id="d0e17704"></a><a name="t_acl" id="t_acl"></a></b></h3>
+<p>The Approve - Continue Line activity is an OM Order Header activity that uses standard Oracle Workflow functionality to continue the workflow in progress. Approve - Continue Line activity is used to mark the position in the process where, upon completion the approval process, the halted process will continue.</p>
+<p>The Approve - Continue Line activity calls the PL/SQL procedure named WF_ STANDARD.CONTINUEFLOW.</p>
+<p>The Approve - Continue Flow activity contains two activity attributes:</p>
+<ul>
+<li>
+<p>Waiting Flow</p>
+</li>
+<li>
+<p>Waiting Activity</p>
+</li>
+</ul>
+<p>The Approve - Continue Line activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><b>Book<a name="d0e17733" id="d0e17733"></a><a name="t_book" id="t_book"></a></b></h3>
+<p>The Book activity calls the PL/SQL procedure named OE_BOOK_WF.BOOK_ORDER to book an order. The Book activity uses the lookup OM Subprocess Results, Handles Holds. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>On Hold</p>
+</li>
+<li>
+<p>Not Eligible</p>
+</li>
+</ul>
+<p>The Book activity will complete with one of these results.</p>
+<p>The Book activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><b>Book - Continue Line (Complete)<a name="d0e17765" id="d0e17765"></a><a name="t_bclcmp" id="t_bclcmp"></a></b></h3>
+<p>The Book - Continue Line (Complete) activity is an OM Order Header activity that uses standard Oracle Workflow functionality to continue the workflow in progress. Book - Continue Line (Complete) marks the position in the process where, upon completion of booking, the halted line level process will continue.</p>
+<p>The Book - Continue Line (Complete) activity calls the PL/SQL procedure named WF_STANDARD.CONTINUEFLOW.</p>
+<p>The Book - Continue Flow (Complete) activity contains two activity attributes:</p>
+<ul>
+<li>
+<p>Waiting Flow</p>
+</li>
+<li>
+<p>Waiting Activity</p>
+</li>
+</ul>
+<p>The Book - Continue Line (Complete) activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><b>Book - Deferred<a name="d0e17793" id="d0e17793"></a></b></h3>
+<p>The Book - Deferred function activity is an OM Order Header activity that uses standard Oracle Workflow functionality to defer the booking activity to the background engine.</p>
+<p>To use Book - Deferred, the <a href="T393423T393431.htm#t_book">Book</a> activity must be placed immediately after it in the process flow.</p>
+<p>The Book - Deferred activity calls the PL/SQL procedure named WF_ STANDARD.DEFER.</p>
+<p>Defer activities defer the subsequent process thread to the background queue without requiring you to change the cost of each activity in that thread to a value above the Workflow Engine threshold. This activity always interrupts the process thread by causing a disconnect to occur in the current database session, even if the thread is already deferred.</p>
+<p>The Book - Deferred activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><b>Book - Eligible<a name="d0e17818" id="d0e17818"></a></b></h3>
+<p><a name="t_bkelig" id="t_bkelig"></a>To enable a function for manual completion, you must place a special block activity before the actual function activity. For booking, the Book - Eligible activity is the special block activity that facilitates manual booking.</p>
+<p>A process will stop upon reaching the Book - Eligible activity. The Progress Order LOV on the Sales Order form will show you that this order is eligible for booking. You can book such an order either by selecting OK on the LOV, or by selecting Book on the Sales Order form.</p>
+<p>The Book - Eligible activity calls the PL/SQL procedure named OE_STANDARD_ WF.STANDARD_BLOCK.</p>
+<p>The Book - Eligible activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><b>Close<a name="d0e17839" id="d0e17839"></a></b></h3>
+<p>The Close activity calls the PL/SQL procedure named OE_CLOSE_WF.CLOSE_ ORDER to close an order. The Close activity uses the lookup OM Subprocess Results, Handles Holds. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>On Hold</p>
+</li>
+<li>
+<p>Not Eligible</p>
+</li>
+</ul>
+<p>The Close activity will complete with one of these results.</p>
+<p>The Close activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><b>Close - Wait for Line<a name="d0e17870" id="d0e17870"></a><a name="t_clwl" id="t_clwl"></a></b></h3>
+<p>An order cannot close until all of its lines have been closed. The Close - Wait for Line activity is an OM Order Header activity that uses standard Oracle Workflow functionality to pause the process until all line processes are complete. Close - Wait for Line marks the position in the process where, when all the lines are closed, the halted header level process will continue.</p>
+<p>The Close - Wait for Line activity calls the PL/SQL procedure named WF_ STANDARD.WAITFORFLOW.</p>
+<p>The Close - Wait for Line activity contains two activity attributes:</p>
+<ul>
+<li>
+<p>Continuation Activity</p>
+</li>
+<li>
+<p>Continuation Flow</p>
+</li>
+</ul>
+<p>The Close - Wait for Line activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><b>Enter<a name="d0e17898" id="d0e17898"></a><a name="t_enter" id="t_enter"></a></b></h3>
+<p>The Enter activity is an OM Order Header activity that is used to mark the start of an OM Order Header process. Enter is a Noop activity. A Noop activity acts as a place holder activity that performs no action. You can use this activity anywhere you want to place a node without performing an action.</p>
+<p>The Enter activity calls the PL/SQL procedure named WF_STANDARD.NOOP. The Enter activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><b>Fulfill - Wait for Line<a name="d0e17915" id="d0e17915"></a><a name="t_fwait" id="t_fwait"></a></b></h3>
+<p>This activity is user in header level invoicing processes to halt invoicing until after all lines in an order are fulfilled. The Fulfill - Wait for Line activity is an OM Order Header activity that uses Oracle Workflow functionality to pause the process until all the order lines are fulfilled. Once fulfilled, the header level invoicing process can proceed with invoicing.</p>
+<p>The Fulfill - Wait for Line activity calls the PL/SQL procedure named WF_ STANDARD.WAITFORFLOW.</p>
+<p>The Fulfill - Wait for Line activity contains the following activity attributes:</p>
+<ul>
+<li>
+<p>Waiting Flow</p>
+</li>
+<li>
+<p>Waiting Activity</p>
+</li>
+</ul>
+<p>The Fulfill - Wait for Line activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><b>Header Invoice Interface - Eligible<a name="d0e17943" id="d0e17943"></a><a name="t_hiie" id="t_hiie"></a></b></h3>
+<p>To enable a function for manual completion, you must place a special block activity before the actual function activity. For header level invoice interface, the Header Invoice Interface - Eligible activity is the special block activity that facilitates this. The Header Invoice Interface - Eligible activity calls the PL/SQL procedure named OE_STANDARD_WF.STANDARD_BLOCK.</p>
+<p>The Header Invoice Interface - Eligible activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><b>Invoice Interface - Continue Line<a name="d0e17960" id="d0e17960"></a><a name="t_iicl" id="t_iicl"></a></b></h3>
+<p>The Invoice Interface - Continue Line activity is an OM Order Header activity that uses standard Oracle Workflow functionality to continue the workflow in progress. Invoice Interface - Continue Line marks the position in the process where, once invoice interface is complete, the line level process will continue.</p>
+<p>The Invoice Interface - Continue Line activity calls the PL/SQL procedure named WF_STANDARD.CONTINUEFLOW.</p>
+<p>The Invoice Interface - Continue Flow activity contains two activity attributes:</p>
+<ul>
+<li>
+<p>Waiting Flow</p>
+</li>
+<li>
+<p>Waiting Activity</p>
+</li>
+</ul>
+<p>The Invoice Interface - Continue Line activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h3><b>Invoice Interface - Header Level<a name="d0e17988" id="d0e17988"></a><a name="t_iihl" id="t_iihl"></a></b></h3>
+<p>The Invoice Interface - Header Level activity is an OM Order Header activity that calls the PL/SQL procedure named OE_INVOICE_WF.INVOICE_INTERFACE to conduct header level invoice interfacing.</p>
+<p>Invoice Interface - Header Level uses the lookup (has a result type of) Invoice</p>
+<p>Results. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>Not Eligible</p>
+</li>
+<li>
+<p>On Hold</p>
+</li>
+<li>
+<p>Partial</p>
+</li>
+</ul>
+<p>The Invoice Interface - Header Level activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omoh">OM Order Header</a> item type.</p>
+<h2><a name="3258851"></a><a id="T393549"></a><b>OM Order Line</b></h2>
+<a name="d0e18027" id="d0e18027"></a><a name="t_omol" id="t_omol"></a>
+<h3><a id="T393634"></a><b>Authorize to Ship - Check Status<a name="d0e18034" id="d0e18034"></a><a name="t_ascs" id="t_ascs"></a></b></h3>
+<p>The Authorize to Ship - Check Status activity is an OM Order Line activity that calls the PL/SQL procedure named OE_RLM_WF.CHECK_AUTHORIZE_TO_SHIP to determine whether an order line is authorized for shipping.</p>
+<p>Authorize to Ship - Check Status uses the lookup (has a result type of) Yes/No. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Yes</p>
+</li>
+<li>
+<p>No</p>
+</li>
+</ul>
+<p>The Authorize to Ship - Check Status activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Authorize to Ship - Wait for Authorization<a name="d0e18061" id="d0e18061"></a><a name="t_asws" id="t_asws"></a></b></h3>
+<p>The Authorize to Ship - Wait for Authorization activity is an OM Order Line activity that uses the Oracle Workflow block functionality to pause a process until authorization for shipping is determined. Authorize to Ship - Wait for Authorization marks the position in the process where, when the line is authorized, the halted process will continue.</p>
+<p>The Authorize to Ship - Wait for Authorization activity calls the PL/SQL procedure named WF_STANDARD.BLOCK.</p>
+<p>The Authorize to Ship - Wait for Authorization activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>AutoCreate FAS<a name="d0e18080" id="d0e18080"></a><a name="t_afas" id="t_afas"></a></b></h3>
+<p>The AutoCreate FAS activity is an OM Order Line activity that calls the Oracle Configure to Order PL/SQL procedure named CTO_WORKFLOW.SUBMIT_CONC_ PROG_WF. This PL/SQL procedure submits a concurrent program to create a work order and reserve it to the order line</p>
+<p>AutoCreate FAS contains the following attributes:</p>
+<ul>
+<li>
+<p>Arguments 11-100</p>
+</li>
+<li>
+<p>Application Short Name</p>
+</li>
+<li>
+<p>Program Short Name</p>
+</li>
+<li>
+<p>Number Of Arguments</p>
+</li>
+<li>
+<p>Item Attribute Name</p>
+</li>
+<li>
+<p>Order Number</p>
+</li>
+<li>
+<p>Dummy Field</p>
+</li>
+<li>
+<p>Offset Days</p>
+</li>
+<li>
+<p>Load Type</p>
+</li>
+<li>
+<p>Status Type</p>
+</li>
+<li>
+<p>AFAS Org ID</p>
+</li>
+<li>
+<p>Class Code</p>
+</li>
+<li>
+<p>Failed Req ID</p>
+</li>
+<li>
+<p>Order Line ID</p>
+</li>
+<li>
+<p>Batch ID</p>
+</li>
+</ul>
+<p>The AutoCreate FAS activity uses the lookup (has a result type of) Concurrent Program Status. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Cancelled</p>
+</li>
+<li>
+<p>Error</p>
+</li>
+<li>
+<p>Normal</p>
+</li>
+<li>
+<p>Terminated</p>
+</li>
+<li>
+<p>Warning</p>
+</li>
+</ul>
+<p>The AutoCreate FAS activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>AutoCreate PO Req<a name="d0e18163" id="d0e18163"></a><a name="t_aporeq" id="t_aporeq"></a></b></h3>
+<p>The AutoCreate PO Req activity is an OM Order Line activity that calls the Oracle Configure to Order PL/SQL procedure named CTO_WORKFLOW_API_PK.AUTO_ CREATE_PUR_REQ to place a record in the PO req interface tables for the order line. Requisition import creates a requisition and reserves it to the sales order line</p>
+<p>The AutoCreate PO Req activity uses the lookup (has a result type of) Config Process Results. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+</ul>
+<p>The AutoCreate PO Req activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Branch on Source Type<a name="d0e18189" id="d0e18189"></a><a name="t_branch" id="t_branch"></a></b></h3>
+<p>The Branch on Source Type activity is an OM Order Line activity that calls the PL/SQL procedure named OE_OEOL_SCH.BRANCH_ON_SOURCE_TYPE to determine source type for a line.</p>
+<p>The Branch on Source Type activity uses the lookup (has a result type of) Source Type. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>ATO Item</p>
+</li>
+<li>
+<p>Build</p>
+</li>
+<li>
+<p>Dropship</p>
+</li>
+<li>
+<p>Stock</p>
+</li>
+</ul>
+<p>The Branch on Source Type activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Calculate Cost Rollup<a name="d0e18221" id="d0e18221"></a><a name="t_croll" id="t_croll"></a></b></h3>
+<p>The Calculate Cost Rollup activity is an OM Order Line activity that calls the CTO PL/SQL procedure named CTO_WORKFLOW.CALCULATE_COST_ROLLUP_WF_ML to calculate the cost of a configuration.</p>
+<p>The Calculate Cost Rollup activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Calculate Lead Time<a name="d0e18238" id="d0e18238"></a><a name="t_cal" id="t_cal"></a></b></h3>
+<p>The Calculate Lead Time activity is an OM Order Line activity that calls the Oracle Configure to Order PL/SQL procedure named CTO_WORKFLOW.SUBMIT_AND_ CONTINUE_WF. This procedure calculates the actual lead time of a configuration and updates the lead time attributes on the item master in the organization where the configuration will be manufactured.</p>
+<p>Calculate Lead Time contains the following attributes:</p>
+<ul>
+<li>
+<p>Arguments 13-100</p>
+</li>
+<li>
+<p>Application Short Name</p>
+</li>
+<li>
+<p>Program Short Name</p>
+</li>
+<li>
+<p>Number of Arguments</p>
+</li>
+<li>
+<p>Item Attribute name</p>
+</li>
+<li>
+<p>LT Org</p>
+</li>
+<li>
+<p>BOM/ENG</p>
+</li>
+<li>
+<p>Specific/Range</p>
+</li>
+<li>
+<p>LT Item</p>
+</li>
+<li>
+<p>Routing Revision</p>
+</li>
+<li>
+<p>LT Date</p>
+</li>
+<li>
+<p>From Item</p>
+</li>
+<li>
+<p>To Item</p>
+</li>
+<li>
+<p>LT Category Set Name</p>
+</li>
+<li>
+<p>Category Structure</p>
+</li>
+<li>
+<p>Category From</p>
+</li>
+<li>
+<p>Category To</p>
+</li>
+</ul>
+<p>The Calculate Lead Time activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Calculate Lead Time - Setup Parameters<a name="d0e18309" id="d0e18309"></a><a name="t_cltsp" id="t_cltsp"></a></b></h3>
+<p>The Calculate Lead Time - Setup Parameters is an <a href="T393423T393431.htm#t_omol">OM Order Line</a> activity that calls the Configure to Order PL/SQL procedure named CTO_WORKFLOW.SET_ PARAMETER_LEAD_TIME_WF_ML to prepare to launch the lead time calculation concurrent program. This is accomplished by setting up the line number as the parameter of the concurrent program.</p>
+<p>The Calculate Lead Time - Setup Parameters activity uses the lookup (has a result type of) Lead Time Result. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>No Routing</p>
+</li>
+</ul>
+<p>The Calculate Lead Time - Setup Parameters activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Calculate Purchase Price<a name="d0e18338" id="d0e18338"></a><a name="t_cpp" id="t_cpp"></a></b></h3>
+<p>The Calculate Purchase Price activity is an OM Order Line activity that calls the Oracle Configure to Order PL/SQL procedure named CTO_WORKFLOW.Purchase_ price_calc_wf to determine the purchase price of the configuration.</p>
+<p>The Calculate Purchase Price activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Check Reservation<a name="d0e18355" id="d0e18355"></a></b></h3>
+<p>The Check Reservation activity is an OM Order Line activity that calls the Oracle Configure to Order PL/SQL procedure named CTO_WORKFLOW.RSV_BEFORE_ BOOKING_WF to check if a reservation exists before creating supply for the order line.</p>
+<p>The Check Reservation activity uses the lookup (has a result type of) Reserved Status. This lookup contains the following result codes: Process AutoCreate PO</p>
+<ul>
+<li>
+<p>Reserved</p>
+</li>
+</ul>
+<p>The Check Reservation activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Check Supply Type<a name="d0e18377" id="d0e18377"></a><a name="t_ckst" id="t_ckst"></a></b></h3>
+<p>The Check Supply Type activity is an OM Order Line activity that calls the Oracle Configure to Order PL/SQL procedure named CTO_WORKFLOW.CHECK_SUPPLY_ TYPE_WF to determine supply type for an order line.</p>
+<p>The Check Supply Type activity uses the lookup (has a result type of) Check Supply Type Results. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Buy (in the shipping organization, the item has a planning type of buy, or buy type sourcing rules)</p>
+</li>
+<li>
+<p>Drop Ship (order line has source type of External)</p>
+</li>
+<li>
+<p>Flow Schedule (in the shipping organization, the item has a planning type of make or Make at Sourcing Rules, and the primary routing is flow routing)</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>Work Order (in the shipping organization, the item has a planning type of Make or Make at Sourcing Rules, and the primary routing is discrete routing)</p>
+</li>
+</ul>
+<p>The Check Supply Type activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Close<a name="d0e18412" id="d0e18412"></a></b></h3>
+<p>The Close activity is an OM Order Line activity that calls the PL/SQL procedure named OE_CLOSE_WF.CLOSE_LINE to close an order line.</p>
+<p>The Close activity uses the lookup (has a result type of) OM Subprocess Results, Handles Holds. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>Not Eligible</p>
+</li>
+<li>
+<p>On Hold</p>
+</li>
+</ul>
+<p>The Close activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Close - Continue Header<a name="d0e18443" id="d0e18443"></a><a name="t_cch" id="t_cch"></a></b></h3>
+<p>The Close - Continue Header activity is an OM Order Line activity that uses standard Oracle Workflow functionality to continue the workflow in progress. The Close - Continue Header activity is used to mark the position in the process where, upon completion the of Close activity, the halted header level process will continue. The Close - Continue Header activity calls the PL/SQL procedure named WF_ STANDARD.CONTINUEFLOW.</p>
+<p>The Close - Continue Header activity contains the following attributes:</p>
+<ul>
+<li>
+<p>Waiting Activity</p>
+</li>
+<li>
+<p>Waiting Flow</p>
+</li>
+</ul>
+<p>The Close - Continue Header activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Close - Deferred<a name="d0e18469" id="d0e18469"></a></b></h3>
+<p>The Close - Deferred activity is an OM Order Line activity that uses the standard Oracle Workflow defer functionality to defer the closing functionality to the background engine.</p>
+<p>To use Close - Deferred, the Close activity must be placed immediately after it in the process flow.</p>
+<p>The Close - Deferred activity calls the PL/SQL procedure named WF_ STANDARD.DEFER.</p>
+<p>The Close - Deferred activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Configuration - Check Status<a name="d0e18489" id="d0e18489"></a><a name="t_confck" id="t_confck"></a></b></h3>
+<p>The Configuration - Check Status activity is an OM Order Line activity that calls the Oracle Configure to Order PL/SQL procedure named CTO_WORKFLOW.CHECK_ RESERVATION_STATUS_WF to determine the status of configuration for an order line.</p>
+<p>The Configuration - Check Status activity uses the lookup (has a result type of) Config Data Results. This lookup contains the following result code:</p>
+<ul>
+<li>
+<p>Config Data Created</p>
+</li>
+</ul>
+<p>The Configuration - Check Status activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Configuration - Create BOM and Routing<a name="d0e18512" id="d0e18512"></a></b></h3>
+<p>The Configuration - Create BOM and Routing activity is an OM Order Line activity that calls the Oracle Configure to Order PL/SQL procedure named CTO_ WORKFLOW.CREATE_BOM_AND_ROUTING_WF to create bill of material and routing for an order line.</p>
+<p><strong><span>Note:</span></strong> This function activity is not used in current processes and subprocesses and is listed for reference only. Do not use this activity when creating or extending workflow processes and subprocesses.</p>
+<p>The Configuration - Create BOM and Routing activity uses the lookup (has a result type of) Config Incomplete. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>On Hold</p>
+</li>
+</ul>
+<p>The Configuration - Create BOM and Routing activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Create Configuration<a name="d0e18543" id="d0e18543"></a><a name="t_cconf" id="t_cconf"></a></b></h3>
+<p>The Create Configuration activity is an OM Order Line activity that calls the Oracle Configure to Order PL/SQL procedure named CTO_WORKFLOW.CREATE_CONFIG_ ITEM_WF to create configuration for an order line. This activity creates the new line on the order for the configuration item, creates the new item, and creates the BOM and Routing.</p>
+<p>The Create Configuration activity uses the lookup (has a result type of) Config Incomplete. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>On Hold</p>
+</li>
+</ul>
+<p>The Create Configuration activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Create Configuration - Eligible<a name="d0e18572" id="d0e18572"></a><a name="t_ccelig" id="t_ccelig"></a></b></h3>
+<p>The Create Configuration - Eligible activity is an <a href="T393423T393431.htm#t_omol">OM Order Line</a> block activity that holds the order line until the user progresses the order manually or runs the autocreate configuration batch program.</p>
+<p>The Create Configuration - Eligible activity calls the PL/SQL procedure named OE_ STANDARD_WF.STANDARD_BLOCK.</p>
+<p>The Create Configuration - Eligible activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Create Flow Schedule<a name="d0e18594" id="d0e18594"></a><a name="t_crflow" id="t_crflow"></a></b></h3>
+<p>The Create Flow Schedule activity is an OM Order Line activity that calls the Oracle Configure to Order PL/SQL procedure named CTO_WORKFLOW.CREATE_FLOW_ SCHEDULE_WF to create a flow schedule for an order line.</p>
+<p>The Create Flow Schedule activity uses the lookup (has a result type of) Config Incomplete. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>On Hold</p>
+</li>
+</ul>
+<p>The Create Flow Schedule activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Create or <a name="d0e18623" id="d0e18623"></a>Match Config Item</b></h3>
+<p>The Create or Match Config Item activity is an OM Order Line activity that calls the PL/SQL procedure named OE_SOURCING.CREATE_CONFIG_WF.</p>
+<p><strong><span>Note:</span></strong> This function activity is not used in current processes and subprocesses and is listed for reference only. Do not use this activity when creating or extending workflow processes and subprocesses.</p>
+<p>The Create or Match Config Item activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Create Supply Order - Eligible<a name="d0e18643" id="d0e18643"></a></b></h3>
+<p>The Create Supply Order - Eligible activity is an OM Order Line block activity that stops an order line workflow until the user progresses the order manually or runs the autocreate supply batch programs (Autocreate FAS, Autocreate Purchase Req, or Autocreate Dropship).</p>
+<p>The Create Supply Order - Eligible activity calls the PL/SQL procedure named OE_ STANDARD_WF.STANDARD_BLOCK.</p>
+<p>The Create Supply Order - Eligible activity uses the lookup (has a result type of) Reserved Status. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Process AutoCreate PO</p>
+</li>
+<li>
+<p>Reserved</p>
+</li>
+</ul>
+<p>The Create Supply Order - Eligible activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Create Work Order - Set Up Parameters<a name="d0e18670" id="d0e18670"></a><a name="t_woset" id="t_woset"></a></b></h3>
+<p>The Create Work Order - Set Up Parameters activity is an OM Order Line activity that calls the PL/SQL procedure named CTO_WORKFLOW.SET_PARAMETER_WORK_ ORDER_WF to prepare to launch the autocreate supply batch programs by setting up the line number as the parameter to be used.</p>
+<p>The Create Work Order - Set Up Parameters activity uses the lookup (has a result type of) Config Incomplete. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>On Hold</p>
+</li>
+</ul>
+<p>The Create Work Order - Set Up Parameters activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>End<a name="d0e18699" id="d0e18699"></a><a name="t_end" id="t_end"></a></b></h3>
+<p>The End activity marks the end of a process and does not perform any action. The End activity calls the PL/SQL procedure named WF_STANDARD.NOOP. The End activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>End (Complete)<a name="d0e18714" id="d0e18714"></a><a name="t_endcomp" id="t_endcomp"></a></b></h3>
+<p>The End activity marks the end of a process and does not perform any action.</p>
+<p>The End (Complete) activity calls the PL/SQL procedure named WF_ STANDARD.NOOP.</p>
+<p>The End (Complete) activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>End (Incomplete)<a name="d0e18733" id="d0e18733"></a><a name="t_endi" id="t_endi"></a></b></h3>
+<p>The End (Incomplete) activity marks the end of a process and does not perform any action.</p>
+<p>The End (Incomplete) activity calls the PL/SQL procedure named WF_ STANDARD.NOOP.</p>
+<p>The End (Incomplete) activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>End (Non Shippable)<a name="d0e18752" id="d0e18752"></a><a name="t_ens" id="t_ens"></a></b></h3>
+<p>The End (Non Shippable) activity marks the end of a process and does not perform any action.</p>
+<p>The End (Non Shippable) activity calls the PL/SQL procedure named WF_ STANDARD.NOOP.</p>
+<p>The End (Non Shippable) activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>End (Not Eligible)<a name="d0e18771" id="d0e18771"></a><a name="t_endne" id="t_endne"></a></b></h3>
+<p>The End (Not Eligible) activity marks the end of a process and does not perform any action.</p>
+<p>The End (Not Eligible) activity calls the PL/SQL procedure named WF_ STANDARD.NOOP.</p>
+<p>The End (Not Eligible) activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>End (Over Shipped Beyond Tolerance)<a name="d0e18790" id="d0e18790"></a><a name="t_etol" id="t_etol"></a></b></h3>
+<p>The End (Over Shipped Beyond Tolerance) activity marks the end of a process and does not perform any action.</p>
+<p>The End (Over Shipped Beyond Tolerance) activity calls the PL/SQL procedure named WF_STANDARD.NOOP.</p>
+<p>The End (Over Shipped Beyond Tolerance) activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>End (Ship Confirm)<a name="d0e18809" id="d0e18809"></a><a name="t_esc" id="t_esc"></a></b></h3>
+<p>The End (Ship Confirm) activity marks the end of a process and does not perform any action.</p>
+<p>The End (Ship Confirm) activity calls the PL/SQL procedure named WF_ STANDARD.NOOP.</p>
+<p>The End (Ship Confirm) activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>End (Unreserve)<a name="d0e18828" id="d0e18828"></a><a name="t_eur" id="t_eur"></a></b></h3>
+<p>The End (Unreserve) activity marks the end of a process and does not perform any action.</p>
+<p>The End (Unreserve) activity calls the PL/SQL procedure named WF_ STANDARD.NOOP.</p>
+<p>The End (Unreserve) activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Export Compliance Screening<a name="d0e18847" id="d0e18847"></a></b></h3>
+<p>Oracle Order Management provides a subprocess for export compliance screening, The Export Compliance Screening-Line is a subprocess to the seeded Line Flow&mdash;Generic With Export Compliance workflow process, and executes International Trade Management functions. ITM handles all export related compliance checks, including Restricted Party Screening, Embargo Country Screening, License Determination, Document Generation and other partner supported screening such as EPCI.</p>
+<p>It is recommended to add this subprocess after Scheduling.</p>
+<p>The Export Compliance Screening activity calls the PL/SQL procedure named OE_ EXPORT_COMPLIANCE_WF.ECS_REQUEST.</p>
+<p>The Export Compliance Screening activity uses the lookup (has a result type of) OM Export Compliance Results. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Hold Applied</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>Override</p>
+</li>
+</ul>
+<p>The Export Compliance Screening activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Export Compliance Screening - Eligible<a name="d0e18882" id="d0e18882"></a></b></h3>
+<p>The Export Compliance Screen - Eligible activity is an OM Order Line activity that determines export compliance.</p>
+<p>The Export Compliance Screening - Eligible activity calls the PL/SQL procedure named OE_STANDARD_WF.STANDARD_BLOCK.</p>
+<p>The Export Compliance Screening - Eligible activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Firm Demand</b></h3>
+<p>The Firm Demand activity is an OM Order Line activity that calls the PL/SQL procedure named OE_OEOL_SCH.FIRM_DEMAND to firm the order line.</p>
+<p>The Firm Demand activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Firm Eligible</b></h3>
+<p>The Firm Eligible activity is an OM Order Line activity that calls the PL/SQL procedure named OE_STANDARD_WF.STANDARD_BLOCK to determine whether an order line is eligible to be firmed.</p>
+<p>The Firm Eligible activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Fulfill<a name="d0e18926" id="d0e18926"></a><a name="t_fulfill" id="t_fulfill"></a></b></h3>
+<p>The Fulfill activity is an OM Order Line activity that calls the PL/SQL procedure named OE_FULFILL_WF._FULFILLMENT to perform fulfillment for an order line. The Fulfill activity contains the following attributes:</p>
+<ul>
+<li>
+<p>Fulfillment Activity Name</p>
+</li>
+<li>
+<p>Completion Result</p>
+</li>
+<li>
+<p>Inbound Fulfillment Activity Name</p>
+</li>
+<li>
+<p>Inbound Completion Result</p>
+</li>
+</ul>
+<p>The Fulfillment activity coordinates the fulfillment of lines so that they progress together to invoicing. It applies to models and kits (shippable and non-shippable lines), fulfillment sets, and service lines attached to goods. The Fulfill activity also derives and stores additional data needed for service lines.</p>
+<p>The Fulfill activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Fulfill - Continue Header Flow<a name="d0e18958" id="d0e18958"></a><a name="t_fheader" id="t_fheader"></a></b></h3>
+<p>The Fulfill - Continue Header Flow activity is an OM Order Line activity that uses standard Oracle Workflow functionality to continue the workflow in progress after an order line is fulfilled. The Fulfill - Continue Header Flow activity is used to mark the position in the process where, upon completion the <a href="T393423T393431.htm#t_fulfill">Fulfill</a> activity by all lines, the halted header level process will continue.</p>
+<p>The Fulfill - Continue Header Flow activity calls the PL/SQL procedure named WF_ STANDARD.CONTINUEFLOW.</p>
+<p>The Fulfill - Continue Header Flow activity contains the following attributes:</p>
+<ul>
+<li>
+<p>Waiting Activity</p>
+</li>
+<li>
+<p>Waiting Flow</p>
+</li>
+</ul>
+<p>The Fulfill - Continue Header Flow activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Fulfill - Deferred<a name="d0e18989" id="d0e18989"></a><a name="t_fdefer" id="t_fdefer"></a></b></h3>
+<p>The Fulfill - Deferred activity is an OM Order Line activity that uses standard Oracle Workflow functionality to defer fulfillment to the background engine.</p>
+<p>To use Fulfill - Deferred, the <a href="T393423T393431.htm#t_fulfill">Fulfill</a> activity must be placed immediately after it in the process flow.</p>
+<p>The Fulfill - Deferred activity calls the PL/SQL procedure named WF_ STANDARD.DEFER.</p>
+<p>The Fulfill - Deferred activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Inventory Interface<a name="d0e19013" id="d0e19013"></a><a name="t_iiface" id="t_iiface"></a></b></h3>
+<p>The Inventory Interface activity is an OM Order Line activity that calls the PL/SQL procedure named OE_INV_IFACE_WF.INVENTORY_INTERFACE to interface with Oracle Inventory to relieve reservations and demand for non-shippable order lines. The Inventory Interface activity uses the lookup (has a result type of) OM Subprocess Results, Handles Holds. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>Not Eligible</p>
+</li>
+<li>
+<p>On Hold</p>
+</li>
+</ul>
+<p>The Inventory Interface activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Inventory Interface - Deferred<a name="d0e19043" id="d0e19043"></a></b></h3>
+<p>The Inventory Interface - Deferred activity is an OM Order Line activity that uses standard Oracle Workflow functionality to defer inventory interface to the background engine. To use Inventory Interface - Deferred, the <a href="T393423T393431.htm#t_iiface">Inventory Interface</a> activity must be placed immediately after it in the process flow.</p>
+<p>The Inventory Interface - Deferred activity calls the PL/SQL procedure named WF_ STANDARD.DEFER.</p>
+<p>The Inventory Interface - Deferred activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Inventory Interface - Eligible<a name="d0e19064" id="d0e19064"></a><a name="t_invelig" id="t_invelig"></a></b></h3>
+<p>To enable a function for manual completion, you must place a special block activity before the actual function activity. For inventory interface, the Inventory Interface - Eligible activity is the special block activity that facilitates this.</p>
+<p>The Inventory Interface - Eligible activity calls the PL/SQL procedure named OE_ STANDARD_WF.STANDARD_BLOCK.</p>
+<p>The Inventory Interface - Eligible activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Invoice Interface<a name="d0e19083" id="d0e19083"></a><a name="t_invint" id="t_invint"></a></b></h3>
+<p>The Invoice Interface activity is an OM Order Line activity that calls the PL/SQL procedure named OE_INVOICE_WF.INVOICE_INTERFACE to interface with Oracle Receivables for an invoice.</p>
+<p>The Invoice Interface activity uses the lookup (has a result type of) Invoice Results. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>Not Eligible</p>
+</li>
+<li>
+<p>On Hold</p>
+</li>
+<li>
+<p>Partial</p>
+</li>
+</ul>
+<p>The Invoice Interface activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Invoice Interface - Deferred<a name="d0e19118" id="d0e19118"></a></b></h3>
+<p>The Invoice Interface - Deferred activity is an OM Order Line activity that uses standard Oracle Workflow functionality to defer the invoice interface with Oracle Receivables to the background engine.</p>
+<p>To use Invoice Interface - Deferred, the <a href="T393423T393431.htm#t_invint">Inventory Interface</a> activity must be placed immediately after it in the process flow.</p>
+<p>The Invoice Interface - Deferred activity calls the PL/SQL procedure named WF_ STANDARD.DEFER.</p>
+<p>The Invoice Interface - Deferred activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Invoice Interface - Eligible<a name="d0e19141" id="d0e19141"></a><a name="t_iielig" id="t_iielig"></a></b></h3>
+<p>To enable a function for manual completion, you must place a special block activity before the actual function activity. For invoice interface, the Invoice Interface - Eligible activity is the special block activity that facilitates this.</p>
+<p>The Invoice Interface - Eligible activity calls the PL/SQL procedure named OE_ STANDARD_WF.STANDARD_BLOCK.</p>
+<p>The Invoice Interface - Eligible activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Is Line Firmed</b></h3>
+<p>The Is Line Firmed activity is an OM Order Line activity that calls the PL/SQL procedure named OE_OEOL_SCH.IS_LINE_FIRMED to determine whether an order line is firmed.</p>
+<p>The Is Line Firmed activity uses the lookup (has a result type of) OM SubProcess Results. The lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Incomplete</p>
+</li>
+</ul>
+<p>The Is Line Firmed activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Is Line Scheduled<a name="d0e19179" id="d0e19179"></a><a name="t_ils" id="t_ils"></a></b></h3>
+<p>The Is Line Scheduled activity is an OM Order Line activity that calls the PL/SQL procedure named OE_OEOL_SCH.IS_LINE_SCHEDULED to determine whether an order line is scheduled.</p>
+<p>The Is Line Scheduled activity uses the lookup (has a result type of) OM Subprocess Results. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>Not Eligible</p>
+</li>
+</ul>
+<p>The Is Line Scheduled activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Purchase Release<a name="d0e19208" id="d0e19208"></a><a name="t_purrel" id="t_purrel"></a></b></h3>
+<p>The Purchase Release activity is an OM Order Line activity that calls the PL/SQL procedure named OE_OEOL_SCH.RELEASE_TO_PURCHASING to release order line data to Oracle Purchasing.</p>
+<p>The Purchase Release activity uses the lookup (has a result type of) OM Subprocess Results, Handles Holds. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>Not Eligible</p>
+</li>
+<li>
+<p>On Hold</p>
+</li>
+</ul>
+<p>The Purchase Release activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Purchase Release - Deferred<a name="d0e19240" id="d0e19240"></a></b></h3>
+<p>The Purchase Release - Deferred activity is an OM Order Line activity that uses standard Oracle Workflow functionality to defer the release of order line data to Oracle Purchasing to the background engine.</p>
+<p>To use Purchase Release - Deferred, the <a href="T393423T393431.htm#t_purrel">Purchase Release</a> activity must be placed immediately after it in the process flow.</p>
+<p>The Purchase Release - Deferred activity calls the PL/SQL procedure named WF_ STANDARD.DEFER.</p>
+<p>The Purchase Release - Deferred activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Purchase Release - Eligible<a name="d0e19263" id="d0e19263"></a><a name="t_pelig" id="t_pelig"></a></b></h3>
+<p>To enable a function for manual completion, you must place a special block activity before the actual function activity. For purchase release, the Purchase Release - Eligible activity is the special block activity that facilitates this.</p>
+<p>The Purchase Release - Eligible activity calls the PL/SQL procedure named OE_ STANDARD_WF.STANDARD_BLOCK.</p>
+<p>The Purchase Release - Eligible activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Reprice<a name="d0e19282" id="d0e19282"></a><a name="t_reprice" id="t_reprice"></a></b></h3>
+<p>The Reprice activity is an OM Order Line activity that calls the PL/SQL procedure named OE_REPRICE_WF.START_REPRICING to reprice an order line.</p>
+<p>The Reprice activity contains the following attributes:</p>
+<ul>
+<li>
+<p>Repricing Date</p>
+</li>
+<li>
+<p>Repricing Event</p>
+</li>
+<li>
+<p>Honor Calculate Price Flag</p>
+</li>
+</ul>
+<p>The Reprice activity uses the lookup (has a result type of) OM Subprocess Results. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>Not Eligible</p>
+</li>
+</ul>
+<p>The Reprice activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Reprice - Eligible<a name="d0e19323" id="d0e19323"></a></b></h3>
+<p>To enable a function for manual completion, you must place a special block activity before the actual function activity. For repricing, the Reprice - Eligible activity is the special block activity that facilitates this.</p>
+<p>The Reprice - Eligible activity calls the PL/SQL procedure named OE_STANDARD_ WF.STANDARD_BLOCK.</p>
+<p>The Reprice - Eligible activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Schedule<a name="d0e19341" id="d0e19341"></a><a name="t_sched" id="t_sched"></a></b></h3>
+<p>The Schedule activity is an OM Order Line activity that calls the PL/SQL procedure named OE_OEOL_SCH.SCHEDULE_LINE to schedule an order line.</p>
+<p>The Schedule activity uses the lookup (has a result type of) OM Subprocess Results, Handles Holds. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>Not Eligible</p>
+</li>
+<li>
+<p>On Hold</p>
+</li>
+</ul>
+<p>The Schedule activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Schedule - Deferred<a name="d0e19373" id="d0e19373"></a></b></h3>
+<p>The Schedule - Deferred activity is an OM Order Line activity that uses standard Oracle Workflow functionality to defer the order line scheduling to the background engine.</p>
+<p>To use Schedule - Deferred, the <a href="T393423T393431.htm#t_sched">Schedule</a> activity must be placed immediately after it in the process flow.</p>
+<p>The Schedule - Deferred activity calls the PL/SQL procedure named WF_ STANDARD.DEFER.</p>
+<p>The Schedule - Deferred activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Schedule - Eligible<a name="d0e19396" id="d0e19396"></a><a name="t_selig" id="t_selig"></a></b></h3>
+<p>To enable a function for manual completion, you must place a special block activity before the actual function activity. For scheduling, the Schedule - Eligible activity is the special block activity that facilitates this.</p>
+<p>The Schedule - Eligible activity calls the PL/SQL procedure named OE_STANDARD_ WF.STANDARD_BLOCK.</p>
+<p>The Schedule - Eligible activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Ship<a name="d0e19415" id="d0e19415"></a><a name="t_ship" id="t_ship"></a></b></h3>
+<p>The Ship activity is an OM Order Line activity that calls the PL/SQL procedure named OE_SHIPPING_WF.START_SHIPPING to initiate shipping for an order line. The Ship activity uses the lookup (has a result type of) Shipping Results. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Non Shippable</p>
+</li>
+<li>
+<p>Over Shipped Beyond Tolerance</p>
+</li>
+<li>
+<p>Ship Confirm</p>
+</li>
+<li>
+<p>Unreserve</p>
+</li>
+</ul>
+<p>The Ship activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Ship - Deferred<a name="d0e19445" id="d0e19445"></a></b></h3>
+<p>The Ship - Deferred activity is an OM Order Line activity that uses standard Oracle Workflow functionality to defer shipping to the background engine.</p>
+<p>To use Ship - Deferred, the <a href="T393423T393431.htm#t_ship">Ship</a> activity must be placed immediately after it in the process flow.</p>
+<p>The Ship - Deferred activity calls the PL/SQL procedure named WF_ STANDARD.DEFER.</p>
+<p>The Ship activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Start<a name="d0e19468" id="d0e19468"></a><a name="t_start" id="t_start"></a></b></h3>
+<p>The Start activity marks the start of a process and does not perform any action. Although it is not necessary, you may include it in your process diagram to visually mark the start of a process as a separate node.</p>
+<p>The Start activity calls the PL/SQL procedure named WF_STANDARD.NOOP. The Start activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Utility - Is Return Line Receivable?<a name="d0e19485" id="d0e19485"></a></b></h3>
+<p>The Utility - Is Return Line Receivable? activity is an OM Order Line activity that calls the PL/SQL procedure named OE_RMA_WF.IS_LINE_RECEIVABLE to determine whether an return order line must be received.</p>
+<p>The Utility - Is Return Line Receivable? activity uses the lookup (has a result type of) Yes/No. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Yes</p>
+</li>
+<li>
+<p>No</p>
+</li>
+</ul>
+<p>The Utility - Is Return Line Receivable? activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Utility to Get Line Category<a name="d0e19510" id="d0e19510"></a><a name="t_uglc" id="t_uglc"></a></b></h3>
+<p>The Utility to Get Line Category activity is an OM Order Line activity that calls the PL/SQL procedure named OE_STANDARD_WF.GET_LINE_CATEGORY to determine the category of an order line. An order line can either be an order or a return. The Utility to Get Line Category activity uses the lookup (has a result type of) Line Category. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Order</p>
+</li>
+<li>
+<p>Return</p>
+</li>
+</ul>
+<p>The Utility to Get Line Category activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Utility to Get Supply Source Type<a name="d0e19534" id="d0e19534"></a></b></h3>
+<p>The Utility to Get Supply Source Type is an OM Order Line activity that calls the PL/SQL procedure named OE_STANDARD_WF.GET_SUPPLY_SOURCE_TYPE to determine the supply source type for an order line. A supply source can be either internal or external.</p>
+<p>The Utility to Get Supply Source Type activity uses the lookup (has a result type of) Supply Source Type. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Internal</p>
+</li>
+<li>
+<p>External</p>
+</li>
+</ul>
+<p>The Utility to Get Supply Source Type activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Wait for Approval<a name="d0e19559" id="d0e19559"></a><a name="t_wappr" id="t_wappr"></a></b></h3>
+<p>The Wait for Approval activity is an OM Order Line activity that ensures an unapproved order does not proceed in its workflow process. The Wait For Approval activity uses standard Oracle Workflow functionality to pause the process until the order line is approved. Wait for Approval marks the position in the process where, when all the order line is approved, the halted process will continue.</p>
+<p>The Wait for Approval activity calls the PL/SQL procedure named WF_ STANDARD.WAITFORFLOW.</p>
+<p>The Wait for Approval activity contains the following attributes:</p>
+<ul>
+<li>
+<p>Continuation Activity</p>
+</li>
+<li>
+<p>Continuation Flow</p>
+</li>
+</ul>
+<p>The Wait for Approval activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Wait for Booking<a name="d0e19587" id="d0e19587"></a><a name="t_wbook" id="t_wbook"></a></b></h3>
+<p>The Wait for Booking activity is an OM Order Line activity that ensures an order line does not proceed in its workflow process until the order is booked. The Wait For Booking activity uses standard Oracle Workflow functionality to pause the process until the order is booked. Wait for Booking marks the position in the process where, when the order is booked, the halted line level process will continue. The Wait for Booking activity calls the PL/SQL procedure named WF_ STANDARD.WAITFORFLOW.</p>
+<p>The Wait for Booking activity contains the following attributes:</p>
+<ul>
+<li>
+<p>Continuation Activity</p>
+</li>
+<li>
+<p>Continuation Flow</p>
+</li>
+</ul>
+<p>The Wait for Booking activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Wait for Create Configuration<a name="d0e19613" id="d0e19613"></a><a name="t_wcc" id="t_wcc"></a></b></h3>
+<p>The Wait for Create Configuration activity is an OM Order Line activity which verifies that the configuration manufacturing data subprocess performs its calculations only when necessary. It is not necessary to perform these calculations if the configuration data is already created by the autocreate config batch program. If this is the case, the subprocess would end.</p>
+<p>Wait for Create Configuration calls the PL/SQL procedure named WF_ STANDARD.BLOCK.</p>
+<p>The Wait for Create Configuration activity uses the lookup (has a result type of) Config Data Results. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Config Data Created</p>
+</li>
+</ul>
+<p>The Wait for Create Configuration activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Wait for CTO<a name="d0e19638" id="d0e19638"></a><a name="t_wcto" id="t_wcto"></a></b></h3>
+<p>The Wait for CTO activity is an OM Order Line activity which verifies that an ATO Model order line does not proceed in its workflow process until the configuration line level process associated with the model line is complete. The configuration line level process completes when the configuration ships. The Wait For CTO activity uses standard Oracle Workflow functionality to pause the process until these results are received. Wait for CTO marks the position in the process where, when the results are received, the halted process will continue.</p>
+<p>Wait for CTO calls the PL/SQL procedure named WF_STANDARD.BLOCK.</p>
+<p>The Wait for CTO activity uses the lookup (has a result type of) Config Item Results. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>De-link</p>
+</li>
+</ul>
+<p>The Wait for CTO activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Wait for Inspection<a name="d0e19666" id="d0e19666"></a><a name="t_winsp" id="t_winsp"></a></b></h3>
+<p>The Wait for Inspection activity is an OM Order Line activity that ensures an order line does not proceed in its workflow process until the returned item is inspected. The Wait For Inspection activity uses standard Oracle Workflow functionality to pause the process. Wait for Inspection marks the position in the process where, when the item is inspected, the halted process will continue.</p>
+<p>The Wait for Inspection activity calls the PL/SQL procedure named WF_ STANDARD.BLOCK.</p>
+<p>The Wait for Inspection activity uses the lookup (has a result type of) RMA Wait Result. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Correct Receiving</p>
+</li>
+</ul>
+<p>The Wait for Inspection activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Wait for Invoice Interface<a name="d0e19694" id="d0e19694"></a><a name="t_winv" id="t_winv"></a></b></h3>
+<p>The Wait for Invoice Interface activity is an OM Order Line activity that ensures an order line does not proceed in its workflow process until the invoice interface with Oracle Receivables is performed. The Wait For Invoice Interface activity uses standard Oracle Workflow functionality to pause the process. Wait for Invoice Interface marks the position in the process where, after invoice interface is complete, the halted process will continue.</p>
+<p>The Wait for Invoice Interface activity calls the PL/SQL procedure named WF_ STANDARD.WAITFORFLOW.</p>
+<p>Wait for Invoice Interface contains the following attributes:</p>
+<ul>
+<li>
+<p>Continuation Activity</p>
+</li>
+<li>
+<p>Continuation Flow</p>
+</li>
+</ul>
+<p>The Wait for Invoice Interface activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Wait for PO Receipt<a name="d0e19722" id="d0e19722"></a></b></h3>
+<p>The Wait for PO Receipt activity is an OM Order Line activity that ensures an order line does not proceed in its workflow process until Oracle Purchasing returns a receipt for the order line. The Wait For PO Receipt activity uses standard Oracle Workflow functionality to pause the process. Wait for PO Receipt marks the position in the process where, when the receipt is received, the halted process will continue. The Wait for PO Receipt activity calls the PL/SQL procedure named OE_ STANDARD_WF.STANDARD_BLOCK.</p>
+<p>The Wait for PO Receipt activity uses the lookup (has a result type of) Config Process Results. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+</ul>
+<p>The Wait for PO Receipt activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Wait for Receiving<a name="d0e19747" id="d0e19747"></a><a name="t_wrec" id="t_wrec"></a></b></h3>
+<p>The Wait for Receiving activity is an OM Order Line activity that ensures an order line does not proceed in its workflow process until the returned item is received. The Wait For Receiving activity uses standard Oracle Workflow functionality to pause the process. Wait for Receiving marks the position in the process where, when the item is received, the halted process will continue.</p>
+<p>The Wait for Receiving activity calls the PL/SQL procedure named OE_RMA_ WF.WAIT_FOR_RECEIVING.</p>
+<p>The Wait for Receiving activity uses the lookup (has a result type of) OM Subprocess Success Results. This lookup contains the following result codes:</p>
+<ul>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Incomplete</p>
+</li>
+<li>
+<p>Not Eligible</p>
+</li>
+</ul>
+<p>The Wait for Receiving activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h3><b>Wait for Required for Revenue or Delivery<a name="d0e19778" id="d0e19778"></a><a name="t_wrrd" id="t_wrrd"></a></b></h3>
+<p>The Wait for Required for Revenue or Delivery activity is an OM Order Line activity that ensures an order line does not proceed in its workflow process until the order line is invoiced. The Wait For Revenue or Delivery activity uses standard Oracle Workflow functionality to pause the process. Wait for Revenue or Delivery marks the position in the process where the halted process will continue.</p>
+<p>The Wait for Required for Revenue or Delivery activity calls the PL/SQL procedure named WF_STANDARD.BLOCK.</p>
+<p>The Wait for Required for Revenue or Delivery activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omol">OM Order Line</a> item type.</p>
+<h2><a name="3258920"></a><a id="T393550"></a><b>OM Standard</b></h2>
+<a name="d0e19799" id="d0e19799"></a><a name="t_omstd" id="t_omstd"></a><a name="t_apps" id="t_apps"></a>
+<h3><a id="T393635"></a><b>Approvals</b></h3>
+<p><a name="d0e19808" id="d0e19808"></a>A workflow process for Approvals allows you to leverage any business process where Approvals may be required. The Approver list is set up in Oracle Order Management and tied to a specific transaction type; workflow notifications provide details of the approval or rejection. The Approval activity is seeded in the negotiation phase as well as in the Oracle <i>i</i>Store Returns flow. A list of approvers can be defined through the Transaction Types or Approvals window, which can be accessed from the Transaction Types window or the Transaction Types menu.</p>
+<h3><b>Utility - Set Notification Approver<a name="d0e19819" id="d0e19819"></a><a name="t_snoapp" id="t_snoapp"></a></b></h3>
+<p>The Utility - Set Notification Approver activity calls the PL/SQL procedure named OE_ORDER_WF_UTIL.SET_NOTIFICATION_APPROVER to determine the approver for the notification Approve Return Order. The Utility - Set Notification Approver activity contains the following attribute:</p>
+<ul>
+<li>
+<p>Source (used to select the notification approver).</p>
+</li>
+</ul>
+<p>If this attribute is set to Profile Approver, then the approver is determined by the value of profile option OM: Notification Approver. If the profile is not set at any level, then this PL/SQL procedure assumes SYSADMIN as the default approver. On receiving such a notification, the role SYSADMIN can:</p>
+<ul>
+<li>
+<p>Approve the notification, or</p>
+</li>
+<li>
+<p>Reassign it to a more appropriate approver, while taking a suitable remedial action to fix incorrect/complete setting to the OM: Notification Approver profile option.</p>
+</li>
+</ul>
+<p>The Utility - Set Notification Approver activity is contained in the <a href="T393423T393426.htm#t_sdf">Seeded Data File oexwford.wft</a>, and is associated with the <a href="T393423T393431.htm#t_omstd">OM Standard</a></p>
+<h2><a name="3258923"></a><a id="T393551"></a><b>Standard</b></h2>
+<p><a name="d0e19850" id="d0e19850"></a><a name="t_std" id="t_std"></a>Oracle Workflow provides some generic activities you can use to control your processes. The activities are associated with the Standard item type but can be used within any process you define. The Standard item type is automatically installed on your Oracle Workflow server. The following are the Standard activities used by Oracle Order Management. For more information about the Oracle Workflow Standard activities, refer to the <i>Oracle Workflow User's Guide.</i></p>
+<h3><a id="T393636"></a><b>End<a name="d0e19862" id="d0e19862"></a></b></h3>
+<p>The End activity marks the end of a process and does not perform any action. You can use it to return a result for a completed process by specifying a Result Type for the activity. Although it is not necessary, you may include it in your process diagram to visually mark the end of your process as a separate node.</p>
+<p>The End activity calls the PL/SQL procedure named WF_STANDARD.NOOP.</p>
+<h3><b>Start<a name="d0e19873" id="d0e19873"></a></b></h3>
+<p>The Start activity marks the start of a process and does not perform any action. Although it is not necessary, you may include it in your process diagram to visually mark the start of a process as a separate node.</p>
+<p>The Start activity calls the PL/SQL procedure named WF_STANDARD.NOOP.</p>
+<h3><b>Wait<a name="d0e19883" id="d0e19883"></a><a name="t_wait" id="t_wait"></a></b></h3>
+<p>The Wait activity pauses the process for the time you specify. You can wait until:</p>
+<ul>
+<li>
+<p>A specific date</p>
+</li>
+<li>
+<p>A given day of the month</p>
+</li>
+<li>
+<p>A given day of the week</p>
+</li>
+<li>
+<p>A period of time after this activity is encountered</p>
+</li>
+</ul>
+<p>The Wait activity has six activity attributes:</p>
+<ol>
+<li>
+<p>Wait Mode: use this attribute to specify how to calculate the wait. You can choose one of the following wait modes:</p>
+<ul>
+<li>
+<p>Absolute Date: to pause the activity until the date specified in the Absolute Date activity attribute is reached.</p>
+</li>
+<li>
+<p>Relative Time: to pause the activity until the number of days specified in the Relative Time activity attribute passes.</p>
+</li>
+<li>
+<p>Day of Month: to pause the activity until a specified day of the month, as indicated in the Day of Month activity attribute.</p>
+</li>
+<li>
+<p>Day of Week: to pause the activity until a specified day of the week, as indicated in the Day of Week activity attribute.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Absolute Date: if Wait Mode is set to Absolute Date, enter an absolute date.</p>
+</li>
+<li>
+<p>Relative Time: if Wait Mode is set to Relative Time, enter a relative time expressed in &lt;days&gt;.&lt;fraction of days&gt;. For example, enter 0.5 for a wait time of half a day (12 hours).</p>
+</li>
+<li>
+<p>Day of Month: If Wait Mode is set to Day of Month, choose a day of the month from the list. If the day you choose has already passed in the current month, then the activity waits until that day in the following month.</p>
+</li>
+<li>
+<p>Day of Week: If Wait Mode is set to Day of Week, choose a day of the week from the list. If the day you choose has already passed in the current week, then the activity waits until that day in the following week.</p>
+</li>
+<li>
+<p>Time of Day: The Wait activity always pauses until midnight of the time specified, unless you use this Time of Day activity attribute to specify a time other than midnight that the Wait activity should pause until.</p>
+</li>
+</ol>
+<p>The Wait activity calls the PL/SQL procedure named WF_STANDARD.WAIT.</p>
+<h2><a name="3258927"></a><a id="T393552"></a><b>Negotiation</b></h2>
+<p><a name="d0e19943" id="d0e19943"></a><a name="t_nego" id="t_nego"></a>The following are identified as status requirements for the negotiation phase that is applicable to both Quotes in Sales Orders as well as Sales Agreements.</p>
+<h3><a id="T393637"></a><b>Approved<a name="d0e19953" id="d0e19953"></a></b></h3>
+<p>This signifies the sales proposal has received internal approval, by all approvers. The version that has been approved should be exactly what is presented to the customer for acceptance, otherwise if changes are made, the document should go through approval again.</p>
+<h3><b>Approval Timeout<a name="t_apto" id="t_apto"></a></b></h3>
+<p>The proposal has not been approved or rejected and has reached the timeout point.</p>
+<h3><b>Assign<a name="t_assign" id="t_assign"></a></b></h3>
+<p>The offer is assigned to the first approver.</p>
+<h3><b>Customer Acceptance<a name="t_custacpt" id="t_custacpt"></a></b></h3>
+<p>This activity enables the customer to choose whether to accept or reject the proposal.</p>
+<p><strong><span>Note:</span></strong> Please note that this activity in the Negotiation process is different from Customer Acceptance where the customer does a pre-billing or post-billing acceptance of the goods received.</p>
+<h3><b>Customer Accepted<a name="d0e19983" id="d0e19983"></a></b></h3>
+<p>This signifies that the proposal has received the customer's approval and is accepted by the customer. Typically, the proposal should not be modified once the customer has accepted it. You must set this up with processing constraints. This includes the sign and counter sign process.</p>
+<p>See <i>Change Management</i> in the <i>Oracle Order Management Implementation Manual</i> for more information on Processing Constraints.</p>
+<h3><b>Customer Rejected<a name="t_custrej" id="t_custrej"></a></b></h3>
+<p>This signifies that the proposal has been received and the customer has rejected the proposal.</p>
+<h3><b>Draft<a name="d0e20005" id="d0e20005"></a></b></h3>
+<p>When a quote is created and is being assembled and negotiated, it is being 'drafted'; the document has not been approved internally or accepted by the customer yet, and is therefore not in effect yet. Changes can be made to a draft document and there are no formal change approvals required.</p>
+<h3><b>Draft-Customer Rejected<a name="d0e20013" id="d0e20013"></a></b></h3>
+<p>If the customer rejects the sales proposal, it returns to the &ldquo;Draft&rdquo; activity. The status is updated to Draft-Customer Rejected.</p>
+<h3><b>Draft-Internal Rejected<a name="d0e20021" id="d0e20021"></a></b></h3>
+<p>A sales proposal in the internal approval process that is rejected returns to the &ldquo;Draft&rdquo; status. It will return to the same activity in the flow as when it was in the &ldquo;Draft&rdquo; status, but the status will be update to &ldquo;Draft-Internal Rejected&rdquo; The rejection reason (comments) should be viewable so that modifications can be made, and the document can be re-submitted for approval.</p>
+<h3><b>Get Next Approver<a name="t_get" id="t_get"></a></b></h3>
+<p>The next approver in the list of approvers is notified that the proposal approval has been sent to them and action is required.</p>
+<h3><b>Initiate Approval<a name="t_appr" id="t_appr"></a></b></h3>
+<p>The proposal approval time has begun.</p>
+<h3><b>Internal Approved<a name="t_intapp" id="t_intapp"></a></b></h3>
+<p>The proposal has been approved. (See Approval List setup for a list of Internal Approvers).</p>
+<h3><b>Internal Rejected<a name="t_intrej" id="t_intrej"></a></b></h3>
+<p>The proposal has been rejected.</p>
+<h3><b>Negotiation Complete</b></h3>
+<p>This status indicates that the negotiation is complete.</p>
+<h3><b>Negotiation Complete - Eligible<a name="t_negcelig" id="t_negcelig"></a></b></h3>
+<p>This status indicates that the negotiation is eligible to be completed.</p>
+<h3><b>Negotiation Lost<a name="d0e20064" id="d0e20064"></a><a name="t_nlost" id="t_nlost"></a></b></h3>
+<p>This status signifies that the proposal has been lost. Neither the Internal management nor the Customer was able to reach an agreement. The proposal can only be transitioned to Lost if it is in the Draft stage. Once the proposal has been transitioned to Lost, it cannot be reinstated. However, it can be copied to restart the negotiation process.</p>
+<h3><b>Offer Expired<a name="d0e20073" id="d0e20073"></a><a name="t_offer" id="t_offer"></a></b></h3>
+<p>A Quote (negotiation) can have an expiration date. When the quote reaches this date, it expires and cannot become a firm order. To use it again, you must copy the quote. This status does not apply to sales agreements.</p>
+<h3><b>Pending Customer Acceptance<a name="d0e20082" id="d0e20082"></a></b></h3>
+<p>Once the sale proposal is approved internally, it waits at the customer acceptance block. The status is updated to &ldquo;Pending Customer Acceptance&rdquo; to signify that the proposal is waiting for customer acceptance.</p>
+<h3><b>Pending Internal Approval<a name="d0e20090" id="d0e20090"></a></b></h3>
+<p>When a proposal is sent for internal approval, the document is awaiting approval. If there were multiple approvers in an approval chain, the document would stay in &ldquo;Pending Approval&rdquo; status until all approvers have approved the document, or until someone rejects the document. Typically once the document has entered the approval process, no changes are allowed.</p>
+<h3><b>Submit Draft<a name="d0e20098" id="d0e20098"></a></b></h3>
+<p>The Draft phase of the quote has been completed and submitted for further processing.</p>
+<h3><b>Submit Draft - Eligible<a name="t_sdelig" id="t_sdelig"></a></b></h3>
+<p>The Draft phase of the quote has started and is eligible.</p>
+<h2><a name="3258949"></a><a id="T393553"></a><b>Quotes</b></h2>
+<a name="t_quote" id="t_quote"></a>
+<h3><a id="T393638"></a><b>Check Expiration Date<a name="t_ckdt" id="t_ckdt"></a></b></h3>
+<p>The offer Expiration Date is checked to see if it exists, does not exist, or if it has already expired.</p>
+<h3><b>Set Final Expiration Date<a name="_sfinal" id="_sfinal"></a></b></h3>
+<p>If an Expiration Date exists, Set Final Expiration Date will activate and set the final expiration date for the proposal.</p>
+<h3><b>Wait for Expiration<a name="t_wdate" id="t_wdate"></a></b></h3>
+<p>The proposal final expiration date has been set and the system is waiting for the expiration of the proposal.</p>
+<h3><b>Wait for Final Expiration<a name="t_wfinal" id="t_wfinal"></a></b></h3>
+<p>Final expiration has been determined and the system is waiting for that expiration to occur.</p>
+<h2><a name="3258954"></a><a id="T393554"></a><b>Sales Agreements</b></h2>
+<p><a name="d0e20145" id="d0e20145"></a>The following are the statuses for Sales Agreements (SA) that are needed in addition to the negotiation phase statuses.</p>
+<h3><a id="T393639"></a><b>Enter&mdash;Blanket<a name="d0e20154" id="d0e20154"></a></b></h3>
+<p>If the SA did not start from the negotiation phase but began with the fulfillment phase, then the SA will have an Entered status as the first status.</p>
+<h3><b>Check Negotiation Exists<a name="t_nexist" id="t_nexist"></a></b></h3>
+<p>Check Negotiation Exists executes a search to ensure that negotiation exists for the sales agreement.</p>
+<h3><b>Blanket Submit Draft - Eligible</b></h3>
+<p>The blanket draft is eligible for submission.</p>
+<h3><b>Blanket Submit Draft</b></h3>
+<p>The blanket draft is ready to be submitted.</p>
+<h3><b>Calculate Effective Dates<a name="t_caleff" id="t_caleff"></a></b></h3>
+<p>Blanket effective dates are calculated.</p>
+<h2><a name="3258960"></a><a id="T393555"></a><b>Fulfillment</b></h2>
+<h3><a id="T393640"></a><b>Execute Blanket</b></h3>
+<p>The blanket execution is ready.</p>
+<h3><b>Wait for Start Date<a name="t_wstart" id="t_wstart"></a></b></h3>
+<p>The effective date of the blanket has not yet passed. The blanket is waiting to become active.</p>
+<h3><b>Blanket Active - Wait for Expiration<a name="t_bsaexp" id="t_bsaexp"></a></b></h3>
+<p>The sales agreement is active, but the expiration date has not yet passed.</p>
+<h3><b>Blanket Active - Wait for Final Expiration<a name="t_bsafexp" id="t_bsafexp"></a></b></h3>
+<p>The sales agreement is active, but the final expiration date has not yet passed.</p>
+<h3><b>Blanket Active - No End Date<a name="t_bactive" id="t_bactive"></a></b></h3>
+<p>The sales agreement is active with no end date specified.</p>
+<h3><b>Blanket - Expired<a name="d0e20220" id="d0e20220"></a><a name="t_bexpire" id="t_bexpire"></a></b></h3>
+<p>When an agreement reaches its end-date (Effective End Date Reached), it expires.</p>
+<p><strong><span>Note:</span></strong> The Effective End Date can be extended and the BSA returned to Active status. If you do not want any changes made to an expired BSA, configure a processing constraint accordingly.</p>
+<h3><b>Close - Blanket</b></h3>
+<p>The sales agreement has expired and is ready to be closed.</p>
+<h3><b>Close Blanket - Eligible<a name="t_clbelig" id="t_clbelig"></a></b></h3>
+<p>The sales agreement is eligible to be closed.</p>
+<h3><b>Terminate&mdash;Blanket<a name="d0e20243" id="d0e20243"></a></b></h3>
+<p>When a SA is in effect (active) either the customer or the supplier may terminate the SA. Typically there are termination clauses in the contract specifying who can terminate, when, and under what conditions penalties will apply. Draft or approved proposals cannot be terminated.</p>
+<h3><b>Awaiting Start Date<a name="d0e20251" id="d0e20251"></a></b></h3>
+<p>The Effectivity start date of the SA has not yet occurred. This status can also occur when Negotiation&mdash;Customer Acceptance is met but the start date has not yet occurred. This status is also applicable if the SA is entered from the Fulfillment phase, is at Submit-Draft, and the start date has not yet occurred.</p>
+<h3><b>Blanket&mdash;Active<a name="d0e20259" id="d0e20259"></a></b></h3>
+<p>After the proposal has been signed by both the parties, and the effective date has been reached, the SA reaches Blanket&mdash;Active status when the start date is reached. For a SA that begins in the Negotiation phase, Customer Acceptance must also be reached. Note that for Fulfillment there is no formal acceptance&mdash;a signature is not required.</p>
+<h2><a name="4490967"></a><a id="T478237"></a><b>Listing of Seeded COGS Functions</b></h2>
+<a name="d0e20269" id="d0e20269"></a><a name="t_cogsfunc" id="t_cogsfunc"></a>
+<ul>
+<li>
+<p>Get CCID for an Inventory Item ID</p>
+</li>
+<li>
+<p>Get CCID from a Salesrep's revenue segment</p>
+</li>
+<li>
+<p>Get CCID for a Model from an option</p>
+</li>
+<li>
+<p>Get CCID from the Order Type ID</p>
+</li>
+<li>
+<p>Get Inventory Item ID</p>
+</li>
+<li>
+<p>Get Parent Line ID</p>
+</li>
+<li>
+<p>Get Salesrep's ID</p>
+</li>
+<li>
+<p>Get the Selling Operating Unit</p>
+</li>
+<li>
+<p>Get Transaction Type for a Commitment ID</p>
+</li>
+<li>
+<p>Upgrade from Flexbuilder</p>
+</li>
+</ul>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T291798.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T427992.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">11/31</span> <!-- End Header -->
+<h1>Defining and Maintaining Item Information</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T298834">Overview of Items</a></li>
+<li><a href="#T298835">Master Level vs. Organization Level</a></li>
+<li><a href="#T298874">Defining Items</a></li>
+<li><a href="#T620660">Defining Catch Weight Item Attributes</a></li>
+<li><a href="#T298836">Updating Item Attributes</a></li>
+<li><a href="#T298875">Assigning Items to Organizations</a></li>
+<li><a href="#T298876">Updating Organization Level Items</a></li>
+<li><a href="#T298851">Open Item Interface</a></li>
+<li><a href="#T298877">Importing Items</a></li>
+<li><a href="#T298852">Customer Item and Customer Item Cross Reference Interfaces</a></li>
+<li><a href="#T298878">Importing Customer Items</a></li>
+<li><a href="#T298879">Importing Customer Item Cross References</a></li>
+<li><a href="#T578106">Importing Item Cross References and Related Items</a></li>
+<li><a href="#T298880">Adding Attachments to Items</a></li>
+<li><a href="#T298881">Viewing Item Information</a></li>
+<li><a href="#T298882">Assigning Items to Catalogs</a></li>
+<li><a href="#T298883">Defining Item Relationships</a></li>
+<li><a href="#T298884">Defining Manufacturer Part Numbers</a></li>
+<li><a href="#T298885">Assigning Subinventories to an Item</a></li>
+<li><a href="#T298886">Assigning Items to a Subinventory</a></li>
+<li><a href="#T298887">Defining Item Revisions</a></li>
+<li><a href="#T298888">Defining Item Transaction Defaults</a></li>
+<li><a href="#T662812">Tagging Material Classification Type for Items</a></li>
+<li><a href="#T2006536">Assigning Item Status for Multiple Organizations</a></li>
+<li><a href="#T298889">Searching for Items</a></li>
+<li><a href="#T298853">Item Deletion</a></li>
+</ul>
+<h2><a name="2036902"></a><a id="T298834"></a><b>Overview of Items</b></h2>
+<p><a name="d0e54157" id="d0e54157"></a><a name="I_c_itemov" id="I_c_itemov"></a>You can define and control items that you stock in inventory. Once defined, you assign items to organizations. You choose whether to have centralized or decentralized control of your items through a variety of item attributes.</p>
+<h3><a id="T298859"></a> <b>Steps Involved in Defining Items</b></h3>
+<ul>
+<li>
+<p>Complete the Item Setup steps. See: <a href="T291651T291798.htm#I_itmsuov">Overview of Item Setup</a>.</p>
+</li>
+<li>
+<p>Use templates and existing items (copying items) to define items in the master organization. See <a href="T291651T298833.htm#I_t_ditems">Defining Items</a>.</p>
+</li>
+<li>
+<p>Enter values for item attributes. See: <a href="T291651T298833.htm#I_t_ditems">Defining Items</a>.</p>
+</li>
+<li>
+<p>Enable the item in other organizations. See: <a href="T291651T298833.htm#I_t_asgnorg">Assigning Items to Organizations</a>.</p>
+</li>
+</ul>
+<p>You can also:</p>
+<ul>
+<li>
+<p><a href="T291651T298833.htm#I_t_impitm">import items using the Open Item Interface</a></p>
+</li>
+<li>
+<p><a href="T291651T298833.htm#I_imcusit">import items using the Customer Item Interface</a></p>
+</li>
+<li>
+<p><a href="T291651T298833.htm#I_t_updattr">update organization level attributes</a></p>
+</li>
+<li>
+<p><a href="T291651T298833.htm#I_t_vwitmattr">view attributes for an item in single or multiple organizations</a></p>
+</li>
+<li>
+<p><a href="T291651T291798.htm#I_t_asgncateg">assign items to categories</a></p>
+</li>
+<li>
+<p><a href="T291651T298833.htm#I_t_asgncatlg">assign items to catalogs</a></p>
+</li>
+<li>
+<p><a href="T291651T291798.htm#I_t_stathist">define and view pending statuses</a></p>
+</li>
+<li>
+<p><a href="T291651T291798.htm#I_t_ax78reftype">assign item cross-references</a></p>
+</li>
+<li>
+<p><a href="T291651T298833.htm#t_attach">attach documents to items</a></p>
+</li>
+<li>
+<p><a href="T291651T298833.htm#I_t_itmrelat">define item relationships</a></p>
+</li>
+<li>
+<p><a href="T291651T298833.htm#I_t_mfgprtnum">define manufacturer part numbers</a></p>
+</li>
+<li>
+<p><a href="T291651T298833.htm#t_sub_itm">define item/subinventory information</a></p>
+</li>
+<li>
+<p><a href="T291651T298833.htm#I_t_itmrev">define item revisions</a></p>
+</li>
+<li>
+<p><a href="T291651T298833.htm#I_t_itmtrx78def">define item transaction defaults</a></p>
+</li>
+<li>
+<p><a href="T291651T298833.htm#I_t_itmsrch">search for items</a></p>
+</li>
+<li>
+<p>define product families, <i>Oracle Bills of Material User's Guide</i></p>
+</li>
+<li>
+<p>delete items, <i>Oracle Bills of Material User's Guide</i></p>
+</li>
+</ul>
+<h2><a name="2188973"></a><a id="T298835"></a><b>Master Level vs. Organization Level</b></h2>
+<p><a name="d0e54340" id="d0e54340"></a><a name="d0e54345" id="d0e54345"></a><a name="I_c_defvsupd" id="I_c_defvsupd"></a>Item attributes are the collection of information about an item. Using the Item Attribute Controls window, you can designate whether an item attribute is defined/maintained at the Master level or the Organization level. Attributes at the Master level are the same across all organizations, giving you centralized control over the values assigned. If an attribute is maintained at the Organization level, you can have different values in each organization the item is assigned to and therefore have decentralized control over that attribute. See: <a href="T291651T291798.htm#I_t_ditattcon">Defining Item Attribute Controls</a>.</p>
+<p>For example, you can define and maintain an item's unit of measure at the Master level. This means that the unit of measure is always the same for the item, no matter in which organization you assign the item. Or, you can designate that an item's unit of measure is maintained at the Organization level. This means that each organization you assign the item to can have a different unit of measure for the item.</p>
+<p>Some attributes can be maintained only at one of these levels. The following table lists the attributes that require control at a <a name="d0e54361" id="d0e54361"></a><a name="d0e54366" id="d0e54366"></a>specific level:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>Control Level</b></th>
+</tr>
+<tr valign="top">
+<td>Base Model</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>BOM Item Type</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Container</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Cost of Goods Sold Account</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Create Configured Item, BOM</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Cumulative Total Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Cumulative Manufacturing Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Descriptive Flexfield</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Downloadable</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Effectivity Control</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Electronic Format</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Encumbrance Account</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Engineering Item</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Equipment</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Event</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Expense Account</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Fixed Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Global Descriptive Flexfield</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Lot Substitution Enabled</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Match Configuration</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Over Return Tolerance</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Over Shipment Tolerance</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Planner</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Planning Exception Set</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Postprocessing Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Preprocessing Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Processing Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Sales Account</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Source Organization</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Source Subinventory</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Under Return Tolerance</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Under Shipment Tolerance</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Variable Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Vehicle</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>WIP Supply Locator</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Supply Subinventory</td>
+<td>Organization</td>
+</tr>
+</table>
+<p>Use the Master Item window to define and maintain Master level attributes. You assign <a name="d0e54639" id="d0e54639"></a><a name="d0e54646" id="d0e54646"></a>default values for Organization level attributes in the Master Item window. Use the Organization Items window to update Organization level attributes. See: <a href="T291651T298833.htm#I_t_ditems">Defining Items</a> and <a href="T291651T298833.htm#I_t_updattr">Updating Organization Level Items</a>.</p>
+<h3><a id="T298860"></a> <b>Using Statuses and the Search Items Window to Delete Items</b></h3>
+<p>An easy way to delete many unrelated items is to define a status such as <i>delete-me</i> and assign this status to items tagged for deletion. You can access the Item Search window from the Deletion Groups window and query your list of items to delete by item status and any other relevant search criteria. When your list is complete, simply return to the Deletion Groups window and Oracle Inventory automatically copies over all selected items. See: <a href="T291651T291798.htm#I_t_ditstatus">Defining Item Status</a>.</p>
+<h2><a name="2165923"></a><a id="T298874"></a><b>Defining Items</b></h2>
+<p><a name="d0e54681" id="d0e54681"></a><a name="I_t_ditems" id="I_t_ditems"></a><a name="INVIDITM_M_ATTRIBUTE_GROUPS" id="INVIDITM_M_ATTRIBUTE_GROUPS"></a><a name="INVIDITM_M.folder" id="INVIDITM_M.folder"></a><a name="INVIDITM_M.mtl_system_items_qf" id="INVIDITM_M.mtl_system_items_qf"></a><a name="INVIDITM_M_ATTRIBUTE_GROUPS_WND" id="INVIDITM_M_ATTRIBUTE_GROUPS_WND"></a><a name="INVIDITM.COPY_ITEM" id="INVIDITM.COPY_ITEM"></a><a name="INVIDITM_M.copy_item" id="INVIDITM_M.copy_item"></a><a name="INVIDITM.FOLDER" id="INVIDITM.FOLDER"></a><a name="INVGITMT.FIND_WINDOW" id="INVGITMT.FIND_WINDOW"></a><a name="INVIDITM.MTL_SYSTEM_ITEMS_QF" id="INVIDITM.MTL_SYSTEM_ITEMS_QF"></a><a name="INVGITMT.ITEM_WINDOW" id="INVGITMT.ITEM_WINDOW"></a><a name="I_c_attgrptab" id="I_c_attgrptab"></a>You can define items in the Master Item window using the following methods:</p>
+<ul>
+<li>
+<p>Attribute Groups tab: Select individual attributes, and use the Tool menu to apply templates and assign organizations.</p>
+</li>
+<li>
+<p>Item Folder tab: Create an item, apply a default template, and assign the item to an organization all in one window.</p>
+</li>
+</ul>
+<p>Most of the item information is optional, and you should define only the information required to maintain the item. If an application is not installed on your system, then the tab is not enabled. For example, if Oracle Order Management is not installed on your system, you cannot access the Order Management tab.</p>
+<ul>
+<li>
+<p>If Oracle Yard Management (YMS) is licensed and installed, the system provides an inventory item template named Yard Equipment to create equipment types such as yard container, power unit, and trailer. For more information, see <a href="T291651T291796.htm#invyms">Oracle Yard Management and Oracle Inventory</a>.</p>
+</li>
+<li>
+<p>Throughout this document, engineering items are referred to generically as <i>items</i>.</p>
+</li>
+</ul>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li><a href="T291651T291796.htm#I_orgparam">Organization parameters</a></li>
+<li><a href="T291651T291798.htm#I_t_ditattcon">Item attribute controls</a></li>
+<li><a href="T291651T291797.htm#I_c_uomov">Units of measure</a></li>
+<li><a href="T291651T291798.htm#I_t_ditstatus">Statuses</a></li>
+<li><a href="T291651T291798.htm#I_c_categov">Categories</a></li>
+<li>Other entities such as planners when you want to assign them to items</li>
+</ul>
+<p><b>To define an item on the Attribute Groups tab</b></p>
+<ol>
+<li>
+<p>Navigate to the Attribute Groups tab on the Master Item window.</p>
+<p><img width="872" height="601" src="./img/invug_master_item.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique designator for the item.</p>
+</li>
+<li>
+<p>Optionally, select a Control Level to enable only Master level or Organization level attributes. The default is to enable all attributes.</p>
+</li>
+<li>
+<p>Select an tabbed region to display an item attribute group where you can specify values for attributes in that group.</p>
+<p><strong><span>Note:</span></strong> To locate a particular attribute without manually looking through the tabbed regions choose Find Attribute from the Tools menu.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To display existing items</b></p>
+<ol>
+<li>
+<p>Click Find from the Query menu and enter search criteria in the Find Master Items window. If you do not enter search criteria and choose Find, the search is made for all items. The results display in the Master Items Summary folder window.</p>
+<a name="d0e54787" id="d0e54787"></a></li>
+</ol>
+<p><b>To define an item by copying attribute information from an existing item</b></p>
+<ol>
+<li>
+<p>From the Master Item window, choose Copy From on the Tools menu to open the Copy From window.</p>
+</li>
+<li>
+<p>Enter the name of the item whose attribute information you want to copy.</p>
+</li>
+<li>
+<p>Click one of the following buttons, then close the Copy From window:</p>
+<ul>
+<li>
+<p>Cancel: To close the Copy From window.</p>
+</li>
+<li>
+<p>Apply: To copy attribute information.</p>
+</li>
+<li>
+<p>Done: To copy attribute information.</p>
+</li>
+</ul>
+<p><a name="d0e54817" id="d0e54817"></a>Item attribute information is copied from the copy item to the new item you are defining. You cannot use this process to copy attributes to an existing item.</p>
+<p><strong><span>Important:</span></strong> Category relationships, organization assignments, catalog group information, and costs are not copied.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To define an item using a template</b></p>
+<ol>
+<li>
+<p>From the Master Item window choose Copy From on the Tools menu.</p>
+<a name="d0e54839" id="d0e54839"></a></li>
+<li>
+<p>Enter the name of the template you want to apply.</p>
+</li>
+<li>
+<p>Click Cancel to close the Copy From window, click Apply to copy template information, or click Done to copy template information and close the Copy From window.</p>
+<p>You can apply multiple templates to the item. The more recent attribute values (from the last template applied) override previous values unless the previous value is not updatable (such as the Primary Unit of Measure, which is never updatable). See: <a href="T291651T291798.htm#I_c_itmtempl">Item Templates</a>.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To copy attributes from an existing item and apply a template at the same time</b></p>
+<ol>
+<li>
+<p>From the Master Item window choose Copy From on the Tools menu.</p>
+<a name="d0e54871" id="d0e54871"></a></li>
+<li>
+<p>Enter the name of the template and the item you want to apply.</p>
+</li>
+<li>
+<p>Choose Cancel to close the Copy From window, choose Apply to copy attribute and template information, or choose Done to copy attribute and template information and close the Copy From window.</p>
+<p>Note that the item is copied first, and then the template is applied.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To copy or view item attributes across multiple organizations</b></p>
+<p>The following steps describe how to copy or view item attributes across multiple organizations within a large organization structure.</p>
+<ol>
+<li>
+<p>Navigate to the Find Items window.</p>
+<p><img width="564" height="374" src="./img/invug_ItemAttCopy.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Indicate the organization hierarchy where you want to copy attributes.</p>
+</li>
+<li>
+<p>Indicate an item number, range of items, or an item category to which you wish to copy attributes.</p>
+</li>
+<li>
+<p>Navigate to the Attributes tab and select the attributes to verify.</p>
+<p><img width="563" height="373" src="./img/invug_ItemAttributeCopy2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click Find.</p>
+<p>The Item Attribute Copy window lists all organizations for this item, according to the parameters you defined in the Find Items window.</p>
+<p><img width="678" height="444" src="./img/invug_itemattcopy2.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Choose the Select All button or select individual attributes.</p>
+</li>
+<li>
+<p>Click Apply to apply the attribute values to the item across all organizations in the organization hierarchy where the item exists. You should see the updated value.</p>
+<p><strong><span>Note:</span></strong> The item attributes that you can view are set at the organization level. You can not modify or see attributes set at the master level.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To define an item using the Item Folder tab</b></p>
+<ol>
+<li>
+<p>Navigate to the Master Item window.</p>
+<a name="I_c_itmwrk" id="I_c_itmwrk"></a></li>
+<li>
+<p>Select the Folder tab on the Master Item window.</p>
+<p><img width="872" height="602" src="./img/invug_folder.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Default From region, select Template or Item.</p>
+</li>
+<li>
+<p>Enter the template or item to copy, or select the item or template from the list of values.</p>
+</li>
+<li>
+<p>Enter a unique designator for the item.</p>
+</li>
+<li>
+<p>Enter a Description for the item.</p>
+</li>
+<li>
+<p>Enter the Primary Unit of Measure, or select it from the list of values.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+<li>
+<p>Select Assign to Org to assign the item to the current organization.</p>
+</li>
+<li>
+<p>Select Assign to Any Org to assign the item to multiple organizations. See <a href="T291651T298833.htm#I_t_asgnorg">Assigning Items to Organizations</a></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+<li>
+<p>Select New to create another item, and repeat steps 3-11, or close the form when finished.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_updattr">Updating Organization Level Items</a></p>
+<p>Searching for Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<p>Creating Organization Hierarchies, <i>Oracle HRMS Enterprise and Workforce Management Guide</i></p>
+<h2><a name="7010588"></a><a id="T620660"></a><b>Defining Catch Weight Item Attributes</b></h2>
+<p><a name="d0e55028" id="d0e55028"></a><a name="invugctwgtdefitems" id="invugctwgtdefitems"></a>Catch weight processing permits the capturing of a secondary quantity and unit of measure in addition to the primary quantity and unit of measure. This secondary unit of measure can be used for billing and pricing to the customer. The secondary quantity is captured for the purpose of pricing and invoicing.</p>
+<p>Oracle enables you to perform the fulfillment process (receive, stock, order, pick to ship) using catch weight features that enable you to:</p>
+<ul>
+<li>
+<p>Manage items in two different UOMs (primary and secondary, with defined conversions).</p>
+</li>
+<li>
+<p>Order and procure in a totally different UOM which has conversions set up with either the primary or secondary UOM.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> When the fulfillment base is set to <i>Secondary</i>, then the catch weight is the primary quantity.</p>
+<p><b>For Net Weight Items</b></p>
+<p><a name="d0e55055" id="d0e55055"></a>Net weight items are set up typically with a dual UOM. For these items, the Defaulting value on the Main tab is set to Fixed to ensure a fixed conversion rate between the primary and secondary unit-of-measure). Net weight items are useful in inbound/outbound situations where the supplier payments and customer invoices do not vary with the weight or volume of the product; for example, packaged cheese that is sold by the packet regardless of weight. Similarly, consider a situation where a bucket of pickles is sold as a bucket or pail and is typically invoiced by quantity. Even if the invoice is based on weight, the conversion factor is honored and does not create a business issue.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Review the following information about setting up the advanced catch weight feature:</li>
+<ul>
+<li>
+<p>Setting Up the Advanced Catch Weight Feature, <i>Oracle Warehouse Management Implementation Guide</i></p>
+</li>
+<li>
+<p>My Oracle Support Knowledge Document 1551171.1, <i>Advanced Catch-Weight Solution in Oracle E-Business Suite Applications</i></p>
+</li>
+</ul>
+</ul>
+<p><b>To define catch weight item attributes</b></p>
+<p>The following item attributes control or are relevant to the entry of catch weight processing. When setting up items for catch weight processing, ensure that the following attributes are defined:</p>
+<ol>
+<li>
+<p>Navigate to the Master Item window or Organization Item window.</p>
+</li>
+<li>
+<p>Enter (or select) the following data on the Main tab (Unit of Measure region):</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Field Name</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>Tracking</td>
+<td>Indicate the UOM for which the item is tracked. Options are Primary, or Primary & Secondary.<br>
+For catch weight entry, select Tracking = Primary & Secondary. For example, Primary = LBS; and Secondary = Each.
+<ul>
+<li>
+<p>For all discrete inventory organizations, Primary is typically selected.</p>
+</li>
+<li>
+<p>When the fulfillment base is set to <i>Secondary</i>, then the catch weight is the primary quantity.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Pricing</td>
+<td>Select the UOM for which the item is priced:
+<ul>
+<li>
+<p>Primary: The line price will be based on the primary quantity</p>
+</li>
+<li>
+<p>Secondary: The line price will be based on the secondary quantity.</p>
+</li>
+</ul>
+<br>
+For catch weight entry and pricing, select Secondary. This prompts the task page to display the catch weight field or allows secondary quantity to be entered after pick load.</td>
+</tr>
+<tr valign="top">
+<td>Defaulting</td>
+<td>Select an option to define how the secondary quantity should be defaulted in the user-interfaces or in the re-pricing in the event that the user does not explicitly enter a secondary quantity:
+<ul>
+<li>
+<p>Default: Secondary quantity is defaulted in forms based on the primary quantity entered by the user and the UOM conversion defined. However, the user can override the secondary quantity that is defaulted, so long as it falls within the tolerances. Also, if the user never enters a secondary quantity prior to shipment for a catch weight priced item, it will be defaulted using that same conversion.</p>
+</li>
+<li>
+<p>Fixed: Secondary quantity is populated by a conversion using the UOM conversions defined and the user cannot override the secondary quantity. This does not provide any catch weight pricing support because using this is identical to re-defining the price in the primary UOM.</p>
+</li>
+<li>
+<p>No Default: Secondary quantity is not defaulted, but rather must be explicitly entered by the user. Ship confirm cannot be performed until the user explicitly enters the secondary quantity for a catch weight priced item.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Deviation Factor + or -</td>
+<td>Enter a deviation range as large as possible such as +999% to -999%.<br>
+Defines the positive and negative percentage that the secondary quantity can deviate from nominal conversion of the primary into the secondary quantity. Note that if the item is secondary priced, or secondary tracked, deviation factors are required fields.</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Optionally, on the Inventory tab, select a Lot Control option: No control or Full control.</p>
+</li>
+<li>
+<p>Assign the item to organization and complete other standard attributes.</p>
+</li>
+</ol>
+<p>After you have defined the attributes for the catch weight items, then set up the UOM Conversions.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<p><a href="T291651T298833.htm#I_t_updattr">Updating Organization Level Items</a></p>
+<p><i>Oracle Warehouse Management Implementation Guide</i>, Setting Up the Advanced Catch Weight Feature</p>
+<h2><a name="2189724"></a><a id="T298836"></a><b>Updating Item Attributes</b></h2>
+<p><a name="I_c_upitmatt" id="I_c_upitmatt"></a>To update Master level attributes use the Master Item window. If an attribute is controlled at the Master level, the value of the attribute applies for all organizations in which the item is assigned.</p>
+<p><strong><span>Caution:</span></strong> You cannot update items that are in inactive organizations.</p>
+<p>You can use the Organization Item window to update Organization level item attributes. This update window only updates Organization level attributes in your current organization. See: <a href="T291651T298833.htm#I_t_updattr">Updating Organization Level Items</a>. If you change an Organization level attribute with the Master Item window, you are simply defining the default value for that organization level attribute (and changing the value in the master organization). This default is used when you assign an item to a new organization.</p>
+<p>You can use the Item Attribute Copy form to update the value of an item attribute across multiple organizations in a given organization hierarchy. This program enables you to manage item attributes for many organizations in one place. You can examine selected item attributes across organizations, choose an organization that contains model attributes for an item, and copy those attributes to any other organizations at or below the designated hierarchy origin. This aids in the management of item setup and maintenance and is useful for companies that have a large number of inventory organizations utilizing the same item master.</p>
+<h2><a name="2189732"></a><a id="T298875"></a><b>Assigning Items to Organizations <a name="INVIDITM.org_assign" id="INVIDITM.org_assign"></a></b></h2>
+<p><a name="d0e55229" id="d0e55229"></a><a name="d0e55236" id="d0e55236"></a><a name="I_t_asgnorg" id="I_t_asgnorg"></a>You can enable or disable an item in all organizations under the master organization, or you can choose to enable your item in specific organizations. You use the master item window in each organization to enter or change organization level attributes. For example you can select Reorder Point planning for an item in one organization, and select Min-Max planning for the same item in another organization.</p>
+<p><b>To assign an item to an organization</b></p>
+<ol>
+<li>
+<p>Navigate to the Master Item window.</p>
+</li>
+<li>
+<p>Choose Find from the Query menu to select an item.</p>
+</li>
+<li>
+<p>Choose Organization Assignment from the Tools menu or select the Organization Assignment tab to navigate to the Organization Assignment window.</p>
+<p><img width="870" height="601" src="./img/invug_assigning_org.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>The Organization field displays all organizations with this Master Organization. If you want the item enabled in specific organizations click the Assigned field. The item will exist only in the Item Master and the child organizations specified here.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e55275" id="d0e55275"></a>primary unit of measure for the item in this organization. You can change the primary unit of measure before performing any transactions for this item.</p>
+<p>If the control level for the primary unit of measure attribute is set to the Master Item level, you cannot select another value here.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To unassign an item from an organization</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Master Item</b> window.</p>
+</li>
+<li>
+<p>Choose Find from the Query menu to select an item.</p>
+</li>
+<li>
+<p>Choose Organization Assignment from the Tools menu or select the <b>Organization Assignment</b> tab. The <b>Organization Assignment</b> window appears.</p>
+</li>
+<li>
+<p>Deselect the <b>Assigned</b> check box in the row of each organization from which you want to unassign the item. Click <b>Unassign All</b> to unassign the item from all the child organizations. However, you cannot unassign the item from a master organization.</p>
+</li>
+<li>
+<p>Click Save.</p>
+<p>The concurrent request Delete Item Information is submitted. A message appears with the concurrent request ID.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e55332" id="d0e55332"></a>enable the item in all organizations</b></p>
+<ol>
+<li>
+<p>Choose the Assign All button:</p>
+<p>If you select this option the item exists in the Item Master and all child organizations. You can de-select organization assignments, however, once you save you cannot make changes. If you define additional organizations, you must rechoose this option if you want to associate the item with the new organizations.</p>
+<p>If you do not select this option the item belongs to the item master organization only until you assign it to one or more child organizations.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_impitmstr">Implementing the Item Master Organization</a></p>
+<p><a href="T291651T298833.htm#I_c_itemov">Overview of Items</a></p>
+<h2><a name="2165931"></a><a id="T298876"></a><b>Updating Organization Level Items</b></h2>
+<p><a name="d0e55362" id="d0e55362"></a><a name="I_t_updattr" id="I_t_updattr"></a><a name="INVIDITM_O.attribute_groups" id="INVIDITM_O.attribute_groups"></a><a name="INVIDITM_O.copy_item" id="INVIDITM_O.copy_item"></a><a name="INVIDITM_O_ATTRIBUTE_GROUPS_WND" id="INVIDITM_O_ATTRIBUTE_GROUPS_WND"></a><a name="INVIDITM_O.mtl_system_items_qf" id="INVIDITM_O.mtl_system_items_qf"></a><a name="INVIDITM_O.folder" id="INVIDITM_O.folder"></a>Use the Organization Items window to update Organization level item attributes for your current organization. To update Master level attributes use the Master Items window. See: <a href="T291651T298833.htm#I_t_ditems">Defining Items</a>.</p>
+<p><strong><span>Note:</span></strong> Throughout this document, we refer to engineering items generically, as <i>items</i>.</p>
+<p><b>To update organization level attributes</b></p>
+<ol>
+<li>
+<p>Navigate to the Organization Items Summary folder window.</p>
+</li>
+<li>
+<p>Choose Find from the Query menu to display the Find Items window.</p>
+</li>
+<li>
+<p>Enter search criteria and choose Find to locate the item or items you want to update. Multiple items display in the Organization Items Summary window, a single item displays in the <a name="d0e55400" id="d0e55400"></a>Organization Item window.</p>
+<p><strong><span>Caution:</span></strong> You cannot update items that are in inactive organizations.</p>
+</li>
+<li>
+<p>If your search returned multiple items, select an item and choose Open. The Organization Item window appears.</p>
+<p><img width="871" height="601" src="./img/invug_org_item.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select an alternative region to display an item attribute group where you can update values for organization level attributes in that group.</p>
+<p><strong><span>Note:</span></strong> To locate a particular attribute without manually looking through the tabbed regions choose Find Attribute from the Tools menu.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To update organization level attributes using a <a name="d0e55438" id="d0e55438"></a>Template</b></p>
+<ol>
+<li>
+<p>From the Organization Item window choose Copy From on the Tools menu.</p>
+</li>
+<li>
+<p>Enter the name of the template you want to apply.</p>
+</li>
+<li>
+<p>Choose Copy. The template is applied immediately.</p>
+<p>You can apply multiple templates to the item. The more recent attribute values (from the last template applied) override previous values unless the previous value is not updatable (such as the Primary Unit of Measure, which is never updatable). See: <a href="T291651T291798.htm#I_c_itmtempl">Item Templates</a>.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_ditmtempl">Defining Item Templates</a></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<h2><a name="2189258"></a><a id="T298851"></a><b>Open Item Interface</b></h2>
+<p><a name="d0e55481" id="d0e55481"></a><a name="d0e55486" id="d0e55486"></a><a name="I_c_itmintrfc" id="I_c_itmintrfc"></a>You can import and update items, and their category assignments from any source into Oracle Inventory and Oracle Engineering using the Item Interface. With this interface, you can convert inventory items from another inventory system, migrate assembly and component items from a legacy manufacturing system, convert purchased items from a custom purchasing system, and import new items from a Product Data Management package.</p>
+<p>You can create items only in the active organizations. However, use the Open Item Interface to update items in the active and inactive organizations.</p>
+<p>When you import items through the Item Interface, you create new items in your Item Master organization or assign existing items to additional organizations. You can specify values for all the item attributes, or you can specify just a few attributes and let the remainder default or remain null. The Item Interface also lets you import revision details, including past and future revisions and effectivity dates. Validation of imported items is done using the same rules as the item definition forms, so you are insured of valid items.</p>
+<p>The Item Interface reads data from two tables for importing items and item details. You use the MTL_SYSTEM_ITEMS_INTERFACE table for new item numbers and all item attributes. This is the main item interface table, and can be the only table you choose to use. If you are importing revision details for new items, you can use the MTL_ITEM_REVISIONS_INTERFACE table. This table is used only for revision information, and is not required. A third table, MTL_INTERFACE_ERRORS, is used for error tracking of all items that the Item Interface fails.</p>
+<p>Before you use the Item Interface, you must write and run a custom program that extracts item information from your source system and inserts it into the MTL_SYSTEM_ITEMS_INTERFACE table, and (if revision detail is included) the MTL_ITEMS_REVISIONS_INTERFACE table. After you load the items into these interface tables, you run the Item Interface to import the data. The Item Interface assigns defaults, validates data you include, and then imports the new items.</p>
+<p><strong><span>Important:</span></strong> You must import items into the Item Master organization before you import items into additional organizations. You can accomplish this by specifying only your Item Master organization on a first pass run of the Item Interface. Once this has completed, you can run the Item Interface again, this time specifying an additional or all organizations.</p>
+<p>You can also use the Item Interface to import item material cost, material overhead, and revision details.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_impitm">Importing Items</a></p>
+<h2><a name="2189714"></a><a id="T298877"></a><b>Importing Items</b></h2>
+<p><a name="d0e55518" id="d0e55518"></a><a name="srs.incoin" id="srs.incoin"></a><a name="I_t_impitm" id="I_t_impitm"></a><b>To import items using the Item Interface</b></p>
+<ol>
+<li>
+<p>Navigate to the Import Items or All Reports window.</p>
+</li>
+<li>
+<p>Enter <i>Import Items</i> in the Name field. The Parameters window appears.</p>
+<p><img width="708" height="504" src="./img/invug_imprtitm.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Indicate whether to run the interface for all organizations in the item interface table. If you select <i>No</i>, the interface runs only for the current organization and interface table rows for other organizations are ignored.</p>
+</li>
+<li>
+<p>Indicate whether to validate all items and their data residing in the interface table that have not yet been validated. If items are not validated, they are not processed into Oracle Inventory.</p>
+<p>To process the items, select No if you previously ran the item interface with the following field values:</p>
+<ul>
+<li>
+<p>Validate Items = Yes</p>
+</li>
+<li>
+<p>Process Items = No</p>
+</li>
+</ul>
+<p>Select Validate Items = Yes for all other import cases.</p>
+</li>
+<li>
+<p>Indicate whether to process items. If you select <i>Yes</i>, all qualifying items in the interface table are inserted into Inventory.</p>
+<p>Select <i>No</i>, along with <i>Yes</i> for <i>Delete Processed Rows</i>, to remove successfully processed rows from the interface table without performing any other processing.</p>
+</li>
+<li>
+<p>Indicate whether to delete successfully processed items from the item interface tables.</p>
+<p>Select <i>No</i> to leave all rows in the item interface tables for successfully processed items.</p>
+</li>
+<li>
+<p>Select OK to close the Parameters window, then select Submit.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_c_itmintrfc">Open Item Interface</a></p>
+<p>Integrating Your Systems, <i>Oracle Manufacturing Implementation Manual</i></p>
+<h2><a name="2189102"></a><a id="T298852"></a><b>Customer Item and Customer Item Cross Reference Interfaces</b></h2>
+<p><a name="d0e55623" id="d0e55623"></a><a name="d0e55628" id="d0e55628"></a><a name="d0e55633" id="d0e55633"></a><a name="d0e55638" id="d0e55638"></a><a name="I_imcusit" id="I_imcusit"></a>You can import customer items and customer item cross references from any source into Oracle Inventory and Oracle Engineering using the Customer Item and Customer Item Cross Reference Interfaces, as illustrated in the following diagram.</p>
+<p><img width="786" height="509" src="./img/invug_cstitm.gif" alt="the picture is described in the document text"></p>
+<p>Before you use the Customer Item and Customer Item Cross Reference Interfaces, you must write and run custom programs that extract customer item and customer item cross reference information from your source system and insert it into the MTL_CI_INTERFACE and MTL_CI_XREFS_INTERFACE tables. After you load the customer items and customer item cross references into these interface tables, you run the Customer Item and Customer Item Cross Reference Interfaces to import the data. These interfaces assign defaults, validate data you include, and then import the new customer items and customer item cross references.</p>
+<p><strong><span>Note:</span></strong> The Importing Customer Item Cross References Interface Program does not support the transaction type Update.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_impitm">Importing Items</a></p>
+<h2><a name="2189043"></a><a id="T298878"></a><b>Importing Customer Items</b></h2>
+<p><a name="d0e55667" id="d0e55667"></a><a name="I_inviciint" id="I_inviciint"></a><a name="SRS.INVCIINT" id="SRS.INVCIINT"></a><b>To import customer items</b></p>
+<ol>
+<li>
+<p>Navigate to the All Reports window.</p>
+</li>
+<li>
+<p>Enter <i>Import Customer Items</i> in the Name field. The Parameters window appears.</p>
+<p><strong><span>Note:</span></strong> The Import Customer Items concurrent program does not support the transaction type Update.</p>
+<p><img width="769" height="172" src="./img/invug_impcstit.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Indicate whether to Abort on Error:</p>
+<p><i>Yes</i> indicates that the interface will automatically abort execution if an error is encountered during validation of a record. No additional records will be processed. The ERROR_CODE and ERROR_EXPLANATION columns in the MTL_CI_INTERFACE table are populated with the appropriate error code and explanation for the record that caused the error. Successfully validated records are transferred to the Oracle Inventory MTL_CUSTOMER_ITEMS table.</p>
+<p><i>No</i>, the default, indicates that processing of the records in the interface table will continue until the end of the table is reached. If an error is encountered during validation of records, the ERROR_CODE and ERROR_EXPLANATION columns in the MTL_CI_INTERFACE table are populated with the appropriate error code and description. Successfully validated records are transferred to the Oracle Inventory MTL_CUSTOMER_ITEMS table.</p>
+</li>
+<li>
+<p>Choose <i>Yes</i> or <i>No</i> to indicate whether to Delete Successfully Validated Records from the MTL_CI_INTERFACE table after they have been copied to the Oracle Inventory MTL_CUSTOMER_ITEMS table.</p>
+</li>
+<li>
+<p>Choose OK to close the Parameters window, then choose Submit.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_c_itmintrfc">Open Item Interface</a></p>
+<p>Integrating Your Systems, <i>Oracle Manufacturing Implementation Manual</i></p>
+<h2><a name="2189721"></a><a id="T298879"></a><b>Importing Customer Item Cross References</b></h2>
+<p><a name="d0e55741" id="d0e55741"></a><a name="I_inviciintx78" id="I_inviciintx78"></a><a name="SRS.INVCIINTX" id="SRS.INVCIINTX"></a><b>To import customer item cross references</b></p>
+<ol>
+<li>
+<p>Navigate to the All Reports window.</p>
+</li>
+<li>
+<p>Enter <i>Import Customer Item Cross References</i> in the Name field. The Parameters window appears.</p>
+<p><img width="768" height="170" src="./img/invug_impxref.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Indicate whether to Abort on Error:</p>
+<p><i>Yes</i> indicates that the interface will automatically abort execution if an error is encountered during validation of a record. No additional records will be processed. The ERROR_CODE and ERROR_EXPLANATION columns in the MTL_CI_XREFS_INTERFACE table are populated with the appropriate error code and explanation for the record that caused the error. Successfully validated records are transferred to the Oracle Inventory MTL_CUSTOMER_ITEMS_XREFS table.</p>
+<p><i>No</i>, the default, indicates that processing of the records in the interface table will continue until the end of the table is reached. If an error is encountered during validation of records, the ERROR_CODE and ERROR_EXPLANATION columns in the MTL_CI_XREFS_INTERFACE table are populated with the appropriate error code and description. Successfully validated records are transferred to the Oracle Inventory MTL_CUSTOMER_ITEMS_XREFS table.</p>
+</li>
+<li>
+<p>Choose <i>Yes</i> or <i>No</i> to indicate whether to Delete Successfully Validated Records from the MTL_CI_XREFS_INTERFACE table after they have been copied to the Oracle Inventory MTL_CUSTOMER_ITEMS_XREFS table.</p>
+</li>
+<li>
+<p>Choose OK to close the Parameters window, then choose Submit.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_c_itmintrfc">Open Item Interface</a></p>
+<p>Integrating Your Systems, <i>Oracle Manufacturing Implementation Manual</i></p>
+<h2><a name="6061816"></a><a id="T578106"></a><b>Importing Item Cross References and Related Items</b></h2>
+<p><a name="d0e55810" id="d0e55810"></a><a name="d0e55813" id="d0e55813"></a><a name="inv_impitmxref" id="inv_impitmxref"></a>You can import item cross references from any source into Oracle Product Hub using the Item Cross Reference Interface. You can also import related items from any source into Oracle Product Hub using the Related Items Interface. For information about importing item cross references and related items, see the following topics in the <i>Oracle Site Hub User's Guide</i>:</p>
+<p><strong>Related Topics</strong></p>
+<p><i>Oracle Site Hub User's Guide</i>, To import item cross references, <i>Oracle Site Hub User's Guide</i>.</p>
+<p><i>Oracle Site Hub User's Guide</i>, To import related items, <i>Oracle Site Hub User's Guide</i>.</p>
+<h2><a name="2173890"></a><a id="T298880"></a><b>Adding Attachments to Items</b></h2>
+<p><a name="t_attach" id="t_attach"></a>You can attach text, images, or OLE objects to items. These attachments are referred to as documents. Documents are grouped into categories. You can attach documents from the Miscellaneous category to items.</p>
+<p>When you create a document you can assign a security type limiting it to a particular organization and only to items assigned to that organization. You can also define documents that span organizations by selecting a security type of None or Ledger.</p>
+<ol>
+<li>
+<p>Choose the Attachments Icon.</p>
+</li>
+</ol>
+<h2><a name="2063080"></a><a id="T298881"></a><b>Viewing Item Information</b></h2>
+<p><a name="d0e55859" id="d0e55859"></a><a name="d0e55864" id="d0e55864"></a><a name="d0e55869" id="d0e55869"></a><a name="I_t_vwitmattr" id="I_t_vwitmattr"></a><a name="INVIVCSU.item_attributes_qf" id="INVIVCSU.item_attributes_qf"></a><a name="INVIVCSU.item_attributes" id="INVIVCSU.item_attributes"></a><a name="INVIVCSU.mtl_item_categories" id="INVIVCSU.mtl_item_categories"></a><a name="INVIVCSU.revisions" id="INVIVCSU.revisions"></a><a name="INVIVATT.item_attributes_qf" id="INVIVATT.item_attributes_qf"></a><a name="INVIVATT.item_attributes" id="INVIVATT.item_attributes"></a><a name="INVIVATT.mtl_item_categories" id="INVIVATT.mtl_item_categories"></a><a name="INVIVATT.revisions" id="INVIVATT.revisions"></a>You can quickly view all attributes, categories, or revisions for an item.</p>
+<p>Depending on the function security assigned to your responsibility, you can view the information for an item in a single organization only, a single organization and its master organization, or across all organizations. The function security assigned to your responsibility determines whether you have the ability to look across multiple organizations. See: Overview of Function Security, <i>Oracle E-Business Suite Security Guide</i>.</p>
+<p><b>To view item attribute, category, or revision information</b></p>
+<ol>
+<li>
+<p>Navigate to the Find Item Information window.</p>
+<p><img width="660" height="312" src="./img/invug_fnditim.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the organization scope to view depending on your function security.</p>
+<p><i>Single</i>: View information for an item in a single organization only.</p>
+<p><i>Single with Master</i>: View information for an item in a single organization and its master organization.</p>
+<p><i>All</i>: View information for an item in all organizations where it is defined.</p>
+</li>
+<li>
+<p>Optionally, enter an organization to view depending on your function security.</p>
+</li>
+<li>
+<p>Enter the item whose information you want to view.</p>
+</li>
+<li>
+<p>Optionally, limit the attributes displayed by entering a particular attribute group, attribute, or control level to view.</p>
+</li>
+<li>
+<p>Choose a button to initiate the search:</p>
+<p><i>Revisions</i>: Displays the Item Revisions window. You can view revision numbers, descriptions, organizations, date information, and engineering change order numbers.</p>
+<p><i>Categories</i>: Displays the Item Categories window. You can view category sets, organization categories, and control levels.</p>
+<p><i>Attributes</i>: Displays the Item Attributes window. You can view attribute names, groups, organizations, values, and control levels.</p>
+</li>
+</ol>
+<p><b>To navigate to the Items window from the Item Attributes window</b></p>
+<ol>
+<li>
+<p>Choose either Master Items or Org Items from the Tools menu.</p>
+<p><strong><span>Note:</span></strong> This function may not be available depending on your responsibility and function security.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_ditattcon">Item Attribute Controls</a></p>
+<p><a href="T291651T291798.htm#I_c_itdefatt">Item Defining Attributes</a></p>
+<p><a href="T291651T291798.htm#c_rel_att">Relationships Between Attributes</a></p>
+<h2><a name="2174037"></a><a id="T298882"></a><b>Assigning Items to Catalogs</b></h2>
+<p><a name="d0e55982" id="d0e55982"></a><a name="d0e55989" id="d0e55989"></a><a name="INVIDITM_M_ITEM_CATALOG" id="INVIDITM_M_ITEM_CATALOG"></a><a name="I_t_asgncatlg" id="I_t_asgncatlg"></a><a name="INVIDITM.item_catalog" id="INVIDITM.item_catalog"></a><b>To assign an item to a catalog</b></p>
+<ol>
+<li>
+<p>Navigate to the Master Items Summary window and select an item.</p>
+</li>
+<li>
+<p>Choose Catalog on the Tools menu. The Item Catalog window appears</p>
+<p><img width="601" height="522" src="./img/invug_itmcatl.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a catalog group.</p>
+<p>The descriptive elements for this catalog group display in the Name field. Assigning the item to this group means the item shares these descriptive elements.</p>
+<p><strong><span>Note:</span></strong> Item catalog information is defined/maintained at the Master level, not the Organization level. Otherwise, if a descriptive element is <i>Color</i>, for example, you could set up conflicting values, such as the item as <i>Red</i> in one organization and <i>Blue</i> in another.</p>
+</li>
+<li>
+<p>Indicate whether the catalog is complete.</p>
+<p>You can check this option only after defining values for all required descriptive elements. You determine which elements are required when you define the catalog group. Leave this option off if you have not finished defining values. This calls attention to the fact that some values are temporarily undefined.</p>
+</li>
+<li>
+<p>Enter a specific value for each descriptive element that pertains to the item.</p>
+<p>For example, if the descriptive element is <i>Color</i>, you might enter <i>Blue</i>.</p>
+</li>
+<li>
+<p>Indicate whether to include a descriptive element in a catalog-derived item description.</p>
+<p>If you turn this option on and choose Update Description, the value of the descriptive element is included in a concatenation that creates a catalog-derived item description.</p>
+<p>The default is the Description Default value you defined for the descriptive element when you defined the catalog group.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To replace the existing item description with a <a name="d0e56070" id="d0e56070"></a>catalog-derived item description</b></p>
+<ol>
+<li>
+<p>Choose Update Description.</p>
+<p>This creates an item description by concatenating the item catalog group description (default) or the catalog group name with the descriptive element values you defined. The concatenated item description displays in the Item Catalog Description field.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_dcatlgrp">Defining Item Catalog Groups</a></p>
+<h2><a name="2189246"></a><a id="T298883"></a><b>Defining Item Relationships</b></h2>
+<p><a name="d0e56098" id="d0e56098"></a><a name="I_t_itmrelat" id="I_t_itmrelat"></a><a name="INVISDRI.related_items" id="INVISDRI.related_items"></a><a name="INVISDRI.relation_qf" id="INVISDRI.relation_qf"></a><a name="INVIVCSU.related_items" id="INVIVCSU.related_items"></a><a name="INVIVCSU.relation_qf" id="INVIVCSU.relation_qf"></a><a name="INVISDRI_RELATED_ITEMS_CUST_REF" id="INVISDRI_RELATED_ITEMS_CUST_REF"></a><a name="INVIDITM_M_RELATED_ITEMS" id="INVIDITM_M_RELATED_ITEMS"></a><a name="INVIDITM_O_RELATED_ITEMS" id="INVIDITM_O_RELATED_ITEMS"></a>You can define relationships between items. This allows you to search for items through these relationships. Except in Oracle Purchasing, these relationships are for inquiry and reporting purposes only.</p>
+<h3><b>Item Relationships with Oracle Purchasing</b></h3>
+<p>Within Oracle Purchasing you can define acceptable substitute items for receiving. You must define a list of substitutes before you receive a substitute item in place of an originally ordered item.</p>
+<p><strong><span>Important:</span></strong> If you receive a substitute item, you must have previously defined a unit of measure conversion between the unit of measure on the purchase order and the unit of measure on the receipt.</p>
+<p><strong><span>Tip:</span></strong> To receive a substitute item correctly, you should ensure that the ordered item and the substitute item share the same base unit of measure.</p>
+<p><b>To define item relationships</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Relationships window. The Find Item Relationships window appears.</p>
+</li>
+<li>
+<p>Choose new to define a new relationship.</p>
+<p>You can also enter search criteria and choose Find to display existing item relationships.</p>
+<p><img width="723" height="456" src="./img/invug_item_Relationships1.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter an item that represents the From part of the relationship.</p>
+</li>
+<li>
+<p>Enter an item that represents the To part of the relationship.</p>
+</li>
+<li>
+<p>Select the <a name="d0e56166" id="d0e56166"></a><a name="d0e56171" id="d0e56171"></a>Type of relationship between the items.</p>
+<p><i>Related</i>: <a name="d0e56182" id="d0e56182"></a><a name="d0e56189" id="d0e56189"></a>The items are related in a non-specific way.</p>
+<p><i>Substitute</i>: <a name="d0e56201" id="d0e56201"></a> <a name="d0e56209" id="d0e56209"></a>One item is a substitute for another. To define the parameters for substitute item relationships, select the Planning Details button and see defining details for substitute item relationships below.</p>
+<p><strong><span>Important:</span></strong> The Planning Details button is enabled only for the item relationship type Substitute.</p>
+<p><i>Cross-Sell:</i> <a name="d0e56223" id="d0e56223"></a><a name="d0e56230" id="d0e56230"></a>This relationship indicates that one item may be sold in lieu of another item.</p>
+<p><i>Up-Sell:</i> <a name="d0e56241" id="d0e56241"></a><a name="d0e56248" id="d0e56248"></a>This relationship indicates that a newer version of the item exists, and can be sold in place of the older item.</p>
+<p><i>Service:</i> <a name="d0e56259" id="d0e56259"></a><a name="d0e56266" id="d0e56266"></a>This relationship establishes service items for a repairable item.</p>
+<p><i>Prerequisite:</i><a name="d0e56277" id="d0e56277"></a> <a name="d0e56285" id="d0e56285"></a>This relationship indicates that you must possess one of the items as a requirement to possessing the other item.</p>
+<p><i>Collateral:</i> <a name="d0e56296" id="d0e56296"></a><a name="d0e56303" id="d0e56303"></a>This relationship indicates collateral, such as marketing brochures, that you possess for an item.</p>
+<p><i>Superceded:</i><a name="d0e56314" id="d0e56314"></a> <a name="d0e56322" id="d0e56322"></a>This relationship indicates that one item has replaced another item that is no longer available.</p>
+<p><i>Complimentary:</i> <a name="d0e56333" id="d0e56333"></a> <a name="d0e56341" id="d0e56341"></a>This relationship indicates if a customer purchases one item, the other item is received for free.</p>
+<p><i>Impact:</i> <a name="d0e56354" id="d0e56354"></a><a name="d0e56361" id="d0e56361"></a>This relationship is used to relate items to each other but only under special conditions.</p>
+<p><i>Conflict:</i> <a name="d0e56372" id="d0e56372"></a> <a name="d0e56380" id="d0e56380"></a>This relationship indicates that these items may never be used together.</p>
+<p><i>Mandatory Charge:</i><a name="d0e56391" id="d0e56391"></a> <a name="d0e56399" id="d0e56399"></a>This relationship indicates a mandatory charge if the customer purchases both items.</p>
+<p><i>Optional Charge:</i> <a name="d0e56410" id="d0e56410"></a><a name="d0e56417" id="d0e56417"></a>This relationship indicates an optional charge if the customer purchases both items.</p>
+<p><i>Promotional Upgrade:</i> <a name="d0e56428" id="d0e56428"></a><a name="d0e56435" id="d0e56435"></a>This relationship enables a customer to upgrade from one item to another item or equal or higher value, without an additional charge.</p>
+<p><i>Split:</i> <a name="d0e56446" id="d0e56446"></a><a name="d0e56453" id="d0e56453"></a>This relationship enables you to split support for an item so you do not have to manually split support at contract renewal. To use this relationship, you must be in a planning enabled organization.</p>
+<p><i>Merge:</i> <a name="d0e56464" id="d0e56464"></a><a name="d0e56471" id="d0e56471"></a>This relationship enables rules based consolidation of contracts. You may use the earliest or latest target end date for consolidation. This allows you to choose how contracts are consolidated. To use this relationship, you must be in a planning enabled organization.</p>
+<p><i>Migration:</i> During contact renewal you are given the option of renewing contracts based on new licenses, or old licenses. To use this relationship, you must be in a planning enabled organization.</p>
+<p><i>Repair to:</i> <a name="d0e56486" id="d0e56486"></a><a name="d0e56493" id="d0e56493"></a>You use the Repair to item relationship with field service operations that use spares management functionality. If a part has been superseded by another part, the Repair to item relationship determines the replacement part.</p>
+<a name="d0e56501" id="d0e56501"></a><a name="d0e56508" id="d0e56508"></a></li>
+<li>
+<p>Indicate whether the item relationship is Reciprocal.</p>
+<p><strong><span>Additional Information:</span></strong> Do not select Reciprocal for the Promotional Upgrade type if you are setting up an item upgrade modifier for use with Oracle Advanced Pricing.</p>
+<p>To define a reciprocal relationship (for example, item A may be upgraded to item B, and conversely, item B may be upgraded to item A), you must deselect the Reciprocal check box, then define a relationship between A and B, then add another record to define the relationship between B and A.</p>
+<a name="d0e56524" id="d0e56524"></a><a name="d0e56529" id="d0e56529"></a><a name="d0e56534" id="d0e56534"></a></li>
+<li>
+<p>Indicate if the item relationship type is substitute, indicate if planning is enabled for the substitute item.</p>
+</li>
+<li>
+<p>Enter the Effective Dates if the item relationship is Split, Merge, or Migration.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p><strong><span>Note:</span></strong> You can also define Item relationships by choosing Item Relationships from the Tools menu on the Master Items window.</p>
+</li>
+</ol>
+<p><b>To define details for Substitute Item Relationships:<a name="d0e56557" id="d0e56557"></a><a name="d0e56562" id="d0e56562"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Planning Details Substitute window by choosing the Planning Details from the Item Relationships window.</p>
+<p><img width="643" height="503" src="./img/invug_Substitute_Relationships.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the <a name="d0e56582" id="d0e56582"></a>Planning Details region, enter the Substitution set.</p>
+</li>
+<li>
+<p>Select the Partial Fulfillment check box if applicable.</p>
+</li>
+<li>
+<p>Enter the Effective Dates for the Substitution.</p>
+</li>
+<li>
+<p>Select the All Customers check box if the substitution applies to all customers.</p>
+</li>
+<li>
+<p>, If you have not checked the All Customers check box, enter the customer information in the Customer References region.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="2182895"></a><a id="T298884"></a><b>Defining Manufacturer Part Numbers</b></h2>
+<p><a name="d0e56615" id="d0e56615"></a><a name="d0e56622" id="d0e56622"></a><a name="INVIDMPN.mfg_qf" id="INVIDMPN.mfg_qf"></a><a name="INVIDMPN.mfg" id="INVIDMPN.mfg"></a><a name="I_t_mfgprtnum" id="I_t_mfgprtnum"></a><a name="INVIDMPN.mfg_parts" id="INVIDMPN.mfg_parts"></a>You can define manufacturer part numbers for items. You can use this information for reporting purposes; and in catalog searches for particular items.</p>
+<p><b>To define manufacturers</b></p>
+<ol>
+<li>
+<p>Navigate to the Manufacturers window.</p>
+<p><img width="554" height="385" src="./img/invug_manuf.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the name of the manufacturer.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To enter an item and its associated manufacturer part number from the Manufacturers window</b></p>
+<ol>
+<li>
+<p>Navigate to the Manufacturers window.</p>
+</li>
+<li>
+<p>Choose Parts.</p>
+</li>
+<li>
+<p>Enter a <a name="d0e56671" id="d0e56671"></a>manufacturer part number.</p>
+</li>
+<li>
+<p>Enter an item.</p>
+<p>You can assign the same item to multiple manufacturer part numbers.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To associate an item with an existing manufacturer part number</b></p>
+<ol>
+<li>
+<p>Navigate to the Manufacturer Part Numbers window.</p>
+<p>You can do this from the Navigator or from the Item window by choosing Manufacturer Part Numbers from the Tools menu.</p>
+</li>
+<li>
+<p>Enter a manufacturer.</p>
+</li>
+<li>
+<p>Enter a manufacturer part number.</p>
+</li>
+<li>
+<p>Enter an item.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="2119489"></a><a id="T298885"></a><b>Assigning Subinventories to an Item</b></h2>
+<p><a name="d0e56718" id="d0e56718"></a><a name="d0e56723" id="d0e56723"></a><a name="d0e56730" id="d0e56730"></a><a name="INVIDSUB.ITEM_SUBINVENTORIES" id="INVIDSUB.ITEM_SUBINVENTORIES"></a><a name="INVIDITM.item_subinventories" id="INVIDITM.item_subinventories"></a><a name="INVIDITM_M_ITEM_SUBINVENTORIES" id="INVIDITM_M_ITEM_SUBINVENTORIES"></a><a name="t_sub_itm" id="t_sub_itm"></a><a name="INVIDITM_O_ITEM_SUBINVENTORIES" id="INVIDITM_O_ITEM_SUBINVENTORIES"></a><a name="INVIDSUB.ITEM_SUBINVENTORIES_QF" id="INVIDSUB.ITEM_SUBINVENTORIES_QF"></a><a name="INVIDITM.item_subinventories_qf" id="INVIDITM.item_subinventories_qf"></a>You can assign one or more subinventories to an item. You can restrict an item to the list of subinventories by selecting <i>Restrict Subinventories</i> (Inventory tab) when the item is defined or updated.</p>
+<p>You also use the item/subinventory relationship to specify valid subinventories for zero quantity cycle counts for an item, and to specify items for an ABC analysis performed at the subinventory level. In these cases you do not have to set the <i>Restrict Subinventories</i> attribute, only establish the relationship between the item and subinventory.</p>
+<p>You can also specify planning information and locators for the item in its assigned subinventories. This information is used to perform min-max planning and replenishment processing at the subinventory level.</p>
+<p><b>To assign subinventories to an item</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Subinventories window.</p>
+<p><img width="757" height="503" src="./img/invug_itemsub3.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>On the Planning tab, enter a Subinventory to assign to the item.</p>
+</li>
+<li>
+<p>Select whether to use min-max planning for the item in this subinventory. If this subinventory uses PAR Level planning, this field is disabled.</p>
+<ul>
+<li>
+<p>If you select Min-Max Planning, enter minimum quantity and maximum quantity for on-hand values.</p>
+<ul>
+<li>
+<p>Min Qty: The minimum on-hand quantity at which to place an order.</p>
+</li>
+<li>
+<p>Max Qty: The suggested maximum quantity to maintain as on-hand inventory. This maximum displays on the min-max report, indicating that any order placed should not force the on-hand quantity of the item to exceed this quantity.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you do not select <i>Min-Max Planning</i>, the item is not planned at the subinventory level for this subinventory.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Optionally, enter a locator for the item subinventory. Locators identify physical areas where you store inventory items, and can be used for tracking item quantities by locator location.</p>
+</li>
+<li>
+<p>Optionally, if you are using periodic automated replenishment (PAR) level counting, then enter a PAR level to define the stock replenishment level. You can assign an item to multiple locators within a subinventory, each with a different PAR level. However you cannot assign multiple PAR levels to the same locator.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To enter order modifier information for the item</b></p>
+<ol>
+<li>
+<p>Select the <a name="d0e56813" id="d0e56813"></a>Order Modifiers tabbed region.</p>
+</li>
+<li>
+<p>Enter the fixed lot multiple quantity for the item.</p>
+</li>
+<li>
+<p>Enter the minimum order quantity for the item in this subinventory.</p>
+<p>Planning algorithms (min-max and replenishment) place orders of at least this quantity.</p>
+</li>
+<li>
+<p>Enter the maximum order quantity of the item in this subinventory.</p>
+<p>Planning algorithms (min-max and replenishment) place orders no greater than this quantity.</p>
+</li>
+</ol>
+<p><b>To enter sourcing information for the item</b></p>
+<ol>
+<li>
+<p>Select the <a name="d0e56842" id="d0e56842"></a>Sourcing tabbed region.</p>
+</li>
+<li>
+<p>Select a source type.</p>
+<p><i>Inventory</i>: Fill requests for this item in this subinventory by creating internal requisitions that pull stock from existing inventory.</p>
+<p><i>Supplier</i>: Fill requests for this item in this subinventory by creating purchase requisitions that become purchase orders, procuring the material from a supplier.</p>
+<p><i>Subinventory</i>: Fill requests for this item in this subinventory by creating move order requisitions that become move orders, pulling the stock from an existing subinventory.</p>
+</li>
+<li>
+<p>Enter the organization from which an internal requisition draws the item.</p>
+<p>You must enter a value here when you select <i>Inventory</i> as the replenishment source type.</p>
+</li>
+<li>
+<p>Enter the subinventory within the source organization from which an internal requisition draws the item.</p>
+<p>You enter a value here only when you select <i>Inventory</i> as the replenishment source type and you specify a source organization.</p>
+</li>
+</ol>
+<p><b>To enter lead time information for the item in this subinventory:<a name="d0e56891" id="d0e56891"></a></b></p>
+<ol>
+<li>
+<p>Select the <a name="d0e56898" id="d0e56898"></a>Lead Times tabbed region.</p>
+</li>
+<li>
+<p>Enter pre-processing, processing, and post-processing lead times.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<p><a href="T291651T298833.htm#I_t_updattr">Updating Organization Level Items</a></p>
+<h2><a name="2111358"></a><a id="T298886"></a><b>Assigning Items to a Subinventory</b></h2>
+<p><a name="d0e56919" id="d0e56919"></a><a name="t_itm_sub" id="t_itm_sub"></a><a name="INVSDSUB.item_subinventories" id="INVSDSUB.item_subinventories"></a><a name="INVSDSUB.item_subinventories_qf" id="INVSDSUB.item_subinventories_qf"></a>You can assign items to a given subinventory. Assigning items to a subinventory does <i>not</i> restrict the subinventory to that list of items. Rather, the items are restricted to that subinventory. Thus, you can always issue and receive unrestricted items to any subinventory, but you can only issue and receive restricted items to their list of subinventories. You activate the list of subinventories for a restricted item by setting the <i>Restrict Subinventories</i> attribute when defining or updating items.</p>
+<p>You also use the item/subinventory relationship to specify valid subinventories for zero quantity cycle counts for an item, and to specify items for an ABC analysis performed at the subinventory level. In these cases you do not have to set the <i>Restrict Subinventories</i> attribute, only establish the relationship between the item and subinventory.</p>
+<p><b>To assign items to a subinventory</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Subinventories window.</p>
+<p><img width="756" height="506" src="./img/invug_itemsubpar.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>On the Planning tab, select the item to assign to the subinventory.</p>
+</li>
+<li>
+<p>Select whether to use min-max planning for the item in this subinventory.</p>
+<p><strong><span>Note:</span></strong> If this subinventory uses PAR Level planning, this field is disabled.</p>
+<ul>
+<li>
+<p>If you select Min-Max Planning, enter minimum quantity and maximum quantity for the on-hand values.</p>
+<ul>
+<li>
+<p>Min Qty: The minimum on-hand quantity at which to place an order.</p>
+</li>
+<li>
+<p>Max Qty: The suggested maximum quantity to maintain as on-hand inventory. This maximum displays on the min-max report, indicating that any order placed should not force the on-hand quantity of the item to exceed this quantity.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you do not select Min-Max Planning, the item is not planned at the subinventory level for this subinventory.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Optionally, enter a locator for the item subinventory. Locators identify physical areas where you store inventory items, and can be used for tracking item quantities by locator location.</p>
+</li>
+<li>
+<p>Optionally, if you are using periodic automated replenishment (PAR) level counting, then enter a PAR level to define the stock replenishment level. You can assign an item to multiple locators within a subinventory, each with a different PAR level. However you cannot assign multiple PAR levels to the same locator.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To enter <a name="d0e56995" id="d0e56995"></a>order modifier information for the item</b></p>
+<ol>
+<li>
+<p>Select the Order Modifiers tabbed region.</p>
+</li>
+<li>
+<p>Enter the fixed lot multiple quantity or repetitive rate (units per day) for the item.</p>
+</li>
+<li>
+<p>Enter the minimum order quantity or repetitive rate (units per day) for the item in this subinventory.</p>
+<p>Planning algorithms (min-max and replenishment) place orders of at least this quantity.</p>
+</li>
+<li>
+<p>Enter the maximum order quantity or repetitive rate (units per day) of the item in this subinventory.</p>
+<p>Planning algorithms (min-max and replenishment) place orders no greater than this quantity.</p>
+</li>
+</ol>
+<p><b>To enter <a name="d0e57024" id="d0e57024"></a>sourcing information for the item</b></p>
+<ol>
+<li>
+<p>Select the Sourcing tabbed region.</p>
+</li>
+<li>
+<p>Select a source type.</p>
+<p><i>Inventory</i>: Fill requests for this item in this subinventory by creating internal requisitions that pull stock from existing inventory.</p>
+<p><i>Supplier</i>: Fill requests for this item in this subinventory by creating purchase requisitions that become purchase orders, procuring the material from a supplier.</p>
+<p><i>Subinventory</i>: Fill requests for this item in this subinventory by creating move order requisitions that become move orders, pulling the stock from an existing subinventory.</p>
+</li>
+<li>
+<p>Enter the organization from which an internal requisition draws the item.</p>
+<p>You must enter a value here when you choose <i>Inventory</i> as the replenishment source type.</p>
+</li>
+<li>
+<p>Enter the subinventory within the source organization from which an internal requisition draws the item.</p>
+<p>You enter a value here only when you choose <i>Inventory</i> as the replenishment source type and you specify a source organization.</p>
+</li>
+</ol>
+<p><b>To enter lead time information for the item in this subinventory</b></p>
+<ol>
+<li>
+<p>Select the Lead Times tabbed region.</p>
+</li>
+<li>
+<p>Enter preprocessing, processing, and post-processing lead times.</p>
+</li>
+</ol>
+<p><b>To enter the <a name="d0e57088" id="d0e57088"></a>locator to which to assign the item in the subinventory</b></p>
+<ol>
+<li>
+<p>Enter a locator.</p>
+<p>You restrict an item to the list of locators you define here by setting the <i>Restrict Locators</i> attribute when you define the item.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<p><a href="T291651T298833.htm#I_t_updattr">Updating Organization Level Items</a></p>
+<h2><a name="2189727"></a><a id="T298887"></a><b>Defining Item Revisions</b></h2>
+<p><a name="d0e57114" id="d0e57114"></a><a name="d0e57119" id="d0e57119"></a><a name="I_t_itmrev" id="I_t_itmrev"></a><a name="INVIDREV.revisions" id="INVIDREV.revisions"></a><b>To define an item revision</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Revisions window from one of the following windows:</p>
+<ul>
+<li>
+<p>Master Items Summary folder or Master Item window</p>
+</li>
+<li>
+<p>Organization Items Summary folder or Organization Item window</p>
+</li>
+<li>
+<p>Bills of Material window</p>
+</li>
+<li>
+<p>Engineering Change Orders window</p>
+<p><img width="870" height="600" src="./img/invug_Item_Revisions.gif" alt="the picture is described in the document text"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter an alphanumeric revision for the item.</p>
+<p>You can use letters, numbers, and characters (such as *, &amp;, and #) to label revisions. Letters are always in upper case and numbers may include decimals. To ensure that revisions sort properly, decimals should always be followed by a number. Valid revisions can include: A, B, 01, 02, A1, B1, 1A, 1B, 0.0, 0.1, A.0, A.1, and so on. Revisions are sorted according to ASCII rules. Each revision must be greater than the previous revision. Therefore, you cannot use revision 10 after revision 9 because, according to ASCII sorting, 10 precedes 9.</p>
+<p>The value you entered in the Starting Revision field in the Organization Parameters window displays as the starting revision for the item.</p>
+<p>For revisions that have the same effective date, the revisions sort in descending order starting with the last revision you entered.</p>
+</li>
+<li>
+<p>Enter the effective date (start date) of the item revision.</p>
+<p>You can also define and update item revisions through engineering change orders (ECOs).</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p>Defining Engineering Change Orders, <i>Oracle Engineering User's Guide</i></p>
+<h2><a name="2111364"></a><a id="T298888"></a><b>Defining Item Transaction Defaults</b></h2>
+<p><a name="d0e57183" id="d0e57183"></a><a name="I_t_itmtrx78def" id="I_t_itmtrx78def"></a><a name="INVSDODS.item_txn_defaults" id="INVSDODS.item_txn_defaults"></a><a name="INVSDODS.find_item_sub_defaults" id="INVSDODS.find_item_sub_defaults"></a><a name="INVSDODS.find_item_loc_defaults" id="INVSDODS.find_item_loc_defaults"></a>Use this form to define a default subinventory and/or locator for an item for shipping, receiving, and move order transactions. Oracle Shipping Execution displays the default shipping information when you ship an item. Oracle Inventory displays the default receiving information when you receive an item. For move orders, Oracle Inventory derives the default put away locator when you transact an item into a locator controlled subinventory if no locator was specified by the creator of the move order.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define at least one item</li>
+<li>Define at least one subinventory</li>
+<li>Define at least one locator for the subinventory</li>
+</ul>
+<p><b><a name="d0e57209" id="d0e57209"></a><a name="d0e57214" id="d0e57214"></a>To define a default transaction subinventory for an item</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Transaction Defaults window.</p>
+<p><img width="756" height="386" src="./img/invug_itmtrndf.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the Subinventories tabbed region.</p>
+</li>
+<li>
+<p>Enter an item for which you want to assign a default transaction subinventory.<a name="d0e57237" id="d0e57237"></a> <a name="d0e57245" id="d0e57245"></a></p>
+</li>
+<li>
+<p>Select the type of default:<a name="d0e57256" id="d0e57256"></a></p>
+<p><i>Shipping</i>: Assign a default shipping subinventory to the item.</p>
+<p><i>Receiving</i>: Assign a default receiving subinventory to the item.</p>
+<p><i>Move Order Receipt:</i> Assign a default move order subinventory to the item.</p>
+<p><strong><span>Note:</span></strong> The Item Transaction Defaults window defaults the subinventory only for non-reservable items. Pick release defaults to this subinventory only for non-reservable items.</p>
+</li>
+<li>
+<p>Enter a subinventory to use as the default transaction subinventory for the item.</p>
+<p>If you restrict the item to specific subinventories using either the Subinventory Items window or the Item Subinventories window, you can only choose those subinventories in this field. See: <a href="T291651T298833.htm#t_sub_itm">Assigning Subinventories to an Item</a> or <a href="T291651T298833.htm#t_itm_sub">Assigning Items to a Subinventory</a></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b><a name="d0e57300" id="d0e57300"></a><a name="d0e57305" id="d0e57305"></a>To define a default transaction locator for an item in a subinventory</b></p>
+<ol>
+<li>
+<p>Select the Locators tabbed region.</p>
+</li>
+<li>
+<p>Enter an item to assign a default transaction locator for the subinventory associated with the item.</p>
+</li>
+<li>
+<p>Enter a subinventory to use as the default transaction subinventory for the item.</p>
+<p>If you restrict the item to specific subinventories using either the Subinventory Items window or the Item Subinventories window, you can only choose those subinventories in this field. See: <a href="T291651T298833.htm#t_sub_itm">Assigning Subinventories to an Item</a> or <a href="T291651T298833.htm#t_itm_sub">Assigning Items to a Subinventory</a></p>
+<p><strong><span>Important:</span></strong> If you already defined a default shipping and/or receiving subinventory in the Subinventories tabbed region, you should assign the same subinventory to the item in this field.</p>
+</li>
+<li>
+<p>Select the type of default:</p>
+<p><i>Shipping</i>: Assign a default shipping locator to the item for this subinventory.</p>
+<p><i>Receiving</i>: Assign a default receiving locator to the item for this subinventory.</p>
+<p><i>Move Order Receipt:</i> Assign a default move order locator to the item for this subinventory.</p>
+</li>
+<li>
+<p>Enter a locator to use as the default transaction locator for the item in this subinventory.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<p><a href="T291651T291796.htm#I_t_dsubinv">Defining Subinventories</a></p>
+<p><a href="T291651T291796.htm#I_t_dlocators">Defining Stock Locators</a></p>
+<h2><a name="8367798"></a><a id="T662812"></a><b>Tagging Material Classification Type for Items</b></h2>
+<p><a name="d0e57376" id="d0e57376"></a><a name="d0e57381" id="d0e57381"></a><a name="tamacltyit" id="tamacltyit"></a><a name="INVSDMCC_MCC" id="INVSDMCC_MCC"></a>The material classification tagging feature assigns and tracks the material classification of an item. Tagging requires the following setup steps:</p>
+<ol>
+<li>
+<p>Set up the material classification lookup types.</p>
+</li>
+<li>
+<p>Define the flexfield structure and flexfield segments that will use the lookup types.</p>
+</li>
+<li>
+<p>Assign material classification codes to the flexfield segments or attributes.</p>
+</li>
+</ol>
+<p><b>To set up material classification lookup types:</b></p>
+<ol>
+<li>
+<p>Navigate to the Inventory responsibility, click the <b>Setup</b> link, and then click <b>Lookups</b> window. The <b>Manufacturing Lookups</b> window is displayed.</p>
+</li>
+<li>
+<p>Query for Type = MTL_CLASSIFICATION_TYPES. This is defined as a user extensible lookup with the Access Level as User.</p>
+</li>
+<li>
+<p>Create lookup values.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To define the flexfield structure and flexfield segments to use the lookup types:</b></p>
+<ol>
+<li>
+<p>Navigate to the Inventory responsibility and click the <b>Setup</b> link, then the <b>Flexfields</b> link, the <b>Descriptive</b> link, and then <b>Segments</b> window. The <b>Descriptive Flexfield Segments</b> window is displayed.</p>
+</li>
+<li>
+<p>Query for Title = Material Classification Types.</p>
+</li>
+<li>
+<p>Create context values based on the business requirement. This flexfield structure is used to store and validate information when you define the material classification codes.</p>
+</li>
+<li>
+<p>Freeze and compile the flexfield structure.</p>
+</li>
+</ol>
+<p><b>To assign material classification codes to the flexfield segments or attributes:</b></p>
+<ol>
+<li>
+<p>Navigate to the Inventory responsibility and click the <b>Setup</b> link, the <b>Transactions</b> link, and then <b>Material Classification Codes</b> window.</p>
+</li>
+<li>
+<p>Create classification codes.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p>After the setup is complete, you can tag an item for material classification in the <b>Item Master</b> window.</p>
+<p><b>To add material classification tagging for an item:</b></p>
+<ol>
+<li>
+<p>Navigate to the Inventory responsibility and click the <b>Items</b> link and then <b>Master Item</b> window.</p>
+</li>
+<li>
+<p>Query for the item.</p>
+</li>
+<li>
+<p>Select a value from the <b>Material Classification Type</b> drop-down list in the <b>Inventory</b> tab.</p>
+</li>
+<li>
+<p>Save your work. This enables the <b>Material Classification Tagging Assignment</b> option in the <b>Actions</b> menu.</p>
+</li>
+<li>
+<p>Access the <b>Material Classification Tagging Assignment</b> window through the <b>Actions</b> menu.</p>
+</li>
+<li>
+<p>Add the required transaction type.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p>You can assign a material classification code to the following transaction types only:</p>
+<ul>
+<li>
+<p>PO Receipt</p>
+</li>
+<li>
+<p>Sales Order Pick</p>
+</li>
+<li>
+<p>Internal Order Pick</p>
+</li>
+<li>
+<p>Sales Order Issue</p>
+</li>
+<li>
+<p>Internal Order Issue</p>
+</li>
+</ul>
+<p><strong><span>Important:</span></strong> PO Receipt transaction type is not available for the lot-controlled items.</p>
+<p>If an item is tagged with a Transaction Type in the <b>Material Classification Tagging Assignment</b> window, then it is mandatory to select the appropriate material classification code when the item is picked or shipped for a sales order or internal sales order.</p>
+<p>You can assign a material classification code when you receive material. Use this code to track movement of the material inside an organization or across organizations. You can tag the material classification code:</p>
+<ul>
+<li>
+<p>At receipt for the WMS-enabled organizations</p>
+</li>
+<li>
+<p>At pick or ship for the WMS-enabled and the nonWMS-enabled organizations</p>
+</li>
+</ul>
+<p>Once a material classification type is associated with an item, the item must not have pending transactions. Items that are tagged with a material classification code and serial controlled items with the <b>At Receipt</b> and <b>Predefined</b> options are mutually exclusive.</p>
+<p>Other methods to add material classification tagging to an item are:</p>
+<ul>
+<li>
+<p>In the <b>Master Item</b> window:</p>
+<ul>
+<li>
+<p>Create an item from a template that has an enabled material classification tagging attribute.</p>
+</li>
+<li>
+<p>Create an item from another item that has a material classification tagging assignment.</p>
+</li>
+<li>
+<p>Apply a template that has an enabled material classification tagging attribute to an existing item.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the Open Item Interface:</p>
+<ul>
+<li>
+<p>Create or update item from a template that has an enabled material classification tagging attribute.</p>
+</li>
+<li>
+<p>Create item from another item that has a material classification tagging assignment.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong><span>Important:</span></strong> If an item is tagged for material classification, then you must always provide a Material Classification Type.</p>
+<p>The following example explains the material classification tagging process.</p>
+<p>Freemont Corporation manufactures and assembles submarine parts. The company uses various items from various locations. Material Classification tagging enables Freemont Corporation to track details about these items and to confirm those details at shipping.</p>
+<p>The steps required to tag an item are as follows:</p>
+<ol>
+<li>
+<p>Log in to Oracle Inventory Management and access the Manufacturing and Distribution Manager responsibility.</p>
+</li>
+<li>
+<p>Navigate to the <b>Manufacturing Lookups</b> window.</p>
+</li>
+<li>
+<p>In this window, define two lookups. Set the Type to MTL_CLASSIFICATION_TYPES and use the following lookup details:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>10</td>
+<td>COO</td>
+<td>Country of Origin</td>
+</tr>
+<tr valign="top">
+<td>20</td>
+<td>PC</td>
+<td>Package Code</td>
+</tr>
+</table>
+<p>The Access Level must be set to User. Select the <b>Enable</b> check box to enable the material classification type.</p>
+</li>
+<li>
+<p>Navigate to the <b>Descriptive Flexfield Segments</b> window.</p>
+</li>
+<li>
+<p>Enter the <b>Application</b> as Inventory and <b>Title</b> as Material Classification Types. In the Context Field Values section, enter the following values:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Code</b></th>
+<th scope="col"><b>Meaning</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>10</td>
+<td>COO</td>
+<td>Country of Origin</td>
+</tr>
+<tr valign="top">
+<td>20</td>
+<td>PC</td>
+<td>Package Code</td>
+</tr>
+</table>
+<p>Select the <b>Enabled</b> check box.</p>
+</li>
+<li>
+<p>Select a line and click the <b>Segments</b> button to provide the segments summary. Select the COO line and define multiple segments to associate with the material classification type, as follows:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Number</b></th>
+<th scope="col"><b>Name</b></th>
+<th scope="col"><b>Window Prompt</b></th>
+<th scope="col"><b>Column</b></th>
+<th scope="col"><b>Value Set</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>COO</td>
+<td>Country of Origin</td>
+<td>ATTRIBUTE1</td>
+<td>COO</td>
+</tr>
+</table>
+<p>Select the <b>Displayed</b> check box and the <b>Enabled</b> check box.</p>
+</li>
+<li>
+<p>Freeze and compile the descriptive flexfield structure.</p>
+</li>
+<li>
+<p>Define unique material classification codes, which is a combination of code-type and descriptive flexfield, as follows:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Classification Code</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Type</b></th>
+</tr>
+<tr valign="top">
+<td>COO-MX</td>
+<td>Country of Origin-Mexico</td>
+<td>COO</td>
+</tr>
+<tr valign="top">
+<td>PC-AB</td>
+<td>Package Code</td>
+<td>PC</td>
+</tr>
+</table>
+</li>
+<li>
+<p>Navigate to <b>Inventory</b>, <b>Items</b>, and then <b>Master Items</b>. Select the item that you want to tag with a material classification code. In the <b>Master Item</b> window, <b>Inventory</b> tab, select a value for the <b>Material Classification Type</b> field from the LOV.</p>
+</li>
+<li>
+<p>Select <b>Material Classification Tagging Assignment</b> from the <b>Actions</b> menu.</p>
+</li>
+<li>
+<p>Assign transaction type as Sales Order Issue or Internal Order Issue.</p>
+</li>
+<li>
+<p>Enter the <b>Material Classification Code</b> as COO-MX or PC-AB (as appropriate) in the <b>Transact Move Order Line Allocations</b> window. The code is provided as a confirmation before the item is ship confirmed.</p>
+</li>
+</ol>
+<h3><b>Updating Material Classification Code</b></h3>
+<p>You can update the material classification code from the <b>Material Workbench</b> window or the <b>Material Workbench</b> HTML page.</p>
+<ul>
+<li>
+<p>To update the material classification code, you must navigate up to the last Stock Keeping Unit (SKU).</p>
+</li>
+<li>
+<p>For items with material classification type other than COO, the material classification code will be Null at the time of PO receipt. You can update the material classification code once material is In Inventory.</p>
+</li>
+</ul>
+<p>To update the material classification code from the <b>Material Workbench</b> window:</p>
+<ol>
+<li>
+<p>Navigate to the <b>Material Workbench</b> window, <b>Tools</b> menu, and then select menu option <b>Material Classification Code Update</b>.</p>
+<p>The <b>Material Classification Code Update</b> window appears.</p>
+</li>
+<li>
+<p>Enter the details and click <b>Update</b>.</p>
+</li>
+</ol>
+<p>To update the material classification code from the <b>Material Workbench</b> HTML page:</p>
+<ol>
+<li>
+<p>Navigate to the <b>Material Workbench</b> HTML page.</p>
+</li>
+<li>
+<p>Select the material classification code.</p>
+</li>
+<li>
+<p>From the <b>Actions</b> list, select <b>Material Classification Code Update</b>.</p>
+<p>The <b>Material Classification Code Update</b> page appears.</p>
+</li>
+<li>
+<p>Enter the details and click <b>Apply</b>.</p>
+</li>
+</ol>
+<h2><a name="30040704"></a><a id="T2006536"></a><b>Assigning Item Status for Multiple Organizations</b></h2>
+<p><a name="assign_itst_multiorgs" id="assign_itst_multiorgs"></a><a name="INVIDITM_M_ITEM_STATUS_CHANGE" id="INVIDITM_M_ITEM_STATUS_CHANGE"></a>Use the <b>Change Item Status for Organizations</b> window to perform a mass change to the item&rsquo;s status in all organizations where this item exists and you have access. For more information about which organizations a responsibility can access by mapping responsibilities to organizations, see <i>Defining Organization Access</i>.</p>
+<p><b>Steps:</b></p>
+<ol>
+<li>
+<p>Navigate to the <b>Master Item</b> window.</p>
+</li>
+<li>
+<p>Select an item to change the status.</p>
+</li>
+<li>
+<p>From the <b>Actions</b> menu, select <b>Change Item Status for Organizations</b>. The <b>Change Item Status for Organizations</b> window appears.</p>
+</li>
+<li>
+<p>Select the new status from the <b>Target Status</b> LOV.</p>
+<p><strong><span>Important:</span></strong> The <b>Org</b> column displays the active organizations that you can access.</p>
+</li>
+<li>
+<p>Select the <b>Apply</b> check box for each organization where you want to change the item's status.</p>
+</li>
+<li>
+<p>Click <b>Submit</b>.</p>
+<p>This initiates the <i>Import Items</i> concurrent program, which performs the mass change to the item&rsquo;s status in the selected organizations.</p>
+</li>
+<li>
+<p>(Optional) Check the status of the concurrent request ID from the <b>Requests</b> window. To access the <b>Requests</b> window, navigate to the <b>View</b> menu, then select the <b>Requests</b> option. In the <b>Find Requests</b> window, click <b>Find</b>.</p>
+</li>
+<li>
+<p>In the <b>Master Item</b> window, re-query the item to view the changed status.</p>
+</li>
+</ol>
+<h2><a name="2188943"></a><a id="T298889"></a><b>Searching for Items</b></h2>
+<p><a name="d0e58091" id="d0e58091"></a><a name="d0e58096" id="d0e58096"></a><a name="I_t_itmsrch" id="I_t_itmsrch"></a><a name="INVIVCSU.search_criteria" id="INVIVCSU.search_criteria"></a><a name="INVIVCSU.matching_items" id="INVIVCSU.matching_items"></a><a name="INVIVCSU.catalog" id="INVIVCSU.catalog"></a>Use the Item Search window to search for items based on any combination of criteria you specify. For example, you can view all items:</p>
+<ul>
+<li>
+<p>matching specified inventory detail, or having a specified descriptive element value</p>
+</li>
+<li>
+<p>belonging to a specified category</p>
+</li>
+<li>
+<p>related to or that are substitutes for a specified item</p>
+</li>
+<li>
+<p>having a particular cross-reference</p>
+</li>
+<li>
+<p>matching specified purchasing information</p>
+</li>
+</ul>
+<p>You can specify as much or as little criteria as you want. The search returns all items that match all the criteria you entered.</p>
+<p><b>To specify the search criteria for an item</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Search window. The Find Items window appears.</p>
+<p><img width="592" height="505" src="./img/invug_finditm.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter an organization in which to search for an item. If you choose null you can search across organizations, but you must enter some other type of search criteria.</p>
+</li>
+<li>
+<p>Enter an item value to use as search criteria. You can enter an item, a partial value with a wildcard, or leave the field blank. If you leave the field blank, the search is made for all items.</p>
+<p><strong><span>Note:</span></strong> This item field is for entering search criteria only. A list of items is not available and the value you enter is not validated. This allows you to enter partial values and wildcards to enhance search capabilities.</p>
+</li>
+<li>
+<p>Optionally, enter a base model, to identify the model from which an ATO configuration was created.</p>
+<p><strong><span>Note:</span></strong> Oracle Purchasing does not use this field.</p>
+</li>
+<li>
+<p>Optionally, enter an item status. See: <a href="T291651T291798.htm#I_t_ditstatus">Defining Item Status Codes</a>.</p>
+</li>
+<li>
+<p>Indicate whether quantity information should display. If you query on non-quantity criteria, quantity information is not displayed unless you check this option.</p>
+</li>
+<li>
+<p>Optionally, enter search criteria into any combination of the following tabbed regions:</p>
+<ul>
+<li>
+<p><i>Cross</i> <i>References</i>: Enter a cross-reference type (the group of cross-reference names) and a value (the entity you cross-reference to the item) that corresponds to the type you specified. See: <a href="T291651T291798.htm#I_t_dx78reftype">Defining Cross-Reference Types</a>.</p>
+</li>
+<li>
+<p><i>Item</i> <i>Relationships</i>: Enter the relationship type and the related item. Items can be <i>Related</i> in a non-specific way or they can <i>Substitute</i> for each other. See: <a href="T291651T298833.htm#I_t_itmrelat">Defining Item Relationships</a>.</p>
+</li>
+<li>
+<p><i>Purchase</i> <i>Details</i>: Enter the manufacturer name and part number, the supplier name, item number and contract number, or a blanket agreement number. See: <a href="T291651T298833.htm#I_t_mfgprtnum">Defining Manufacturer Part Numbers</a>.</p>
+</li>
+<li>
+<p><i>Item</i> <i>Categories</i>: Enter a category set and an associated category. See: <a href="T291651T291798.htm#I_t_categset">Defining Category Sets</a> and <a href="T291651T291798.htm#I_t_categ">Defining Categories</a>.</p>
+</li>
+<li>
+<p><i>Quantity</i> <i>Types</i>: Indicate whether to search for items using the <i>Available to Reserve</i> quantity or the <i>On-Hand Quantity</i>, choose a condition for comparing the quantity type to a specified quantity, and specify a quantity for which to search.</p>
+</li>
+<li>
+<p><i>Item</i> <i>Catalogs</i>: Enter a catalog group, descriptive element names and values, or indicate whether you want to search for items you have specified as having a complete catalog. You specify that an item has a complete catalog when you have entered values for all the required descriptive elements. See: <a href="T291651T291798.htm#I_t_dcatlgrp">Defining Item Catalog Groups</a> and <a href="T291651T291798.htm#I_t_descelemt">Defining Descriptive Elements</a>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>When you have entered your criteria choose the Find button. The results of the search appear in the Item Search window.</p>
+<p>Information for matching items displays including the item, description, organization, unit of measure, and quantity. The quantity is displayed only if you entered quantity related criteria.</p>
+</li>
+</ol>
+<p><b>To view more information about a matching item</b></p>
+<ol>
+<li>
+<p>Choose an option from the Tools menu to navigate to a new window providing further information about the item.</p>
+</li>
+</ol>
+<h2><a name="2063083"></a><a id="T298853"></a><b>Item Deletion</b></h2>
+<p><a name="d0e58271" id="d0e58271"></a><a name="I_c_itmdel" id="I_c_itmdel"></a>The major use of item delete is to correct data entry errors. For example, if you defined an item with the wrong primary unit of measure, you can use the delete function to remove the item from your database. If you use an item (buy it, stock it, transact it, and so on) you can either obsolete the item and prevent its further use or you can first remove all references to the item and then delete it. Oracle Inventory checks all possible references to an item and does not allow it to be deleted until every reference is removed. Once an item is <i>used</i>, references to it are created. <i>Using</i> an item means buying it on a purchase order, creating on-hand quantity via cycle count or physical inventory, assigning the item to a bill of material, building the item on a job or repetitive schedule, and so on. This means that if you transact an item, for example, you must first purge the transactions before you can delete the item.</p>
+<p><strong><span>Note:</span></strong> Note that deleted items are not archived.</p>
+<h3><a id="T298861"></a> <b>Define Delete Constraints<a name="d0e58293" id="d0e58293"></a></b></h3>
+<p>You can define your own delete constraints that are checked before deleting an item. User-defined delete constraints supplement the standard predefined item delete conditions that Oracle provides. Use the Delete Constraint window to define your own delete conditions.</p>
+<p>You can check for references to an item before deleting it. You can also check for references without having to delete the item.</p>
+<p>See: Creating Custom Delete Constraints, <i>Oracle Bills of Material User's Guide</i>.</p>
+<h3><a id="T298862"></a> <b>Entities Checked When Deleting<a name="d0e58320" id="d0e58320"></a></b></h3>
+<p>The following table presents conditions that are checked before an item is deleted:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Delete Constraint</b></th>
+<th scope="col"><b>Conditions checked</b></th>
+</tr>
+<tr valign="top">
+<td>ITM_CON3</td>
+<td>Transaction history in MTL_MATERIAL_TRANSACTIONS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON4</td>
+<td>Pending transactions in MTL_MATERIAL_TRANSACTIONS_TEMP</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON5</td>
+<td>On-hand balances in MTL_ONHAND_QUANTITIES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON6</td>
+<td>Physical inventory history in MTL_PHYSICAL_ADJUSTMENTS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON7</td>
+<td>Physical inventory tags in MTL_PHYSICAL_INVENTORY_TAGS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON8</td>
+<td>Replenishment counts in MTL_REPLENISH_LINES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON9</td>
+<td>Potential replenishment counts in MTL_REPLENISH_LINES_INT</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON11</td>
+<td>Uncounted cycle count requests for the item in MTL_CYCLE_COUNT_ENTRIES with status code &gt; 1</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON12</td>
+<td>Planned receipts and intransit quantities in MTL_SUPPLY</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON13</td>
+<td>Pending transactions in MTL_TRANSACTIONS_INTERFACE</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON14</td>
+<td>A bill of materials for the item in BOM_BILL_OF_MATERIALS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON15</td>
+<td>The item is a component on a bill in BOM_INVENTORY_COMPONENTS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON16</td>
+<td>A routing exists in BOM_OPERATIONAL_ROUTINGS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON17</td>
+<td>The item is a substitute component for a bill in BOM_SUBSTITUTE_COMPONENTS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON18</td>
+<td>Any forecasts containing the item in MRP_FORECAST_ITEMS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON19</td>
+<td>Master schedules containing the item in MRP_SCHEDULE_ITEMS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON20</td>
+<td>A copy of an MRP planned item in MRP_SYSTEM_ITEMS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON21</td>
+<td>The item appears as a revised component in ENG_REVISED_COMPONENTS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON22</td>
+<td>The item appears as a revised item or a use up item on an engineering change order (ECO) in ENG_REVISED_ITEMS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON23</td>
+<td>Discrete jobs or repetitive schedules for the item (assembly) in WIP_ENTITIES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON24</td>
+<td>Discrete jobs or repetitive schedules that require the item in WIP_REQUIREMENT_OPERATIONS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON25</td>
+<td>'Blanket' or 'contract' Purchase Orders for the item in PO_LINES and PO_HEADERS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON26</td>
+<td>Shipments of the item in RCV_SHIPMENT_LINES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON27</td>
+<td>Requisitions for the item in PO_REQUISITION_LINES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON28</td>
+<td>Potential requisitions for the item in PO_REQUISITIONS_INTERFACE</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON29</td>
+<td>Any ReqExpress template lines for the item in PO_REQEXPRESS_LINES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON30</td>
+<td>An autosource rule for the item exists in PO_AUTOSOURCE_RULES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON31</td>
+<td>Any PO lines for the item with a ship-to location in the current organization in PO_LINES and PO_LINE_LOCATIONS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON32</td>
+<td>Receiving transactions for the item in RCV_TRANSACTIONS_INTERFACE</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON33</td>
+<td>Any discrete jobs to build the item in WIP_DISCRETE_JOBS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON34</td>
+<td>Any potential discrete jobs or repetitive schedules for the item to be loaded into Oracle Work in Process in WIP_JOB_SCHEDULE_INTERFACE</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON35</td>
+<td>The item is identified as a purchased item resource in BOM_RESOURCES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON36</td>
+<td>No invoices, or credit memo or commitment line transactions exist in RA_CUSTOMER_TRX_LINES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON37</td>
+<td>Cost update adjustment details for the item in CST_STD_COST_ADJ_VALUES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON38</td>
+<td>Cost roll up and cost type purge information in CST_COST_TYPE_HISTORY</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON39</td>
+<td>The item in any ABC compile in MTL_ABC_COMPILES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON40</td>
+<td>The item in any ABC class assignments in MTL_ABC_ASSIGNMENTS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON41</td>
+<td>Any demand for the item in MTL_USER_DEMAND</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON42</td>
+<td>Any supply for the item in MTL_USER_SUPPLY</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON43</td>
+<td>The item is included in a bill of resource set in CRP_BILL_OF_RESOURCE_ITEMS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON44</td>
+<td>Sales order lines for the item exist in SO_LINES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON45</td>
+<td>Sales order line details exist for the item in SO_LINE_DETAILS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON46</td>
+<td>Picking lines exist in SO_PICKING_LINES</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON47</td>
+<td>Any upgrade history for the item in CST_STANDARD_COSTS</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON48</td>
+<td>Items in the master organization existing in a child organization where the item fails delete constraints for that child organization</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON49</td>
+<td>Pull sequence exists for this item (MTL_KANBAN_PULL_SEQUENCES)</td>
+</tr>
+<tr valign="top">
+<td>ITM_CON50</td>
+<td>Kanban cards exist for this item (MTL_KANBAN_CARDS)</td>
+</tr>
+</table>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

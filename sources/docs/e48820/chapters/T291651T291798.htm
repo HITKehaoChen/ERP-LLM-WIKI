@@ -1,0 +1,4933 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T291797.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T298833.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">10/31</span> <!-- End Header -->
+<h1>Item Setup and Control</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T291805">Overview of Item Setup and Control</a></li>
+<li><a href="#T291834">Implementing the Item Master Organization</a></li>
+<li><a href="#T291835">Item Master Business Example</a></li>
+<li><a href="#T291836">Item Attribute Controls</a></li>
+<li><a href="#T291838">Control Level Dependencies</a></li>
+<li><a href="#T291839">Item Status Control</a></li>
+<li><a href="#T291840">Item-Defining Attributes</a></li>
+<li><a href="#T291841">Status Attributes and Item Status Control</a></li>
+<li><a href="#T291843">Relationships Between Attributes</a></li>
+<li><a href="#T291845">Interdependent Attributes</a></li>
+<li><a href="#T291846">Updatable Attributes</a></li>
+<li><a href="#T291848">Defining Item Attribute Controls</a></li>
+<li><a href="#T291849">Defining Container Types</a></li>
+<li><a href="#T291850">Defining Item Status Codes</a></li>
+<li><a href="#T291851">Defining and Viewing Pending Statuses</a></li>
+<li><a href="#T291852">Defining Picking Rules</a></li>
+<li><a href="#T291853">Defining Item Types</a></li>
+<li><a href="#T291806">Item Templates</a></li>
+<li><a href="#T291854">Defining Item Templates</a></li>
+<li><a href="#T291855">Copying Item Templates</a></li>
+<li><a href="#T291856">Defining Cross-Reference Types</a></li>
+<li><a href="#T291857">Assigning Cross-Reference Types</a></li>
+<li><a href="#T291858">Defining Commodity Codes</a></li>
+<li><a href="#T291859">Defining Customer Items</a></li>
+<li><a href="#T291860">Setting Customer Item Defaults</a></li>
+<li><a href="#T291861">Defining Customer Item Cross References</a></li>
+<li><a href="#T308620">Overview of Item Categories</a></li>
+<li><a href="#T291862">Item Category Flexfield Structures</a></li>
+<li><a href="#T291863">Defining Categories</a></li>
+<li><a href="#T291864">Defining Category Sets</a></li>
+<li><a href="#T291865">Cartonization</a></li>
+<li><a href="#T291866">Defining Default Category Sets</a></li>
+<li><a href="#T291867">Assigning Items to Categories</a></li>
+<li><a href="#T291868">Copying Items with Category Assignments</a></li>
+<li><a href="#T291869">Examples Overview</a></li>
+<li><a href="#T291870">Planning Example</a></li>
+<li><a href="#T291871">Purchasing Example</a></li>
+<li><a href="#T291872">Inventory Example</a></li>
+<li><a href="#T291873">Unlimited Additional Category Sets</a></li>
+<li><a href="#T291874">Specifying Recommended Categories</a></li>
+<li><a href="#T291875">Defining Category Accounts</a></li>
+<li><a href="#T291876">Overview of Item Cataloging</a></li>
+<li><a href="#T291877">Defining Item Catalog Groups</a></li>
+<li><a href="#T291878">Concatenated Item Descriptions</a></li>
+<li><a href="#T291879">Defining Descriptive Elements</a></li>
+<li><a href="#T308639">Defining Aliases</a></li>
+<li><a href="#T308638">Item Cataloging Examples</a></li>
+</ul>
+<h2><a name="1753412"></a><a id="T291805"></a><b>Overview of Item Setup and Control</b></h2>
+<p><a name="d0e39662" id="d0e39662"></a><a name="I_itmsuov" id="I_itmsuov"></a>You must set certain controls and reference options before defining items. These enable you to maintain, group, reference, query, and delete your items. Once you have defined items, you can set up other parameters, such as item cross references, to control the use of items.</p>
+<h2><a name="1753413"></a><a id="T291834"></a><b>Implementing the Item Master Organization</b></h2>
+<p><a name="d0e39675" id="d0e39675"></a><a name="I_t_impitmstr" id="I_t_impitmstr"></a>You define items in one organization. To distinguish it from others, we call it the Item Master organization. Other organizations (child organizations) refer to the Item Master for item definition. After you define an item in the Item Master, you can assign it to any number of other organizations.</p>
+<p>There is no functional or technical difference between the Item Master organization and other organizations. However, for simplicity, Oracle recommends that you limit the Item Master to just an item definition organization.</p>
+<p>Oracle also recommends that you do not define multiple item masters. This can make item definition and maintenance confusing. In addition, multiple item masters are distinct entities, with no relationship to each other. You cannot associate items in one item master organization with another item master organization. You cannot copy items across item master organizations.</p>
+<p><b>To <a name="d0e39693" id="d0e39693"></a>create the item master</b></p>
+<ol>
+<li>
+<p>Use the Organization window to create the organization you want to use as the Item Master. See: Creating an Organization, <i>Oracle HRMS Enterprise and Workforce Management Guide</i>.</p>
+</li>
+<li>
+<p>Use the Organization Parameters window to specify that organization as the Item Master. See: <a href="T291651T291796.htm#I_t_invparam">Defining Organization Parameters</a>.</p>
+<p>This is also where you assign child organizations to the Item Master. The item master organization uses itself as the Item Master.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#r_itmstrex">Item Master Business Example</a></p>
+<p><a href="T291651T291798.htm#I_itmsuov">Overview of Item Setup and Control</a>.</p>
+<h2><a name="1753415"></a><a id="T291835"></a><b>Item Master Business Example</b></h2>
+<p><a name="r_itmstrex" id="r_itmstrex"></a>Suppose you have a distribution warehouse and a manufacturing factory. In the warehouse, the item has independent demand and is min-max planned. In the factory, the item is MRP planned and built.</p>
+<p>Using an Item Master with a warehouse and a factory as the other organizations, you define the item just once-in the Item Master. Next, you assign the item to both the warehouse and the factory. Finally, you change the planning and build attributes in each organization to describe the different behavior of the items in those organizations. You do not have to change any other information about the item; in fact, because information such as unit of measure, description, and so on is maintained at the Master level, you know it is consistent in each organization.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_impitmstr">Implementing the Item Master Organization</a></p>
+<h2><a name="1753416"></a><a id="T291836"></a><b>Item Attribute Controls</b></h2>
+<p><a name="d0e39746" id="d0e39746"></a><a name="d0e39751" id="d0e39751"></a><a name="I_c_itattcon" id="I_c_itattcon"></a>Item attributes are information about an item, such as order cost, lead time, and revision control.</p>
+<p>One of the prerequisites for defining items (and assigning values to item attributes) is setting attribute controls.</p>
+<h3><b>Control Level</b></h3>
+<p>This attribute control type determines whether you have centralized (<a name="d0e39767" id="d0e39767"></a>Master level) or decentralized (<a name="d0e39775" id="d0e39775"></a>Organization level) control of item attributes.</p>
+<p>Attributes maintained at the Master level have the same attribute values in each organization in which an item is assigned. For example, you maintain an item's primary unit of measure at the Master level.</p>
+<p>Attributes maintained at the Organization level may have different attribute values in different organizations. For example, an item may be min-max planned in a distribution organization but material requirement planning (MRP) planned in a production organization.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>Control Level</b></th>
+</tr>
+<tr valign="top">
+<td>Append</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Auto-expire ASN</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Base Model</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>BOM Item Type</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Consigned</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Container</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Continuous Inter Organization Transfers</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Convergent Supply Consumption Pattern</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Cost of Goods Sold Account</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Critical Component</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Cumulative Total Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Cumulative Manufacturing Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Default Grade</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Defaulting</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Deviation Factor +</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Deviation Factor -</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Divergent Supply Feeding Pattern</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Downloadable</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>MPP Planned</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Effectivity Control</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Electronic Format</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Encumbrance Account</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Engineering Item</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Equipment</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Event</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Expense Account</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Expiration Action</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Expiration Action Interval</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Fixed Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Forecast Type for Average Daily Demand Calculation</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Format Validation</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Grade Controlled</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Hold Days</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Horizon for Average Daily Usage Calculation</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Inventory Planning Method</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Lot Divisible</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Lot Starting Number</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Maturity Days</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Maximum Inventory Level Calculation Window</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Maximum Inventory Level Days of Supply</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Option Specific Sourcing</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Planner</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Planning Exception Set</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Postprocessing Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Prefix</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Preprocessing Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Pricing</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Primary Unit of Measure</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Processing Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Release Authorization Required</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Reorder Quantity Maximum Days of Supply</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Reorder Quantity Maximum Quantity in UOM</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Reorder Quantity Selection Fixed Order Quantity</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Replenishment Point Selection Minimum Days of Supply</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Replenishment Point Selection Minimum Quantity in UOM</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Retest Interval</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Sales Account</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Secondary Unit of Measure</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Source Organization</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Source Subinventory</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Target Inventory Level Calculation Window</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Target Inventory Level Days of Supply</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Tracking</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Under Return Tolerance</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Under Shipment Tolerance</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Variable Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Supply Subinventory</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Encumbrance Account</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Expense Account</td>
+<td>Organization</td>
+</tr>
+</table>
+<h2><a name="1753418"></a><a id="T291838"></a><b>Control Level Dependencies</b></h2>
+<p><a name="controldepend" id="controldepend"></a>You can change the control level of some attributes in special cases, or in certain circumstances. The following table shows attributes with conditionally updateable control levels and the consequences of changing the attribute control level:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>Updateable To</b></th>
+<th scope="col"><b>If</b></th>
+<th scope="col"><b>Consequences</b></th>
+</tr>
+<tr valign="top">
+<td>Item Status</td>
+<td>Master Level</td>
+<td>No pending statuses exist in any child organization</td>
+<td>All status attributes under status control or default control are updated</td>
+</tr>
+<tr valign="top">
+<td>Inventory Asset Value or Costing Enabled</td>
+<td>Master Level</td>
+<td>Organization with WIP parameters defined uses itself as the Master Organization for costing. (Cannot point to a different organization for costing when WIP parameters are defined</td>
+<td>NA</td>
+</tr>
+<tr valign="top">
+<td>Inventory Asset or Costing Enabled</td>
+<td>Master Level</td>
+<td>Item costs are the same across all organizations</td>
+<td>NA</td>
+</tr>
+<tr valign="top">
+<td>Inventory Asset Value</td>
+<td>Master or Organization Level</td>
+<td>NA</td>
+<td>Costing Enabled is updated to the same level</td>
+</tr>
+<tr valign="top">
+<td>All Item Defining Attributes</td>
+<td>Org Level</td>
+<td>Default category set for the functional area is maintained at the organization level</td>
+<td>NA</td>
+</tr>
+<tr valign="top">
+<td>Source Organization</td>
+<td>Current Organization</td>
+<td>Item is MRP planned and source subinventory is non-nettable</td>
+<td>NA</td>
+</tr>
+</table>
+<h2><a name="1753419"></a><a id="T291839"></a><b>Item Status Control</b></h2>
+<p><a name="statuscontrol" id="statuscontrol"></a><a name="d0e40397" id="d0e40397"></a>Status control describes whether certain status attributes have default values that appear when you assign a status code to an item, and whether status codes control those attribute values after the defaults are assigned to an item.</p>
+<p><strong><span>Note:</span></strong> Item Status Control differs from material status control. Item status control controls the action you can perform on an item, such as purchasing or stocking an item. Material Status controls the transactions you can perform on an item. See <a href="T291651T439508.htm#mat_stat">Overview of Material Status</a> for more information about material status control.</p>
+<p>The status attributes are:</p>
+<ul>
+<li>
+<p>BOM Allowed</p>
+</li>
+<li>
+<p>Build in WIP</p>
+</li>
+<li>
+<p>Customer Orders Enabled</p>
+</li>
+<li>
+<p>Internal Orders Enabled</p>
+</li>
+<li>
+<p>Invoice Enabled</p>
+</li>
+<li>
+<p>Transactable</p>
+</li>
+<li>
+<p>Purchasable</p>
+</li>
+<li>
+<p>Stockable</p>
+</li>
+<li>
+<p>Recipe Enabled</p>
+</li>
+<li>
+<p>Process Execution Enabled</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_c_statuscon">Status Attributes and Item Status Control</a></p>
+<p><a href="T291651T291798.htm#I_t_ditattcon">Defining Item Attribute Controls</a></p>
+<p><a href="T291651T291798.htm#I_c_itdefatt">Item Defining Attributes</a></p>
+<p><a href="T291651T291798.htm#c_rel_att">Relationships Between Attributes</a></p>
+<h2><a name="1753420"></a><a id="T291840"></a><b>Item-Defining Attributes</b></h2>
+<p><a name="d0e40465" id="d0e40465"></a><a name="d0e40470" id="d0e40470"></a><a name="I_c_itdefatt" id="I_c_itdefatt"></a>An item-defining attribute identifies the nature of an item. What designates an item as an engineering item is the attribute Engineering Item, but what controls the functionality of the item is the collection of attributes that describe it. You can buy an engineering item if you want to; set Engineering Item, Purchased, and Purchasable to <i>Yes</i>.</p>
+<p>The following table presents item defining attributes:</p>
+<h3><b>Item-Defining Attributes</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Functional Area</b></th>
+<th scope="col"><b>Item Defining Attribute</b></th>
+</tr>
+<tr valign="top">
+<td>Oracle Inventory</td>
+<td>Inventory Item</td>
+</tr>
+<tr valign="top">
+<td>Oracle Purchasing</td>
+<td>Purchased, or Internal Ordered Item</td>
+</tr>
+<tr valign="top">
+<td>Oracle MRP</td>
+<td>MRP Planning Method</td>
+</tr>
+<tr valign="top">
+<td>Oracle Cost Management</td>
+<td>Costing Enabled</td>
+</tr>
+<tr valign="top">
+<td>Oracle Engineering</td>
+<td>Engineering Item</td>
+</tr>
+<tr valign="top">
+<td>Oracle Order Management</td>
+<td>Customer Ordered Item</td>
+</tr>
+<tr valign="top">
+<td>Oracle Service</td>
+<td>Support Service, or Serviceable Product</td>
+</tr>
+</table>
+<p>When you set an item defining attribute to <i>Yes</i> the item is automatically assigned to the default category set of the corresponding functional area. For example, if you set <i>Inventory Item</i> to <i>Yes</i> the item is automatically assigned to the default category set for the Inventory functional area.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_defcatset">Defining Default Category Sets</a></p>
+<p><a href="T291651T291798.htm#I_t_ditattcon">Defining Item Attribute Controls</a></p>
+<h2><a name="1753422"></a><a id="T291841"></a><b>Status Attributes and Item Status Control</b></h2>
+<p><a name="d0e40573" id="d0e40573"></a><a name="d0e40580" id="d0e40580"></a><a name="d0e40585" id="d0e40585"></a><a name="I_c_statuscon" id="I_c_statuscon"></a>Status attributes enable and disable the functionality of an item over time. Each status attribute allows you to enable the item for a particular use. For example, if you set the status attribute <i>Purchasable</i> to <i>Yes</i>, you can put the item on a purchase order.</p>
+<p>The status attributes are related to the item defining attributes. You cannot enable a status attribute if you do not set the corresponding item defining attribute to <i>Yes</i>.</p>
+<p>The following table presents status attributes:</p>
+<h3><b>Status Attributes</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Status Attribute</b></th>
+<th scope="col"><b>Item Defining Attribute</b></th>
+<th scope="col"><b>Functional Area / Oracle Product</b></th>
+<th scope="col"><b>Functionality</b></th>
+</tr>
+<tr valign="top">
+<td>Stockable</td>
+<td>Inventory Item</td>
+<td>Inventory</td>
+<td>Enables you to store the item in an asset subinventory.</td>
+</tr>
+<tr valign="top">
+<td>Transactable</td>
+<td>Inventory Item</td>
+<td>Inventory, Order Management, Purchasing, Work in Process</td>
+<td>Enables you to transact the item in Oracle Inventory, Oracle Order Management, Oracle Purchasing and Oracle Work in Process.</td>
+</tr>
+<tr valign="top">
+<td>Purchasable</td>
+<td>Purchased</td>
+<td>Purchasing</td>
+<td>Enables you to place the item on a purchase order.</td>
+</tr>
+<tr valign="top">
+<td>Build in WIP</td>
+<td>NA</td>
+<td>Work in Process</td>
+<td>Enables you to build the item on a discrete job, a repetitive schedule, or both.</td>
+</tr>
+<tr valign="top">
+<td>Customer Orders Enabled</td>
+<td>Customer Ordered Item</td>
+<td>Order Management</td>
+<td>Enables you to place the item on a sales order.</td>
+</tr>
+<tr valign="top">
+<td>Internal Orders Enabled</td>
+<td>Internal Ordered Item</td>
+<td>Inventory, Order Management, Purchasing</td>
+<td>Enables you to create an internal sales order for the item</td>
+</tr>
+<tr valign="top">
+<td>BOM Allowed</td>
+<td>Inventory Item</td>
+<td>Bills of Material</td>
+<td>Enables you to create a bill of material for the item</td>
+</tr>
+<tr valign="top">
+<td>Invoice enabled</td>
+<td>Invoiceable Item</td>
+<td>Receivables</td>
+<td>Enables you to create an invoice for the item</td>
+</tr>
+<tr valign="top">
+<td>Recipe Enabled</td>
+<td>NA</td>
+<td>Process Manufacturing</td>
+<td>Enables you to create a recipe or formula for this item in process manufacturing.</td>
+</tr>
+<tr valign="top">
+<td>Process Execution Enabled</td>
+<td>Inventory Item</td>
+<td>Process Manufacturing</td>
+<td>Enables you to use the item in a production batch as an ingredient, product, or by-product.</td>
+</tr>
+</table>
+<p>You set status control for a status attribute with the Item Attributes Control window.</p>
+<p><b>Interdependencies for Status Attributes<a name="d0e40768" id="d0e40768"></a><a name="d0e40775" id="d0e40775"></a><a name="d0e40780" id="d0e40780"></a></b></p>
+<p>Each status attribute is dependent on the value of at least one other attribute. For example, you cannot set <i>Stockable</i> to <i>Yes</i> if you set <i>Inventory Item</i> to <i>No</i>. The following table presents interdependencies for the status attributes:</p>
+<h3><b>Interdependencies for Status Attributes</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>Must be set to</b></th>
+<th scope="col"><b>If</b></th>
+</tr>
+<tr valign="top">
+<td>Stockable</td>
+<td>No<br>
+Yes</td>
+<td>Inventory Item is set to <i>No</i><br>
+ASL is VMI enabled</td>
+</tr>
+<tr valign="top">
+<td>Transactable</td>
+<td>No<br>
+Yes</td>
+<td>Stockable is set to <i>No</i><br>
+ASL is VMI enabled</td>
+</tr>
+<tr valign="top">
+<td>Purchasable</td>
+<td>No</td>
+<td>Purchased is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Build in WIP</td>
+<td>No</td>
+<td>Inventory Item is set to <i>No</i> OR BOM Item Type is NOT set to <i>Standard</i></td>
+</tr>
+<tr valign="top">
+<td>Customer Orders Enabled</td>
+<td>No</td>
+<td>Customer Ordered Item is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Internal Orders Enabled</td>
+<td>No</td>
+<td>Internal Ordered Item is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Invoice Enabled</td>
+<td>No</td>
+<td>Invoiceable Item is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Process Execution Enabled</td>
+<td>No</td>
+<td>Inventory Item or Recipe Enabled Flag is set to <i>No</i></td>
+</tr>
+</table>
+<h3><b>Item Status Control</b></h3>
+<p><a name="d0e40934" id="d0e40934"></a><a name="d0e40941" id="d0e40941"></a><a name="d0e40946" id="d0e40946"></a><a name="d0e40953" id="d0e40953"></a>When defining an item, you can use the item attribute Item Status to control status attribute values. You determine the list of values for the Item Status attribute by defining Item Status codes. An Item Status code has a user-defined set of Yes and No values for the status attributes. The values are applied to the status attributes when you choose an Item Status code when defining an item. For example, assume that you define an Item Status named Prototype with all status attributes set to <i>Yes</i> except for Customer Orders Enabled. Next, you define another item status, Active, with all status attributes set to <i>Yes</i>. In the beginning of a product development cycle, assign the status code Prototype to an item so that you cannot place the item on a sales order. Later, assign the status code Active to allow all functions for the item. See: <a href="T291651T291798.htm#I_t_ditstatus">Defining Item Status Codes</a>.</p>
+<p>Use pending statuses to automatically update an item's status on a specified date. For each item, specify a list of pending statuses and the corresponding effective dates. See <a href="T291651T291798.htm#I_t_stathist">Defining and Viewing Pending Statuses</a>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_ditattcon">Defining Item Attribute Controls</a></p>
+<h2><a name="1753427"></a><a id="T291843"></a><b>Relationships Between Attributes</b></h2>
+<p><a name="d0e40983" id="d0e40983"></a><a name="d0e40990" id="d0e40990"></a><a name="c_rel_att" id="c_rel_att"></a>When you define items, Oracle Inventory enforces particular relationships between some of the item attributes:</p>
+<ul>
+<li>
+<p>Required attributes: You must enter a value for the attribute based on the settings for other related attributes.</p>
+</li>
+<li>
+<p>Interdependent attributes: You can enter only certain values depending on other attribute values.</p>
+</li>
+<li>
+<p>Updatable attributes: You can update values under certain conditions.</p>
+</li>
+<li>
+<p>Control level dependencies: You can update the control level of some attributes only under special conditions and with certain consequences.</p>
+</li>
+</ul>
+<h3><b>Required Attribute Values<a name="d0e41017" id="d0e41017"></a><a name="d0e41024" id="d0e41024"></a></b></h3>
+<p>You must enter values for certain attributes if some related attributes have values as shown in the following table:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>If</b></th>
+</tr>
+<tr valign="top">
+<td>Contract Coverage Template</td>
+<td>Contract Item Type is set to <i>Service</i> or <i>Warranty</i></td>
+</tr>
+<tr valign="top">
+<td>Contract Duration</td>
+<td>Contract Item Type is set to <i>Service</i> or <i>Warranty</i></td>
+</tr>
+<tr valign="top">
+<td>Contract Duration Period</td>
+<td>Contract Item Type is set to <i>Service</i> or <i>Warranty</i></td>
+</tr>
+<tr valign="top">
+<td>Demand Time Fence Days</td>
+<td>Demand Time Fence is set to <i>User-defined</i></td>
+</tr>
+<tr valign="top">
+<td>Encumbrance Account</td>
+<td>Reverse Encumbrance parameter is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Expense Account</td>
+<td>Inventory Asset Value is set to <i>No</i> and Inventory Item is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Outside Processing Unit Type</td>
+<td>Outside Processing Item is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Planning Time Fence Days</td>
+<td>Demand Time Fence is set to <i>User-defined</i></td>
+</tr>
+<tr valign="top">
+<td>Planning Time Fence Days</td>
+<td>Planning Time Fence is set to <i>User-defined</i></td>
+</tr>
+<tr valign="top">
+<td>Release Time Fence Days</td>
+<td>Release Time Fence is set to <i>User-defined</i></td>
+</tr>
+<tr valign="top">
+<td>Repetitive Planning</td>
+<td>MRP Planning Method is set to <i>MPS planning</i> or <i>MRP planning</i></td>
+</tr>
+<tr valign="top">
+<td>Service Duration</td>
+<td>Service Duration Period is not null</td>
+</tr>
+<tr valign="top">
+<td>Shelf Life Days</td>
+<td>Lot Expiration (Shelf Life) Control is set to <i>Item shelf life days</i></td>
+</tr>
+<tr valign="top">
+<td>Source Organization</td>
+<td>Replenishment Source Type is set to <i>Inventory</i> or <i>Subinventory.</i></td>
+</tr>
+<tr valign="top">
+<td>Starting Lot Number</td>
+<td>Lot Control is set to <i>Full lot control,</i> and Lot Generation Organization Parameter is set to <i>Item Level</i></td>
+</tr>
+<tr valign="top">
+<td>Starting Lot Prefix</td>
+<td>Lot Control is set to <i>Full lot control</i> and Lot Generation organization parameter is set to Item Level</td>
+</tr>
+<tr valign="top">
+<td>Starting Serial Number</td>
+<td>Serial Number Control is set to <i>Predefined serial numbers</i></td>
+</tr>
+<tr valign="top">
+<td>Starting Serial Prefix</td>
+<td>Serial Number Control is set to <i>Predefined serial numbers</i></td>
+</tr>
+<tr valign="top">
+<td>Substitution Window Days</td>
+<td>Substitution Window is set to <i>User Defined</i></td>
+</tr>
+</table>
+<h2><a name="1753430"></a><a id="T291845"></a><b>Interdependent Attributes</b></h2>
+<p><a name="d0e41239" id="d0e41239"></a><a name="d0e41246" id="d0e41246"></a><a name="interdepend" id="interdepend"></a>Certain attribute values depend on other attribute values. For example, <i>Planning Method</i> must be <i>Not Planned</i> if <i>Pick Components</i> is set to <i>Yes.</i> The attribute interdependencies are:</p>
+<h3><b>Interdependent Attributes</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>Must be</b></th>
+<th scope="col"><b>If</b></th>
+</tr>
+<tr valign="top">
+<td>Activity Source</td>
+<td>Null</td>
+<td>Asset Item Type is set to anything other than <i>Asset Activity</i></td>
+</tr>
+<tr valign="top">
+<td>Assemble to Order</td>
+<td>No</td>
+<td>Pick Components is set to <i>Yes</i> or BOM Item Type is set to <i>Planning</i></td>
+</tr>
+<tr valign="top">
+<td>Assemble to Order or Pick Components</td>
+<td>Yes</td>
+<td>BOM Item Type is set to <i>Model</i> or <i>Option Class</i></td>
+</tr>
+<tr valign="top">
+<td>Asset Activity Cause</td>
+<td>Null</td>
+<td>Asset Item Type is set to anything other than <i>Asset Activity</i></td>
+</tr>
+<tr valign="top">
+<td>Asset Activity Notification</td>
+<td>Null</td>
+<td>Asset Item Type is set to anything other than <i>Asset Activity</i></td>
+</tr>
+<tr valign="top">
+<td>Asset Activity Shutdown Type</td>
+<td>Null</td>
+<td>Asset Item Type is set to anything other than <i>Asset Activity</i></td>
+</tr>
+<tr valign="top">
+<td>Asset Activity Source</td>
+<td>Null</td>
+<td>Asset Item Type is set to anything other than <i>Asset Activity</i></td>
+</tr>
+<tr valign="top">
+<td>Asset Activity Type</td>
+<td>Null</td>
+<td>Asset Item Type is anything other than <i>Asset Activity</i></td>
+</tr>
+<tr valign="top">
+<td>AutoCreated Configuration</td>
+<td>Null</td>
+<td>Base Model is <i>Null</i></td>
+</tr>
+<tr valign="top">
+<td>Base Model</td>
+<td>Null</td>
+<td>BOM Item Type does not equal <i>Standard</i> or Pick Components is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>BOM Allowed</td>
+<td>No</td>
+<td>If organization process manufacturing enabled, and tracking is set to primary and secondary.</td>
+</tr>
+<tr valign="top">
+<td>ATP Components</td>
+<td>None</td>
+<td>Pick Components is set to <i>No</i>, and Assemble to Order is set to <i>No</i>, and WIP Supply Type is set to anything other than <i>Phantom</i></td>
+</tr>
+<tr valign="top">
+<td>Billing Type</td>
+<td>Null</td>
+<td>Contract Item Type is set to anything other than Subscription</td>
+</tr>
+<tr valign="top">
+<td>Billing Type</td>
+<td>Not Null</td>
+<td>Enable Service Billing set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>BOM Item Type</td>
+<td>Standard</td>
+<td>Effectivity Control is set to <i>Model / Unit Number</i></td>
+</tr>
+<tr valign="top">
+<td>BOM Item Type</td>
+<td>Model</td>
+<td>Configurator Model Type is set to <i>container</i></td>
+</tr>
+<tr valign="top">
+<td>BOM Model Type</td>
+<td>No</td>
+<td>If the organization is process manufacturing enabled, and tracking is set to primary and secondary.</td>
+</tr>
+<tr valign="top">
+<td>Build in WIP</td>
+<td>No</td>
+<td>Inventory Item is set to <i>No</i> or BOM Item Type does not equal <i>Standard</i></td>
+</tr>
+<tr valign="top">
+<td>Check ATP</td>
+<td>Null</td>
+<td>Contract Item Type is set to anything other than Subscription</td>
+</tr>
+<tr valign="top">
+<td>Check Material Shortage</td>
+<td>No</td>
+<td>Transactable is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Container Type</td>
+<td>Null</td>
+<td>Container is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Contract Coverage Template</td>
+<td>Null</td>
+<td>Contract Item Type is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Contract Duration</td>
+<td>Null</td>
+<td>Contract Item Type is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Contract Duration Period</td>
+<td>Null</td>
+<td>Contract Item Type is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Contract Item Type</td>
+<td>Null or Subscription</td>
+<td>Inventory Item is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Contract Item Type</td>
+<td>Subscription</td>
+<td>Subscription Dependency enabled is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Create Configured Item, BOM</td>
+<td>Null</td>
+<td>If the item is not an ATO model.</td>
+</tr>
+<tr valign="top">
+<td>Create Fixed Asset</td>
+<td>Yes</td>
+<td>Track in Install Base is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Costing Enabled</td>
+<td>Yes</td>
+<td>Inventory Asset is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Customer Ordered</td>
+<td>No</td>
+<td>BOM Item Type is set to <i>Planning</i> or <i>Product Family</i></td>
+</tr>
+<tr valign="top">
+<td>Customer Ordered</td>
+<td>No</td>
+<td>Contract Item Type is <i>Warranty</i></td>
+</tr>
+<tr valign="top">
+<td>Customer Orders Enabled</td>
+<td>Yes</td>
+<td>Configurator Model Type is set to <i>container</i></td>
+</tr>
+<tr valign="top">
+<td>Customer Orders Enabled</td>
+<td>No</td>
+<td>Customer Ordered is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Customer Orders Enabled</td>
+<td>Yes</td>
+<td>Customer Ordered is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Cycle Count Enabled</td>
+<td>No</td>
+<td>Contract Item Type is set to anything other than Subscription</td>
+</tr>
+<tr valign="top">
+<td>Defaulting</td>
+<td>Fixed, Default, or No Default</td>
+<td>Tracking is Set to <i>Primary & Secondary</i></td>
+</tr>
+<tr valign="top">
+<td>Defaulting</td>
+<td>Default or No Default</td>
+<td>Tracking is set to <i>Primary</i> and Pricing is set to <i>Secondary</i></td>
+</tr>
+<tr valign="top">
+<td>Default Lot Status</td>
+<td>Null</td>
+<td>Lot Status Enabled is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Default Serial Status</td>
+<td>Null</td>
+<td>Serial Status Enabled is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Default SO Source Type</td>
+<td>Internal</td>
+<td>Ship Model Complete is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Demand Time Fence Days</td>
+<td>null</td>
+<td>Demand Time Fence is not <i>User-defined</i></td>
+</tr>
+<tr valign="top">
+<td>Deviation Factor +</td>
+<td>Null</td>
+<td>UOM Dual Control is set to <i>No Control</i></td>
+</tr>
+<tr valign="top">
+<td>Deviation Factor -</td>
+<td>Null</td>
+<td>UOM Dual Control is set to <i>No Control</i></td>
+</tr>
+<tr valign="top">
+<td>Effectivity Control</td>
+<td>Model / Unit Number</td>
+<td>Asset Item Type is <i>Asset Group</i></td>
+</tr>
+<tr valign="top">
+<td>Expense Account</td>
+<td>Yes</td>
+<td>Inventory Asset Value is <i>No</i> and Inventory Item is <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Grade</td>
+<td>N</td>
+<td>If <i>Lot Control</i> is null</td>
+</tr>
+<tr valign="top">
+<td>Height</td>
+<td>Null</td>
+<td>Dimensions UOM is <i>Null</i></td>
+</tr>
+<tr valign="top">
+<td>Inspection Required</td>
+<td>No</td>
+<td>Receipt Routing is set to anything other than <i>Inspection</i></td>
+</tr>
+<tr valign="top">
+<td>Installed Base Trackable</td>
+<td>Yes</td>
+<td>Serviceable is set to <i>shelf Yes</i> and Contract Item Type is set to <i>Null</i> or <i>Subscription</i></td>
+</tr>
+<tr valign="top">
+<td>Instance Class</td>
+<td>Null</td>
+<td>Contract Item Type is set to anything other than Subscription</td>
+</tr>
+<tr valign="top">
+<td>Instance Class</td>
+<td>Null</td>
+<td>Install Base Trackable is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Internal Ordered</td>
+<td>No</td>
+<td>BOM Item Type does not equal <i>Standard</i></td>
+</tr>
+<tr valign="top">
+<td>Internal Orders Enabled</td>
+<td>No</td>
+<td>Internal Ordered is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Internal Volume</td>
+<td>Null</td>
+<td>Container, Vehicle, or Weight UOM are set to Null.</td>
+</tr>
+<tr valign="top">
+<td>Inventory Item</td>
+<td>No</td>
+<td>Contract Item Type is set to anything other than <i>Null</i> or <i>Subscription</i></td>
+</tr>
+<tr valign="top">
+<td>Inventory Item</td>
+<td>Yes</td>
+<td>Asset Item Type, Default Receiving Subinventory, Default Move Orders Subinventory, Default Shipping Subinventory are set to anything other than <i>Null</i>; or BOM Item Type is set to <i>Product Family,</i></td>
+</tr>
+<tr valign="top">
+<td>Invoice Enabled</td>
+<td>No</td>
+<td>Invoiceable Item is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Lead Time Lot Size</td>
+<td>1</td>
+<td>Repetitive Planning is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Length</td>
+<td>Null</td>
+<td>Dimensions UOM is <i>Null</i></td>
+</tr>
+<tr valign="top">
+<td>Lot Status Enabled</td>
+<td>No</td>
+<td>Lot Control is set to <i>No Control</i></td>
+</tr>
+<tr valign="top">
+<td>Lot Split Enabled</td>
+<td>No</td>
+<td>Lot Control is set to <i>No Control</i></td>
+</tr>
+<tr valign="top">
+<td>Lot Merge Enabled</td>
+<td>No</td>
+<td>Lot Control is set to <i>No Control</i></td>
+</tr>
+<tr valign="top">
+<td>Lot Substitution Enabled</td>
+<td>No</td>
+<td>Lot Control is set to <i>No Control</i></td>
+</tr>
+<tr valign="top">
+<td>Lot Translation Enabled</td>
+<td>No</td>
+<td>Lot Control is set to <i>No Control</i></td>
+</tr>
+<tr valign="top">
+<td>Match Configuration</td>
+<td>Null</td>
+<td>If the item is not an ATO model</td>
+</tr>
+<tr valign="top">
+<td>Maximum Load Weight</td>
+<td>Null</td>
+<td>Container, Vehicle, or Weight UOM is set to <i>Null</i></td>
+</tr>
+<tr valign="top">
+<td>Minimum Fill Percentage</td>
+<td>Null</td>
+<td>Container and Vehicle are both set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Move Order Receipts Subinventory</td>
+<td>Null</td>
+<td>Transactable is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Orderable On Web</td>
+<td>No</td>
+<td>Customer Orders Enabled is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Outside Processing Item</td>
+<td>N</td>
+<td>If Purchased is set to <i>No</i> or if ASL has VMI.</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing Unit</td>
+<td>Y</td>
+<td>Outside Processing Item is <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Pick Components</td>
+<td>No</td>
+<td>Assemble to Order is set to <i>Yes</i> or BOM Item Type is set to <i>Planning</i> or Planning Method does not equal <i>Not planned</i></td>
+</tr>
+<tr valign="top">
+<td>Pick Components</td>
+<td>Yes</td>
+<td>Ship Model Complete is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Planning Time Fence Days</td>
+<td>null</td>
+<td>Planning Time Fence is not <i>User-defined</i></td>
+</tr>
+<tr valign="top">
+<td>Planning Method</td>
+<td>Not Planned</td>
+<td>Pick Components is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Postprocessing lead time</td>
+<td>0 (Zero)</td>
+<td>Make or Buy is set to <i>Make</i></td>
+</tr>
+<tr valign="top">
+<td>Purchasable</td>
+<td>No</td>
+<td>Purchasing Item is set to <i>No</i> or Contract Item Type is set to anything other than <i>Subscription</i></td>
+</tr>
+<tr valign="top">
+<td>Purchasable</td>
+<td>Yes</td>
+<td>Default SO Source Type is set to <i>External</i></td>
+</tr>
+<tr valign="top">
+<td>Purchasing Tax Code</td>
+<td>Null</td>
+<td>Taxable is set to <i>Null</i></td>
+</tr>
+<tr valign="top">
+<td>Recovered Part Disposition</td>
+<td>Null</td>
+<td>Billing Type is <i>Labor</i></td>
+</tr>
+<tr valign="top">
+<td>Release Time Fence Days</td>
+<td>Null</td>
+<td>Release Time Fence is not <i>User-defined</i></td>
+</tr>
+<tr valign="top">
+<td>Replenishment Point</td>
+<td>Minimum Quantity</td>
+<td>Either Maximum Quantity or Fixed Quantity Attributes is enabled.</td>
+</tr>
+<tr valign="top">
+<td>Replenishment Point</td>
+<td>Minimum Days of Supply</td>
+<td>Either Maximum days of Supply of Fixed Quantity is enabled.</td>
+</tr>
+<tr valign="top">
+<td>Restrict Locators</td>
+<td>Locators not restricted to predefined list</td>
+<td>Restrict Subinventories is set to <i>Subinventories not restricted to predefined list</i> or Stock Locator Control is set to <i>Dynamic entry locator control</i></td>
+</tr>
+<tr valign="top">
+<td>Restrict Subinventories</td>
+<td>Subinventories restricted to predefined list</td>
+<td>Restrict Locators is set to <i>Locators restricted to predefined list</i></td>
+</tr>
+<tr valign="top">
+<td>Returnable</td>
+<td>No</td>
+<td>Contract Item is set to anything other than <i>Subscription</i></td>
+</tr>
+<tr valign="top">
+<td>Safety Stock Method</td>
+<td>Non-MRP Planned</td>
+<td>MRP Planning Method is set to <i>Not Planned</i></td>
+</tr>
+<tr valign="top">
+<td>Secondary UOM</td>
+<td>Null</td>
+<td>UOM Dual Control is set to <i>No Control,</i> or <i>Tracking</i> and <i>Pricing</i> are both set to Primary</td>
+</tr>
+<tr valign="top">
+<td>Serial Number Generation</td>
+<td>At Receipt or Predefined</td>
+<td>Equipment is set to <i>Yes</i> or Effectivity Control is set to <i>Model / Unit Number</i></td>
+</tr>
+<tr valign="top">
+<td>Serial Status Enabled</td>
+<td>No</td>
+<td>Serial Control is set to <i>No Control</i></td>
+</tr>
+<tr valign="top">
+<td>Service Request</td>
+<td>Null. Disabled, or Inactive</td>
+<td>Contract Item Type is <i>Service</i>, <i>Warranty</i>, or <i>Usage</i></td>
+</tr>
+<tr valign="top">
+<td>Service Importance Level</td>
+<td>Null</td>
+<td>Contract Item Type is set to <i>Service</i></td>
+</tr>
+<tr valign="top">
+<td>Serviceable Product</td>
+<td>No</td>
+<td>Support Service is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Shippable</td>
+<td>No</td>
+<td>BOM Item Type is set to <i>Planning</i> or Contract Item Type is set to anything other than Subscription</td>
+</tr>
+<tr valign="top">
+<td>Source Organization</td>
+<td>Null</td>
+<td>Inventory Planning Method is set to <i>Vendor Managed</i></td>
+</tr>
+<tr valign="top">
+<td>Source Type</td>
+<td>Null</td>
+<td>Inventory Planning Method is set to <i>Vendor Managed</i></td>
+</tr>
+<tr valign="top">
+<td>Stockable</td>
+<td>No</td>
+<td>Inventory Item is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Stockable</td>
+<td>No</td>
+<td>Billing Type is <i>Labor</i> or <i>Expense</i></td>
+</tr>
+<tr valign="top">
+<td>Stockable</td>
+<td>Yes</td>
+<td>ASL is VMI</td>
+</tr>
+<tr valign="top">
+<td>Stock Locator Control</td>
+<td>No locator control or Pre- specified locator control</td>
+<td>Restrict Locators is set to <i>Locators restricted to predefined list</i></td>
+</tr>
+<tr valign="top">
+<td>Support Service</td>
+<td>No</td>
+<td>Serviceable Product is set to <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Taxable</td>
+<td>Yes</td>
+<td>Tax Code is set to anything other than <i>Null</i></td>
+</tr>
+<tr valign="top">
+<td>Transactable</td>
+<td>No</td>
+<td>Stockable is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>Transactable</td>
+<td>No</td>
+<td>Billing Type is <i>Labor</i> or <i>Expense</i></td>
+</tr>
+<tr valign="top">
+<td>Transactable</td>
+<td>Yes</td>
+<td>ASL is VMI</td>
+</tr>
+<tr valign="top">
+<td>Unit Volume</td>
+<td>Null</td>
+<td>Volume UOM is <i>Null</i></td>
+</tr>
+<tr valign="top">
+<td>Unit Weight</td>
+<td>Null</td>
+<td>Weight UOM is <i>Null</i></td>
+</tr>
+<tr valign="top">
+<td>Width</td>
+<td>Null</td>
+<td>Dimensions UOM is <i>Null</i></td>
+</tr>
+<tr valign="top">
+<td>WIP Overcompletion Tolerance Value</td>
+<td>Null</td>
+<td>Overcompletion Tolerance Type is set to <i>Null</i></td>
+</tr>
+<tr valign="top">
+<td>WIP Supply Locator</td>
+<td>Null</td>
+<td>On Organization Parameters window, Locator is set to <i>None</i> or Locator controls is Subinventory Level and Selected WIP Supply Subinventory has Locator Control as <i>None</i> or Locator controls is Subinventory Level, Selected WIP Supply Subinventory has Locator Control as Item Level, and Item Locator Control is <i>None</i>.</td>
+</tr>
+<tr valign="top">
+<td>WIP Supply Type</td>
+<td>Phantom</td>
+<td>BOM Item Type is set to <i>Option Class</i></td>
+</tr>
+</table>
+<h2><a name="1753432"></a><a id="T291846"></a><b>Updatable Attributes</b></h2>
+<p><a name="d0e42693" id="d0e42693"></a><a name="d0e42700" id="d0e42700"></a><a name="updateattribute" id="updateattribute"></a>You can change the values of some attributes in special cases. The following table shows updatable attributes and the conditions under which you can change their values:</p>
+<h3><b>Updatable Attributes</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>Updatable</b></th>
+<th scope="col"><b>If</b></th>
+</tr>
+<tr valign="top">
+<td>Asset Item Type</td>
+<td>yes</td>
+<td>Approved Supplier list does not have the VMI flag enabled or the Consigned Inventory flag deselected.</td>
+</tr>
+<tr valign="top">
+<td>ATP Components</td>
+<td>from <i>No</i> to <i>Yes</i></td>
+<td>Assemble to Order equals <i>Yes</i> or Pick Components equals <i>Yes</i> or WIP Supply Type equals <i>Phantom</i></td>
+</tr>
+<tr valign="top">
+<td>BOM Item Type</td>
+<td>No</td>
+<td>Bill of Material exists or Exists as a component of a BOM or Exists as a substitute component of a <i>standard</i> BOM. Exception: Can change from <i>Product Family</i> for components and substitute components.</td>
+</tr>
+<tr valign="top">
+<td>Costing Enabled</td>
+<td>Yes</td>
+<td>No on-hand quantity exists</td>
+</tr>
+<tr valign="top">
+<td>Demand Time Fence Days</td>
+<td>Yes</td>
+<td>Demand Time Fence equals <i>User-defined time fence</i></td>
+</tr>
+<tr valign="top">
+<td>Effectivity Control</td>
+<td>No</td>
+<td>If on-hand quantity is greater than 0 or a BOM exists for the item.</td>
+</tr>
+<tr valign="top">
+<td>Inventory Asset Value</td>
+<td>Yes</td>
+<td>No on-hand quantity exists</td>
+</tr>
+<tr valign="top">
+<td>Locator Control</td>
+<td>Yes</td>
+<td>No on-hand quantity exists</td>
+</tr>
+<tr valign="top">
+<td>Lot Control</td>
+<td>Yes</td>
+<td>No on-hand quantity exists</td>
+</tr>
+<tr valign="top">
+<td>OM Indivisible</td>
+<td>With a warning</td>
+<td>OM Indivisible is set to <i>No</i></td>
+</tr>
+<tr valign="top">
+<td>OE Transactable</td>
+<td>from <i>Yes</i> to <i>No</i></td>
+<td>No demand exists</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing Item</td>
+<td>Yes</td>
+<td>Approved Supplier list does not have the VMI flag enabled or the Consigned Inventory flag unchecked.</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing Unit</td>
+<td>Yes</td>
+<td>Purchasing Item equals <i>Yes</i></td>
+</tr>
+<tr valign="top">
+<td>Planning Time Fence Days</td>
+<td>Yes</td>
+<td>Planning Time Fence equals <i>User-defined time fence</i></td>
+</tr>
+<tr valign="top">
+<td>Release Time Fence Days</td>
+<td>Yes</td>
+<td>Release Time Fence equals <i>User-defined time fence</i></td>
+</tr>
+<tr valign="top">
+<td>Reservable</td>
+<td>Yes</td>
+<td>No reservations exist for the item</td>
+</tr>
+<tr valign="top">
+<td>Repetitive Planning</td>
+<td>Yes</td>
+<td>Not scheduled by MRP</td>
+</tr>
+<tr valign="top">
+<td>Reservation Control</td>
+<td>Yes</td>
+<td>No demand exists</td>
+</tr>
+<tr valign="top">
+<td>Revision Control</td>
+<td>Yes</td>
+<td>No on-hand quantity exists</td>
+</tr>
+<tr valign="top">
+<td>Serial Number Control</td>
+<td>Yes</td>
+<td>No on-hand quantity exists</td>
+</tr>
+<tr valign="top">
+<td>Shelf Life Control</td>
+<td>Yes</td>
+<td>No on-hand quantity exists</td>
+</tr>
+<tr valign="top">
+<td>Shippable</td>
+<td>With a warning</td>
+<td>If open sales order line exists with a value different from the new value</td>
+</tr>
+<tr valign="top">
+<td>Stockable</td>
+<td>Yes</td>
+<td>Approved Supplier list does not have the VMI flag enabled or the Consigned Inventory flag deselected.</td>
+</tr>
+<tr valign="top">
+<td>Transactable</td>
+<td>Yes</td>
+<td>Approved Supplier list does not have the VMI flag enabled or the Consigned Inventory flag deselected.</td>
+</tr>
+</table>
+<h2><a name="1753436"></a><a id="T291848"></a><b>Defining Item Attribute Controls</b></h2>
+<p><a name="d0e43007" id="d0e43007"></a><a name="d0e43012" id="d0e43012"></a><a name="d0e43017" id="d0e43017"></a><a name="d0e43024" id="d0e43024"></a><a name="d0e43031" id="d0e43031"></a><a name="d0e43036" id="d0e43036"></a><a name="d0e43043" id="d0e43043"></a><a name="d0e43050" id="d0e43050"></a><a name="INVIDCTL.item_attributes_control_window" id="INVIDCTL.item_attributes_control_window"></a><a name="INVIDCTL.blockname" id="INVIDCTL.blockname"></a><a name="INVIDCTL.folder" id="INVIDCTL.folder"></a><a name="I_t_ditattcon" id="I_t_ditattcon"></a>You can choose between centralized and decentralized control of item attributes. The control level you define for an attribute applies to all items. Defining attribute controls does not determine the value of an attribute, only the level at which it is controlled. You assign values to the attributes when you define an item.</p>
+<p><strong><span>Important:</span></strong> Oracle strongly recommends that you create only one Item Master organization and then assign all other organizations to this master. This enables you to associate the same item with a variety of assigned organizations, eliminating the need to replicate identical items between organizations. This documentation assumes you are using a single Item Master.</p>
+<p><b>To define item attribute controls</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Attribute Controls window.</p>
+<p><img width="754" height="506" src="./img/invug_itmattr.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Review the information displayed in the Group Name and Attribute Name fields to locate the desired attribute.</p>
+<p>The <i>Group Name</i> field displays the name for a group of attributes. Attributes are grouped by function, such as <i>Main</i>, <i>Inventory</i>, and <i>Receiving</i>. When you define or update items, define templates, or view item attributes, you can display the attributes for a particular group. This makes it easier to locate a specific attribute.</p>
+</li>
+<li>
+<p>Select a control level for the attribute.</p>
+<ul>
+<li>
+<p><i>Master Level</i>: Define and maintain this attribute at the Master level. For the same item, the values of this attribute are identical across all organizations.</p>
+</li>
+<li>
+<p><i>Org Level</i>: Define and maintain this attribute at the Organization level. For the same item, each organization may define a different value for this attribute.</p>
+</li>
+</ul>
+<p><strong><span>Important:</span></strong> Some attributes can only be set at a specific level. In these cases, you have only one option. See: <a href="T291651T298833.htm#I_c_defvsupd">Master Level vs. Organization Level</a>.</p>
+</li>
+<li>
+<p>Choose a status setting for each status attribute.</p>
+<ul>
+<li>
+<p><i>Defaults Value</i>: Value of this attribute, as defined by the status code, defaults when you assign the status to an item. You can change this default value.</p>
+</li>
+<li>
+<p><i>Not Used</i>: Use neither default nor status control.</p>
+</li>
+<li>
+<p><i>Sets Value</i>: Value of this attribute, as defined by the status code, defaults when you assign the status to an item. Once assigned, you cannot change the default.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_c_itattcon">Item Attribute Controls</a></p>
+<p><a href="T291651T291798.htm#I_t_ditstatus">Defining Item Status Codes</a></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<h2><a name="1753438"></a><a id="T291849"></a><b>Defining Container Types</b></h2>
+<p><a name="d0e43159" id="d0e43159"></a><a name="d0e43164" id="d0e43164"></a><a name="I_t_contyp" id="I_t_contyp"></a>Container Types are used in defining physical attributes of items.</p>
+<p><b>To define a container type</b></p>
+<ol>
+<li>
+<p>Navigate to the Container Types window from the menu.</p>
+<p><img width="755" height="458" src="./img/invug_conttyp.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique container type name.</p>
+</li>
+<li>
+<p>Enter a description of the type.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To make a container type <a name="d0e43202" id="d0e43202"></a>inactive</b></p>
+<p><b>To delete<a name="d0e43211" id="d0e43211"></a> a container type</b></p>
+<ol>
+<li>
+<p>You can delete a container type if it has not been used in defining physical attributes for an item.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T427992.htm#I_r_physattr">Physical Attributes Group</a></p>
+<h2><a name="1753442"></a><a id="T291850"></a><b>Defining Item Status Codes</b></h2>
+<p><a name="d0e43230" id="d0e43230"></a><a name="d0e43237" id="d0e43237"></a><a name="I_t_ditstatus" id="I_t_ditstatus"></a><a name="INVSDOIS.item_status" id="INVSDOIS.item_status"></a>You can use statuses to provide default values for certain item attributes to control the functionality of an item. When you update the values for a status, all items to which it is assigned are also updated.</p>
+<p><strong><span>Important:</span></strong> When your current organization is not the Item Master organization, the organization is temporarily changed to the Item Master organization until you exit this window. You can use the statuses created here in all defined organizations.</p>
+<p>A status code controls certain item attributes designated as <i>status attributes</i>. The status attributes are:</p>
+<ul>
+<li>
+<p>BOM Allowed</p>
+</li>
+<li>
+<p>Build in WIP</p>
+</li>
+<li>
+<p>Customer Orders Enabled</p>
+</li>
+<li>
+<p>Internal Orders Enabled</p>
+</li>
+<li>
+<p>Invoice Enabled</p>
+</li>
+<li>
+<p>Transactable</p>
+</li>
+<li>
+<p>Purchasable</p>
+</li>
+<li>
+<p>Stockable</p>
+</li>
+<li>
+<p>Process Execution Enabled</p>
+</li>
+<li>
+<p>Recipe Enabled</p>
+</li>
+</ul>
+<p>Associated with each status attribute is a Status Setting option. This option determines whether a status attribute value is set by the status code and is not updatable, defaulted and updatable, or not used when you define an item. You choose a Status Setting for a status attribute with the Item Attributes Controls window. You assign a status code to an item when you define the item. See: <a href="T291651T291798.htm#I_c_statuscon">Status Attributes and Item Status Control</a>.</p>
+<p><b>To define an item status</b></p>
+<ol>
+<li>
+<p>Navigate to the Status window.</p>
+<p><img width="601" height="409" src="./img/invug_status.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique name for the status code.</p>
+</li>
+<li>
+<p>For each attribute, use the Value option to indicate the functionality that is controlled by the status code.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To delete an item status</b></p>
+<ol>
+<li>
+<p>You can delete a status if it has not been used.</p>
+</li>
+</ol>
+<p><b>To make an item status<a name="d0e43327" id="d0e43327"></a> inactive</b></p>
+<ol>
+<li>
+<p>Enter the date on which the item status becomes inactive.</p>
+<p>As of this date, you can no longer assign this status to an item. The status remains valid for items to which it is already assigned.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_c_statuscon">Status Attributes and Item Status Control</a></p>
+<p><a href="T291651T291798.htm#I_t_ditattcon">Defining Item Attribute Controls</a></p>
+<h2><a name="1753446"></a><a id="T291851"></a><b>Defining and Viewing Pending Statuses</b></h2>
+<p><a name="d0e43352" id="d0e43352"></a><a name="d0e43359" id="d0e43359"></a><a name="I_t_stathist" id="I_t_stathist"></a><a name="INVISMPS.item_status" id="INVISMPS.item_status"></a><a name="INVIDITM.item_status" id="INVIDITM.item_status"></a><a name="srs.incips" id="srs.incips"></a>You can assign one or more pending statuses for an item, to be implemented on future dates. These statuses become effective on their assigned effective dates. You can also view the history of an item status.</p>
+<p><b>To create a pending status</b></p>
+<ol>
+<li>
+<p>Navigate to the Master Items Summary window and select an item.</p>
+</li>
+<li>
+<p>Choose Pending Status from the Tools menu to navigate to the Item Status History window.</p>
+<p><img width="466" height="506" src="./img/invug_stshist.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the <a name="d0e43393" id="d0e43393"></a>effective date. This is the date on which the pending status becomes effective for the item.</p>
+</li>
+<li>
+<p>Enter the name of the status to be implemented on the effective date.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e43410" id="d0e43410"></a><a name="d0e43415" id="d0e43415"></a>update an item with a pending status</b></p>
+<ol>
+<li>
+<p>Navigate to the Master Items Summary window and select an item.</p>
+</li>
+<li>
+<p>Choose Pending Status from the Tools menu to navigate to the Item Status History window.</p>
+</li>
+<li>
+<p>Select a pending status.</p>
+</li>
+<li>
+<p>Choose Implement to submit the process.</p>
+<p><strong><span>Note:</span></strong> You can also submit the request from the All Reports or Pending Status window by entering U<i>pdate item statuses with pending statuses</i> in Name field. Enter an item and organization (if necessary), and choose Submit.</p>
+</li>
+</ol>
+<p><b>To view status history</b></p>
+<ol>
+<li>
+<p>Navigate to the Master Items Summary window and select an item.</p>
+</li>
+<li>
+<p>Choose Pending Status from the Tools menu to navigate to the Item Status History window.</p>
+</li>
+<li>
+<p>View the information in the Implemented Date, Effective Date, and status Name fields.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_ditstatus">Defining Item Status Codes</a></p>
+<p><a href="T291651T291798.htm#I_c_statuscon">Status Attributes and Item Status Control</a></p>
+<h2><a name="1753450"></a><a id="T291852"></a><b>Defining Picking Rules</b></h2>
+<p><a name="d0e43471" id="d0e43471"></a><a name="d0e43476" id="d0e43476"></a><a name="d0e43483" id="d0e43483"></a><a name="d0e43486" id="d0e43486"></a><a name="d0e43489" id="d0e43489"></a><a name="I_t_defpckrul" id="I_t_defpckrul"></a><a name="INVSDOPR.pick_rule" id="INVSDOPR.pick_rule"></a><a name="INVPCKRL_INVPCKRL" id="INVPCKRL_INVPCKRL"></a>Picking rules enable you to sort picks based on criteria that you define for sales orders, process manufacturing batches, or work in process jobs. Oracle Inventory reviews the picking criteria order and the options for each criterion.</p>
+<p>After you create a picking rule, you use the rules workbench to assign the rule to a particular item.</p>
+<p><b>To define a picking rule</b></p>
+<ol>
+<li>
+<p>Navigate to the Inventory Picking Rules window.</p>
+<p><img width="755" height="334" src="./img/invug_pckrul.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique name and description for the rule.</p>
+</li>
+<li>
+<p>Select the picking restriction. The available choices are sales order, process manufacturing, and work in process.</p>
+</li>
+<li>
+<p>Enter the shelf life days if applicable. If you enter a value in this field, then the system allocates the material the number of days that you enter in the Shelf Life Days Item Master window field before the lot expires. For example, if an item is set to expire in ten days, and you enter four days in the Shelf Life Days field, then the system allocates the material at least four days before the material expires.</p>
+</li>
+<li>
+<p>Select Single Lot Allocation, to allocate only a single lot for this rule. If you do not select this check box, the system may use this rule to allocate more than one lot.</p>
+</li>
+<li>
+<p>Select Partial Allocation Allowed to accept a partial allocation of a lot. If you do not select this check box, then the system allocates only one lot when using this rule.</p>
+<p><strong><span>Note:</span></strong> Single lot allocation controls whether the system can allocate multiple lots for a particular demand. Partial lot allocation controls whether the system can allocate quantities of a lot less than the total lot quantity available.</p>
+</li>
+<li>
+<p>Click Customer Spec Match to require quality specification matching.</p>
+</li>
+<li>
+<p>Select the sort criteria for the rule. You can rank sort criteria to determine the importance level for that criterion. For example, a criterion ranked 1 is higher in value than a criterion that is ranked 3. The sort criteria are:</p>
+<ul>
+<li>
+<p>Lot: You can sort by lot based on the following criteria:</p>
+<ul>
+<li>
+<p>Lot Number Asc: Sorts the lot by number in ascending order.</p>
+</li>
+<li>
+<p>Lot Number Desc: Sorts the lot by number in descending order.</p>
+</li>
+<li>
+<p>FIFO: Sorts the lot by first in first out.</p>
+</li>
+<li>
+<p>FEFO: Sorts the lot by first expired first out.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Revision: You can sort by revision based on the following criteria:</p>
+<ul>
+<li>
+<p>Revision Asc: Sorts by revision in ascending order.</p>
+</li>
+<li>
+<p>Revision Asc: Sorts by revision in descending order.</p>
+</li>
+<li>
+<p>Effective Date Asc: Sorts by revision effective date in ascending order.</p>
+</li>
+<li>
+<p>Effect Date Desc: Sorts by revision effective date in descending order.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Subinventory: You can sort by subinventory based on the following criteria:</p>
+<ul>
+<li>
+<p>Subinventory Asc: Sorts by subinventory in ascending order.</p>
+</li>
+<li>
+<p>Subinventory: Desc: Sorts by subinventory in descending order.</p>
+</li>
+<li>
+<p>Receipt Date Asc: Sorts by receipt date in ascending order.</p>
+</li>
+<li>
+<p>Receipt Date: Desc: Sorts by receipt date in descending order.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Locator: You can choose to sort by locator based on the following criteria:</p>
+<ul>
+<li>
+<p>Locator Asc: Sorts by locator in ascending order.</p>
+</li>
+<li>
+<p>Locator Desc: Sort by locator in descending order.</p>
+</li>
+<li>
+<p>Receipt Date Asc: Sorts by receipt date in ascending order.</p>
+</li>
+<li>
+<p>Receipt Date: Desc: Sorts by receipt date in descending order.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+<li>
+<p>Click Enable to enable the rule.</p>
+</li>
+<li>
+<p>Click Assignment to open the rules workbench.</p>
+</li>
+</ol>
+<p><b>To assign a picking rule</b></p>
+<p>Use the Rules Workbench to assign picking rules that were created on the Inventory Picking Rules window. The system automatically assigns a sequence number and return type to the rule. You can modify the sequence number, but you cannot modify the return type. You can assign your rule to any combination of criteria the Rules Workbench displays. For example, if you create a picking rule that allocates material by lot number in ascending order followed by locator in ascending order, you can assign it to an item in the Rules Workbench. This means for picking, the system allocates the lowest lot number of the item in the lowest locator number where the item resides.</p>
+<ol>
+<li>
+<p>Navigate to the Rules Workbench window.</p>
+<p><img width="755" height="507" src="./img/invug_ruleassn.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter values in any combination of the following fields. These values determine how the system allocates the material according to the rule that you created. For example, if you created a rule that allocates lots based on FIFO, you can assign that rule to a particular customer, so that material you pick for that customer is allocated based on FIFO.</p>
+<ul>
+<li>
+<p>Customer</p>
+</li>
+<li>
+<p>Item</p>
+</li>
+<li>
+<p>Item Category</p>
+</li>
+<li>
+<p>Item Type</p>
+</li>
+<li>
+<p>Assignment Group</p>
+</li>
+<li>
+<p>Source Subinventory</p>
+</li>
+<li>
+<p>Supplier</p>
+</li>
+<li>
+<p>Order Type</p>
+</li>
+<li>
+<p>Freight Code</p>
+</li>
+<li>
+<p>Project</p>
+</li>
+<li>
+<p>Task</p>
+</li>
+<li>
+<p>Transaction Action</p>
+</li>
+<li>
+<p>Destination Subinventory</p>
+</li>
+<li>
+<p>Transaction Reason</p>
+</li>
+<li>
+<p>Transaction Source</p>
+</li>
+<li>
+<p>Transaction Type</p>
+</li>
+<li>
+<p>UOM Class</p>
+</li>
+<li>
+<p>Date Type</p>
+</li>
+<li>
+<p>Date From</p>
+</li>
+<li>
+<p>Date To</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click Enabled to enable the rule for the given set of criteria.</p>
+<p><strong><span>Note:</span></strong> You can only modify disabled rules.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_itmsuov">Overview of Item Setup and Control</a></p>
+<p>Describing the Rules Workbench, <i>Oracle Warehouse Management User's Guide</i></p>
+<p>For information on defining <i>pick slip</i> grouping rules, see the <i>Oracle Shipping Execution User's Guide</i>.</p>
+<a name="d0e43732" id="d0e43732"></a>
+<h2><a name="1753453"></a><a id="T291853"></a><b>Defining Item Types</b></h2>
+<p><a name="d0e43739" id="d0e43739"></a><a name="I_t_itmtypqc" id="I_t_itmtypqc"></a>The User Item Type item attribute is a QuickCode you use when you define an item. You can use the types provided by Oracle Inventory or create your own.</p>
+<p><b>To define your own item types</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Type QuickCodes window. The <i>User</i> access level is selected indicating you can add or modify QuickCodes without restriction.</p>
+<p><img width="753" height="454" src="./img/invug_itemtyp.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p><a name="d0e43768" id="d0e43768"></a>Enter a unique alphanumeric code describing the item type. You can define a maximum of 250 QuickCodes for a single QuickCode type.</p>
+<p>You cannot change the values in this field after saving them. To remove an obsolete QuickCode you can either disable the code, enter an end date, or change the meaning and description to match a replacement code.</p>
+</li>
+<li>
+<p>Enter the meaning of the item type. Inventory uses this value in the list of values for the User Item Type item attribute in the Items window.</p>
+</li>
+<li>
+<p><a name="d0e43783" id="d0e43783"></a><a name="d0e43790" id="d0e43790"></a>Optionally, enter from and to effective dates.</p>
+<p>If you enter an Effective From date you cannot use the item type before this date. If you leave this field blank, the item type is valid immediately.</p>
+<p>If you enter an Effective To date you cannot use the item type after this date. Once an item type expires, you cannot define items using the item type, but <i>can</i> query items that already use the item type. If you do not enter an end date, your item type is valid indefinitely.</p>
+</li>
+<li>
+<p>Indicate whether the item type is enabled. An item type must be enabled before you can define items using the item type. If you disable an item type you cannot use it to define items but <i>can</i> query items that already use this item type.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T427992.htm#I_r_mainattr">Main Attribute Group</a></p>
+<p><a href="T291651T291798.htm#I_itmsuov">Overview of Item Setup and Control</a>.</p>
+<p>Application Utilities Lookups and Application Object Library Lookups , <i>Oracle E-Business Suite Developer&rsquo;s Guide</i></p>
+<h2><a name="1753455"></a><a id="T291806"></a><b>Item Templates</b></h2>
+<p><a name="d0e43830" id="d0e43830"></a><a name="INVIDTMP.COPY_TEMPLATE" id="INVIDTMP.COPY_TEMPLATE"></a><a name="I_c_itmtempl" id="I_c_itmtempl"></a>Templates are defined sets of attributes that you can use over and over to create many similar items. Templates make initial item definition easier. Oracle recommends that you use templates-either those Oracle provides or those you define-when you define your items.</p>
+<h2><a name="1753456"></a><a id="T291807"></a><b>Templates Provided by Oracle</b></h2>
+<p><a name="d0e43846" id="d0e43846"></a>The following tables describe the seeded templates that Oracle provides. Each table shows a different set of templates.</p>
+<h3><a id="T634144"></a><b>Templates Table One</b></h3>
+<ul>
+<li>
+<p>ATO Model</p>
+</li>
+<li>
+<p>ATO Option Class</p>
+</li>
+<li>
+<p>ATO Item</p>
+</li>
+<li>
+<p>Finished Good</p>
+</li>
+<li>
+<p>Kit</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>Model</b></th>
+<th scope="col"><b>Opt Class</b></th>
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>FG</b></th>
+<th scope="col"><b>Kit</b></th>
+</tr>
+<tr valign="top">
+<td>Assemble to Order</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>BOM Item Type</td>
+<td>Model</td>
+<td>Option Class</td>
+<td>Standard</td>
+<td>Standard</td>
+<td>Standard</td>
+</tr>
+<tr valign="top">
+<td>BOM Allowed</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Build in WIP</td>
+<td>-</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Costing Enabled</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Customer Ordered Item</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Customer Orders Enabled</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Forecast Control</td>
+<td>Consume and Derive</td>
+<td>Consume and Derive</td>
+<td>Consume and Derive</td>
+<td>Consume and Derive</td>
+<td>Consume and Derive</td>
+</tr>
+<tr valign="top">
+<td>Include in Rollup</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Inventory Asset Value</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Inventory Item</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Invoiceable Item</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Invoice Enabled</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>MRP Planning Method</td>
+<td>MPS Planning</td>
+<td>MRP Planning</td>
+<td>MRP Planning</td>
+<td>MPS Planning</td>
+<td>Not Planned</td>
+</tr>
+<tr valign="top">
+<td>Make or Buy</td>
+<td>Make</td>
+<td>Make</td>
+<td>Make</td>
+<td>Make</td>
+<td>Make</td>
+</tr>
+<tr valign="top">
+<td>OE Transactable</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing Item</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Pick Components</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Purchased</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Purchasable</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Reservation Control</td>
+<td>-</td>
+<td>-</td>
+<td>Reservable</td>
+<td>Reservable</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Rounding Control</td>
+<td>-</td>
+<td>-</td>
+<td>Round order quantities</td>
+<td>Round order quantities</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Ship Model Complete</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Shippable</td>
+<td>-</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Stockable</td>
+<td>-</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Transactable</td>
+<td>-</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>User Item Type</td>
+<td>ATO model</td>
+<td>ATO option class</td>
+<td>ATO Item</td>
+<td>FG</td>
+<td>K</td>
+</tr>
+<tr valign="top">
+<td>WIP Supply Type</td>
+<td>Assembly pull</td>
+<td>Phantom</td>
+<td>Push</td>
+<td>Push</td>
+<td>Assembly Pull</td>
+</tr>
+</table>
+<h3><a id="T634145"></a><b>Templates Table Two</b></h3>
+<ul>
+<li>
+<p>Outside Processing Item</p>
+</li>
+<li>
+<p>PTO Model</p>
+</li>
+<li>
+<p>PTO Option Class</p>
+</li>
+<li>
+<p>Phantom Item</p>
+</li>
+<li>
+<p>Planning Item</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>Outside Processing Item</b></th>
+<th scope="col"><b>PTO Model</b></th>
+<th scope="col"><b>PTO op class</b></th>
+<th scope="col"><b>Phantom</b></th>
+<th scope="col"><b>Planning</b></th>
+</tr>
+<tr valign="top">
+<td>Assemble to Order</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>BOM Item Type</td>
+<td>Standard</td>
+<td>Model</td>
+<td>Option Class</td>
+<td>Standard</td>
+<td>Planning</td>
+</tr>
+<tr valign="top">
+<td>BOM Allowed</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Build in WIP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Costing Enabled</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Customer Ordered Item</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Customer Orders Enabled</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Forecast Control</td>
+<td>-</td>
+<td>Consume and Derive</td>
+<td>Consume and Derive</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Include in Rollup</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Inventory Asset Value</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-<br>
+Yes</td>
+</tr>
+<tr valign="top">
+<td>Inventory Item</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Invoiceable Item</td>
+<td>-</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Invoice Enabled</td>
+<td>-</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>MRP Planning Method</td>
+<td>MRP Planning</td>
+<td>Not Planned</td>
+<td>Not Planned</td>
+<td>MRP Planning</td>
+<td>Not Planned</td>
+</tr>
+<tr valign="top">
+<td>Make or Buy</td>
+<td>-</td>
+<td>Make</td>
+<td>Make</td>
+<td>Make</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>OE Transactable</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing Item</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Pick Components</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Purchased</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Purchasable</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Reservation Control</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Rounding Control</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Ship Model Complete</td>
+<td>-</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Shippable</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Stockable</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Transactable</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>User Item Type</td>
+<td>OP</td>
+<td>PTO Model</td>
+<td>PTO Optional Class</td>
+<td>PH</td>
+<td>PL</td>
+</tr>
+<tr valign="top">
+<td>WIP Supply Type</td>
+<td>Supplier</td>
+<td>-</td>
+<td>Phantom</td>
+<td>Phantom</td>
+<td>-</td>
+</tr>
+</table>
+<h3><a id="T634146"></a><b>Templates Table Three</b></h3>
+<ul>
+<li>
+<p>Purchased</p>
+</li>
+<li>
+<p>Reference Item</p>
+</li>
+<li>
+<p>Subassembly</p>
+</li>
+<li>
+<p>Supply Item</p>
+</li>
+<li>
+<p>Freight</p>
+</li>
+<li>
+<p>Product Family</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attributes</b></th>
+<th scope="col"><b>Purchased Item</b></th>
+<th scope="col"><b>Reference Item</b></th>
+<th scope="col"><b>Sub</b></th>
+<th scope="col"><b>Supply Item</b></th>
+<th scope="col"><b>Freight</b></th>
+<th scope="col"><b>Product Family</b></th>
+</tr>
+<tr valign="top">
+<td>Assemble to Order</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>ATP Components</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>BOM Item Type</td>
+<td>Standard</td>
+<td>Standard</td>
+<td>Standard</td>
+<td>Standard</td>
+<td>-</td>
+<td>Product Family</td>
+</tr>
+<tr valign="top">
+<td>BOM Allowed</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Build in WIP</td>
+<td>-</td>
+<td>-</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Check ATP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>None</td>
+</tr>
+<tr valign="top">
+<td>Costing Enabled</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Customer Ordered Item</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Customer Orders Enabled</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Cycle Count Enabled</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Engineering Item</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Forecast Control</td>
+<td>Consume and Derive</td>
+<td>-</td>
+<td>Consume and Derive</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Include in Rollup</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Internal Ordered Item</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Internal Orders Enabled</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Inventory Asset Value</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Inventory Item</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Invoiceable Item</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Invoice Enabled</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Make or Buy</td>
+<td>Buy</td>
+<td>-</td>
+<td>Make</td>
+<td>Buy</td>
+<td>-</td>
+<td>Make</td>
+</tr>
+<tr valign="top">
+<td>MRP Planning Method</td>
+<td>MRP Planning</td>
+<td>Not Planned</td>
+<td>MRP Planning</td>
+<td>Not Planned</td>
+<td>-</td>
+<td>Not Planned</td>
+</tr>
+<tr valign="top">
+<td>OE Transactable</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing Item</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Pick Components</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>NO</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Primary UOM</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>Each</td>
+</tr>
+<tr valign="top">
+<td>Purchasable</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>Yes</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Purchased</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Release Time Fence</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>Do not Autorelease</td>
+</tr>
+<tr valign="top">
+<td>Reservation Control</td>
+<td>Reservable</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Rounding Control</td>
+<td>Round order quantities</td>
+<td>-</td>
+<td>Round order quantities</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Serviceable Product</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Ship Model Complete</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Shippable Item</td>
+<td>Yes</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Stockable</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Support Service</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Transactable</td>
+<td>Yes</td>
+<td>-</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Use Approved Supplier</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>User Item Type</td>
+<td>P</td>
+<td>REF</td>
+<td>SA</td>
+<td>SI</td>
+<td>Freight</td>
+<td>Product Family</td>
+</tr>
+<tr valign="top">
+<td>Warranty</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>WIP Supply Type</td>
+<td>Assembly pull</td>
+<td>-</td>
+<td>Operation pull</td>
+<td>Bulk</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+<h3><a id="T634147"></a><b>Templates Table Four (Flow Finished Good Item Template)</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attribute</b></th>
+<th scope="col"><b>Value</b></th>
+<th scope="col"><b>Control Level</b></th>
+</tr>
+<tr valign="top">
+<td>Primary Unit of Measure</td>
+<td>Each</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>User Item Type</td>
+<td>Subassembly</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Item Status</td>
+<td>Active</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Conversions</td>
+<td>Both Standard and Item Specific</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Inventory Item</td>
+<td>Enabled</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Stockable</td>
+<td>Enabled</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Transactable</td>
+<td>Enabled</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Revision Control</td>
+<td>No</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Reservable</td>
+<td>Enabled</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Lot Control</td>
+<td>No</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Cycle Count Enabled</td>
+<td>Yes</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Negative Measurement Error</td>
+<td>No</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Positive Measurement Error</td>
+<td>No</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Serial Number Generation</td>
+<td>User Defined</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Starting Serial Prefix</td>
+<td>User Defined</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Locator Control</td>
+<td>Dynamic Entry</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Restrict Subinventories</td>
+<td>No</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Restrict Locators</td>
+<td>No</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>BOM Allowed</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>BOM Item Type</td>
+<td>Standard</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Base Model</td>
+<td>No</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Costing Enabled</td>
+<td>Yes</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Inventory Asset Value</td>
+<td>No</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Include in Rollup</td>
+<td>Yes</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Cost of Goods Sold Account</td>
+<td>No</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Standard Lot Size</td>
+<td>1</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Purchased</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Purchasable</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Use Approved Supplier</td>
+<td>No</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Allow Description Update</td>
+<td>Yes</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>RFQ Required</td>
+<td>No</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing Item</td>
+<td>No</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Outside Processing Unit Type</td>
+<td>No</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Taxable</td>
+<td>No</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Receipt Required (Three-Way Invoice Matching)</td>
+<td>Yes</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Inspection Required (Four-Way Invoice Matching)</td>
+<td>No</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Default Buyer</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Unit of Issue</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Receipt Close Tolerance</td>
+<td>User Defined</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Invoice Close Tolerance</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>UN Number</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Hazard Class</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>List Price</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Market Price</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Price Tolerance</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Rounding Factor</td>
+<td>NA</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Encumbrance Account</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Expense Account</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Receipt Date Action</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Days Early Receipt Allowed</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Days Late Receipt Allowed</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Over-Receipt Quantity Control Action</td>
+<td>Warning</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Over-Receipt Quantity Tolerance</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Allow Substitute Receipts</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Allow Unordered Receipts</td>
+<td>Yes</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Allow Express Transactions</td>
+<td>Yes</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Receipt Routing</td>
+<td>Direct Delivery</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Enforce Ship-to</td>
+<td>Warning</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Container</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Inventory Planning Method</td>
+<td>Not Planned</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Planner</td>
+<td>NA</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Make or Buy</td>
+<td>Make</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>MRP Planning Method</td>
+<td>MRP and MPP Planning</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>End Assembly Pegging</td>
+<td>End Assembly / Soft Pegging</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Calculate ATP</td>
+<td>Yes</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Planning Time Fence</td>
+<td>Cumulative Total Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Demand Time Fence</td>
+<td>Item Total Lead Time</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Fixed</td>
+<td>0</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Variable</td>
+<td>0</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Lead Time Lot Size</td>
+<td>Yes</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Build in WIP</td>
+<td>Yes</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>WIP Supply Type</td>
+<td>Assembly Pull</td>
+<td>Organization</td>
+</tr>
+<tr valign="top">
+<td>Customer Ordered</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Customer Orders Enabled</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Internal Ordered</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Internal Orders Enabled</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Shippable</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>OE Transactable</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Check ATP</td>
+<td>None</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>ATP Rule</td>
+<td>Standard</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Returnable</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>RMA Inspection Required</td>
+<td>Yes</td>
+<td>Master</td>
+</tr>
+<tr valign="top">
+<td>Collateral Item</td>
+<td>No</td>
+<td>Master</td>
+</tr>
+</table>
+<h3><a id="T634148"></a><b>Templates Table Five: Yard Equipment Item Template for Oracle Yard Management (YMS)</b></h3>
+<a name="invymsitmplate" id="invymsitmplate"></a>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Seeded Components for Yard Equipment Item Template</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Attribute Name</b></th>
+<th scope="col"><b>Controlled At:</b></th>
+<th scope="col"><b>Value</b></th>
+</tr>
+<tr valign="top">
+<td>User Item Type</td>
+<td>Organization</td>
+<td>Purchased item</td>
+</tr>
+<tr valign="top">
+<td>Item Status</td>
+<td>Master</td>
+<td>Active</td>
+</tr>
+<tr valign="top">
+<td>Primary Unit of Measure</td>
+<td>Master</td>
+<td>Each</td>
+</tr>
+<tr valign="top">
+<td>Inventory Item</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Stockable</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Transactable</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Serial Number Generation</td>
+<td>Organization</td>
+<td>Predefined serial numbers</td>
+</tr>
+<tr valign="top">
+<td>Starting Serial Number</td>
+<td>Organization</td>
+<td>00000000001</td>
+</tr>
+<tr valign="top">
+<td>Starting Serial Prefix</td>
+<td>Organization</td>
+<td>YMS</td>
+</tr>
+<tr valign="top">
+<td>Costing Enabled</td>
+<td>Organization</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Inventory Asset Value</td>
+<td>Organization</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Include in Rollup</td>
+<td>Organization</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Purchased</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Purchasable</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Vehicle</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Make or Buy</td>
+<td>Organization</td>
+<td>Buy</td>
+</tr>
+<tr valign="top">
+<td>Internal Ordered</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Internal Orders Enabled</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Shippable</td>
+<td>Master</td>
+<td>Yes</td>
+</tr>
+</table>
+<h2><a name="1753460"></a><a id="T291808"></a><b>User-defined Templates</b></h2>
+<p><a name="d0e50414" id="d0e50414"></a>You can also define your own templates using the Item Templates window. Note that the window does not validate any of the template attributes. In other words, you can define a template with contradictory attributes. Only when you use a template to define an item does Inventory verify that the attributes are valid for a given item. If you cannot update an item attribute the value from the template is not applied. If a combination of attributes is invalid a warning appears when you save the item.</p>
+<p>You can enable or disable the attribute value for each attribute in a template. When you use a template, it applies only the enabled attributes for that particular template.</p>
+<h2><a name="1753461"></a><a id="T291809"></a><b>Copying Templates</b></h2>
+<p><a name="d0e50426" id="d0e50426"></a>To make defining templates easier, you can use the Copy From function on the Tools menu in the Item Templates window. This opens the Copy Template modal window, where you can copy attributes from one or more attribute groups to a new template. You can also create a hybrid template by copying attributes from multiple templates. See: <a href="T291651T291798.htm#I_copytemp">Copying Item Templates</a>.</p>
+<h2><a name="1753462"></a><a id="T291810"></a><b>Using Templates</b></h2>
+<p>You specify the template to use when you define or update an item. All updatable attributes you assigned to the template appear in the current item definition. You can then change the attributes as appropriate for the item you are defining.</p>
+<p>If you specify a template name for an existing item, the template overwrites existing attributes. You can apply as many templates as you want to an existing item. The more recent attribute values (from the last template applied) override previous values unless the previous value is not updatable (such as the Primary Unit of Measure, which is never updatable). For example, you define a new item and apply a template that has the Primary Unit of Measure = <i>EACH</i> and Cycle Count Enabled = <i>YES</i>. Then you apply a new template with Primary Unit of Measure = <i>DOZ</i>, Cycle Count Enabled = <i>NO</i><b><i>,</i></b> and Carrying Cost Percent = <i>3</i>. The attribute values are now: Primary Unit of Measure <i>EACH,</i> Cycle Count Enabled <i>NO</i>, and Carrying Cost Percent <i>3</i>.</p>
+<p>Also, a template does <i>not</i> update status attributes when the values are conflicting. For example, if an item is transactable and stockable, a template cannot change <i>Transactable</i> to <i>Yes</i> if it leaves <i>Stockable</i> equal to <i>No</i>.</p>
+<h2><a name="1753463"></a><a id="T291811"></a><b>Organization-Specific Templates</b></h2>
+<p><a name="d0e50495" id="d0e50495"></a>You can create templates that are specific to one organization. You can use an organization specific template only if you are in that particular organization. If the specific organization is not the Item Master organization, you may use that template only in the Organization Items window and only attributes controlled at the Organization level are updated.</p>
+<p>For organization specific templates, some attributes, such as the planner, may be tied to the organization. For this reason, you cannot change the organization specified in the template once the template has been defined.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_ditmtempl">Defining Item Templates</a></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<p><a href="T291651T291798.htm#I_itmsuov">Overview of Item Setup and Control</a>.</p>
+<p>Product Families, <i>Oracle Bills of Material User's Guide</i></p>
+<h2><a name="1753464"></a><a id="T291854"></a><b>Defining Item Templates</b></h2>
+<p><a name="d0e50527" id="d0e50527"></a><a name="d0e50534" id="d0e50534"></a><a name="INVIDTMP.folder" id="INVIDTMP.folder"></a><a name="INVIDTMP.templates" id="INVIDTMP.templates"></a><a name="INVIDTMP.find" id="INVIDTMP.find"></a><a name="I_t_ditmtempl" id="I_t_ditmtempl"></a>A template is a defined set of attribute values. When you apply a template to an item, you overlay or default in the set of attribute values to the item definition. You can apply the same or different templates to an item multiple times.</p>
+<p>You can select attributes from the available list of names, select their values, and enable them to appear in the <b>Item Template</b> window. Similarly, to set the value of Material Classification Type attribute in the template, select the attribute, select a value, and select the <b>Enabled</b> check box. After saving the template, you can select the <b>Material Classification Tagging Assignment</b> option from the <b>Tools</b> menu to assign transaction types to the selected material classification type.</p>
+<p><b>To define item templates</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Templates Summary folder window.</p>
+</li>
+<li>
+<p>Choose New to navigate to the Item Template window.</p>
+<p><img width="755" height="434" src="./img/invug_itmtmplt.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique name and description for the template.</p>
+</li>
+<li>
+<p>Indicate whether the template is restricted to use by only one organization. If you leave the organization code blank, you can use the template in any organization.</p>
+<p><strong><span>Note:</span></strong> When you enter an organization code, some attributes, such as the planner, may be tied to the organization. For this reason, you cannot change the organization once the template has been defined.</p>
+</li>
+<li>
+<p>Select a tabbed region to display attributes and values for an item attribute group.</p>
+</li>
+<li>
+<p>Enter a value for those attribute you want to include in the template.</p>
+<p>For non-mandatory item attributes, you can enter blanks (spaces) for the value or leave null. When you next apply this template to an item, the spaces overwrite any existing attribute value.</p>
+</li>
+<li>
+<p>Indicate whether an attribute is enabled for this template.</p>
+<p><strong><span>Important:</span></strong> If you enable a status attribute, its value will not be applied to the item if the status attribute is under status control. See: <a href="T291651T291798.htm#I_t_ditstatus">Defining Item Status Codes</a>.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<p><a href="T291651T291798.htm#I_c_itmtempl">Item Templates</a></p>
+<p><a href="T291651T291798.htm#I_c_itattcon">Item Attribute Controls</a></p>
+<p><a href="T291651T291798.htm#I_c_statuscon">Status Control</a></p>
+<p>Customizing the Presentation of Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1753466"></a><a id="T291855"></a><b>Copying Item Templates</b></h2>
+<p><a name="d0e50636" id="d0e50636"></a><a name="I_copytemp" id="I_copytemp"></a>Use the Copy Template window to copy attributes from existing templates to a new template.</p>
+<p><strong><span>Important:</span></strong> Templates created with this function are not validated until you apply them to an item.</p>
+<p><b>To copy item templates</b></p>
+<ol>
+<li>
+<p>Enter a new template and description in the Item Templates window. Optionally select an organization; otherwise, you will be able to copy templates for all organizations.</p>
+</li>
+<li>
+<p>Choose Copy From on the Tools menu to open the Copy Template modal window.</p>
+</li>
+<li>
+<p>Select the template from which you want to copy attributes.</p>
+</li>
+<li>
+<p>Select the copy mode:</p>
+<p><i>Overwrite</i> - All selected attribute values, including Null, are copied.</p>
+<p><i>Append</i> - Only attributes which are null in the target template are copied. This mode is applicable only when you have already copied attributes from one template.</p>
+<p><i>Overwrite Not Null</i> - All selected attribute values, excluding Null, are copied.</p>
+</li>
+<li>
+<p>Deselect any attribute groups for which you do not want attributes copied.</p>
+</li>
+<li>
+<p>Select Apply to copy the attributes. This leaves the Copy Template window open so that you can copy attributes from another template.</p>
+</li>
+<li>
+<p>Select Done to close the Copy Template window when you have copied all desired attributes.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_c_itmtempl">Item Templates</a></p>
+<p><a href="T291651T291798.htm#I_t_ditmtempl">Defining Item Templates</a></p>
+<p><a href="T291651T291798.htm#I_c_itattcon">Item Attribute Controls</a></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<h2><a name="1753468"></a><a id="T291856"></a><b>Defining Cross-Reference Types</b></h2>
+<p><a name="d0e50712" id="d0e50712"></a><a name="INVIDXRT.xref_type_window" id="INVIDXRT.xref_type_window"></a><a name="INVIDXRT.itm_asn_qf_window" id="INVIDXRT.itm_asn_qf_window"></a><a name="I_t_dx78reftype" id="I_t_dx78reftype"></a>Cross-reference types define relationships between items and entities such as old item numbers or supplier item numbers.</p>
+<p>For example, you can create a cross-reference type Old to track the old item numbers, and a type Supplier to track supplier part numbers.</p>
+<p><b>To define a cross-reference type</b></p>
+<ol>
+<li>
+<p>Navigate to the Cross-Reference Types window.</p>
+</li>
+<li>
+<p>Enter a unique cross-reference type name.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To make a cross-reference type <a name="d0e50745" id="d0e50745"></a>inactive</b></p>
+<ol>
+<li>
+<p>Enter the date on which the cross-reference type becomes inactive.</p>
+<p>As of this date, you cannot assign this cross-reference type to an item.</p>
+</li>
+</ol>
+<p><b>To delete a cross-reference type:<a name="d0e50762" id="d0e50762"></a></b></p>
+<ol>
+<li>
+<p>You can delete a cross-reference if it has not been used by any item.</p>
+</li>
+</ol>
+<p><b>To assign a cross-reference type:<a name="d0e50776" id="d0e50776"></a></b></p>
+<ol>
+<li>
+<p>Choose the Assign button. See: <a href="T291651T291798.htm#I_t_ax78reftype">Assigning Cross-Reference Types</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<p><a href="T291651T291798.htm#I_t_ax78reftype">Assigning Cross-Reference Types</a></p>
+<p><a href="T291651T291798.htm#I_itmsuov">Overview of Item Setup and Control</a>.</p>
+<h2><a name="1753473"></a><a id="T291857"></a><b>Assigning Cross-Reference Types</b></h2>
+<p><a name="d0e50808" id="d0e50808"></a><a name="INVITDM_O_XREF_ASSIGN_WINDOW" id="INVITDM_O_XREF_ASSIGN_WINDOW"></a><a name="INVIDXRT.itm_assign_window" id="INVIDXRT.itm_assign_window"></a><a name="INVIDXRF.xref_assign_window" id="INVIDXRF.xref_assign_window"></a><a name="INVIDXRT.xref_asn_qf_window" id="INVIDXRT.xref_asn_qf_window"></a><a name="INVIDITM.itm_assign_window" id="INVIDITM.itm_assign_window"></a><a name="INVIDITM.xref_assign_window" id="INVIDITM.xref_assign_window"></a><a name="INVIDITM.xref_asn_qf_window" id="INVIDITM.xref_asn_qf_window"></a><a name="INVIVCSU.itm_assign_window" id="INVIVCSU.itm_assign_window"></a><a name="INVIVCSU.xref_assign_window" id="INVIVCSU.xref_assign_window"></a><a name="INVITDM_M_XREF_ASSIGN_WINDOW" id="INVITDM_M_XREF_ASSIGN_WINDOW"></a><a name="I_t_ax78reftype" id="I_t_ax78reftype"></a>You can assign multiple cross-reference types to an item.</p>
+<p><img width="756" height="433" src="./img/invug_ascrsref.gif" alt="the picture is described in the document text"></p>
+<p><b>To assign cross-references types to items from the Cross-Reference Types window</b></p>
+<ol>
+<li>
+<p>Navigate to the Cross-Reference Types window.</p>
+</li>
+<li>
+<p>Select the cross-reference you want to assign.</p>
+</li>
+<li>
+<p>Choose Assign to navigate to the Assign Cross-References window.</p>
+</li>
+<li>
+<p>Enter an item.</p>
+</li>
+<li>
+<p>Indicate whether the cross-reference applies only in the specified organization or to all organizations to which the item is assigned.</p>
+</li>
+<li>
+<p>Select any unit of measure (UOM) that is permissible in a transaction. The UOM field is mandatory when assigning <i>global trade item number</i> (GTIN) cross-references types.</p>
+</li>
+<li>
+<p>Enter the name of the organization to which the cross-reference applies.</p>
+<p>If you select <i>Applicable To All Organizations</i>, this field is skipped.</p>
+</li>
+<li>
+<p>Enter a <a name="d0e50877" id="d0e50877"></a><a name="d0e50880" id="d0e50880"></a>cross-reference value.</p>
+<p>This value is the entity you cross-reference to the item, such as its old item number or supplier part number.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To assign cross-references types to items from the Master Items Summary window:<a name="d0e50895" id="d0e50895"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Master Items Summary window.</p>
+</li>
+<li>
+<p>Select an item.</p>
+</li>
+<li>
+<p>Choose Cross References from the Tools menu.</p>
+</li>
+<li>
+<p>Enter the cross-reference type name.</p>
+</li>
+<li>
+<p>Indicate whether the cross-reference applies only in the specified organization or to all organizations to which the item is assigned.</p>
+</li>
+<li>
+<p>Enter the name of the organization to which the cross-reference applies.</p>
+<p>If you select <i>Applicable To All Organizations</i>, this field is skipped.</p>
+</li>
+<li>
+<p>Enter a cross-reference value.</p>
+<p>This value is the entity you cross-reference to the item, such as its old item number or supplier part number.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<p><a href="T291651T291798.htm#I_t_dx78reftype">Defining Cross-Reference Types</a></p>
+<p><a href="T291651T291798.htm#I_itmsuov">Overview of Item Setup and Control</a>.</p>
+<h2><a name="1753476"></a><a id="T291858"></a><b>Defining Commodity Codes</b></h2>
+<p><a name="d0e50959" id="d0e50959"></a><a name="d0e50964" id="d0e50964"></a><a name="I_t_comcde" id="I_t_comcde"></a><a name="INVSDICC.commodity_codes" id="INVSDICC.commodity_codes"></a>Customer Item Commodity Codes are used to group customer items and can be entered during the definition of customer items.</p>
+<p><b>To define a commodity code</b></p>
+<ol>
+<li>
+<p>Navigate to the Customer Item Commodity Codes window from the menu. When you open the window, Inventory displays the existing commodity codes.</p>
+<p><img width="617" height="384" src="./img/invug_commcod.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique commodity code name.</p>
+</li>
+<li>
+<p>Enter a description of the code.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To make a commodity code <a name="d0e51003" id="d0e51003"></a>inactive</b></p>
+<ol>
+<li>
+<p>Enter the date on which the commodity code becomes inactive. As of this date, you cannot assign this code to a customer item.</p>
+</li>
+</ol>
+<p><b>To delete a commodity code:<a name="d0e51016" id="d0e51016"></a></b></p>
+<ol>
+<li>
+<p>You can delete a commodity code if it has not been used in a customer item.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_cusitm">Defining Customer Items</a></p>
+<h2><a name="1753480"></a><a id="T291859"></a><b>Defining Customer Items</b></h2>
+<p><a name="d0e51034" id="d0e51034"></a><a name="INVICITM.citem_main" id="INVICITM.citem_main"></a><a name="INVICITM.citem_detail" id="INVICITM.citem_detail"></a><a name="INVICITM.citem_qf" id="INVICITM.citem_qf"></a><a name="I_t_cusitm" id="I_t_cusitm"></a>Use the Customer Items Summary and Customer Items Detail windows to define and update customer items. You can toggle between these windows with the Summary/Detail option in the Go option on the Toolbar. You can cross reference customer items to your Oracle Inventory items to support processing orders and shipments. See: <a href="T291651T291798.htm#I_t_citx78rf">Defining Customer Item Cross References</a>.</p>
+<p><b>To find customer items</b></p>
+<ol>
+<li>
+<p>Navigate to the Find Customer Items window by selecting Customer Items from the menu.</p>
+</li>
+<li>
+<p>Enter selection criteria. Note that you can enter a specific Address Category or Address only if you have entered a customer.</p>
+</li>
+<li>
+<p>Select the Find button to open the Customer Items Summary window.</p>
+<p><img width="754" height="504" src="./img/invug_custitsm.gif" alt="the picture is described in the document text"></p>
+</li>
+</ol>
+<p><b>To define customer items</b></p>
+<ol>
+<li>
+<p>Enter the Customer Item number and description.</p>
+</li>
+<li>
+<p>Select one of the existing Customer Names (in the Details window, you can use either Customer Name or Customer Number,). See: Creating a Customer, <i>Oracle Receivables User's Guide</i>.</p>
+</li>
+<li>
+<p>Select the Definition Level: Customer, Address Category, or Address.</p>
+<p>A customer item defined at the Customer level is recognized across all address and address categories for that customer. If you ship an item to multiple customer ship-to sites that have been grouped as an address category, you can define the customer item for that address category. You would define a customer item at the address level if you ship the item to only one ship-to site for that customer.</p>
+</li>
+<li>
+<p>For the Address Category definition level, enter the address category. See: Creating an Account Site, <i>Oracle Receivables User's Guide</i>.</p>
+</li>
+<li>
+<p>For the Customer Address definition level, enter the customer address.</p>
+</li>
+<li>
+<p>In the Commodity tabbed region, you can assign the customer item to a Commodity Code. See: <a href="T291651T291798.htm#I_t_comcde">Defining Commodity Codes</a>.</p>
+</li>
+<li>
+<p>In the Container tabbed region, you can enter the default master and detail containers for this customer item as well as the minimum fill percent for the container. See: <a href="T291651T291798.htm#I_t_contyp">Defining Container Types</a>.</p>
+</li>
+<li>
+<p>In the Model, Departure Planning tabbed region, you can reference a customer item as when the item is a Customer Item that belongs to the same Customer and the BOM Item Type attribute is set to Model. See: <a href="T291651T427992.htm#I_r_bomattr">Bills of Material Attribute Group</a>.</p>
+<p>You can also check Required to indicate that items must be departure planned before they released and Before Build to indicate that ATO items must be departure planned before they are built.</p>
+</li>
+<li>
+<p>In the Demand Tolerances, Active tabbed region, you can enter positive and negative tolerance percentages and select or deselect the Active check box.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To open the Customer Items Details window</b></p>
+<ol>
+<li>
+<p>To facilitate information entry, you can select the Open button in the Customer Items Summary window to open the Customer Items Details window, where you can enter any of the information in the Customer Items Summary window.</p>
+</li>
+</ol>
+<p><b>To activate or <a name="d0e51143" id="d0e51143"></a>deactivate customer items</b></p>
+<ol>
+<li>
+<p>Select or deselect the Active checkbox in the Customer Items Detail window or in the Demand Tolerances Active tabbed region in the Customer Items Summary window.</p>
+</li>
+</ol>
+<p><b>To set defaults:<a name="d0e51156" id="d0e51156"></a></b></p>
+<ol>
+<li>
+<p>Choose the Set Defaults button to open the Customer Item Defaults window. See: <a href="T291651T291798.htm#I_t_cusdef">Setting Customer Item Defaults</a>.</p>
+</li>
+</ol>
+<p><b>To define a customer item cross reference:<a name="d0e51171" id="d0e51171"></a></b></p>
+<ol>
+<li>
+<p>Choose the Cross Reference button. See: <a href="T291651T291798.htm#I_t_citx78rf">Defining Customer Item Cross References</a>.</p>
+<p><strong><span>Note:</span></strong> The profile is used to determine whether the customer item can be updated.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<p><a href="T291651T291798.htm#I_itmsuov">Overview of Item Setup and Control</a>.</p>
+<h2><a name="1753487"></a><a id="T291860"></a><b>Setting Customer Item Defaults</b></h2>
+<p><a name="d0e51202" id="d0e51202"></a><a name="INVICITM.CITEM_DEFAULTS" id="INVICITM.CITEM_DEFAULTS"></a><a name="I_t_cusdef" id="I_t_cusdef"></a>Use the Customer Items Defaults window to set customer item defaults.</p>
+<p><b>To set customer item defaults</b></p>
+<ol>
+<li>
+<p>Navigate to the Customer Items Defaults window by selecting Customer Items from the menu.</p>
+</li>
+<li>
+<p>Enter the Customer Name.</p>
+</li>
+<li>
+<p>Select the customer item Level. At the Address Category level, you can also set the Address Category. At the Address level, you can also set the Address</p>
+</li>
+</ol>
+<p><b>To use current values</b></p>
+<ol>
+<li>
+<p>Select the Current Value button to use the values of the current record in the Customer Items Summary window.</p>
+</li>
+</ol>
+<p><b>To clear information</b></p>
+<ol>
+<li>
+<p>Select the Clear button to clear all information but remain in this window.</p>
+</li>
+</ol>
+<p><b>To cancel default entry</b></p>
+<ol>
+<li>
+<p>Select the Cancel button to clear all information and return to the Customer Items Summary window.</p>
+</li>
+</ol>
+<p><b>To accept the entered defaults</b></p>
+<ol>
+<li>
+<p>Select the OK button to accept the entered defaults and return to the Customer Items Summary window.</p>
+</li>
+</ol>
+<h2><a name="1753493"></a><a id="T291861"></a><b>Defining Customer Item Cross References</b></h2>
+<p><a name="INVICXRF.customer_item_xref" id="INVICXRF.customer_item_xref"></a><a name="INVICXRF.customer_item_qf_window" id="INVICXRF.customer_item_qf_window"></a><a name="I_t_citx78rf" id="I_t_citx78rf"></a>Use the Customer Item Cross References window to define and update cross references between your inventory items and the customer item numbers defined in the Customer Items Summary/Detail windows. See: <a href="T291651T291798.htm#I_t_cusitm">Defining Customer Items</a>.</p>
+<p><b>To find customer item cross references</b></p>
+<ol>
+<li>
+<p>Navigate to the Find Customer Item Cross References window by selecting Customer Item Cross References on the menu.</p>
+</li>
+<li>
+<p>Enter selection criteria to restrict the search. You can select the Clear button to clear all selection criteria.</p>
+</li>
+<li>
+<p>Select the Find button.</p>
+</li>
+</ol>
+<p><b>To define customer item cross references</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e51290" id="d0e51290"></a>Customer Item Cross References window by selecting the New button in the Find Customer Item Cross References window.</p>
+<p>You can also navigate to this window by selecting the Cross Reference button in the Customer Items Summary window. Inventory displays the existing cross references for the customer item on the current line in the Customer Items Summary window, and you can add new cross references by selecting a new row.</p>
+<p><img width="755" height="456" src="./img/invug_csitcrf.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the customer item number. The current customer is displayed if you navigated to this window from the Customer Items Summary window.</p>
+</li>
+<li>
+<p>Enter the inventory item number for which you want to establish a cross reference to the customer item number.</p>
+</li>
+<li>
+<p>Enter the Rank as a positive number. To permit alternate or substitute inventory items for a customer item, you can define multiple cross references to inventory items for a single customer item. In these cases, you must specify the Rank of the cross reference. The highest rank is 1.</p>
+</li>
+<li>
+<p>Deselect Active to deactivate the cross reference.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To update customer item cross references</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e51332" id="d0e51332"></a>Customer Item Cross References window by selecting the Find button in the Find Customer Item Cross References window. Inventory displays all existing cross references that meet your selection criteria.</p>
+<p>You can also navigate to this window by selecting the Cross Reference button in the Customer Items Summary window. Inventory displays the existing cross references for the customer item on the current line in the Customer Items Summary window.</p>
+</li>
+<li>
+<p>You can update the Customer Item, Item, Rank, and Active checkbox.</p>
+</li>
+</ol>
+<p><b>To activate or deactivate a cross reference:<a name="d0e51349" id="d0e51349"></a><a name="d0e51354" id="d0e51354"></a></b></p>
+<ol>
+<li>
+<p>Select or deselect Active.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_cusitm">Defining Customer Items</a></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<h2><a name="1753498"></a><a id="T308620"></a><b>Overview of Item Categories</b></h2>
+<p><a name="d0e51376" id="d0e51376"></a><a name="I_c_categov" id="I_c_categov"></a>You can use categories and category sets to group your items for various reports and programs. A category is a logical classification of items that have similar characteristics. A category set is a distinct grouping scheme and consists of categories.</p>
+<p>The flexibility of category sets allows you to report and inquire on items in a way that best suits your needs.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_c_cpywcateg">Copying Items with Category Assignments</a></p>
+<p><a href="T291651T291798.htm#I_itmsuov">Overview of Item Setup and Control</a></p>
+<p><a href="T291651T298833.htm#I_c_itemov">Overview of Items</a></p>
+<h2><a name="1753499"></a><a id="T291862"></a><b>Item Category Flexfield Structures</b></h2>
+<p><a name="d0e51402" id="d0e51402"></a><a name="I_c_categflx78" id="I_c_categflx78"></a>You can define multiple segment structures for the Item Categories Flexfield. Each segment structure may have its own display prompts and fields.</p>
+<p>When you install or upgrade Oracle Inventory or Oracle Purchasing, Oracle provides two category flexfield structures by default: <i>Item Categories</i> and <i>PO Item Category</i>.</p>
+<p>Each segment structure can display prompts and fields that apply specifically to a particular naming convention. For example, you might want one of your category sets to use two segments for the names of categories. Another item grouping scheme might use just one segment for the names of categories. You choose a flexfield structure for every category set and category that you define.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_c_categov">Overview of Item Categories</a></p>
+<p>Defining Key Flexfield Segments, <i>Oracle E-Business Suite Flexfields Guide</i></p>
+<h2><a name="1753500"></a><a id="T291863"></a><b>Defining Categories</b></h2>
+<p><a name="d0e51434" id="d0e51434"></a><a name="INVIDCAT.category_window" id="INVIDCAT.category_window"></a><a name="INVIDCAT.category_qf_window" id="INVIDCAT.category_qf_window"></a><a name="I_t_categ" id="I_t_categ"></a>You can define an unlimited number of categories and group subsets of your categories into category sets. A category can belong to multiple category sets. You can assign a category to a category set either at the time you define a category set or at the time you assign an item to the category.</p>
+<p><b>To define a category</b></p>
+<ol>
+<li>
+<p>Navigate to the Categories window.</p>
+</li>
+<li>
+<p>The Find Categories window appears. Choose New.</p>
+<p><img width="755" height="361" src="./img/invug_Categories.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a <a name="d0e51465" id="d0e51465"></a>structure name.</p>
+<p>If you choose a multi-segment flexfield structure you can assign a specific meaning to each segment. For example, if you want to group items according to product line and product information then you can use the first segment to represent product line and the second segment to represent the product. See: <a href="T291651T291798.htm#I_c_categflx78">Item Category Flexfield Structures</a>.</p>
+<p><strong><span>Important:</span></strong> The categories assigned to a category set must have the same flexfield structure as the set itself. This is true even if you choose not to validate the category list.</p>
+</li>
+<li>
+<p>If you have set up your flexfield segment as No Validation required, you can enter a unique category name.</p>
+</li>
+<li>
+<p>Optionally, enter a category Description.</p>
+</li>
+<li>
+<p>Select Enabled to enable the category.</p>
+</li>
+<li>
+<p>Select Viewable by Supplier to allow suppliers to see the category in iSupplier Portal.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To make a category <a name="d0e51502" id="d0e51502"></a>inactive</b></p>
+<ol>
+<li>
+<p>Enter the date on which the category becomes inactive.</p>
+<p>As of this date, you can no longer assign the category:</p>
+<ul>
+<li>
+<p>as the default category of a new category set</p>
+</li>
+<li>
+<p>as a valid category of a category set</p>
+</li>
+<li>
+<p>to an item</p>
+</li>
+<li>
+<p>as a valid category of an item catalog group</p>
+<p>You cannot assign an inactive date to a category that is the default category for a mandatory category set.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_categset">Defining Category Sets</a></p>
+<p><a href="T291651T291798.htm#I_c_categov">Overview of Item Categories</a></p>
+<p>Supplier Registration, <i>Oracle Internet Supplier Portal Implementation Guide</i></p>
+<p>Creating and Maintaining Local Content, <i>Oracle iProcurement Implementation Guide</i></p>
+<h2><a name="1753503"></a><a id="T291864"></a><b>Defining Category Sets</b></h2>
+<p><a name="d0e51553" id="d0e51553"></a><a name="INVIDSCS.category_set_window" id="INVIDSCS.category_set_window"></a><a name="INVIDGRN_ITEM_CATEGORY_PEOPLE" id="INVIDGRN_ITEM_CATEGORY_PEOPLE"></a><a name="I_t_categset" id="I_t_categset"></a>You can use categories and category sets to group items for various reports and programs.</p>
+<p><strong><span>Note:</span></strong> Category sets may be used as a means to develop custom lists of items on which to report and sort. You can also create other category sets such as John's Priority or Jane's Priority, with categories like high, medium, and low.</p>
+<p>The category set <i>Inventory</i> is seeded when you install Oracle Inventory. The category set <i>Purchasing</i> is seeded when you install Oracle Purchasing.</p>
+<p>If you plan to use Order Management's group pricing functionality with item categories, you must add the categories to the <i>Order Entry</i> category set.</p>
+<p><strong><span>Important:</span></strong> You must use this window to define valid categories for each purchasing category set before you can use Oracle Purchasing.</p>
+<p><b>To define a category set</b></p>
+<ol>
+<li>
+<p>Navigate to the Category Set window.</p>
+<p><img width="523" height="492" src="./img/invug_Category_set.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique category set name.</p>
+<p><strong><span>Note:</span></strong> If Oracle Yard Management (YMS) is licensed and installed, you can view the following category sets: Yard Container, Yard Power Unit, and Yard Trailer. For more information, see <a href="T291651T291796.htm#invyms">Oracle Yard Management and Oracle Inventory</a>.</p>
+</li>
+<li>
+<p>Enter a description.</p>
+</li>
+<li>
+<p>Enter a <a name="d0e51615" id="d0e51615"></a>flexfield structure.</p>
+<p><strong><span>Note:</span></strong> The categories you assign to a category set must have the same flexfield structure as the set itself. This is true even if you choose not to validate the category list.</p>
+</li>
+<li>
+<p>Select a <a name="d0e51628" id="d0e51628"></a>control level.</p>
+<p><i>Master Level</i>: Item assigned to this category set has the same category value in all organizations where it is assigned.</p>
+<p><i>Org Level</i>: Item assigned to this category set may have a different category value in each organization where it is assigned.</p>
+</li>
+<li>
+<p>Select a <a name="d0e51646" id="d0e51646"></a>default category.</p>
+<p>This is the default category used when assigning an item to the category set. For example, a category set may have a default category called <i>New</i>. After an item is assigned to <i>New</i>, you can override the default category and choose another relevant category for each item.</p>
+</li>
+<li>
+<p>Indicate whether to enable an item to be assigned to multiple categories within this category set.</p>
+<p>If you enable this feature, you can assign an item to multiple categories within a category set. For example, you may define a Hazard category set. In this case, an item may be assigned to both the Poison and Corrosive categories.</p>
+<p><strong><span>Note:</span></strong> Enable this feature to create cartonization groups. See: <a href="T291651T291798.htm#I_c_carton">Cartonization</a></p>
+<p>For cost management purposes, Oracle recommends having a separate category set, with this feature disabled, for costing fixed assets. Costing functionality does not permit an item to be associated with multiple categories within a category set.</p>
+</li>
+<li>
+<p>Indicate whether to enforce the list of valid categories.</p>
+<p>If you do not enable this feature, you can assign an item to any category defined that uses the same flexfield structure as this category set.</p>
+<p>If you enable this feature, you can assign an item only to those categories defined as valid categories for this category set.</p>
+<p>If the enforce list of categories assignment checkbox is not checked, then all of the categories associated to the category set for purchasing are displayed in the LOV on the Enter PO window.</p>
+<p>if the enforce list of categories assignment is checked, only the categories defined in the table are available in the category LOV on the enter PO window.</p>
+</li>
+<li>
+<p>Select a <a name="d0e51689" id="d0e51689"></a>list of valid categories.</p>
+<p>The list of values here includes only categories that use the same flexfield structure as the category set you are defining.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To assign people to categories<a name="d0e51704" id="d0e51704"></a></b></p>
+<p>The category people window is available to you if you have the edit category people privilege. Category people allows you to secure access to items that are assigned to a particular category. For example you can restrict who can view the sales reports for a particular set of items.</p>
+<ol>
+<li>
+<p>Select Category People from the Category Sets window.</p>
+<p><img width="732" height="433" src="./img/invug_Categorypeople.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the desired Item Category from the list of values.</p>
+</li>
+<li>
+<p>Select the desired Person/Group from the list of values.</p>
+</li>
+<li>
+<p>Enter the desired From date, or accept the default system date.</p>
+</li>
+<li>
+<p>Enter a To date if applicable.</p>
+</li>
+<li>
+<p>Repeat steps 2-5 to assign more categories as needed.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+<li>
+<p>Select Done.</p>
+</li>
+</ol>
+<p><b>To assign items to categories:<a name="d0e51754" id="d0e51754"></a><a name="d0e51761" id="d0e51761"></a></b></p>
+<p>Choose the Assign button. See: <a href="T291651T291798.htm#I_t_asgncateg">Assigning Items to Categories</a>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_defcatset">Defining Default Category Sets</a></p>
+<p><a href="T291651T291798.htm#I_c_categov">Overview of Item Categories</a></p>
+<h2><a name="1753507"></a><a id="T291865"></a><b>Cartonization</b></h2>
+<p><a name="d0e51785" id="d0e51785"></a><a name="I_c_carton" id="I_c_carton"></a>If you have Oracle Warehouse Management installed, and you have cartonization enabled for your organization (See: Defining Warehouse Parameters, <i>Oracle Warehouse Management User's Guide</i>), you can create a category set for grouping contained items and their allowable containers.</p>
+<p>An item may be assigned to many cartonization groups. A cartonization group may contain many containers and many contained items. An item is assigned to a cartonization group as either a container or a contained item. See, Cartonization Setup Steps, <i>Oracle Warehouse Management Implementation Guide</i>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_categset">Defining Category Sets</a></p>
+<p><a href="T291651T291798.htm#I_c_categov">Overview of Item Categories</a></p>
+<p><a href="T291651T291798.htm#I_t_asgncateg">Assigning Items to Categories</a></p>
+<h2><a name="1753508"></a><a id="T291866"></a><b>Defining Default Category Sets</b></h2>
+<p><a name="d0e51817" id="d0e51817"></a><a name="INVISDST.def_cat_set_win" id="INVISDST.def_cat_set_win"></a><a name="I_t_defcatset" id="I_t_defcatset"></a>When you install Oracle Inventory, you must assign a default category set to each of the following <a name="d0e51829" id="d0e51829"></a>functional areas: Inventory, Purchasing, Order Management, Costing, Engineering, and Planning. Product Line Accounting is seeded with the Inventory category set. Inventory makes the default category set mandatory for all items defined for use by a functional area. If your item is enabled for a particular functional area you cannot delete the item's corresponding default category set assignment. Default category sets are required so that each functional area has at least one category set that contains all items in that functional area.</p>
+<p>You can enable an item for each <a name="d0e51835" id="d0e51835"></a>functional area by using that functional area's item defining attribute. An item defining attribute identifies the nature of an item. For example, what designates an item as an &ldquo;engineering item" is the attribute <i>Engineering Item</i>. If a functional area's item defining attribute is controlled at the Organization level, then that functional area may only have an Organization level default category set.</p>
+<p>You set the item defining attribute when you define the item. The following table presents item defining attributes:</p>
+<h3><b>Item Defining Attributes<a name="d0e51849" id="d0e51849"></a><a name="d0e51854" id="d0e51854"></a></b></h3>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Functional Area</b></th>
+<th scope="col"><b>Item Defining Attribute</b></th>
+<th scope="col"><b>Enabling Value</b></th>
+</tr>
+<tr valign="top">
+<td>Inventory</td>
+<td>Inventory Item</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Purchasing</td>
+<td>Purchased</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Purchasing</td>
+<td>Internal Ordered Item</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>MRP</td>
+<td>MRP Planning Method</td>
+<td>MRP Planning, MPS Planning</td>
+</tr>
+<tr valign="top">
+<td>Cost Management</td>
+<td>Costing Enabled</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Engineering</td>
+<td>Engineering Item</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Order Management</td>
+<td>Customer Ordered Item</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Service</td>
+<td>Support Service, or</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Service</td>
+<td>Serviceable Product</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Product Line Accounting</td>
+<td>none</td>
+<td>n/a</td>
+</tr>
+</table>
+<p>When you enable an item for a certain functional area<b>,</b> Oracle Inventory automatically assigns the item to the <a name="d0e51981" id="d0e51981"></a>default category set of that functional area and the default category of that set. For example, if you set <i>Inventory Item</i> to <i>Yes</i><b>,</b> then Inventory automatically assigns the item to the Inventory functional area's default category set and default category.</p>
+<p>You may change a functional area's default category set under certain conditions. You should ensure that every item within the functional area belongs to the new default category set (which replaces the existing default category set). If the item defining attribute of the functional area is controlled at the Organization level then the new default category set should also be controlled at the Organization level.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>You must define at least one category set. See: <a href="T291651T291798.htm#I_t_categset">Defining Category Sets</a>.</li>
+</ul>
+<p><b>To define a default category set</b></p>
+<ol>
+<li>
+<p>Navigate to the Default Category Sets window.</p>
+<p><img width="772" height="624" src="./img/invug_DefCatSet.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the category set to use as the default for the functional area.</p>
+<p>Oracle Inventory also makes this category set mandatory for all items defined for use by the functional area.</p>
+<p>You should not change the Purchasing category set after you have created requisition or purchase order lines using the categories.</p>
+<p><strong><span>Note:</span></strong> Product Line Accounting is enabled when you assign a default category set.</p>
+<p><strong><span>Note:</span></strong> The category set Product, is a seeded category set. It is the default category set for the Product Reporting functional area. The system automatically assigns this category to customer ordered or internal ordered items.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_asgncateg">Assigning Items to Categories</a></p>
+<p><a href="T291651T291798.htm#I_c_categov">Overview of Item Categories</a></p>
+<p><a href="T291651T291798.htm#I_c_itdefatt">Item Defining Attributes</a></p>
+<h2><a name="1753512"></a><a id="T291867"></a><b>Assigning Items to Categories</b></h2>
+<p><a name="d0e52053" id="d0e52053"></a><a name="d0e52060" id="d0e52060"></a><a name="INVIDCAT.ITEM_ASSIGN_WINDOW" id="INVIDCAT.ITEM_ASSIGN_WINDOW"></a><a name="INVIDITM.category_assign" id="INVIDITM.category_assign"></a><a name="INVIDITM.item_assign_window" id="INVIDITM.item_assign_window"></a><a name="INVIDCTY.category_assign" id="INVIDCTY.category_assign"></a><a name="INVIDSCS.item_assign_window" id="INVIDSCS.item_assign_window"></a><a name="INVIDCTY.CATEGORY_ASSIGN_WINDOW" id="INVIDCTY.CATEGORY_ASSIGN_WINDOW"></a><a name="INVIDITM_O_CATEGORY_ASSIGN_WINDOW" id="INVIDITM_O_CATEGORY_ASSIGN_WINDOW"></a><a name="INVIDITM_M_CATEGORY_ASSIGN_WINDOW" id="INVIDITM_M_CATEGORY_ASSIGN_WINDOW"></a><a name="INVIDCTY.CATEGORY_QF_WINDOW" id="INVIDCTY.CATEGORY_QF_WINDOW"></a><a name="INVIDCTY.CATEGORY_WINDOW" id="INVIDCTY.CATEGORY_WINDOW"></a><a name="I_t_asgncateg" id="I_t_asgncateg"></a><strong>Prerequisites</strong></p>
+<ul>
+<li>You must define default category sets for your functional areas. See: <a href="T291651T291798.htm#I_t_defcatset">Defining Default Category Sets</a>.</li>
+</ul>
+<p>When you enable an item in a functional area, the item is assigned to the default (mandatory) category set and default category of the functional area. You can override the category set's default category. In addition, you can manually assign your item to an unlimited number of category sets. You may optionally assign an item to more than one category within a category set based on the category set definition. For more information see: <a href="T291651T291798.htm#I_t_categset">Defining Category Sets</a></p>
+<p><b>To assign an item to a category from the Category Set window</b></p>
+<ol>
+<li>
+<p>Navigate to the Category Set window. See: <a href="T291651T291798.htm#I_t_categset">Defining Category Sets</a>.</p>
+</li>
+<li>
+<p>Enter a category set.</p>
+</li>
+<li>
+<p>Choose Assign. The Item Assignment window appears.</p>
+<p><img width="629" height="386" src="./img/invug_itmassg.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the item from the current organization to assign to the category.</p>
+</li>
+<li>
+<p>Select a category.</p>
+<p>The list of values contains categories with the same flexfield structure as the category set you selected in the Category Set window. If <i>Enforce the list of valid categories</i> is selected the list is limited to those categories.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To assign an item to a category from the Item windows</b></p>
+<ol>
+<li>
+<p>Navigate to the Master Items Summary or Organization Items Summary window.</p>
+</li>
+<li>
+<p>Select an item.</p>
+</li>
+<li>
+<p>Choose Categories from the Tools menu.</p>
+<p>The item you selected appears at the top of the Category Assignment window.</p>
+<p><img width="486" height="407" src="./img/invug_catassgn.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a category set</p>
+</li>
+<li>
+<p>Select a category.</p>
+<p>The list of values contains categories with the same flexfield structure as the category set you selected. If <i>Enforce the list of valid categories</i> is selected the list is limited to those categories.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_categset">Defining Category Sets</a></p>
+<p><a href="T291651T298833.htm#I_t_ditems">Defining Items</a></p>
+<h2><a name="1753516"></a><a id="T291868"></a><b>Copying Items with Category Assignments</b></h2>
+<p><a name="d0e52181" id="d0e52181"></a><a name="I_c_cpywcateg" id="I_c_cpywcateg"></a>When you assign your item to another organization Oracle Inventory copies Master level category sets, Organization level default category sets, and the associated categories assigned in the Item Master organization. This means that if you manually assign an Organization level category set to the item in the Master organization, Inventory does not copy over that Organization level category set when you assign that item to another organization.</p>
+<p>After assigning an item to another organization you can disable the item for one or more functional areas in the new organization. However, Inventory does not remove the corresponding functional area's default category set. For example, you may have set the value of the Purchased attribute to "Yes" when you defined the item in the item master organization. When you assign this item to another organization Inventory copies over the "Yes" value of the Purchased attribute and therefore assigns the default category set of the purchasing functional area. In the new organization you may decide to set the value of the Purchased attribute to "No." After you disable the item for the purchasing functional area in the new organization, the item still retains the purchasing default category set. You may manually delete the purchasing category set in the new organization.</p>
+<p>If you copy an item from another item with category sets defined at the Organization level, Inventory assigns the new item the default categories of the mandatory category sets, even if the original item did not have the default categories. This is because Inventory copies the values of the item defining attributes and not the category sets and categories themselves.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_c_categov">Overview of Item Categories</a></p>
+<h2><a name="1753517"></a><a id="T291869"></a><b>Examples Overview</b></h2>
+<p><a name="I_r_categex78ov" id="I_r_categex78ov"></a>The following example from the computer manufacturing industry illustrates the use of category sets. The company makes personal computers by using manufactured and purchased components. The following tables show a bill of material for each of two computers that the company produces.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Level</b></th>
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>Item Description</b></th>
+<th scope="col"><b>Source</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>CM2345</td>
+<td>Laptop Computer</td>
+<td>Assembled</td>
+</tr>
+<tr valign="top">
+<td>. 2</td>
+<td>CM2346</td>
+<td>Keyboard</td>
+<td>Purchased</td>
+</tr>
+<tr valign="top">
+<td>. 2</td>
+<td>CM2347</td>
+<td>486 Processor</td>
+<td>Purchased</td>
+</tr>
+<tr valign="top">
+<td>. 2</td>
+<td>CM2348</td>
+<td>Active Matrix Screen</td>
+<td>Assembled</td>
+</tr>
+<tr valign="top">
+<td>. . 3</td>
+<td>CM2349</td>
+<td>Monitor Manual</td>
+<td>Purchased</td>
+</tr>
+<tr valign="top">
+<td>. 2</td>
+<td>CM2350</td>
+<td>DOS Operating System</td>
+<td>Purchased</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Level</b></th>
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>Item Description</b></th>
+<th scope="col"><b>Source</b></th>
+</tr>
+<tr valign="top">
+<td>1</td>
+<td>CM2351</td>
+<td>Desktop Computer</td>
+<td>Assembled</td>
+</tr>
+<tr valign="top">
+<td>. 2</td>
+<td>CM2352</td>
+<td>Desktop Keyboard</td>
+<td>Purchased</td>
+</tr>
+<tr valign="top">
+<td>. 2</td>
+<td>CM2353</td>
+<td>Pentium Processor</td>
+<td>Purchased</td>
+</tr>
+<tr valign="top">
+<td>. 2</td>
+<td>CM2354</td>
+<td>VGA Monitor</td>
+<td>Assembled</td>
+</tr>
+<tr valign="top">
+<td>. . 3</td>
+<td>CM2355</td>
+<td>Monitor Manual</td>
+<td>Purchased</td>
+</tr>
+<tr valign="top">
+<td>. 2</td>
+<td>CM2356</td>
+<td>UNIX Operating System</td>
+<td>Purchased</td>
+</tr>
+</table>
+<p>This computer manufacturing company has several functional areas including: planning, purchasing, and inventory. With Oracle Inventory's category sets, each functional area can use its own unique way of classifying items.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_r_categex78pl">Planning Example</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78po">Purchasing Example</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78in">Inventory Example</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78ad">Unlimited Additional Category Sets</a></p>
+<h2><a name="1753518"></a><a id="T291870"></a><b>Planning Example</b></h2>
+<p><a name="I_r_categex78pl" id="I_r_categex78pl"></a>The planning department might want to group items according to product and product line. You can define a two segment structure for the item categories flexfield with the first segment representing the product and the second segment representing product line. You can use the two segment flexfield structure to define a category set called <i>Planner's Set</i> with categories like <i>assembly-prod1, subassembly-prod2</i> and <i>raw material-prod3.</i> You can designate <i>Planner's Set</i> to be the default (mandatory) category set of the planning functional area.</p>
+<p>In the bills of material shown in the Examples Overview, the top-level items might be MPS planned items and the rest MRP planned items since this is a manufacturing company. When you define each item you can set the item defining attribute MRP Planning Method to be either MRP Planning or MPS Planning. Oracle Inventory automatically assigns the <i>Planner's Set</i> category set and the associated default category <i>assembly-prod1</i> to each of these items. The following table shows category assignments within the Planning default category set.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>Item Description</b></th>
+<th scope="col"><b>Planning Default (Mandatory) Category Set</b></th>
+<th scope="col"><b>Category</b></th>
+</tr>
+<tr valign="top">
+<td>CM2345</td>
+<td>Laptop Computer</td>
+<td>Planner's Set</td>
+<td>assembly-prod1</td>
+</tr>
+<tr valign="top">
+<td>CM2346</td>
+<td>Keyboard</td>
+<td>Planner's Set</td>
+<td>subassembly-prod2</td>
+</tr>
+<tr valign="top">
+<td>CM2347</td>
+<td>486 Processor</td>
+<td>Planner's Set</td>
+<td>subassembly-prod2</td>
+</tr>
+<tr valign="top">
+<td>CM2348</td>
+<td>Active Matrix Screen</td>
+<td>Planner's Set</td>
+<td>subassembly-prod2</td>
+</tr>
+<tr valign="top">
+<td>CM2349</td>
+<td>Monitor Manual</td>
+<td>Planner's Set</td>
+<td>subassembly-prod2</td>
+</tr>
+<tr valign="top">
+<td>CM2350</td>
+<td>DOS Operating System</td>
+<td>Planner's Set</td>
+<td>subassembly-prod2</td>
+</tr>
+<tr valign="top">
+<td>CM2351</td>
+<td>Desktop Computer</td>
+<td>Planner's Set</td>
+<td>assembly-prod1</td>
+</tr>
+<tr valign="top">
+<td>CM2352</td>
+<td>Desktop Keyboard</td>
+<td>Planner's Set</td>
+<td>subassembly-prod2</td>
+</tr>
+<tr valign="top">
+<td>CM2353</td>
+<td>Pentium Processor</td>
+<td>Planner's Set</td>
+<td>subassembly-prod2</td>
+</tr>
+<tr valign="top">
+<td>CM2354</td>
+<td>VGA Monitor</td>
+<td>Planner's Set</td>
+<td>subassembly-prod2</td>
+</tr>
+<tr valign="top">
+<td>CM2355</td>
+<td>Monitor Manual</td>
+<td>Planner's Set</td>
+<td>subassembly-prod2</td>
+</tr>
+<tr valign="top">
+<td>CM2356</td>
+<td>UNIX Operating System</td>
+<td>Planner's Set</td>
+<td>subassembly-prod2</td>
+</tr>
+</table>
+<p>In Oracle MRP you can compile a forecast for a range of categories within a category set. In addition, you can use categories in the following reports:</p>
+<ul>
+<li>
+<p>Current Projected On Hand vs. Projected Available Graphical Report</p>
+</li>
+<li>
+<p>Demand vs. Replenishment Graphical Report</p>
+</li>
+<li>
+<p>Forecast Comparison Report</p>
+</li>
+<li>
+<p>Forecast Detail Report</p>
+</li>
+<li>
+<p>Late Order Report</p>
+</li>
+<li>
+<p>Master Schedule Comparison Report</p>
+</li>
+<li>
+<p>Master Schedule Detail Report</p>
+</li>
+<li>
+<p>Master Schedule Status Report</p>
+</li>
+<li>
+<p>Order Reschedule Report</p>
+</li>
+<li>
+<p>Planned Order Report</p>
+</li>
+<li>
+<p>Planning Detail Report</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_r_categex78ov">Item Category Examples Overview</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78po">Purchasing Example</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78in">Inventory Example</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78ad">Unlimited Additional Category Sets</a></p>
+<h2><a name="1753519"></a><a id="T291871"></a><b>Purchasing Example</b></h2>
+<p><a name="I_r_categex78po" id="I_r_categex78po"></a>The purchasing department might want to group all items by commodity codes. You can define a category set called <i>Purchasing Class</i> with categories that represent commodity codes such as <i>OEM, IC, software</i> and <i>documentation.</i> You can choose <i>Purchasing Class</i> to be the default (mandatory) category set of the purchasing functional area.</p>
+<p>In the bills of material shown in the Examples Overview, the purchased items are CM2346, CM2347, CM2349, CM2350, CM2352, CM2353, CM2355 and CM2356. When you define your items you can set the Purchased attribute to "Yes" for each of these items. Inventory automatically assigns the <i>Purchasing Class</i> category set and the associated default category <i>OEM</i> to each of the purchased items. The following table shows category assignments within the purchasing default category set.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>Item Description</b></th>
+<th scope="col"><b>Purchasing Default (Mandatory) Category Set</b></th>
+<th scope="col"><b>Category</b></th>
+</tr>
+<tr valign="top">
+<td>CM2346</td>
+<td>Keyboard</td>
+<td>Purchasing Class</td>
+<td>OEM</td>
+</tr>
+<tr valign="top">
+<td>CM2347</td>
+<td>486 Processor</td>
+<td>Purchasing Class</td>
+<td>IC</td>
+</tr>
+<tr valign="top">
+<td>CM2349</td>
+<td>Monitor Manual</td>
+<td>Purchasing Class</td>
+<td>documentation</td>
+</tr>
+<tr valign="top">
+<td>CM2350</td>
+<td>DOS Operating System</td>
+<td>Purchasing Class</td>
+<td>software</td>
+</tr>
+<tr valign="top">
+<td>CM2352</td>
+<td>Desktop Keyboard</td>
+<td>Purchasing Class</td>
+<td>OEM</td>
+</tr>
+<tr valign="top">
+<td>CM2353</td>
+<td>Pentium Processor</td>
+<td>Purchasing Class</td>
+<td>IC</td>
+</tr>
+<tr valign="top">
+<td>CM2355</td>
+<td>Monitor Manual</td>
+<td>Purchasing Class</td>
+<td>documentation</td>
+</tr>
+<tr valign="top">
+<td>CM2356</td>
+<td>UNIX Operating System</td>
+<td>Purchasing Class</td>
+<td>software</td>
+</tr>
+</table>
+<p>Oracle Purchasing does not allow you to choose between different category sets. Oracle Purchasing uses the default purchasing category set in all forms and reports that require or display categories. For example, if you choose a particular item in the Supplier Autosource Rules window you see the category (from the purchasing default category set) assigned to the item. In addition, Oracle Purchasing uses item categories in the following reports and forms:</p>
+<ul>
+<li>
+<p>Blanket and Planned PO Status Report</p>
+</li>
+<li>
+<p>Buyer Listing</p>
+</li>
+<li>
+<p>Buyer's Requisition Action Required Report</p>
+</li>
+<li>
+<p>Expected Receipts Report</p>
+</li>
+<li>
+<p>Item Detail Listing</p>
+</li>
+<li>
+<p>Matching Holds Report by Buyer Report</p>
+</li>
+<li>
+<p>Overdue Supplier Shipments Report</p>
+</li>
+<li>
+<p>Purchase Agreement Audit Report</p>
+</li>
+<li>
+<p>Purchase Order Commitment By Period Report</p>
+</li>
+<li>
+<p>Purchase Order Detail Report</p>
+</li>
+<li>
+<p>Purchase Order and Releases Detail Report</p>
+</li>
+<li>
+<p>Purchase Price Variance Report</p>
+</li>
+<li>
+<p>Purchase Summary Report By Category</p>
+</li>
+<li>
+<p>Quotation Action Required Report</p>
+</li>
+<li>
+<p>RFQ Action Required Report</p>
+</li>
+<li>
+<p>Receipt Accruals - Period-End report</p>
+</li>
+<li>
+<p>Receipt Traveler</p>
+</li>
+<li>
+<p>Receiving Account Distribution Report</p>
+</li>
+<li>
+<p>Receiving Transactions Register</p>
+</li>
+<li>
+<p>Receiving Value Report by Destination Account</p>
+</li>
+<li>
+<p>Requisitions on Cancelled Sales Order Report</p>
+</li>
+<li>
+<p>Savings Analysis Report(by Category)</p>
+</li>
+<li>
+<p>Uninvoiced Receipts Report</p>
+</li>
+<li>
+<p>Supplier Price Performance Analysis Report</p>
+</li>
+<li>
+<p>Supplier Quality Performance Analysis Report</p>
+</li>
+<li>
+<p>Supplier Service Performance Analysis Report</p>
+</li>
+<li>
+<p>Enter Purchase Orders</p>
+</li>
+<li>
+<p>Enter Purchase Agreements</p>
+</li>
+<li>
+<p>Enter Requisitions</p>
+</li>
+<li>
+<p>Enter Express Requisitions</p>
+</li>
+<li>
+<p>Enter ReqExpress Template</p>
+</li>
+<li>
+<p>Enter RFQs</p>
+</li>
+<li>
+<p>Enter Quotations</p>
+</li>
+<li>
+<p>Enter Receipts</p>
+</li>
+<li>
+<p>Enter Receiving Transactions</p>
+</li>
+<li>
+<p>Enter Returns and Adjustments</p>
+</li>
+<li>
+<p>Match Unordered Receipts</p>
+</li>
+<li>
+<p>View Purchase Orders</p>
+</li>
+<li>
+<p>View Price History</p>
+</li>
+<li>
+<p>View Purchase History</p>
+</li>
+<li>
+<p>View Requisitions</p>
+</li>
+<li>
+<p>View Receiving Transactions</p>
+</li>
+<li>
+<p>View Sourced Items</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_r_categex78ov">Item Category Examples Overview</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78pl">Planning Example</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78in">Inventory Example</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78ad">Unlimited Additional Category Sets</a></p>
+<h2><a name="1753520"></a><a id="T291872"></a><b>Inventory Example</b></h2>
+<p><a name="I_r_categex78in" id="I_r_categex78in"></a>The inventory functional area may want to group items according to how the company stores each item. You can define a category set called <i>Warehouse Set</i> with categories such as <i>Operating System, Hardware, CPU</i> and <i>Other.</i> You can designate <i>Warehouse Set</i> to be the default (mandatory) category set of the inventory functional area.</p>
+<p>In the bills of material shown in the Examples Overview, all of items would be the inventory items. When you define the items set the Inventory Item attribute to "Yes" for each item. Oracle Inventory automatically assigns the <i>Warehouse Set</i> and default category <i>Other</i> to all items for which the Inventory Item attribute equals "Yes." The following table shows category assignments within the Inventory functional area's default category set:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>Item Description</b></th>
+<th scope="col"><b>Inventory Default (Mandatory) Category Set</b></th>
+<th scope="col"><b>Category</b></th>
+</tr>
+<tr valign="top">
+<td>CM2345</td>
+<td>Laptop Computer</td>
+<td>Warehouse Set</td>
+<td>Hardware</td>
+</tr>
+<tr valign="top">
+<td>CM2346</td>
+<td>Keyboard</td>
+<td>Warehouse Set</td>
+<td>Hardware</td>
+</tr>
+<tr valign="top">
+<td>CM2347</td>
+<td>486 Processor</td>
+<td>Warehouse Set</td>
+<td>CPU</td>
+</tr>
+<tr valign="top">
+<td>CM2348</td>
+<td>Active Matrix Screen</td>
+<td>Warehouse Set</td>
+<td>Hardware</td>
+</tr>
+<tr valign="top">
+<td>CM2349</td>
+<td>Monitor Manual</td>
+<td>Warehouse Set</td>
+<td>Other</td>
+</tr>
+<tr valign="top">
+<td>CM2350</td>
+<td>DOS Operating System</td>
+<td>Warehouse Set</td>
+<td>Operating System</td>
+</tr>
+<tr valign="top">
+<td>CM2351</td>
+<td>Desktop Computer</td>
+<td>Warehouse Set</td>
+<td>Hardware</td>
+</tr>
+<tr valign="top">
+<td>CM2352</td>
+<td>Desktop Keyboard</td>
+<td>Warehouse Set</td>
+<td>Hardware</td>
+</tr>
+<tr valign="top">
+<td>CM2353</td>
+<td>Pentium Processor</td>
+<td>Warehouse Set</td>
+<td>CPU</td>
+</tr>
+<tr valign="top">
+<td>CM2354</td>
+<td>VGA Monitor</td>
+<td>Warehouse Set</td>
+<td>Hardware</td>
+</tr>
+<tr valign="top">
+<td>CM2355</td>
+<td>Monitor Manual</td>
+<td>Warehouse Set</td>
+<td>Other</td>
+</tr>
+<tr valign="top">
+<td>CM2356</td>
+<td>UNIX Operating System</td>
+<td>Warehouse Set</td>
+<td>Operating System</td>
+</tr>
+</table>
+<p>Oracle Inventory uses category sets in numerous reports and forms. For example, you can summarize demand histories for a particular category of items. Oracle Inventory always displays the inventory default category set but you can run your reports and programs by choosing any category set. The following is a list of forms and reports where Oracle Inventory uses categories:</p>
+<ul>
+<li>
+<p>Inactive items report</p>
+</li>
+<li>
+<p>Item reservations report</p>
+</li>
+<li>
+<p>Lot transaction register</p>
+</li>
+<li>
+<p>Material account distribution detail</p>
+</li>
+<li>
+<p>Serial number transaction register</p>
+</li>
+<li>
+<p>Transaction historical summary</p>
+</li>
+<li>
+<p>Transaction register</p>
+</li>
+<li>
+<p>Transaction source type summary</p>
+</li>
+<li>
+<p>Expected Receipts Report</p>
+</li>
+<li>
+<p>Inactive items report</p>
+</li>
+<li>
+<p>Item categories report</p>
+</li>
+<li>
+<p>Item cross-references listing</p>
+</li>
+<li>
+<p>Item definition detail</p>
+</li>
+<li>
+<p>Item definition summary</p>
+</li>
+<li>
+<p>Item demand history report</p>
+</li>
+<li>
+<p>Item relationships listing</p>
+</li>
+<li>
+<p>Item reservations report</p>
+</li>
+<li>
+<p>Item statuses report</p>
+</li>
+<li>
+<p>Forecast Comparison Report</p>
+</li>
+<li>
+<p>Forecast Detail Report</p>
+</li>
+<li>
+<p>Physical inventory accuracy analysis</p>
+</li>
+<li>
+<p>Physical inventory counts report</p>
+</li>
+<li>
+<p>Transaction historical summary</p>
+</li>
+<li>
+<p>Search Items</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_r_categex78ov">Item Category Examples Overview</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78pl">Planning Example</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78po">Purchasing Example</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78ad">Unlimited Additional Category Sets</a></p>
+<h2><a name="1753521"></a><a id="T291873"></a><b>Unlimited Additional Category Sets</b></h2>
+<p><a name="I_r_categex78ad" id="I_r_categex78ad"></a>In addition to the default category sets, the computer company in the <a href="T291651T291798.htm#I_r_categex78ov">Examples Overview</a> could use an additional category set to group together a subset of the items that exist in the system. You can define a category set called <i>Hot Items</i> with categories such as <i>Critical</i> and <i>Low Supply.</i> When you define your items, you can assign the <i>Hot Items</i> category set and one category within that category set to some of your items. You do not have to assign every item in your system to this category set.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_r_categex78pl">Planning Example</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78po">Purchasing Example</a></p>
+<p><a href="T291651T291798.htm#I_r_categex78in">Inventory Example</a></p>
+<h2><a name="1753522"></a><a id="T291874"></a><b>Specifying Recommended Categories</b></h2>
+<p><a name="d0e53321" id="d0e53321"></a><a name="I_t_reccateg" id="I_t_reccateg"></a>You can specify any number of recommended categories for an item catalog group. This is for information/reporting purposes only. You can print the list of categories and use the list as recommended categories when you define items.</p>
+<p><b>To enter a list of recommended categories to use when assigning categories to the items in this catalog group</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Catalog Groups window.</p>
+</li>
+<li>
+<p>Select an item catalog group and choose Details. The Item Catalog Group window appears.</p>
+<p><img width="741" height="378" src="./img/invug_icgat.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the Categories tabbed region.</p>
+</li>
+<li>
+<p>Select a category set and category.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="1753524"></a><a id="T291875"></a><b>Defining Category Accounts</b></h2>
+<p><a name="INVSDCAS.cat_acct_window" id="INVSDCAS.cat_acct_window"></a><a name="INVSDCAS.mtl_cat_accts" id="INVSDCAS.mtl_cat_accts"></a><a name="I_t_catacc" id="I_t_catacc"></a><a name="INVSDCAS_MTL_CAT_QF_WINDOW" id="INVSDCAS_MTL_CAT_QF_WINDOW"></a><strong><span>Warning:</span></strong> The category accounts defined in this window are only used if product line accounting has been implemented. If product line accounting is implemented, the category accounts, not the item subinventory accounts, are used when entering transactions.</p>
+<p>You can use the Category Accounts Summary window to define, query, and update category valuation and expense accounts. If your current organization is a standard costing organization, you can define category accounts at the category and optionally subinventory level. If your current organization is an average costing organization you must define category accounts at the cost group/category level.</p>
+<p>You can only define category accounts for categories that belong to the default category set for the product line functional area. See: <a href="T291651T291798.htm#I_t_categset">Defining Category Sets</a> and <a href="T291651T291798.htm#I_t_defcatset">Defining Default Category Sets</a>.</p>
+<p><b>To find category accounts</b></p>
+<p>Use the Find Category Accounts window to search for existing category accounts or to create a new category account.</p>
+<ol>
+<li>
+<p>Navigate to the Category Accounts window. The Find Category Accounts window appears.</p>
+<p><img width="486" height="203" src="./img/invug_fndcatacct.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>To define a new category account, click the New button. To update an existing category account, select a category or subinventory, or both, and click the Find button. In both cases, the <a name="d0e53399" id="d0e53399"></a>Category Accounts Summary window appears.</p>
+</li>
+</ol>
+<p><b>To define or change category accounts in a standard costing organization</b></p>
+<ol>
+<li>
+<p>Navigate to the Category Accounts window.</p>
+<p><img width="756" height="505" src="./img/invug_catacctsum.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Optionally, select a Subinventory.</p>
+<p>If a subinventory is not selected, you can define accounts that are specific to the category. Once you define a category account with a null subinventory, the accounts that are associated with that category are defaulted each time you define a new category/subinventory combination for that category.</p>
+<p>For example, if you select a category, override the defaulted organization level accounts, then save your work, the next time you select this category in this window, the new accounts not the organizational level accounts are defaulted. These default accounts can be overridden. Categories with null subinventories can be used as templates when you need to create several category/subinventory combinations.</p>
+</li>
+<li>
+<p>Select a Category.</p>
+<p>When you select a category, accounts are defaulted from the organization level. You can change these accounts.</p>
+</li>
+<li>
+<p>Select account numbers for the following:</p>
+<p><strong><span>Important:</span></strong> All subinventories that contain items belonging to the selected category set use these accounts for inventory valuation. You therefore cannot change an account if there is on-hand inventory in any of these subinventories.</p>
+<p><a name="d0e53439" id="d0e53439"></a><a name="d0e53444" id="d0e53444"></a><i>Material:</i> A default general ledger account to accumulate material costs for this category/subinventory combination. This is usually an asset account.</p>
+<p><a name="d0e53453" id="d0e53453"></a><a name="d0e53458" id="d0e53458"></a><i>Outside Processing:</i> A default general ledger account to accumulate outside processing costs for this category/subinventory combination. This is usually an asset account.</p>
+<p><a name="d0e53467" id="d0e53467"></a><a name="d0e53472" id="d0e53472"></a><i>Material Overhead:</i> A default general ledger account to accumulate material overhead or burden costs for this category/subinventory combination. This is usually an asset account.</p>
+<p><a name="d0e53481" id="d0e53481"></a><a name="d0e53486" id="d0e53486"></a><i>Overhead:</i> A default general ledger account to accumulate resource or department overhead costs for this for this category/subinventory combination. This is usually an asset account.</p>
+<p><a name="d0e53495" id="d0e53495"></a><a name="d0e53500" id="d0e53500"></a><i>Resource:</i> A default general ledger account to accumulate resource costs for this category/subinventory combination. This is usually an asset account.</p>
+<p><a name="d0e53509" id="d0e53509"></a><i>Encumbrance:</i> A default general ledger account to hold the value of encumbrances against subinventory items belonging to this category set.</p>
+<p><a name="d0e53518" id="d0e53518"></a><a name="d0e53523" id="d0e53523"></a><i>Bridging:</i> This account is optional.</p>
+<p>You can also optionally enter any of the following accounts:</p>
+<ul>
+<li>
+<p>Analytical Invoice Price Variance</p>
+</li>
+<li>
+<p>Analytical Purchase Mirror</p>
+</li>
+<li>
+<p>Non-Invoiced Sales Order</p>
+</li>
+<li>
+<p>Non-Invoiced Revenue</p>
+</li>
+<li>
+<p>Analytical Revenue Mirror</p>
+</li>
+<li>
+<p>Analytical Margins of Goods Sold</p>
+</li>
+<li>
+<p>Average Cost Variance</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To define category accounts in an average costing organization</b></p>
+<ol>
+<li>
+<p>Navigate to the Find Category Accounts window.</p>
+<a name="d0e53566" id="d0e53566"></a></li>
+<li>
+<p>Select New to open the Category Accounts Summary window.</p>
+<p><strong><span>Important:</span></strong> You can also enter and update account information for a single category in the Category Accounts window, which you can access by selecting the Open button.</p>
+</li>
+<li>
+<p>Select a Category.</p>
+<p>When you select a category, accounts are defaulted from the organization level. You can change these accounts.</p>
+</li>
+<li>
+<p>Select a Cost Group.</p>
+<p>Cost groups are mandatory. If your current organization is not Project References Enabled, the organization's default cost group is used and cannot be update. If your organization is Project References Enabled, you can select any cost group. See: Defining Cost Groups, <i>Oracle Cost Management User's Guide</i>.</p>
+</li>
+<li>
+<p>Select account numbers for the following:</p>
+<p><strong><span>Important:</span></strong> All subinventories that contain items belonging to the selected category set use these accounts for inventory valuation. You therefore cannot change an account if there is on-hand inventory in any of these subinventories.</p>
+<p><a name="d0e53601" id="d0e53601"></a><a name="d0e53606" id="d0e53606"></a><i>Material:</i> A default general ledger account to accumulate material costs for this category/cost group. This is usually an asset account.</p>
+<p><a name="d0e53615" id="d0e53615"></a><a name="d0e53620" id="d0e53620"></a><i>Outside Processing:</i> A default general ledger account to accumulate outside processing costs for this category/cost group combination. This is usually an asset account.</p>
+<p><a name="d0e53629" id="d0e53629"></a><a name="d0e53634" id="d0e53634"></a><i>Material Overhead:</i> A default general ledger account to accumulate material overhead or burden costs for this category/cost group combination. This is usually an asset account.</p>
+<p><a name="d0e53643" id="d0e53643"></a><a name="d0e53648" id="d0e53648"></a><i>Overhead:</i> A default general ledger account to accumulate resource or department overhead costs for this for this category/cost group combination. This is usually an asset account.</p>
+<p><a name="d0e53657" id="d0e53657"></a><a name="d0e53662" id="d0e53662"></a><i>Resource:</i> A default general ledger account to accumulate resource costs for this category/cost group combination. This is usually an asset account.</p>
+<p><a name="d0e53671" id="d0e53671"></a><i>Encumbrance:</i> A default general ledger account to hold the value of encumbrances against this category/cost group combination</p>
+<p><a name="d0e53680" id="d0e53680"></a><a name="d0e53685" id="d0e53685"></a><i>Bridging:</i> This account is optional.</p>
+<p>You can also optionally enter an <i>Analytical Invoice Price Variance, Analytical Purchase Mirror, Non-Invoiced Sales Order, Non-Invoiced Revenue, Analytical Revenue Mirror, Analytical Margins of Goods Sold,</i> and <i>Average Cost Variance</i> account.</p>
+<p><i>Analytical Invoice Price Variance:</i></p>
+<p><i>Analytical Purchase Mirror:</i></p>
+<p><i>Non-Invoiced Sales Order:</i></p>
+<p><i>Non-Invoiced Revenue:</i></p>
+<p><i>Analytical Revenue Mirror:</i></p>
+<p><i>Analytical Margins of Goods Sold:</i></p>
+<p><i>Average Cost Variance:</i></p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p>You cannot update category accounts if any of the following restrictions exist:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Condition Preventing Account Update</b></th>
+<th scope="col"><b>Standard Costing Organization</b></th>
+<th scope="col"><b>Average Costing Organization</b></th>
+</tr>
+<tr valign="top">
+<td>On hand Quantity &gt; 0</td>
+<td>Quantities exist in the subinventory. <b>Note:</b> If subinventory is null, all subinventories in the organization are considered.</td>
+<td>Quantities exist in any locator associated with the cost group</td>
+</tr>
+<tr valign="top">
+<td>Pending Transactions</td>
+<td>Pending transactions associated with the subinventory and category exist</td>
+<td>Pending transactions associated with the project and cost group exist</td>
+</tr>
+<tr valign="top">
+<td>Uncosted Transactions</td>
+<td>Uncosted transactions associated with the subinventory and category exist</td>
+<td>Unclosed transactions associated with the cost group exist</td>
+</tr>
+</table>
+<h2><a name="1753528"></a><a id="T291876"></a><b>Overview of Item Cataloging</b></h2>
+<p><a name="d0e53785" id="d0e53785"></a><a name="I_c_catalogov" id="I_c_catalogov"></a>You can use item cataloging to add descriptive information to items and to partition your Item Master into groups of items that share common characteristics. You configure in advance what is required to uniquely define an item in each group. When you define your items, you assign them to an item catalog group.</p>
+<p>To define your catalog, you set up as many distinct item catalog groups as you need to partition your Item Master. Each group has unique characteristics (called <i>descriptive elements</i>) that completely describe items belonging to the group.</p>
+<p>When you assign an item to an item catalog group, you define values for the descriptive elements that apply to your item. For example, an item catalog group called <i>Computer</i> could have a descriptive element called <i>Processing Speed</i>. Possible values for <i>Processing Speed</i> might be <i>100MHZ</i><b><i>,</i></b> <i>133MHZ</i><b><i>,</i></b> and so on.</p>
+<h3><b>Benefits</b></h3>
+<p>Once the process of defining and cataloging items is complete, you can:</p>
+<ul>
+<li>
+<p>Provide standard language in referring to items, enabling companies in the same industry to communicate effectively without needing to name their items identically.</p>
+</li>
+<li>
+<p>Store a detailed description of what an item is without having to embed that meaning in the item number.</p>
+</li>
+<li>
+<p>Use descriptive elements as search criteria for items.</p>
+</li>
+<li>
+<p>Update the item description with a concatenated value of the item catalog group information.</p>
+</li>
+<li>
+<p>Find common existing parts when developing an engineering prototype.</p>
+</li>
+</ul>
+<h2><a name="1753530"></a><a id="T291877"></a><b>Defining Item Catalog Groups</b></h2>
+<p><a name="d0e53842" id="d0e53842"></a><a name="INVIDICG.FOLDER" id="INVIDICG.FOLDER"></a><a name="INVIDICG.ICG_DETAILS_WINDOW" id="INVIDICG.ICG_DETAILS_WINDOW"></a><a name="INVIDICG.ITEM_CATALOG_GROUP_WINDOW" id="INVIDICG.ITEM_CATALOG_GROUP_WINDOW"></a><a name="INVIDICG.SAVE" id="INVIDICG.SAVE"></a><a name="INVIDICG.WHERE_CLAUSE" id="INVIDICG.WHERE_CLAUSE"></a><a name="INVIDICG.WINDOW0" id="INVIDICG.WINDOW0"></a><a name="INVIVCSU.MTL_DESC_ELEM_VAL" id="INVIVCSU.MTL_DESC_ELEM_VAL"></a><a name="I_t_dcatlgrp" id="I_t_dcatlgrp"></a><b>To define an item catalog group</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Catalog Groups window.</p>
+<p><img width="741" height="378" src="./img/invug_icgat.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique name for the group.</p>
+</li>
+<li>
+<p>Enter a description.</p>
+<p>If you choose to build an item's description from the catalog, the description is built beginning with the information entered here. See: <a href="T291651T291798.htm#I_c_concatdes">Concatenated Item Descriptions</a>.</p>
+<p><strong><span>Note:</span></strong> You can choose to use the Catalog Name instead of the Description as the first element in a concatenated item catalog description. To do this change the <i>INV:Use catalog name in the item description</i> profile option to <i>Yes</i><b>.</b> See: <a href="T291651T291654.htm#I_r_profopts">Oracle Inventory Profile Options</a>.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To make an item catalog group<a name="d0e53903" id="d0e53903"></a> inactive</b></p>
+<ol>
+<li>
+<p>Enter the date on which the catalog group becomes inactive.</p>
+<p>As of this date you can no longer assign items to this group. You can use an inactive group in reports and searches.</p>
+</li>
+</ol>
+<p><b>To define descriptive elements for an item catalog group</b></p>
+<ol>
+<li>
+<p>Select an item catalog group and choose Details. See: <a href="T291651T291798.htm#I_t_descelemt">Defining Descriptive Elements</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#t_defalias">Defining Aliases</a></p>
+<p><a href="T291651T291798.htm#I_t_reccateg">Specifying Recommended Categories</a></p>
+<p><a href="T291651T291798.htm#I_c_catalogov">Overview of Item Cataloging</a></p>
+<h2><a name="1753534"></a><a id="T291878"></a><b>Concatenated Item Descriptions</b></h2>
+<p><a name="d0e53942" id="d0e53942"></a><a name="d0e53949" id="d0e53949"></a><a name="I_c_concatdes" id="I_c_concatdes"></a>When you define descriptive elements for an item catalog group, you specify whether the value of a particular descriptive element can be concatenated and used as an item's description.</p>
+<p>When you assign an item to a catalog group, you choose descriptive elements that apply to the item, and assign values to the descriptive elements. You can then create a concatenated item description by choosing the Update Description button. If you choose Update Description<b>,</b> Oracle Inventory concatenates the item catalog group information and overwrites the item description with this new information.</p>
+<h3><b>Concatenated Item Description Structure</b></h3>
+<p>Oracle Inventory builds a concatenated item description by combining segments of catalog information. The first segment is either the catalog group Description or the Catalog Name. You can choose which to use by setting the <i>INV: Use catalog name in the item description</i> profile option. See: <a href="T291651T291654.htm#I_r_profopts">Oracle Inventory Profile Options</a>.</p>
+<p>Additional segments consist of the values for descriptive elements that have Description Default turned on.</p>
+<p>The Item Catalog Flexfield separator is used as a delimiter between each segment of the combined description. See: Defining Key Flexfield Segments, <i>Oracle E-Business Suite Flexfields Guide</i>.</p>
+<p>When the description is displayed, the delimiters appear even if data is missing for some of the descriptive elements. For example, an item catalog group called Computer with a description of Personal Computer, and descriptive elements of Speed (25 MHZ), Size ( ), and Monitor (color), would produce this description:</p>
+<p>Personal Computer, 25 MHZ, color</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_t_descelemt">Defining Descriptive Elements</a></p>
+<p><a href="T291651T298833.htm#I_t_asgncatlg">Assigning Items to Catalogs</a></p>
+<p><a href="T291651T291798.htm#I_c_catalogov">Overview of Item Cataloging</a></p>
+<h2><a name="1753536"></a><a id="T291879"></a><b>Defining Descriptive Elements</b></h2>
+<p><a name="d0e54004" id="d0e54004"></a><a name="d0e54011" id="d0e54011"></a><a name="I_t_descelemt" id="I_t_descelemt"></a>You can define any number of descriptive elements for an item catalog group. You can also describe whether the descriptive element is required at item definition, and whether the descriptive element value is included by default in the item catalog description.</p>
+<h3><b>Description Default</b></h3>
+<p>Descriptive element values can be concatenated and used to create an item's description. You turn this feature off or on for each descriptive element in a catalog group. Turn Description Default on for any element you want included in a concatenated description. You create a concatenated description when assign an item to an item catalog group. See: <a href="T291651T298833.htm#I_t_asgncatlg">Assigning Items to Catalogs</a>.</p>
+<p><b>To define descriptive elements for an item catalog group</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Catalog Groups window.</p>
+</li>
+<li>
+<p>Select an item catalog group and choose Details. The Item Catalog Group window appears.</p>
+<p><img width="583" height="385" src="./img/invug_icdscre.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the Descriptive Elements tabbed region.</p>
+</li>
+<li>
+<p>Enter a unique sequence number.</p>
+<p>When you assign an item to a group, the descriptive elements are presented in the order you define here.</p>
+</li>
+<li>
+<p>Enter the name of a new descriptive element.</p>
+<p><i>Examples</i>: Color, height, texture.</p>
+</li>
+<li>
+<p>Determine whether the descriptive element is required for this catalog group.</p>
+<p>When you assign an item to a catalog group, you must enter a value for required descriptive elements in order for the catalog to be considered complete. If an element is not required, entering a value is optional.</p>
+</li>
+<li>
+<p>Determine whether the descriptive element is automatically used to create the catalog description (Description Default).</p>
+<p>If you choose to concatenate the value of the descriptive element to create the catalog description, you can use this description to overwrite an existing item description.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291798.htm#I_c_concatdes">Concatenated Item Descriptions</a></p>
+<p><a href="T291651T291798.htm#I_t_dcatlgrp">Defining Item Catalog Groups</a></p>
+<p><a href="T291651T291798.htm#I_c_catalogov">Overview of Item Cataloging</a></p>
+<h2><a name="2130899"></a><a id="T308639"></a><b>Defining Aliases</b></h2>
+<p><a name="t_defalias" id="t_defalias"></a>You can specify any number of aliases for items that belong to a catalog group. This is used for information and reporting purposes only.</p>
+<p><b>To define aliases for items in a catalog group</b></p>
+<ol>
+<li>
+<p>Navigate to the Item Catalog Groups window.</p>
+</li>
+<li>
+<p>Select an item catalog group and Choose Details. The Item Catalog Group window appears.</p>
+<p><img width="581" height="384" src="./img/invug_icgalis.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select Aliases from the Show drop-down list.</p>
+</li>
+<li>
+<p>Enter a unique Name for the alias in the name field.</p>
+</li>
+<li>
+<p>Enter a Description for the alias.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="2130901"></a><a id="T308638"></a><b>Item Cataloging Examples</b></h2>
+<a name="t_catalogex" id="t_catalogex"></a>
+<h3><a id="T308642"></a><b>Hospital Environment</b></h3>
+<p>In a hospital environment, item cataloging can help doctors identify precisely the drug they want from several that are nearly identical in composition, without extensive research. By defining groups, descriptive elements, and values that are increasingly specific, a doctor can search for the proper drug using the specifics of the chemical structure. The item cataloging feature is highly flexible in that you define your own groups, descriptive elements, and values to suit your own specific needs.</p>
+<h3><a id="T308643"></a><b>Clothing Retailer</b></h3>
+<p>A clothing retailer sells partly through mail order catalogs. Customers want to order apparel over the phone, but they do not always know the item number of what they want. Item cataloging allows an order entry clerk to find the right item based on a general description. This reduces order entry time and increases customer satisfaction.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

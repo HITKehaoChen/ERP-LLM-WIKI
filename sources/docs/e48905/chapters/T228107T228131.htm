@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T228130.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107T386885.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">28/31</span> <!-- End Header -->
+<h1>Flow Workstation Customized Display</h1>
+<h2><a name="1035710"></a><a id="conceptual_overview"></a><b>Customized Display for Properties Tabbed Region</b></h2>
+<p><a name="flwapi" id="flwapi"></a>Oracle Work in Process provides a package for customizing the Properties tabbed region of the Flow Workstation. You can modify the parameters to display particular fields, of a specific value, and highlight these fields on your window. The name of the package is WIP_SF_CUSTOM_API. It includes two APIs used to modify attributes specific to your organization. The APIs you are dependent on view &ndash; either the Schedule or Event node view. These APIs are: :</p>
+<ul>
+<li>
+<p>schedule_custom_api</p>
+</li>
+<li>
+<p>event_custom_api</p>
+</li>
+</ul>
+<p>This API does not change existing parameters displaying in the Properties tabbed region. It enables you to add additional attributes and highlight those fields in color.</p>
+<p><img width="561" height="467" src="./img/wip_attributes.gif" alt="the picture is described in the document text"></p>
+<p><b>Schedule_custom_api</b></p>
+<p>The following parameters are listed for modifying the Schedule node view on the Properties tab.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Parameter</b></th>
+<th scope="col"><b>Usage</b></th>
+<th scope="col"><b>Type</b></th>
+</tr>
+<tr valign="top">
+<td>scheduleNumber</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>orgCode</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>lineCode</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>opSeqID</td>
+<td>IN</td>
+<td>NUMBER</td>
+</tr>
+<tr valign="top">
+<td>salesOrderNumber</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>assemblyName</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>scheduleGroup</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>buildSequence</td>
+<td>IN</td>
+<td>NUMBER</td>
+</tr>
+<tr valign="top">
+<td>completionDate</td>
+<td>IN</td>
+<td>DATE</td>
+</tr>
+<tr valign="top">
+<td>projectName</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>taskName</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>x_num_attr</td>
+<td>OUT</td>
+<td>NUMBER</td>
+</tr>
+<tr valign="top">
+<td>x_labels</td>
+<td>OUT</td>
+<td>system.wip_attr_labels</td>
+</tr>
+<tr valign="top">
+<td>x_values</td>
+<td>OUT</td>
+<td>system.wip_attr_value</td>
+</tr>
+<tr valign="top">
+<td>x_colors</td>
+<td>OUT</td>
+<td>system.wip_attr_colors</td>
+</tr>
+</table>
+<p><b>Event_custom_api</b></p>
+<p>The following parameters are listed for modifying the Event node view on the Properties tab.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Parameter</b></th>
+<th scope="col"><b>Usage</b></th>
+<th scope="col"><b>Type</b></th>
+</tr>
+<tr valign="top">
+<td>scheduleNumber</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>orgCode</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>lineCode</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>lineopSeqID</td>
+<td>IN</td>
+<td>NUMBER</td>
+</tr>
+<tr valign="top">
+<td>opSeqNum</td>
+<td>IN</td>
+<td>NUMBER</td>
+</tr>
+<tr valign="top">
+<td>opCode</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>deptCode</td>
+<td>IN</td>
+<td>VARCHAR2</td>
+</tr>
+<tr valign="top">
+<td>x_num_attr</td>
+<td>OUT</td>
+<td>NUMBER</td>
+</tr>
+<tr valign="top">
+<td>x_labels</td>
+<td>OUT</td>
+<td>system.wip_attr_labels</td>
+</tr>
+<tr valign="top">
+<td>x_values</td>
+<td>OUT</td>
+<td>system.wip_attr_value</td>
+</tr>
+<tr valign="top">
+<td>x_colors</td>
+<td>OUT</td>
+<td>system.wip_attr_colors</td>
+</tr>
+</table>
+<h3><b>Customizing the Package</b></h3>
+<p>The OUT parameters are modified to create a display on the Properties tabbed region customized to your organization. In the following table, two additional fields are added. You first specify the number of attributes with the x_num_attr parameters. The arrays x_labels, x_values, and x_colors are modified</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Parameter</b></th>
+<th scope="col"><b>Modified Parameter</b></th>
+</tr>
+<tr valign="top">
+<td>x_num_attr</td>
+<td>2</td>
+</tr>
+<tr valign="top">
+<td>x_labels</td>
+<td>Organization Name, Qty Completed</td>
+</tr>
+<tr valign="top">
+<td>x_values</td>
+<td>Cleveland Manufacturing, 3</td>
+</tr>
+<tr valign="top">
+<td>x_colors</td>
+<td>red, blue</td>
+</tr>
+</table>
+<p>The IN parameters are passed to the API based on the particular node context (Schedule or Event). You need to modify the OUT parameters to return the requested attributes.</p>
+<p>In the package body, you first extend the three arrays to the needed size, then fill them either manually or using SQL statements using the following rules:</p>
+<ul>
+<li>
+<p>The number of attributes returned must match the length of the return arrays</p>
+</li>
+<li>
+<p>The number of labels used must match the number of values</p>
+</li>
+<li>
+<p>The number of colors used must match each label and value combination</p>
+</li>
+<li>
+<p>The valid values for colors are blue, cyan, darkGray, gray, green, lightGray, magenta, orange, pink, red, white, yellow.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228113.htm#I_flwwindo">Flow Workstation Window</a></p>
+<p><a href="T228107T228113.htm#I_evprops">Flow Workstation Window Properties Tab</a></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

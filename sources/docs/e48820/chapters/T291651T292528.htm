@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T292438.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T292529.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">24/31</span> <!-- End Header -->
+<h1>Physical Inventory</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T292601">Overview of Physical Inventory</a></li>
+<li><a href="#T292602">Defining a Physical Inventory</a></li>
+<li><a href="#T292603">Taking a Snapshot of Inventory Quantities</a></li>
+<li><a href="#T292604">Physical Inventory Tags Overview</a></li>
+<li><a href="#T292605">Generating Physical Inventory Tags</a></li>
+<li><a href="#T292531">Physical Inventory Counts</a></li>
+<li><a href="#T292606">Entering and Voiding Physical Inventory Tag Counts</a></li>
+<li><a href="#T292607">Voiding Physical Inventory Tags</a></li>
+<li><a href="#T292533">Approval Tolerances</a></li>
+<li><a href="#T292608">Approving Physical Inventory Adjustments</a></li>
+<li><a href="#T292609">Processing Physical Inventory Adjustments</a></li>
+<li><a href="#T292610">Purging Physical Inventory Information</a></li>
+<li><a href="#T292534">Physical Inventory Reports</a></li>
+<li><a href="#T625130">Using the Physical Inventory API to Update Inventory Tag Records and Adjustment Records</a></li>
+</ul>
+<h2><a name="1761359"></a><a id="T292601"></a><b>Overview of Physical Inventory</b></h2>
+<p><a name="d0e101989" id="d0e101989"></a><a name="I_c_piovrvw" id="I_c_piovrvw"></a>Oracle Inventory provides a fully automated physical inventory feature that you can use to reconcile system-maintained item on-hand balances with actual counts of inventory. Accurate system on-hand quantities are essential for managing supply and demand, maintaining high service levels, and planning production. You can:</p>
+<ul>
+<li>
+<p><a href="T291651T292528.htm#I_t_defpi">Define a physical inventory</a></p>
+</li>
+<li>
+<p><a href="T291651T292528.htm#I_c_pitags">Generate physical inventory tags</a></p>
+</li>
+<li>
+<p><a href="T291651T292528.htm#I_t_picnts">Enter physical inventory information</a></p>
+</li>
+<li>
+<p><a href="T291651T292528.htm#I_t_aprvpiadj">Enter approval adjustment information</a></p>
+</li>
+</ul>
+<h2><a name="1761360"></a><a id="T292602"></a><b>Defining a Physical Inventory</b></h2>
+<p><a name="d0e102019" id="d0e102019"></a><a name="I_t_defpi" id="I_t_defpi"></a><a name="INVADPPI.physical_inventories_d" id="INVADPPI.physical_inventories_d"></a><a name="INVADPPI.launch_adj" id="INVADPPI.launch_adj"></a>You can define and maintain an unlimited number of physical inventories in Oracle Inventory. A physical inventory is identified by a unique name you assign. You use this name to identify any activity, such as adjustments, pertaining to this physical inventory.</p>
+<p>You can define multiple physical inventories to count selected portions of your inventory, or you can count your total inventory. For example, if your warehouse has two large stockrooms, each represented by a subinventory, you can define two physical inventories, one for each subinventory. You can then perform your physical inventory of the first stockroom, independent of the second.</p>
+<p><b>To define a physical inventory</b></p>
+<ol>
+<li>
+<p>Navigate to the Physical Inventories Summary folder window and choose New. The Define Physical Inventory window appears.</p>
+<p><img width="755" height="287" src="./img/invug_dfphyinv.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter a unique physical inventory name.</p>
+<p><a name="d0e102049" id="d0e102049"></a><a name="d0e102054" id="d0e102054"></a> <a name="d0e102060" id="d0e102060"></a></p>
+</li>
+<li>
+<p>Select approval requirements for adjustments. <a name="d0e102069" id="d0e102069"></a></p>
+<ul>
+<li>
+<p>Always: Require approval of all physical inventory adjustments.</p>
+</li>
+<li>
+<p>If out of tolerance: Hold for approval those counts that are outside the limits of the positive and negative quantity variance or value tolerances.</p>
+</li>
+<li>
+<p>Never: Allow any adjustment to post without approval.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter positive and negative approval tolerances (see: <a href="T291651T292528.htm#I_c_piaprvtol">Approval Tolerances</a>).<a name="d0e102093" id="d0e102093"></a></p>
+<p>If approval is required for adjustments out of tolerance you must enter a value in at least one of these fields. You cannot update these values after you perform physical inventory adjustments.</p>
+<ul>
+<li>
+<p>Qty: Enter acceptable Positive and Negative limits (expressed as a percentage) for the difference between the system-tracked on-hand quantity and the actual tag count quantity.</p>
+</li>
+<li>
+<p>Value: Enter acceptable Positive and Negative limits for the total value of a physical inventory adjustment.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Serial Control Option</b> region, select <b>Count</b> and <b>Detail</b>.</p>
+<ul>
+<li>
+<p><b>Count</b>: Creates one count request for each serial number (<b>One Per Request</b>), or creates multiple serial details in a count request (<b>Multiple Per Request</b>).</p>
+</li>
+<li>
+<p>In the <b>Detail</b> drop-down:</p>
+<ul>
+<li>
+<p><b>Quantity & Serial Numbers</b>: Serial number and quantity are required and are validated when entering adjustments.</p>
+</li>
+<li>
+<p><b>Quantity Only</b>: Serial number entry is optional if the count quantity matches the snapshot quantity, regardless of whether the serial numbers match. If you enter serial numbers, then the quantity and serial numbers are validated to determine whether adjustments are required. If you do not enter serial numbers, then the count is marked as completed, and no adjustments are performed.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The Serial Control Option region is applicable only to the non-WMS-enabled organizations.</p>
+</li>
+<li>
+<p>In the Count Subinventories region, select whether the scope of the physical inventory is for all subinventories or for one or more specific subinventories. Enter only a quantity-tracked subinventory.</p>
+</li>
+<li>
+<p>Indicate whether to allow dynamic entry of tags.<a name="d0e102183" id="d0e102183"></a></p>
+<p>Determines whether you can dynamically enter tags you manually created. If you choose not to allow dynamic tag entry all tags must be generated before use. See: <a href="T291651T292528.htm#I_t_genpitags">Generating Physical Inventory Tags</a>.</p>
+<p>If you do not want to allow dynamic tag entry but you need blank tags, you can generate numbered blank tags for counting miscellaneous items. See: <a href="T291651T292528.htm#I_c_pitags">Physical Inventory Tags</a>.</p>
+</li>
+<li>
+<p>Select Exclude Zero Balances to exclude items with zero quantity from the snapshot.</p>
+</li>
+<li>
+<p>Select Exclude Negative Balances to exclude items with a negative quantity from the snapshot.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To take a snapshot of the system on-hand quantities</b></p>
+<p>Click the Snapshot button.</p>
+<p><strong><span>Note:</span></strong> This step must be completed before you can generate tags.</p>
+<p>After taking a snapshot you can no longer update header information for this physical inventory. See: <a href="T291651T292528.htm#I_t_pisnapsht">Taking a Snapshot of Inventory Quantities</a>.</p>
+<p>The Status fields are display only. If the Snapshot is complete, details are listed here and all other fields cannot be updated.</p>
+<p><a name="d0e102228" id="d0e102228"></a><a name="d0e102233" id="d0e102233"></a><a name="d0e102238" id="d0e102238"></a><strong>Related Topics</strong></p>
+<p><a href="T291651T292528.htm#I_c_piovrvw">Overview of Physical Inventory</a></p>
+<p><a href="T291651T292528.htm#I_t_genpitags">Generating Physical Inventory Tags</a></p>
+<h2><a name="1761363"></a><a id="T292603"></a><b>Taking a Snapshot of Inventory Quantities</b></h2>
+<p><a name="d0e102256" id="d0e102256"></a><a name="d0e102261" id="d0e102261"></a><a name="INVADPPI.FOLDER" id="INVADPPI.FOLDER"></a><a name="I_t_pisnapsht" id="I_t_pisnapsht"></a>Before you can generate tags for a physical inventory, you must take a snapshot of all system on-hand quantities for your items. The snapshot saves all current item on-hand quantities and costs. Oracle Inventory uses this information as the basis for all physical inventory adjustments. All tag counts you enter for this physical inventory are compared with these static quantities.</p>
+<p><strong><span>Important:</span></strong> Oracle Inventory does not stop inventory processing during a physical inventory. Therefore, you must procedurally coordinate the snapshot of your physical inventory with your actual counting, <u>and ensure that no transaction activity occurs in a particular location until after you have performed your adjustments</u>.</p>
+<p><b>Example of a Physical Inventory Count</b></p>
+<p>For example, suppose that at the start of your physical inventory the system on-hand quantity for item WIDGET in a particular bin is 30. Oracle Inventory saves this information with the physical inventory snapshot. During the warehouse count, you count a total of 25 units of item WIDGET in the same bin. Before you approve your counts and perform your adjustments, you resume normal transaction operations, and consequently, item WIDGET reaches a system on-hand quantity of 45. At this point, you perform your physical inventory adjustments. Oracle Inventory computes the adjustment as the difference between the tag count and the snapshot quantity, NOT the current system quantity of the item that has now reached 45. So in this case, the adjustment is 25 - 30 = -5 units. When the adjustment is posted, the new system on-hand quantity becomes 40 units.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>It is recommended to clear the Pending Transactions and Transactions Open Interface, before taking a snapshot of inventory quantities.</li>
+</ul>
+<p><b>To freeze the system on-hand quantities</b></p>
+<ol>
+<li>
+<p>Navigate to the Physical Inventories Summary window.</p>
+<p><img width="755" height="287" src="./img/invug_dfphyinv.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the physical inventory you want to use.</p>
+</li>
+<li>
+<p>From the Tools menu, select Perform snapshot to launch the snapshot concurrent process.</p>
+<p><strong><span>Note:</span></strong> You can also choose Snapshot from the Define Physical Inventory window. See: <a href="T291651T292528.htm#I_t_defpi">Defining a Physical Inventory</a>.</p>
+</li>
+<li>
+<p>When the concurrent process is finished, re-query the physical inventory to see the effects of the snapshot. The effects include:</p>
+<ul>
+<li>
+<p>The Snapshot Complete box is selected on the Physical Inventories Summary folder window.</p>
+</li>
+<li>
+<p>The Snapshot Complete box is selected, the Snapshot Date is updated, and the Tags button is enabled in the <a name="d0e102323" id="d0e102323"></a>Define Physical Inventory window.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292528.htm#I_c_piovrvw">Overview of Physical Inventory</a></p>
+<p><a href="T291651T292528.htm#I_t_genpitags">Generating Physical Inventory Tags</a></p>
+<h2><a name="1761365"></a><a id="T292604"></a><b>Physical Inventory Tags Overview</b></h2>
+<p><a name="d0e102342" id="d0e102342"></a><a name="I_c_pitags" id="I_c_pitags"></a>Oracle Inventory can generate default or blank tags for your physical inventory. If you choose to generate default tags for each item, specify the starting tag number and the increment by which you want to increase each digit in the tag number. Your tag numbers may be alphanumeric, but you can increment only the numeric portion. The alphabetic characters in the tag number stay constant. Inventory then uses these tag numbers to generate a tag for every unique combination of item number, revision, subinventory, locator, lot, and serial number for which the system has an on-hand quantity not equal to zero.</p>
+<p>If you want to have some empty tags handy to record counts for stock-keeping units for which Inventory has no on-hand quantity (and therefore does not generate default tags), you can generate blank tags. Inventory assigns tag numbers to blank tags, but does not include any item or location detail. You specify this information when you enter your tag counts. You can generate as many blank tags as you want.</p>
+<p>You can also exclusively use blank tags to perform a physical inventory. If you need to perform a complete wall-to-wall physical inventory, you can go through your warehouse and attach blank tags to every item and/or location you see. As you perform the count, you record the item and stock-keeping unit information along with the actual on-hand quantity.</p>
+<p><strong><span>Important:</span></strong> All the features that are described in this topic are also available through the Inventory Mobile Supply Chain Applications (MSCA).</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292528.htm#I_c_piovrvw">Overview of Physical Inventory</a></p>
+<p><a href="T291651T292528.htm#I_t_genpitags">Generating Physical Inventory Tags</a></p>
+<h2><a name="1761366"></a><a id="T292605"></a><b>Generating Physical Inventory Tags</b></h2>
+<p><a name="d0e102371" id="d0e102371"></a><a name="INVARPGT.tag_defn" id="INVARPGT.tag_defn"></a><a name="INVADPPI.tag_defn" id="INVADPPI.tag_defn"></a><a name="I_t_genpitags" id="I_t_genpitags"></a>You use physical inventory tags to record the physical counts of inventory items. Physical inventory tags represent actual hard copy tags that some companies use to count inventory items. A tag contains the count for a group of a given item. Although you can record only one item on a tag, multiple tags can reference the same item, with each tag referring to a unique physical location for an item.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define and freeze a physical inventory.</li>
+</ul>
+<p><b>To generate tags</b></p>
+<ol>
+<li>
+<p>Navigate to the Generate Physical Inventory Tags window.</p>
+<p><strong><span>Tip:</span></strong> You can also choose a physical inventory from the Physical Inventories Summary window and select Generate Tags from the Tools menu, or click the Tags button from the Define Physical Inventory window.</p>
+<p><img width="534" height="408" src="./img/invug_genphytg.gif" alt="the picture is described in the document text"></p>
+<p>To select a physical inventory in Inventory MSCA, navigate to the Materials & Mfg responsibility, Inventory, Counting, Physical Count, and then double-click Tag. The Physical Counting page appears.</p>
+</li>
+<li>
+<p>Enter the name of the physical inventory.</p>
+</li>
+<li>
+<p>Select the type of tag to create.</p>
+<p>Blank tags contain no item information. Generating default tags creates a unique tag for every combination of item number, subinventory, revision, locator, lot, and serial number that exists in the subinventories for the selected physical inventory.</p>
+</li>
+<li>
+<p>Indicate whether you want to show serial numbers on the physical inventory tags.</p>
+<p>If you choose not to show serial numbers on the tags, you get a tag for each item but you have to match the serial numbers to the items manually.</p>
+<p>You can enter a value in this field only if you selected <i>Default</i> tags in the Tag Type field.</p>
+</li>
+<li>
+<p>Enter the starting tag number.</p>
+<p>Tag numbers may be alphanumeric, but you can increment only the numeric portion.</p>
+<p><strong><span>Important:</span></strong> When entering a starting tag number be sure that it contains the total number of possible digits that a tag can have. For example, if your tag numbers can have up to five digits and you want the starting number to be 1, you would enter 00001.</p>
+</li>
+<li>
+<p>Enter the amount by which each digit in the tag number can increase (Digit Increments).</p>
+<p><a name="d0e102442" id="d0e102442"></a>For example, if the starting tag number is A001 and you enter 0112 in this field, then Inventory generates the following tag numbers: A001, A003. A005, A007, A009, A011, and so on, up to A999. If you enter 0111 in this field, Inventory generates tags A001, A002, A003, A004, A005, A006, A007, A008, A009, A010, A011, etc.</p>
+</li>
+<li>
+<p>Enter the ending tag number.</p>
+<p>Inventory calculates this value for you if you selected <i>Default</i> tags in the Tag Type field.</p>
+</li>
+<li>
+<p>Enter the number of tags.</p>
+<p>Inventory calculates this value for you if you selected <i>Default</i> tags in the Tag Type field.</p>
+</li>
+<li>
+<p>Click the Generate button to create the tag numbers and information. Note that this process does not physically print the tags.</p>
+</li>
+</ol>
+<p><b>To physically print the tags</b></p>
+<p>Use the Physical Inventory Tags report to print tags you have generated.</p>
+<p><a name="d0e102479" id="d0e102479"></a><strong>Related Topics</strong></p>
+<p><a href="T291651T292528.htm#I_c_pitags">Physical Inventory Tags Overview</a></p>
+<p><a href="T291651T295121.htm#I_rx2Dinvarptp">Physical Inventory Tags</a></p>
+<p><a href="T291651T292528.htm#I_t_defpi">Defining a Physical Inventory</a></p>
+<p><a href="T291651T292528.htm#I_c_piovrvw">Overview of Physical Inventory</a></p>
+<h2><a name="1761370"></a><a id="T292531"></a><b>Physical Inventory Counts</b></h2>
+<p><a name="d0e102507" id="d0e102507"></a><a name="I_c_picnts" id="I_c_picnts"></a>Use the tags that you generated to record your physical counts. If you use <a name="d0e102516" id="d0e102516"></a>default tags for your physical inventory, you can automatically query all tags and fill in the counts. You can also query a subset of your tags by any combination of tag number, item, revision, subinventory, locator, lot, and serial number. You would use this partial tag query feature if you prefer to enter your counts by location or item, or for a particular tag number range.</p>
+<p>If you use any <a name="d0e102524" id="d0e102524"></a>blank tags in your physical inventory, you can query up the tags by tag number. You can then enter the necessary item, revision, subinventory, locator, lot, and serial number information, as well as the actual count quantity and the name of the employee who performed the count.</p>
+<p>If you enable <a name="d0e102532" id="d0e102532"></a>dynamic tag entry for your physical inventory, you can enter counts for any item and stock-keeping unit combination without a pre-generated tag number.</p>
+<p>Oracle Inventory uses the counts you enter for your tags to determine if your items need quantity adjustments; and if so, whether you need to approve them. If you set your approval option for your physical inventory to <i>Not required for adjustments</i>, you are ready to process your adjustments.</p>
+<p>If you set your approval option to <i>Required for adjustments out of tolerance</i>, Oracle Inventory holds for approval all tags with counts that are outside the limits of the quantity variance or adjustment value tolerances.</p>
+<p>If you set your approval option to <i>Required for all adjustments</i>, Oracle Inventory holds all counts for approval.</p>
+<h2><a name="1761371"></a><a id="T292532"></a><b>Void Tags</b></h2>
+<p><a name="d0e102557" id="d0e102557"></a>It is important for auditing purposes to track the status of each physical inventory tag. Therefore, if you do not use one or more of the tags Oracle Inventory generates, you should void them in the Physical Inventory Tag Counts window. A voided tag is not reported as a missing tag in the Physical Inventory Missing Tag Listing.</p>
+<p>If you generated a certain number of blank tags at the beginning of your physical inventory, and ended up not using all of them, you would void the unused tags. When you run the Physical Inventory Missing Tag Listing for the whole range of tags you initially generated, the unused ones are accounted for and appear as missing tags.</p>
+<p>If you void a default tag, (i.e. a tag that identifies a stock-keeping unit for which there is system on-hand quantity), Oracle Inventory adjusts the quantity in that location to zero. This indicates that you did not use the tag in question, presumably because the stock-keeping unit corresponding to the tag did not exist.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292528.htm#I_c_piovrvw">Overview of Physical Inventory</a></p>
+<p><a href="T291651T292528.htm#I_t_picnts">Entering and Voiding Physical Inventory Tag Counts</a></p>
+<h2><a name="1761372"></a><a id="T292606"></a><b>Entering and Voiding Physical Inventory Tag Counts</b></h2>
+<p><a name="d0e102584" id="d0e102584"></a><a name="I_t_picnts" id="I_t_picnts"></a><a name="INVADPTE.tag_counts" id="INVADPTE.tag_counts"></a><a name="INVADPTE.tag_counts_qf" id="INVADPTE.tag_counts_qf"></a><a name="INVADPPI.tag_counts" id="INVADPPI.tag_counts"></a><a name="INVADPPI.tag_counts_qf" id="INVADPPI.tag_counts_qf"></a>After recording your physical counts you must enter the quantity for each tag. You can query tags for easy data entry.</p>
+<p><b>To display physical inventory tag information</b></p>
+<ol>
+<li>
+<p>Navigate to the Physical Inventory Tag Counts window or choose the Counts button from the Physical Inventories Summary folder window.</p>
+<p><b>Physical Inventory Tag Counts Window</b></p>
+<p><img width="928" height="619" src="./img/invug_PhysicalInventory_Tag_Counts.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the physical inventory.</p>
+</li>
+<li>
+<p>Enter the employee that performed the physical inventory in the Default Counter field.</p>
+<p>Oracle Inventory uses this value as the default for the Counted By field of each tag.</p>
+</li>
+<li>
+<p>Enter or query the tag numbers for which to enter counts using one of the following options:</p>
+<ul>
+<li>
+<p><i>Click Find.</i> Select <i>Yes</i> or <i>No</i> to query all tags. If you choose <i>No</i>, you can either enter tag numbers individually or use the Find feature on the Query menu to query a subset of tags.</p>
+</li>
+<li>
+<p><i>Enter tag numbers individually.</i> When you enter a tag number the item information for that tag appears.</p>
+</li>
+<li>
+<p><i>Use Find on the Query menu.</i> You can query a subset of tags matching the search criteria you enter in the find window. You can search by any combination of tag number, item, revision, subinventory, locator, lot, serial number, or tag status. With tag status you can find voided or missing tags.</p>
+</li>
+</ul>
+<p>For serial control items, click <b>Serial</b> to enter the serial number details. In the <b>Define Physical Inventory</b> window:</p>
+<ul>
+<li>
+<p>If you selected <b>Count</b> as <b>Multiple Per Request</b> and <b>Detail</b> as <b>Quantity & Serial Numbers</b>, then you must enter serial number information in the <b>Tag Count Serial Number Details</b> window.</p>
+</li>
+<li>
+<p>If you selected <b>Detail</b> as <b>Quantity Only</b>, then you must use the <b>Tag Count Serial Number Details</b> window only if there is a quantity mismatch.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To enter counts for default tags</b></p>
+<ol>
+<li>
+<p>Follow the steps for displaying physical inventory tag information.</p>
+</li>
+<li>
+<p>Enter count information.</p>
+<p>Because you generated default tags the item, revision, subinventory, locator, lot, and serial number information for each item is displayed. You enter the count Quantity, unit of measure (UOM), and Counted By information. If the item is under dual UOM control, the secondary UOM and quantity appear.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To enter counts for blank or dynamic tags</b></p>
+<ol>
+<li>
+<p>Follow the steps for displaying physical inventory tag information, but in the Tag field enter a tag number.</p>
+</li>
+<li>
+<p>Enter the item associated with the tag.</p>
+</li>
+<li>
+<p>Enter the revision of the item.</p>
+<p>You can enter a value here if the item is under revision quantity control.</p>
+</li>
+<li>
+<p>Enter the subinventory in which you counted the item.</p>
+</li>
+<li>
+<p>Enter the locator associated with the subinventory.</p>
+<p>You can enter a value here if the item is under locator control.</p>
+</li>
+<li>
+<p>If you have Oracle Warehouse Management installed, and you are working with a WMS enabled organization (See: <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>), you can view or enter the cost group of the material counted on this count entry.</p>
+</li>
+<li>
+<p>If you have Oracle Warehouse Management installed, and you are working with a WMS enabled organization you can enter the parent LPN, which is the LPN in which the material counted resides. See: Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i>.</p>
+</li>
+<li>
+<p>Enter the count quantity (number counted) for the tag.</p>
+</li>
+<li>
+<p>Enter the count unit of measure (UOM).</p>
+</li>
+<li>
+<p>Enter the name of the employee who counted the item (Counted By).</p>
+</li>
+<li>
+<p>Enter the lot number associated with the item.</p>
+<p>This entry is required if the item is under lot number control.</p>
+</li>
+<li>
+<p>Enter the serial number associated with the item.</p>
+<p>This entry is required if the item is under serial number control.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p>If you have Oracle Warehouse Management installed, and you are working with a WMS enabled organization (See: <a href="T291651T291796.htm#I_t_invparam">Defining Default Inventory Parameters</a>), the Container Details tab will display. View information for parent LPN (LPN in which counted material resides), outermost LPN (outermost LPN in which counted material resides), container item, revision, cost group, lot, and serial number. See: Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292528.htm#I_invadpte">Voiding Physical Inventory Tags</a></p>
+<h2><a name="1761376"></a><a id="T292607"></a><b>Voiding Physical Inventory Tags</b></h2>
+<p><a name="d0e102812" id="d0e102812"></a><a name="I_invadpte" id="I_invadpte"></a>You can void tags that you deliberately discarded during the physical inventory. Voiding tags allows you to account for all tags; thus, any tag numbers that appear on the missing tag report are actually missing.</p>
+<p><b>To void or unvoid individual physical inventory tags</b></p>
+<ol>
+<li>
+<p>Follow the steps for displaying physical inventory tag information.</p>
+</li>
+<li>
+<p>Select the physical inventory tag you want to void.</p>
+</li>
+<li>
+<p>Check or uncheck the Void option.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To void or unvoid all displayed physical inventory tags</b></p>
+<ol>
+<li>
+<p>Follow the steps for displaying physical inventory tag information.</p>
+</li>
+<li>
+<p>Choose the Void All or Unvoid All button.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292528.htm#I_c_piovrvw">Overview of Physical Inventory</a></p>
+<p><a href="T291651T292528.htm#I_t_genpitags">Generating Physical Inventory Tags</a></p>
+<p><a href="T291651T292528.htm#I_t_aprvpiadj">Approving Physical Inventory Adjustments</a></p>
+<p>Searching for Data, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1761379"></a><a id="T292533"></a><b>Approval Tolerances</b></h2>
+<p><a name="d0e102874" id="d0e102874"></a><a name="d0e102879" id="d0e102879"></a><a name="d0e102884" id="d0e102884"></a><a name="I_c_piaprvtol" id="I_c_piaprvtol"></a>Oracle Inventory supports two types of physical inventory approval tolerances. For each type, you can specify a positive and a negative limit. When a particular physical inventory tag count entry results in an adjustment that exceeds any one of these limits, you have a physical inventory adjustment that exceeds approval tolerances. Based on the approval option you chose when you defined your physical inventory, this adjustment is or is not held for approval.</p>
+<p>If you decide that approval is required for adjustments out of tolerance you must enter at least one positive or negative value for one type of approval tolerance.</p>
+<p>The quantity variance tolerance is a user-defined limit for the difference between the system-tracked on-hand quantity and the actual tag count quantity. You express positive and negative quantity variance tolerances as percentages of the system on-hand quantity. You enter these percentages when defining your physical inventory.</p>
+<p>The adjustment value tolerance is a user-defined limit for the total value of a physical inventory adjustment:</p>
+<p>adj value = (system on-hand qty - actual count qty) x current cost, where:</p>
+<ul>
+<li>
+<p>Current cost is the cost at inventory snapshot.</p>
+</li>
+</ul>
+<p>You express positive and negative adjustment value tolerances as amounts in your ledger currency. You enter these tolerances when defining your physical inventory.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292528.htm#I_c_piovrvw">Overview of Physical Inventory</a></p>
+<p><a href="T291651T292528.htm#I_t_defpi">Defining a Physical Inventory</a></p>
+<p><a href="T291651T292528.htm#I_t_aprvpiadj">Approving Physical Inventory Adjustments</a></p>
+<h2><a name="1761380"></a><a id="T292608"></a><b>Approving Physical Inventory Adjustments</b></h2>
+<p><a name="d0e102927" id="d0e102927"></a><a name="I_t_aprvpiadj" id="I_t_aprvpiadj"></a><a name="INVADPAP.adjustments_d" id="INVADPAP.adjustments_d"></a><a name="INVADPPI.adjustments" id="INVADPPI.adjustments"></a><a name="INVADPPI.adjustments_qf" id="INVADPPI.adjustments_qf"></a><a name="INVADPPI.adjustments_d" id="INVADPPI.adjustments_d"></a><a name="INVADPAP.adjustments" id="INVADPAP.adjustments"></a><a name="INVADPAP.adjustments_qf" id="INVADPAP.adjustments_qf"></a>You can view, reject, or approve physical inventory adjustments pending approval. The adjustments you can view from this window are determined by the approval option you defined for your physical inventory. If you approve an adjustment, the Process Physical Inventory Adjustments program adjusts your inventory balance by that quantity. If you reject an adjustment, Oracle Inventory does not change the system on-hand quantity.</p>
+<p><b>To select the physical inventory for which to approve adjustment</b></p>
+<ol>
+<li>
+<p>Navigate to the Approve Physical Adjustments Summary window. You can also navigate to the Physical Inventory Summaries folder window, select the physical inventory you want to use, and choose Approve.</p>
+<p><b>Approve Physical Adjustments Summary Window</b></p>
+<p><img width="921" height="613" src="./img/invug_apphysm.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the name of the physical inventory.</p>
+</li>
+<li>
+<p>Enter the name of the employee approving the adjustments.</p>
+</li>
+<li>
+<p>Click <b>Find</b>.</p>
+</li>
+</ol>
+<p><b>To display the adjustments, you want to approve</b></p>
+<ol>
+<li>
+<p>From the Item field choose Find from the Query menu. The Find Physical Adjustments window appears.</p>
+</li>
+<li>
+<p>Enter search criteria. You can use any combination of tag numbers, item/location information, adjustment values. You can also display adjustments out of tolerance or those not requiring approval.</p>
+</li>
+<li>
+<p>Choose Find to start the search. The results display in the Approve Physical Adjustments Summary window.</p>
+</li>
+</ol>
+<p><b>To view current item and adjustment summary information</b></p>
+<ol>
+<li>
+<p>Choose from the following tabbed regions:</p>
+<ul>
+<li>
+<p><i>Adjustment</i>: View information for the unit of measure, adjustment quantity, adjustment value, variance percentage, and system quantity.</p>
+</li>
+<li>
+<p><i>Location</i>: View information for revision, subinventory, locator, primary and secondary units of measure, and primary and secondary adjustment quantity.</p>
+</li>
+<li>
+<p><i>Item Details</i>: View information for lot number, serial number, primary and secondary units of measure, and adjustment quantity.</p>
+</li>
+<li>
+<p><i>Approver</i>: View information for the approver.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To view count history information<a name="d0e103045" id="d0e103045"></a></b></p>
+<ol>
+<li>
+<p>In the <b>Adjustments</b> tab, select an item.</p>
+</li>
+<li>
+<p>Click <b>Count History</b>. The <b>Count History</b> window appears and displays count and variance information for the current, prior, and first counts. If the number of recounts is more than three, only then the application displays the first count, prior count, and the current count.</p>
+<p>For serial control items, click <b>Serial</b> to display the <b>Serial Number Count History</b> window.</p>
+</li>
+</ol>
+<p><b>To approve or <a name="d0e103090" id="d0e103090"></a>reject adjustments</b></p>
+<ol>
+<li>
+<p>Select an adjustment to reject or approve and select Approve or Reject.</p>
+</li>
+<li>
+<p>Optionally, choose the Approve All or Reject All button.</p>
+<p><strong><span>Important:</span></strong> You must either reject or approve all adjustments for a physical inventory before you can start processing your adjustments.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p><b>To view current item and adjustment line information</b></p>
+<ol>
+<li>
+<p>Select the desired line.</p>
+</li>
+<li>
+<p>Click Open. The Approve Physical Adjustment window displays the following information:</p>
+<ul>
+<li>
+<p>Item number, Description, and if applicable revision.</p>
+</li>
+<li>
+<p>Subinventory and if applicable locator.</p>
+</li>
+<li>
+<p>Lot</p>
+</li>
+<li>
+<p>Serial</p>
+</li>
+<li>
+<p>Primary UOM</p>
+</li>
+<li>
+<p>Snapshot quantity in the primary UOM</p>
+</li>
+<li>
+<p>Adjustment quantity in the primary UOM</p>
+</li>
+<li>
+<p>Count quantity in the primary UOM</p>
+</li>
+<li>
+<p>Secondary UOM if applicable</p>
+</li>
+<li>
+<p>Snapshot quantity in the secondary UOM, if applicable</p>
+</li>
+<li>
+<p>Adjustment quantity in the secondary UOM, if applicable</p>
+</li>
+<li>
+<p>Count quantity in the secondary UOM, if applicable</p>
+</li>
+<li>
+<p>Variance Value and Percent</p>
+</li>
+<li>
+<p>Approver</p>
+</li>
+</ul>
+<p><img width="516" height="467" src="./img/invug_physicallineapproval.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Click Approve to approve the adjustment, Reject to discard the adjustment, or None to do nothing.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292528.htm#I_c_piovrvw">Overview of Physical Inventory</a></p>
+<p><a href="T291651T292528.htm#I_t_procpiadj">Processing Physical Inventory Adjustments</a></p>
+<h2><a name="1761385"></a><a id="T292609"></a><b>Processing Physical Inventory Adjustments</b></h2>
+<p><a name="d0e103187" id="d0e103187"></a><a name="I_t_procpiadj" id="I_t_procpiadj"></a>After you finish entering all your tag counts and approving those adjustments that need approval, you can submit the process that automatically posts your physical inventory adjustments. Oracle Inventory automatically creates a material transaction adjusting the item quantity and debiting or crediting the adjustment account you specify for your physical inventory. If the count of an item matches the snapshot system on-hand quantity, there is no adjustment transaction posted.</p>
+<p>Once you run the adjustment program for your physical inventory, Oracle Inventory does not allow new tag generation or any further updates of tag counts. You are no longer able to make any changes to that physical inventory. Due to the irreversible nature of this program, Oracle Inventory posts no physical inventory adjustments if you have any adjustments that are still pending approval. You must approve or reject all of your adjustments before you can process them.</p>
+<p>You can preview your adjustments before actually posting them by running the Physical Inventory Adjustments Report. You can run the actual adjustment program after you have used the report to verify your tag quantities and the value impact of your adjustments.</p>
+<p><strong><span>Note:</span></strong> If your approval option for a particular physical inventory is <i>Never</i>, Oracle Inventory does not at any time prevent you from submitting the adjustment process. Since there will never be any adjustments pending approval, your adjustments are processed with no regard to whether you have generated tags at all, or whether you actually entered counts for all your tags. For any tag that has no count entered, Oracle Inventory assumes a count of zero and performs adjustment transactions accordingly. Therefore, you should make it a part of your physical inventory procedure to run the Physical Inventory Missing Tag Listing before you process adjustments.</p>
+<p><b>To run the adjustment program</b></p>
+<ol>
+<li>
+<p>Navigate to the Physical Inventories Summary folder window.</p>
+</li>
+<li>
+<p>Select the physical inventory you want to use.</p>
+</li>
+<li>
+<p>Choose <i>Launch adjustments</i> from the Tools menu. The Launch Adjustments window appears.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e103228" id="d0e103228"></a><a name="d0e103233" id="d0e103233"></a>Adjustment Account number against which adjustments should be charged.</p>
+</li>
+<li>
+<p>Enter the adjustment date.</p>
+</li>
+<li>
+<p>Choose the Launch Adjustments button to submit the concurrent request for adjustments.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292528.htm#I_c_piovrvw">Overview of Physical Inventory</a></p>
+<h2><a name="1761387"></a><a id="T292610"></a><b>Purging Physical Inventory Information</b></h2>
+<p><a name="d0e103256" id="d0e103256"></a><a name="INVADPPI.PHYS_PURGE" id="INVADPPI.PHYS_PURGE"></a><a name="I_t_purgepi" id="I_t_purgepi"></a>Use this form to purge a physical inventory definition from the database. Oracle Inventory deletes all information associated with the physical definition. However, the purge does <i>not</i> affect any adjustments or adjustment transactions made using the physical definition. Those adjustments are <i>not</i> changed. You can also purge just tags if you made a mistake and want to start over.</p>
+<p><b>To run the purge program</b></p>
+<ol>
+<li>
+<p>Navigate to the Physical Inventories Summary folder window.</p>
+</li>
+<li>
+<p>Select the physical inventory you want to use.</p>
+</li>
+<li>
+<p>Choose <i>Perform purge</i> from the Tools menu.</p>
+</li>
+<li>
+<p>Choose <i>Yes</i> to purge only tags in the physical inventory or <i>No</i> to purge the entire physical inventory.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T292528.htm#I_c_piovrvw">Overview of Physical Inventory</a></p>
+<h2><a name="1761389"></a><a id="T292534"></a><b>Physical Inventory Reports</b></h2>
+<p><a name="d0e103309" id="d0e103309"></a><a name="d0e103314" id="d0e103314"></a><a name="I_r_pirprts" id="I_r_pirprts"></a>You can use a number of reports to help you during the process of performing a physical inventory and to analyze and report the results of physical inventory adjustment transactions.</p>
+<h3><a id="T625115"></a><b>Physical Inventory Accuracy Analysis</b></h3>
+<p>You can run the Physical Inventory Accuracy Analysis report many times during your physical inventory. If you run it after you take a snapshot of your on-hand balances, this report shows the system on-hand quantity and value for each item included in your physical inventory. If you run this report after entering your tag counts, it shows the actual count quantities and values, as well as the adjustment quantity, value and error percentage for each count you entered. You can also use this report as a historical accuracy analysis tool.</p>
+<h3><a id="T625116"></a><b>Physical Inventory Adjustments Report</b></h3>
+<p>This report shows all adjustments against unique combinations of item, revision, subinventory, locator, lot, and serial number for a user-specified physical inventory. You can run this report before processing your adjustments to get a preview of your adjustment quantities and values. You can then determine whether you are ready to process all final adjustments or whether you need to recount certain locations. This report is also automatically generated after the successful completion of the adjustment program as a record of what was actually adjusted.</p>
+<h3><a id="T625117"></a><b>Physical Inventory Counts Report</b></h3>
+<p>This report shows information on the tags you enter for a physical inventory, including the item, item controls, count location, count quantity, and count value.</p>
+<h3><a id="T625118"></a><b>Physical Inventory Missing Tag Listing</b></h3>
+<p>This report lists the tags that are missing from a user-specified range of tag numbers. The report also shows what information was printed on the tag, if any, to aid in the search. Oracle Inventory considers as missing those tags for which you have not entered counts. Void tags are not considered to be missing. Use this report before initiating physical adjustments to verify that you have accounted for all tags generated by the system. Otherwise, if you have not entered a count for a tag and approvals are not required, Oracle Inventory adjusts your on-hand balances down to zero quantity.</p>
+<h3><a id="T625119"></a><b>Physical Inventory Summary Report</b></h3>
+<p>This report provides a summary of your physical inventory adjustments by subinventory. You can see, in your ledger currency, the system on-hand value, the actual count value, and the resulting adjustment value, as well as the number of tags and adjustments performed for each subinventory. You can also use this report as a management tool to monitor the accuracy of your inventory as it also includes the error percentage of your original system on-hand quantities and values.</p>
+<h3><a id="T625120"></a><b>Physical Inventory Tag Listing</b></h3>
+<p>This report lists all the default and blank tags that you generated and all the dynamic tags that you entered. The report shows the tag number, item, revision, subinventory, locator, lot, and serial number for each tag used in your physical inventory. You can use this report as the document you give to the employees performing the counts. You can also use this report as a complete count history after all counts have been completed.</p>
+<h3><a id="T625121"></a><b>Physical Inventory Trend Report</b></h3>
+<p>This report compares past physical inventories so that you can see whether record accuracy has improved over time. It provides a summary of physical inventory adjustment values, by date and subinventory, as well as the number of tags and adjustments each subinventory required. You can view subtotals for each physical inventory as well as a grand total of all your physical inventory adjustments over time.</p>
+<h2><a name="7067877"></a><a id="T625130"></a><b>Using the Physical Inventory API to Update Inventory Tag Records and Adjustment Records</b></h2>
+<p><a name="d0e103404" id="d0e103404"></a>Some businesses with a high volume of physical inventory transactions need a fast and efficient method for updating existing physical inventory records. For this requirement, Oracle Inventory provides a public Physical Inventory (PI) API for updating existing physical tag records and their corresponding adjustment records.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary>
+<caption>Physical Inventory API</caption>
+<tr valign="top">
+<td>Parameters</td>
+<td>The Physical Inventory (PI) API accepts the following input parameters:
+<ul>
+<li>
+<p>PI_TAG_RECORDS</p>
+</li>
+<li>
+<p>PI_ADJUSTMENT_RECORDS</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>Package INV_PHY_INV_PUB</td>
+<td>This package contains the API to accept, validate, and update existing tags. It contains the following procedure:
+<ul>
+<li>
+<p>UPDATE_TAGS: Parameter: PI_TAG_RECORDS. This procedure accepts tag records as input parameters. The procedure initiates the validation process then updates existing tag records.</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p>The system uses the following logic when updating physical inventory tags:</p>
+<ol>
+<li>
+<p>Determines if the physical inventory tag already exists:</p>
+<ul>
+<li>
+<p>If a match is found, (and changes have occurred), then the system updates the tag.</p>
+</li>
+<li>
+<p>If no matching tag is found, then a system message advises you that the tag does not exist.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Checks commit point: if the number of changes to the database is greater than or equal to commit point, then it commits all changes.</p>
+</li>
+</ol>
+<p><strong><span>Important:</span></strong> For more information about this API, see the Oracle Integration Repository. Public APIs and related details are maintained in the Oracle Integration Repository which is available from the Oracle E-Business Suite instance. The Oracle Integration Repository is an integral part of Oracle E-Business Suite, and provides a catalog of Oracle E-Business suite's business service interfaces.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

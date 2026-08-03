@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T376579.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T376735.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">25/36</span> <!-- End Header -->
+<h1>High Volume and High Performance</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T376611">Quick Sales Orders</a></li>
+<li><a href="#T376612">Creating & Managing Folders in Oracle Applications</a></li>
+<li><a href="#T376613">Extended Folder Functionality in Quick Sales Orders</a></li>
+<li><a href="#T376614">High Volume Order Processing</a></li>
+<li><a href="#T376615">Supported Features</a></li>
+<li><a href="#T376616">Unsupported Features</a></li>
+<li><a href="#T376617">Supported for HVOP Pricing Integration</a></li>
+<li><a href="#T376618">Unsupported with HVOP Pricing Integration</a></li>
+<li><a href="#T376619">Implementation Considerations of HVOP</a></li>
+<li><a href="#T376622">Setup</a></li>
+</ul>
+<h2><a name="2994014"></a><a id="T376611"></a><b>Quick Sales Orders</b></h2>
+<a name="d0e69274" id="d0e69274"></a><a name="t_qso" id="t_qso"></a>
+<h3><b>Overview</b></h3>
+<p>Quick Sales Orders reduces data entry and shortens the time required to perform this task through the use of a streamlined entry window. You can search for customer data by using the Easy Search feature, enabling you to search on various fields, then bring that customer's information into the order. Headers and lines are displayed in the same window. In the Line Details region you can add related items or upsell the existing item on the line as well as verify price and availability.</p>
+<p>Use Quick Sales Orders to configure your user interface to meet business flow needs, and make input intuitive for users with minimal training. You can create keyboard hot keys or configure window buttons to reduce keystrokes using the folder function. Data entry is shortened by the reduced need for navigation to other windows. Processes can be deferred during order processing, including pricing and automatic data refresh processes.</p>
+<p>The interface has been designed to facilitate orders to be entered with minimal data entry and time lag, and provides the following features and functions:</p>
+<ul>
+<li>
+<p>Configurable user interface using the folder function to display/hide Tabs as well as columns at both Header and line</p>
+</li>
+<li>
+<p>The ability to configure how actions are executed</p>
+</li>
+<li>
+<p>Header and lines appear in a single full screen</p>
+</li>
+<li>
+<p>A new icon can be activated to display lines and line details on a single screen</p>
+</li>
+<li>
+<p>Related Items/ Upsell /Cross sell opportunities for user selection</p>
+</li>
+<li>
+<p>Price adjustments for user selection</p>
+</li>
+<li>
+<p>Display price and availability and associated price breaks for the ordered item or any item</p>
+</li>
+<li>
+<p>Configuration of model options</p>
+</li>
+<li>
+<p>Provides the ability to choose whether the Pricing engine is called during the entry process or upon command of the user</p>
+</li>
+<li>
+<p>Associate service lines with an ordered item or for an item on an existing order.</p>
+</li>
+<li>
+<p>A new icon to activate the find customer window and populate selection directly into the order.</p>
+</li>
+<li>
+<p>Configure the preferred line detail region required to open when navigating to the line details region.</p>
+</li>
+</ul>
+<h3><b>Setup</b></h3>
+<p>There are no setup steps required to enable Quick Sales Order functionality. There are folder extensions to assist in the configuration of the user interface. All existing sales orders can be queried and modified using this feature as is in the existing sales order window. All pre-existing sales orders are queryable and modifiable from this window as currently supported in the existing sales order window. The quick sales order window does not currently support mass selection. Use the sales order window to perform these functions. The scheduling organizer and item search are not supported.</p>
+<h3><b>Profile options</b></h3>
+<p><b>OM: Default Defer Pricing at Order Entry Values at Site Level</b></p>
+<p>This profile controls the default setting of Defer Pricing; options are Yes or No. This value is read from the profile when a new session begins; however, a user is able to activate Defer Pricing directly.</p>
+<p><b>OM: User Interface Defer Pricing</b></p>
+<p>This profile determines if pricing is deferred during line entry. Options are Defer pricing to save, and No. For Defer pricing to save, pricing is done when the lines are saved. Line level pricing is suppressed. If No is selected, pricing is not deferred.</p>
+<p><b>OM: Quick OE Auto Refresh. Site, Application, LOV</b></p>
+<p>This profile controls the automatic refreshing of a window when changes have been made. It allows instant updating of the display. The options are Line, Line Detail, or Both.</p>
+<p><b>OM: Use Configurator</b></p>
+<p>If the Advanced Configurator product is installed and the OM: Use Configurator profile is set to Yes, selecting the Configurator Button will take you to the Configurator window. If it is set to No then the options section in line details displays. Selecting the configurator button moves you to the options section for model items.</p>
+<p><b>OM: Enable Related Items and Manual Substitution</b></p>
+<p>This profile enables the selection of related items in the line details region if you are using related items.</p>
+<h3><b>Supported Features</b></h3>
+<p><b>Defer Pricing</b></p>
+<p>This feature enables you to defer pricing at line level. Unit List Price, Unit Selling Price are not displayed to the user while entering the line and navigating out of the line. Order and lines are priced when the lines are saved. This feature can be controlled through the Defer Pricing check box that is displayed in the Lines window.</p>
+<p><b>Quick Order Entry Window Line Details Options</b></p>
+<p>The Options region in Line Details has the following fields: Option Number, Item, Item Description, UOM, and Qty. Options and Classes are created and displayed in this window. Option Number is system generated and may not be the actual option number that the system assigns when the configuration is saved. It is a sequence number assigned for display purposes. The quantity defaults to what is entered on the mode line.</p>
+<p><b>Auto Refresh</b></p>
+<p>If the Toggle Query Coordination check box is selected then the newly created option lines are displayed immediately in the lines block when the cursor is moved to the line. If it is not selected the options are saved. The lines region does not display available options immediately upon navigation to the lines; you have to manually requery to see them.</p>
+<h2><a name="2994019"></a><a id="T376612"></a><b>Creating & Managing Folders in Oracle Applications</b></h2>
+<p><a name="t_fldrmg" id="t_fldrmg"></a>Please refer to the <i>Oracle E-Business Suite User's Guide</i> on how to customize the layout of data in various forms by creating and managing folders in Oracle Applications.</p>
+<h2><a name="2994020"></a><a id="T376613"></a><b>Extended Folder Functionality in Quick Sales Orders</b></h2>
+<p><a name="t_fldrext" id="t_fldrext"></a>Quick Sales Orders is folder enabled, but the folder functionality in Quick Sales Orders allows display of additional tabs both at the header and line; you can select which line detail regions need to be displayed. The folder can be configured to select which specific actions should be available as buttons.</p>
+<p>Folders can be extended separately for the header and the line regions of Quick Sales Orders.</p>
+<p>Folder extensions at the header level can:</p>
+<ul>
+<li>
+<p>Display Order tabs</p>
+</li>
+<li>
+<p>Display the Action buttons & amend the user prompts</p>
+</li>
+<li>
+<p>Assign access keys for various actions</p>
+</li>
+</ul>
+<p>Folder extensions at the line level can:</p>
+<ul>
+<li>
+<p>Display line tabs</p>
+</li>
+<li>
+<p>Display the line level detail regions, such as Options, or Pricing and Availability</p>
+</li>
+<li>
+<p>Select the default region which is displayed, when the user navigates to the line detail region</p>
+</li>
+</ul>
+<h3><b>Folder Extensions- Header Level:</b></h3>
+<ol>
+<li>
+<p>Order Tabs</p>
+<p>Using this feature, the Others tab can be displayed by selecting the Others check box and saving the folder. This folder can be saved to open as default folder and in which case this folder is opened automatically whenever the form is invoked.</p>
+</li>
+<li>
+<p>Configure Buttons</p>
+</li>
+</ol>
+<p>You can select which specific actions should be displayed as action buttons. All the critical actions that are currently available from the headers and lines are seeded and can be selected to be displayed as buttons. Up to eight buttons can be displayed. Optionally, you can specify a custom prompt and an access key. If the access key is already used by some other button, then the access key that is specified here is ignored. The configure buttons functionality is enabled only when a folder for the Header is created.</p>
+<p><strong><span>Note:</span></strong> When the user configures a folder for the header region, the Line Tabs, Line Details section and Default region List of Values are disabled.</p>
+<p><b>Setting Header Level Folder Functionality for Quick Sales Orders</b></p>
+<p><img width="896" height="632" src="./img/ontig_qs_fold.gif" alt="the picture is described in the document text"></p>
+<p>The figure above shows a header level folder configuration with the Others Tab displayed at the header. The Action buttons have been configured to display Configurator, Pricing/Availability, Price Adjustments, and Price Order as buttons. Actions is not selected for display as a button.</p>
+<p>Price Adjustments has the user prompt "Discounts." That reads as "Discounts" when the folder is invoked.</p>
+<p>Price Order and Price Adjustments are selected to be displayed as buttons with the access keys as "P" and "D" respectively.</p>
+<h3><b>Folder Extensions- Line Level:</b></h3>
+<ol>
+<li>
+<p>Line Tabs</p>
+</li>
+</ol>
+<p>Using the folder extension at the line level, the following additional tabs can be selected for display:</p>
+<ul>
+<li>
+<p>Pricing</p>
+</li>
+<li>
+<p>Addresses</p>
+</li>
+<li>
+<p>Shipping</p>
+</li>
+<li>
+<p>Returns</p>
+</li>
+<li>
+<p>Services</p>
+</li>
+<li>
+<p>Others</p>
+</li>
+</ul>
+<p>Any of the above listed tabs can be displayed by selecting the corresponding check boxes and saving the folder. This folder can be saved to open as default folder and in which case this folder is opened automatically whenever the form is invoked.</p>
+<ol>
+<li>
+<p>Line Details (Regions):</p>
+</li>
+</ol>
+<p>Folders can be used to control the display of the following line details (regions):</p>
+<ul>
+<li>
+<p>Options</p>
+</li>
+<li>
+<p>Services</p>
+</li>
+<li>
+<p>Adjustments</p>
+</li>
+<li>
+<p>Related Items</p>
+</li>
+<li>
+<p>Pricing/Availability</p>
+</li>
+</ul>
+<p>You can select the default line details region that displays when you switch to Expand Line Details mode.</p>
+<p><b>Setting Line Level Folder Functionality for Quick Sales Orders</b></p>
+<p><img width="480" height="339" src="./img/ontig_qsline.gif" alt="the picture is described in the document text"></p>
+<p>The figure above shows the line level folder configured to display only the Pricing and Addresses line tabs. The other line tabs like Shipping, Returns, Services and Others will not be displayed when this folder is invoked as these have not been checked.</p>
+<p>This folder allows you to view all the line details (regions) from the Options, Services, Adjustments, Related Items and Pricing/Availability tabs as all these have been checked.</p>
+<p>At the bottom of the window is the Default Region field. The various Line Details (Regions) as mentioned above, are available for selection in the list of values. In this case, Options is selected as the default region.</p>
+<p><strong><span>Note:</span></strong> The Order Tabs section and Configure buttons regions are disabled when you configure a folder for the line region. The folder will not save if you select a value in the Default Region List of Values that is not also selected in the Line Details region. The configuration window that launches when selecting the Configurator button is dependent on whether you are using Oracle Order Management Configurator or Oracle Configurator. If Order Management Configurator is used, select the Options check box or the application will error out. The check box is disabled if you are using Oracle Configurator.</p>
+<h2><a name="2994025"></a><a id="T376614"></a><b>High Volume Order Processing</b></h2>
+<a name="t_hvop" id="t_hvop"></a>
+<h3><b>Overview</b></h3>
+<p>High Volume Order Import improves the performance of order import for high volume users who require basic processing. If you have enabled Multi-Org Access Control, you can use High Volume Order Import to import orders for all Operating Units that are accessible to you in a single submission.</p>
+<p>For more information about high volume order processing, see:</p>
+<ul>
+<li>
+<p><i>Oracle Order Management User's Guide.</i></p>
+</li>
+<li>
+<p>Oracle Integration Repository (iRepository).</p>
+</li>
+</ul>
+<p>High Volume Order Processing (HVOP) takes advantage of the high-volume processing features introduced with Oracle8. HVOP uses memory caching extensively and it bulk enables several processing operations. For lines imported in booked status, it also improves the performance of interfacing lines to shipping. If full quantity is shipped, it improves the performance of interfacing lines from shipping to Order Management.</p>
+<p>High Volume Order Processing (HVOP) Pricing Integration also leverages the JAVA Pricing Engine, which is required for optimal performance. See <i>Oracle Advanced Pricing Implementation Guide.</i></p>
+<p><strong><span>Note:</span></strong> The Java Pricing Engine is only available to those in the Approved Strategic Implementation Program.</p>
+<p>Certain features have not been bulk enabled for High Volume Order Import, and are not optimized for HVOP. These features are:</p>
+<ul>
+<li>
+<p>Workflow Integration</p>
+</li>
+<li>
+<p>Scheduling via Workflow (Auto-Scheduling is Bulk Enabled)</p>
+</li>
+<li>
+<p>Credit-checking functionality is supported by HVOP, although it is not optimized for higher performance.</p>
+</li>
+</ul>
+<h3><b>Supported Operations</b></h3>
+<h3><b>Creating Orders with HVOP Order Import</b></h3>
+<p>You can perform high-volume order processing on orders that are created via Order Import (this includes EDI orders). High-volume order processing supports creation of supported order entities, including creation of the entire order, i.e., Order Header, Order Lines, Order/Line Price Adjustments. Lines imported in Booked status are bulk enabled for Shipping Interface, which means the lines flow through to shipping in less time.</p>
+<h3><b>Pricing Integration with HVOP Order Import</b></h3>
+<p>The performance of pricing integration is optimized for orders brought into Order Management with HVOP Order Import. Performance of pricing integration is optimized for many pricing features used by high volume users.</p>
+<p>See: Oracle Pricing Setup, <i>Oracle Advanced Pricing Implementation Manual</i></p>
+<h3><b>Shipping Interface</b></h3>
+<p><b>With HVOP Order Import</b></p>
+<p>The interface of lines to shipping is now optimized with HVOP Order Import. Using a typical line flow, lines are entered and scheduled and then interfaced to shipping. Without HVOP Shipping Interface, individual line workflows go one by one to interface with shipping. But if you import scheduled lines in Booked status using HVOP Order Import, the bulk processing pushes the lines all the way through to interface with shipping. Once the lines are interfaced with shipping, it is possible to pick ship, etc.</p>
+<p><b>Without HVOP</b></p>
+<p>There are also performance optimizations for lines that interface back to Order Management after shipping. For instance, after shipping the order line is updated with shipping information. If the full quantity of the line ships, performance of the Shipping to Order Management interface is optimized. The optimization can occur either when you ship confirm manually, or when you run the Trip Stop Interface concurrent program.</p>
+<h2><a name="2994031"></a><a id="T376615"></a><b>Supported Features</b></h2>
+<p>The following is a list of features that are supported by high-volume order processing.</p>
+<ul>
+<li>
+<p>Autoscheduling</p>
+</li>
+<li>
+<p>Booking</p>
+</li>
+<li>
+<p>Interface to Shipping for Booked lines</p>
+</li>
+<li>
+<p>Manual Price Adjustments</p>
+</li>
+<li>
+<p>Order Creation</p>
+</li>
+<li>
+<p>Scheduling Parameters for LAD and Promise Date</p>
+</li>
+<li>
+<p>Shippable Flows</p>
+</li>
+<li>
+<p>Standard Items and Kits</p>
+</li>
+<li>
+<p>Pricing features (See the <i>Oracle Pricing Implementation Manual</i>)</p>
+</li>
+</ul>
+<h2><a name="2994032"></a><a id="T376616"></a><b>Unsupported Features</b></h2>
+<p>The following is a list of features that are not supported by high-volume order processing.</p>
+<ul>
+<li>
+<p>Add customers</p>
+</li>
+<li>
+<p>Any action request other than booking</p>
+</li>
+<li>
+<p>ATO items</p>
+</li>
+<li>
+<p>Audit trail</p>
+</li>
+<li>
+<p>Automatic attachments</p>
+</li>
+<li>
+<p>Commitments</p>
+</li>
+<li>
+<p>Configurations other than kits</p>
+</li>
+<li>
+<p>Credit card orders</p>
+</li>
+<li>
+<p>Drop-shipments</p>
+</li>
+<li>
+<p>End customer</p>
+</li>
+<li>
+<p>Gapless order numbering</p>
+</li>
+<li>
+<p>Import of pricing attributes</p>
+</li>
+<li>
+<p>Insert-based constraints</p>
+</li>
+<li>
+<p>Internal orders</p>
+</li>
+<li>
+<p>iPayment integration</p>
+</li>
+<li>
+<p>MACD (Move, Add, Change, Disconnect)</p>
+</li>
+<li>
+<p>Multiple and Partial payments</p>
+</li>
+<li>
+<p>Pricing attributes, coupons, and ask-for promotions</p>
+</li>
+<li>
+<p>Quote processing</p>
+</li>
+<li>
+<p>Releases against sales agreements</p>
+</li>
+<li>
+<p>Reservations</p>
+</li>
+<li>
+<p>Returns</p>
+</li>
+<li>
+<p>Service items</p>
+</li>
+<li>
+<p>Sets - arrival, ship, fulfillment</p>
+</li>
+<li>
+<p>Tax calculation before invoicing</p>
+</li>
+<li>
+<p>Updates/deletes</p>
+</li>
+<li>
+<p>Use of defaulting framework for specifying defaulting sources and the hierarchy in which they are to be used</p>
+</li>
+<li>
+<p>Versioning</p>
+</li>
+</ul>
+<p>If you need to use unsupported features, use standard Order import for those lines.</p>
+<h3><b>Types of Items</b></h3>
+<p>You can process the following types of items on high-volume orders.</p>
+<ul>
+<li>
+<p>Standard, non-ATO items</p>
+</li>
+<li>
+<p>Kits and included items</p>
+</li>
+</ul>
+<h3><b>Booking</b></h3>
+<p>Orders created using high-volume order processing with the Book Order request are validated for booking and created as booked. Pricing is based on booking events. Modifiers tied to the booking phase are evaluated for these orders.</p>
+<p>Credit checking is supported, but not optimized. You can use either real-time credit checking or credit-checking with the precalculated exposure functionality. Use pre-calculated exposure functionality for improved performance. Also note that real-time credit checking with HVOP may not be accurate with multiple threads, because the commit boundary in HVOP depends on the batch size. It is possible for several orders to be processed before a batch is committed, in which case the exposure calculations may not include order lines being processed by other threads at the time of the calculation.</p>
+<h3><b>Auto-Scheduling</b></h3>
+<p>Auto-scheduling is optimized for high-volume order processing. Regular scheduling via Workflow can be performed, but it is not optimized for high-volume order processing.</p>
+<p>Auto-scheduling does not currently support the reservation time fence. A warning message will be populated when the schedule date falls within the reservation time fence. In addition, the lines are scheduled but are not reserved.</p>
+<p><strong><span>Note:</span></strong> High-volume import supports auto-scheduling for both supported item types: standard, non-ATO items and kit with its included items. Please note that regular import supports auto-scheduling only for standard, non-ATO items.</p>
+<h3><b>Credit Checking</b></h3>
+<p>Credit checking can be set up to calculate real-time credit exposures or pre-calculated exposures. For optimal performance, use the pre-calculated exposure functionality. Also consider limiting the use of credit checking to higher risk customers.</p>
+<h3><b>Sales Credit</b></h3>
+<p>The software automatically creates a 100% sales credit for the sales person on the order. For the order line, if sales person matches the order header, then there is no sales credit created at the line level. If sales person is different, then it will generate 100% sales credit for the sales person on the line and 100% sales credit for sales person on order header (this is how regular order entry is done). For high-volume order processing, the data in the sales credit interface tables is not processed.</p>
+<h3><b>Holds Processing</b></h3>
+<p>You can evaluate hold sources and automatically put the applicable orders/order lines on hold.</p>
+<h3><b>Price Adjustments</b></h3>
+<p>High-volume order import supports only manual price adjustments of the type: Discount, Freight Charge, and Surcharge. There is no such restriction on automatic adjustments. All types of automatic adjustments can be defined and applied if order is priced during high-volume import. During manual adjustments, it is necessary to modify the Corrections form and enter the values in the Operand (for ordered quantity) and Operand per PQTY (for pricing quantity) fields. This ensures that the overridden values are applied.</p>
+<h3><b>Tax Calculation</b></h3>
+<p>There is no tax calculation during high volume order import. Order lines imported in this mode will not display tax values. Therefore, you can only use line transaction types with a receivable transaction type that does not require tax calculation or order transaction types in which tax calculation is performed at the point of invoicing.</p>
+<h3><b>Pricing</b></h3>
+<p>Both Basic and Advanced Pricing are optimized. Features commonly used by high volume customers are optimized:</p>
+<ul>
+<li>
+<p>Discounts</p>
+</li>
+<li>
+<p>Surcharges</p>
+</li>
+<li>
+<p>Freight and special charges</p>
+</li>
+<li>
+<p>Static and dynamic formulas</p>
+</li>
+<li>
+<p>GSA pricing</p>
+</li>
+</ul>
+<p>Features not supported include pricing attributes, ask-for promotions, and coupons.</p>
+<p>See: <i>Oracle Advanced Pricing Implementation Manual</i></p>
+<h3><b>Defaulting</b></h3>
+<p>Orders created using high-volume order processing will undergo defaulting for attributes that the customer cannot know and hence cannot send. These attributes are defaulted using a fixed hierarchy of two or three sources. These requirements are based on EDI needs.</p>
+<p>Certain key attributes that are required for successfully processing the order are not defaulted regardless of how the Defaulting Enabled? parameter is set. This is detailed in the following tables.</p>
+<p>Bill-to and payment terms are defaulted from the header, but not at the line level. This is done to simplify credit checking and this means that orders that have lines that have a bill-to or payment term that is different from the header will be errored out.</p>
+<p>Tables 1 and 2 lists the individual attributes that are defaulted and the fixed source and hierarchy used for each attribute.</p>
+<p><b>Defaulting Sources for Order Header</b></p>
+<ul>
+<li>
+<p>Agreement: To ensure that pricing attributes like payment term are identical to those set up on the agreement.</p>
+</li>
+<li>
+<p>Invoice To: For invoicing/pricing attributes like price list, payment term, and order type.</p>
+</li>
+<li>
+<p>Ship To: For shipping attributes like FOB, shipping method, and order type.</p>
+</li>
+<li>
+<p>Order Type: Primary default source as it can be set up to default most of the attributes on the order.</p>
+</li>
+</ul>
+<p><b>Defaulting Sources for Order Line</b></p>
+<ul>
+<li>
+<p>Item: Certain defaults like primary UOM, and warehouse are retrieved from item first.</p>
+</li>
+<li>
+<p>Ship To: For shipping attributes like FOB, shipping method, and source type.</p>
+</li>
+<li>
+<p>Order Header: Primary default source - also an indirect source when attributes need to default from Invoice To, Agreement, or Order Type.</p>
+</li>
+</ul>
+<p>Any other sources for Order Line are not supported.</p>
+<p>You can turn off defaulting in case the customer is providing all the required attributes. This is implemented using the Defaulting Enabled? parameter.</p>
+<p><strong><span>Note:</span></strong> High-volume order processing uses a different defaulting mechanism than the standard Order Management Defaulting Framework to default attributes. It defaults from a limited number of source attributes using a fixed hierarchy. However, once the order has been created, any updates to attributes that result in the clearing and re-defaulting of dependent attributes will use the rules set up in the standard Order Management Defaulting Framework. Even though the fixed defaulting hierarchies that the bulk process uses reflect in most cases the seeded rules in the standard Defaulting Framework, you might occasionally see different values being defaulted in case of an update.</p>
+<p><b>Defaulting Details</b></p>
+<p>High-volume order processing does some limited defaulting if the Defaulting Enabled? parameter is set to Yes. The following tables list the attributes that will be defaulted and the sources they will be defaulted from.</p>
+<p><strong><span>Note:</span></strong> Attributes that are set to No for the Defaulting Enabled in High-Volume Order Processing? column in the following tables will not be defaulted regardless of how the Defaulting Enabled? parameter is set. For example, Ship To, Invoice To, Ship To Contact, Invoice To Contact etc. will not be defaulted on the order header. Therefore, users should supply these values on the interface table if needed.</p>
+<p>The fields marked Yes in the Required? column in the following tables are mandatory fields. Depending on the Defaulting Enabled? parameter value, you may need to supply values for some or all of these fields in the interface tables. For example, on the order header, you should always populate Ship To and Invoice To in interface tables as they are never defaulted in high-volume order processing. However, Tax Exempt values should be supplied only if the Defaulting Enabled? parameter is set to No. If Defaulting Enabled? is set to Yes, then a constant value of Standard is supplied by the program.</p>
+<p>In addition, other non-mandatory fields that are defaulted in regular order import should be supplied in the interface tables for bulk import if orders are to be created with values in these fields.</p>
+<h2><a name="2994043"></a><a id="T376617"></a><b>Supported for HVOP Pricing Integration</b></h2>
+<p>Other pricing features are supported, but if used, pricing does not use the optimized code path:</p>
+<ul>
+<li>
+<p>Discounts</p>
+</li>
+<li>
+<p>Surcharges</p>
+</li>
+<li>
+<p>Freight and special charges</p>
+</li>
+<li>
+<p>Static or dynamic formulas</p>
+</li>
+<li>
+<p>GSA pricing</p>
+</li>
+<li>
+<p>Promotional goods</p>
+</li>
+<li>
+<p>Term substitution</p>
+</li>
+<li>
+<p>Item upgrade</p>
+</li>
+<li>
+<p>Limits Processing</p>
+</li>
+<li>
+<p>Catchweight pricing</p>
+</li>
+</ul>
+<h2><a name="2994044"></a><a id="T376618"></a><b>Unsupported with HVOP Pricing Integration</b></h2>
+<ul>
+<li>
+<p>Pricing attributes</p>
+</li>
+<li>
+<p>Ask-for promotion</p>
+</li>
+<li>
+<p>Coupon issue</p>
+</li>
+</ul>
+<p>Attribute sourcing is somewhat restricted, because orders are placed before posting to the database.</p>
+<h2><a name="2994045"></a><a id="T376619"></a><b>Implementation Considerations of HVOP</b></h2>
+<p>Some features are supported by HVOP Order Import but not optimized. Credit Checking is an example. If you can limit credit checking to higher-risk customers, you can improve performance.</p>
+<p>It is useful to analyze which lines can be imported with HVOP Order Import. For instance, if only 15% of your lines require tax calculation at booking, you could consider importing those lines with standard order import, and the remaining lines with HVOP order import.</p>
+<p>You can autoschedule the lines by populating the schedule dates in the HVOP interface tables. This method of scheduling typically offers better performance than scheduling each line using workflow.</p>
+<p>Also consider whether you can import lines in booked status. It is possible to improve the performance of lines through shipping interface if you can.</p>
+<p>To optimize the performance of HVOP pricing integration, use the supported features and the Java pricing engine.</p>
+<p>If a line is imported with one of the above unsupported pricing features, the lines are imported, but pricing-related performance is not recognized. You should evaluate whether you can run batches of HVOP Order Import with lines that use supported features. In this way, you will achieve higher performance.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Defaultable Attribute</b></th>
+<th scope="col"><b>Defaulting Enabled in High-Volume Order Processing</b></th>
+<th scope="col"><b>Defaulting Source in High-Volume Order Processing</b></th>
+<th scope="col"><b>Required?</b></th>
+</tr>
+<tr valign="top">
+<td>Accounting Rule</td>
+<td>Yes</td>
+<td>1. Agreement<br>
+2. Order Type</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Agreement</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Contact</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Conversion Rate Date</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Conversion Type</td>
+<td>Yes</td>
+<td>Order Type</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Credit Card Expiration Date</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Credit Card Holder Name</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Credit Card Number</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Currency</td>
+<td>No</td>
+<td>n/a</td>
+<td>Yes, on entered orders</td>
+</tr>
+<tr valign="top">
+<td>Customer</td>
+<td>No</td>
+<td>n/a</td>
+<td>Yes, on booked orders</td>
+</tr>
+<tr valign="top">
+<td>Customer PO</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Deliver To Contact</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Deliver To Org</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Demand Class</td>
+<td>Yes</td>
+<td>1. Ship To<br>
+2. Order Type</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Earliest Schedule Limit</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>FOB Point</td>
+<td>Yes</td>
+<td>1. Ship To<br>
+2. Order Type</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Freight Terms</td>
+<td>Yes</td>
+<td>1. Ship To<br>
+2. Order Type</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Invoice To</td>
+<td>No</td>
+<td>n/a</td>
+<td>Yes, on booked orders</td>
+</tr>
+<tr valign="top">
+<td>Invoice To Contact</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Invoicing Rule</td>
+<td>Yes</td>
+<td>1. Agreement<br>
+2. Order Type</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Latest Schedule Limit</td>
+<td>Yes</td>
+<td>Ship To</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Order Date Type Code</td>
+<td>Yes</td>
+<td>Ship To</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Order Type</td>
+<td>Yes</td>
+<td>1. Invoice To<br>
+2. Ship To</td>
+<td>Yes, on entered orders</td>
+</tr>
+<tr valign="top">
+<td>Ordered Date</td>
+<td>Yes</td>
+<td>Sysdate</td>
+<td>Yes, on booked orders</td>
+</tr>
+<tr valign="top">
+<td>Packing Instructions</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Payment Term</td>
+<td>Yes</td>
+<td>1. Agreement<br>
+2. Invoice To</td>
+<td>Yes, on booked orders</td>
+</tr>
+<tr valign="top">
+<td>Price List</td>
+<td>Yes</td>
+<td>1 Agreement<br>
+2. Invoice To</td>
+<td>Yes, on booked orders</td>
+</tr>
+<tr valign="top">
+<td>Pricing Date</td>
+<td>Yes</td>
+<td>Sysdate</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Request Date</td>
+<td>Yes</td>
+<td>Sysdate</td>
+<td>&nbsp;</td>
+</tr>
+<tr valign="top">
+<td>Sales Channel</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Salesperson</td>
+<td>No</td>
+<td>n/a</td>
+<td>Yes, on booked orders</td>
+</tr>
+<tr valign="top">
+<td>Ship To</td>
+<td>No</td>
+<td>n/a</td>
+<td>Yes, on booked orders</td>
+</tr>
+<tr valign="top">
+<td>Ship To Contact</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Ship Tolerance Above</td>
+<td>Yes</td>
+<td>Ship To</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Ship Tolerance Below</td>
+<td>Yes</td>
+<td>Ship To</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Shipment Priority</td>
+<td>Yes</td>
+<td>Order Type</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Shipping Instructions</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Shipping Method</td>
+<td>Yes</td>
+<td>1. Ship To<br>
+2. Order Type</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Tax Exempt</td>
+<td>Yes</td>
+<td>Constant: Standard</td>
+<td>Yes, on booked orders</td>
+</tr>
+<tr valign="top">
+<td>Tax Exempt Number</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Tax Exempt Reason</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Warehouse</td>
+<td>Yes</td>
+<td>1. Ship To<br>
+2. Order Type</td>
+<td>No</td>
+</tr>
+</table>
+<p>The next table shows the Line Attributes that will be defaulted and the sources they will be defaulted from.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Defaultable Attribute</b></th>
+<th scope="col"><b>Defaulting Enabled in High-Volume Order Processing</b></th>
+<th scope="col"><b>Defaulting Sources in High-Volume Order Processing</b></th>
+<th scope="col"><b>Required?</b></th>
+</tr>
+<tr valign="top">
+<td>Accounting Rule</td>
+<td>Yes</td>
+<td>1. Item<br>
+2. Order Header</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Agreement</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Calculate Price</td>
+<td>Yes</td>
+<td>1. Constant = Yes</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Commitment</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Customer PO</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Customer PO Line Number</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Deliver To Contact</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Deliver To Org</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Demand Class</td>
+<td>Yes</td>
+<td>1. Ship To<br>
+2. Order Header</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Dep Plan Required</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Earliest Acceptable Date</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>FOB Point</td>
+<td>Yes</td>
+<td>1. Ship To<br>
+2. Order Header</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Freight Terms</td>
+<td>Yes</td>
+<td>1. Ship To<br>
+2. Order Header</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Grade</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Invoice To</td>
+<td>Yes</td>
+<td>Order Header</td>
+<td>Yes, on booked lines</td>
+</tr>
+<tr valign="top">
+<td>Invoice To Contact</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Invoicing Rule</td>
+<td>Yes</td>
+<td>1. Item<br>
+2. Order Header</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Item Identifier Type</td>
+<td>Yes</td>
+<td>Ship To</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Item Revision</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Latest Acceptable Date</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Line Type</td>
+<td>Yes</td>
+<td>Order Type.Outbound Line Type (only Regular lines supported in Bulk!)</td>
+<td>Yes, on entered lines</td>
+</tr>
+<tr valign="top">
+<td>Order Quantity UOM</td>
+<td>Yes</td>
+<td>Item.Primary UOM</td>
+<td>Yes, on booked lines</td>
+</tr>
+<tr valign="top">
+<td>Ordered Quantity</td>
+<td>No</td>
+<td>n/a</td>
+<td>Yes, on booked lines</td>
+</tr>
+<tr valign="top">
+<td>Packing Instructions</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Payment Term</td>
+<td>Yes</td>
+<td>Order Header</td>
+<td>Yes, on booked lines</td>
+</tr>
+<tr valign="top">
+<td>Price List</td>
+<td>Yes</td>
+<td>Order Header</td>
+<td>Yes, on booked lines</td>
+</tr>
+<tr valign="top">
+<td>Pricing Date</td>
+<td>Yes</td>
+<td>Sysdate</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Promise Date</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Request Date</td>
+<td>Yes</td>
+<td>Sysdate</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Return Reason</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Salesperson</td>
+<td>Yes</td>
+<td>Order Header</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Schedule Arrival Date</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Schedule Ship Date</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Secondary Quantity</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Secondary UOM</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Service Period</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Service Reference Type Code</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Service Start Date</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Ship To</td>
+<td>Yes</td>
+<td>Order Header</td>
+<td>Yes, on booked lines</td>
+</tr>
+<tr valign="top">
+<td>Ship To Contact</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Ship Tolerance Above</td>
+<td>Yes</td>
+<td>1. Item<br>
+2. Ship To<br>
+3. Order Header</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Ship Tolerance Below</td>
+<td>Yes</td>
+<td>1. Item<br>
+2. Ship To<br>
+3. Order Header</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Shipment Priority</td>
+<td>Yes</td>
+<td>Order Header</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Shipping Instructions</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Shipping Method</td>
+<td>Yes</td>
+<td>1. Ship To<br>
+2. Order Header</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Source Type</td>
+<td>Yes</td>
+<td>Constant = INTERNAL</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Subinventory</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Tax Code</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Tax Date</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Tax Exempt</td>
+<td>Yes</td>
+<td>Order Header</td>
+<td>Yes, on booked lines</td>
+</tr>
+<tr valign="top">
+<td>Tax Exempt Number</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Tax Exempt Reason</td>
+<td>No</td>
+<td>n/a</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Warehouse</td>
+<td>Yes</td>
+<td>1. Item<br>
+2. Ship To<br>
+3. Order Header</td>
+<td>No</td>
+</tr>
+</table>
+<h3><b>Value to ID</b></h3>
+<p>If value fields are supplied on interface tables, high-volume import converts them to IDs and updates the ID fields directly on interface tables. If there is a value in the ID field, it takes precedence, and corresponding value fields are not used in the processing at all.</p>
+<p><strong><span>Note:</span></strong> If you decide to correct some value fields on interface tables because the order failed to import, you must clear the corresponding ID fields on interface table. For example, if the ship to location field is corrected, please check that ship to ID value is null.</p>
+<h3><b>Error Handling</b></h3>
+<p>The error messages output file identifies the following types of errors:</p>
+<ul>
+<li>
+<p>Validation errors</p>
+</li>
+<li>
+<p>Errors for unsupported features</p>
+</li>
+<li>
+<p>Unexpected errors</p>
+</li>
+</ul>
+<p>The output file also identifies order references to identify which orders failed to import. Note that in the case of validation errors or errors for unsupported features, one or more orders may fail to import while others import successfully. In the event of an unexpected error (memory errors, unable to extend tablespace, etc.), all orders fail to import. When an unexpected error occurs, all records in the batch are marked with an error. The errors must be cleared before submitting the records again for high volume order processing.</p>
+<p>The following types of errors are not identified in the error count:</p>
+<ul>
+<li>
+<p>Updates</p>
+</li>
+<li>
+<p>Deletes</p>
+</li>
+<li>
+<p>Manual pricing attributes passed on interface tables</p>
+</li>
+<li>
+<p>Manual sales credits passed on interface tables</p>
+</li>
+<li>
+<p>Manual reservations passed on interface tables</p>
+</li>
+<li>
+<p>Action request other than booking</p>
+</li>
+</ul>
+<h2><a name="2994048"></a><a id="T376622"></a><b>Setup</b></h2>
+<a name="t_hvopset" id="t_hvopset"></a>
+<h3><b>To import high volume orders:</b></h3>
+<ol>
+<li>
+<p>Populate the interface tables.</p>
+</li>
+<li>
+<p>Evaluate if simplified defaulting rules are sufficient. If so, use them to supply the required values.</p>
+</li>
+<li>
+<p>If defaulting rules are not sufficient, turn them off and provide the attribute values directly in the interface tables.</p>
+<p><strong><span>Note:</span></strong> The QP: High Volume Order Processing Compliance profile option cannot be set by a user. It is set as a result of running the &ldquo;Maintain the Denormalized Data in QP Qualifiers&rdquo; pricing concurrent program. It should be run with the update type of HVOP_Pricing_Setup, Update High Volume Order Processing profile.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

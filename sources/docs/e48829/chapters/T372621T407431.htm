@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Cost Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Cost Management User's Guide">
+<meta name="dcterms.identifier" content="E48829-27">
+<meta name="dcterms.isVersionOf" content="CSTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T372621T407406.htm" title="Previous" type="text/html">
+<link rel="Next" href="T372621T407440.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Cost Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">25/29</span> <!-- End Header -->
+<h1>Product Line Accounting Setup</h1>
+<h2><a name="3492518"></a><a id="T407432"></a><b>Product Line Accounting</b></h2>
+<p><a name="d0e65151" id="d0e65151"></a><a name="c_prdlnactg" id="c_prdlnactg"></a>Product line accounting makes it possible for you to do all of the following:</p>
+<ul>
+<li>
+<p>Default WIP accounting classes based on product line categories when converting planned orders to execution orders</p>
+</li>
+<li>
+<p>Default WIP accounting classes based on product line categories when defining discrete jobs, associating repetitive assemblies and lines, and when performing work order-less completions</p>
+</li>
+<li>
+<p>Perform distributions using these default WIP classes and their valuation and variance accounts</p>
+</li>
+<li>
+<p>Track work in process and inventory transactions by product line</p>
+</li>
+</ul>
+<h3><a id="T407433"></a><b>Implementing Product Line Accounting<a name="d0e65175" id="d0e65175"></a></b></h3>
+<p>To implement product line accounting, you must complete your product line accounting setup, then define and implement the Account Generation client extension. If you do not implement this extension, then the default WIP accounting classes defined in the Category Default WIP Accounting Classes window are used, but the accounts defined in the Category Accounts window are not, therefore your implementation will be incomplete.</p>
+<p><strong><span>Note:</span></strong> Although these accounts are provided as default accounts, if these extensions are used, then it is not recommended to write new extensions. You should use Subledger Accounting (SLA) to derive custom accounts. See: Oracle Subledger Accounting Implementation Guide.</p>
+<p>See: <a href="T372621T406948.htm#c_acctgext">Account Generation Extension</a></p>
+<p>See also: <a href="T372621T406948.htm#r_clntexts">Client Extensions</a> and <a href="T372621T407431.htm#c_prdlinsu">Product Line Accounting Setup</a></p>
+<h3><a id="T407434"></a><b><a name="c_prdlinsu" id="c_prdlinsu"></a>Product Line Accounting Setup<a name="d0e65204" id="d0e65204"></a></b></h3>
+<p><b>Prerequisites</b></p>
+<p>Optionally, define a default category set and assign it to the Product Line Functional area.</p>
+<p>See: Defining Category Sets, <i>Oracle Inventory User's Guide</i> and Defining Default Category Sets, <i>Oracle Inventory User's Guide</i></p>
+<h3><a id="T407436"></a><b>To setup product line accounting, you must:</b></h3>
+<a name="d0e65227" id="d0e65227"></a>
+<ol>
+<li>
+<p>Create product line categories and associate them with the default category set you assigned to the Product Line Functional Area.</p>
+</li>
+<li>
+<p>Define category accounts in the Category Accounts window. See: <a href="T372621T372759.htm#t_prodact">Defining Category Accounts</a>.</p>
+<p>You can define category accounts for product line accounting in both standard and average costing organizations.</p>
+</li>
+<li>
+<p>Define the WIP Accounting Classes that you plan to use as your default WIP accounting classes. See: WIP Accounting Classes, <i>Oracle Work in Process User's Guide</i> and Defining WIP Accounting Classes, <i>Oracle Work in Process User's Guide</i>.</p>
+</li>
+<li>
+<p>Associate WIP accounting classes with categories. See: <a href="T372621T372759.htm#t_dplclass">Associating WIP Accounting Classes with Categories</a>.</p>
+<p>You can define WIP accounting classes at the category level in standard costing organization and at the cost group/category level in average costing organization.</p>
+</li>
+</ol>
+<p><strong><span>Important:</span></strong> As of Release 11<i>i</i>, the Inter-organization Shipping Network window does not support additional product line accounts.</p>
+<p>For more information about how default WIP Accounting Classes are used see: WIP Accounting Classe Defaults, <i>Work in Process User's Guide</i>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T372621T407431.htm#c_prdlnactg">Product Line Accounting</a></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

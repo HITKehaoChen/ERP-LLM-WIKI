@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Using Oracle Workflow in Oracle Order Management</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Using Oracle Workflow in Oracle Order Management Guide">
+<meta name="dcterms.identifier" content="E48844-08">
+<meta name="dcterms.isVersionOf" content="OMOWF">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T393423T393426.htm" title="Previous" type="text/html">
+<link rel="Next" href="T393423T393428.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Using Oracle Workflow in Oracle Order Management","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">6/16</span> <!-- End Header -->
+<h1>Processing Orders Using Oracle Workflow</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T393641">Selecting Workflows</a></li>
+<li><a href="#T393450">Header Level Processes</a></li>
+<li><a href="#T393451">Line Level Processes</a></li>
+<li><a href="#T393452">Negotiation and Sales Agreement Processes</a></li>
+<li><a href="#T393642">Assigning Workflows to Transaction Types</a></li>
+<li><a href="#T393453">Line Workflow Assignments</a></li>
+<li><a href="#T393643">Workflow Background Engine Processing</a></li>
+<li><a href="#T393454">Workflow Background Engine Performance Guidelines</a></li>
+<li><a href="#T393644">Scheduling Workflows</a></li>
+<li><a href="#T393455">Schedule Workflow Activity</a></li>
+<li><a href="#T393456">High Volume Order Processing (HVOP)</a></li>
+<li><a href="#T393645">Repricing Order Lines</a></li>
+<li><a href="#T393457">Pricing Date</a></li>
+<li><a href="#T393458">Pricing Phases</a></li>
+<li><a href="#T393459">Calculate Price Flag</a></li>
+<li><a href="#T393460">Repricing at the Line Ship/Schedule Date</a></li>
+<li><a href="#T393461">Repricing at the Line Fulfillment Date</a></li>
+<li><a href="#T478232">Cost of Goods (COGS) Account Generator</a></li>
+<li><a href="#T478238">EDI/XML</a></li>
+</ul>
+<h2><a name="3258459"></a><a id="T393641"></a><b>Selecting Workflows</b></h2>
+<p><a name="d0e2902" id="d0e2902"></a><a name="t_wfselect" id="t_wfselect"></a>Oracle Order Management comes seeded with several workflow processes. This section provides an overview of the header and line level processes that come seeded with Oracle Order Management. It also provides recommendations for which workflows processes can best meet your business needs.</p>
+<p>Assigning workflow processes to header and line level transaction types enables you to initiate a process on an order and on an order line. Header level workflow processes must be assigned to transaction types in Oracle Order Management. After you define a line transaction type, line level processes must be assigned.</p>
+<p>You cannot select any order workflow to be used with a line workflow. Some workflow steps between an order and line are interdependent based on how continue-flow and wait-for-flow activities are paired. Therefore, the same line transaction type must follow a different line flow when used with a different order transaction type. For example, Order Flow - Generic with Header Level Invoice Interface waits for an activity in the line flow to complete. If you do not use order and line flows designed to work together your orders or order lines could complete too early or never complete.</p>
+<p>The inventory item that a line processes may have specific flow requirements. For example, a configuration must have a bill of materials and a work order created before it can be picked and shipped. The standard item can be picked from stock and shipped. Therefore, the workflow for a configuration item is different than for a standard item. Both types of order lines can be used for the same line type. The Workflow Assignments window displays the following item types to which a workflow can be assigned for a given order or order line type:</p>
+<ul>
+<li>
+<p>ATO Models, Classes, Options, Items</p>
+</li>
+<li>
+<p>Configured Item</p>
+</li>
+<li>
+<p>Kits</p>
+</li>
+<li>
+<p>Included Items</p>
+</li>
+<li>
+<p>PTO Models, Classes, Options</p>
+</li>
+<li>
+<p>Standard Items</p>
+</li>
+<li>
+<p>Service Items</p>
+</li>
+</ul>
+<p>If the item type code is left blank, the specified workflow assignment applies to all item types for which there is no specific assignment. Specify an assignment for the configured item type if you plan to use the line type for ATO configurations.</p>
+<p><strong><span>Note:</span></strong> A Workflow assignment is required for a given line type to support creation of lines using that line type.</p>
+<h2><a name="3258460"></a><a id="T393450"></a><b>Header Level Processes</b></h2>
+<p><a name="d0e2946" id="d0e2946"></a><a name="t_hlproc" id="t_hlproc"></a>The following list provides an overview of the header processes seeded in Oracle Order Management:</p>
+<ul>
+<li>
+<p><a href="T393423T393429.htm#t_ofgen">Order Flow - Generic</a>: This is the most commonly used header flow. This process includes activities that book and close the order header. Always use this process unless you require the functionality specific to <a href="T393423T393429.htm#t_ofghl">Order Flow - Generic with Header Level Invoice Interface</a> or <a href="T393423T393429.htm#t_ofraf">Order Flow - Return with Approval</a>. Order Flow - Generic can be used with any line flow for any item type, with outbound lines and with return lines.</p>
+</li>
+<li>
+<p>Order Flow - Generic with Header Level Invoice Interface: Use this header flow if your business requires that all lines on the order invoice together at the header level.</p>
+<p><strong><span>Note:</span></strong> This process must be used in conjunction with Line Flow - Generic with Header Level Invoice Interface.</p>
+</li>
+<li>
+<p>Order Flow - Return with Approval: Use this header flow when all lines on the order are returns and header level approval is required.</p>
+</li>
+<li>
+<p>Order Flow - Return with Submission and Approval: This flow is seeded for Oracle <i>i</i>Store RMA integration. It is not intended to be used as a standard OM flow.</p>
+</li>
+</ul>
+<h2><a name="3258461"></a><a id="T393451"></a><b>Line Level Processes</b></h2>
+<p><a name="d0e2984" id="d0e2984"></a><a name="t_llproc" id="t_llproc"></a>With the exception of returns, all of the line level processes seeded in Oracle Order Management are used for outbound processing.</p>
+<p>The following sections provide overviews of the line level processes seeded in Oracle Order Management.</p>
+<p><a name="d0e2993" id="d0e2993"></a>The following line level workflow processes execute typical activities for entering and scheduling order lines:</p>
+<ul>
+<li>
+<p><a name="d0e3001" id="d0e3001"></a><a href="T393423T393429.htm#t_lfgen">Line Flow - Generic</a>: Use this process for all items except for service items, including assemble-to-order (ATO) items, ATO models, kits, and pick-to-order (PTO) models.</p>
+</li>
+</ul>
+<p>This flow will not work for configured items generated from assemble-to-order models.</p>
+<p>When Line Flow - Generic is selected, users need not select different processes for assemble-to-order items, assemble-to-order models, or a standard items. Outbound lines for all item types (other than Service) can be handled by Line Flow - Generic. By selecting Line Flow - Generic, the necessity of selecting a specific process for a particular item type is eliminated (this could be useful for customer service representatives).</p>
+<p>From a setup perspective, Line Flow - Generic is effective because it manages several item types. If, however, you are a high volume ATO user, specific Assemble to Order (ATO) Processes can improve performance.</p>
+<ul>
+<li>
+<p><a name="d0e3016" id="d0e3016"></a><a href="T393423T393429.htm#t_lfghlii">Line Flow - Generic with Header Level Invoice Interface</a>: Use this process when all order lines must invoice simultaneously. Invoice is controlled by the AutoInvoice concurrent program. Set up grouping rules in Oracle Receivables if only one invoice for the order is necessary.</p>
+<p><strong><span>Note:</span></strong> This process must be used in conjunction with Order Flow - Generic with Header Level Invoice Interface.</p>
+</li>
+<li>
+<p><a name="d0e3027" id="d0e3027"></a>Line Flow - Generic, With Export Compliance: Select this process when products exported to a denied party must be checked. This process is commonly used in the defense industry, and could be used for screening after scheduling but before manufacturing. If the party (such as the ship to) is authorized, the line progresses through the create supply, ship, fulfill, invoice interface, and close processes.</p>
+</li>
+<li>
+<p><a name="d0e3033" id="d0e3033"></a><a href="T393423T393429.htm#t_lfgbo">Line Flow - Generic, Bill Only</a>: Use this process when scheduling and shipping are not necessary for an ordered item. This process fulfills the order line, then proceeds with invoice interface. For example, this process might be used if an invoice was incorrect and an adjustment must be made visible in Oracle Order Management.</p>
+</li>
+<li>
+<p><a name="d0e3041" id="d0e3041"></a><a href="T393423T393429.htm#t_lfgboii">Line Flow - Generic, Bill Only with Inventory Interface</a>: Use this flow when products are not shipped but inventory decrement is required. For example, some distributors have customers who pick up products in person. The inventory transaction must be accounted for, so the process line moves to invoice interface. The product is picked up, so shipping is not necessary.</p>
+</li>
+<li>
+<p><a name="d0e3049" id="d0e3049"></a><a href="T393423T393429.htm#t_lfgso">Line Flow - Generic, Ship Only</a>: Use this process if you must ship a product but an invoice is not necessary. This flow decrements inventory. For example, this process could be used when shipping free samples for a new product, or for shipping a non-billable toolset to repair a previously invoiced item.</p>
+<p><b>Assemble to Order (ATO) Processes</b></p>
+<a name="d0e3058" id="d0e3058"></a></li>
+</ul>
+<p>Assign the seeded line workflow for the Configured Item line type if your business processes ATO configurations. Configured Item refers to the actual item created by Oracle Configure to Order for an ATO model order line as part of the Autocreate configuration process.</p>
+<p>If your business does not process ATO models or ATO items, but does process standard items and PTO items, you can delete Item Attributes that relate only to ATO models or ATO items to improve performance. The following are item attributes associated only with ATO models and ATO items:</p>
+<ul>
+<li>
+<p>Lead Time Rollup Organization</p>
+</li>
+<li>
+<p>Lead Time Rollup Config Item</p>
+</li>
+<li>
+<p>Lead Time Date</p>
+</li>
+<li>
+<p>Lead Time Category Structure</p>
+</li>
+<li>
+<p>Lead Time Attribute Req ID</p>
+</li>
+<li>
+<p>Lead Time Request ID</p>
+</li>
+<li>
+<p>AFAS Line ID</p>
+</li>
+</ul>
+<p>ATO processes seeded in Oracle Order Management include the following:</p>
+<ul>
+<li>
+<p><a name="d0e3092" id="d0e3092"></a><a href="T393423T393429.htm#t_lfato">Line Flow - ATO Item</a>: Use this process instead Line Flow - Generic for ordering only ATO items. The process runs the typical entering and scheduling processes. This process also creates supply for an ATO Item. The process then continues with shipping, deferred fulfillment, fulfillment, invoice interface, and close.</p>
+</li>
+<li>
+<p><a name="d0e3100" id="d0e3100"></a><a href="T393423T393429.htm#t_lfatom">Line Flow - ATO Model</a>: Use this process instead of Line Flow - Generic for ordering only ATO models. The process runs entering, scheduling, creating configuration, shipping, fulfillment, invoice interface, and close.</p>
+</li>
+<li>
+<p><a name="d0e3108" id="d0e3108"></a><a href="T393423T393429.htm#t_lfconf">Line Flow - Configuration</a>: This process is for configured items. Assign this process to the order line type used for configurations as part of your implementation process. The configured item is created from a model as a part of the Autocreate configuration process for ATO items. The flow runs calculation of manufacturing data, and creation of supply for configuration. It then continues with shipping, fulfillment, and close.</p>
+<p><b>Oracle Release Management Processes</b></p>
+<a name="d0e3117" id="d0e3117"></a></li>
+</ul>
+<p>The following line level workflow process are commonly used with Oracle Release Management:</p>
+<ul>
+<li>
+<p><a name="d0e3125" id="d0e3125"></a><a href="T393423T393429.htm#t_lfgrlm">Line Flow - Generic with Authorize to Ship (RLM)</a>: Use this flow if you use Oracle Release Management and want to forecast in Oracle Order Management. Demand interfaced from Oracle Release Management as Not Authorized To Ship can be changed to Authorized to Ship using this workflow process.</p>
+</li>
+<li>
+<p><a name="d0e3133" id="d0e3133"></a>Line Flow - Configuration with Authorize to Ship (RLM): Use this flow if you use Oracle Release Management and want to forecast in Oracle Order Management. Demand interfaced from Oracle Release Management as Not Authorized To Ship can be changed to Authorized to Ship using this workflow process. The Line Flow - Configuration with Authorize to Ship (RLM) workflow process is associated with Oracle Release Management. Line Flow - Configuration with Authorize to Ship (RLM) ensures that a line is eligible for shipping. This workflow is specific to Oracle Release Management users and must be assigned during the implementation process.</p>
+<p><b>Inbound Processes</b></p>
+<a name="d0e3140" id="d0e3140"></a></li>
+</ul>
+<p>The following line level workflow processes are used for returns or inbound lines:</p>
+<ul>
+<li>
+<p><a name="d0e3148" id="d0e3148"></a><a href="T393423T393429.htm#t_lfcredit">Line Flow - Return for Credit Only</a>: This process is used only for incoming lines. The process runs an activity that issues credit without waiting for a receipt of goods or an approval. This flow could be used, for example, if you give credit for a product shipped on a CD, but you do not want the CD to be returned.</p>
+</li>
+<li>
+<p><a name="d0e3156" id="d0e3156"></a>Line Flow - Return for Credit Only with Approval: This processes is used only for incoming lines that requires approval. This process could be used, for example, when a return must be approved by a manager or a customer service representative before credit is issued.</p>
+</li>
+<li>
+<p><a name="d0e3162" id="d0e3162"></a><a href="T393423T393430.htm#t_cclm">Line Flow - Return for Credit with Receipt</a>: This process is used only for incoming order lines that require receipt of goods before credit can be issued. Once the returned items are received by Oracle Purchasing, the process continues through invoicing and credit is issued. This process is useful when the returned items are expensive; credit should not be issued until the items are received.</p>
+</li>
+<li>
+<p><a name="d0e3170" id="d0e3170"></a><a href="T393423T393429.htm#t_lfcraa">Line Flow - Return for Credit with Receipt and Approval</a>: This process is the most restrictive for incoming lines. The process requires both receipt of goods and an approval. This process is commonly used when items such as modems are returned. The modem is received then inspected to ensure that no mistreatment or neglect of the item occurred. Once inspected and approved, credit is issued.</p>
+<a name="d0e3176" id="d0e3176"></a></li>
+</ul>
+<p><b>Service Item Processes</b></p>
+<p>The following process is used for service items:</p>
+<ul>
+<li>
+<p><a name="d0e3187" id="d0e3187"></a><a href="T393423T393429.htm#t_lfss">Line Flow - Standard Service</a>: Use this process for service items such as support. Once the line is fulfilled, invoice interfacing occurs.</p>
+</li>
+</ul>
+<h2><a name="3258462"></a><a id="T393452"></a><b>Negotiation and Sales Agreement Processes</b></h2>
+<p><a name="d0e3197" id="d0e3197"></a><a name="t_nbsa" id="t_nbsa"></a>You can choose one of the following seeded header-level negotiation flows, which can be converted to a Sales Order in case of a Quote, or Active Sales Agreements if it is a Sales Agreement. The Sales Order negotiation can be converted to Sales Order in either the Entered or Booked status. The following are flows supporting the Negotiation phase for Sales orders and Sales Agreements:</p>
+<ul>
+<li>
+<p><a href="T393423T393429.htm#t_neggn">Negotiation Flow - Generic</a>: Flow without approval. Prepare quote, get customer final acceptance, and converts the negotiation to an order.</p>
+</li>
+<li>
+<p><a name="d0e3212" id="d0e3212"></a><a href="T393423T393429.htm#t_ngapp">Negotiation Flow - Generic with Approval</a>: Flow with Approval. Prepare quote, get management approval, get customer final acceptance, and converts the negotiation to an order.</p>
+</li>
+</ul>
+<h3><a id="T475365"></a><b>Negotiation Flows and Fulfillment Flows</b></h3>
+<p><a name="d0e3222" id="d0e3222"></a><a name="d0e3225" id="d0e3225"></a>The negotiation flow represents the decision phase of the order process where a sale is discussed and agreed upon before the sale is confirmed. Once the order content is agreed upon, the negotiation moves into the fulfillment phase of the order where scheduling and shipping occur, resulting in invoicing through Receivables. The distinction between the two flows is specific to the activities in the seeded flows. The negotiation flow is a header flow only and all the lines follow that flow : there are no independent line flows during the negotiation phase. The negotiation flow also has an expiration that is based on the start and end active date, and will expire if not converted to an order. Only when the transaction transitions to the fulfillment part of the order process are line flows associated with the lines and can be managed independently.</p>
+<h2><a name="3258463"></a><a id="T393642"></a><b>Assigning Workflows to Transaction Types</b></h2>
+<p><a name="d0e3234" id="d0e3234"></a><a name="t_awftt" id="t_awftt"></a>Oracle Order Management transaction types determine the workflow processes executed at header and line levels. Oracle Order Management enables you to define both header and line level transaction types.</p>
+<p>Oracle Order Management does not provide seeded transaction types. You must create your own transaction types using the transaction types window in Oracle Order Management.</p>
+<p>See: <i>Oracle Order Management Implementation Manual</i>.</p>
+<p><b>Transaction Types Window</b></p>
+<p><img width="644" height="482" src="./img/wf_txsn.gif" alt="the picture is described in the document text"></p>
+<p>The Transaction Type determines the header level process used at the header level on an order. The combination of transaction type, line type, and item type determines the line workflow. Please note that the Operating Unit field on the Transaction Types window is a mandatory field and transaction types are assigned to one or more operating units.</p>
+<p>You can perform all standard processing including orders, returns, drop-ship orders, orders for configured items, and orders for assemble-to-order items using seeded workflows. You can also create your own workflows if you need additional processes, activities, or notifications.</p>
+<p><strong><span>Warning:</span></strong> Oracle provides support only for its seeded activities and processes. Oracle does not provide support for your custom activities and processes.</p>
+<p>For more information about extending existing workflow processes, refer to <a href="T393423T393428.htm#t_extend">Extending Oracle Order Management Seeded Workflows</a>.</p>
+<p>For information about creating your own workflow processes, refer to the <i>Oracle Workflow User's Guide</i>.</p>
+<p>For more information on Operating Units in the Transaction Types window, please refer to the <i>Oracle Order Management Implementation Manual.</i></p>
+<h2><a name="3258465"></a><a id="T393453"></a><b>Line Workflow Assignments</b></h2>
+<p><a name="d0e3280" id="d0e3280"></a><a name="t_lnwf" id="t_lnwf"></a>The Line Workflow Assignments window is available for Oracle Order Management order transaction types. Use this window to assign line flows to the line types used with an order type. The following image depicts the Line Workflow Assignments window.</p>
+<p><b>Line Workflow Assignments</b></p>
+<p><img width="505" height="357" src="./img/wf_lnassign.gif" alt="the picture is described in the document text"></p>
+<p>A line flow can be assigned to an order type, line type, and item type combination. Oracle Order Management enables you to define one assignment for a given combination. If the item type is left blank, then that assignment applies to all item types that do not have specific assignments. If you use a line type for ATO models, Oracle Order Management requires you to specify assignments for configured item types.</p>
+<h2><a name="3258467"></a><a id="T393643"></a><b>Workflow Background Engine Processing</b></h2>
+<p><a name="d0e3300" id="d0e3300"></a><a name="t_wfback" id="t_wfback"></a>The Workflow Background Engine processes deferred activities. It also processes wait activities and timed-out activities when the wait/time-out period is reached. Schedule the Workflow Background Process concurrent program to resubmit periodically. When scheduling with the concurrent program, select the required item type in the Parameters window.</p>
+<p><strong><span>Note:</span></strong> It is recommended to run the Workflow Background Engine at least three times a day. More frequent runs balance the load processing and allow lines to progress more frequently.</p>
+<p>To set schedules for the Workflow Background Engine, set up the following options:</p>
+<ol>
+<li>
+<p>Define the Process Deferred parameter as Yes. Set all other parameters to No. Schedule this request to run most frequently (for example, every 10 -15 minutes).</p>
+</li>
+<li>
+<p>Define Process Time-out as Yes, and all other parameters as No. This can run less frequently (for example, once every 30 - 60 minutes).</p>
+</li>
+<li>
+<p>Define Process Stuck set to Yes and all other parameters as No. This can run less often (for example, once per day).</p>
+</li>
+</ol>
+<p>The most common use of the background engine is to process deferred activities. To improve performance, process deferred activities frequently, and process time-out and stuck less frequently. For example, you probably have more deferred lines than timed out lines. In this case, you could progress deferred lines three times a day, and progress timed out lines only once a day.</p>
+<h3><b>Workflow Context Change</b></h3>
+<p><a name="d0e3327" id="d0e3327"></a>Oracle Order Management sets the application's context for order headers and lines when the Workflow Background Engine processes them.The context is reset if any of the context attributes - user, responsibility, application or operating unit do not match the one on the Order Header or Line being processed. The following profile options are accessed using the context of the user who created the line or header for which they are retrieved:</p>
+<ul>
+<li>
+<p>OM: Source For TP Early Ship/Deliver Date</p>
+</li>
+<li>
+<p>OM: Sequence For TP Ship/Deliver Deadline</p>
+</li>
+</ul>
+<h2><a name="3258468"></a><a id="T393454"></a><b>Workflow Background Engine Performance Guidelines</b></h2>
+<p>The Workflow Background Engine also impacts overall system performance. By analyzing the frequency and type of processing you require, you can ensure that the WF background engine runs efficiently. To run the WF Background Engine, you must set the following parameters:</p>
+<ul>
+<li>
+<p>Deferred? If set to yes, the WF background engine will pick up all deferred lines.</p>
+</li>
+<li>
+<p>Timeout? If set to yes, the WF background engine will pick up all timed-out lines.</p>
+</li>
+</ul>
+<p>Avoid running the Workflow Background Engine multiple times with both the Deferred? and Timeout? parameters set to yes. Instead, run it as required to check for one of the parameters. For example, you might want progress deferred lines four times a day, and progress timed out lines one time a day. However, the frequency depends on your business needs. You may need to run the WF Background Engine several times a day, but the process will be more efficient if you specify either Deferred or Timed Out lines, but not both.</p>
+<p><strong><span>Note:</span></strong> The activity of the Workflow Background Engine affects all order processing: standard and HVOP order import, online processing, and Process Order API.</p>
+<h2><a name="3258469"></a><a id="T393644"></a><b>Scheduling Workflows</b></h2>
+<p><a name="d0e3363" id="d0e3363"></a><a name="t_wfsched" id="t_wfsched"></a>A line that is not scheduled from the Sales Orders window can be scheduled using a workflow activity. Each order process activity can be represented as a workflow activity. The workflow activities are completed automatically based on your workflow process definition.</p>
+<p><strong><span>Note:</span></strong> If scheduling encounters an unexpected error (such as system or network error), add, update and delete will also fail.</p>
+<h2><a name="3258470"></a><a id="T393455"></a><b>Schedule Workflow Activity</b></h2>
+<p><a name="d0e3377" id="d0e3377"></a>The standard schedule workflow activity performs the following functions:</p>
+<ul>
+<li>
+<p>Obtain a ship-from location for an order line.</p>
+</li>
+<li>
+<p>Obtain the schedule date for an order line.</p>
+</li>
+<li>
+<p>Obtain other scheduling attributes, including delivery lead time and shipping methods, for an order line.</p>
+</li>
+<li>
+<p>Reserve order lines (when within the reservation time fence period).</p>
+</li>
+</ul>
+<p>For more information about the scheduling activities available in Oracle Order Management, Seeded Function Activity Definitions.</p>
+<p>For more information about the subprocesses that use scheduling activities, refer to <a href="T393423T393430.htm#t_ssd">Seeded Subprocess Definitions</a>.</p>
+<h2><a name="3258471"></a><a id="T393456"></a><b>High Volume Order Processing (HVOP)</b></h2>
+<p><a name="d0e3407" id="d0e3407"></a><a name="d0e3410" id="d0e3410"></a>Order Management now provides High Volume Order processing (HVOP) as an alternative way to import newly created orders. This method of order import achieves many performance gains.</p>
+<p>Order Management seeds a generic line flow for performance called Line Flow&mdash;Generic, Performance. This seeded flow improves performance by reducing the number of subprocesses and status checks. It can be used for all items types. Because this flow is not modular, it should not be modified.</p>
+<p>The streamlined seeded workflow Line Flow&mdash;Generic, Performance provides the same functionality as the Generic line flow. The benefit of the Generic line flow is that it simplifies extending or customizing workflow. This is because the traditional Line Flow - Generic workflow has subprocesses. If you copy the flow and insert a new activity at the top level&mdash;that is, into the main flow, the rest of the flow will contain references to the subprocesses defined by Order Management. When Order Management updates these subprocesses with a patch, the modified workflow automatically points to the updated subprocess since the modified flow only contains a reference to it. The Line Flow&mdash;Generic, Performance workflow has no subprocesses. There are no references to subprocesses, only copies of the lineflow. Therefore, when a patch is applied, you need to recopy and reapply any modifications you have made to the seeded flow.</p>
+<p>Streamlining workflow improves the performance of both standard and HVOP order import, as well as online performance. It improves the performance of the Process Order API, and concurrent programs that process workflow activities.</p>
+<h2><a name="3258472"></a><a id="T393645"></a><b>Repricing Order Lines</b></h2>
+<p><a name="d0e3426" id="d0e3426"></a>Oracle Order Management enables you to reprice an order line at any point in the order life cycle using Oracle Workflow. Oracle Order Management and Oracle Workflow also enable you to determine the following:</p>
+<ul>
+<li>
+<p>When repricing should occur</p>
+</li>
+<li>
+<p>Which pricing event phases are executed when repricing</p>
+</li>
+<li>
+<p>Whether to ignore the Calculate Price flag value for an order line</p>
+<p><strong><span>Note:</span></strong> You must use the Reprice activity to access repricing functionality.</p>
+</li>
+</ul>
+<p>For more information about the pricing functionality in Oracle Order Management, refer to the <i>Oracle Order Management User's Guide.</i></p>
+<h2><a name="3258473"></a><a id="T393457"></a><b>Pricing Date</b></h2>
+<p><a name="d0e3453" id="d0e3453"></a>Set the Reprice activity Repricing Date attribute when you insert the activity into a workflow. You can set the pricing date to one of the following dates for your order line:</p>
+<ul>
+<li>
+<p>Actual shipment date</p>
+</li>
+<li>
+<p>Schedule ship date</p>
+</li>
+<li>
+<p>Fulfillment date</p>
+</li>
+<li>
+<p>Promise date</p>
+</li>
+<li>
+<p>Request date</p>
+</li>
+<li>
+<p>System date</p>
+</li>
+</ul>
+<p>You can select the original pricing date on the order line if you set the Repricing Date attribute to Null.</p>
+<h2><a name="3258474"></a><a id="T393458"></a><b>Pricing Phases</b></h2>
+<p><a name="d0e3484" id="d0e3484"></a>Set the Repricing Event attribute to Pricing Event to control line-level pricing phases to be executed at repricing. The Repricing Event attribute is an Oracle Order Management lookup type to list all pricing events for which repricing can be executed. Current lookup codes for Repricing Event include the following:</p>
+<ul>
+<li>
+<p>Line</p>
+</li>
+<li>
+<p>Price</p>
+</li>
+<li>
+<p>Reprice Line</p>
+</li>
+</ul>
+<p>You can recalculate base price while keeping the discounts given during the order entry time by setting the Repricing Event attribute to Price.</p>
+<p><strong><span>Note:</span></strong> If you set the Repricing Event attribute to Null, the repricing event is Reprice Line. Reprice Line is a seeded pricing event. You can only associate line-level pricing phases with this event. For more information about pricing events, refer to the <i>Oracle Advanced Pricing User's Guide.</i></p>
+<p>If you add a new pricing event for use with Reprice, verify that you also define this event as a lookup type. If this is not defined as a lookup type, you cannot select the new pricing event when setting the Repricing Event attribute.</p>
+<h2><a name="3258475"></a><a id="T393459"></a><b>Calculate Price Flag</b></h2>
+<p><a name="d0e3513" id="d0e3513"></a>You can control whether the repricing line workflow activity honors the value of the calculate price flag by setting the Reprice attribute Honor Price Flag to one of the following:</p>
+<ul>
+<li>
+<p>Yes: Honors the value of the calculate price flag on the order.</p>
+</li>
+<li>
+<p>No: Ignores the value of the calculate price flag.</p>
+</li>
+</ul>
+<p>Repricing and freight charge recalculation occurs regardless of the value of the calculate price flag.</p>
+<h2><a name="3258476"></a><a id="T393460"></a><b>Repricing at the Line Ship/Schedule Date</b></h2>
+<p><a name="d0e3532" id="d0e3532"></a>Place the <a href="T393423T393431.htm#t_reprice">Reprice</a> activity after all shipping activities in a workflow to reprice an order line at shipment for workflows that processes only items and lines not in fulfillment sets.</p>
+<p><strong><span>Note:</span></strong> If the Reprice activity fails it does not impact your shipping activities. Use either the shipment date (either actual shipment date or scheduled ship date) for the Repricing Date attribute.</p>
+<p>Repricing at shipment does not validate agreements and their effective dates. Repricing at shipment validates the price list associated with the agreement specified on the order.</p>
+<h2><a name="3258477"></a><a id="T393461"></a><b>Repricing at the Line Fulfillment Date</b></h2>
+<p><a name="d0e3550" id="d0e3550"></a>To reprice an order line at its fulfillment date, place the Reprice activity in your flow after the fulfillment activity then update your pricing events.</p>
+<p><strong><span>Note:</span></strong> Placing the Reprice Line workflow activity after the fulfillment activity enables your workflow to process shippable items, non-shippable items, and non-shippable lines in a fulfillment set.</p>
+<p>Complete the following steps to reprice at the line fulfillment date:</p>
+<ol>
+<li>
+<p>Navigate to the Event Phases window and add each desired phase.</p>
+</li>
+</ol>
+<p>For more information on defining Pricing Events, refer to the <i>Oracle Advanced Pricing User's Guide</i>.</p>
+<ol>
+<li>
+<p>Place the Reprice activity after the fulfillment activity in your workflow.</p>
+</li>
+<li>
+<p>Set the following workflow attributes:</p>
+</li>
+<li>
+<p>Repricing Date: Fulfillment date</p>
+</li>
+<li>
+<p>Repricing Event: Reprice Line or another defined event</p>
+</li>
+</ol>
+<h2><a name="4490952"></a><a id="T478232"></a><b>Cost of Goods (COGS) Account Generator</b></h2>
+<p><a name="d0e3587" id="d0e3587"></a>When an item is shipped to the customer, information regarding the shipped quantity is passed to the inventory module. Among the data that is passed to the inventory module, the Cost Of Goods Sold (COGS) Account for transactions is also passed and interfaced to Receivables. When the Inventory Interface inserts a row for a transaction, it only provides the COGS Account to record cost against. The Cost of Goods Sold Account is used to determine the profit realized from selling a product. For each item in an inventory organization Oracle Applications has the ability to record the type and amount of costs to maintain the item.</p>
+<p>For more information on the COGS flows, please refer to the section <a href="T393423T393429.htm#t_cogs">Cost of Goods (COGS) Account Generator Flows</a>.</p>
+<h2><a name="4490969"></a><a id="T478238"></a><b>EDI/XML</b></h2>
+<p><a name="d0e3602" id="d0e3602"></a><a name="d0e3605" id="d0e3605"></a>EDI/XML flows are not covered in this guide; for more information on these flows, please refer to the <i>Oracle Order Management Open Interfaces, API, & Electronic Messaging Guide</i> and the <i>Oracle XML Gateway User's Guide.</i></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

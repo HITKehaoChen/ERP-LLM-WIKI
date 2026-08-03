@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T228124.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107T228128.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">25/31</span> <!-- End Header -->
+<h1>Supply Types</h1>
+<p>This appendix describes supply types and how they are used in Oracle Work in Process and other Oracle Manufacturing Applications.</p>
+<p>This appendix covers the following topics:</p>
+<ul>
+<li><a href="#I_rx2Dsupptype">Supply Types</a></li>
+</ul>
+<h2><a name="1035589"></a><a id="I_rx2Dsupptype"></a><b>Supply Types</b></h2>
+<p><a name="d0e55142" id="d0e55142"></a>Supply types control how component materials are supplied to discrete jobs and repetitive schedules in Oracle Work in Process, how materials are planned in Oracle planning products, and how materials are costed in Oracle Cost Management.</p>
+<p>You can assign supply types to the items you define in Oracle Inventory. You can also assign supply types to components when you create bills of material in Oracle Bills of Material and Oracle Engineering. See: Defining Items, <i>Oracle Inventory User's Guide</i>Work In Process Attribute Group, <i>Oracle Inventory User's Guide</i>, and Creating a Bill of Material, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p>In Oracle Work in Process, you can change the defaulted Based on Bill (see below) supply type that is assigned as you define jobs and schedules.</p>
+<h3><b>Assembly Pull</b></h3>
+<p><a name="d0e55166" id="d0e55166"></a><a name="I_stasypul" id="I_stasypul"></a>Assembly Pull components are issued to discrete jobs and repetitive schedules when you complete assemblies in Work in Process. They are pulled from the supply subinventory assigned to the component requirement.</p>
+<p>If you must assign pull components to a bill of material or job that is not associated with a routing, you must assign an Assembly Pull, rather than operation pull, supply type.</p>
+<p>You cannot assign this supply type to a non-standard discrete job if you have not specified an assembly for that job.</p>
+<h3><b>Based on Bill</b></h3>
+<p><a name="d0e55182" id="d0e55182"></a><a name="d0e55188" id="d0e55188"></a><a name="I_stbasebill" id="I_stbasebill"></a>The Based on Bill supply type is Work in Process specific. When you define a discrete job or a repetitive line/assembly association in Oracle Work in Process, the supply type for the assembly defaults to <i>Based on Bill</i> and assembly components are supplied based upon their bill of material supply types. See: Creating a Bill of Material, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p>If the supply type for a job or line/assembly association is changed, the new supply type is applied to all component material requirements. For example, if you change the supply type of a job assembly from Based on Bill to Assembly Pull, the supply types of all assembly components are changed to Assembly pull. You can update the supply types of individual material requirements using the Material Requirements window in Oracle Work in Process. See: <a href="T228107T228115.htm#I_tx2Dupdmrqs">Adding and Updating Material Requirements</a>.</p>
+<p>The system automatically changes components with a supply type of Operation Pull to Assembly Pull, when the Based on Bill supply type is applied to a job or repetitive schedule that has a bill of material but lacks a routing or operations.</p>
+<h3><b>Bulk</b></h3>
+<p><a name="d0e55213" id="d0e55213"></a><a name="d0e55219" id="d0e55219"></a><a name="I_stbulk" id="I_stbulk"></a>Bulk component requirements can be viewed and are displayed on reports. They can be used to communicate to the shop floor that bulk components must be used but need not be transacted.</p>
+<p>Bulk components are not backflushed nor do they default when issuing all components for an assembly. You can, however, manually issue specific bulk components to a discrete job or repetitive schedule.</p>
+<h3><b>Operation Pull</b></h3>
+<p><a name="d0e55233" id="d0e55233"></a><a name="d0e55239" id="d0e55239"></a><a name="I_stoppull" id="I_stoppull"></a>Operation pull components are issued to discrete jobs and schedules when you complete backflush operations. Components are pulled from the supply subinventory assigned to the component.</p>
+<p>You cannot assign this supply type to an assembly without a routing, a non-standard discrete job without a routing, or assemblies with routings with disabled operations.</p>
+<h3><b>Phantom</b></h3>
+<p><a name="d0e55253" id="d0e55253"></a><a name="I_stphantm" id="I_stphantm"></a>Phantom components can be assigned to bill of material component subassemblies and subassembly items in Oracle Bills of Material and Oracle Engineering. Components of phantom subassemblies are used as if they were tied directly to the parent assembly. Phantom supply types cannot be assigned to jobs and repetitive lines/assembly associations in Work in Process. See: Phantoms, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p>Phantoms behave normally when they are top level assemblies, such as when master scheduled or manufactured on a discrete job. As subassemblies, they lose their distinct identity and become a collection of their components. Phantom components (not the phantom itself) are included on discrete jobs and repetitive schedules and are listed on the Discrete Job and Repetitive Schedule Pick List Reports.</p>
+<p>Oracle planning products plans phantom subassemblies with lot-for-lot lot sizing. Otherwise, phantoms are planned like other assemblies. You must set the lead time of a phantom to zero to avoid lead time offset during the planning process. Planning ignores demand time fences, planning time fences, and order modifiers when planning phantom subassemblies.</p>
+<p>When assembly costs are rolled up in Oracle Cost Management, the material costs, but not the routing costs, of phantom assemblies are included in the cost of the higher level assemblies that include those phantoms.</p>
+<h3><b>Push</b></h3>
+<p><a name="d0e55274" id="d0e55274"></a><a name="d0e55280" id="d0e55280"></a><a name="I_stpush" id="I_stpush"></a>Push components can be issued directly to discrete jobs and repetitive schedule as required. You can specify the subinventory from which to issue push components, though Work in Process defaults the supply subinventory associated with the component.</p>
+<h3><b>Supplier</b></h3>
+<p><a name="d0e55292" id="d0e55292"></a><a name="d0e55298" id="d0e55298"></a>Supplier component requirements can be included on bills of material. Requirements for supplier components are created when you define discrete jobs and repetitive schedules in Work in Process.</p>
+<p>Supplier component requirements can be viewed and are displayed on reports. They provide information on the component materials that your suppliers provide but need not be transacted.</p>
+<p>Supplier components are not backflushed nor do they default when issuing <i>all</i> components for an assembly. You can, however, manually issue <i>specific</i> supplier components to discrete jobs and repetitive schedules.</p>
+<p><strong>Related Topics</strong></p>
+<p>Overview of Bills of Material, <i>Oracle Bills of Material User's Guide</i></p>
+<p>Bills of Material Profile Options, <i>Oracle Bills of Material User's Guide</i></p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T671994.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T291796.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">7/31</span> <!-- End Header -->
+<h1>Inventory Management Command Center Setup</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T2008136">Setting Up Inventory Management Command Center</a></li>
+<li><a href="#T2008137">Setup and Configuration Steps</a></li>
+<li><a href="#T2008138">Setting Profile Options for Inventory Management Command Center</a></li>
+<li><a href="#T2011192">Setting Up Steps to Display Rejection Probability Data in the Receiving Dashboard</a></li>
+<li><a href="#T2011193">Setting Up Steps to Display Discrepancy Data in the Aging Inventory Dashboard</a></li>
+<li><a href="#T2008139">Setting Up Steps for Resource Requirements Components in the Shipping Dashboard</a></li>
+<li><a href="#T2008140">Configuring Descriptive Flexfields for Search</a></li>
+<li><a href="#T2008141">Loading Inventory Management Data - Inbound Details Data Load</a></li>
+<li><a href="#T2008142">Loading Inventory Management Data - Inventory On Hand</a></li>
+<li><a href="#T2008143">Loading Inventory Management Data - Inventory Cycle Counting</a></li>
+<li><a href="#T2008144">Loading Inventory Management Data - Physical Inventory</a></li>
+<li><a href="#T2008145">Loading Inventory Management Data - Inventory Reservations</a></li>
+<li><a href="#T2008146">Loading Inventory Management Data - Delivery Details</a></li>
+<li><a href="#T2008147">Loading Inventory Management Data - Space Utilization</a></li>
+<li><a href="#T2008148">Loading Inventory Management Data - Track and Trace</a></li>
+<li><a href="#T2008149">Loading Inventory Management Data - Activity Details</a></li>
+<li><a href="#T2008150">Loading Inventory Management Data - Move Orders</a></li>
+<li><a href="#T2008151">Collecting Item Supply/Demand Data</a></li>
+<li><a href="#T2008152">Loading Inventory Management Data - Supply/Demand</a></li>
+<li><a href="#T2008153">Loading Inventory Management Data - Transaction Management</a></li>
+<li><a href="#T2010474">Loading Inventory Management Data - Replenishment</a></li>
+<li><a href="#T2008154">Loading Inventory Management Data - Items Dashboard</a></li>
+<li><a href="#T2010398">Loading Inventory Management Data - Movement Statistics</a></li>
+<li><a href="#T2008155">Setup and Configuration Steps for the Kanban Dashboard</a></li>
+<li><a href="#T2008156">Setting Profile Options for the Kanban Dashboard</a></li>
+<li><a href="#T2008157">Enabling Electronic Kanban ECC Access Roles</a></li>
+<li><a href="#T2010512">Creating Kanban Replenishment Snapshot</a></li>
+<li><a href="#T2008158">Loading Electronic Kanban ECC Data</a></li>
+</ul>
+<h3>Inventory Management Command Center Configuration</h3>
+<h2><a name="30062318"></a><a id="T2008136"></a><b>Setting Up Inventory Management Command Center</b></h2>
+<p><a name="d0e26207" id="d0e26207"></a><a name="d0e26216" id="d0e26216"></a><a name="d0e26225" id="d0e26225"></a><a name="ecc_ssetitmw" id="ecc_ssetitmw"></a>See <a href="T291651T671994.htm#ecc_inv_ovw">Inventory Management Command Center Overview</a>.</p>
+<p>The Inventory Management Command Center configuration setup must be completed after the installation and common configurations are completed as described in My Oracle Support Knowledge Document 2495053.1, <i>Installing Oracle Enterprise Command Center Framework</i>.</p>
+<h2><a name="30062319"></a><a id="T2008137"></a><b>Setup and Configuration Steps</b></h2>
+<p><a name="d0e26262" id="d0e26262"></a><a name="ecc_imconfig" id="ecc_imconfig"></a>See <a href="T291651T671994.htm#ecc_inv_ovw">Inventory Management Command Center Overview</a>.</p>
+<p>To complete setup of the Inventory Management Command Center:</p>
+<ol>
+<li>
+<p><a href="T291651T671993.htm#eccinvccprofoptions">Set profile options</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#invstprejcprobdatarcdb">Set up steps to display rejection probability data in the Receiving Dashboard</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#invstpdiscrpdaagngdb">Set up steps to display discrepancy data in the Aging Inventory Dashboard</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#resrcreqsshipdb">Set up steps for resource requirements components in the Shipping Dashboard</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#ecc_confdff">Configure Descriptive Flexfields (DFFs) for search</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#ecc_inbounddl">Load Inbound Details data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#ecc_agingdl">Load Inventory On Hand data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#ecc_cycledl">Load Cycle Counting data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#invphyinvdatald">Load Physical Inventory data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#ecc_reservationsdl">Load Inventory Reservations data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#ecc_imload">Load Delivery Details data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#ecc_spaceutildl">Load Space Utilization data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#eccinvtrktrcdatald">Load Track and Trace data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#ecc_actvtdl">Load Activity Details data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#invmoveordataload">Load Move Orders data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#invcollctsupdmndata">Collect Item Supply/Demand Data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#invsupdmndataload">Load Supply/Demand data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#invtransmgtdl">Load Transaction Management data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#eccinvreplenishdl">Load Replenishment data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#ecc_itemsdl">Load Items data</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#invmvtstatisticsdl">Load Movement Statistics and Exceptions data</a>.</p>
+<p><strong><span>Note:</span></strong> System administrators must assign the <i>Movement Statistics ECC Data Load</i> concurrent program to the request group associated with a responsibility.</p>
+<p><b>Prerequisite</b>: For the Movement Statistics and Exceptions dashboards to display accurate data, schedule the following programs to run periodically in Oracle Inventory:</p>
+<ul>
+<li>
+<p><a href="T291651T295121.htm#I_invmvpro">Movement Statistics Processor</a></p>
+</li>
+<li>
+<p><a href="T291651T295121.htm#I_invmvex78">Movement Statistics Exception Report</a></p>
+</li>
+<li>
+<p><a href="T291651T295121.htm#I_rx2Dinvstmvt">Movement Statistics Report</a></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3><b><i>Setting Up the Kanban Dashboard</i></b></h3>
+<p>To complete the <a href="T291651T671994.htm#eccflmkanbandb">Kanban Dashboard</a> configuration setup, see <a href="T291651T671993.htm#setconfigkanbandb">Setup and Configuration Steps for the Kanban Dashboard</a>.</p>
+<h2><a name="30062321"></a><a id="T2008138"></a><b>Setting Profile Options for Inventory Management Command Center</b></h2>
+<p><a name="d0e26537" id="d0e26537"></a><a name="eccinvccprofoptions" id="eccinvccprofoptions"></a>See <a href="T291651T671994.htm#ecc_inv_ovw">Inventory Management Command Center Overview</a>.</p>
+<p>Set a value for each user profile option to specify how Inventory Management Command Center controls access to and processes data:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Profile Option Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>INV: ECC Max Days for Track and Trace</td>
+<td>This site-level profile option specifies the maximum number of days that the <i>Inventory Track and Trace Data Load</i> program considers to load data. The default value is 30.</td>
+</tr>
+<tr valign="top">
+<td>INV: MVT ECC Full Load Days</td>
+<td>This site-level profile option determines the age of movement records that the <b>Full Load</b> option of the <a href="T291651T671993.htm#invmvtstatisticsdl"><i>Movement Statistics ECC Data Load</i></a> program selects. The default value is 365 (that is 365 days past from the current system date). The full load option selects only the movement records whose transaction date is within the profile value. For example, if the profile is set to 365 days, then the full load does not select a back dated movement record created today for a transaction date in January 2021. Based on your business requirement, decide how many years of movement records data that you want to view. You can specify the number of days or else the program considers the default value of 365 days.<br>
+The data load program's incremental load option works based on a record's last update date value. On 29th January, 2025, when you create a back dated record with the transaction date in January 2021, the last update value is recorded as 29/Jan/2025. The profile value is set as 365 days. Because 29/Jan/2025 is later than the last data load run date, the incremental load selects the record.</td>
+</tr>
+<tr valign="top">
+<td>INV: Run Items Dashboard Full Load in Parallel Mode</td>
+<td>This site-level profile option determines whether the "<i>Items Dashboard Data Load</i>" program with the Full Load option processes the following datasets of the Items Dashboard in a sequential or a parallel manner.
+<ul>
+<li>
+<p>Organization Items (inv-item-grain)</p>
+</li>
+<li>
+<p>Item Category Sets (inv-item-categories)</p>
+</li>
+<li>
+<p>Item Cross-Reference (inv-cross-ref)</p>
+</li>
+<li>
+<p>Manufactured Items (inv-item-manufactures)</p>
+</li>
+<li>
+<p>Item Revisions (inv-item-revisions)</p>
+</li>
+<li>
+<p>Related Items (inv-related-item)</p>
+</li>
+</ul>
+<br>
+By default the profile is set to <b>FALSE</b>, which means that the Full Load option loads data from the datasets in a sequential manner (data load happens for one dataset after the other). If the profile is set to TRUE, then the data load program initiates a child concurrent program for each dataset and the data is loaded in parallel for each dataset.
+<p><strong><span>Important:</span></strong> Setting the profile to <b>TRUE</b> will consume resources on the server. Therefore, you must set the value to TRUE only when the server is free.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>WSH: Days for Full Data Load of Shipped Details</td>
+<td>This site-level profile option specifies the age of shipped delivery details selected by the <i>Full Load</i> option of the <i>Delivery Details Data Load</i> program. The application loads all delivery details that were ship confirmed in the specified number of days before the current day. For example, the current date is 04-Feb-2023 and there is a requirement to view delivery details that were ship confirmed on 01-Feb-2023. Set the profile option value to 3.
+<ul>
+<li>
+<p>If you set a value, then to load the shipped delivery details, you must run the Delivery Details Data Load program with the full load option. After you set the value and run the data load program with the full load option, the following dashboards show delivery details that were shipped along with open delivery details.</p>
+<ul>
+<li>
+<p>Shipping Dashboard of the Inventory Management Command Center: You must first make sure that this dashboard displays shipped delivery details before you verify them on the 360 View dashboard.</p>
+<p>See <a href="T291651T671994.htm#ecc_shippingdb">Shipping Dashboard</a></p>
+</li>
+<li>
+<p>360 View dashboard of Order Management Command Center</p>
+<p>See 360 View Dashboard, <i>Oracle Order Management User's Guide</i></p>
+</li>
+</ul>
+</li>
+<li>
+<p>By default, the profile option's setting is blank (null). The application considers null equal to zero. Open delivery details and those shipped on the current day are always loaded regardless of the profile value.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<td>FND: ECC Disable Descriptive Flexfield
+<p><strong><span>Note:</span></strong> This an Application Object Library profile option.</p>
+</td>
+<td>This profile option excludes descriptive flexfields (DFFs) from the data load in ECC. If you do not want to load data of DFFs, then set the profile option value to internal names of the DFFs. To exclude the data load of a DFF to the <i>Items Dashboard</i>, enter the DFF internal name as the value. You can specify multiple values using a comma-separated list.<br>
+The following is a list of the DFF internal names that you can enter to exclude their data load to the Items Dashboard.
+<ul>
+<li>
+<p>MTL_SYSTEM_ITEMS</p>
+</li>
+<li>
+<p>MTL_CATEGORIES</p>
+</li>
+<li>
+<p>MTL_CROSS_REFERENCES</p>
+</li>
+<li>
+<p>MTL_ITEM_REVISIONS</p>
+</li>
+<li>
+<p>MTL_MG_PART_NUMBERS</p>
+</li>
+<li>
+<p>MTL_RELATED_ITEMS</p>
+</li>
+</ul>
+<p><strong><span>Important:</span></strong> If you add or remove values from the profile option, then you must run the <i>Items Dashboard Data Load</i> program with the Load Type parameter set to <b>Full Load</b>. See <a href="T291651T671993.htm#ecc_itemsdl">Load Inventory Management Data - Items Dashboard</a>.</p>
+</td>
+</tr>
+</table>
+<h2><a name="30113445"></a><a id="T2011192"></a><b>Setting Up Steps to Display Rejection Probability Data in the Receiving Dashboard</b></h2>
+<p><a name="d0e26869" id="d0e26869"></a><a name="invstprejcprobdatarcdb" id="invstprejcprobdatarcdb"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>The Oracle Inventory Receiving Transactions module uses machine learning to calculate inspection failure probability for each inbound line using past inspection results and returns transaction history for items, receipt sources, and carriers. The integration between the Receiving Transactions module and the Receiving Dashboard enables inbound warehouse managers to view pending inspection receipt lines with the rejection probability. The Receiving Dashboard shows the rejection probability percentage for pending lines that are awaiting inspection. See <a href="T291651T671994.htm#ecc_recvgdb">Receiving Dashboard</a>.</p>
+<p>To ensure that the <i>Rejection Probability Percentage</i> column in the Awaiting Inspection results table displays data:</p>
+<ol>
+<li>
+<p>Complete the steps described in the <a href="T291651T292013.htm#prinspofrcptML">Prioritize Inspections of Receipts Using Machine Learning</a> section in the <a href="T291651T292013.htm#recpg">Using the Receiving Page</a> topic .</p>
+</li>
+<li>
+<p>Run the <i>Inbound Details Data Load</i> concurrent program with the Full Load option. See <a href="T291651T671993.htm#ecc_inbounddl">Loading Inventory Management Data - Inbound Details Data Load</a>.</p>
+</li>
+</ol>
+<h2><a name="30113446"></a><a id="T2011193"></a><b>Setting Up Steps to Display Discrepancy Data in the Aging Inventory Dashboard</b></h2>
+<p><a name="d0e26940" id="d0e26940"></a><a name="invstpdiscrpdaagngdb" id="invstpdiscrpdaagngdb"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>The Oracle Inventory Cycle Counting module uses machine learning to calculate the discrepancy probability for each item at every location by analyzing the past cycle count adjustment data. The integration between the Cycle Counting module and the Aging Inventory Dashboard enables inventory managers to view the on-hand stock locations with higher discrepancies and the average discrepancy percentage. The Aging Inventory Dashboard shows stock locations with higher cycle counting discrepancies as recommended discrepancy locations so that inventory managers can focus on these locations and schedule cycle counts. Discrepancies are tracked for attributes such as items, locations, and subinventories. See <a href="T291651T671994.htm#ecc_agingdb">Aging Inventory Dashboard</a>.</p>
+<p>To ensure that the <i>Recommended Discrepancy Locations</i> tab and results table display the discrepancies data:</p>
+<ol>
+<li>
+<p>Complete the steps described in the <a href="T291651T292438.htm#prcycoanindiusML">Prioritize Cycle Counts to Analyze Inventory Discrepancies Using Machine Learning</a> topic.</p>
+</li>
+<li>
+<p>Run the <i>Inventory On Hand Data Load</i> concurrent program with the Full Load option. See <a href="T291651T671993.htm#ecc_agingdl">Loading Inventory Management Data - Inventory On Hand</a>.</p>
+</li>
+</ol>
+<h2><a name="30062322"></a><a id="T2008139"></a><b>Setting Up Steps for Resource Requirements Components in the Shipping Dashboard</b></h2>
+<p><a name="d0e27008" id="d0e27008"></a><a name="resrcreqsshipdb" id="resrcreqsshipdb"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>The <a href="T291651T671994.htm#ecc_shippingdb">Shipping Dashboard</a> uses the historical data of the Labor Management module of Oracle Warehouse Management to estimate the picking time that is required to complete delivery details.</p>
+<p>To ensure that the <b>Pending Workload (Hours)</b> metric and the charts in the <b>Resource Requirements</b> tab display data, complete the following steps in Oracle Warehouse Management:</p>
+<ul>
+<li>
+<p>Define labor standards. See Labor Management Setup, <i>Oracle Warehouse Management Implementation Guide</i>.</p>
+</li>
+<li>
+<p>Run the <i>Expected Resource Requirement Analysis</i> concurrent program to calculate the outstanding work for the warehouse. See Concurrent Requests, <i>Oracle Warehouse Management User's Guide</i>.</p>
+</li>
+</ul>
+<p><strong><span>Note:</span></strong> The <b>Shipping Dashboard</b> does not populate the estimated time required for delivery details if there are no changes to delivery details, deliveries, or trips and you run the <i>Expected Resource Requirement Analysis</i> concurrent program and the <i>Delivery Details Data Load</i> program with the incremental load option.</p>
+<p>The Shipping Dashboard populates the estimated time required for delivery details only in the following cases:</p>
+<ul>
+<li>
+<p>Run the <i>Expected Resource Requirement Analysis</i> program and the <i>Delivery Details Data Load</i> program with the full load option.</p>
+</li>
+<li>
+<p>Run the <i>Expected Resource Requirement Analysis</i> program after booking an order and then submit the <i>Delivery Details Data Load</i> program with the incremental load option.</p>
+</li>
+<li>
+<p>Run the <i>Expected Resource Requirement Analysis</i> program and then update any attribute for a delivery detail, a delivery, a trip, or other existing attributes for which the incremental load option of the <i>Delivery Details Data Load</i> program includes the details after the data load submission.</p>
+</li>
+</ul>
+<p><b>Populating Time Estimates on the Shipping Dashboard After Status Change</b></p>
+<p>If the status of a delivery detail is updated from <i>Ready to Release</i> or <i>Backordered</i> to <i>Released to Warehouse</i> (also conversely from <i>Released to Warehouse</i> to <i>Ready to Release</i> or <i>Backordered</i>), then run the followings programs in this given sequence to populate the estimated time required on the Shipping Dashboard:</p>
+<ol>
+<li>
+<p><i>Expected Resource Requirement Analysis</i></p>
+</li>
+<li>
+<p><i>Delivery Details Data Load</i> with the incremental load option</p>
+</li>
+</ol>
+<h2><a name="30062323"></a><a id="T2008140"></a><b>Configuring Descriptive Flexfields for Search</b></h2>
+<p><a name="d0e27179" id="d0e27179"></a><a name="ecc_confdff" id="ecc_confdff"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>Enterprise command centers support searching on descriptive flexfield (DFFs) attributes. After you configure DFFs you must run the data load process to make the DFF attributes available in the command center.</p>
+<p>For additional information on configuring and customizing flexfields, see the <i>Oracle E-Business Suite Flexfields Guide</i> and My Oracle Support Knowledge Document 2495053.1, <i>Installing Oracle Enterprise Command Center Framework, Release 12.2.</i></p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Dashboard</b></th>
+<th scope="col"><b>Data Set</b></th>
+<th scope="col"><b>DFF Title</b></th>
+<th scope="col"><b>DFF Name</b></th>
+<th scope="col"><b>DFF Attribute Group Name</b></th>
+<th scope="col"><b>Displayed In</b></th>
+</tr>
+<tr valign="top">
+<td>Shipping</td>
+<td>Shipping Delivery Details (Delivery_details)</td>
+<td>Additional Delivery Details Information</td>
+<td>WSH_DELIVERY_DETAILS</td>
+<td>Additional Delivery Details Information</td>
+<td>Available Refinements and Delivery Details results table</td>
+</tr>
+<tr valign="top">
+<td>Shipping</td>
+<td>Shipping Delivery Details (Delivery_details)</td>
+<td>Additional Delivery Information</td>
+<td>WSH_NEW_DELIVERIES</td>
+<td>Additional Delivery Information</td>
+<td>Available Refinements and Deliveries results table</td>
+</tr>
+<tr valign="top">
+<td>Cycle Counting</td>
+<td>Inventory Cycle Counting (inv-cyclecounting)</td>
+<td>Cycle Count Headers</td>
+<td>MTL_CYCLE_COUNT_HEADERS</td>
+<td>Cycle Count Headers</td>
+<td>Available Refinements and Available Counts results table</td>
+</tr>
+<tr valign="top">
+<td>Cycle Counting</td>
+<td>Inventory Cycle Counting (inv-cyclecounting)</td>
+<td>Cycle Count Entries</td>
+<td>MTL_CYCLE_COUNT_ENTRIES</td>
+<td>Cycle Count Entries</td>
+<td>Available Refinements and Available Counts results table</td>
+</tr>
+<tr valign="top">
+<td>Physical Inventory</td>
+<td>Inventory Physical Counting (inv-physical-inventory)</td>
+<td>Physical Inventory</td>
+<td>MTL_PHYSICAL_INVENTORIES</td>
+<td>Physical Inventory</td>
+<td>Available Refinements and results tables</td>
+</tr>
+<tr valign="top">
+<td>Physical Inventory</td>
+<td>Inventory Physical Counting (inv-physical-inventory)</td>
+<td>Inventory Physical Counting (inv-physical-inventory)</td>
+<td>MTL_PHYSICAL_INVENTORY_TAGS</td>
+<td>Physical Inventory Tags</td>
+<td>Available Refinements and results tables</td>
+</tr>
+<tr valign="top">
+<td>Reservations</td>
+<td>Reservations (inv-reservations)</td>
+<td>Reservations</td>
+<td>MTL_RESERVATIONS</td>
+<td>Reservations</td>
+<td>Available Refinements and Demand results table</td>
+</tr>
+<tr valign="top">
+<td>Receiving</td>
+<td>Inbound Details (Inbound_Details)</td>
+<td>Receiving Transactions Additional Information</td>
+<td>RCV_TRANSACTIONS</td>
+<td>Receiving Transactions</td>
+<td>Available Refinements and Pending Inspection and Pending Deliver results tables</td>
+</tr>
+<tr valign="top">
+<td>Receiving</td>
+<td>Inbound Details (Inbound_Details)</td>
+<td>Shipment Line Additional Information</td>
+<td>RCV_SHIPMENT_LINES</td>
+<td>Receiving Transactions</td>
+<td>Available Refinements and Pending Receiving results table</td>
+</tr>
+<tr valign="top">
+<td>Space Utilization</td>
+<td>Inventory Space Utilization (inv-space)</td>
+<td>Maintain Lot Number</td>
+<td>MTL_LOT_NUMBERS</td>
+<td>Lot Additional details</td>
+<td>Available Refinements and results table</td>
+</tr>
+<tr valign="top">
+<td>Space Utilization</td>
+<td>Inventory Space Utilization (inv-space)</td>
+<td>Stock Locators</td>
+<td>MTL_ITEM_LOCATIONS</td>
+<td>Locator Additional Details</td>
+<td>Available Refinements and results table</td>
+</tr>
+<tr valign="top">
+<td>Move Orders</td>
+<td>Inventory Move Orders (inv-move-orders)</td>
+<td>Transfer Order Header</td>
+<td>MTL_TXN_REQUEST_HEADERS</td>
+<td>Transfer Order Header</td>
+<td>Available Refinements<br>
+Line Details result table</td>
+</tr>
+<tr valign="top">
+<td>Move Orders</td>
+<td>Inventory Move Orders (inv-move-orders)</td>
+<td>Transfer Order Lines</td>
+<td>MTL_TXN_REQUEST_LINES</td>
+<td>Transfer Order Lines</td>
+<td>Available Refinements<br>
+Line Details result table</td>
+</tr>
+<tr valign="top">
+<td>Items</td>
+<td>Organization Items (inv-item-grain)</td>
+<td>Items</td>
+<td>MTL_SYSTEM_ITEMS</td>
+<td>Item Additional Information</td>
+<td>Available Refinements<br>
+Items results grid &gt; Record Details<br>
+Attributes tab &gt; Item Attributes results table</td>
+</tr>
+<tr valign="top">
+<td>Items</td>
+<td>Item Category Sets (inv-item-categories)</td>
+<td>Item Categories</td>
+<td>MTL_CATEGORIES</td>
+<td>Item Category Additional Information</td>
+<td>Available Refinements<br>
+Categories grid &gt; Record Details</td>
+</tr>
+<tr valign="top">
+<td>Items</td>
+<td>Item Cross-Reference (inv-cross-ref)</td>
+<td>Item cross-references</td>
+<td>MTL_CROSS_REFERENCES</td>
+<td>Item Cross-Reference Additional Information</td>
+<td>Available Refinements<br>
+Cross-References grid &gt; Record Details</td>
+</tr>
+<tr valign="top">
+<td>Items</td>
+<td>Item Revisions (inv-item-revisions)</td>
+<td>Item Revisions</td>
+<td>MTL_ITEM_REVISIONS</td>
+<td>Item Revisions Additional Information</td>
+<td>Available Refinements<br>
+Revisions tab results table</td>
+</tr>
+<tr valign="top">
+<td>Items</td>
+<td>Manufactured Items (inv-item-manufactures)</td>
+<td>Manufacturer Part Number</td>
+<td>MTL_MFG_PART_NUMBERS</td>
+<td>Item Manufacturers Additional Information</td>
+<td>Available Refinements<br>
+Manufactures grid &gt; Record Details</td>
+</tr>
+<tr valign="top">
+<td>Items</td>
+<td>Related Items (inv-related-item)</td>
+<td>Item Relationships</td>
+<td>MTL_RELATED_ITEM</td>
+<td>Related Items Additional Information</td>
+<td>Available Refinements<br>
+Related Items grid &gt; Record Details</td>
+</tr>
+<tr valign="top">
+<td>Transaction Management</td>
+<td>Inventory Transaction Management (inv-transaction-management)</td>
+<td>Receiving Transactions Interface</td>
+<td>RCV_TRANSACTIONS_INTERFACE_DFV</td>
+<td>Receiving Transactions Interface</td>
+<td>Available Refinements<br>
+Receiving Interface results table</td>
+</tr>
+<tr valign="top">
+<td>Transaction Management</td>
+<td>Inventory Transaction Management (inv-transaction-management)</td>
+<td>Cycle Count Entries Interface</td>
+<td>MTL_CC_ENTRIES_INTERFACE_DFV</td>
+<td>Cycle Count Entries Interface</td>
+<td>Available Refinements<br>
+Cycle Count Interface results table</td>
+</tr>
+<tr valign="top">
+<td>Transaction Management</td>
+<td>Inventory Transaction Management (inv-transaction-management)</td>
+<td>Reservations Interface</td>
+<td>MTL_RESERVATIONS_INTERFACE_DFV</td>
+<td>Reservations Interface</td>
+<td>Available Refinements<br>
+Reservations Interface results table</td>
+</tr>
+<tr valign="top">
+<td>Transaction Management</td>
+<td>Inventory Transaction Management (inv-transaction-management)</td>
+<td>Transaction Interface</td>
+<td>MTL_TRANSACTIONS_INTERFACE_DFV</td>
+<td>Transaction Interface</td>
+<td>Available Refinements<br>
+Transactions results table</td>
+</tr>
+</table>
+<h2><a name="30062324"></a><a id="T2008141"></a><b>Loading Inventory Management Data - Inbound Details Data Load</b></h2>
+<p><a name="d0e28221" id="d0e28221"></a><a name="ecc_inbounddl" id="ecc_inbounddl"></a><a name="SRS.RCVECCRUN" id="SRS.RCVECCRUN"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the Inventory Management Command Center, run the concurrent program <i>Inbound Details Data Load</i>. Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p>This concurrent program loads data to the inbound-details data set.</p>
+<p><b>Inbound Details Data Load</b></p>
+<p><img width="982" height="501" src="./img/ecc_inv_inbound_dtls_dl.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Inbound Details Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Inbound Details Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: Loads all inbound data from EBS.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: Loads only the data modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30062327"></a><a id="T2008142"></a><b>Loading Inventory Management Data - Inventory On Hand</b></h2>
+<p><a name="d0e28413" id="d0e28413"></a><a name="ecc_agingdl" id="ecc_agingdl"></a><a name="SRS.INVECCONHRUN" id="SRS.INVECCONHRUN"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the Inventory Management Command Center, run the concurrent program <i>Inventory On Hand Data Load</i>. Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p>This concurrent program loads data sequentially to the following data sets:</p>
+<ul>
+<li>
+<p>inv-onhand</p>
+</li>
+<li>
+<p>inv-onhand-discrepancy</p>
+</li>
+</ul>
+<p><b>Inventory On Hand Data Load</b></p>
+<p><img width="983" height="504" src="./img/ecc_inv_on_hand_data_load.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Inventory On Hand Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Inventory On Hand Data Load</b>.</p>
+</li>
+<li>
+<p>Select <b>Full Load</b> as the load type to load all on-hand data from EBS.</p>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30062330"></a><a id="T2008143"></a><b>Loading Inventory Management Data - Inventory Cycle Counting</b></h2>
+<p><a name="d0e28605" id="d0e28605"></a><a name="d0e28614" id="d0e28614"></a><a name="SRS.INVECCCYCRUN" id="SRS.INVECCCYCRUN"></a><a name="ecc_cycledl" id="ecc_cycledl"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the Inventory Management Command Center, run the concurrent program <i>Inventory Cycle Counting Data Load</i>. Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p><b>Inventory Cycle Counting Data Load</b></p>
+<p><img width="981" height="503" src="./img/ecc_inv_cycle_counting_dataload.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Inventory Cycle Counting Data Load</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Inventory Cycle Counting Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load:</b> Loads all cycle count data from EBS.</p>
+</li>
+<li>
+<p><b>Incremental Load:</b> Loads only the data modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: Loads Descriptive Flexfield (DFF) metadata. If there are any changes to the DFF definition, then you must first run the program using the Metadata Load option, so that the DFF changes are displayed in the command center. Note that the full data load process includes the metadata load.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30062333"></a><a id="T2008144"></a><b>Loading Inventory Management Data - Physical Inventory</b></h2>
+<p><a name="d0e28811" id="d0e28811"></a><a name="d0e28820" id="d0e28820"></a><a name="SRS.INVPHYRUN" id="SRS.INVPHYRUN"></a><a name="invphyinvdatald" id="invphyinvdatald"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the Physical Inventory dashboard, run the concurrent program <i>Inventory Physical Inventory Data Load</i>. Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p><b>Inventory Physical Inventory Data Load</b></p>
+<p><img width="1043" height="524" src="./img/invphysicalinvdl.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Inventory Physical Inventory Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Inventory Physical Inventory Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: Loads all physical inventory data from EBS.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: Loads only the data modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: Loads Descriptive Flexfield (DFF) metadata. If there are any changes to the DFF definition, then you must first run the program using the Metadata Load option, so that the DFF changes are displayed in the command center. Note that the full data load process includes the metadata load.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select TRUE to enable SQL trace. Otherwise, select FALSE.</p>
+</li>
+<li>
+<p>Select the organization code for which you want to load data. You can sequentially load data for each organization using this parameter. You must run a full load for the selected organization before you run the incremental load for that organization.</p>
+<p>The following rules apply to the Organization Code parameter:</p>
+<ul>
+<li>
+<p>If you select a value in this parameter and <b>Reset Data</b> is TRUE, then when you run the full load, the application removes data for all other organizations and retains data only for the selected organization.</p>
+</li>
+<li>
+<p>If you select a value in this parameter and <b>Reset Data</b> is FALSE, then the application appends data of the selected organization to the existing data.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Select the physical inventory for which you want to load data. You can sequentially load data for each physical inventory using this parameter.</p>
+</li>
+<li>
+<p>Use the <b>Reset Data</b> parameter with caution. If you run full load for the first time or want to reset the data, then set the parameter value to TRUE. If set to TRUE, this action clears all the data that was loaded earlier and loads the new data for the selected operating unit. After the completion of full load, data of only one organization will be available in the ECC data store.</p>
+<ul>
+<li>
+<p>For subsequent full loads, to append the new data to the data set, set this value to FALSE.</p>
+</li>
+<li>
+<p>For incremental loads, this parameter is not applicable.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30062336"></a><a id="T2008145"></a><b>Loading Inventory Management Data - Inventory Reservations</b></h2>
+<p><a name="d0e29083" id="d0e29083"></a><a name="d0e29092" id="d0e29092"></a><a name="SRS.INVECCRSVRUN" id="SRS.INVECCRSVRUN"></a><a name="ecc_reservationsdl" id="ecc_reservationsdl"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the Inventory Management Command Center, run the concurrent program <i>Inventory Reservations Data Load</i>. Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p><b>Inventory Reservations Data Load</b></p>
+<p><img width="992" height="504" src="./img/ecc_inv_resrvn_dl_v5.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Inventory Reservations Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Inventory Reservations Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load:</b> Loads all inventory reservations data from EBS.</p>
+</li>
+<li>
+<p><b>Incremental Load:</b> Loads only the data modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: Loads Descriptive Flexfield (DFF) metadata. If there are any changes to the DFF definition, then you must first run the program using the Metadata Load option, so that the DFF changes are displayed in the command center. Note that the full data load process includes the metadata load.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30062339"></a><a id="T2008146"></a><b>Loading Inventory Management Data - Delivery Details</b></h2>
+<p><a name="d0e29292" id="d0e29292"></a><a name="ecc_imload" id="ecc_imload"></a><a name="SRS.WSHECCRUN" id="SRS.WSHECCRUN"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a> and <a href="T291651T671993.htm#resrcreqsshipdb">Set Up Steps for Resource Requirements Components on the Shipping Dashboard</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the Inventory Management Command Center, run the concurrent program <i>Delivery Details Data Load</i>, from the <b>Shipping Interfaces</b> window.</p>
+<p><strong><span>Note:</span></strong> This data load incorporates details into the Shipping Dashboard from orders created in Order Management only.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Order Management</b> &gt; <b>Shipping</b> &gt; <b>Interfaces</b></p>
+<p><b>Delivery Details Data Load</b></p>
+<p><img width="984" height="507" src="./img/ecc_inv_shipping_dl.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Delivery Details Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Delivery Details Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load:</b> Loads all inventory delivery details data from EBS.</p>
+</li>
+<li>
+<p><b>Incremental Load:</b> Loads only the data modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: Loads Descriptive Flexfield (DFF) metadata. If there are any changes to the DFF definition, then you must first run the program using the Metadata Load option, so that the DFF changes are displayed in the command center. Note that the full data load process includes the metadata load.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>To load data for a specific organization, select the appropriate <b>Organization Code</b>.</p>
+</li>
+<li>
+<p>If you select an <b>Organization Code</b> and set <b>Reset Dataset</b> to <b>True</b>, then when you run the Full Load, the application removes data for all other organizations and retains data only for the selected organization. If you select an <b>Organization Code</b> and set <b>Reset Dataset</b> to <b>False</b>, then the application appends data for the selected organization to existing data in the dashboard.</p>
+<p><strong><span>Note:</span></strong> You must run a Full Load for the selected organization before you run the incremental load for that organization.</p>
+<p>Reset Dataset has no impact on incremental loads.</p>
+<p>You can run the metadata load only for a full load with Reset Dataset set to True.</p>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30057695"></a><a id="T2008147"></a><b>Loading Inventory Management Data - Space Utilization</b></h2>
+<p><a name="d0e29552" id="d0e29552"></a><a name="ecc_spaceutildl" id="ecc_spaceutildl"></a><a name="SRS.INVECCSLTRUN" id="SRS.INVECCSLTRUN"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the Inventory Management Command Center, run the concurrent program <i>Inventory Space Utilization Data Load</i>. Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p><b>Inventory Space Utilization Data Load</b></p>
+<p><img width="974" height="461" src="./img/invspaceutldlv8.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Inventory Space Utilization Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Inventory Space Utilization Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: Loads all inventory space utilization data from EBS.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: Loads only the data modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: Loads Descriptive Flexfield (DFF) metadata. If there are any changes to the DFF definition, then you must first run the program using the Metadata Load option, so that the DFF changes are displayed in the command center. Note that the full data load process includes the metadata load.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30057698"></a><a id="T2008148"></a><b>Loading Inventory Management Data - Track and Trace</b></h2>
+<p><a name="d0e29752" id="d0e29752"></a><a name="SRS.INVTRACERUN" id="SRS.INVTRACERUN"></a><a name="eccinvtrktrcdatald" id="eccinvtrktrcdatald"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the Track and Trace dashboard of the Inventory Management Command Center, run the concurrent program <i>Inventory Track and Trace Data Load</i>. Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p>The <i>Inventory Track and Trace Data Load</i> program runs for INV owned data sets (Inventory Trace Suppliers, Inventory Trace Inbound Onhand, Inventory Trace Move, Inventory Trace Issues, and Inventory Trace Sales Orders) all at a time. All these data loads are run in sequence.</p>
+<p>The following table lists the data sets that the Track and Trace Dashboard uses.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Data Sets for the Track and Trace Dashboard</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Data Set Key</b></th>
+<th scope="col"><b>Display Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>inv-trace-suppliers</td>
+<td>Inventory Trace Suppliers</td>
+<td>Stores supplier details such as purchase orders, intransit shipments, ASNs, requisitions, and work orders. This data set also stores receipt transactions that have subinventory and location details.</td>
+</tr>
+<tr valign="top">
+<td>inv-trace-inbound-onhand</td>
+<td>Inventory Trace Inbound Onhand</td>
+<td>Stores items and lots information including data for inbound, in receiving, and on-hand quantities.</td>
+</tr>
+<tr valign="top">
+<td>inv-trace-move</td>
+<td>Inventory Trace Move</td>
+<td>Stores data for subinventory transfer and backflush transfers between subinventories.</td>
+</tr>
+<tr valign="top">
+<td>inv-trace-issues</td>
+<td>Inventory Trace Issues</td>
+<td>Stores data for transactions that have issues.</td>
+</tr>
+<tr valign="top">
+<td>inv-trace-salesorders</td>
+<td>Inventory Trace Sales Orders</td>
+<td>Stores data for sales orders and picking activities.<br>
+<b>Note</b>: This data set stores data for packing activities only if these activities are performed after the pick release in the staging area for WMS organizations.</td>
+</tr>
+<tr valign="top">
+<td>gnt-wodetails</td>
+<td>Work Orders</td>
+<td>Stores data for work orders such as details for job, organization, project, and task.</td>
+</tr>
+</table>
+<p><strong><span>Important:</span></strong> To load data for the Work Orders (gnt-wodetails) data set, run the <i>WIP ECC Data Load</i> program. See Loading WIP ECC Data, <i>Oracle Work in Process User's Guide</i>.</p>
+<p>To run data load for all the data sets that the Track and Trace dashboard uses, you can create a custom request set by including the <i>Inventory Track and Trace Data Load</i> program and the <i>WIP ECC Data Load</i> program.</p>
+<p><b>Inventory Track and Trace Data Load</b></p>
+<p><img width="769" height="504" src="./img/invtracktracedbloadV8.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Inventory Track and Trace Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Inventory Track and Trace Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: This process loads all track and trace data and is required to be run for the first data load. If you select and run full load for subsequent requests, then this program clears all track and trace data from ECC and loads fresh data.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: This process loads the data modified and updated from the previous load only. Incremental load should be scheduled to run as often as required to keep the ECC dashboard current.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: This load type is not applicable to the Track and Trace Dashboard.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Select the organization code for which you want to load data. You can sequentially load data for each organization using this parameter.</p>
+<p>The following rules apply to the Organization Code parameter:</p>
+<ul>
+<li>
+<p>If this parameter is blank, then during a full load, the program loads data for the maximum number of days specified in the <i>INV: ECC Max Days for Track and Trace</i> profile option.</p>
+</li>
+<li>
+<p>If you select a value in this parameter and Reset Data is TRUE, then when you run the full load, the application removes data for all other organizations and retains data only for the selected organization.</p>
+</li>
+<li>
+<p>If you select a value in this parameter and Reset Data is FALSE, then the application appends data of the selected organization to the existing data.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Use the <b>Reset Data</b> parameter with caution. The default value is FALSE. If you run full load for the first time or want to reset the data, then set the parameter value to TRUE. If set to TRUE, this action clears all the data that was loaded earlier, and loads the new data for the selected operating unit. After the completion of full load, data of only one organization will be available in the ECC data store.</p>
+<ul>
+<li>
+<p>For subsequent full loads, to append the new data to the data set, set this value to FALSE.</p>
+</li>
+<li>
+<p>For incremental loads, this parameter is not applicable.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30057702"></a><a id="T2008149"></a><b>Loading Inventory Management Data - Activity Details</b></h2>
+<p><a name="d0e30215" id="d0e30215"></a><a name="d0e30224" id="d0e30224"></a><a name="ecc_actvtdl" id="ecc_actvtdl"></a><a name="SRS.INVECCACTRUN" id="SRS.INVECCACTRUN"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the Inventory Management Command Center, run the concurrent program <i>Activity Details Data Load</i>. Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p><b>Activity Details Data Load</b></p>
+<p><img width="984" height="505" src="./img/ecc_inv_actvt_detls_dl.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Activity Details Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Activity Details Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: Loads all inventory activity details data from EBS.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: Loads only the data modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30057705"></a><a id="T2008150"></a><b>Loading Inventory Management Data - Move Orders</b></h2>
+<p><a name="d0e30410" id="d0e30410"></a><a name="SRS.INVMOVEORDERRUN" id="SRS.INVMOVEORDERRUN"></a><a name="invmoveordataload" id="invmoveordataload"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the <i>Move Orders</i> dashboard, run the concurrent program <b>Inventory Move Orders Data Load</b>. Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p><b>Inventory Move Orders Data Load</b></p>
+<p><img width="1024" height="493" src="./img/invv10moveorddl.gif" alt="the picture is described in the document text"></p>
+<p>The Inventory Move Orders Data Load program loads data to the following data sets:</p>
+<ul>
+<li>
+<p>inv-move-orders</p>
+</li>
+<li>
+<p>inv-move-order-allocations</p>
+</li>
+</ul>
+<p><b>To run the Inventory Move Orders Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Inventory Move Orders Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: Loads all move orders and allocations data from EBS.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: Loads only the data modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: Loads Descriptive Flexfield (DFF) metadata. If there are any changes to the DFF definition, then you must first run the program using the Metadata Load option, so that the DFF changes are displayed in the command center. Note that the full data load process includes the metadata load.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select TRUE to enable SQL trace. Otherwise, select FALSE.</p>
+</li>
+<li>
+<p>Select the organization code for which you want to load data. You can sequentially load data for each organization using this parameter. You must run a full load for the selected organization before you run the incremental load for that organization.</p>
+<p>The following rules apply to the Organization Code parameter:</p>
+<ul>
+<li>
+<p>If you select a value in this parameter and <b>Reset Data</b> is TRUE, then when you run the full load, the application removes data for all other organizations and retains data only for the selected organization.</p>
+</li>
+<li>
+<p>If you select a value in this parameter and <b>Reset Data</b> is FALSE, then the application appends data of the selected organization to the existing data.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Use the <b>Reset Data</b> parameter with caution. If you run full load for the first time or want to reset the data, then set the parameter value to TRUE. If set to TRUE, this action clears all the data that was loaded earlier and loads the new data for the selected operating unit. After the completion of full load, data of only one organization will be available in the ECC data store.</p>
+<ul>
+<li>
+<p>For subsequent full loads, to append the new data to the data set, set this value to FALSE.</p>
+</li>
+<li>
+<p>For incremental loads, this parameter is not applicable.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30057708"></a><a id="T2008151"></a><b>Collecting Item Supply/Demand Data</b></h2>
+<p><a name="d0e30685" id="d0e30685"></a><a name="SRS.INVSUPDMD" id="SRS.INVSUPDMD"></a><a name="invcollctsupdmndata" id="invcollctsupdmndata"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To collect supply, demand, and on-hand quantity data for all items across organizations, run the concurrent program <b>Inventory Item Supply/Demand</b>. This program collects the items supply and demand data and loads it to the Oracle E-Business Suite (EBS) "INV_ECC_SUPPLY_DEMAND" table.</p>
+<p><strong><span>Important:</span></strong> You must run this program before you run the <b>Inventory Supply/Demand Data Load</b> program.</p>
+<p>Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p><b>Inventory Item Supply/Demand</b></p>
+<p><img width="951" height="460" src="./img/invv10collectitemsupdmnd.gif" alt="the picture is described in the document text"></p>
+<p><b>To run Inventory Item Supply/Demand:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Inventory Item Supply/Demand</b>.</p>
+</li>
+<li>
+<p>Select the organization for which you want to collect data. You must run a full load for the selected organization before you run the incremental load for that organization. You can sequentially collect data for each organization using this parameter. If you leave this parameter blank, then the program collects data for all the organizations.</p>
+</li>
+<li>
+<p>Select the category set for which you want to collect data. The default value is Inv.Items.</p>
+</li>
+<li>
+<p>Select the category name for which you want to collect data.</p>
+</li>
+<li>
+<p>Enter the number of days for which you want to collect data. The default value is 15.</p>
+</li>
+<li>
+<p>Select the appropriate mode for data load.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: Loads all item supply and demand data. The default value is Full Load.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: Loads only the data modified since the previous load.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: This mode is not applicable.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>View Requests</b> window.</p>
+</li>
+</ol>
+<h2><a name="30057711"></a><a id="T2008152"></a><b>Loading Inventory Management Data - Supply/Demand</b></h2>
+<p><a name="d0e30885" id="d0e30885"></a><a name="SRS.INVECCSDRUN" id="SRS.INVECCSDRUN"></a><a name="invsupdmndataload" id="invsupdmndataload"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p><b>Prerequisite</b>: Run the concurrent program Inventory Item Supply/Demand, which collects and loads data to the Oracle E-Business Suite (EBS) "INV_ECC_SUPPLY_DEMAND" table. See <a href="T291651T671993.htm#invcollctsupdmndata">Collecting Item Supply/Demand Data</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the ECC data store for the <i>Supply/Demand Dashboard</i>, run the concurrent program <i>Inventory Supply/Demand Data Load</i>. Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p><b>Inventory Supply/Demand Data Load</b></p>
+<p><img width="1016" height="468" src="./img/invv10supplydemnddl.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Inventory Supply/Demand Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Inventory Supply/Demand Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: Loads all supply and demand data from EBS.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: Loads only the data modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: This load type is not applicable.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select TRUE to enable SQL trace. Otherwise, select FALSE.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30057714"></a><a id="T2008153"></a><b>Loading Inventory Management Data - Transaction Management</b></h2>
+<p><a name="d0e31090" id="d0e31090"></a><a name="SRS.INVTRANSMGMTRUN" id="SRS.INVTRANSMGMTRUN"></a><a name="invtransmgtdl" id="invtransmgtdl"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the Transaction Management Dashboard of the Inventory Management Command Center, run the concurrent program <i>Inventory Transaction Management Data Load</i>. Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p>The <i>Inventory Transaction Management Data Load</i> program runs for the Inventory Management (INV-TRANSACTION-MANAGEMENT) data set. This data set retrieves data from the following interface tables.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Interface Tables</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Interface</b></th>
+<th scope="col"><b>Interface Table</b></th>
+</tr>
+<tr valign="top">
+<td>Transaction Open Interface</td>
+<td>MTL_TRANSACTIONS_INTERFACE</td>
+</tr>
+<tr valign="top">
+<td>Pending Transactions</td>
+<td>MTL_MATERIAL_TRANSACTIONS_TEMP</td>
+</tr>
+<tr valign="top">
+<td>Receiving Open Interface</td>
+<td>RCV_TRANSACTIONS_INTERFACE</td>
+</tr>
+<tr valign="top">
+<td>Cycle Count Open Interface</td>
+<td>MTL_CC_ENTRIES_INTERFACE</td>
+</tr>
+<tr valign="top">
+<td>Reservations Interface</td>
+<td>MTL_RESERVATIONS_INTERFACE</td>
+</tr>
+<tr valign="top">
+<td>Object Genealogy Interface</td>
+<td>MTL_OBJECT_GENEALOGY_INTERFACE</td>
+</tr>
+</table>
+<p><b>Inventory Transaction Management Data Load</b></p>
+<p><img width="624" height="438" src="./img/invv11trnsmgmtdataload.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Inventory Transaction Management Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Inventory Transaction Management Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: This process loads all transaction management data and is required to be run for the first data load. If you select and run full load for subsequent requests, then this program clears all transaction management data from ECC and loads fresh data.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: This process loads the data modified and updated from the previous load only. Incremental load should be scheduled to run as often as required to keep the ECC dashboard current.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: Loads Descriptive Flexfield (DFF) metadata. If there are any changes to the DFF definition, then you must run the program first with the Metadata Load option and then with the Full Load option so that the DFF changes are displayed on the dashboard. Note that the full data load process includes the metadata load.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Select the organization code for which you want to load data. You can sequentially load data for each organization using this parameter. You must run a full load for the selected organization before you run the incremental load for that organization.</p>
+<p>The following rules apply to the Organization Code parameter:</p>
+<ul>
+<li>
+<p>If you select a value in this parameter and <b>Reset Data</b> is TRUE, then when you run the full load, the application removes data for all other organizations and retains data only for the selected organization.</p>
+</li>
+<li>
+<p>If you select a value in this parameter and <b>Reset Data</b> is FALSE, then the application appends data of the selected organization to the existing data.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Use the <b>Reset Data</b> parameter with caution. If you run full load for the first time or want to reset the data, then set the parameter value to TRUE. If set to TRUE, this action clears all the data that was loaded earlier and loads the new data for the selected organization. After the completion of full load, data of only one organization will be available in the ECC data store.</p>
+<ul>
+<li>
+<p>For subsequent full loads, to append the new data to the data set, set this value to FALSE.</p>
+</li>
+<li>
+<p>For incremental loads, this parameter is not applicable.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30106008"></a><a id="T2010474"></a><b>Loading Inventory Management Data - Replenishment</b></h2>
+<p><a name="d0e31480" id="d0e31480"></a><a name="SRS.INVREPLENISHMENTRUN" id="SRS.INVREPLENISHMENTRUN"></a><a name="eccinvreplenishdl" id="eccinvreplenishdl"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the ECC data store for the Replenishment Dashboard, run the concurrent program <i>Inventory Replenishment Data Load</i>.</p>
+<p>Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p>The data load program loads data to the Inventory Replenishment (inv-replenishment) data set.</p>
+<p><b>Inventory Replenishment Data Load</b></p>
+<p><img width="688" height="458" src="./img/invv14replenishdl.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Inventory Replenishment Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Inventory Replenishment Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: Loads all replenishment data from EBS.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: Loads only the data that has been modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: This load type is not applicable for the Replenishment Dashboard.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Select the organization code for which you want to load data. You can sequentially load data for each organization using this parameter.</p>
+<p>The following rules apply to the Organization Code parameter:</p>
+<ul>
+<li>
+<p>If you select a value in this parameter and Reset Data is TRUE, then when you run the full load, the application removes data for all other organizations and retains data only for the selected organization.</p>
+</li>
+<li>
+<p>If you select a value in this parameter and Reset Data is FALSE, then the application appends data of the selected organization to the existing data.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Use the <b>Reset Data</b> parameter with caution. The default value is FALSE. If you run full load for the first time or want to reset the data, then set the parameter value to TRUE. If set to TRUE, this action clears all the data that was loaded earlier and loads the new data for the selected operating unit. After the completion of full load, data of only one organization will be available in the ECC data store.</p>
+<p>For subsequent full loads, to append the new data to the data set, set this value to FALSE.</p>
+<p>For incremental loads, this parameter is not applicable.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30057718"></a><a id="T2008154"></a><b>Loading Inventory Management Data - Items Dashboard</b></h2>
+<p><a name="d0e31731" id="d0e31731"></a><a name="d0e31740" id="d0e31740"></a><a name="SRS.INVITMECCDL" id="SRS.INVITMECCDL"></a><a name="ecc_itemsdl" id="ecc_itemsdl"></a>See <a href="T291651T671993.htm#ecc_imconfig">Setup and Configuration Steps for Inventory Management Command Center</a>.</p>
+<p>To process and load data from Oracle E-Business Suite (EBS) to the Inventory Management Command Center, run the concurrent program <i>Items Dashboard Data Load</i>.</p>
+<p>Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Other</b> &gt; <b>Requests</b> &gt; <b>Run</b></p>
+<p>You can also run this program using the following navigation:</p>
+<ol>
+<li>
+<p><b>Item Manager</b> (responsibility) &gt; <b>Item Catalog</b> &gt; <b>View Concurrent Requests</b></p>
+</li>
+<li>
+<p>On the <b>Requests</b> page, click <b>Submit Request</b></p>
+</li>
+</ol>
+<p><b>Adding the Items Dashboard Data Load Program to a Responsibility</b></p>
+<p>By default, the <i>Items Dashboard Data Load</i> program is available from the Manufacturing and Distribution Manager and Item Manager responsibilities.</p>
+<p>To add the <i>Items Dashboard Data Load</i> program to a different responsibility, for example, Development Manager, follow these steps:</p>
+<p><b>Prerequisite Step</b></p>
+<p>Find the request group that is attached to the Development Manager responsibility.</p>
+<ol>
+<li>
+<p>Navigate to <b>System Administrator</b> &gt; <b>Security</b> &gt; <b>Responsibility</b> &gt; <b>Define</b>.</p>
+</li>
+<li>
+<p>Query your responsibility (Development Manager) and the request group (Development Manager RG - EGO_DM_RG) associated with the Development Manager responsibility.</p>
+</li>
+</ol>
+<p><b>Steps to add the Items Dashboard Load program</b></p>
+<ol>
+<li>
+<p>Go to <b>Security</b> &gt; <b>Responsibility</b> &gt; <b>Request</b>.</p>
+</li>
+<li>
+<p>In the <b>Requests</b> region, query the request group that you noted in the prerequisite step.</p>
+</li>
+<li>
+<p>Add the <i>Items Dashboard Data Load</i> program to the request group.</p>
+</li>
+</ol>
+<p><b>Items Dashboard Data Load</b></p>
+<p><img width="936" height="476" src="./img/invv11itemsdbdataload.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Items Dashboard Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Items Dashboard Data Load</b>.</p>
+</li>
+<li>
+<p>Enter the name in the <b>System Name</b> field. The default value is <b>EBS</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: Loads all for the Items Dashboard data from EBS.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: Loads only the data modified since the previous load. Schedule incremental loads to run as often as required to keep the ECC dashboard current.</p>
+</li>
+<li>
+<p><b>Metadata Load</b>: Loads Descriptive Flexfield (DFF) metadata. If there are any changes to the DFF definition, then you must first run the program using the Metadata Load option, so that the DFF changes are displayed in the command center. Note that the full data load process includes the metadata load.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Specify one or more organizations to load data. Enter organization code as the value. You can enter multiple values using a comma-separated list. For example, <code>AB1,M1,W1</code>.</p>
+<p><strong><span>Important:</span></strong> Note that the data load program ends in an error in the following cases:</p>
+<ul>
+<li>
+<p>Organization code is invalid</p>
+</li>
+<li>
+<p>Delimiter is other than comma</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you enter multiple organization codes and set <b>Reset Dataset</b> to <b>True</b>, then when you run the Full Load, the application removes data for all other organizations and retains data only for the selected organizations. For multiple organization codes if you set <b>Reset Dataset</b> to <b>False</b>, then the application appends data of the selected organizations to existing data in the dashboard.</p>
+<p><strong><span>Note:</span></strong> You must run a Full Load for the selected organizations before you run the incremental load for the organizations.</p>
+<p>Reset Dataset has no impact on incremental loads.</p>
+<p>The metadata load is triggered for a full load with Reset Dataset set to True.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30104814"></a><a id="T2010398"></a><b>Loading Inventory Management Data - Movement Statistics</b></h2>
+<p><a name="d0e32154" id="d0e32154"></a><a name="SRS.INVMVTECCDL" id="SRS.INVMVTECCDL"></a><a name="invmvtstatisticsdl" id="invmvtstatisticsdl"></a>To process and load data from Oracle E-Business Suite (EBS) to the <a href="T291651T671994.htm#invmvtstasticsdb"><i>Movement Statistics</i></a> and <a href="T291651T671994.htm#invexceptionsdb"><i>Exceptions</i></a> dashboards of the Inventory Management Command Center, run the <i>Movement Statistics ECC Data Load</i> concurrent program. Run this program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>Manufacturing and Distribution Manager</b> &gt; <b>Material Planning</b> &gt; <b>Others</b> &gt; <b>Request</b></p>
+<p>You can also use the following navigation:</p>
+<p><b>Manufacturing and Distribution Manager</b> &gt; <b>Inventory</b> &gt; <b>Requests</b></p>
+<p>The data load program loads data to the following data sets:</p>
+<ul>
+<li>
+<p>Movement Statistics (inv-mgd-mvt-stats)</p>
+</li>
+<li>
+<p>Exceptions (inv-mgd-mvt-exceptions)</p>
+</li>
+</ul>
+<p><b>Prerequisite</b></p>
+<p>Review the <a href="T291651T671993.htm#eccinvccprofoptions"><i>INV: MVT ECC Full Load Days</i></a> profile option value before you run the data load.</p>
+<p><b>Movement Statistics ECC Data Load</b></p>
+<p><img width="1219" height="851" src="./img/invmvtv14movementdl.gif" alt="the picture is described in the document text"></p>
+<p><b>To run the Movement Statistics ECC Data Load:</b></p>
+<ol>
+<li>
+<p>In the <b>Name</b> field, select <b>Movement Statistics ECC Data Load</b>.</p>
+</li>
+<li>
+<p>Select the appropriate load type. Only Full Load and Incremental Load are applicable to this concurrent program.</p>
+<ul>
+<li>
+<p><b>Full Load</b>: This process loads all movement statistics and exceptions data and is required to be run for the first data load. If you select and run full load for subsequent requests, then this program clears the previous movement statistics and exceptions data from the dashboard and loads fresh data.</p>
+</li>
+<li>
+<p><b>Incremental Load</b>: This process loads the data modified and updated from the previous load only. Incremental load must be scheduled to run as often as required to keep the ECC dashboard current.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Languages</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>Select the log level that you want the program to report. The default value is ERROR.</p>
+</li>
+<li>
+<p>Select <b>TRUE</b> to enable SQL trace. Otherwise, select <b>FALSE</b>.</p>
+</li>
+<li>
+<p>Submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+<li>
+<p>Monitor data loading using the <b>Data Load Tracking</b> page of the ECC Developer responsibility.</p>
+</li>
+</ol>
+<h2><a name="30057721"></a><a id="T2008155"></a><b>Setup and Configuration Steps for the Kanban Dashboard</b></h2>
+<p><a name="setconfigkanbandb" id="setconfigkanbandb"></a>To complete setup of the <a href="T291651T671994.htm#eccflmkanbandb">Kanban Dashboard</a>:</p>
+<ol>
+<li>
+<p><a href="T291651T671993.htm#setproopsknbndb">Set profile options</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#enbeknbnaccsrls">Enable Electronic Kanban ECC access roles</a>.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#flmknbansnapshot">Create Kanban Replenishment Snapshot</a>.</p>
+<p><strong><span>Caution:</span></strong> You must run the <i>Create Kanban Replenishment Snapshot</i> program before you run the <i>Electronic Kanban ECC Data Load</i> concurrent program.</p>
+</li>
+<li>
+<p><a href="T291651T671993.htm#ekanbandataload">Load Electronic Kanban data</a>.</p>
+</li>
+</ol>
+<h2><a name="30057722"></a><a id="T2008156"></a><b>Setting Profile Options for the Kanban Dashboard</b></h2>
+<p><a name="setproopsknbndb" id="setproopsknbndb"></a>See <a href="T291651T671993.htm#setconfigkanbandb">Setup and Configuration Steps for the Kanban Dashboard</a>.</p>
+<p>Set a value for the following profile options to use the Kanban Dashboard:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Profile Option Name</b></th>
+<th scope="col"><b>Description</b></th>
+<th scope="col"><b>Default Value</b></th>
+</tr>
+<tr valign="top">
+<td>FLM: Enable E-Kanban</td>
+<td>Set this site-level profile value to Yes to enable E-Kanban
+<p><strong><span>Warning:</span></strong> If Oracle Electronic Kanban is enabled for your organization, then the regular Kanban windows in Oracle Inventory will not be available. However, the existing Oracle Inventory Kanban data will be visible in Oracle Electronic Kanban.</p>
+</td>
+<td>Null</td>
+</tr>
+</table>
+<h2><a name="30057723"></a><a id="T2008157"></a><b>Enabling Electronic Kanban ECC Access Roles</b></h2>
+<p><a name="enbeknbnaccsrls" id="enbeknbnaccsrls"></a>See <a href="T291651T671993.htm#setconfigkanbandb">Setup and Configuration Steps for the Kanban Dashboard</a>.</p>
+<p>Ensure that you set up and assign the following roles to use the Kanban Dashboard:</p>
+<ol>
+<li>
+<p>Set up the eKanban Super User responsibility.</p>
+</li>
+<li>
+<p>Assign the Electronic Kanban ECC Dashboard user role.</p>
+</li>
+</ol>
+<h2><a name="30106289"></a><a id="T2010512"></a><b>Creating Kanban Replenishment Snapshot</b></h2>
+<p><a name="d0e32590" id="d0e32590"></a><a name="SRS.FLMKPSQ_SNAPSHOT" id="SRS.FLMKPSQ_SNAPSHOT"></a><a name="flmknbansnapshot" id="flmknbansnapshot"></a>See <a href="T291651T671993.htm#setconfigkanbandb">Setup and Configuration Steps for the Kanban Dashboard</a>.</p>
+<p>The <i>Create Kanban Replenishment Snapshot</i> program generates snapshot data for On Hand, Safety Stock, and Daily Demand line graphs in the <a href="T291651T671994.htm#eccflmkanbandb">Kanban Dashboard</a>, <i>View Replenishment History</i> chart. This chart is available from the following tabs:</p>
+<ul>
+<li>
+<p>Inventory Health</p>
+</li>
+<li>
+<p>Kanban Demand</p>
+</li>
+</ul>
+<p><strong><span>Important:</span></strong> You must schedule this program to run daily. If the snapshot program is not run regularly, then line graphs are not displayed, and sometimes broken lines are displayed. The program does not generate snapshots for past dates. If the program is run more than once in a day, then the minimum value of the respective quantities at day level will be displayed in the chart.</p>
+<p>You can find this concurrent program using the eKanban Super User responsibility.</p>
+<p>Run the concurrent program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>eKanban Super User</b> &gt; <b>View</b> &gt; <b>Requests</b> &gt; <b>Find Requests</b></p>
+<p><b>Create Kanban Replenishment Snapshot Program</b></p>
+<p><img width="715" height="524" src="./img/flmv14creatensnapshotdl.gif" alt="the picture is described in the document text"></p>
+<p><b>To create Kanban replenishment snapshot:</b></p>
+<ol>
+<li>
+<p>On the <b>Find Requests</b> window, click <b>Submit a New Request</b>.</p>
+</li>
+<li>
+<p>In the <b>Submit Request</b> window, select <b>Create Kanban Replenishment Snapshot</b> from the list of values in the <b>Name</b> field.</p>
+</li>
+<li>
+<p>In the <b>Parameters</b> window, select the organization for which you want to generate Kanban replenishment snapshot. If you leave the Organization parameter blank, then the program creates snapshots for all the organizations.</p>
+</li>
+<li>
+<p>Click <b>OK</b> on the <b>Parameters</b> window.</p>
+</li>
+<li>
+<p>Click <b>Submit</b> on the <b>Submit Request</b> window to submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+</ol>
+<h2><a name="30057724"></a><a id="T2008158"></a><b>Loading Electronic Kanban ECC Data</b></h2>
+<p><a name="ekanbandataload" id="ekanbandataload"></a><a name="SRS.FLMEKB_ECC_DL" id="SRS.FLMEKB_ECC_DL"></a>See <a href="T291651T671993.htm#setconfigkanbandb">Setup and Configuration Steps for the Kanban Dashboard</a>.</p>
+<p><b>Prerequisite</b></p>
+<p>Run the <a href="T291651T671993.htm#flmknbansnapshot">Create Kanban Replenishment Snapshot</a> program before you run the <i>Electronic Kanban ECC Data Load</i> program.</p>
+<p>To load Oracle E-Business Suite data into the <a href="T291651T671994.htm#eccflmkanbandb">Kanban Dashboard</a>, run the concurrent program <i>Electronic Kanban ECC Data Load</i>. You can find this concurrent program using the eKanban Super User responsibility.</p>
+<p>The data load program loads data to the following data sets:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Data Sets for the Electronic Kanban ECC Data Load Program</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Data Set Key</b></th>
+<th scope="col"><b>Data Set</b></th>
+</tr>
+<tr valign="top">
+<td>flm-kanban-cards-dtls</td>
+<td>Kanban Cards</td>
+</tr>
+<tr valign="top">
+<td>flm-pullseq-details</td>
+<td>Kanban Pull Sequences</td>
+</tr>
+<tr valign="top">
+<td>flm_kb_demand_metric</td>
+<td>Kanban Demand</td>
+</tr>
+<tr valign="top">
+<td>flm_kb_lt_metric</td>
+<td>Kanban Lead Time</td>
+</tr>
+</table>
+<p><strong><span>Note:</span></strong> To set up profile options before running data loads, see <a href="T291651T671993.htm#setproopsknbndb">Setting Profile Options for the Kanban Dashboard</a>.</p>
+<p>Run the concurrent program from the <b>Submit Request</b> window.</p>
+<p>(N) <b>eKanban Super User</b> &gt; <b>View</b> &gt; <b>Requests</b> &gt; <b>Find Requests</b></p>
+<p><b>Electronic Kanban ECC Data Load</b></p>
+<p><img width="624" height="363" src="./img/flmv11knbndataload.gif" alt="the picture is described in the document text"></p>
+<p><b>To load Electronic Kanban ECC data:</b></p>
+<ol>
+<li>
+<p>On the <b>Find Requests</b> window, click <b>Submit a New Request</b>.</p>
+</li>
+<li>
+<p>On the <b>Submit Request</b> window, select <b>Electronic Kanban ECC Data Load</b> from the list of values in the <b>Name</b> field.</p>
+</li>
+<li>
+<p>Use the <b>Parameters</b> window to enter the parameters information.</p>
+</li>
+<li>
+<p>The <b>System Name</b> field defaults to EBS.</p>
+</li>
+<li>
+<p>In the <b>Dataset</b> field, select the specific data set for which you would like to load data from the list of values. Leave this field blank to run a data load for all the data sets.</p>
+</li>
+<li>
+<p>In the <b>Load Type</b> field, select the appropriate load type:</p>
+<ul>
+<li>
+<p><b>Full data load</b>: This process loads all the item pull sequences and cards data for Electronic Kanban data and is required to be run for the first data load. The full data load process also includes metadata load. If you select and run full load for subsequent requests, then this program clears the previous Electronic Kanban data from the dashboard and loads fresh data.</p>
+<p><strong><span>Note:</span></strong> Running a full load removes all user defined reports and shows only the system defined report after the full load completes.</p>
+</li>
+<li>
+<p><b>Incremental data load</b>: This process loads the new and updated item pull sequences and card that are modified and updated from the previous load. Incremental load should be scheduled to run as often as required to keep the ECC dashboard current. Ensure that you run the incremental load after running a full load to avoid any data loading errors.</p>
+</li>
+<li>
+<p><b>Metadata load</b>: This process ensures the application waits for other tasks such as consolidation, data entry, or other load processes to finish before it loads the files. Note that the full data load process includes metadata load.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the <b>Language</b> field, enter one or more language codes for the output. For multiple language codes, use the format AA,BB,NN. For example, enter US,AR,KO. If the field is blank, then the data will be loaded for the base language only (usually US).</p>
+</li>
+<li>
+<p>In the <b>Enable SQL Trace</b> field, select TRUE to enable the SQL trace. Otherwise, select FALSE.</p>
+</li>
+<li>
+<p>In the <b>Log Level</b> field, select the program you want to report.</p>
+</li>
+<li>
+<p>In the <b>Organization Code</b>, you can select and enter the organization code for which you want to run the concurrent program.</p>
+</li>
+<li>
+<p>In the <b>Reset Data</b> field, select from the following values:</p>
+<ul>
+<li>
+<p>TRUE - when you want to reset the data set completely.</p>
+</li>
+<li>
+<p>FALSE - when you want to extend the existing data set.</p>
+<p>The default value is FALSE. You can only use the Reset Data option when you run a full data load.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <b>OK</b> on the <b>Parameters</b> window.</p>
+</li>
+<li>
+<p>Click <b>Submit</b> on the <b>Submit Request</b> window to submit the concurrent request.</p>
+</li>
+<li>
+<p>Review your request using the <b>Requests</b> page.</p>
+</li>
+</ol>
+<p><b>To review request details:</b></p>
+<ol>
+<li>
+<p>From the menu, click <b>Requests</b>. The <b>Find Requests</b> window appears.</p>
+</li>
+<li>
+<p>Select the <b>All My Requests</b> radio button and click <b>Find</b>. The <b>Requests</b> window appears and displays all of your requests.</p>
+</li>
+<li>
+<p>In the <b>Requests</b> window, select the row that contains your request and then click <b>View Details</b>. The <b>Request Detail</b> window appears and displays the ECC- Run Data Load information.</p>
+</li>
+<li>
+<p>Click <b>OK</b> to exit and close the window.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

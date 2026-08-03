@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T228115.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107T329778.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">14/31</span> <!-- End Header -->
+<h1>Shop Floor Control</h1>
+<p>This chapter explains how assemblies are moved, controlled, and tracked on the shop floor.</p>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#I_cx2Dovwsfc">Overview of Shop Floor Control</a></li>
+<li><a href="#esignature_organizing_concept">Electronic Signature Support in Oracle Manufacturing</a></li>
+<li><a href="#T228918">Setting Up Shop Floor Control</a></li>
+<li><a href="#T228263">Overview of Routings and Operations</a></li>
+<li><a href="#T228919">Adding and Updating Operations</a></li>
+<li><a href="#T228920">Deleting Operations</a></li>
+<li><a href="#T228921">Midpoint Rescheduling</a></li>
+<li><a href="#T228922">Viewing Operations</a></li>
+<li><a href="#T228923">Viewing Job and Schedule Operations</a></li>
+<li><a href="#I_cx2Dovwmtx78n">Move Transactions</a></li>
+<li><a href="#T228924">Performing Move Transactions</a></li>
+<li><a href="#T228925">Operation Pull Backflush Transactions</a></li>
+<li><a href="#T228926">Backflushing Pull Components</a></li>
+<li><a href="#T228927">Move Completion/Return Rules</a></li>
+<li><a href="#T228928">Performing Move Completion/Return Transactions</a></li>
+<li><a href="#T228929">Viewing Move Transactions</a></li>
+<li><a href="#T228930">Processing Pending Move Transactions</a></li>
+<li><a href="#T228931">Finding Pending Move Transactions</a></li>
+<li><a href="#I_cx2Dsfstatus">Shop Floor Statuses</a></li>
+<li><a href="#T228932">Assigning and Viewing Shop Floor Statuses</a></li>
+<li><a href="#I_px2Dsfmgmt">Shop Floor Management</a></li>
+<li><a href="#T228933">Scrapping Assemblies</a></li>
+<li><a href="#T228934">Dispatch Reports</a></li>
+</ul>
+<h2><a name="4060164"></a><a id="I_cx2Dovwsfc"></a><b>Overview of Shop Floor Control</b></h2>
+<p><a name="d0e32039" id="d0e32039"></a>Shop floor control helps you manage the flow of production inside your plant. Effective shop floor control can lead to due date performance that ensures meeting your customer service goals. The purpose of this section is to help you understand how Oracle Work in Process provides tools for shop floor control. In particular, it describes the complete life cycle of shop floor control from setup through execution.</p>
+<h2><a name="1034724"></a><a id="T228261"></a><b>Basic Business Needs</b></h2>
+<p><a name="I_cx2Dsfcbasic" id="I_cx2Dsfcbasic"></a>Oracle Work in Process provides you with the features you need to satisfy the following basic shop floor control needs. You can:</p>
+<ul>
+<li>
+<p>Define work in process routings that model the manufacturing process</p>
+</li>
+<li>
+<p>Track assembly movements throughout the shop floor</p>
+</li>
+<li>
+<p>Track the status of assemblies within an operation</p>
+</li>
+<li>
+<p>Use transaction information from shop floor collection devices and other external systems</p>
+</li>
+<li>
+<p>Collect product and process quality information as you move assemblies</p>
+</li>
+<li>
+<p>Enter alternate units of measure and quantities in move transactions</p>
+</li>
+<li>
+<p>Dispatch assemblies by operation or within an operation</p>
+</li>
+<li>
+<p>Backflush components automatically based on transactions</p>
+</li>
+<li>
+<p>Charge resource time and overhead automatically</p>
+</li>
+<li>
+<p>Track and repair rejected assemblies separately from normal assemblies</p>
+</li>
+<li>
+<p>Scrap assemblies from the manufacturing process</p>
+</li>
+<li>
+<p>Create requisitions for operation outside resources</p>
+</li>
+<li>
+<p>Track assemblies at outside vendors</p>
+</li>
+<li>
+<p>If Oracle Shop Floor Management is installed, you can create network routings with primary and alternate paths</p>
+</li>
+<li>
+<p>Create electronic signatures in compliance with Federal Food and Drug Administration regulations when performing material transactions, assembly moves, and assembly completions</p>
+</li>
+</ul>
+<h2><a name="1034725"></a><a id="T228262"></a><b>Major Features</b></h2>
+<a name="I_cx2Dsfcfeatur" id="I_cx2Dsfcfeatur"></a>
+<h3><b>Move Transactions</b></h3>
+<p>You can move assemblies within operations (intraoperation moves) and between operations (interoperation moves). You can also complete and return assemblies from and to jobs and schedules using move transactions. Move transactions automatically update operation completion quantities, charge appropriate resources and overheads, and backflush pull components. See: <a href="T228107T228116.htm#I_cx2Dovwmtx78n">Move Transactions</a><a href="T228107T228116.htm#I_cx2Dovwmtx78n">Overview of Move Transactions</a>.</p>
+<h3><b>Open Move Transaction Interface</b></h3>
+<p>You can load move transaction information from external systems - such as barcode readers and manufacturing cell controllers - into the Open Move Transaction Interface table. When this data is processed, it is validated, and invalid records are marked so that you can correct and resubmit them. See: <a href="T228107T228116.htm#I_cx2Domti">Open Move Transaction Interface</a>.</p>
+<h3><b>Shop Floor Statuses</b></h3>
+<p>You define and assign shop floor statuses. You can control move transactions by assigning these statuses to intraoperation steps on the work in process routing. You can view these statuses during move transactions. See: <a href="T228107T228116.htm#I_tx2Dasfstat">Assigning and Viewing Shop Floor Statuses</a> and <a href="T228107T228110.htm#I_tx2Ddsfstatus">Defining Shop Floor Statuses</a>.</p>
+<h3><b>Dispatch Reporting</b></h3>
+<p>You can use dispatch reports to help you prioritize work at specific operations, production on specific lines, and to locate assemblies on the shop floor. See: <a href="T228107T228116.htm#I_cx2Ddptchrptg">Dispatch Reports</a>.</p>
+<h3><b>Outside Processing</b></h3>
+<p>You can automatically create purchase requisitions for resources assigned to outside processing operations. You can also control the movement of assemblies to and from your suppliers. See: <a href="T228107T228118.htm#I_ex2Dosp">Overview of Outside Processing</a> <a href="T228107T228110.htm#I_cx2Dparmosp">Outside Processing Parameters</a> and <a href="T228107T228117.htm#I_cx2Dreschgtyp">Resource Charge Types</a>.</p>
+<h3><b>Managing Rework Production</b></h3>
+<p>You can use Reject intraoperation steps, rework operations, or non-standard discrete jobs to rework problem assemblies. You have complete control over the material requirements and operations you use to complete rework. See: <a href="T228107T228116.htm#I_cx2Drework">Rework Production</a>.</p>
+<h3><b>Managing Scrap</b></h3>
+<p>You can scrap assemblies at any point during the production process. See: <a href="T228107T228116.htm#I_cx2Dascrap">Assembly Scrap</a>.</p>
+<h3><b>Mobile Manufacturing<a name="d0e32178" id="d0e32178"></a><a name="d0e32184" id="d0e32184"></a><a name="d0e32190" id="d0e32190"></a></b></h3>
+<p>If Oracle Mobile Supply Chain Applications (MSCA) is installed, the Mobile Manufacturing component enables you to perform work in process material transactions using a mobile client device networked with a computer system. This includes:</p>
+<ul>
+<li>
+<p>Moving assemblies from one operation or intraoperation step to another.</p>
+</li>
+<li>
+<p>Completing assemblies and jobs</p>
+</li>
+<li>
+<p>Scrapping or rejecting assemblies, and reversing transactions</p>
+</li>
+<li>
+<p>Resource transactions enabling you to change or add resources</p>
+</li>
+<li>
+<p>Viewing transaction information including job status, completions, scrap quantities, and schedule dates</p>
+</li>
+<li>
+<p>Performing material transactions for dual unit of measure items with deviations in secondary quantity. See: "To issue or return material for a job" in the Material Transactions topic in the Mobile Manufacturing chapter, <i>Oracle Mobile Supply Chain Applications User Guide</i>.</p>
+</li>
+<li>
+<p>Personalizing the following pages in MSCA:</p>
+<ul>
+<li>
+<p>Move Assemvly</p>
+</li>
+<li>
+<p>Complete Assembly</p>
+</li>
+<li>
+<p>Material Transactions</p>
+</li>
+<li>
+<p>Resource Transactions</p>
+</li>
+</ul>
+<p>You can, for example, personalize these MSCA pages to display descriptive flexfieds, add new fields, hide fields and buttons, provide default values in a field, define fields as read-only, and more. See: Personalization in the Navigation chapter, <i>Oracle Mobile Supply Chain Applications User's Guide</i>.</p>
+</li>
+<li>
+<p>If Oracle Warehouse Management is installed, you can use License Plate Number functionality for tracking completions</p>
+<p>See: Mobile Manufacturing, <i>Oracle Mobile Supply Chain Applications User Guide</i></p>
+</li>
+</ul>
+<h3><b>Electronic Record Support</b></h3>
+<p>Oracle Manufacturing provides electronic record (e-records) support in compliance with Federal Food and Drug Administration's (FDA) code regulation 21 CFR Part 11. Manufactured product data is electronically captured and has a complete audit trail. The Work in Process transactions supported in electronic signature support include material transactions, assembly moves, and assembly completions. See: <a href="T228107T228116.htm#erecord">Electronic Signature Support in Oracle Manufacturing</a></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228117.htm#I_cx2Dopresour">Overview of Resource Management</a></p>
+<p><a href="T228107T228116.htm#I_cx2Droutsup">Setting Up Shop Floor Control</a></p>
+<p><a href="T228107T228116.htm#I_cx2Dmtopt">Move Transaction Options</a></p>
+<p>Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i></p>
+<h2><a name="1078476"></a><a id="esignature_organizing_concept"></a><b>Electronic Signature Support in Oracle Manufacturing</b></h2>
+<p><a name="erecord" id="erecord"></a>The Oracle E-Records application supports Federal Food and Drug Administration's (FDA) code regulation 21 CFR Part 11. This regulation supports the creation of electronic records to monitor activities by regulated industries such as food, pharmaceuticals, and medical devices. These industries are subject to audit, retention of records, and capture of legally binding signatures.</p>
+<p>Oracle Manufacturing support of these features enables compliance for companies falling under FDA regulation and similar global regulations. Manufactured product data is electronically captured and has a complete audit trail.</p>
+<p>The e-records and e-signatures (ERES) framework uses Oracle Workflow business events and Oracle XML Gateway. This framework enables you to define event metadata to specify the reporting format for the event.</p>
+<h3><b>Setup</b></h3>
+<p>For setup information, see the Oracle E&ndash;Records Implementation Guide and the Oracle E&ndash;Records Developer&rsquo;s Guide. Setup for Work in Process involves the following:</p>
+<ul>
+<li>
+<p>Set the Transaction Processing profile options to online mode. See: <a href="T228107T228110.htm#r_wippo">Profile Options</a></p>
+</li>
+<li>
+<p>Install Oracle Workflow in order to initiate the e-signatures (EDRPSIGF) workflow for sending notifications. The Workflow Business Event system is used to define an e-signature event and associate synchronous e-signature subscription to the event.</p>
+</li>
+</ul>
+<h3><b>Work in Process E-Signature Transactions</b></h3>
+<p>The Work in Process transactions creating electronic signatures include material transactions, assembly moves, and assembly completions.</p>
+<p><b>Material Transactions:</b> The process is enabled when issuing a component from inventory, or returning a component to inventory. This includes the following transaction types:</p>
+<ul>
+<li>
+<p>WIP issue</p>
+</li>
+<li>
+<p>WIP return</p>
+</li>
+<li>
+<p>WIP negative component issue</p>
+</li>
+<li>
+<p>WIP negative component return</p>
+</li>
+</ul>
+<p><b>Move Transactions:</b> The process is enabled when you move assemblies within a routing, complete assemblies from a routing operation, or return completed assemblies from inventory to an operation routing. Quality results are included in the e&ndash;record. The following transaction types are included:</p>
+<ul>
+<li>
+<p>Move</p>
+</li>
+<li>
+<p>Complete</p>
+</li>
+<li>
+<p>Return</p>
+</li>
+</ul>
+<p><b>Completion Transactions:</b> The process is enabled when you complete an assembly and return it to inventory, or return a completed assembly from inventory to a job. Quality results are included in the e&ndash;record. This includes the following transaction types:</p>
+<ul>
+<li>
+<p>WIP assembly completion</p>
+</li>
+<li>
+<p>WIP assembly return</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p>Evidence Store, <i>Oracle E-Records Implementation Guide</i></p>
+<p>Implementing E-Records, <i>Oracle E-Records Implementation Guide</i></p>
+<h2><a name="1034734"></a><a id="T228918"></a><b>Setting Up Shop Floor Control</b></h2>
+<p><a name="d0e32360" id="d0e32360"></a><a name="d0e32366" id="d0e32366"></a><a name="I_cx2Droutsup" id="I_cx2Droutsup"></a>The following lists processes that need to be set up to perform shop floor functions.</p>
+<ul>
+<li>
+<p>For a listing of out-of-product setups that affect shop floor processing see: <a href="T228107T228110.htm#I_cx2Dprereq">Setup Prerequisites</a></p>
+</li>
+<li>
+<p>For a listing of setups within Work in Process that affect shop floor processing see: <a href="T228107T228110.htm#I_cx2Dchklst">Setup Check List</a>t</p>
+</li>
+<li>
+<p>For additional information about parameters that affect shop floor processing see: <a href="T228107T228110.htm#I_cx2Dwipparams">WIP Parameters</a></p>
+<ul>
+<li>
+<p>Material Parameters</p>
+</li>
+<li>
+<p>Intraoperation Steps Parameter</p>
+</li>
+<li>
+<p>Move Transaction Parameters</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For a listing of profile options that affect shop floor processing see: <a href="T228107T228110.htm#c_profsum">Profile Option Summary</a></p>
+</li>
+</ul>
+<h2><a name="1034735"></a><a id="T228263"></a><b>Overview of Routings and Operations</b></h2>
+<p><a name="d0e32412" id="d0e32412"></a><a name="d0e32416" id="d0e32416"></a><a name="d0e32420" id="d0e32420"></a><a name="I_cx2Drtgfunct" id="I_cx2Drtgfunct"></a>You can define operations and routings in Oracle Bills of Material. Operations and routings are the basis of shop floor control.</p>
+<h3><b>Routings</b></h3>
+<p>Routings are the procedure used to manufacture a particular item. It includes the operations to be performed, their sequence, the work centers involved, tooling, operator skill levels, and inspection operations. An assembly will be considered to have a routing if at least one operation is attached. See: Overview of Routings, <i>Oracle Bills of Material User's Guide</i></p>
+<h3><b>Operation Sequence</b></h3>
+<p>Routings define the step-by-step operations required to manufacture an assembly. Routing operations describe a specific portion of the manufacturing process. Work in process routing operations help you locate (through the assigned department) assemblies on the shop floor and identify the quantity complete or remaining at an operation. See: Operations, <i>Oracle Bills of Material User's Guide</i>.</p>
+<h3><b>Resource Requirements<a name="d0e32446" id="d0e32446"></a></b></h3>
+<p>You can associate multiple resources with a routing operation. For each resource, you can determine if you want to include that resource in scheduling calculations. Resources can be charged and scheduled on an item-by-item or lot basis. The system calculates the time required for all scheduled resources at an operation to get the operation start and end dates and times. The system then calculates the time required for all operations to get the job and repetitive schedule start and end dates and times. See: <a href="T228107T228117.htm#I_rx2Dresreqs">Overview of Resource Requirements</a>.</p>
+<h3><b>Resource Charge Types</b></h3>
+<p>You can determine how operation resources are charged. You can automatically charge resources as you move assemblies in Work in Process and as you enter purchase receipts for outside processing resources in Oracle Purchasing. You can also manually charge resources. See: <a href="T228107T228117.htm#I_cx2Dreschgtyp">Resource Charge Types</a>.</p>
+<h3><b>Outside Processing</b></h3>
+<p>You can define outside processing resources and assign them to routing operations. See: <a href="T228107T228118.htm#I_ex2Dosp">Overview of Outside Processing</a>.</p>
+<h3><b>Specify Where Material is Used</b></h3>
+<p>You can specify at what operations materials are required in the routing. Thus, you only issue (push) or backflush (pull) material where and when it is needed.</p>
+<h3><b>Backflush Operations</b></h3>
+<p>You can use the operation backflush option to specify at what point in the routing Operation Pull components are backflushed. Pull components at non-backflush operation are not backflushed when assemblies are completed at the operation. Instead, they are backflushed when a backflush operation later in the routing is completed. It is often useful to postpone backflushing at time-critical operations.</p>
+<h3><b>Autocharge/Count Point Operations</b></h3>
+<p>You can specify whether an operation is a count point and whether it should be automatically charged. The autocharge and count point options for an operation work together. See: Count Point and Autocharge Fields, <i>Oracle Bills of Material User's Guide</i>.</p>
+<h3><b>Minimum Transfer Quantities</b></h3>
+<p>You can define minimum transfer quantities for your operations. If you move fewer assemblies than the minimum quantity, a warning is displayed but you can complete the transaction.</p>
+<h3><b>Establish Standard Costs</b></h3>
+<p>You specify the resources required to build an assembly when you define a routing. Resources have costs associated with them. By defining the routing with specific resources, you establish standard resource costs for any item that uses the routing.</p>
+<h3><b>Alternate Routing</b></h3>
+<p>You can choose an alternate routing for an assembly when you define a discrete job or repetitive schedule. See: Primary and Alternate Routings, <i>Oracle Bills of Material User's Guide</i></p>
+<h3><b>Routing Revision</b></h3>
+<p>You can use routing revisions to control date effective revisions on a routing. You specify the routing revision and the revision date for the assembly when you define discrete jobs and repetitive schedules. See: Item and Routing Revisions, <i>Oracle Bills of Material User's Guide</i>.</p>
+<h3><b>Engineering Routing</b></h3>
+<p>You can set your <i>WIP:See Engineering Items</i> profile option to Yes so that you can use engineering routings.Engineering Bills of Material and Routings, <i>Oracle Engineering User's Guide</i>.</p>
+<h3><b>Network Routing<a name="d0e32530" id="d0e32530"></a><a name="d0e32534" id="d0e32534"></a></b></h3>
+<p>If Oracle Shop Floor Management is installed, you can create flexible or network routings. While discrete jobs use standard routings, lot based jobs use network routings. These comprise a collection of operations which include primary and alternate paths. The relationships established in a network routing provide all possible combinations of sequence and operations a job may follow.</p>
+<h3><b>Operation Progress Reporting</b></h3>
+<p>You can enter a subjective progress percentage value on any job operation. The system uses these entries&mdash;and calculates the percent complete for the entire job, based on a weighted average of scheduled hours. The calculation logic is system provided. Oracle Project Manufacturing uses this progress percentage value for project tasks, which can then be rolled up to the project level for earned value. Work order completion percent information is available through a Project Manufacturing API. See: <a href="T228107T228116.htm#I_tx2Dupops">Adding and Updating Operations</a></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps`</a></p>
+<p>Creating a Network Routing in the Engineering User's Guide</p>
+<p>Creating a Routing, <i>Oracle Bills of Material User's Guide</i></p>
+<p>Overview of Routings, <i>Oracle Bills of Material User's Guide</i></p>
+<h2><a name="1034749"></a><a id="T228264"></a><b>Intraoperation Steps</b></h2>
+<p><a name="d0e32569" id="d0e32569"></a><a name="d0e32573" id="d0e32573"></a><a name="I_rx2Dintraops" id="I_rx2Dintraops"></a>Intraoperation steps are used to control move and resource transactions within and between operations and to track assemblies within operations. You can only move assemblies to intraoperation steps that are enabled. See: <a href="T228107T228110.htm#I_cx2Dparmenabl">Interoperation Steps Parameter</a>.</p>
+<p>The five intraoperation steps - Queue, Run, Reject, To Move, and Scrap - are defined as follows:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Queue</b></td>
+<td><a name="d0e32595" id="d0e32595"></a><a name="d0e32599" id="d0e32599"></a>Assemblies in the Queue intraoperation step of an operation are waiting for you to perform work on them. Queue is the default intraoperation step for every operation in a routing.<br>
+When you release jobs and repetitive schedules, the assembly quantity is automatically loaded into the Queue intraoperation step of the first operation. You can move assemblies from the Queue intraoperation step to any other enabled intraoperation step.</td>
+</tr>
+<tr valign="top">
+<td><b>Run</b></td>
+<td><a name="d0e32614" id="d0e32614"></a><a name="d0e32618" id="d0e32618"></a>Assemblies in the Run intraoperation step are ready to be worked on. You can move assemblies from the Run step to any other enabled intraoperation step in the routing.</td>
+</tr>
+<tr valign="top">
+<td><b>To Move</b></td>
+<td><a name="d0e32631" id="d0e32631"></a><a name="d0e32635" id="d0e32635"></a>Assemblies in the To move intraoperation step of an operation have been completed and are waiting to be moved to the next operation. You can move assemblies from the To Move intraoperation step to any other enabled intraoperation step in the routing.<br>
+Before you can use the Completion Transactions window to complete assembles from jobs and schedules with routings, you must move these assemblies into the To Move intraoperation step of the last operation. For this reason, the To Move intraoperation step is automatically enabled for all final routing operations. See: <a href="T228107T228115.htm#I_cx2Daspullbk">Assembly Pull Backflush Transactions</a>.<br>
+Assemblies in the To Move step are considered complete for the operation.</td>
+</tr>
+<tr valign="top">
+<td><b>Reject</b></td>
+<td><a name="d0e32655" id="d0e32655"></a><a name="d0e32659" id="d0e32659"></a>Assemblies in the Reject intraoperation step of an operation have been rejected and are waiting to be repaired (reworked) or scrapped. You can move assemblies from the Reject intraoperation step to any other enabled intraoperation step in the routing.<br>
+Assemblies in the Reject step may not be usable, but they are considered complete for the operation because components and resources have been consumed in their production.</td>
+</tr>
+<tr valign="top">
+<td><b>Scrap</b></td>
+<td><a name="d0e32674" id="d0e32674"></a><a name="d0e32678" id="d0e32678"></a>Assemblies in the Scrap intraoperation step are considered unusable. This step is for those assemblies whose yield loss you want to consider as a variance on the discrete job or repetitive schedule. (In some industries, scrap is considered yield loss.) You can incur this variance immediately by entering a scrap account as you move assemblies into this step. However, you can wait until the job is closed (standard and non-standard asset discrete jobs) or the period is closed (repetitive schedules and non-standard expense discrete jobs) to incur the variance. Oracle Planning does not consider assemblies that in Scrap steps as supply or demand in the planning process.<br>
+Assemblies in the Scrap intraoperation step are usually not usable. They are considered complete for the operation because components and resources have been consumed in their production. They can be recovered from scrap by moving them to another intraoperation or operation step.</td>
+</tr>
+</table>
+<h3><b>Complete/Incomplete Operation Steps<a name="d0e32690" id="d0e32690"></a><a name="d0e32696" id="d0e32696"></a></b></h3>
+<p>Assemblies are considered incomplete at an operation if they are in the Queue or Run intraoperation steps. Assemblies are considered complete at an operation if they are in the To Move, Reject, or Scrap intraoperation step. When assemblies are completed at an operation, the system automatically backflushes Operation Pull components and charges resources. See: <a href="T228107T228116.htm#I_cx2Dopcomp">Operation Completion Moves</a>.</p>
+<h3><b>Using Intraoperation Steps</b></h3>
+<p>The intraoperation steps that you enable and use depend on your manufacturing environment and your information requirements.</p>
+<h3><b>Manufacturing Environment</b></h3>
+<p>For example, if you are a `pull' manufacturer you might enable just the Run and To Move intraoperations. You would do this to simplify the process of pulling assemblies into the Run step of an operation from the To Move step of a prior operation.</p>
+<p>Conversely, if you are a `push' manufacturer you might enable just the Queue and Run intraoperation steps. You would do this to simplify the process of pushing (issuing) components to assemblies in the Queue intraoperation step of the operation before you moving them to the Run step of the same operation.</p>
+<h3><b>Processing Times</b></h3>
+<p>As you move assemblies from one intraoperation or interoperation step to another the dates and times of these transactions are recorded. For example, you can use this information to help you determine how long assemblies spend waiting to be worked on (Queue time) and how much time they are actually being worked on (Run time).</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_tx2Dmoves">Performing Move Transactions</a></p>
+<p><a href="T228107T228116.htm#I_cx2Drework">Rework Production</a></p>
+<p><a href="T228107T228116.htm#I_cx2Dascrap">Assembly Scrap</a></p>
+<p><a href="T228107T228111.htm#I_cx2Dovclsjob">Overview of Discrete Job Close</a></p>
+<p>Period Close, <i>Oracle Cost Management User's Guide</i></p>
+<p>Open Move Transaction Interface, Oracle Integration Repository</p>
+<h2><a name="1034759"></a><a id="T228919"></a><b>Adding and Updating Operations</b></h2>
+<p><a name="d0e32752" id="d0e32752"></a><a name="WIPOPMDF_W_OPERATIONS" id="WIPOPMDF_W_OPERATIONS"></a><a name="I_tx2Dupops" id="I_tx2Dupops"></a>You can add operations to discrete jobs with statuses of Unreleased, Released, Complete, or On Hold&mdash;and add operations to repetitive schedules with statuses of Unreleased. You can also add operations to jobs and repetitive schedules with or without routings.</p>
+<p>You can create a routing for a job or schedule that does not have a routing by adding operations to it. When you add the first operation, the system automatically defaults an operation sequence of 1 for the new operation and assigns job or schedule material requirements to this operation. If the job or schedule is already released, the system also loads the job or schedule quantity into the Queue intraoperation step of the new operation.</p>
+<p><strong><span>Note:</span></strong> If you add an operation to a job or repetitive schedule, reschedule to correctly reflect the start and completion dates.</p>
+<p>Operations of discrete jobs can be updated if the status is Unreleased, Released, Complete, or On Hold. You can update the operations of repetitive schedules with statuses of Released, Complete, or On Hold if no other active schedules for the assembly are on the line.</p>
+<p><strong><span>Note:</span></strong> Operation dates for repetitive schedules of any status cannot be changed.</p>
+<p>You can attach illustrative or explanatory files&mdash;in the form of text, images, word processing documents, spreadsheets, video&mdash;to operations. See: About Attachments, <i>Oracle E-Business Suite User's Guide</i>.</p>
+<p><b>To add or update an operation</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e32785" id="d0e32785"></a>Operations window.</p>
+<p><img width="758" height="505" src="./img/wip_fndoperation.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the <a name="d0e32801" id="d0e32801"></a><a name="d0e32807" id="d0e32807"></a>Job or Line and Assembly.</p>
+</li>
+<li>
+<p>If you select a line and assembly, choose the repetitive schedule by selecting the first unit start date of that schedule. If you have selected a discrete job, the system displays the scheduled start date of the job.</p>
+<p>Optionally, choose Find n to populate the Operations region.</p>
+</li>
+<li>
+<p>From the Main tabbed region of the Operations region, select the Operation <a name="d0e32824" id="d0e32824"></a><a name="d0e32830" id="d0e32830"></a>Sequence number.</p>
+</li>
+<li>
+<p>Optionally, select the Operation Code of a standard operation.</p>
+<p>If you add a standard operation by selecting its Operation Code&mdash;the Department, Count Point, Autocharge, Backflush, Minimum Transfer Quantity, Check Skill, and Description are defaulted. Resource requirements associated with the standard operation are also defaulted.</p>
+<p>You can update the operation codes of unreleased discrete jobs.</p>
+<p>If the Operation Code is blank, you must manually define the operation.</p>
+</li>
+<li>
+<p>Select the <a name="d0e32851" id="d0e32851"></a>Department.</p>
+<p>Departments are used for charging resources at an operation and are required.</p>
+<p>If you add a standard operation, the system displays the Department of that operation as the default. If there are resources assigned to the standard operation, resources are not updateable.</p>
+</li>
+<li>
+<p>Enable the <a name="d0e32866" id="d0e32866"></a><a name="d0e32872" id="d0e32872"></a><a name="d0e32878" id="d0e32878"></a>Count Point check box to make the operation a count point operation. See: Count Point and Autocharge Fields, <i>Oracle Bills of Material User's Guide</i>.</p>
+<ul>
+<li>
+<p>Operations you must always perform (critical, time-sensitive), should be made count point operations. Operations not always performed should be made non-count point operations.</p>
+</li>
+<li>
+<p>When you perform move transactions, the system defaults to the next count point operation as the To operation sequence. For example&mdash;three operations at sequences 10, 20, and 30 are defined as count point, non-count point, and count point respectively. When you select operation 10 as the From operation, the system automatically defaults operation 30, the next count point operation, as the To operation. You can override this default and choose operation 20, if required.</p>
+</li>
+<li>
+<p>Non-standard operations added are automatically created as count point operatios. If you add a standard operation, the system displays the count point option of that operation as the default.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enable the <a name="d0e32902" id="d0e32902"></a><a name="d0e32908" id="d0e32908"></a><a name="d0e32914" id="d0e32914"></a>Autocharge check box for charging move transactions. See: Count Point and Autocharge Fields, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p>The Autocharge flag controls both resource and backflush charging when moving assemblies. It determines whether both resource and material are charged when you skip an operation:</p>
+<ul>
+<li>
+<p>The count point, autocharge, and backflush flags work together. Operations can be:</p>
+<ul>
+<li>
+<p>Count point and autocharge</p>
+</li>
+<li>
+<p>Non-count point and non-autocharge</p>
+</li>
+<li>
+<p>Non-count point and autocharge.</p>
+<p><strong><span>Note:</span></strong> They cannot be count point and non-autocharge.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you add a standard operation, the system displays the autocharge option as the default. If you add an operation that is not a standard operation, the system specifies it as a count point operation.</p>
+</li>
+<li>
+<p>Operations used to charge resources and material should always be specified as autocharge. See: <a href="T228107T228117.htm#I_cx2Dmovchrg">WIP Move</a>.</p>
+</li>
+<li>
+<p>It is recommended that rework or optional operations are defined as non-autocharge. If the operation is optional and you do not move quantity into it&mdash;resource and material are not charged.</p>
+</li>
+</ul>
+<p>For example, three operations at sequences 10, 20, and 30 are defined respectively as autocharge, non-autocharge, and autocharge operations. When you move assemblies from the Queue intraoperation step of operation 10 to an intraoperation step that completes assemblies at operation 30 (To Move, Scrap, or Reject), resources and material at operations 10 and 30 are charged, but those at operation 20 are not. To charge resources and material to operation 20, you must move assemblies into a completion intraoperation step (To Move, Scrap, or Reject) of that operation. See: <a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps</a>.</p>
+</li>
+<li>
+<p>Enable the <a name="d0e32964" id="d0e32964"></a><a name="d0e32970" id="d0e32970"></a><a name="d0e32976" id="d0e32976"></a>Backflush check box for backflush operations.</p>
+<p>Operation pull components assigned to backflush operations are automatically backflushed (pulled) from inventory when assemblies are moved and completed at that operation. Operation pull components assigned to non-backflush operations prior to the backflush operation are then backflushed.</p>
+<p>If you add an operation that is not a standard operation, the system automatically makes the operation a non-backflush operation.</p>
+<p><strong><span>Note:</span></strong> The last operation in a routing must always be a backflush operation. Otherwise, materials are not backflushed from inventory if the last operation is a non-backflush operation and prior operations are non-backflush with operation pull components.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e32994" id="d0e32994"></a>Minimum Transfer Quantity.</p>
+<p>If adding a standard operation, the value defaults from Bills of Material. If you add an operation that is not a standard operation, the system displays 0 as the default. See: Creating a Standard Operation, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p>If you attempt to move fewer than the minimum transfer quantity, a warning message displays.</p>
+</li>
+<li>
+<p>Enable the Check Skill check box if you are validating operator skills for an operation.</p>
+<p>The labor skills validation feature is applicable only for operation moves transacted in Manufacturing Execution System for Discrete Manufacturing, and not operation moves transacted in Work in Process windows. If adding a standard operation, the value defaults from Bills of Material. This field enables the Operation Competencies button for navigating to the Operations Competencies window to enter required skill level values. See:</p>
+<ul>
+<li>
+<p>Moving and Completing Assemblies, <i>Oracle Manufacturing Execution System for Discrete Manufacturing User's Guide</i></p>
+</li>
+<li>
+<p>Labor Skills Validation Setup, <i>Oracle Manufacturing Execution System for Discrete Manufacturing User's Guide</i></p>
+</li>
+</ul>
+</li>
+<li>
+<p>In the Quantities tabbed region, you can enter a value in the Progress % field.</p>
+<p>These entries are used to calculate the percent complete for the entire job, based on a weighted average of scheduled hours. Oracle Project Manufacturing uses this value for project tasks, which can then be rolled up to the project level for earned value.</p>
+<p><img width="756" height="502" src="./img/wip_fndquant.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Dates tabbed region, you can manually schedule and reschedule a discrete job operation by changing dates. The job must have a status of Unreleased, Released, Complete, or On Hold.</p>
+<p><img width="756" height="504" src="./img/wip_fnddates.gif" alt="the picture is described in the document text"></p>
+<p>You can change the <a name="d0e33045" id="d0e33045"></a>First Unit Start Date (FUSD), the <a name="d0e33052" id="d0e33052"></a>First Unit Completion Date (FUCD)<a name="d0e33059" id="d0e33059"></a>, Last Unit Start Date (LUSD), and the <a name="d0e33066" id="d0e33066"></a>Last Unit Completion Date (LUCD) to any date. Changing the dates of an operation does not affect the dates of the operations that precede or follow.</p>
+<p><strong><span>Note:</span></strong> If you change the LUCD of the last operation to a date that is greater than the job completion date, the job completion date is updated to the LUCD. If you change the FUSD of the first operation to a date earlier than the job start date, the job start date is updated to the FUSD.</p>
+</li>
+<li>
+<p>In the Description tabbed region, enter the operation<a name="d0e33080" id="d0e33080"></a>description.</p>
+<p>If you add a standard operation, the system displays the description of that operation as the default.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+<li>
+<p>Select the following to navigate to other windows:</p>
+<ul>
+<li>
+<p>Operation Competencies to enter competencies and skill levels required if using the labor skills validation feature in Manufacturing Execution System for Discrete Manufacturing move transactions. See: Creating a Standard Operation, <i>Oracle Bills of Material User's Guide</i>, and Creating a Routing, <i>Oracle Bills of Material User's Guide</i></p>
+</li>
+<li>
+<p>Reschedule to midpoint reschedule a discrete job, see: <a href="T228107T228116.htm#I_tx2Dopsresch">Midpoint Rescheduling</a></p>
+</li>
+<li>
+<p>Resource to update operation resource requirements, see: <a href="T228107T228117.htm#I_tx2Drraddg">Adding and Updating Resource Requirements</a></p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_tx2Dopsdeltg">Deleting Operations</a></p>
+<p><a href="T228107T228116.htm#I_cx2Drtgfunct">Overview of Routings and Operations</a></p>
+<p>Overview of Routings, <i>Oracle Bills of Material User's Guide</i></p>
+<p>Creating a Routing, <i>Oracle Bills of Material User's Guide</i></p>
+<h2><a name="1034765"></a><a id="T228920"></a><b>Deleting Operations</b></h2>
+<p><a name="I_tx2Dopsdeltg" id="I_tx2Dopsdeltg"></a>You can delete operations from jobs and repetitive schedules regardless of the status of the job or schedule. However, you cannot delete an operation if any of the following conditions exist:</p>
+<ul>
+<li>
+<p>assemblies have been completed for the operation</p>
+</li>
+<li>
+<p>resources have been charged at the operation</p>
+</li>
+<li>
+<p>pending move and resource transactions exist for the operation</p>
+</li>
+<li>
+<p>quantities exist in any intraoperation step of the operation</p>
+</li>
+<li>
+<p>purchase requisitions (either approved or unapproved) or purchase orders exist for outside processing resources assigned to the operation</p>
+</li>
+</ul>
+<p>You also cannot delete an operation from a repetitive schedule with a status of Released, Complete, or On Hold if there are other active schedules for the assembly on the line.</p>
+<p>If you delete an operation, the system reassigns its material requirements to the first operation in the routing or to operation sequence 1 if there are no other operations in the routing.</p>
+<p><strong><span>Note:</span></strong> If you delete an operation from a job or repetitive schedule, you may want to reschedule the job or repetitive schedule to correctly reflect the start and completion dates.</p>
+<p><b>To delete an operation</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e33171" id="d0e33171"></a>Operations window.</p>
+</li>
+<li>
+<p>Select the Job or Line and Assembly.</p>
+</li>
+<li>
+<p>If you select a line and assembly, choose the repetitive schedule by selecting the first unit start date of that schedule. If you have selected a discrete job, the system displays the scheduled start date of the job.</p>
+</li>
+<li>
+<p>Choose the Find button to populate the Operations region.</p>
+</li>
+<li>
+<p>In the Operations region, select which operation to delete by selecting its operation Sequence.</p>
+</li>
+<li>
+<p>Choose Delete Record from the Edit Menu.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="1034767"></a><a id="T228921"></a><b>Midpoint Rescheduling</b></h2>
+<p><a name="d0e33206" id="d0e33206"></a><a name="d0e33210" id="d0e33210"></a><a name="WIPOPMDF.wipopmdf_reschedule" id="WIPOPMDF.wipopmdf_reschedule"></a><a name="I_tx2Dopsresch" id="I_tx2Dopsresch"></a>You can use midpoint rescheduling to reschedule around a bottleneck job operation. When you midpoint reschedule jobs, job start and completion dates and times are automatically updated. The start and completion dates of all other job operations, including operations you added that are not part of the original routing, are also updated. Material and resource requirement dates are also updated.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define at least one discrete job. See: <a href="T228107T228111.htm#I_tx2Ddefdj">Defining Discrete Jobs Manually</a> and <a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a>.</li>
+</ul>
+<p><b>To midpoint reschedule operations</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e33238" id="d0e33238"></a>Operations window.</p>
+</li>
+<li>
+<p>Select the discrete Job.</p>
+</li>
+<li>
+<p>Choose the Find button to populate the Operations region with the job's operations.</p>
+</li>
+<li>
+<p>Select the Operation.</p>
+<p>You can choose any operation since any operation can be a bottleneck operation.</p>
+</li>
+<li>
+<p>Choose the Reschedule button. The <a name="d0e33263" id="d0e33263"></a>Reschedule window appears.</p>
+<p><img width="503" height="215" src="./img/wip_wip_reschjob.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Choose either of the following options:</p>
+<p><a name="d0e33280" id="d0e33280"></a><i>First Unit Start Date:</i> Reschedules the operation from its first unit start date (FUSD) and time.</p>
+<p><a name="d0e33290" id="d0e33290"></a><i>Last Unit Completion Date:</i> Reschedules the operation from its last unit completion date (LUCD) and time.</p>
+</li>
+<li>
+<p>Enter the reschedule <a name="d0e33303" id="d0e33303"></a>Date and time.</p>
+<p>The reschedule date and time becomes the new FUSD or LUCD and time of the operation. Operations that are before the operation being rescheduled are backward scheduled from this date and time. Operations that are after it are forward scheduled. Job start and completion dates and times as well as resource and material requirement dates and times are also updated.</p>
+</li>
+<li>
+<p>Choose OK to save your work.</p>
+</li>
+</ol>
+<p><b>To manually reschedule a job or schedule operation</b></p>
+<ol>
+<li>
+<p>See: <a href="T228107T228116.htm#I_tx2Dupops">Adding and Updating Operations</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228111.htm#I_tx2Drsdj">Rescheduling Discrete Jobs</a></p>
+<p><a href="T228107T228121.htm#I_cx2Ddtldsch">Detailed Scheduling</a></p>
+<p><a href="T228107T228121.htm#I_cx2Ddiscrsch">Discrete Rescheduling</a></p>
+<h2><a name="1034771"></a><a id="T228922"></a><b>Viewing Operations</b></h2>
+<p><a name="WIPOPQAW.ops_criteria" id="WIPOPQAW.ops_criteria"></a><a name="WIPOPQAW.w_operations" id="WIPOPQAW.w_operations"></a><a name="I_tx2Dvwops" id="I_tx2Dvwops"></a>You can view operation information in a variety of ways. You can view all operations associated with a specific job or repetitive line and assembly. You can also view operations across jobs and schedules.</p>
+<p><b>To find and view operations</b></p>
+<ol>
+<li>
+<p>Navigate to the View Operations window. The <a name="d0e33356" id="d0e33356"></a>Find Operations window appears.</p>
+<p><img width="686" height="455" src="./img/wip_wip_fndoprns.gif" alt="the picture is described in the document text"></p>
+<p>You can view operations for jobs and repetitive schedules that start on a specific date or within a range of start dates. You can view all operations for jobs and schedules of a specific status (Unreleased, Complete, Released, On Hold, Complete-No Charges). You can view all operations for a specific department. Lastly you can view all operations that have first unit start or last unit completion dates with specific dates or within a range of dates.</p>
+</li>
+<li>
+<p>Enter any combination of search criteria and choose the Find button. The results display in the <a name="d0e33374" id="d0e33374"></a>View Operations window.</p>
+<p><img width="754" height="503" src="./img/wip_wip_vewoprns.gif" alt="the picture is described in the document text"></p>
+<p>You can view the following information in the View Operations window's tabbed regions:</p>
+<p><i>Main:</i> Operation Sequence, Operation Code and Department; Count Point, Autocharge and Backflush flags; Minimum Transfer Quantity and Date Last Moved</p>
+<p><i>Quantities:</i> In Queue, Running, To Move, Completed, Rejected, Scrapped, Progress %, and for repetitive lines/assemblies the Quantity Ahead and the Days Ahead</p>
+<p><strong><span>Note:</span></strong> The Completed quantity is the sum of assemblies in the Scrap, Reject, and To Move intraoperation steps. Remaining quantity is the sum of assemblies in the Queue and Run intraoperation steps. You can view Scrap and Reject quantities using the Operations window. See: <a href="T228107T228116.htm#I_tx2Dupops">Adding and Updating Operations</a>.</p>
+<p><i>Dates:</i> First Unit Start Date, First Unit Completion Date, Last Unit Start Date, and Last Unit Completion Date</p>
+<p><i>Description:</i> Description</p>
+<p><i>Job or Schedule:</i> Job, Line, Assembly, Start Date, and Status</p>
+<p><i>Previous Operation:</i> Sequence, Department, Last Unit Completion Date, and Quantities In Queue, Running, To Move, and Completed Quantities</p>
+<p>You can also view, if entered, descriptive flexfield information. See: <a href="T228107T228122.htm#I_cx2Dflex78su">Setting Up Descriptive Flexfields</a>.</p>
+</li>
+</ol>
+<h2><a name="1034773"></a><a id="T228923"></a><b>Viewing Job and Schedule Operations</b></h2>
+<p><a name="WIPDJMDF.w_operations" id="WIPDJMDF.w_operations"></a><a name="I_tx2Djsopsvwg" id="I_tx2Djsopsvwg"></a><a name="WIPREMDF.w_operations" id="WIPREMDF.w_operations"></a>As you do the following, you can view operations and operation material and resource requirements for the current discrete job or repetitive schedule by choosing the Operations button:</p>
+<ul>
+<li>
+<p><a href="T228107T228111.htm#I_tx2Ddefdj">Defining Discrete Jobs Manually</a></p>
+</li>
+<li>
+<p><a href="T228107T228111.htm#I_tx2Ddjsim">Simulating Discrete Jobs</a></p>
+</li>
+<li>
+<p><a href="T228107T228111.htm#I_tx2Ddjwbclsg">Closing Discrete Jobs</a></p>
+</li>
+<li>
+<p><a href="T228107T228111.htm#I_tx2Dvwdj">Viewing Discrete Job Information</a></p>
+</li>
+<li>
+<p><a href="T228107T228111.htm#I_tx2Ddjpurg">Purging Discrete Jobs</a></p>
+</li>
+<li>
+<p><a href="T228107T228114.htm#I_tx2Dvwrs">Viewing Repetitive Schedule Information</a></p>
+</li>
+<li>
+<p><a href="T228107T228114.htm#I_tx2Drspurg">Purging Repetitive Schedules</a></p>
+</li>
+</ul>
+<p><b>To view the operations for the current job or schedule</b></p>
+<ol>
+<li>
+<p>After choosing the Operations button, the Operations window (in View Only Mode) appears. You can view the following information for each operation using the window's tabbed regions:</p>
+<ul>
+<li>
+<p><i>Main region:</i> Count Point option, Autocharge option, Backflush option, Minimum Transfer Quantity, Date Last Moved</p>
+</li>
+<li>
+<p><i>Quantities region</i>: In Queue, Running, To Move, Rejected, Scrapped, Completed, and Progress %.</p>
+</li>
+<li>
+<p><i>Dates region:</i> First Unit Start Date, Last Unit Start Date, First Unit Completion Date, and Last Unit Completion Date</p>
+</li>
+<li>
+<p><i>Description region</i>: Description</p>
+<p><strong><span>Note:</span></strong> You can also view operations across jobs and schedules. See: <a href="T228107T228116.htm#I_tx2Dvwops">Viewing Operations</a>.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>To view operation specific material requirements</b></p>
+<ol>
+<li>
+<p>From the Operations window, select an Operation sequence then choose the Components button.</p>
+<p>The component materials, if any, required at the selected operation are displayed.</p>
+</li>
+</ol>
+<p><b>To view the operation resource requirements</b></p>
+<ol>
+<li>
+<p>From the Operations window, Choose the Resources button. The Resource Requirements window appears.</p>
+<p>The resources, if any, required at the selected operation are displayed.</p>
+</li>
+</ol>
+<h2><a name="1034778"></a><a id="I_cx2Dovwmtx78n"></a><b>Move Transactions</b></h2>
+<p>You can move assemblies within an operation (for example, from Queue to Run) or from one operation to the next. You can move assemblies backward and forward within the routing.</p>
+<h3><b><a name="I_cx2Dmvtx78dgrm" id="I_cx2Dmvtx78dgrm"></a>Move Transactions Process<a name="d0e33528" id="d0e33528"></a><a name="d0e33534" id="d0e33534"></a><a name="d0e33540" id="d0e33540"></a> Diagram</b></h3>
+<p><img width="597" height="501" src="./img/wip_wip_05.gif" alt="the picture is described in the document text"></p>
+<p>You can move the assemblies that you are building from one operation and/or intraoperation step to another using the Move Transactions window. See: <a href="T228107T228116.htm#I_cx2Dinmov">Interoperation Moves</a> You can move assemblies forward and backward within and between operations. Moving assemblies into the To Move, Reject, or Scrap intraoperation step of an operations completes those assemblies at that operation. When assemblies are completed at an operation, the system automatically backflushes Operation Pull components and charges resources. See: <a href="T228107T228116.htm#I_cx2Dopcomp">Operation Completion Moves</a></p>
+<p>Processing for move, scrap, reject, move and complete, and return and move transactions enable the parent assembly record to process even if backflush records fail. In background processing for standard completion and return transactions, once the move completion manager picks up a record for processing, backflushing occurs in the same commit cycle. This prevents the possibility of processing transactions if backflushing fails.</p>
+<p><strong><span>Note:</span></strong> If Oracle Mobile Supply Chain Applications is installed, the Mobile Manufacturing component enables you to perform all work in process move transactions using a mobile client device networked with a computer system. See: Assembly Transactions, <i>Oracle Mobile Supply Chain Applications User's Guide.</i></p>
+<h3><b>Assembly Move Completion and Move Return Transactions</b></h3>
+<p>If function security permits, you can complete assemblies from any routing operation into inventory or return completed assemblies from inventory to any routing operation from the Move Transactions window. See: <a href="T228107T228110.htm#I_rx2Dsecfunc">Security Functions</a> and <a href="T228107T228116.htm#I_cx2Dacomp">Assembly Move Completion and Move Return Transactions</a>.</p>
+<h3><b>Resource Charges</b></h3>
+<p>Move transactions that complete assemblies at autocharge operations, automatically charge resources and overhead at that operation. If assemblies are completed at an operation, and <i>Manual</i> resources are assigned to that operation, the system notifies you that these resources exist. To charge these resources, use the Resources button to access the Resource Transactions window. See: <a href="T228107T228117.htm#I_tx2Dmvrestx78n">Charging Resources with Move Transactions</a></p>
+<h3><b>Assembly Scrap</b></h3>
+<p>You can also scrap defective assemblies by moving them into a scrap intraoperation step. If you enter scrap account number or scrap account alias when you scrap assemblies, the cost of the scrapped assemblies is removed from the job or repetitive schedule. If you do not enter a scrap account or select an alias, the cost of the scrap remains in the job or schedule until job or period close. See: <a href="T228107T228116.htm#I_tx2Dscraptx78g">Scrapping Assemblies</a>.</p>
+<h3><b>Outside Processing Resource Charges</b></h3>
+<p>When you move assemblies into the Queue intraoperation step of an operation that has either <a name="d0e33599" id="d0e33599"></a>PO Move or PO Receipt resources assigned to it (or when the job is released, depending on your setup), the system automatically creates a purchase requisition in Oracle Purchasing. When you receive assemblies back from an outside processing supplier in Oracle Purchasing, PO Receipt or PO Move resources are automatically charged at the standard or the actual rate. Purchase requisitions are also automatically created when you release a job or repetitive schedule if there are PO Move or PO Receipt resources at the first operation. See: <a href="T228107T228118.htm#I_ex2Dosp">Overview of Outside Processing</a>.</p>
+<h3><b>Ad Hoc Operations</b></h3>
+<p>You can also add 'ad hoc' operations to discrete job using the Move Transactions window. However, you can only add operations if the <i>Allow Creation of New Operations</i> parameter is set and the <i>TP:WIP:Move Transactions</i> profile option is set to on-line processing. See: <a href="T228107T228110.htm#I_cx2Dparmmvtx78">Move Transaction Parameters</a> and <a href="T228107T228110.htm#c_profsum">Profile Option Summary</a>.</p>
+<h3><b>Shop Floor Statuses</b></h3>
+<p>You can view shop floor statuses when performing move transactions. Statuses are removed from intraoperation steps when the quantities at those operations drop to zero.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_rx2Dmvtx78ntyp">Move Transaction Types</a></p>
+<p><a href="T228107T228116.htm#I_cx2Dplines">Production Line Moves</a></p>
+<h2><a name="1034786"></a><a id="T228265"></a><b>Interoperation Moves</b></h2>
+<p><a name="d0e33644" id="d0e33644"></a><a name="d0e33650" id="d0e33650"></a><a name="I_cx2Dinmov" id="I_cx2Dinmov"></a>When you move assemblies from one operation to another you are performing an interoperation move. You can move assemblies from any enabled intraoperation step to another. For example, you can move assemblies from operation sequence 20 to operation sequence 30, or from operation sequence 50 back to operation sequence 30.</p>
+<p>Normally, moves follow the forward sequence defined by the routing. You can, however, move assemblies from any operation to any other - even preceding operations. For example, if you intend to move 5 assemblies from operation 10 to 20, but you mistakenly 10, you can correct your mistake by moving 5 assemblies back from operation 20 to 10. The system automatically reverses resource and overhead charges, and component backflushes when you move assemblies backward in the routing.</p>
+<p>You can add operations using the Operations window. You can also use the Move Transactions window to add 'ad hoc' operations to discrete jobs. However, you can only add operations as you move discrete assemblies if the WIP <i>Allow Creation of New Operations</i> parameter is set and the <i>TP:WIP:Move Transactions</i> profile option is set to on-ine processing.</p>
+<p>You can move assemblies to outside supplier operations. You receive these assemblies back using either the Enter Receipts window in Oracle Purchasing or the Move Transactions in Work in Process window.</p>
+<p>The following figure illustrates the flow of <a name="d0e33677" id="d0e33677"></a><a name="d0e33683" id="d0e33683"></a><a name="d0e33689" id="d0e33689"></a><a name="d0e33695" id="d0e33695"></a>interoperation move transactions:</p>
+<p><img width="597" height="501" src="./img/wip_wip_06.gif" alt="the picture is described in the document text"></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_tx2Dmoves">Performing Move Transactions</a></p>
+<p><a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps</a></p>
+<h2><a name="1034787"></a><a id="T228266"></a><b><a name="I_cx2Dintram" id="I_cx2Dintram"></a>Intraoperation Moves<a name="d0e33719" id="d0e33719"></a><a name="d0e33725" id="d0e33725"></a></b></h2>
+<p>When you move assemblies from one intraoperation step of an operation to another intraoperation step of the same operation you are performing an intraoperation move. You can move assemblies from any enabled intraoperation step - Queue, Run, To move, Reject, or Scrap - as required. Intraoperation steps are enabled using the WIP <i>Enabled Intraoperation Steps</i> parameter.</p>
+<p>The follow figure illustrates the flow of <a name="d0e33740" id="d0e33740"></a><a name="d0e33746" id="d0e33746"></a><a name="d0e33752" id="d0e33752"></a><a name="d0e33758" id="d0e33758"></a>intraoperation move transactions:</p>
+<p><img width="597" height="501" src="./img/wip_wip_07.gif" alt="the picture is described in the document text"></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_tx2Dmoves">Performing Move Transactions</a></p>
+<p><a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps</a></p>
+<p>Entering Receipt Header Information, <i>Oracle Purchasing User's Guide</i></p>
+<h2><a name="1034788"></a><a id="T228267"></a><b>Operation Completion Moves</b></h2>
+<p><a name="d0e33786" id="d0e33786"></a><a name="d0e33792" id="d0e33792"></a><a name="d0e33798" id="d0e33798"></a><a name="d0e33804" id="d0e33804"></a><a name="d0e33810" id="d0e33810"></a><a name="d0e33816" id="d0e33816"></a><a name="d0e33822" id="d0e33822"></a><a name="I_cx2Dopcomp" id="I_cx2Dopcomp"></a>You can complete assemblies at operations by:</p>
+<ul>
+<li>
+<p>Moving assemblies from the Queue or Run intraoperation step of an operation to the To Move, Scrap or Reject intraoperation steps of the same operation</p>
+</li>
+<li>
+<p>Moving assemblies from the Queue or Run intraoperation steps of an operation to the To Move, Scrap or Reject intraoperation steps of a subsequent operation</p>
+</li>
+</ul>
+<p>Assemblies are <i>not</i> completed at Operations by:</p>
+<ul>
+<li>
+<p>Moving assemblies between the To Move, Scrap, and Reject intraoperation steps of the same operation</p>
+</li>
+<li>
+<p>Moving assemblies from the To Move, Scrap, or Reject intraoperation steps of the one operation to the Queue or Run intraoperation step of a subsequent operation</p>
+</li>
+</ul>
+<p>You can complete any number of assemblies from any operation in a routing. For example if you have 49 assemblies at operation 10, and 51 at operation 20 you can complete the assemblies at operation 10 before completing those at operation 20 and vice versa. You also can over-complete assemblies</p>
+<p>You also can over-complete assembly quantities if they are within the defined tolerance limit, if you have selected the Overcompletion check box on the Move Transaction window, which enables this functionality. See: <a href="T228107T228115.htm#I_cx2Dovrcom">Assembly Over-completions</a>.</p>
+<p>If there are WIP Move resources at an operation that is being completed, the system automatically charges these resources at their standard rate. If there are Operation Pull components at this operation, these components are automatically pulled from inventory. If there are Manual resources at the operation that is being completed, the system notifies you that <i>Manual</i> resources exist at the operation so that you can manually charge them. If you perform a move transaction that reverses an operation completion, the system automatically reverses any associated material and resource charges. See: <a href="T228107T228117.htm#I_cx2Dreschgtyp">Resource Charge Types</a>.</p>
+<p><img width="597" height="354" src="./img/wip_wip_08.gif" alt="the picture is described in the document text"></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_cx2Doppullbk">Operation Pull Backflush Transactions</a></p>
+<p><a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dmoves">Performing Move Transactions</a></p>
+<h2><a name="1034789"></a><a id="T228268"></a><b>Move Completion/Return Transactions</b></h2>
+<p><a name="d0e33887" id="d0e33887"></a><a name="d0e33893" id="d0e33893"></a><a name="I_cx2Dacomp" id="I_cx2Dacomp"></a>If the WIP_WIPTXSFM_NO_CMP (<i>Move Transactions: No Completion Transactions)</i> form function parameter is set to allow completions, you can use the Move Transactions window to simultaneously move and complete assemblies from and return and move assemblies to discrete jobs and repetitive schedules. See: <a href="T228107T228110.htm#I_cx2Dformparm">Form Function Parameters</a>.</p>
+<p>Assembly move completions automatically issue components with a supply type of Assembly Pull to the job or repetitive schedule, reduce the number of assemblies in the To move intraoperation step of the last operation of the job or repetitive schedule routing, and increase the quantity completed on the job or repetitive schedule</p>
+<p>Assembly move returns move the assemblies first to the To Move intraoperation step of the last operation then to the operation sequence and step that you specify.</p>
+<h3><b>Over-completions</b></h3>
+<p>If the <i>Allow Overcompletions</i> form function is included on your menu, you can move, but not return, more assemblies than exist at an operation. This allows you to over-complete more assemblies than are specified for the job or repetitive schedule.</p>
+<p>The assemblies that are over-completed are moved through each of the job or schedule operations. This ensures that Operation and Assembly Pull components are backflushed and resources are properly charged. Push components associated with the assembly's routing must, however, be manually issued using the WIP Material Transactions window.</p>
+<h3><b>Completions into License Plate Numbers<a name="d0e33926" id="d0e33926"></a></b></h3>
+<p>If Oracle Warehouse Management is installed, you can perform assembly completions and work order-less completions into license plate numbers. License plate numbers identifiers for tracking the contents of containers in receiving, work in process, inventory, shipping, and in-transit. Information for each container can be tracked both inbound and outbound. The container's genealogy provides content and transaction history for each license plate. See: Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i></p>
+<p><strong><span>Note:</span></strong> For work order-less return transactions, you must first unpack the LPN before performing the assembly return transaction.</p>
+<h3><b>Kanban Replenishment</b></h3>
+<p>The supply status of a production kanban is updated to Full when the first assembly from replenishment job or repetitive schedule is move completed.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228115.htm#I_cx2Dovrcom">Assembly Over-completions</a></p>
+<p><a href="T228107T228110.htm#I_rx2Dsecfunc">Security Functions</a></p>
+<p><a href="T228107T228110.htm#I_rx2Dsecfunc">Work in Process Security Functions</a></p>
+<p><a href="T228107T228115.htm#I_cx2Daspullbk">Assembly Pull Backflush Transactions</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dmoves">Performing Move Transactions</a></p>
+<p><a href="T228107T228116.htm#I_tx2Deasycomp">Performing Move Completion and Move Return Transactions</a></p>
+<p><a href="T228107T228115.htm#I_tx2Dcawi">Completing and Returning Assemblies</a></p>
+<p>Kanban Planning and Execution, <i>Flow Manufacturing User's Guide</i></p>
+<p>Pull Sequence Window, <i>Flow Manufacturing User's Guide</i></p>
+<p>Accessing the Planning Region, <i>Flow Manufacturing User's Guide</i></p>
+<p>Accessing the Production Region, <i>Flow Manufacturing User's Guide</i></p>
+<h2><a name="1034793"></a><a id="T228269"></a><b>Production Line Moves</b></h2>
+<p><a name="d0e33996" id="d0e33996"></a><a name="I_cx2Dplines" id="I_cx2Dplines"></a>You can track the production of repetitive assemblies by production line. When you move assemblies being built on a production line, the system groups all transactable repetitive schedules for that assembly on that line. In other words, you can move assemblies and charge resources across multiple schedules.</p>
+<p>The system automatically allocates move and resource transaction quantities to schedules on a first in-first out basis. For example, if you have 2 released schedules for 100 assemblies each and you move 150 assemblies, the system automatically allocates 100 to the earliest schedule and 50 to the next. When you move repetitive assemblies backward, for example from operation 40 to 30, move quantities are allocated to the last schedule on a last in-first out basis.</p>
+<h2><a name="1034794"></a><a id="T228270"></a><b>Open Move Transaction Interface</b></h2>
+<p><a name="d0e34012" id="d0e34012"></a><a name="d0e34018" id="d0e34018"></a><a name="I_cx2Domti" id="I_cx2Domti"></a>You can load move transaction information into the Open Move Transaction Interface table from external sources such as bar code readers, factory floor machines such as cell controllers, and other manufacturing execution and quality control systems. The move transaction manager, launched in Oracle Inventory, processes and validates this information to ensure accuracy and compatibility with Oracle Applications information.</p>
+<p><strong><span>Note:</span></strong> Move transaction records are automatically inserted into the Open Move transaction Interface when receipts that involve PO Move resources are entered in Oracle Purchasing. If the Move Transaction Manager has not been launched, these records are not processed.</p>
+<p>Move transaction information that fails validation or processing is marked. You can use the Pending Move Transactions windows to view, update, and resubmit this information. If associated WIP Move resource transactions fail, they can be viewed, updated, and resubmitted using the Pending Resource Transactions window.</p>
+<p><strong><span>Note:</span></strong> If you are completing an assembly quantity that is greater than the job start quantity (over-completing quantities), you must explicitly specify the over-completion transaction quantities when you use the Open Move Transaction Interface, as they will not be derived by Work in Process.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_tx2Dmovpndg">Processing Pending Move Transactions</a></p>
+<p>Transaction Managers, <i>Oracle Inventory User's Guide</i></p>
+<p>Launching Transaction Managers, <i>Oracle Inventory User's Guide</i></p>
+<p>Open Move Transaction Interface, Oracle Integration Repository</p>
+<h2><a name="1034795"></a><a id="T228271"></a><b>Move Transaction Options</b></h2>
+<p><a name="d0e34056" id="d0e34056"></a><a name="d0e34062" id="d0e34062"></a><a name="I_cx2Dmtopt" id="I_cx2Dmtopt"></a>Move transactions can be launched from the following windows:</p>
+<ul>
+<li>
+<p>Move Transactions. See: <a href="T228107T228116.htm#I_tx2Dmoves">Performing Move Transactions</a> and <a href="T228107T228116.htm#I_tx2Deasycomp">Performing Move Completion and Move Return Transactions</a>.</p>
+</li>
+<li>
+<p>Receipt Transactions. See: Entering Receipt Header Information, <i>Oracle Purchasing User's Guide</i>.</p>
+</li>
+</ul>
+<p>Move transactions can also be imported through the Open Move Transaction Interface. See: <a href="T228107T228116.htm#I_cx2Domti">Open Move Transactions Interface</a>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_cx2Dovwmtx78n">Overview of Move Transactions</a></p>
+<p><a href="T228107T228116.htm#I_cx2Dovwmtx78n">Move Transactions</a></p>
+<h2><a name="1034796"></a><a id="T228272"></a><b>Move Transaction Types</b></h2>
+<p><a name="d0e34106" id="d0e34106"></a><a name="I_rx2Dmvtx78ntyp" id="I_rx2Dmvtx78ntyp"></a>When you enter move transactions in the Move Transactions window you must choose one of the following transaction types:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>Move</b></td>
+<td><a name="d0e34123" id="d0e34123"></a>Moves assemblies within (intraoperation) and between (interoperation) routing operations. You can move assemblies forward or backward within and between routing operations.</td>
+</tr>
+<tr valign="top">
+<td><b>Complete</b></td>
+<td><a name="d0e34136" id="d0e34136"></a><a name="d0e34142" id="d0e34142"></a>Completes assemblies from any routing operation and intraoperation step into inventory. Assembly move completions move assemblies from the current operation to the To Move intraoperation step of the last operation then complete them into inventory. Assemblies are completed into the default completion subinventory and locator specified for the discrete job or repetitive line/assembly. Where applicable, move completion transactions also charge move based resources and overheads and create backflush transactions for components with supply types of Assembly and Component Pull.</td>
+</tr>
+<tr valign="top">
+<td><b>Return</b></td>
+<td><a name="d0e34155" id="d0e34155"></a><a name="d0e34161" id="d0e34161"></a><a name="d0e34167" id="d0e34167"></a>Returns assemblies from inventory to any routing operation and intraoperation step. Assembly move returns first return assemblies from the discrete job or repetitive line/assembly completion subinventory/locator to the To Move intraoperation step of the last operation then move them into the operation and intraoperation step you specify. Where applicable, move return transactions also create transactions that reverse charges to move based resources and reverse backflush transactions for components with supply types of Assembly and Component Pull.</td>
+</tr>
+</table>
+<p>You can specify which move transaction type is used as the default transaction type in the Move Transactions window using the <i>TP:WIP:Move Transactions</i> profile option. See: <a href="T228107T228110.htm#r_wippo">Profile Options</a>.</p>
+<p><strong><span>Note:</span></strong> You cannot complete or return lot controlled assemblies with move complete and move return transactions. You also cannot complete or return serial number controlled assemblies unless the Oracle Inventory Serial Generation attribute for the assembly is set to Dynamic entry at sales order issue.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228115.htm#I_cx2Dovcomret">Assembly Completions and Returns</a></p>
+<h2><a name="1034800"></a><a id="T228924"></a><b>Performing Move Transactions</b></h2>
+<p><a name="d0e34194" id="d0e34194"></a><a name="WIP_MOVE_TRANSACTIONS" id="WIP_MOVE_TRANSACTIONS"></a><a name="I_tx2Dmoves" id="I_tx2Dmoves"></a><a name="permovetxnnew" id="permovetxnnew"></a>You can perform move transactions for discrete jobs and repetitive schedules with routings. You can also perform move transaction for non-standard discrete jobs that have assemblies and routing references. See: <a href="T228107T228116.htm#I_cx2Dovwmtx78n">Move Transactions</a>.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<ul>
+<li>
+<p>Confirm that the From intraoperation step has a shop floor status that allows you to move assemblies from one intraoperation step to another. See: <a href="T228107T228116.htm#I_tx2Dasfstat">Assigning and Viewing Shop Floor Statuses</a>.</p>
+</li>
+<li>
+<p>The work in process quantity for move transactions defaults to the available quantity. You can change this setting in the profile option WIP:Default Quantity for Move. See: <a href="T228107T228110.htm#defaultmoveprofile">WIP:Default Quantity for Move</a></p>
+</li>
+<li>
+<p>The profile option WIP: Raise Move Business Event, raises the business event oracle.apps.wip.job.AssyMove. If set to Yes, the business event is raised on move transactions and move and complete transactions.</p>
+</li>
+</ul>
+</ul>
+<p><b>To select a sales order, line/assembly or job to transact</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e34233" id="d0e34233"></a>Move Transactions window.</p>
+<p><img width="753" height="503" src="./img/wip_wip_movetxns.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a Sales Order, repetitive Line and Assembly, Assembly, or Job. The cursor defaults to one of these fields based on how you have the <i>TP:WIP:Move Transaction First Field</i> profile option set.</p>
+<p>You can only select a discrete job or a repetitive line and assembly for a repetitive schedule if the job or schedule has a status of Released or Complete.</p>
+</li>
+</ol>
+<p><b>To perform an interoperation or intraoperation move</b></p>
+<ol>
+<li>
+<p>Select the <i>Move</i> Transaction Type. See: <a href="T228107T228116.htm#I_rx2Dmvtx78ntyp">Move Transaction Types</a>.</p>
+</li>
+<li>
+<p>Select the From operation Sequence number.</p>
+<p>This is the operation sequence number from which you want to move assemblies.</p>
+</li>
+<li>
+<p>Select the From operation Step.</p>
+<p>This is the intraoperation step from which you want to move assemblies. You must enter a value in this field if you entered a value in the From Op Seq field. You can move assemblies only from intraoperation steps that contain assemblies. See: <a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps</a>.</p>
+<p>You can enable or disable intraoperation steps using the <i>Interoperation Steps</i> parameter. See: <a href="T228107T228110.htm#I_cx2Dparmenabl">Interoperation Steps Parameter</a>.</p>
+<p>You cannot move assemblies from an intraoperation step if it has been assigned a shop floor status that prevents moves. You can optionally prevent moves from an operation and intraoperation step to an operation and intraoperation step if a No Move intraoperation step exists between the two. This is done using the <i>Allow Moves Over No Move Shop Floor Statuses</i> parameter. See: <a href="T228107T228110.htm#I_cx2Dparmmvtx78">Move Transaction Parameters</a>.</p>
+<p><strong><span>Note:</span></strong> You can view statuses by choosing the Statuses button.</p>
+</li>
+<li>
+<p>Select the To operation Sequence number.</p>
+<p>The system defaults in the next count point operation as the To operation sequence. For example, suppose you have three operations at sequences 10, 20, and 30 defined as count point, non-count point, and count point respectively. When you select operation 10 as the From operation, the system automatically defaults operation 30, the next count point operation, as the To operation. You can override this default and choose operation 20, if required.</p>
+<p>If you move assemblies between operations (interoperation), the To operation sequence must be the different from the From operation sequence. You can select any operation on the routing including preceding operations.</p>
+<p>If you move assemblies within an operation (intraoperation), the To operation sequence must be the same as the From operation sequence. For example, you can move assemblies from the Queue to Reject intraoperation step of the same operation.</p>
+</li>
+<li>
+<p>Select the To operation Step. This can be any operation step in any operation sequence.</p>
+<p>If you are entering an interoperation move, the To Operation step can be any intraoperation step in an operation before or after the current operation step.</p>
+<p>If you are entering an intraoperation move, the To Operation step can be any intraoperation step before or after the current intraoperation step.</p>
+<p>Moves into the To Move, Scrap, or Reject intraoperation steps of an operation, whether transacted as intraoperation or interoperation moves, complete assemblies at that operation.</p>
+</li>
+<li>
+<p>Select the <a name="d0e34331" id="d0e34331"></a>UOM. See: Overview of Units of Measure, <i>Oracle Inventory User's Guide</i>.</p>
+<p>You can use any valid, alternate unit of measure for the assembly you are moving.</p>
+</li>
+<li>
+<p>If you selected Move as the transaction type, the Overcompletion check box is enabled. Select the check box to specify over-completion.</p>
+<p><strong><span>Note:</span></strong> You must select the check box before you enter the over-completion quantity. The transaction quantity must be greater than the quantity at the From operation or the available quantity, and it must be within tolerance levels.</p>
+<p>The Overcompletion check box is disabled if you are performing a return transaction or a reverse move transaction, for example moving assembles from operation 30 to 20 or from the To Move intraoperation step to the Queue intraoperation step. It is also disabled if the From interoperation step is Scrap or Reject.</p>
+</li>
+<li>
+<p>Enter the transaction <a name="d0e34356" id="d0e34356"></a>Quantity.</p>
+<p>The transaction quantity defaults to either the minimum transfer quantity, the available quantity, or not at all depending on how the <i>TP:Move Transaction Default Quantity</i> profile option is set. See: <a href="T228107T228110.htm#c_profdesc">Profile Option Descriptions</a>.</p>
+<p>If you enter a quantity that is less than the <a name="d0e34373" id="d0e34373"></a><a name="d0e34379" id="d0e34379"></a>minimum transfer quantity, a warning is displayed but you are allowed to continue. If you selected an alternate unit of measure for the assemblies, you must enter the transaction quantity in the alternate unit of measure.</p>
+<p>If you have the <i>TP:WIP:Move Transaction</i> profile option set to Online processing, you cannot move more assemblies than exist in an operation step. If this option is set to Background processing, however, you can move any number of assemblies, but the quantity is validated in the background. You can correct any errors using the Pending Move Transactions window. See: <a href="T228107T228116.htm#I_tx2Dmovpndg">Processing Pending Move Transactions</a>.</p>
+<p>If you have more than one repetitive schedule released for a specified assembly, the system displays the aggregate quantity of these schedules and allocates quantities across schedules using a FIFO (first in-first out) algorithm. Thus transactions against the oldest repetitive schedules are processed first.</p>
+</li>
+<li>
+<p>Enter the transaction Date and time.</p>
+<p>The date and time must fall within an open accounting period and cannot be greater than the current date and time or less than the release date of the job or the release date of the earliest valid repetitive schedule.</p>
+<p><strong><span>Note:</span></strong> You can set a profile option to restrict updating the transaction date field in this window, see: <a href="T228107T228110.htm#profile_updatable">TP:WIP:Move Transaction Date Updatable</a></p>
+</li>
+<li>
+<p>Optionally, select the <a name="d0e34411" id="d0e34411"></a>Reason code. See: Defining Transaction Reasons, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally, enter the transaction <a name="d0e34425" id="d0e34425"></a>Reference.</p>
+<p>References can be used to identify transactions on standard reports. They can be up to 240 characters of alpha numeric text.</p>
+</li>
+<li>
+<p>If Oracle Quality is installed and one or more qualified mandatory collection plans exist, Oracle Quality is invoked and the Find Collection Plans window appears. If no mandatory collection plans are found you can optionally invoke Oracle Quality by choosing the Quality button from the toolbar or the Enter Quality Results option from the Tools menu. See: Entering Quality Results for Move Transactions, <i>Oracle Quality User's Guide</i>.</p>
+</li>
+<li>
+<p>Choose the Transact button.</p>
+</li>
+</ol>
+<p><b>To scrap assemblies</b></p>
+<ol>
+<li>
+<p>See: <a href="T228107T228116.htm#I_tx2Dscraptx78g">Scrapping Assemblies</a>.</p>
+</li>
+</ol>
+<p><b>To add an operation and move assemblies into this operation</b></p>
+<ol>
+<li>
+<p>Enter a From operation Sequence number.</p>
+</li>
+<li>
+<p>Enter a From operation Step.</p>
+</li>
+<li>
+<p>Enter a To operation Sequence number for the new operation.</p>
+</li>
+<li>
+<p>Enter an operation Code or Department for the new operation sequence.</p>
+</li>
+<li>
+<p>Enter a To operation Step for the new operation.</p>
+</li>
+<li>
+<p>Follow steps 6 through 11 above.</p>
+</li>
+</ol>
+<p><b>To backflush pull components</b></p>
+<ol>
+<li>
+<p>See: <a href="T228107T228116.htm#I_tx2Dbckflshg">Backflushing Pull Components</a>.</p>
+</li>
+</ol>
+<p><b>To charge manual resources</b></p>
+<ol>
+<li>
+<p>Choose the Resources button. See: <a href="T228107T228117.htm#I_tx2Dmvrestx78n">Charging Resources with Move Transactions</a>.</p>
+</li>
+</ol>
+<p><b>To view shop floor statuses</b></p>
+<ol>
+<li>
+<p>Choose the Statuses button. See: <a href="T228107T228116.htm#I_tx2Dasfstat">Assigning and Viewing Shop Floor Statuses</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_cx2Droutsup">Setting Up Shop Floor Control</a></p>
+<p><a href="T228107T228116.htm#I_cx2Dopcomp">Operation Completion Move Transactions</a></p>
+<p><a href="T228107T228116.htm#I_tx2Deasycomp">Performing Move Completion and Move Return Transactions</a></p>
+<p><a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dresovw">Overview of Resource Management</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dresovw">Resource Management</a></p>
+<h2><a name="1034809"></a><a id="T228925"></a><b>Operation Pull Backflush Transactions</b></h2>
+<p><a name="d0e34541" id="d0e34541"></a><a name="d0e34547" id="d0e34547"></a><a name="I_cx2Doppullbk" id="I_cx2Doppullbk"></a>Operation pull backflush transactions automatically pull inventory for all Operation Pull components defined at the operation. They also pulls components for all non-backflush operations between the current operation and the last completed backflush operation. Whether the backflush occurs automatically during a move transaction is determined by the whether the operation is or is not defined as a backflush operation. See: Operations, <i>Oracle Bills of Material User's Guide</i>. and Creating a Standard Operation, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p><b>Backflush Operations</b></p>
+<p>You cannot backflush at operations that are specified as non-backflush operations. If you assign Operation Pull components to non-backflush operations these components are backflushed at a backflushing operation later in the routing. The last operation in the routing should always be defined as a backflush operation to ensure that all Operation Pull components are backflushed by the end of the routing.</p>
+<p><b>Count Point and Autocharge Operations</b></p>
+<p>When you define operations in Oracle Bills of Material, you can specify whether an operation is a count point and whether resources at that operation should be automatically charged during a move transaction. You can update this information in Work in Process using the Operations window. Operations that are non-count point/autocharge operations must be defined as backflush operations. See: Count Point and Autocharge Fields, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p><b>Negative Requirements Backflushes<a name="d0e34584" id="d0e34584"></a></b></p>
+<p>When Operation Pull components that have negative requirement quantities are backflushed, they are returned to instead of supplied from inventory.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228115.htm#I_cx2Dovwbf">Backflush Transactions</a></p>
+<p><a href="T228107T228115.htm#I_cx2Dlsnbf">Lot and Serial Number Backflushing</a></p>
+<p><a href="T228107T228127.htm#I_rx2Dsupptype">Supply Types</a></p>
+<p><a href="T228107T228116.htm#I_cx2Dopcomp">Operation Completion Transactions</a></p>
+<h2><a name="1034813"></a><a id="T228926"></a><b>Backflushing Pull Components</b></h2>
+<p><a name="d0e34614" id="d0e34614"></a><a name="WIPTXSFM.mtl_trx_line" id="WIPTXSFM.mtl_trx_line"></a><a name="I_tx2Dbckflshg" id="I_tx2Dbckflshg"></a>As you perform move and completion transactions, the system automatically backflushes pull components not under lot, serial number, or lot and serial. Reversing these transactions returns backflushed components back to their subinventories. See: <a href="T228107T228115.htm#I_cx2Dovwbf">Backflush Transactions</a>.</p>
+<p>Pull components under lot control can also be automatically backflushed if the Work in Process parameter Lot Selection Method is set to one of the automatic methods, and there is sufficient inventory. Components under serial number or lot and serial control require manual entry of the applicable lot and serial numbers. See: <a href="T228107T228115.htm#I_cx2Dlsnbf">Lot and Serial Number Backflushing</a>.</p>
+<p>Operation and Assembly Pull components are not automatically backflushed when you complete assemblies at an operation or complete job or schedule assemblies into inventory if:</p>
+<ul>
+<li>
+<p>The operation that assemblies are being completed at is not a backflush operation</p>
+</li>
+<li>
+<p>The components are under serial number or lot and serial number control</p>
+</li>
+<li>
+<p>The Work in Process parameter Lot Selection Method is set to Manual</p>
+</li>
+<li>
+<p>There is insufficient inventory in the supply subinventory</p>
+<p><strong><span>Note:</span></strong> Backflush transactions that do not complete because there is insufficient inventory can be resubmitted using the Pending Transactions window in Oracle Inventory. See: Viewing Pending Transactions, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+</ul>
+<p>Pull components that are not backflushed can be manually issued using the WIP Material Transactions window. See: <a href="T228107T228115.htm#I_tx2Dpush">Issuing and Returning Specific Components</a>.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>If you want the ability to over or under issue pull components for assembly moves, completions, and mobile work order-less completions&mdash;enable the Allow Quantity Changes During Backflush, in the Work in Process Parameters window. This gives you the ability to make changes to the quantity for components requiring lot and serial number entry. See: <a href="T228107T228110.htm#I_cx2Dparmbf">Material Parameters</a> .</li>
+<li>To default lot numbers when there are multiple backflush transactions for the same component on the same job&mdash;set the Lot Selection Method parameter to Transaction History and choose a value in the Alternate Lot Selection Method parameter. This enables you to retain lot numbers used in the previous transaction.</li>
+</ul>
+<p><b>To backflush or return backflushed components under lot, serial, or lot and serial control</b></p>
+<ol>
+<li>
+<p>Perform a move, scrap, reject, or assembly completion to display the Backflush window.</p>
+<p>The Backflush window automatically appears only if you are backflushing lot or serial controlled pull components.</p>
+<p>In the Item field, records requiring additional information for lot or serial number are highlighted in the color red. If an item needs serial number information, the Lot/Serial button is enabled as Serial. If an item needs lot number information, the button is enabled as Lot.</p>
+<p>This window displays item information such as Description, Available, On-hand, Operation Sequence, Department, and Transaction type. There are also fields displaying information if the item is using dual unit measure control:</p>
+<ul>
+<li>
+<p>Secondary Available&mdash;the quantity available to issue in the secondary unit of measure</p>
+</li>
+<li>
+<p>Secondary On Hand&mdash;the current on hand quantity in the secondary unit of measure</p>
+</li>
+</ul>
+<p><img width="769" height="538" src="./img/wip_dualuom_backflush.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>You have the option to select another Subinventory and, if required, the supply Locator. See: Supply Subinventory and Locator Fields, <i>Oracle Bills of Material User's Guide</i></p>
+</li>
+<li>
+<p>You have the option to select another unit of measure in the UOM field.<a name="d0e34704" id="d0e34704"></a></p>
+<p>You can use any valid, alternate unit of measure for the component you are backflushing. See: Overview of Units of Measure, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>In the Quantity field, the default is the required quantity. If you have enabled the Allow Quantity Changes During Backflush parameter&mdash;you can change the quantity. Otherwise, you must transact the Quantity Required value<a name="d0e34720" id="d0e34720"></a>.</p>
+<p>If you are transacting components in their primary unit of measure under lot control and the required quantity is a non-integer, you can only transact up to the largest integer. If you enter an alternate unit of measure for the assemblies, you must enter the transaction quantity in the alternate unit of measure.</p>
+</li>
+<li>
+<p>The Secondary UOM displays if the item is dual unit of measure controlled. The secondary UOM is the secondary unit of measure for the material and the value defaults from the secondary UOM specified for the item.</p>
+</li>
+<li>
+<p>The Secondary Qty field is enabled if the item is dual unit of measure controlled. If the item is dual unit of measure controlled, then enter the secondary quantity for the component.</p>
+</li>
+<li>
+<p>For lot -controlled items, select a value in the Lot field.</p>
+<p>For items under lot and serial control, the Lot/Serial button is enabled to select lot ad serial number values.</p>
+<p>If the Lot Selection Method parameter is set to Transaction History, you can default lot numbers from previous transactions for the same component on the same job.</p>
+</li>
+<li>
+<p>Optionally, select the <a name="d0e34749" id="d0e34749"></a>Reason code. See: Defining Transaction Reasons, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally, enter the transaction <a name="d0e34763" id="d0e34763"></a>Reference.</p>
+<p>References can be used to identify transactions on standard reports. They can be up to 240 characters of alpha numeric text.</p>
+</li>
+<li>
+<p>Choose the Lot/Serial button to assign lot and serial numbers.</p>
+<p>If the item is under lot and serial control, the button is first enabled as Lot to access the Lot Entry window. After the lot information is entered, the button is then enabled as Serial to access the Serial Entry window. See: Assigning Lot Numbers, <i>Oracle Inventory User's Guide</i> and Assigning Serial Numbers, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Choose Done to save your work.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228115.htm#I_cx2Dovwbf">Overview of Backflush Transactions</a></p>
+<p><a href="T228107T228110.htm#I_cx2Dparmbf">Material Parameters</a></p>
+<p><a href="T228107T228115.htm#I_cx2Dovwbf">Backflush Transactions</a></p>
+<p><a href="T228107T228116.htm#I_rx2Dmvtx78ntyp">Move Transaction Types</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dmoves">Performing Move Transactions</a></p>
+<p><a href="T228107T228116.htm#I_tx2Deasycomp">Performing Move Completion and Move Return Transactions</a></p>
+<h2><a name="1034815"></a><a id="T228927"></a><b>Move Completion/Return Rules</b></h2>
+<p><a name="d0e34817" id="d0e34817"></a><a name="d0e34823" id="d0e34823"></a><a name="I_cx2Dmvcmrules" id="I_cx2Dmvcmrules"></a>The following rules are enforced when performing assembly move completion and move return transactions:</p>
+<ul>
+<li>
+<p>In background processing for standard completion and return transactions, once the move completion manager picks up a record for processing, backflushing occurs in the same commit cycle. This prevents the possibility of processing transactions if backflushing fails.</p>
+</li>
+<li>
+<p>Discrete jobs and repetitive schedules require routings. A non-standard discrete job requires an assembly and routing reference.</p>
+</li>
+<li>
+<p>Default completion subinventories and locators, if required by the subinventory, are specified for the following:</p>
+<ul>
+<li>
+<p>Standard discrete jobs</p>
+</li>
+<li>
+<p>Repetitive line/assemblies that are used to build repetitive schedules</p>
+</li>
+<li>
+<p>Non-standard discrete jobs with routing references</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Assemblies under lot control can be completed from and returned to discrete jobs only if you have specified a lot number for the job. The item's Serial Generation attribute in Oracle Inventory is set to dynamic entry -At sales order issue. Assemblies under lot control cannot be completed from or returned to repetitive schedules. See: <a href="T228107T228111.htm#I_tx2Ddefdj">Defining Discrete Jobs Manually</a></p>
+</li>
+<li>
+<p>Assemblies cannot be completed from or returned to a discrete job or repetitive schedule if the To Move intraoperation step of the last operation on the routing has a shop floor status that disallows move transactions</p>
+</li>
+<li>
+<p>When a job or schedule with outside processing operations is changed to complete, closed, or canceled status - an informational warning message displays if open purchase orders or requisitions exist for any of the operations.</p>
+</li>
+<li>
+<p>If open reservations exist&mdash;unlink the sales order reserved to the assembly, or reduce the quantity to equal the completed quantity&mdash; before changing a job or schedule status to completed, closed, or canceled.</p>
+</li>
+<li>
+<p>You cannot return more assemblies to jobs or schedules than exist in inventory unless the Oracle Inventory Allow Negative Balances parameter is set. See: Default Inventory Parameters, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+</ul>
+<h2><a name="1034816"></a><a id="T228928"></a><b>Performing Move Completion/Return Transactions</b></h2>
+<p><a name="d0e34877" id="d0e34877"></a><a name="d0e34883" id="d0e34883"></a><a name="I_tx2Deasycomp" id="I_tx2Deasycomp"></a>You can complete assemblies into inventory from jobs and schedules using move completion transactions. You can also return completed assemblies back to jobs or repetitive schedules using move return transactions.</p>
+<p><strong><span>Note:</span></strong> Function security controls whether assembly move completion and move return transactions are allowed. You can also control whether the Move Transaction Type defaults to Complete using the WIP:Move Completion Default. See: <a href="T228107T228110.htm#r_wippo">Profile Options</a> and <a href="T228107T228110.htm#I_rx2Dsecfunc">Work in Process Security Functions</a>.</p>
+<p><strong><span>Note:</span></strong> You have the ability to stop completion transactions if all the push type components have not been issued to the job. This feature is set in a profile option, see: <a href="T228107T228110.htm#valpush">WIP:Validate Push Components at WIP Completion</a></p>
+<p><b>To select a job, repetitive schedule, or sales order</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e34914" id="d0e34914"></a>Move Transactions window.</p>
+<p><img width="753" height="503" src="./img/wip_wip_movetxns.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a Sales Order, repetitive Line and Assembly, Assembly, or Job. The cursor defaults to one of these fields based on how you have the <i>TP:WIP:Move Transaction First Field</i> profile option set. See: <a href="T228107T228110.htm#c_profdesc">Profile Option Descriptions</a></p>
+<p>You can only select a discrete job or a repetitive line and assembly for a repetitive schedule if the job or schedule has a status of Released orComplete.</p>
+<p>You can reserve over-completion quantities from jobs linked to sales orders. Enter the sales order number, otherwise the over-completion is unreserved excess inventory. See: <a href="T228107T228111.htm#I_tx2Datodj">Linking Sales Orders and Discrete Jobs</a>.</p>
+</li>
+</ol>
+<p><b>To move and complete assemblies or return and move assemblies</b></p>
+<ol>
+<li>
+<p>Choose the Complete or Return Transaction Type. See: <a href="T228107T228116.htm#I_rx2Dmvtx78ntyp">Move Transaction Types</a></p>
+<p>If you are completing assemblies, information from the last operation of the job or schedule is automatically defaulted into the operation To fields - Sequence, Code, and Department - and the To Move intraoperation step is defaulted for the To Step.</p>
+<p>If you are returning assemblies, information from the last operation of the job or schedule is automatically defaulted into the operation From fields - Sequence, Code, and Department - and the To Move intraoperation step is defaulted for the From Step.</p>
+</li>
+<li>
+<p>If you are completing assemblies, select the complete From operation Sequence and intraoperation Step.</p>
+</li>
+<li>
+<p>Select the <a name="d0e34963" id="d0e34963"></a>UOM. See: Overview of Units of Measure, <i>Oracle Inventory User's Guide</i>.</p>
+<p>You can use any valid, alternate unit of measure for the assembly you are moving.</p>
+</li>
+<li>
+<p>Enter the transaction Quantity.</p>
+<p>If you are completing assemblies, you can complete a greater quantity than the job or schedule start quantity, subject to the tolerance level set. For example, if you have 49 assemblies at operation 10, and 51 at operation 20 you can complete the assemblies at operation 10 before completing those at operation 20.</p>
+<p>If you are returning assemblies, you can return fewer but not more assemblies than the number of assemblies that have been completed from a standard Discrete job. You can return more assemblies than completed to non-standard Discrete jobs and to Repetitive schedules. You cannot return more assemblies than are in inventory unless the <i>Allow Negative Balances</i> parameter is set in Oracle Inventory. See: Organization Parameters Window, <i>Oracle Inventory User's Guide</i>.</p>
+<p>If you enter a quantity that is less than the <a name="d0e34991" id="d0e34991"></a><a name="d0e34997" id="d0e34997"></a>minimum transfer quantity for the operation, a warning is displayed but you are allowed to continue.</p>
+<p>If you selected an alternate unit of measure, you must enter the quantity in the alternate unit of measure.</p>
+</li>
+<li>
+<p>Enter the transaction <a name="d0e35010" id="d0e35010"></a>Date and time.</p>
+<p>The date and time must fall within an open accounting period and cannot be greater than the current date or less than the release date of the job or the earliest valid repetitive schedule.</p>
+<p><strong><span>Note:</span></strong> You can set a profile option to restrict updating the transaction date field in this window, see: <a href="T228107T228110.htm#profile_updatable">TP:WIP:Move Transaction Date Updatable</a></p>
+</li>
+<li>
+<p>Optionally, select the <a name="d0e35028" id="d0e35028"></a>Reason code. See: Defining Transaction Reasons, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally, enter the transaction <a name="d0e35042" id="d0e35042"></a>Reference.</p>
+<p>References can be used to identify transactions on standard reports. They can be up to 240 characters of alpha numeric text.</p>
+</li>
+<li>
+<p>Choose Save to save your work.</p>
+</li>
+</ol>
+<p><b>To backflush pull components</b></p>
+<ol>
+<li>
+<p>See: <a href="T228107T228116.htm#I_tx2Dbckflshg">Backflushing Pull Components</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_cx2Droutsup">Setting Up Shop Floor Control</a></p>
+<p><a href="T228107T228110.htm#I_cx2Dpomovcom">Assembly Move Completion Transactions</a></p>
+<p><a href="T228107T228116.htm#I_cx2Dmvcmrules">Move Completion/Return Rules</a></p>
+<p><a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dresovw">Overview of Resource Management</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dresovw">Resource Management</a></p>
+<h2><a name="1034821"></a><a id="T228929"></a><b>Viewing Move Transactions</b></h2>
+<p><a name="d0e35094" id="d0e35094"></a><a name="d0e35098" id="d0e35098"></a><a name="d0e35104" id="d0e35104"></a><a name="I_tx2Dmvtx78nvwg" id="I_tx2Dmvtx78nvwg"></a><a name="WIPTQSFM.move_txns_qf" id="WIPTQSFM.move_txns_qf"></a><a name="WIPTQSFM.w_move_txns_v" id="WIPTQSFM.w_move_txns_v"></a><a name="WIPTXSFM_MOVE_TRANSACTIONS" id="WIPTXSFM_MOVE_TRANSACTIONS"></a>You can view move transactions for an individual job or repetitive schedule (line/assembly). You can also view move transactions across jobs and schedules.</p>
+<p><b>To find and view move transactions</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e35124" id="d0e35124"></a>View Move Transactions window. The Find Move<a name="d0e35131" id="d0e35131"></a> Transactions window appears.</p>
+<p><img width="642" height="410" src="./img/wip_wip_vwmvetxn.gif" alt="the picture is described in the document text"></p>
+<p>You can query to find move transactions by Transaction Date or date range, by Job, by production Line, by Assembly, by a range of Departments, and by a range of Steps. For example, you might query to find all move transactions that scrapped assemblies (To Step = Scrap).</p>
+</li>
+<li>
+<p>Enter any combination of search criteria and choose the Find button. The results display in the <a name="d0e35147" id="d0e35147"></a>View Move Transactions window.</p>
+<p><img width="754" height="503" src="./img/wip_wip_vwmvtxn1.gif" alt="the picture is described in the document text"></p>
+<p>You can view the following move transaction information in the Move Transaction window's tabbed regions:</p>
+<p><i>Job or Schedule Header:</i> Transaction Date, Job, Assembly, production Line, Transaction ID</p>
+<p><i>Operations, Quantities</i>: From Operation (Sequence, Department Step), To Operation (Sequence, Department, Step), Transaction (UOM, Quantity), Primary (UOM, Quantity), and Overcompletion (Transaction Quantity, Primary Quantity)</p>
+<p><i>Scrap, Comments:</i> Scrap Account, Reason, Reference</p>
+<p>You can also view, if entered, descriptive flexfield information. See: <a href="T228107T228122.htm#I_cx2Dflex78su">Setting Up Descriptive Flexfields</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228115.htm#I_cx2Dovwmctl">Overview of Material Control</a></p>
+<p><a href="T228107T228116.htm#I_cx2Dmtopt">Move Transaction Options</a></p>
+<p>Searching for Information, <i>Oracle E-Business Suite User's Guide</i></p>
+<h2><a name="1034823"></a><a id="T228930"></a><b>Processing Pending Move Transactions</b></h2>
+<p><a name="d0e35195" id="d0e35195"></a><a name="I_tx2Dmovpndg" id="I_tx2Dmovpndg"></a><a name="WIPTISFM.move_transactions" id="WIPTISFM.move_transactions"></a>You can view, update, delete, and resubmit Move transaction records that have failed validation and remain in the Open Move Transaction Interface table (WIP_MOVE_TNX_INTERFACE). You can also resubmit transactions whose concurrent process has failed and have a processing phase of Complete and process status of Error. You can view error messages associated with failed records. Error messages can assist you in updating failed records before resubmission.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Launch the Move Transaction Manager. See: Transaction Managers, <i>Oracle Inventory User's Guide</i> and Launching Transaction Managers, <i>Oracle Inventory User's Guide</i>.</li>
+</ul>
+<p><b>To view pending Move transaction records</b></p>
+<ol>
+<li>
+<p>Navigate to the Pending Move Transactions window. The <a name="d0e35223" id="d0e35223"></a>Find Pending Move Transactions window appears.</p>
+<p><img width="695" height="333" src="./img/wip_wip_fndpndmt.gif" alt="the picture is described in the document text"></p>
+<p>You can search for records by Transaction Date range, by Organization, by Job or Schedule Name, and production Line. You can also search for records that have a specific Process Phase (Move validation, Move processing, or Backflush setup, Process Status (Pending, Running, or Error), Source Code, Source Line ID, or Transaction ID.</p>
+</li>
+<li>
+<p>Enter any combination of search criteria and choose the Find button. The <a name="d0e35241" id="d0e35241"></a>Pending Move Transactions window appears with the results of your query.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e35251" id="d0e35251"></a>view pending Move transaction records</b></p>
+<ol>
+<li>
+<p>For each pending record displayed, you can view the following information using the Pending Move Transactions window's tabbed regions:</p>
+<p><img width="752" height="456" src="./img/wip_wip_pndmvtx.gif" alt="the picture is described in the document text"></p>
+<p><i>Processing:</i> Group ID, processing Phase, processing Status</p>
+<p><i>Source:</i> Source Code, Source Line (if applicable), Created By</p>
+<p><i>Concurrent Request:</i> Request ID, Phase, Status, Message</p>
+<p><i>Job or Schedule Name:</i> Organization, Job or Schedule Name, Line</p>
+<p><i>Operations:</i> From Operation Sequence, Department, and Step and To Operation Sequence, Department, and Step</p>
+<p><i>Transaction:</i> Transaction ID, UOM, Quantity, Overcompletion Quantity, Date and Time, Type</p>
+<p><i>Comments and Scrap Account:</i> Reason, Reference, and Scrap Account</p>
+<p>You can also view the descriptive flexfield information entered for the transaction record. See: <a href="T228107T228122.htm#I_cx2Dflex78su">Setting Up Descriptive Flexfields</a>.</p>
+</li>
+</ol>
+<p><b>To view <a name="d0e35303" id="d0e35303"></a>error details for failed Move transactions</b></p>
+<ol>
+<li>
+<p>In the Pending Move Transactions window, select the failed record.</p>
+</li>
+<li>
+<p>Choose the Errors button. The <a name="d0e35318" id="d0e35318"></a>Pending Move Transactions Error window appears.</p>
+<p><img width="753" height="190" src="./img/wip_wip_pndtxner.gif" alt="the picture is described in the document text"></p>
+<p>All errors for the selected record are displayed. <i>Column</i> indicates the name of the column in the Move interface table that failed validation. <i>Message</i> indicates why the transaction failed. Using these messages you can determine what fields need to be updated.</p>
+<p>Messages that are not specific to a Column, for example processing errors, may also be displayed. In such cases, a <i>Message</i> but no <i>Column</i> is shown.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e35349" id="d0e35349"></a>update failed Move transaction records</b></p>
+<ol>
+<li>
+<p>Select the record to update.</p>
+<p>You can update records with a processing status of Error.</p>
+</li>
+<li>
+<p>In the Source tabbed region, enter the <a name="d0e35366" id="d0e35366"></a>Source Code, the <a name="d0e35373" id="d0e35373"></a>Source Line, or both.</p>
+<p>When you insert records into the Open Move Transaction Interface table, you can optionally identity a record's source using the source code and source line. For example, you can enter a different source code and source line for records from a bar code reader versus those from a radio frequency device.</p>
+</li>
+<li>
+<p>Select the <a name="d0e35386" id="d0e35386"></a>Created By identifier.</p>
+<p>The name of the user that created the transaction is displayed. This field can be updated.</p>
+</li>
+<li>
+<p>In the Job or Schedule Name tabbed region, select the <a name="d0e35399" id="d0e35399"></a>Organization.</p>
+<p>You can only select enabled organizations. See: Creating an Organization, <i>Oracle Human Resources User's Guide</i>.</p>
+</li>
+<li>
+<p>Select the Job or Schedule Name.</p>
+<p>If you select a schedule name, you must enter a production line. If you select a Discrete job, and the line field contains a value the system prompts you to delete the line value.</p>
+</li>
+<li>
+<p>In the Operations tabbed regions, select the From Operation Sequence.</p>
+<p>You can enter any operation defined for your job or schedule.</p>
+</li>
+<li>
+<p>Select the From Operation Step.</p>
+<p>You can update this field with any intraoperation step currently enabled for your organization. See: <a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps</a>.</p>
+</li>
+<li>
+<p>Select the To Operation Sequence. You can enter any operation sequence that has a valid department for your organization and job or Repetitive schedule.</p>
+</li>
+<li>
+<p>Select the To Operation Step.</p>
+<p>You can select any operation step that is enabled for your organization. If you select the Scrap intraoperation step and the WIP <i>Require Scrap Account</i> parameter is set, you must enter a scrap account. If you update the To Operation step from Scrap to another, non-scrap step and the scrap account field has a value, you must clear the scrap account field.</p>
+</li>
+<li>
+<p>Select the Move transaction Type: Move transaction, Move and Complete, Return and Move. See: <a href="T228107T228116.htm#I_rx2Dmvtx78ntyp">Move Transaction Types</a></p>
+</li>
+<li>
+<p>In the Transaction tabbed region, select the <a name="d0e35455" id="d0e35455"></a>UOM.</p>
+<p>You can use any valid, alternate UOM for the assembly you are moving. See: Overview of Units of Measure, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Enter the transaction <a name="d0e35471" id="d0e35471"></a>Quantity.</p>
+<p>If you enter an alternate unit of measure for the assemblies, you must enter the quantity in the alternate unit of measure. You can update this field with any number.</p>
+</li>
+<li>
+<p>If you are over-completing an assembly quantity, the over-completion quantity is displayed in the field. You can manually change it.</p>
+</li>
+<li>
+<p>Enter the transaction <a name="d0e35488" id="d0e35488"></a>Date and time.</p>
+<p>The date and time must fall within an open accounting period and cannot be greater than the current date or less than the release date of the job or the earliest valid Repetitive schedule.</p>
+</li>
+<li>
+<p>In the Comments and Scrap Account tabbed region, select a transaction Reason code. See: Defining Transaction Reasons, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Enter the transaction Reference.</p>
+<p>References can be used to identify transactions on standard reports. They can be up to 240 characters of alpha numeric text.</p>
+</li>
+<li>
+<p>If the To intraoperation step is Scrap and the WIP <i>Require Scrap Account</i> parameter is set, you must enter a scrap account Number or an account Alias. If you do not specify that a scrap account is required, it is optional. See: <a href="T228107T228110.htm#I_cx2Dparmmvtx78">Move Transaction Parameters</a> and Defining Account Aliases, <i>Oracle Inventory User's Guide</i>.</p>
+<p>If you subsequently change the To intraoperation step from Scrap to an intraoperation step other than Scrap, you must clear the Scrap Account number or Account Alias.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e35532" id="d0e35532"></a>resubmit individual failed Move transaction records</b></p>
+<ol>
+<li>
+<p>In the Pending Move Transactions window, check the transaction's Resubmit check box.</p>
+<p>You can resubmit transactions of any processing status. If you leave the check box unchecked you can still update your transaction record but the transaction manager does not process it again when polling the Move interface table.</p>
+</li>
+<li>
+<p>Save your work to resubmit the transaction.</p>
+<p>When you resubmit a record, the system nulls the Transaction ID, Group ID, and concurrent Request ID and changes the processing status to Pending. The resubmit level of the Move Transaction Manager determines at what specific start date and time or at what specific intervals transactions are processed.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e35554" id="d0e35554"></a>select and resubmit all failed Move transaction records</b></p>
+<ol>
+<li>
+<p>In the Pending Move Transactions window, chose <a name="d0e35565" id="d0e35565"></a><i>Select All for Resubmit</i> from the Tools menu. .</p>
+<p><img width="752" height="456" src="./img/wip_wip_pndmvtx.gif" alt="the picture is described in the document text"></p>
+<p>You can deselect selected transactions as required.</p>
+</li>
+<li>
+<p>Save your work to resubmit the transactions.</p>
+<p>When you resubmit transactions, the system nulls their Transaction IDs, Group IDs, and concurrent Request IDs and changes their processing Statuses to Pending. The resubmit level of the Move Transaction Manager determines at what specific start date and time or at what specific intervals transactions are processed.</p>
+</li>
+</ol>
+<p><b>To <a name="d0e35590" id="d0e35590"></a>delete pending Move transaction records</b></p>
+<ol>
+<li>
+<p>In the Pending Move Transactions window, select the transaction.</p>
+</li>
+<li>
+<p>Choose Delete from the Edit Menu</p>
+<p>You can delete failed records that have a processing status of Error regardless of their processing phase. When you delete transaction records, their corresponding error messages are also deleted.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_cx2Domti">Open Move Transaction Interface</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dmoves">Performing Move Transactions</a></p>
+<p><a href="T228107T228116.htm#I_tx2Deasycomp">Performing Move Completion Transactions</a></p>
+<p><a href="T228107T228110.htm#r_wippo">Profile Options</a></p>
+<h2><a name="1034832"></a><a id="T228931"></a><b><a name="I_tx2Dmvpndfdg" id="I_tx2Dmvpndfdg"></a>Finding Pending Move Transactions</b></h2>
+<p><a name="WIPTISFM_TXN_FIND" id="WIPTISFM_TXN_FIND"></a>You can find pending move transactions for jobs or schedules or repetitive lines and assemblies.</p>
+<p>You can find pending move transactions by a range of Transaction Dates, Organization, Job or Schedule Name, production Line, Process Phase (Move validation, Move processing, or Backflush setup), Process Status (Pending, Running, or Error), Source Code, Source Line ID, and Transaction ID. You can limit or expand your selection by combining selection criteria.</p>
+<p><b>To find pending move transactions</b></p>
+<ol>
+<li>
+<p>Navigate to the Pending Move Transactions window. The <a name="d0e35642" id="d0e35642"></a>Find Pending Move Transactions window appears.</p>
+</li>
+<li>
+<p>Enter any combination of search criteria and choose the Find button. The <a name="d0e35653" id="d0e35653"></a>Pending Move Transactions window appears with the results of your query.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_tx2Dmovpndg">Processing Pending Move Transactions</a></p>
+<h2><a name="1034834"></a><a id="I_cx2Dsfstatus"></a><b>Shop Floor Statuses</b></h2>
+<p><a name="d0e35669" id="d0e35669"></a><a name="d0e35675" id="d0e35675"></a>Shop floor statuses help you control assembly move transactions on the shop floor. You can define as many shop floor statuses as are required.</p>
+<p>You can restrict moves transactions by assigning `no move' shop floor statuses to intraoperation steps within job and repetitive schedule operations. Shop floor statuses can be used to restrict the movement of an assembly out of a `no move' intraoperation step. For example, you can define a `no move' shop floor status, such as QAHold then assign this status to the applicable intraoperation step to prevent moves until the problems are resolved.</p>
+<p>Shop floor statuses can also be used to restrict moves over `no move' intraoperation steps and out of operations that have outside processing resources assigned to them. These two optional uses of shop floor statuses are controlled by WIP parameters and are described below.</p>
+<p><b>Restricting Moves Over No Move Intraoperation Steps</b></p>
+<p>When the WIP <i>Allow Moves Over No Move Shop Floor Statuses</i> parameter is not set, the system checks all autocharge operations and To Move, Run and Queue intraoperation steps between the From and To operations and intraoperation steps for `no move' statuses. The system also checks the statuses of intervening intraoperation steps at the From and To operations if those operations are direct charge. If a status that can prevent moves is found, the move is disallowed. Direct charge operations between the From and To Operations and statuses at Scrap and Reject intraoperation steps do not prevent moves.</p>
+<p><strong><span>Note:</span></strong> The <i>Move Transactions: Allow Skipping Over No Move Statuses</i> security function can be set to override `no move' shop floor statuses. See: <a href="T228107T228110.htm#I_rx2Dsecfunc">Security Functions</a>.</p>
+<p><b>Parameter On</b></p>
+<p>If the WIP <i>Allow Moves Over No Move Shop Floor Statuses</i> parameter is set, standard shop floor status logic is applied and only moves from intraoperation steps that have `no move' statuses are prohibited. In this example, you cannot move assemblies from the To Move intraoperation step of operation 20, from the Scrap intraoperation step of operation 30, and from the Run and Reject intraoperation steps of operation 40.</p>
+<p><strong><span>Note:</span></strong> You can move assemblies from these operations and intraoperation steps after disabling or deleting their `no move' statuses.</p>
+<p><b>Parameter Off</b></p>
+<p>If the WIP <i>Allow Moves Over No Move Shop Floor Statuses</i> parameter is not set, both standard shop floor status and `no move' logic are applied. Again, you cannot move assemblies from the To Move intraoperation step of operation 20, from the Scrap intraoperation step of operation 30, and from the Run and Reject intraoperation steps of operation 40. In addition, the following moves are also prohibited:</p>
+<ul>
+<li>
+<p>You cannot move assemblies from the Queue intraoperation step of operation 10 to the Scrap intraoperation step of operation 20 because of the `no move' shop floor status at the To Move intraoperation step of operation 20, a direct charge operation.</p>
+</li>
+<li>
+<p>You cannot move assemblies backward from the To Move intraoperation step of operation 40 to the Queue intraoperation step of operation 40 because of the intervening `no move' at the Run intraoperation step.</p>
+</li>
+<li>
+<p>You cannot move assemblies from the Queue intraoperation step of operation 10 to the To Move intraoperation step of operation 40 because of the `no move' status at the Run intraoperation step of operation 40.</p>
+</li>
+<li>
+<p>You cannot move and complete assemblies from the Queue intraoperation step of operation 10 to the To Move intraoperation step of the last operation, operation 40, because of the `no move' status at the Run intraoperation step of operation 40.</p>
+</li>
+</ul>
+<p>The following move transactions, however, are not prohibited:</p>
+<ul>
+<li>
+<p>You can move and complete assemblies from the To Move intraoperation step of operation 40 because the `no move' status at the Reject intraoperation step of operation 40 is not considered.</p>
+</li>
+<li>
+<p>You can move assemblies from the Queue intraoperation step of operation 10 to the Queue intraoperation step of operation 30 Queue because `no move' status at the To Move intraoperation step of operation 20 is on the intraoperation step of an intervening direct charge operation.</p>
+</li>
+<li>
+<p>You can move assemblies from the Queue intraoperation step of operation 10 to the Reject of operation 30 because the intervening `no move' status at the Scrap intraoperation of operation 30 is not considered.</p>
+</li>
+<li>
+<p>You can move assemblies from the Queue intraoperation step at operation 10 into the Run intraoperation step of operation 40 because you can move into an operation and step with a `no move' status without restrictions.</p>
+</li>
+</ul>
+<p><strong><span>Additional Information:</span></strong> Move transactions loaded through the Open Move Transaction Interface are also checked for no move statuses.</p>
+<p><b>Shop Floor Status for PO Move Resources Parameter</b></p>
+<p>Selecting a `no move' shop floor status sets the <i>Shop Floor Status for PO Move Resources</i> parameter. When this parameter is set, as you move assemblies into the Queue intraoperation step of an outside processing operation, the specified `no move' shop floor status is automatically assigned to the To Move (Queue) intraoperation step. Assemblies are only moved out of this operation and step when a purchase order receipt transaction in Oracle Purchasing launches the move transaction.</p>
+<p>Using this parameter ensures that the same number of assemblies are moved into and out of Queue at an outside processing step. Problems in tracking work in process and cost variances are thus avoided.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228110.htm#I_tx2Ddsfstatus">Defining Shop Floor Statuses</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dasfstat">Assigning and Viewing Shop Floor Statuses</a></p>
+<p><a href="T228107T228123.htm#I_rx2Dwipsusta">Shop Floor Statuses Report</a></p>
+<p><a href="T228107T228110.htm#I_cx2Dparmmvtx78">Move Transaction Parameters</a></p>
+<h2><a name="1034839"></a><a id="T228932"></a><b>Assigning and Viewing Shop Floor Statuses</b></h2>
+<p><a name="WIPSTMSC.attach_shop_floor_statuses" id="WIPSTMSC.attach_shop_floor_statuses"></a><a name="WIPTXSFM.attach_shop_floor_statuses" id="WIPTXSFM.attach_shop_floor_statuses"></a><a name="WIPSTMSC.FOLDER" id="WIPSTMSC.FOLDER"></a><a name="WIPSTMSC.BLOCKNAME" id="WIPSTMSC.BLOCKNAME"></a><a name="I_tx2Dasfstat" id="I_tx2Dasfstat"></a>You can assign shop floor statuses to any intraoperation step associated with a job or repetitive line/assembly. Shop floor statuses that are assigned to a repetitive line/assembly are valid for all repetitive schedules being built on that production line.</p>
+<p>You can assign multiple statuses to an intraoperation step. You cannot, however, assign the same shop floor status to more than one intraoperation step within the same operation. For example you could not assign the same status to the Queue and To Move intraoperation steps of operation sequence 30. You can update shop floor statuses at any time.</p>
+<p>Statuses are removed from intraoperation steps when the quantities at those operations drop to zero.</p>
+<h3><b>Viewing Shop Floor Statuses</b></h3>
+<p>You can view the shop floor statuses that you have assigned to jobs and repetitive schedule operations. You can view statuses directly using this window or indirectly by choosing the Statuses button as you perform move transactions. Viewing statuses as you transact allows you to check the status of intraoperation steps before you attempt to move assemblies into or out of them.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Define shop floor statuses. See: <a href="T228107T228110.htm#I_tx2Ddsfstatus">Defining Shop Floor Statuses</a>.</li>
+<li>Define at least one job or repetitive schedule that has a routing. See: <a href="T228107T228111.htm#I_tx2Ddefdj">Defining Discrete Jobs Manually</a> and <a href="T228107T228114.htm#I_tx2Ddefrs">Defining Repetitive Schedules Manually</a>.</li>
+</ul>
+<p><b>To assign/update shop floor statuses</b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e35832" id="d0e35832"></a>Assign Shop Floor Statuses window.</p>
+<p><img width="753" height="455" src="./img/wip_wip_asgshpst.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the discrete <a name="d0e35848" id="d0e35848"></a>Job or the production <a name="d0e35855" id="d0e35855"></a>Line and repetitive Assembly.</p>
+<p>You can assign shop floor statuses to jobs or repetitive schedules that have the following statuses: Unreleased, Released, Complete, or On Hold.</p>
+</li>
+<li>
+<p>Choose Find to display all shop floor statuses you have previously assigned to the job or repetitive line/assembly.</p>
+</li>
+<li>
+<p>Select the <a name="d0e35872" id="d0e35872"></a>Operation Sequence of the job or repetitive schedule. You can assign shop floor statuses to any operation in the routing of the job or repetitive schedule. This includes operations you defined using the Operations window.</p>
+<p>The department associated with the operation sequence is displayed.</p>
+</li>
+<li>
+<p>Select the intraoperation <a name="d0e35885" id="d0e35885"></a>Step to which you want to assign or update a shop floor status. You can only choose an enabled intraoperation step. See: <a href="T228107T228110.htm#I_cx2Dparmenabl">Intraoperation Steps Parameter</a>.</p>
+</li>
+<li>
+<p>Select the shop floor <a name="d0e35899" id="d0e35899"></a>Status for the intraoperation step. You cannot enter a shop floor status with an inactive on date less than or equal to the current date.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p><a href="T228107T228123.htm#I_rx2Dwipsusta">Shop Floor Statuses Report</a></p>
+</li>
+</ol>
+<h2><a name="1034843"></a><a id="I_px2Dsfmgmt"></a><b>Shop Floor Management</b></h2>
+<p>You can use Work in Process to manage outside supplier processing, rework production, and perform assembly scrap. It also provides you with several reports that can help you manage the activities on the floor.</p>
+<p>In this section, you will find overviews of each of these topics.</p>
+<h2><a name="1034844"></a><a id="T228273"></a><b>Outside Processing</b></h2>
+<p><a name="d0e35927" id="d0e35927"></a><a name="d0e35933" id="d0e35933"></a><a name="I_cx2Doutsp" id="I_cx2Doutsp"></a>You can use the closed loop system provided by Oracle Inventory, Oracle Purchasing, and Oracle Work in Process to do the following:</p>
+<ul>
+<li>
+<p>Define outside processing resource requirements for your discrete job and repetitive schedule routings</p>
+</li>
+<li>
+<p>Automatically generate purchase requisitions, charge for outside resources, and complete assemblies</p>
+</li>
+<li>
+<p>Receive assembly items back from outside processing suppliers and automatically charge your outside processing resource costs</p>
+</li>
+<li>
+<p>Control and track progress at outside processing operations</p>
+</li>
+</ul>
+<p>Outside processing is described in detail in the <a href="T228107T228118.htm#I_ex2Dosp">Overview of Outside Processing</a>.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228117.htm#I_cx2Dpochrg">PO Move and PO Receipt</a></p>
+<h2><a name="1034845"></a><a id="T228274"></a><b>Rework Production</b></h2>
+<p><a name="d0e35970" id="d0e35970"></a><a name="I_cx2Drework" id="I_cx2Drework"></a>Rework may be necessary when production problems arise. You can often rework or repair defective assemblies to make them usable. Work in Process provides several options for handling rework. The method you choose depends on the product you are building, your manufacturing process, and the nature of the problem.</p>
+<p>The options available are as follows:</p>
+<ul>
+<li>
+<p>Reject intraoperation steps</p>
+</li>
+<li>
+<p>Rework operations</p>
+</li>
+<li>
+<p>Non-standard discrete jobs</p>
+</li>
+</ul>
+<p><b>Reject Intraoperation Step<a name="d0e35993" id="d0e35993"></a></b></p>
+<p>When it is possible to rework defective assemblies at their present routing operation, they can be moved into the Reject intraoperation step of that operation. This isolates them from known 'good' assemblies at that operation.</p>
+<p>The system views assemblies moved into the Reject intraoperation step from the Queue or Run intraoperation step of the same operation as complete at that operation and updates operation completion information, backflushes pull components, and charges resource costs and overheads accordingly.</p>
+<p>You can now perform the rework. When rework is complete you can move the repaired assemblies to the Queue, Run, or To move intraoperation step of the next operation.</p>
+<p>If you do not want to rework defective assemblies at their present operation, you can alternatively move them to the Reject intraoperation step of a prior operation. This avoids recreating an operation completion (Queue or Run to Reject <i>and</i> Queue, Run, or To Move to the next operation) at the current operation.</p>
+<p>If necessary, you can move irreparable assemblies into the Scrap intraoperation step of the current operation. Moves from the Reject to the Scrap intraoperation step, do not complete assemblies since rejected assemblies are already considered complete. See: <a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps</a>.</p>
+<p><b>Rework Operations<a name="d0e36018" id="d0e36018"></a></b></p>
+<p>When you regularly rework certain assemblies, you may find it convenient to add 'rework' operations to the primary routings of these assemblies. You can then move assemblies that need rework into these operations. Good assemblies bypass these operations.</p>
+<p>Rework operations should be set to count point off/autocharge off so that when good assemblies bypass them, the system does not automatically transact operation completions for these operations. In other words, you only need to move assemblies into these operations if they require rework.</p>
+<p><b>Non-Standard Discrete Jobs<a name="d0e36032" id="d0e36032"></a></b></p>
+<p>You can also use non-standard jobs to perform rework activities. Before defining non-standard jobs for rework, you must first complete the defective assemblies by receiving them into a non-nettable rework subinventory. This subinventory helps you to isolate these assemblies from the known good assemblies.</p>
+<p>Once you determine the proper rework steps for these assemblies, you can define a non-standard discrete and add the operations and components required for the rework. You can also create a rework routing that specifically addresses this type of rework. See: <a href="T228107T228112.htm#I_cx2Drewas">Rework Assemblies</a>.</p>
+<h2><a name="1034849"></a><a id="T228275"></a><b>Assembly Scrap</b></h2>
+<p><a name="d0e36049" id="d0e36049"></a><a name="I_cx2Dascrap" id="I_cx2Dascrap"></a>You can scrap unusable, partially completed assemblies from jobs and repetitive schedules by moving them into the Scrap intraoperation step of an operation.</p>
+<p><b>Scrap Transactions<a name="d0e36062" id="d0e36062"></a><a name="d0e36068" id="d0e36068"></a></b></p>
+<p>You scrap assemblies by moving them into the Scrap intraoperation step of an operation. You can, if necessary, <a name="d0e36076" id="d0e36076"></a><a name="d0e36082" id="d0e36082"></a>recover scrapped assemblies by moving them out of the Scrap intraoperation step. You can also move assemblies back to the Scrap intraoperation step of the previous operation from the Queue or Run intraoperation step of the current operation if no work has been completed at the current operation. See: <a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps</a>.</p>
+<p>The system views assemblies moved into the Scrap intraoperation step from the Queue or Run intraoperation step of the same operation as complete at that operation and updates operation completion information, backflushes pull components, and charges resource and overhead costs accordingly.</p>
+<p><b>Costing Assembly Scrap<a name="d0e36097" id="d0e36097"></a></b></p>
+<p>You can optionally specify whether Scrap transactions require a scrap account or alias using the WIP <i>Require Scrap Account</i> parameter. If you enter a scrap account or alias as you move assemblies into a Scrap intraoperation step, the scrap account is debited and the job or repetitive schedule elemental accounts, as determined by the accounting class, are credited for the cost of the assembly through the scrap operation. This removes the cost of the scrapped assemblies from the job or repetitive schedule. If you do not provide a scrap account, the cost of the scrap remains in the job or schedule until job or period close. If you recover assemblies from scrap, the scrap account is credited and the job or repetitive schedule elemental accounts for the cost of this assembly through this operation are debited. For more information about how assembly cost transactions are costed see: Manufacturing Average Cost Transactions in the Cost Management User's Guide.</p>
+<p><b>Netting Assembly Scrap<a name="d0e36111" id="d0e36111"></a></b></p>
+<p>For standard discrete jobs, the planning process does not consider assemblies in Scrap intraoperation steps as scheduled receipts, nor does the planning process use these scrapped assemblies when calculating MPS relief. For standard discrete jobs, the planning process deducts scrapped assemblies from the MRP net quantity to determine the available supply. The planning process does not deduct scrapped assemblies from supply on non-standard discrete jobs or repetitive schedules.</p>
+<p><b>Planning, Scheduling, and Picking</b></p>
+<p>When assemblies are scrapped on a routing, component and item-based resource requirements for future operations are reduced&mdash;reflecting that fewer assemblies are moving to those operations. Reduced requirements are considered when processes like planning, scheduling, or component picking are run after the scrap transaction occurs.</p>
+<p>The assembly scrapped at an operation does not move forward to the succeeding operations, and the number of the assemblies that move through those later operations is not the same as the initial job quantity. Therefore, the actual material requirement at operations succeeding the scrap operation is less than the value calculated during job creation.</p>
+<p>Planning modules consider the Cumulative Scrap Quantity column value in the WIP Operations table for material requirements. The value in this column, for the current operation, is the total number of assemblies scrapped in previous operations. For every scrap transaction, all the operations succeeding the scrap operation has this scrap quantity added to this value. Similarly, whenever a Return from Scrap is performed, the cumulative scrap quantity of the succeeding operations is reduced by the returned quantity. For example:</p>
+<ul>
+<li>
+<p>A job is created with operations 10, 20, 30, 40, and 50.</p>
+</li>
+<li>
+<p>In operation 10 Queue, there is a quantity of 10.</p>
+</li>
+<li>
+<p>Four assemblies are moved to operation 30 and are scrapped. The Cumulative Scrap Quantity value is updated for the operations after 30&mdash;that is, 4 each operations 40 and 50.</p>
+</li>
+<li>
+<p>If 2 assemblies are moved from 30 Scrap to 40 Queue, the Cumulative Scrap Quantity value is adjusted for the succeeding operations 40 and 50.</p>
+<p>This table demonstrates these transactions.</p>
+</li>
+</ul>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Operation</b></th>
+<th scope="col"><b>Queue</b></th>
+<th scope="col"><b>To Move</b></th>
+<th scope="col"><b>Rejected</b></th>
+<th scope="col"><b>Scrapped</b></th>
+<th scope="col"><b>Cumulative Scrap Quantity</b></th>
+</tr>
+<tr valign="top">
+<td>10</td>
+<td>6</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>20</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>30</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>40</td>
+<td>2</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>2</td>
+</tr>
+<tr valign="top">
+<td>50</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>2</td>
+</tr>
+</table>
+<p><b>Backflush Components<a name="d0e36270" id="d0e36270"></a></b></p>
+<p>When you move assemblies into the Scrap intraoperation step of an operation that has operation pull components assigned to it, the system backflushes these components, even if the operation is defined as a non-backflush operation. Operation pull components waiting at prior, non-backflush operations are also backflushed.</p>
+<p>When you move assemblies into the Scrap intraoperation step of an operation that has assembly pull components assigned to it, the system backflushes these components and all assembly pull components at prior operations.</p>
+<p>If you recover assemblies from scrap, by moving assemblies out of instead of into a Scrap intraoperation step, the backflush transactions described above are reversed.</p>
+<p><strong><span>Note:</span></strong> When you scrap assemblies at an operation, the operation and assembly pull components that would have been consumed at subsequent operations are not backflushed.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps</a></p>
+<p><a href="T228107T228116.htm#I_cx2Doppullbk">Operation Pull Backflush Transactions</a></p>
+<p><a href="T228107T228110.htm#I_cx2Dparmmvtx78">Move Transaction Parameters</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dscraptx78g">Scrapping Assemblies</a></p>
+<h2><a name="1034854"></a><a id="T228933"></a><b>Scrapping Assemblies</b></h2>
+<p><a name="d0e36306" id="d0e36306"></a><a name="I_tx2Dscraptx78g" id="I_tx2Dscraptx78g"></a>You scrap assemblies by moving them into a scrap intraoperation step as part of an intraoperation or interoperation move transaction. If you enter a scrap account number or alias, the cost of the assembly through the scrap operation is removed from the job or schedule. See: <a href="T228107T228116.htm#I_cx2Dascrap">Assembly Scrap</a>.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Release a job or repetitive schedule. See: <a href="T228107T228111.htm#I_tx2Ddjrelsg">Releasing Discrete Jobs</a> and <a href="T228107T228114.htm#I_tx2Drsrelsg">Releasing Repetitive Schedule</a>.</li>
+<li>Confirm that the From intraoperation step has a shop floor status that allows you to move assemblies from one intraoperation step to another. See: <a href="T228107T228116.htm#I_tx2Dasfstat">Assigning and Viewing Shop Floor Statuses</a>.</li>
+</ul>
+<p><b>To select a sales order, line/assembly or job to transact</b></p>
+<ol>
+<li>
+<p>Navigate to the Move Transactions window.</p>
+</li>
+<li>
+<p>Select a Sales Order, repetitive Line and Assembly, Assembly, or Job. The cursor defaults to one of these fields based on how you have the <i>TP:WIP:Move Transaction First Field</i> profile option set. See: <a href="T228107T228110.htm#c_profsum">Profile Option Summary</a>.</p>
+<p>You can only select a discrete job or a repetitive line and assembly for a repetitive schedule if the job or schedule has a status of Released or Complete.</p>
+</li>
+</ol>
+<p><b>To perform an intraoperation scrap move</b></p>
+<ol>
+<li>
+<p>Select the From operation Sequence and intraoperation Step.</p>
+</li>
+<li>
+<p>Select the To operation sequence and intraoperation step.</p>
+<p>The To intraoperation step must be Scrap. See: <a href="T228107T228116.htm#I_rx2Dintraops">Intraoperation Steps</a>.</p>
+</li>
+<li>
+<p>Select the <a name="d0e36374" id="d0e36374"></a>UOM. See: Overview of Units of Measure, <i>Oracle Inventory User's Guide</i></p>
+<p>You can use any valid, alternate unit of measure for the assembly you are moving.</p>
+</li>
+<li>
+<p>Enter the transaction <a name="d0e36389" id="d0e36389"></a>Quantity.</p>
+<p>If you selected an alternate unit of measure, you must enter the quantity in the alternate unit of measure.</p>
+</li>
+<li>
+<p>Enter the transaction <a name="d0e36402" id="d0e36402"></a>Date and time.</p>
+<p>This date and time must fall within an open accounting period. It cannot be greater than the current date or less than the release date of the job or the earliest valid repetitive schedule.</p>
+</li>
+<li>
+<p>If the WIP <i>Require Scrap Account</i> parameter is set, you must enter a scrap account <a name="d0e36421" id="d0e36421"></a>number or an account Alias. If you do not specify that a scrap account is required, it is optional. See: <a href="T228107T228110.htm#I_cx2Dparmmvtx78">Move Transaction Parameters</a> and Defining Account Aliases, <i>Oracle Inventory User's Guide</i></p>
+<p>If you subsequently change the To intraoperation step from Scrap to an intraoperation step other than Scrap, you must clear the scrap account Number or Account Alias.</p>
+<p>For more information about how scrap transactions are costed see: Manufacturing Average Cost Transactions in the Cost Management User's Guide, and Work in Process Standard Cost Transactions, <i>Oracle Cost Management User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally, select the <a name="d0e36444" id="d0e36444"></a>Reason code. See: Defining Transaction Reasons, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally, enter the transaction <a name="d0e36458" id="d0e36458"></a>Reference.</p>
+<p>References can be used to identify transactions on standard reports. They can be up to 240 characters of alpha numeric text.</p>
+</li>
+<li>
+<p>Choose the Transact button.</p>
+</li>
+</ol>
+<p><b>To backflush pull components</b></p>
+<ol>
+<li>
+<p>See: <a href="T228107T228116.htm#I_tx2Dbckflshg">Backflushing Pull Components</a>.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228116.htm#I_cx2Droutsup">Setting Up Shop Floor Control</a></p>
+<p><a href="T228107T228116.htm#I_tx2Dmoves">Performing Move Transactions</a></p>
+<p><a href="T228107T228117.htm#I_cx2Dresovw">Overview of Resource Management</a></p>
+<p>Assigning Lot Numbers, <i>Oracle Inventory User's Guide</i></p>
+<p>Assigning Serial Numbers, <i>Oracle Inventory User's Guide</i></p>
+<h2><a name="1034859"></a><a id="T228934"></a><b>Dispatch Reports</b></h2>
+<p><a name="d0e36506" id="d0e36506"></a><a name="d0e36512" id="d0e36512"></a><a name="d0e36518" id="d0e36518"></a><a name="I_cx2Ddptchrptg" id="I_cx2Ddptchrptg"></a>There are a number of reports that can help you prioritize your shop floor activity, including:</p>
+<ul>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwipdjdat">Discrete Job Data Report</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwipdjdsp">Discrete Job Dispatch Report</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwipdjlis">Discrete Job Listing Report</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwiprelin">Repetitive Line Report</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwipredat">Repetitive Schedule Data Report</a></p>
+</li>
+<li>
+<p><a href="T228107T228123.htm#I_rx2Dwipmtlct">WIP Location Report</a></p>
+</li>
+</ul>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Cost Management User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Cost Management User's Guide">
+<meta name="dcterms.identifier" content="E48829-27">
+<meta name="dcterms.isVersionOf" content="CSTUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T372621T378952.htm" title="Previous" type="text/html">
+<link rel="Next" href="T372621T378953.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Cost Management User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">15/29</span> <!-- End Header -->
+<h1>Iterative Periodic Average Costing</h1>
+<h2><a name="5022703"></a><a id="T514643"></a><b>Iterative Periodic Average Costing (IPAC) Overview</b></h2>
+<p><a name="d0e36066" id="d0e36066"></a><a name="d0e36072" id="d0e36072"></a><a name="d0e36078" id="d0e36078"></a><a name="cst_ipacoverview" id="cst_ipacoverview"></a>Iterative Periodic Average Costing (IPAC) is an alternative approach to standard periodic average costing and differs in the method of valuating the inter-organization transfers across cost groups. It is applicable in countries where the standards of cost absorption for inter-organization transfers across cost groups are more stringent and are not met by standard Periodic Average Costing (PAC). The inter-organization transfers that are impacted in this costing model are those transfers across cost groups within the same legal entity. Inter-organization transfers within the same cost group or across cost groups in different legal entities are not impacted in this costing model.</p>
+<h3><a id="T514645"></a><b>Glossary</b></h3>
+<p><b>Cost Group</b></p>
+<p>One or more premises of a company (e.g. manufacturing plants and/or warehouses) considered as a unit for costing purposes. All the premises belonging to the same cost group will carry the same unit cost.</p>
+<p><b>Cost Owned Transactions</b></p>
+<p>Cost owned transactions are transactions that carry their own costs and are used to compute the periodic average unit cost, which is applied to cost derived transactions. Some examples of cost owned transactions include PO receipts, WIP job completions, miscellaneous transactions with cost, and inter-organization transfers across cost groups.</p>
+<p><b>Cost Derived Transactions</b></p>
+<p>Cost-derived transactions are transactions that are transacted at the newly computed periodic average unit cost of the period. Some examples include sales order issue, issues to WIP job, material issues, and returns to WIP.</p>
+<p><b>Periodic Moving Average Cost</b></p>
+<p>Periodic Moving Average Cost (PMAC) is the cost computed by moving the previous period's cost and inventory balance at each step of the PAC calculation process for the current period. PMAC is used during the iteration process for valuating inter-organization transfers across cost groups. The final PMAC computed after valuating all transactions is the PAC for the period. PMAC is calculated as follows:</p>
+<p>PMAC = ((Prior Cost * Prior Quantity) + (Inter-organization receipt quantity * PMAC cost of the corresponding shipment cost group)) / (Prior Quantity + inter-organization receipt qty)</p>
+<p>Where: Prior Quantity: Previous Period Quantity + SUM (Transaction Quantity).</p>
+<p>Prior Cost: ((Previous Period Quantity * Previous Period Cost) + SUM (Transaction Quantity * Transaction Cost)) / (Prior Quantity + SUM Transaction Quantity)</p>
+<p><b>Previous Period Cost</b></p>
+<p>The previous periods' Item cost.</p>
+<p><b>Transaction Quantity</b></p>
+<p>Receipt transaction quantities not including inter-organization receipts in the current period.</p>
+<p><b>Transaction Cost</b></p>
+<p>Receipt estimated prices or vendor's invoice final prices within the costing period.</p>
+<p><b>Recursive Inter-organization Transfers</b></p>
+<p>Recursive inter-organization transfers refer to goods that move in both directions between two cost groups. One cost group ships to and also receives from the other cost group the same item.</p>
+<h2><a name="5022704"></a><a id="T514644"></a><b>Comparing IPAC and Standard Periodic Average Costing</b></h2>
+<p><a name="d0e36144" id="d0e36144"></a><a name="cst_ipacandstdcost" id="cst_ipacandstdcost"></a>IPAC model is different from standard PAC in the following areas:</p>
+<ul>
+<li>
+<p>IPAC model uses the current PMAC for valuating the inter-organization transfers across cost groups. Standard PAC uses the prior period PAC for these transfers.</p>
+</li>
+<li>
+<p>When recursive transfers across cost groups exist (when both shipments and receipts occur between two cost groups for the same item) an iteration process is used to derive the periodic cost to minimize the variance. Standard PAC does not treat these transactions in any special manner.</p>
+</li>
+<li>
+<p>Items are processed in a specific hierarchy during cost rollup to ensure that the iteration process for the child items is completed before they are rolled up into parent items' cost.</p>
+</li>
+</ul>
+<p>The detailed differences between IPAC and standard PAC can be described by the differences in how the detailed PAC calculation steps are processed between these two costing models. In standard PAC, there are different phases of calculation and you must run three concurrent programs to complete the entire process. Details are as follows:</p>
+<ol>
+<li>
+<p><b>Acquisition Cost Processor</b>: This program runs Phase 1 where acquisition cost is calculated.</p>
+</li>
+<li>
+<p><b>Periodic Cost Processor</b>: This program runs Phase 2 through Phase 5. Periodic cost is calculated during phase 5 and preceding phases process the transactions to facilitate the periodic cost calculation in Phase 5.</p>
+</li>
+<li>
+<p><b>Periodic Cost Distributions Processor</b>: This program runs Phase 6 where distributions are created.</p>
+<p><strong><span>Note:</span></strong> The first two programs are run separately for each cost group in standard PAC.</p>
+</li>
+</ol>
+<p>In the IPAC method, a single program is used to run the acquisition cost processor and the periodic cost processor, and this program runs concurrently for all cost groups under a legal entity. The primary difference in the IPAC process is during Phase 5. In both standard PAC and IPAC, Phase 5 is further divided into several steps, one of such steps processes the cost owned transactions to compute the PAC that is used in subsequent steps. In standard PAC, inter-organization transfers across cost groups are processed with the other cost owned transactions such as PO receipt. In IPAC, these transfers are segregated and processed separately from the other cost owned transactions. The two significant processes used in the valuation of these inter-organization transfers across cost groups include:</p>
+<ol>
+<li>
+<p>Using an iteration process to reduce variance.</p>
+</li>
+<li>
+<p>Using specific sequencing, referred to as absorption hierarchy, for processing items to ensure that the iteration process for child items is completed before their costs are rolled up into the parent items' cost.</p>
+</li>
+</ol>
+<h2><a name="5022971"></a><a id="T514689"></a><b>Iteration Process</b></h2>
+<p><a name="d0e36198" id="d0e36198"></a><a name="d0e36204" id="d0e36204"></a><a name="cst_iterationprocess" id="cst_iterationprocess"></a>The significance of the iteration process is illustrated in the following example.</p>
+<p>There are two cost groups, CGA and CGB, under the same legal entity. Each cost group is associated with the appropriate inventory organizations. Use an example of a recursive inter-organization transfer of Item A between these two cost groups. Period beginning quantity and prior period PAC in CGA are 10 each and $9 respectively. Similarly in CGB they are 20 each and $12 respectively. PMAC is the current period moving periodic cost calculated prior to valuating the inter-organization transfers.</p>
+<p><img width="750" height="131" src="./img/cst_ipac1.gif" alt="the picture is described in the document text"></p>
+<p>This transfer can be viewed as four transactions:</p>
+<ol>
+<li>
+<p>TX1 is inter-organization shipment from CGA</p>
+</li>
+<li>
+<p>TX2 is inter-organization receipt into CGB</p>
+</li>
+<li>
+<p>TX3 is inter-organization shipment from CGB</p>
+</li>
+<li>
+<p>TX4 is inter-organization receipt into CGA</p>
+</li>
+</ol>
+<p><b>Standard PAC:</b></p>
+<p>In standard PAC, TX1 and TX2 are valuated at $9 (prior period PAC of sending cost group) and TX3 and TX4 are valuated at $12.</p>
+<p><b>IPAC:</b></p>
+<p>In IPAC, these transactions are valuated using an iteration process. At the end of each iteration, item PMAC cost (aggregate of all sub-elemental costs) is compared with the item PMAC cost derived in the previous iteration and it is verified that the difference is within the tolerance. Tolerance can be specified when running this process. PMAC is calculated using the following formula:</p>
+<p><img width="656" height="49" src="./img/cst_ipac2.gif" alt="the picture is described in the document text"></p>
+<p>You should first consider CGA. TX4 is a receipt and must be valuated with PMAC of CGB: 15. Based on this, the revised PMAC for CGA is 10.833. Use this to valuate TX1 and TX2. Based on this, the revised PMAC in CGB is 14.6212. At the end of one iteration, the costs in both cost groups are:</p>
+<p><img width="677" height="52" src="./img/cst_ipac3.gif" alt="the picture is described in the document text"></p>
+<p>Because the tolerance check is done between the item cost in nth iteration with the item cost in the previous n-1 iteration, no tolerance check is done after the first iteration. Tolerance check is done from 2nd iteration onwards. In this case, the second iteration is performed at the end and the costs will be as follows:</p>
+<p><img width="713" height="52" src="./img/cst_ipac4.gif" alt="the picture is described in the document text"></p>
+<p>Differences after the second iteration are as follows:</p>
+<p>CGA: 10.8333 - 10.7702 = 0.063</p>
+<p>CGB: 14.6212 - 14.6154 = 0.0058</p>
+<p>Because the difference is within tolerance, the iteration for the item ends at this point and these costs are used as periodic costs for further processing.</p>
+<p><b>Diverging Scenarios</b></p>
+<p>In cases of negative inventory scenarios tolerance, the differences between successive iterations may diverge. This means that the difference increases rather than decreases between two iterations. In such cases, the iteration process is stopped for the item in those cost groups, but the process continues for the other entire cost group until completion.</p>
+<p><b>Absorption Hierarchy</b></p>
+<p>Absorption hierarchy determines the correct sequence for processing items. This absorption hierarchy is derived based on the BOM level of an item across cost groups. Use the following procedure to determine the absorption hierarchy:</p>
+<ul>
+<li>
+<p>Identify the corresponding level in all existing BOM across cost groups for each item.</p>
+</li>
+<li>
+<p>Identify the highest BOM level across cost groups. Items that are not involved in any BOM are treated as leaf nodes, or at the lowest BOM level.</p>
+</li>
+<li>
+<p>Create a unique hierarchy with the levels identified in the previous step, further resolving any interdependencies of the item levels across cost groups. This hierarchy determines the priority sequence in which items should be processed. The process starts from the lowest level (leaf nodes) and moves to the highest parent level.</p>
+</li>
+</ul>
+<p>The following example illustrates the Absorption Hierarchy:</p>
+<p><img width="482" height="253" src="./img/cst_ipac5.gif" alt="the picture is described in the document text"></p>
+<p>In this example, there are three cost groups CG1, CG2 and CG3. There are three BOM structures with different items in different levels. The lowest BOM level is considered as the leaf node and is represented by number 1000. The next higher levels are represented as 999, 998 and so on. The BOM level for each cost group from the above illustration will be:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>CG1</b></th>
+<th scope="col"><b>CG2</b></th>
+<th scope="col"><b>CG3</b></th>
+<th scope="col"><b>Highest</b></th>
+</tr>
+<tr valign="top">
+<td>F3</td>
+<td>1000</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>1000</td>
+</tr>
+<tr valign="top">
+<td>M1</td>
+<td>999</td>
+<td>&nbsp;</td>
+<td>1000</td>
+<td>999</td>
+</tr>
+<tr valign="top">
+<td>T1</td>
+<td>998</td>
+<td>1000</td>
+<td>&nbsp;</td>
+<td>998</td>
+</tr>
+<tr valign="top">
+<td>C1</td>
+<td>&nbsp;</td>
+<td>1000</td>
+<td>1000</td>
+<td>1000</td>
+</tr>
+<tr valign="top">
+<td>T4</td>
+<td>&nbsp;</td>
+<td>998</td>
+<td>1000</td>
+<td>998</td>
+</tr>
+<tr valign="top">
+<td>M6</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>999</td>
+<td>999</td>
+</tr>
+<tr valign="top">
+<td>T3</td>
+<td>&nbsp;</td>
+<td>999</td>
+<td>&nbsp;</td>
+<td>999</td>
+</tr>
+</table>
+<p>Further analysis is done to resolve the item level dependencies between cost groups. In the above example, items M1, M6, and T3 are at the same level of 999. However, T3 cannot be processed before T1 because T1 is a child item for T3 in cost group 2. Similarly, M6 cannot be processed before M1 and T3. Such interdependencies are resolved and a unique hierarchy of eligible items is derived for this example as follows:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>New Level Codes</b></th>
+</tr>
+<tr valign="top">
+<td>F3, C1</td>
+<td>1000.0000</td>
+</tr>
+<tr valign="top">
+<td>M1</td>
+<td>999.0000</td>
+</tr>
+<tr valign="top">
+<td>T1</td>
+<td>998.0000</td>
+</tr>
+<tr valign="top">
+<td>T3</td>
+<td>997.0000</td>
+</tr>
+<tr valign="top">
+<td>T4</td>
+<td>996.0000</td>
+</tr>
+<tr valign="top">
+<td>M6</td>
+<td>995.0000</td>
+</tr>
+</table>
+<p>Items F3 and C1 are first processed for deriving their periodic costs, and then the next level of items are processed.</p>
+<p><b>Deadlock Scenario</b></p>
+<p>There can be a deadlock scenario when there are BOM loops across cost groups. in a deadlock scenario, the same item is a parent and child of another item. For example, Item A is a parent of Item B in cost group 1, and Item B is a parent of Item A in cost group 2. In such cases, the IPAC process ends abruptly and you must resolve the deadlock scenario and run the process again.</p>
+<h2><a name="5023109"></a><a id="T514691"></a><b>Setting Up IPAC</b></h2>
+<p><a name="d0e36502" id="d0e36502"></a><a name="d0e36508" id="d0e36508"></a><a name="cst_ipacsetup" id="cst_ipacsetup"></a>IPAC is set up in the same way as standard PAC. The only additional step is to enable IPAC when defining the legal entity cost type associations.</p>
+<p><b>To enable or disable IPAC</b></p>
+<ol>
+<li>
+<p>Navigate to the Org Cost Group / Cost Type Associations window.</p>
+<p><img width="662" height="482" src="./img/cst_ipac6.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the Cost Type Associations tab.</p>
+</li>
+<li>
+<p>Select the <b>Enable Iterative Periodic Average Costing</b> check box to use IPAC.</p>
+</li>
+<li>
+<p>You can also select the <b>Perform Multiple Iterations</b> check box. This attribute determines whether multiple iterations should be performed until the tolerance is achieved when inter-organization transfers across cost groups are processed. If this is not checked, then only one iteration is performed.</p>
+<p><strong><span>Note:</span></strong> You can leave this unchecked to improve the performance if you do not follow stringent standards to comply with the tolerance.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<h2><a name="5023111"></a><a id="T514692"></a><b>Running IPAC</b></h2>
+<p><a name="d0e36559" id="d0e36559"></a><a name="d0e36565" id="d0e36565"></a><a name="cst_runningIPAC" id="cst_runningIPAC"></a><a name="SRS.CST_INTERORG_TRANSFER" id="SRS.CST_INTERORG_TRANSFER"></a>IPAC is calculated by running the Compute Iterative Periodic Average Cost concurrent program.</p>
+<p><b>To run the Compute Iterative Periodic Average Cost concurrent program</b></p>
+<ol>
+<li>
+<p>Navigate to the Compute Iterative Periodic Average Cost concurrent window. The Parameters window displays.</p>
+<p><strong><span>Note:</span></strong> Run this process for all cost groups under a legal entity and cost type.</p>
+<p><img width="637" height="275" src="./img/cst_ipac7.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter <b>Run Options</b>. Run Options include Start, Resume From Error, Resume for Non Tolerance, and Final Iteration.</p>
+<ul>
+<li>
+<p><b>Start</b> - Start the processor from the beginning. The application will re-run the process for all items and transactions, regardless whether the tolerance is achieved for any of them in earlier runs.</p>
+</li>
+<li>
+<p><b>Resume from Error</b> - Resume from error can be used when the program ends abruptly due to some unexpected errors or due to deadlock scenario.</p>
+</li>
+<li>
+<p><b>Resume for Non Tolerance</b> - Resume from non-tolerance can be used when the program ends but the tolerance is not achieved. This option resumes the processor from the Rollup Iteration Process, only for those items that have not met the tolerance required, in earlier run.</p>
+</li>
+<li>
+<p><b>Final Iteration</b> - Finish the iteration process regardless of the tolerance achieved for the items. The option Final Iteration can be used when the earlier run ends in non-tolerance but you would like to finalize the periodic costs with whatever values are arrived at after one more final iteration. This option is applicable if you are not too particular of achieving the tolerance.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter <b>Process Upto Date</b>. This value defaults to the end date of the current period. You can specify the date for selecting the transactions that should be processed by the program. This date must be within the period specified above.</p>
+</li>
+<li>
+<p>Enter <b>Tolerance</b>. Specify the tolerance that the variance should be within.</p>
+</li>
+<li>
+<p>Enter <b>Number Of Iterations</b>. This is the maximum number of iterations that should be performed. The iteration process ends after the tolerance specified is achieved or the number of iterations is completed, whichever occurs first.</p>
+</li>
+<li>
+<p>Specify the <b>Number Of Workers</b>. You can specify the number of workers that can be processed simultaneously to enable parallel processing and to improve performance. This number should be less than or equal to the number of cost groups.</p>
+</li>
+<li>
+<p>Click OK.</p>
+</li>
+</ol>
+<p>The report output of the process displays the detailed iteration calculation for all items and cost groups. You can review the report for details. Any errors or exception scenarios are included in the report. A typical report output would look like the following:</p>
+<p><img width="799" height="427" src="./img/cst_ipac8.gif" alt="the picture is described in the document text"></p>
+<h2><a name="5023113"></a><a id="T514693"></a><b>Viewing IPAC Process Status For a Period</b></h2>
+<p><a name="d0e36661" id="d0e36661"></a><a name="d0e36665" id="d0e36665"></a><a name="cst_ipactrackprocessstatus" id="cst_ipactrackprocessstatus"></a>There is not a separate phase for tracking the IPAC process. The cost processing phase is used for tracking and viewing the process status for a period.</p>
+<p><b>To view IPAC process status for a period</b></p>
+<ol>
+<li>
+<p>Navigate to the Process Status window.</p>
+<p><img width="762" height="431" src="./img/cst_ipac9.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> If the program ends in non-tolerance, then the status is shown as Resume for Non-tolerance.</p>
+</li>
+</ol>
+<p><b>Viewing Periodic Cost calculated by IPAC</b></p>
+<p>The same item cost inquiry used for standard PAC is used to view the costs calculated by IPAC.</p>
+<p><b>Creating Distributions</b></p>
+<p>There is no change in the way distributions are created when IPAC is enabled. Distributions are created in the same way when standard PAC is enabled.</p>
+<p><b>Enhancements in Release 12</b></p>
+<p>Release 12 includes the following enhancements:</p>
+<ul>
+<li>
+<p>The iteration process is optional and you can choose not to use the iteration process while enabling IPAC at the legal entity and cost type level.</p>
+</li>
+<li>
+<p>EAM organizations are supported.</p>
+</li>
+<li>
+<p>Transfer cost specified on the organization parameters or shipping network is applied on the basis of PMAC. It was based on the perpetual cost prior to Release 12.</p>
+</li>
+<li>
+<p>Because Oracle Process Manufacturing (OPM) and discrete organizations are converged at the inventory organization level, inter-organization receipts from an OPM organization are processed like any other cost owned receipts. The price of the receipt is determined from the transfer price list specified in the shipping network between these two organizations, or you can use the client hook provided to pass the desired price.</p>
+</li>
+<li>
+<p>PAC supports transfer price for internal movements processed using internal orders. Therefore, IPAC does not process internal order shipments and receipts when transfer price is applicable. If the profile option CST: Transfer Pricing Option is set to Yes, Price as incoming cost, then such transactions are excluded from the iteration process.</p>
+</li>
+</ul>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

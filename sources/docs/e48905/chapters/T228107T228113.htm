@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Work in Process User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Work In Process User's Guide">
+<meta name="dcterms.identifier" content="E48905-25">
+<meta name="dcterms.isVersionOf" content="WIPUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T228107T228112.htm" title="Previous" type="text/html">
+<link rel="Next" href="T228107T228114.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Work in Process User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">11/31</span> <!-- End Header -->
+<h1>Flow Manufacturing</h1>
+<p>This chapter explains how to use Flow Manufacturing in Work in Process.</p>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#I_cx2Dcfmovw">Overview of Flow Manufacturing</a></li>
+<li><a href="#T228885">Setting Up Flow Manufacturing</a></li>
+<li><a href="#I_cx2Dflowsch">Flow Schedules</a></li>
+<li><a href="#T228212">Work Order-less Completions Window</a></li>
+<li><a href="#T228886">Performing Work Order-less Completions</a></li>
+<li><a href="#T228887">Scrapping Flow Schedule Assemblies</a></li>
+<li><a href="#I_flwwkstn">Overview of the Flow Workstation</a></li>
+<li><a href="#T228888">Selecting the Line and Line Operation</a></li>
+<li><a href="#I_flwtretb">The Flow Workstation Branches and Tabs</a></li>
+<li><a href="#I_flwtx78n">Flow Workstation Transactions</a></li>
+<li><a href="#I_linldprp">Linearity, Load, and Properties of the Line</a></li>
+<li><a href="#I_opnschev">Open Schedules and Events</a></li>
+<li><a href="#T228889">Buttons on Open Schedule Tabs</a></li>
+</ul>
+<h2><a name="1034393"></a><a id="I_cx2Dcfmovw"></a><b>Overview of Flow Manufacturing</b></h2>
+<p><a name="d0e20343" id="d0e20343"></a>Flow Manufacturing is a set of manufacturing processes and techniques designed to reduce product cycle time through line design and line balancing, reduce product costs by minimizing inventories and increasing inventory turns, and to enhance product quality through total quality control. It is significantly different from other manufacturing processes in that it is a just-in-time (JIT) or demand-based "pull" system that manufactures to customer order.</p>
+<h3><b>A Multi-Mode Environment</b></h3>
+<p>Integrating Flow Manufacturing with other Oracle Applications such as Work in Process enables you to operate in a multi-mode environment. This means that you can concurrently implement Discrete, Repetitive, and Flow manufacturing methods in the same or different inventory organizations by plant, product family, assembly line, or process. For example, you can produce some of your product families in the Flow environment and others in the Discrete environment.</p>
+<h3><b>Mixed-Model Production</b></h3>
+<p>Flow Manufacturing uses dedicated assembly lines that are designed to support the manufacture of product families through mixed-model production. Mixed-model production enables you to produce any item in a product family in any sequence and in a lot size of one. To ensure optimum resource utilization and the smooth flow of materials, lines are designed to minimize bottlenecks, to eliminate non value-added tasks, and to integrate quality inspections into the process.</p>
+<p>When setting up Flow Manufacturing assembly lines, the goal is to set up balanced lines that enable you to meet the expected demand in the shortest possible time. Using "pull" manufacturing, materials flow through the line at a steady rate (known as TAKT time), starting with the final assembly operation.</p>
+<p>Mixed-model production is driven by <i>Flow schedules</i>, rather than by Discrete work orders, and uses existing Flow routings. Schedules are sequenced based on customer orders, and component material is managed, and replenished at its point-of-use by kanban bins and signals.</p>
+<h3><b>Kanban Material Replenishment</b></h3>
+<p>In Oracle Flow Manufacturing, you can both plan and execute kanbans, a method of just-in-time material replenishment that can be applied to the production of items with relatively constant demand and medium to high production volume. Kanban material replenishment is a self-regulating pull system that uses replenishment signals (kanbans) to pull the minimum amount of material possible into production bins when needed to meet demand.</p>
+<p>When material is needed, a kanban signal is sent electronically or manually to feeding operations and/or external suppliers. A <i>supplier kanban</i> may automatically trigger a purchase order to a supplier, while an <i>internal kanban</i> results in an inter-organizational transfer.</p>
+<p><strong>Related Topics</strong></p>
+<p>Kanban Planning and Execution, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Line Scheduling Workbench Options Window, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Product Synchronization, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Pull Sequence Window, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<h2><a name="1034397"></a><a id="T228208"></a><b>Flow Manufacturing Integration with Work in Process</b></h2>
+<p><a name="I_cx2Dflwinteg" id="I_cx2Dflwinteg"></a>Integrating Flow Manufacturing with Work in Process has simplified production execution. The following overviews provide you with a brief introduction to the Flow Manufacturing features provided in Work in Process:</p>
+<h3><b>Work Order-less Assembly Completions and Returns<a name="d0e20412" id="d0e20412"></a><a name="d0e20418" id="d0e20418"></a></b></h3>
+<p>You can complete and return flow schedules and unscheduled flow assemblies without having to create a work order. When you perform a WIP Assembly Completion, operation pull, assembly pull, and push components are backflushed and resources and overheads are charged. For a WIP Assembly Return, operation pull, assembly pull, and push components are returned to inventory and resource and overhead transactions are reversed. You perform these transactions on the Work Order-less Completions window, which you can open from both the Flow Manufacturing and Work in Process menus.</p>
+<h3><b>Quality Data Collection during Work Order-less Completions<a name="d0e20429" id="d0e20429"></a></b></h3>
+<p>You can collect quality results data when you complete Flow schedules and unscheduled assemblies on the Work Order-less Completions window. When you set up a collection plan to associate with a Work Order-less completion transaction, you can specify mandatory quality data collection, in which case, the user must enter quality results before completing the transaction. You also can specify that quality data is collected automatically in the background. Detailed information on setting up collection plans for recording quality data during transactions is available in the <i>Oracle Quality User's Guide.</i></p>
+<h3><b>Assembly Scrap and Return of Scrap<a name="d0e20442" id="d0e20442"></a><a name="d0e20448" id="d0e20448"></a></b></h3>
+<p>You can scrap and return from scrap both scheduled and unscheduled assemblies at any operation. This can be performed for assemblies where no routing exists. Operation and assembly pull, and push components at events prior to the scrap line operation are automatically backflushed. You can substitute components at any operation on or prior to the scrap operation. You can specify a scrap account for scrap and return from scrap transactions.</p>
+<h3><b>Component Substitutions<a name="d0e20459" id="d0e20459"></a><a name="d0e20465" id="d0e20465"></a><a name="d0e20471" id="d0e20471"></a></b></h3>
+<p>You can add, delete, and substitute components that are not normally associated with the assembly you are building.</p>
+<h3><b>Component Backflush<a name="d0e20482" id="d0e20482"></a><a name="d0e20488" id="d0e20488"></a><a name="d0e20494" id="d0e20494"></a></b></h3>
+<p>Operation Pull, assembly Pull, and Push components are automatically backflushed when you complete a Flow schedule. Conversely, when you return Flow assemblies, reversing transactions are created. Bulk and supplier components are not backflushed. The bills for phantom components are exploded and the phantom's components are backflushed when transactions are saved.</p>
+<p>For Mobile Applications work orderless completions, Pull components requiring additional information such as lot or serial number, can be over or under issued. The Work in Process parameter, Allow Quantity Changes During Backflush, provides this ability. See: <a href="T228107T228115.htm#I_cx2Dwipssl">Backflush Supply Subinventories and Locators</a></p>
+<h3><b>Production Kanban Replenishment<a name="d0e20509" id="d0e20509"></a><a name="d0e20515" id="d0e20515"></a><a name="d0e20521" id="d0e20521"></a></b></h3>
+<p>You can use kanban signals to create a discrete job, repetitive schedule, or Flow schedule (or you can use existing job or schedule) to replenish production kanbans whose supply status is <i>Empty</i> or <i>In Process.</i> Production kanbans for discrete jobs or repetitive schedules are replenished when assemblies are completed through the Completion or Move Transaction form. Production kanbans for scheduled and unscheduled flow assemblies are completed on the Work Order-less Completion form.</p>
+<p>You can complete an assembly into the subinventory or locator specified by the kanban. The first assembly completed automatically updates the supply status of its production kanban to <i>Full.</i></p>
+<h3><b>Lot and Serial Number Control<a name="d0e20542" id="d0e20542"></a><a name="d0e20548" id="d0e20548"></a></b></h3>
+<p>You can specify lot, serial, and lot and serial number information for assemblies and components when you perform Work Order-less Completion transactions. You also can set the WIP <i>Lot Selection Method</i> parameter to specify whether lot controlled components are selected manually or automatically during backflush transactions. If you specify manual selection, you select which lots are used; if you specify automatic selection, lots are selected on the basis of their inventory expiration or receipt date. See: <a href="T228107T228110.htm#I_cx2Dparmbf">Backflush Parameters</a> and <a href="T228107T228115.htm#I_cx2Dlsnbf">Lot and Serial Number Backflushing</a>.</p>
+<h3><b>ATO (Assemble-to-Order) Reservations<a name="d0e20568" id="d0e20568"></a><a name="d0e20574" id="d0e20574"></a><a name="d0e20580" id="d0e20580"></a></b></h3>
+<p>You can accept a customer order, generate a Flow schedule, and complete it using a Work Order-less Completion transaction. Components are automatically reserved to satisfy that specific sales order.</p>
+<h3><b>Sales Order Reservations<a name="d0e20591" id="d0e20591"></a><a name="d0e20597" id="d0e20597"></a><a name="d0e20603" id="d0e20603"></a></b></h3>
+<p>You can reserve the assemblies being built on a Flow schedule to a sales order. One or more Flow schedules can be used to satisfy a sales order. Sales order lines cannot be satisfied by both discrete jobs and Flow schedules.</p>
+<h3><b>Inventory Transaction Open Interface<a name="d0e20614" id="d0e20614"></a><a name="d0e20618" id="d0e20618"></a></b></h3>
+<p>You can load work order-less completion transaction information from external systems - such as bar code readers and other data collection devices - into the Inventory Transaction Open Interface. When this data is processed, it is validated, and invalid records are marked so that you can correct and resubmit them</p>
+<h3><b>Mobile Manufacturing<a name="d0e20629" id="d0e20629"></a><a name="d0e20635" id="d0e20635"></a></b></h3>
+<p>Oracle Mobile Manufacturing is the component of Oracle Mobile Supply Chain Applications used for Oracle Work in Process transactions. The interface of a mobile client device with a networked computer system is used to create transactions. You can perform Flow Manufacturing completion and scrap transactions, and work order-less completions.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228113.htm#I_tx2Dwocmpltg">Performing Work Order-less Completions</a></p>
+<p><a href="T228107T228115.htm#I_tx2Dcawi">Completing and Returning Assemblies</a></p>
+<p><a href="T228107T228116.htm#I_cx2Dovwmtx78n">Performing Move Transactions</a></p>
+<p>Line Scheduling Workbench Options Window, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Product Synchronization, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Pull Sequence Window, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<h2><a name="1034409"></a><a id="T228885"></a><b>Setting Up Flow Manufacturing</b></h2>
+<a name="d0e20675" id="d0e20675"></a><a name="d0e20681" id="d0e20681"></a><a name="I_cx2Dsupcfm" id="I_cx2Dsupcfm"></a>
+<ul>
+<li>
+<p>For a listing of setups within Work in Process that affect flow manufacturing see: <a href="T228107T228110.htm#I_cx2Dchklst">Setup Check List</a></p>
+</li>
+<li>
+<p>For additional information about parameters and accounting classes see: <a href="T228107T228110.htm#I_cx2Dwipparams">WIP Parameters</a> and <a href="T228107T228110.htm#I_cx2Ddjacctcl">WIP Accounting Classes</a></p>
+</li>
+<li>
+<p>For a listing of profile options that affect Flow manufacturing see: <a href="T228107T228110.htm#c_profdesc">Profile Option Descriptions</a></p>
+</li>
+<li>
+<p>For information on setting up flow routings see: Creating a Flow Routing, <i>Oracle Flow Manufacturing User's Guide</i></p>
+</li>
+<li>
+<p>For information on defining scheduling rules see: Defining Scheduling Rules, <i>Oracle MRP User's Guide</i></p>
+</li>
+<li>
+<p>For information on creating standard events see: Defining Flow Manufacturing Standard Events, <i>Oracle Flow Manufacturing User's Guide</i></p>
+</li>
+<li>
+<p>For information on creating flow lines see: Overview of the Graphical Line Designer Workbench, <i>Oracle Flow Manufacturing User's Guide</i></p>
+</li>
+</ul>
+<h2><a name="1034410"></a><a id="I_cx2Dflowsch"></a><b>Flow Schedules<a name="d0e20732" id="d0e20732"></a><a name="d0e20736" id="d0e20736"></a><a name="d0e20742" id="d0e20742"></a></b></h2>
+<p>Flow schedules are production schedules for assemblies produced on Flow Manufacturing lines. They are created to meet planned production orders and/or sales orders. You can link sales orders to flow schedules, and you also have the option to reserve the schedule's completed assemblies to the associated sales order.</p>
+<p>You create flow schedules on the Flow Manufacturing Line Scheduling Workbench. Flow schedules are scheduled within a line and optionally within a schedule group. Once you create a flow schedule, you can use the Work Order-less Completions window to perform completion, return, and scrap transactions.</p>
+<p><strong>Related Topics</strong></p>
+<p>Line Scheduling Workbench Options Window, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<h2><a name="1034411"></a><a id="T228209"></a><b>Flow Schedule Completions</b></h2>
+<p><a name="d0e20764" id="d0e20764"></a><a name="d0e20770" id="d0e20770"></a><a name="d0e20776" id="d0e20776"></a><a name="d0e20782" id="d0e20782"></a><a name="d0e20788" id="d0e20788"></a><a name="I_cx2Dflwcmpln" id="I_cx2Dflwcmpln"></a>You perform completion transactions for flow schedules in the Work Order-less Completions window. At the time of completion, material is automatically backflushed and resources and overheads are charged. You can create completion transactions for:</p>
+<ul>
+<li>
+<p>Assemblies for flow schedules created in Flow Manufacturing, or created to replenish production kanbans</p>
+</li>
+<li>
+<p>Scheduled and unscheduled assemblies</p>
+</li>
+</ul>
+<p>You can also use kanban signals to create a flow schedule completion when the kanban card status is changed to Full (notifies you that the order has been filled).</p>
+<p><strong><span>Note:</span></strong> The ability to stop completion transactions if all the push type components have not been issued to the schedule can be set in a profile option, see: <a href="T228107T228110.htm#valpush">WIP:Validate Push Components at WIP Completion</a></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228113.htm#c_wolc">Work Order-less Completions</a></p>
+<p><a href="T228107T228113.htm#I_tx2Dwocmpltg">Performing Work Order-less Completions</a></p>
+<h2><a name="1034412"></a><a id="T228210"></a><b>Flow Schedule Reservations</b></h2>
+<p><a name="d0e20825" id="d0e20825"></a><a name="d0e20831" id="d0e20831"></a><a name="d0e20837" id="d0e20837"></a><a name="d0e20843" id="d0e20843"></a><a name="d0e20849" id="d0e20849"></a><a name="I_cx2Dflowso" id="I_cx2Dflowso"></a>You can use assemblies that have been completed into Inventory through work order-less completions to satisfy sales orders. Unlike discrete manufacturing, these sales orders are not required to be assemble-to-order (ATO) sales orders.</p>
+<p>For both scheduled and unscheduled sales orders, you specify that assemblies from a single flow schedule can fill multiple sales orders. For scheduled flow schedules only, you can specify that assemblies from a single sales order satisfy multiple flow schedules.</p>
+<p>You can designate the sales order to the schedule when it is created in the Line Scheduling Workbench. This sales order is for reference and does not create a reservation.</p>
+<p><strong><span>Note:</span></strong> If you are using Oracle Mobile Supply Chain Applications for your work order-less completions transactions, only configured to order (CTO) flow schedules are reserved to designated sales orders.</p>
+<h3><b>Reserving Sales Orders<a name="d0e20869" id="d0e20869"></a></b></h3>
+<p>As you complete flow schedules that reference ATO sales orders in the Work Order-less Completions window, the Reserve option defaults to enabled but can be disabled. If the flow schedule is linked to a sales order for a non-ATO item, the Reserve option defaults to disabled.</p>
+<p><strong><span>Note:</span></strong> Discrete jobs cannot be used to satisfy an ATO sales order if a flow schedule has been created to satisfy it.</p>
+<p>You can only reserve a quantity that is less than or equal to the open quantity of a sales order. Because completions that are being processed may affect this quantity, the system checks to see that all pending completions for that flow schedule are processed first.</p>
+<p>The item required, completion subinventory, locator, revision, and demand class specified in the sales order line are the same as the values entered at the time of completion.</p>
+<p>Once the a link between the flow schedule and the sales order is established and the reservation is made, the work order status is changed to Work Order Open if the earlier order status was Manufacturing Released. The supply reservation created will have a different delivery ID so you will need to obtain the new delivery ID from MTL_DEMAND, and create a reservation in On-Hand inventory. You will need to create hard reservations for each of the lots specified in the transaction.</p>
+<h3><b>Returning Reserved Assemblies<a name="d0e20889" id="d0e20889"></a><a name="d0e20895" id="d0e20895"></a><a name="d0e20901" id="d0e20901"></a></b></h3>
+<p>You can only return assemblies to flow schedules if no reservation between the flow schedule and sales order exists. Therefore, to return an assembly that was reserved to a flow schedule, you must first break the reservation in on-hand inventory.</p>
+<h2><a name="1034415"></a><a id="T228211"></a><b>Kanban Replenishment</b></h2>
+<p><a name="d0e20913" id="d0e20913"></a><a name="d0e20919" id="d0e20919"></a><a name="I_cx2Dknbnrepln" id="I_cx2Dknbnrepln"></a>You can use kanban signals to create a discrete job, repetitive schedule, or flow schedule (or you can use an existing one) to replenish production kanbans whose supply status is <i>Empty</i> or <i>In Process.</i> Production kanbans for discrete jobs or repetitive schedules are replenished when assemblies are completed through the Completion or Move Transaction form. Production kanbans for scheduled and unscheduled flow assemblies are completed on the Work Order-less Completion form.</p>
+<p>You can complete an assembly into the subinventory or locator specified by the kanban. The first assembly completed automatically updates the supply status of its production kanban to <i>Full.</i></p>
+<p><strong>Related Topics</strong></p>
+<p>Kanban Planning and Execution, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Pull Sequence Window, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<h2><a name="1034416"></a><a id="T228212"></a><b>Work Order-less Completions Window</b></h2>
+<p><a name="d0e20953" id="d0e20953"></a><a name="d0e20959" id="d0e20959"></a><a name="d0e20965" id="d0e20965"></a><a name="c_wolc" id="c_wolc"></a>You can do all of the following on the Work Order-less Completions window:</p>
+<ul>
+<li>
+<p>Complete unscheduled or scheduled assemblies to Inventory.</p>
+</li>
+<li>
+<p>Return unscheduled or scheduled assemblies from Inventory.</p>
+</li>
+<li>
+<p>Scrap assemblies from and return scrapped assemblies to any operation.</p>
+</li>
+<li>
+<p>Explode the assembly's bill of material and add, delete, and change components-and review items under lot and serial number control.</p>
+</li>
+<li>
+<p>Specify lot, serial, and lot and serial information for assemblies and components.</p>
+</li>
+<li>
+<p>Create material reservations for assemblies that are linked to sales orders.</p>
+</li>
+<li>
+<p>Replenish production kanbans.</p>
+</li>
+<li>
+<p>Stop completion transactions if all the push type components have not been issued to the schedule by setting a profile option, see: <a href="T228107T228110.htm#valpush">WIP:Validate Push Components at WIP Completion</a></p>
+</li>
+<li>
+<p>Perform work order-less completions with dual unit of measure controlled items as assembly and component items.</p>
+</li>
+</ul>
+<p><a name="d0e21006" id="d0e21006"></a>If<a name="d0e21013" id="d0e21013"></a> Oracle Mobile Supply Chain Applications is installed, you can use a mobile client device networked with a computer system to complete or return unscheduled and scheduled assemblies to inventory, and return unscheduled assemblies. See: Work Order-Less Transactions<i>, Oracle Mobile Supply Chain Applications User's Guide.</i></p>
+<p>If Oracle Warehouse Management is installed, you can perform work order-less completions into license plate numbers (LPN). License plate numbers are identifiers for tracking both inbound and outbound material - providing genealogy and transaction history for each license plate. For work order-less return transactions, you must first unpack the LPN before performing the assembly return transaction See: Explaining License Plate Management, <i>Oracle Warehouse Management User's Guide</i></p>
+<h2><a name="1034417"></a><a id="T228213"></a><b>Component Backflushing and Resource Transactions</b></h2>
+<p>When you complete assemblies in this window, components are automatically backflushed. Resources that are specified as item based, when you perform return transactions all resource charges are reversed. For lot based resources, return transactions do not reverse charges.</p>
+<p>When adding a component through the Material Transaction interface, with an operation sequence that does not exist on the routing, the backflush transaction is still processed with the invalid operation sequence.</p>
+<h3><b>Lot and Serial Components</b></h3>
+<p>Backflush completions for components under lot number control can be identified manually or automatically depending on how the WIP Backflush Lot Selection Method parameter is set.</p>
+<p>For backflush components under serial, or lot and serial control, you can manually identify which lot and serial number combinations to backflush using the Lot/Serial action in the Components window. If you return assemblies using this window, you must always identify the lot, serial, and lot or serial numbers of the components being returned to inventory.</p>
+<p>See: <a href="T228107T228115.htm#I_cx2Dlsnbf">Lot and Serial Backflushing</a> and <a href="T228107T228110.htm#I_cx2Dparmbf">Material Parameters</a>.</p>
+<h3><b>Flow Schedule Completions</b></h3>
+<p>On the Routings window in Oracle Bills of Material, in the WIP tabbed region-the Count Point and Autocharge flags are enabled and not modifiable. Therefore, resources are set up to be charged.</p>
+<p>If an operation and event combination is disabled, the resources linked to those departments are not charged. However, components tied to those operations and events are backflushed.</p>
+<p>If the event is not assigned to a line operation, the resource and material associated with that operation is charged when performing completion and scrap transactions.</p>
+<p>When performing scrap transactions, all components are backflushed in the line operations prior to, and including, the line operation scrapped.</p>
+<p>For component quantity changes using desktop assembly completions&mdash;the Backflush window displays for component information for supply type Push, and Pull components requiring additional information such as lot or serial number. You can change the transaction quantity when the Work in Process parameter, Allow Quantity Changes During Backflush, is enabled. For Mobile Applications work orderless completions, Pull components requiring additional information can also be over or under issued when this parameter enabled. See: <a href="T228107T228110.htm#I_cx2Dparmbf">Material Parameters</a></p>
+<h3><b>Collecting Quality Results Data<a name="d0e21071" id="d0e21071"></a></b></h3>
+<p>If Oracle Quality is installed and at least one qualified collection plan exists, both the Enter Quality Results option on the Tools menu and the Quality button on the toolbar are enabled. When mandatory collection plans are used, quality results data must be entered and saved before you can save your transaction. See: Using Oracle Quality with Oracle Work in Process, <i>Oracle Quality User's Guide</i>.</p>
+<h3><b>Sales Order Reference Information</b></h3>
+<p>Sales order line information defaults only for open and active sales order statuses. Otherwise the Sales Order field is null on the Work Order-less Completions window. The following information applies to sales order defaults on this window:</p>
+<ul>
+<li>
+<p>Sales order information does not default if the original sales order line associated with the Flow schedule is cancelled or closed.</p>
+</li>
+<li>
+<p>You can create reservations for assemblies linked to sales orders.</p>
+</li>
+<li>
+<p>When completing unscheduled assemblies, you can select sales orders that are open for standard items or configured items in at least one of the order lines.</p>
+</li>
+<li>
+<p>Sales order lines selected should not be linked to a discrete job.</p>
+</li>
+<li>
+<p>If the sales order has been split into several sales order lines, the new lines do not display on the Work Order-less Completions window.</p>
+</li>
+<li>
+<p>If the sales order has been split into new sales order lines, and only one order line is valid, that new line displays on the Work Order-less Completions window.</p>
+</li>
+<li>
+<p>For Flow schedules with sales order reservations, you can reserve overcompletion quantities. This is set in the item master attributes for the following values:</p>
+<ul>
+<li>
+<p>Overcompletion Tolerance Type and Overcompletion Tolerance Value in the Work In Process Attribute Group</p>
+</li>
+<li>
+<p>Over Shipment Tolerance in the Order Management Attribute Group</p>
+</li>
+</ul>
+<p>If the overcompletion quantity is within the over shipment tolerance value, the quantity is reserved to the sales order within that tolerance amount.</p>
+</li>
+</ul>
+<h2><a name="1034421"></a><a id="T228214"></a><b>Serial Number Validations for Unscheduled and Flow Schedule Completions</b></h2>
+<p>For a serialized item returned to stock, validations occur to prevent re-issuing to a different flow schedule. At the time of completion, serialized assemblies and components for flow schedules are available from stock if they have the following values set in the Serial Numbers window in Oracle Inventory:</p>
+<ul>
+<li>
+<p>Flow Schedule Work Order-less Completions</p>
+<p>State value: Defined but not used.</p>
+<p>State value: Issued out of stores. This is restricted to serial numbers that were previously returned to the same flow schedule that you are completing.</p>
+</li>
+<li>
+<p>Unscheduled Work Order-less Completions</p>
+<p>State value: Defined but not used.</p>
+<p>State value: Issued out of stores. This is restricted to serial numbers that were previously transacted for an unscheduled work order-less return.</p>
+<p>Maintaining Serial Number Information, <i>Oracle Inventory User's Guide</i></p>
+<p>See: <a href="T228107T228115.htm#I_serialrc">Serial Number Validations for Component Returns and Assembly Completions</a></p>
+</li>
+</ul>
+<h2><a name="1034422"></a><a id="T228215"></a><b>Non-updatable Fields</b></h2>
+<p><a name="d0e21153" id="d0e21153"></a><a name="d0e21159" id="d0e21159"></a>The following table lists the fields that cannot be updated in the Work Order-less Completions window:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>&nbsp;</b></th>
+<th scope="col"><b>WIP Assembly Completion</b></th>
+<th scope="col"><b>WIP Assembly Return</b></th>
+<th scope="col"><b>Scrap</b></th>
+<th scope="col"><b>Return from Scrap</b></th>
+</tr>
+<tr valign="top">
+<td>Unscheduled Assemblies</td>
+<td>Build Sequence</td>
+<td>Build Sequence</td>
+<td>Build Sequence, Subinventory/Locator, Lot/Serial button</td>
+<td>Build Sequence, Subinventory/Locator, Lot/Serial button</td>
+</tr>
+<tr valign="top">
+<td>Scheduled Flow Schedule</td>
+<td>Assembly, Line, Schedule Group, Build Sequence, Schedule Number, Accounting Class, Project/Task</td>
+<td>Assembly, Line, Schedule Group, Build Sequence, Schedule Number, Accounting Class, Project/Task</td>
+<td>Assembly, Line, Schedule Group, Build Sequence, Schedule Number, Accounting Class, Project/Task, Subinventory/Locator, Lot/Serial button</td>
+<td>Assembly, Line, Schedule Group, Build Sequence, Schedule Number, Accounting Class, Project/Task, Subinventory/Locator, Lot/Serial button</td>
+</tr>
+<tr valign="top">
+<td>Unscheduled Assemblies with a Kanban Reference</td>
+<td>Build Sequence, Subinventory/Locator</td>
+<td>DISALLOWED</td>
+<td>DISALLOWED</td>
+<td>DISALLOWED</td>
+</tr>
+<tr valign="top">
+<td>Scheduled Flow Schedule with a Kanban</td>
+<td>Build Sequence, Subinventory/Locator</td>
+<td>DISALLOWED</td>
+<td>DISALLOWED</td>
+<td>DISALLOWED</td>
+</tr>
+<tr valign="top">
+<td>Unscheduled Assemblies with a Sales Order Reference</td>
+<td>Build Sequence</td>
+<td>DISALLOWED</td>
+<td>Build Sequence, Subinventory/Locator, Lot/Serial button</td>
+<td>Build Sequence, Subinventory/Locator, Lot/Serial button</td>
+</tr>
+<tr valign="top">
+<td>Scheduled Flow Schedule with a Sales Order Reference</td>
+<td>Build Sequence</td>
+<td>Assembly, Line, Schedule Group, Build Sequence, Schedule Number, Accounting Class, Project/Task, Subinventory/Locator, Lot/Serial button</td>
+<td>Assembly, Line, Schedule Group, Build Sequence, Schedule Number, Accounting Class, Project/Task, Subinventory/Locator, Lot/Serial button</td>
+<td>Assembly, Line, Schedule Group, Build Sequence, Schedule Number, Accounting Class, Project/Task, Subinventory/Locator, Lot/Serial button</td>
+</tr>
+</table>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228110.htm#r_wippo">Profile Options</a></p>
+<p><a href="T228107T228110.htm#I_rx2Dsecfunc">Security Functions</a></p>
+<h2><a name="1034423"></a><a id="T228216"></a><b>Work Order-less Completion Transaction Types</b></h2>
+<a name="d0e21301" id="d0e21301"></a><a name="d0e21307" id="d0e21307"></a><a name="I_rx2Dwocmptyp" id="I_rx2Dwocmptyp"></a>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Variable</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td><b>WIP assembly completion</b></td>
+<td><a name="d0e21322" id="d0e21322"></a>Receive completed assemblies into inventory. If backflush components are under lot or serial number control, the lots and serial control numbers to backflush must be identified. Lots for backflush components under lot number control can be identified manually or automatically based on how the WIP Backflush <i>Lot Selection</i> parameter is set. See: <a href="T228107T228110.htm#I_cx2Dparmbf">Material Parameters</a>.<br>
+For backflush components under serial number control or manual lot control, you must manually identify which serial numbers or lot numbers to backflush using the lot/serial number action in the Components window.</td>
+</tr>
+<tr valign="top">
+<td><b>WIP assembly return</b></td>
+<td><a name="d0e21344" id="d0e21344"></a>Return assemblies from inventory. All operation pull, assembly pull and push components are automatically returned to inventory. If the returned components are under lot or serial number control, the lots and serial numbers to return must be identified using the Lot/Serial action in the Components window.</td>
+</tr>
+<tr valign="top">
+<td><b>WIP scrap transactions</b></td>
+<td>Scrap assemblies at any operation. You can scrap assemblies even if the assembly does not have a routing. When this is done, the Scrap Operation defaults to 1. All operation pull, assembly pull and push components are backflushed when a flow schedule assembly is scrapped.<br>
+If the WIP <i>Require Scrap Account</i> parameter is set to Yes, and a scrap account is entered, the system debits this account and credits the elemental accounts associated with the flow schedule through the operation at which the assemblies are scrapped. Resource and overhead cost elements at scrap operations that are non-autocharge operations are also charged. However resource and overhead cost elements at the non-autocharge operations prior to the scrap operation are not charged.<br>
+If you do not provide a scrap account, the cost of scrap remains in the flow schedule until job or period close and is then written off as a variance. You must enter a scrap account if the Require Scrap Account parameter is enabled. See: <a href="T228107T228110.htm#I_cx2Dparmmvtx78">Move Transaction Parameters</a>.</td>
+</tr>
+<tr valign="top">
+<td><b>WIP return from scrap</b></td>
+<td>Return assemblies from scrap. If you enter a reversing scrap transaction, the system credits this account and debits the job or schedule elemental accounts through the operation at which the assemblies are returned.</td>
+</tr>
+</table>
+<h2><a name="1034428"></a><a id="T228886"></a><b>Performing Work Order-less Completions</b></h2>
+<p><a name="d0e21379" id="d0e21379"></a><a name="d0e21385" id="d0e21385"></a><a name="WIPTXCFM.SUBSTITUTIONS" id="WIPTXCFM.SUBSTITUTIONS"></a><a name="WIPTXCFM.COMPLETIONS" id="WIPTXCFM.COMPLETIONS"></a><a name="WIPTXCFM_RETRIEVE_SCH" id="WIPTXCFM_RETRIEVE_SCH"></a><a name="I_tx2Dwocmpltg" id="I_tx2Dwocmpltg"></a><a name="performwocmp" id="performwocmp"></a><b>To complete or return scheduled or unscheduled assemblies:<a name="d0e21397" id="d0e21397"></a><a name="d0e21401" id="d0e21401"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the <a name="d0e21411" id="d0e21411"></a>Work Order-less Completions window.</p>
+<p><img width="754" height="504" src="./img/wip_wip_workordc.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select a Transaction Date and time.</p>
+<p>The system date is defaulted but can be overridden with a date that is not greater than the current date, and falls within an open accounting period.</p>
+<p>Use the Refresh Date button if you want to change the Transaction Date after entering data on this window. This enables you to change the date without losing information already selected.</p>
+</li>
+<li>
+<p>Select the WIP assembly completion or WIP assembly return Transaction Type. See: <a href="T228107T228113.htm#I_rx2Dwocmptyp">Work Order-less Completion Transaction Types</a></p>
+</li>
+<li>
+<p>If you are completing a scheduled assembly, select the Scheduled check box.</p>
+</li>
+<li>
+<p>Select an <a name="d0e21445" id="d0e21445"></a>Assembly.</p>
+<p>You can select any assembly that has it's Build in WIP attribute set in Oracle Inventory. If a primary bill of material, primary routing, or both exist for this assembly, they are defaulted. See: Defining Items, <i>Oracle Inventory User's Guide</i> and Work In Process Attribute Group, <i>Oracle Inventory User's Guide</i>.</p>
+<p>If you select a Schedule Number first, the information associated with that schedule is defaulted. If you select an assembly before selecting a schedule, you can only select schedules that are building that assembly.</p>
+<p>You an also choose engineering items if the WIP:See Engineering Items profile option is set to Yes.</p>
+<p>If you select a Sales Order and Order Line, the assembly is defaulted.</p>
+</li>
+<li>
+<p>Select a production Line.</p>
+<p>You can select any active production line. Production lines are optional.</p>
+<p>If you select a Schedule Number before selecting a Production Line, the information associated with that schedule is defaulted. If you override the defaulted production line, all defaults are cleared. If you select a production line before selecting a schedule, you can only select schedules that are being build on that production line.</p>
+</li>
+<li>
+<p>Select a <a name="d0e21476" id="d0e21476"></a>Schedule Group. See: <a href="T228107T228110.htm#I_tx2Dschgrpg">Defining Schedule Groups</a>.</p>
+<p>You can assign unscheduled Flow completions to any active schedule group. If you are completing a scheduled assembly, this field will default from the schedule number. The schedule group is optional.</p>
+<p>If you select a Schedule Number before selecting a Schedule Group, the information associated with that schedule is defaulted. If you select a schedule group before selected a schedule, you can only select schedules that belong to that schedule group.</p>
+<p>Also, if the transaction type is a WIP assembly completion, the applicable Project, Task, Sales Order Line, Sales Order Delivery, and Kanban ID are defaulted.</p>
+</li>
+<li>
+<p>Enter a Schedule Number.</p>
+<p>When completing unscheduled assemblies, you can assign a unique, alphanumeric Schedule Number to an unscheduled assembly. If you do not enter a Schedule Number, and a prefix has been specified for the WIP:Discrete Job Prefix profile option, a default Schedule Number is assigned by the automatic sequence generator when you press the tab key. When completing scheduled assemblies, select from the List of Values.</p>
+</li>
+<li>
+<p>If the transaction type is a WIP assembly completion, you can select a Sales Order and an <a name="d0e21502" id="d0e21502"></a><a name="d0e21508" id="d0e21508"></a>Order Line on that Sales Order.</p>
+<p>When completing unscheduled assemblies, you can select a Sales Order and Order Line that is for the selected assembly. You can only select sales orders that are open and that have either a standard item or a configured item in at least one of their order lines. Also, the order line selected should not be linked to a discrete job.</p>
+<p>When completing a scheduled assembly that was created by scheduling a sales orders, this field will default from the schedule number.</p>
+</li>
+<li>
+<p>If you have selected a Sales Order/Order Line, you can enable the Reserve option to create a reservation. See: Reserving Available Inventory, Oracle Inventory User's Guide.</p>
+<p>If the Sales Order and Order Line selected is for an assemble-to-order (ATO) item, the Reserve option is automatically enabled but can be disabled. If the Sales Order/Order Line is for a non-ATO item, the Reserve option, it can be, enabled.</p>
+</li>
+<li>
+<p>Select a <a name="d0e21527" id="d0e21527"></a>unit of measure in the UOM field. See: Overview of Units of Measure, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Enter a transaction <a name="d0e21541" id="d0e21541"></a><a name="d0e21547" id="d0e21547"></a>Quantity. For scheduled completions, the transaction quantity will default to the schedule number.</p>
+</li>
+<li>
+<p>Select a <a name="d0e21558" id="d0e21558"></a><a name="d0e21564" id="d0e21564"></a>Completion Subinventory and, if required, a Locator. Several rules apply to these fields for defaulted information:</p>
+<ul>
+<li>
+<p>If a completion subinventory/locator was specified on the routing, it is defaulted but can be overridden. See: Completion Subinventory and Locator Fields, <i>Oracle Bills of Material User's Guide</i>.</p>
+</li>
+<li>
+<p>The Completion Subinventory/Locator is defaulted from any existing Sales Order and Sales Line values.</p>
+</li>
+<li>
+<p>If you have selected a Kanban Number, the completion subinventory/locator for that kanban, if specified, is defaulted and cannot be changed.</p>
+</li>
+<li>
+<p>The Locator field information defaults from any applicable project and task combination entered.</p>
+</li>
+<li>
+<p>If you entered a default Completion Subinventory on the item routing, the Completion Subinventory/Locator is defaulted. You can create a reservation for the quantity completed, the subinventory/locator/lot information for the previous reservation is overridden.</p>
+</li>
+<li>
+<p>Completion locators are required if the Locator Control Parameter in Oracle Inventory is set to require a locator.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Select a BOM <a name="d0e21597" id="d0e21597"></a>Revision.</p>
+<p>When you select an assembly, the primary bill of material for the assembly is defaulted. If there is more than one revision for the primary bill of material, the transaction date is used to determine the bill revision and revision date.</p>
+<p>If you set the WIP:Exclude ECOs profile option to None, engineering change orders with Open statuses, as well as those with Release, Schedule, and Implement statuses, are considered when the bill of material is exploded. See: Overview of Engineering Change Order, and Defining Engineering Change Orders in the Oracle Engineering User's Guide.</p>
+</li>
+<li>
+<p>Select a BOM <a name="d0e21612" id="d0e21612"></a>revision Date and time.</p>
+<p>You can select a BOM revision date other than the one determined by the transaction date and time.</p>
+</li>
+<li>
+<p>Select a Routing <a name="d0e21625" id="d0e21625"></a>Revision. See: Item and Routing Revisions, <i>Oracle Bills of Material User's Guide</i>.</p>
+<p>When you select an assembly, the primary routing for the assembly is defaulted. If there is more than one revision for the primary routing, the transaction date is used to determine the routing revision and revision date.</p>
+</li>
+<li>
+<p>Select a Routing <a name="d0e21641" id="d0e21641"></a>revision Date and time.</p>
+<p>You can select a routing revision date other than the one determined by the transaction date and time.</p>
+</li>
+<li>
+<p>Select a <a name="d0e21654" id="d0e21654"></a><a name="d0e21660" id="d0e21660"></a>BOM Alternate bill of material.</p>
+<p>You can select an alternate bill if alternates have been defined for the assembly you are building.</p>
+</li>
+<li>
+<p>Select a <a name="d0e21673" id="d0e21673"></a><a name="d0e21679" id="d0e21679"></a>Routing Alternate.</p>
+<p>You can select a routing alternate if alternates have been defined for the assembly you are building.</p>
+</li>
+<li>
+<p>Select a <a name="d0e21692" id="d0e21692"></a>Project, and if required, a <a name="d0e21699" id="d0e21699"></a>Task.</p>
+<p>You can only select a project if the current organization's Project References Enabled parameter is set in Oracle Inventory. You must select a task if the Project Control Level parameter is set to Task and you have entered a project number. See: Organization Parameters Window, <i>Oracle Inventory User's Guide</i>.</p>
+<p><strong><span>Note:</span></strong> The default information in these fields cannot be changed if an existing schedule, sales order and line, or kanban number is entered.</p>
+<p>You can only select a project if the current organization's Project References Enabled Parameter is set in Oracle Inventory.</p>
+</li>
+<li>
+<p>If the transaction type is a WIP assembly completion and the specified Flow schedule does not reference a Sales Order/Order Line, you can select a Kanban Number for replenishment.</p>
+<p>See: Completions to Kanbans with Supply Statuses of Full.</p>
+<p>When you select a kanban, the quantity for that kanban is defaulted. If a completion subinventory/locator for the kanban have been specified, they are also defaulted.</p>
+</li>
+<li>
+<p>Select an accounting <a name="d0e21737" id="d0e21737"></a><a name="d0e21743" id="d0e21743"></a>Class.</p>
+<p>See: <a href="T228107T228110.htm#I_cx2Dparmdm">WIP Accounting Class Defaults</a> and <a href="T228107T228110.htm#I_cx2Ddjacctcl">Discrete Accounting Classes</a>.</p>
+<p>You can select any active Standard Discrete accounting class. If you have defined a defaulting account class using the <i>Default Discrete Class Parameter</i>, that accounting class is defaulted but can be overridden. See: <a href="T228107T228110.htm#I_cx2Dparmdm">Discrete Parameters</a> and <a href="T228107T228110.htm#I_cx2Ddjacctcl">Discrete Accounting Classes</a>.</p>
+</li>
+<li>
+<p>Select a <a name="d0e21773" id="d0e21773"></a>Demand Class.</p>
+<p>The Demand Class is defaulted from the Sales Order/Order Line, but can be overridden. You can select any enabled and active demand class. See: Overview of Demand Classes, <i>Oracle MRP User's Guide</i> and Creating Demand Classes, <i>Oracle MRP User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally, select a transaction <a name="d0e21792" id="d0e21792"></a>Reason code. See: Defining Transaction Reasons, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally, enter a transaction <a name="d0e21806" id="d0e21806"></a>Reference.</p>
+<p>References can be used to identify transactions on standard reports. They can be up to 240 characters of alpha numeric text.</p>
+</li>
+<li>
+<p>If you are completing assemblies under lot, serial, or lot and serial control, choose Lot/Serial. See: Assigning Lot Numbers, <i>Oracle Inventory User's Guide</i> and Assigning Serial Numbers, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Save your work.</p>
+<p><strong><span>Note:</span></strong> Assembly Pull, Operation Pull, and Push components are automatically backflushed. Bulk and supplier components are not backflushed. The bills for Phantoms are exploded and the Phantom components are backflushed.</p>
+<p>The system backflushes these components from the supply subinventory/locator assigned to the components on the bill of materials or the one specified in the Components window. If no supply subinventory/locator is assigned to the bill components, the system pulls components from the supply subinventory/locator defined for the item. If no item supply subinventory/locator is defined at the item level, items are pulled from the default supply subinventory/locator as determined by the Supply Subinventory and Supply Locator parameters. See: <a href="T228107T228110.htm#I_cx2Dparmbf">Backflush Parameters</a>.</p>
+</li>
+</ol>
+<p><b>To complete multiple flow schedules:</b></p>
+<ol>
+<li>
+<p>Navigate to the Work Order-less Completion window.</p>
+</li>
+<li>
+<p>Change the date and time to the completion date and time desired.</p>
+</li>
+<li>
+<p>Choose Retrieve.</p>
+</li>
+<li>
+<p>Enter the retrieve criteria. Line is a required field, all others are optional.</p>
+<p><img width="607" height="486" src="./img/wip_retrieveflm.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Optionally, enter default completion sub-inventory, locator, and flex field information.</p>
+</li>
+<li>
+<p>Choose Retrieve.</p>
+</li>
+<li>
+<p>A window will appear informing you how many records will be retrieved. Choose OK to retrieve them all, choose Cancel to return to the Retrieve window and change your criteria.</p>
+<p><strong><span>Note:</span></strong> Items under lot and serial control cannot be retrieved and must be entered individually using the Work Order-less Completions window. If any other items cannot be retrieved, you will receive an error. Other errors are usually caused by an incorrect or missing completion sub-inventory on a routing. To permanently fix the errors, return to all routings and ensure a completion sub-inventory and locator are entered. To temporarily fix it, you can return to the retrieve screen and enter a default completion sub-inventory and locator.</p>
+</li>
+<li>
+<p>If there are schedules retrieved that you do not want to complete, highlight them and delete them.</p>
+</li>
+<li>
+<p>Add any other scheduled or non-scheduled items you wish to complete at the same time, and choose Save.</p>
+</li>
+</ol>
+<p><b>For component transactions including adding deleting changing, or specifying lot/serial information</b></p>
+<ol>
+<li>
+<p>Choose the Components button.</p>
+<p>The <a name="d0e21893" id="d0e21893"></a>Components window appears, displaying the exploded bill of material for this assembly.</p>
+</li>
+<li>
+<p>Select the component item at which to make the change.</p>
+</li>
+<li>
+<p>Modify the editable fields you want to change.</p>
+</li>
+<li>
+<p>In all transactions, optionally you can select the transaction <a name="d0e21912" id="d0e21912"></a>Reason code. See: Defining Transaction Reasons, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>In all transactions, optionally you can enter a transaction Reference.</p>
+<p>References can be used to identify transactions on standard reports. They can be up to 240 characters of alpha numeric text.</p>
+</li>
+</ol>
+<p><b>To change a component</b></p>
+<ol>
+<li>
+<p>Select the component to be replaced, and select the value you want to substitute.</p>
+</li>
+<li>
+<p>Change the quantity, if required.</p>
+<p>The quantity you enter here is the total quantity for the completion. The Revision for the substitute is defaulted based on the transaction date. The supply subinventory/locator are defaulted from the item. See: Defining Items, <i>Oracle Inventory User's Guide</i> and Work In Process Attribute Group, <i>Oracle Inventory User's Guide</i>.</p>
+<p>If there is no supply subinventory/locator at the item level, the supply <a name="d0e21949" id="d0e21949"></a>Subinventory, and if required, the Supply <a name="d0e21956" id="d0e21956"></a>Locator, are defaulted based on the values entered for the WIP <i>Supply Subinventory</i> and <i>Supply Locator</i> parameters. See: <a href="T228107T228110.htm#I_cx2Dparmbf">Material</a>.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To add a component</b></p>
+<ol>
+<li>
+<p>From the File menu, select New.</p>
+<p>A new row displays in the Components window.</p>
+</li>
+<li>
+<p>Select the Operation where the component will be used.</p>
+<p>If the assembly has no routing, the system displays 1 as the default operation sequence. This value cannot be updated.</p>
+</li>
+<li>
+<p>Select a component to add and enter a quantity.</p>
+<p>The <a name="d0e21997" id="d0e21997"></a>Revision and Supply <a name="d0e22004" id="d0e22004"></a>Subinventory/<a name="d0e22011" id="d0e22011"></a>Locator, are defaulted the same as for a Substitute.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To delete a component</b></p>
+<ol>
+<li>
+<p>Select the component you want to take out, delete, and save your work.</p>
+</li>
+</ol>
+<p><b>To enter lot and serial number information for a component.</b></p>
+<ol>
+<li>
+<p>Components under lot or serial number control are indicated when Lot/Serial button is available. Select a component, then choose the <a name="d0e22036" id="d0e22036"></a><a name="d0e22042" id="d0e22042"></a>Lot/Serial button.</p>
+<p>See: Assigning Lot Numbers, <i>Oracle Inventory User's Guide</i> and Assigning Serial Numbers, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+</ol>
+<p><b>To resubmit transactions that fail to process</b></p>
+<ol>
+<li>
+<p>You can resubmit transactions that fail to process using the Transaction Open Interface window in Oracle Inventory.</p>
+</li>
+</ol>
+<p><b>To add, delete, or change components or specify component lot/serial information:<a name="d0e22067" id="d0e22067"></a><a name="d0e22073" id="d0e22073"></a></b></p>
+<ol>
+<li>
+<p>Choose Components to display the <a name="d0e22083" id="d0e22083"></a>Components window.</p>
+</li>
+<li>
+<p>Select the Operation at which to make the substitution.</p>
+<p>If the assembly has no routing, the system displays 1 as the default operation sequence. This value cannot be updated.</p>
+</li>
+<li>
+<p>Select a substitution <a name="d0e22100" id="d0e22100"></a><a name="d0e22106" id="d0e22106"></a>Type from the following options:</p>
+<p><i>Add</i><a name="d0e22114" id="d0e22114"></a>: Add a component at the operation.</p>
+<p><i>Delete</i><a name="d0e22124" id="d0e22124"></a>: Delete a component from the operation.</p>
+<p><i>Change</i><a name="d0e22134" id="d0e22134"></a>: Substitute one component for another at the operation.</p>
+<p><i>Lot/Serial</i><a name="d0e22144" id="d0e22144"></a>: Specify lot/serial number information for items.</p>
+<p>If you are scrapping assemblies, and the substitution type is changed, deleted, or lot or serial, the event operation sequence selected must precede the scrap line operation in the routing network.</p>
+<p>If you are Changing a component, you must select the component to be replaced, select a Substitute component and enter a <a name="d0e22155" id="d0e22155"></a><a name="d0e22161" id="d0e22161"></a>Quantity. The quantity you enter here is the total quantity for the completion. The Revision for the substitution is defaulted based on the transaction date. The supply subinventory/locator are defaulted from the item..</p>
+<p>If you are Adding a component, select a component to add and enter a Quantity. The <a name="d0e22170" id="d0e22170"></a>Revision and supply <a name="d0e22177" id="d0e22177"></a>Subinventory.<a name="d0e22184" id="d0e22184"></a>Locator, are defaulted the same as for a Substitute.</p>
+<p>If you are Deleting a component, select the component to delete.</p>
+<p>To enter Lot/Serial information for a component, select a component then choose the <a name="d0e22195" id="d0e22195"></a><a name="d0e22201" id="d0e22201"></a>Lot/Serial button. See: Assigning Lot Numbers, <i>Oracle Inventory User's Guide</i> and Assigning Serial Numbers, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally, select a transaction <a name="d0e22218" id="d0e22218"></a>Reason code. See: Defining Transaction Reasons, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally, enter a transaction Comment.</p>
+<p>Comments can be used to identify transactions on standard reports. They can be up to 240 characters of alpha numeric text.</p>
+</li>
+<li>
+<p>Choose Done to save your work.</p>
+</li>
+</ol>
+<p><b>To resubmit transactions that fail to process:<a name="d0e22241" id="d0e22241"></a></b></p>
+<ol>
+<li>
+<p>You can resubmit transactions that fail to process using the Inventory Transactions Open Interface window in Oracle Inventory.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228115.htm#I_cx2Dovwbf">Backflush Transactions</a></p>
+<p><a href="T228107T228113.htm#I_cx2Dsupcfm">Setting Up Flow Manufacturing</a></p>
+<h2><a name="1034439"></a><a id="T228887"></a><b>Scrapping Flow Schedule Assemblies</b></h2>
+<p><a name="d0e22264" id="d0e22264"></a><a name="d0e22270" id="d0e22270"></a><a name="d0e22276" id="d0e22276"></a><a name="I_tx2Dfsscrpg" id="I_tx2Dfsscrpg"></a>You can use the Work Order-less Completions window to scrap scheduled and unscheduled Flow assemblies. Specifically, you can do all of the following:</p>
+<ul>
+<li>
+<p>Scrap assemblies at any operation in the routing, which in turn causes all Assembly Pull, Operation Pull, and Push components to be backflushed and all resources charged</p>
+</li>
+<li>
+<p>Return assemblies to Flow schedules that have been scrapped (this creates reversing resource charge and component backflush transactions)</p>
+</li>
+</ul>
+<p>Scrap and return from scrap transactions are disallowed if either the Flow schedule or unscheduled assembly references a kanban.</p>
+<p><b>To scrap or return from scrap unscheduled Flow assemblies:<a name="d0e22298" id="d0e22298"></a></b></p>
+<ol>
+<li>
+<p>Select the WIP Scrap transaction or WIP Return from Scrap transaction type. See: <a href="T228107T228113.htm#I_rx2Dwocmptyp">Work Order-less Completion Transaction Types</a>.</p>
+</li>
+<li>
+<p>Specify an Assembly, production Line, Schedule Group, or optionally generate a Schedule Number, assembly bill and routing information. When scrapping and returning scrap, you cannot enable the Reserve option, or select a Completion Subinventory/Locator, Project/Task, or Kanban number.</p>
+</li>
+<li>
+<p>Select a Sales Order and an <a name="d0e22319" id="d0e22319"></a><a name="d0e22325" id="d0e22325"></a>Order Line on that Sales Order.</p>
+</li>
+<li>
+<p>Select a Scrap Line Operation Sequence.</p>
+</li>
+<li>
+<p>Select a Discrete Accounting class.</p>
+<p>The scrapped assemblies are written off against the accounts associated with this class.</p>
+</li>
+<li>
+<p>If the WIP <i>Require Scrap Account</i> parameter is set, you must enter a scrap account <a name="d0e22350" id="d0e22350"></a>number or an account Alias. If you do not specify that a scrap account is required, it is optional. See: <a href="T228107T228110.htm#I_cx2Dparmmvtx78">Move Transaction Parameters</a> and Defining Account Aliases, <i>Oracle Inventory User's Guide</i>.</p>
+</li>
+<li>
+<p>Optionally specify a Demand Class, a Reason, for the Scrap transaction, and enter a Comment about the transaction.</p>
+</li>
+</ol>
+<h2><a name="1034441"></a><a id="I_flwwkstn"></a><b>Overview of the Flow Workstation</b></h2>
+<p><a name="d0e22371" id="d0e22371"></a>The Flow Workstation provides you with immediate access to critical Flow Manufacturing production information. It enables you to track the flow of work throughout the shop floor and to complete scheduled and unscheduled assemblies directly from the workstation. It also provides you with detailed component, resource, and property information on flow schedules, unscheduled assemblies and their events, and operation instructions and other attachments.</p>
+<h3><b>Features of the Flow Workstation<a name="d0e22383" id="d0e22383"></a></b></h3>
+<p>The Flow Workstation enables you to:</p>
+<ul>
+<li>
+<p>View the linearity, load, and properties of the selected line</p>
+</li>
+<li>
+<p>View a line operation's open schedules and events, and unscheduled assemblies</p>
+</li>
+<li>
+<p>View detailed information on the components and resources required for schedules and events</p>
+</li>
+<li>
+<p>Obtain the kanban locations of components required at an operation</p>
+</li>
+<li>
+<p>Complete flow schedules and unscheduled assemblies</p>
+</li>
+<li>
+<p>Complete line operations</p>
+</li>
+<li>
+<p>Request kanban replenishment</p>
+</li>
+<li>
+<p>Obtain operating instructions, diagrams, component attachments, and other information attached to assemblies and events</p>
+</li>
+<li>
+<p>Enter quality data at specific points in the routing</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p>Product Synchronization, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Product Flow Manufacturing Line Balance, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Overview of the Graphical Line Designer Workbench, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Pull Sequence Window, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<h2><a name="1034443"></a><a id="I_flwwindo"></a><b>Flow Workstation Window<a name="d0e22441" id="d0e22441"></a></b></h2>
+<p>The Flow Workstation window consists of two panes. The <i>left pane</i> displays the workstation directory chooser or navigator in tree format. The <i>right pane</i> displays one or more tabs of detailed information that correspond to the branch that you select from the tree.</p>
+<p>The workstation's left pane displays a hierarchical listing of the workstation's contents. Since its structure is analogous to a tree with branches, it is referred to as the workstation tree. The tree displays four branches (levels) of information. When you select a branch (this highlights the branch), information relevant to that branch is displayed on tabs in the right pane of the workstation. When you launch the Flow Workstation, it immediately displays the tabs for the first event of the first scheduled line operation.</p>
+<p><img width="799" height="599" src="./img/wip_branches.gif" alt="the picture is described in the document text"></p>
+<p>The workstation's right pane displays one or more tabbed regions of detailed information pertaining to the branch that you select on the tree. The information on the tabs is displayed either in tables, lists, or in graph format, so that you can quickly assess the status of the schedule or assembly. See: <a href="T228107T228113.htm#I_flwtretb">Flow Workstation Tree and Tabbed Regions</a> for detailed information on each of the workstation branches and tabs.</p>
+<p>There are tabs available to:</p>
+<ul>
+<li>
+<p>Open windows directly from the workstation so that you can perform common transactions, such as Work Order-less Completion transactions and kanban replenishment.</p>
+</li>
+<li>
+<p>View attachments previously appended to a job, such as drawings and instructions. See: <a href="T228107T228113.htm#I_viewbtn">View Instructions</a></p>
+</li>
+</ul>
+<h2><a name="1034444"></a><a id="T228217"></a><b>Viewing the Flow Workstation Tree</b></h2>
+<p><a name="I_flwvwtre" id="I_flwvwtre"></a><b>Dynamic information:</b> the information on the tree is dynamically created when you launch the workstation. You also can update the display at any time by choosing the Refresh tool (curved arrow icon on the toolbar). As schedules are completed, they are automatically removed from the tree so that only current schedules are displayed.</p>
+<p><b>Choice of Formats:</b> <a name="d0e22494" id="d0e22494"></a>you can choose to view the information on the tree in Vertical (the default), Interleaved (horizontal), or Org Chart (organization chart) format. These choices are available through tools on the toolbar or as menu selections under the View menu.</p>
+<p><b>Wider View:</b> in order to view the tree in Interleaved or Org Chart format, you may need to widen the left pane to see the full display. There are two ways that you can do this: you can use your mouse to drag the right side of the pane towards the right side of the window, or you can hide the tabbed regions so that the window's full width can be used to display the contents of the left pane. As follows:</p>
+<p><b>To hide the right pane of the workstation:</b><a name="d0e22508" id="d0e22508"></a></p>
+<p>Select the View menu, then remove the check mark from the Node Properties check box. The tabs in the right pane are hidden, and the contents of the left pane fill the window area.</p>
+<p><img width="799" height="656" src="./img/wip_nodeprops1.gif" alt="the picture is described in the document text"></p>
+<p><b>To again display the right pane of the workstation:</b></p>
+<p>Select the View menu, then place a check mark in the Node Properties check box. The tabs in the right pane are again displayed.</p>
+<h2><a name="1034445"></a><a id="T228218"></a><b>Flow Workstation Toolbar</b></h2>
+<p><a name="d0e22530" id="d0e22530"></a><a name="d0e22536" id="d0e22536"></a><a name="I_flwtools" id="I_flwtools"></a>The following tools are located on the toolbar directly below the workstation menus. From left to right, they are:</p>
+<ul>
+<li>
+<p><i>Vertical Style:</i> the default; displays the branches of the navigation tree vertically</p>
+</li>
+<li>
+<p><i>Interleaved Style</i><b>:</b> displays the branches of the navigation tree horizontally</p>
+</li>
+<li>
+<p><i>Org Chart Style:</i> displays the branches of the navigation tree in the same format as a standard corporate organization chart</p>
+</li>
+<li>
+<p><i>Refresh:</i> use this tool to refresh (update) the workstation display</p>
+</li>
+<li>
+<p><i>Pin Tab:</i> use this tool to place the active tabbed region in a separate window that remains on top of and separate from the workstation</p>
+</li>
+<li>
+<p><i>Replenish Kanban:</i> use this tool to replenish kanbans</p>
+</li>
+<li>
+<p><i>Enter Quality Results</i>: use this tool to access the Enter Quality Results window, it is enabled if there is an exiting collection plan</p>
+</li>
+</ul>
+<h2><a name="1034446"></a><a id="T228888"></a><b>Selecting the Line and Line Operation</b></h2>
+<p><a name="d0e22590" id="d0e22590"></a>The Flow Workstation displays information for only one line and line operation at a time. When you select the workstation from the menu, a window opens for selecting the line and line operation for schedules and assemblies you want to view. You can enter a range of dates and a schedule group-allowing you to filter and view schedules for a particular shift or date.</p>
+<p><strong><span>Note:</span></strong> You must first define line operations in order to use the Flow Workstation.</p>
+<p><b>To launch the Flow Workstation:<a name="d0e22603" id="d0e22603"></a><a name="d0e22607" id="d0e22607"></a><a name="d0e22611" id="d0e22611"></a><a name="d0e22615" id="d0e22615"></a></b></p>
+<ol>
+<li>
+<p>Navigate to the Flow Workstation. The Flow Workstation Startup window displays.</p>
+</li>
+<li>
+<p>In the Line field, select a line from.</p>
+</li>
+<li>
+<p>In the Line Operation field, select a line operation.</p>
+<p><img width="446" height="317" src="./img/wip_fw_launch.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Open Schedules region, enter a range of dates in the Completion Dates fields.</p>
+<p>This allows you to filter and view schedules for a particular shift or date.</p>
+</li>
+<li>
+<p>In the Schedule Group field, select a value from the list of values.</p>
+<p>This identifier groups schedules for scheduling and releasing purposes. Schedules within a schedule group can be sequenced.</p>
+</li>
+<li>
+<p>Choose Open.</p>
+<p>The Flow Workstation displays.</p>
+</li>
+</ol>
+<h2><a name="1034448"></a><a id="I_flwtretb"></a><b>The Flow Workstation Branches and Tabs</b></h2>
+<p><a name="d0e22660" id="d0e22660"></a><a name="d0e22666" id="d0e22666"></a>The first and topmost branch on the Flow Workstation tree displays the name of the line and line operation that you selected when you launched the workstation. The main branches:</p>
+<ul>
+<li>
+<p>The Open Schedules branch displays all of the flow schedules at that operation</p>
+</li>
+<li>
+<p>The Assemblies branch displays all of the unscheduled flow assemblies at that operation</p>
+</li>
+</ul>
+<p>Expanding any branch in the Open Schedule or Assembly branches, displays branches for that schedule's or assembly's events. When you select (highlight) a branch, corresponding tabbed regions of information about that branch are immediately displayed in the right frame of the workstation. When you launch the workstation, it automatically displays the first event of the first open schedule:</p>
+<p><img width="799" height="599" src="./img/wip_branches.gif" alt="the picture is described in the document text"></p>
+<p>The following table lists the workstation branches and the corresponding tabbed regions of information that are displayed.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Flow Workstation Branch</b></th>
+<th scope="col"><b>Corresponding Tabbed Region Displayed</b></th>
+</tr>
+<tr valign="top">
+<td>Line and Line Operation</td>
+<td>Linearity, Load, Properties of the entire line</td>
+</tr>
+<tr valign="top">
+<td>Open Schedules</td>
+<td>Blank Tab</td>
+</tr>
+<tr valign="top">
+<td>Individual Schedules</td>
+<td>Component Requirements, Resource Requirements, and Properties for each assembly scheduled at the line operation</td>
+</tr>
+<tr valign="top">
+<td>Schedule Events</td>
+<td>Component Requirements, Resource Requirements, Properties for each assembly's events</td>
+</tr>
+<tr valign="top">
+<td>Assemblies</td>
+<td>Blank Tab</td>
+</tr>
+<tr valign="top">
+<td>Individual Assemblies</td>
+<td>Component Requirements, Resource Requirements, Properties for each unscheduled assembly assigned to the line operation</td>
+</tr>
+<tr valign="top">
+<td>Assembly Events</td>
+<td>Component Requirements, Resource Requirements, Properties for each assembly's events</td>
+</tr>
+</table>
+<h2><a name="1034449"></a><a id="T228219"></a><b>Branch Naming Conventions</b></h2>
+<p><a name="d0e22757" id="d0e22757"></a><a name="d0e22763" id="d0e22763"></a><a name="I_branchnm" id="I_branchnm"></a>Branch titles contain sections of information identifying the branch. Each section in the branch name is separated by a colon (if two colons appear together, no information is available for the section):</p>
+<ul>
+<li>
+<p><b>Topmost branch:</b> Displays first the name of the line, then the line operation code. For example: FlowLine01:Op20</p>
+</li>
+<li>
+<p><b>Open Schedules branches:</b> Display the Assembly, Schedule Completion Date, Schedule Group, and Build Sequence. For example: Assy01:25-SEP-99:Grp1:20</p>
+</li>
+<li>
+<p><b>Assemblies branches:</b> Display the Assembly Number, Assembly Description, Routing Revision, and Event Sequence. For example: Assy01:Bike:B:20</p>
+</li>
+<li>
+<p><b>Events branches</b>: Display the Event Sequence and Event Code. For example: 40:STO2</p>
+</li>
+</ul>
+<h2><a name="1034450"></a><a id="I_flwtx78n"></a><b>Flow Workstation Transactions</b></h2>
+<p><a name="d0e22798" id="d0e22798"></a><a name="d0e22804" id="d0e22804"></a>On the Flow Workstation, you have access to common shop floor transactions: you can request kanban replenishment, and you can perform line operation and schedule completions.</p>
+<h2><a name="1034451"></a><a id="T228220"></a><b>Kanban Replenishment</b></h2>
+<p><a name="d0e22817" id="d0e22817"></a><a name="d0e22823" id="d0e22823"></a><a name="I_kbrepln" id="I_kbrepln"></a>The flow Workstation provides access to windows for replenishing kanbans. Choose the Replenish Kanban icon on the toolbar, see: <a href="T228107T228113.htm#I_flwtools">Flow Workstation Toolbar</a>. When you choose Replenish Kanban, the Find Kanban window opens. Enter search criteria and choose Find to display the Kanban Cards Summary window.</p>
+<p><strong>Related Topics</strong></p>
+<p>Kanban Planning and Execution, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Pull Sequence Window, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Accessing the Planning Region, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Accessing the Production Region, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Defining Kanban Cards, <i>Oracle Inventory User's Guide</i></p>
+<p>Overview of Kanban Replenishment, <i>Oracle Inventory User's Guide</i></p>
+<h2><a name="1034452"></a><a id="T228221"></a><b>Line Operation, Schedule, and Assembly Completions</b></h2>
+<p><a name="d0e22868" id="d0e22868"></a><a name="d0e22874" id="d0e22874"></a><a name="I_flwcmpln" id="I_flwcmpln"></a>On the Flow Workstation, you can complete both line operations and flow schedules directly from the workstation. Choose the appropriate transaction, either Complete Line Operation or Complete Schedule. Both functions are available on the Component Requirements, Resource Requirements, and Properties tabs for all open schedules.</p>
+<p><strong><span>Note:</span></strong> If the profile option WIP:Validate Push Components at WIP Completion has been set to Yes, all push type components must be issued to the schedule in order to perform the completion transactions. See: <a href="T228107T228110.htm#valpush">WIP:Validate Push Components at WIP Completion</a></p>
+<h3><b>Complete Line Operations</b></h3>
+<p>Choose Complete Line Operation to open the Complete Line Operation window and <a name="d0e22894" id="d0e22894"></a><a name="d0e22900" id="d0e22900"></a>move assemblies to the next operation. Completing the line operation removes the assemblies from the current line operation's list of open schedules on the workstation tree. It does not trigger any cost or inventory transactions. See: <a href="T228107T228113.htm#I_cmpline">Complete Line Operation button</a>.</p>
+<p><strong><span>Important:</span></strong> Selecting the Complete Line Operation button does not complete the schedule nor does it perform any material transactions. If you are working on the last operation of the schedule, you have the option to complete the schedule using the Work Order-less Completions window.</p>
+<h3><b>Complete Schedules<a name="d0e22914" id="d0e22914"></a><a name="d0e22920" id="d0e22920"></a><a name="d0e22926" id="d0e22926"></a><a name="d0e22932" id="d0e22932"></a><a name="d0e22936" id="d0e22936"></a></b></h3>
+<p>Choosing Complete Schedule displays the Work Order-less Completions window to complete an open schedule. If you are at the last operation on a schedule, you are prompted to complete the schedule. You can choose another time to complete the schedule. See: <a href="T228107T228113.htm#I_cmpsched">Complete Schedule button</a>, and <a href="T228107T228113.htm#I_tx2Dwocmpltg">Performing Work Order-less Completions</a>.</p>
+<h3><b>Complete Assemblies<a name="d0e22953" id="d0e22953"></a><a name="d0e22959" id="d0e22959"></a><a name="d0e22965" id="d0e22965"></a><a name="d0e22969" id="d0e22969"></a><a name="d0e22975" id="d0e22975"></a><a name="d0e22979" id="d0e22979"></a></b></h3>
+<p>You can complete assemblies by choosing Complete Assembly. Choosing this button opens the Work Order-less Completions window in unscheduled mode (the Scheduled check box is not selected), so that you can perform a Work Order-less Completion transaction to complete the assembly.</p>
+<p>Performing a Work Order-less Completion transaction<a name="d0e22989" id="d0e22989"></a><a name="d0e22995" id="d0e22995"></a> automatically backflushes components and charges resource and overhead costs. Once the assembly has been completed, it is removed from the line operation's list of unscheduled Assemblies. See: <a href="T228107T228113.htm#I_osbutton">Buttons on Open Schedule Tabs</a>.</p>
+<h2><a name="1034456"></a><a id="T228222"></a><b>Integration with Oracle Quality</b></h2>
+<p><a name="I_qafw" id="I_qafw"></a>If collection plans exist for line operation completions, you can enter quality data within the Flow Workstation. You can enter results for mandatory collection plans or optional collection plans at specific points on a routing. This feature also prevents completing the line operation if there are remaining mandatory collections plans. When the collection plan data is entered, and the completion transaction is saved - the quality data is also saved.</p>
+<p>The Quality icon on the toolbar of the Flow Workstation is enabled when Oracle Quality is enabled for the organization, and a collection plan exists for the line operation:</p>
+<ul>
+<li>
+<p>If the collection plan is mandatory, the Enter Quality Results window from Oracle Quality, automatically displays when you choose Complete Line Operation.</p>
+</li>
+<li>
+<p>If the collection plan is optional, choose the Quality icon on the toolbar to display this window.</p>
+</li>
+</ul>
+<p><strong>Related Topics</strong></p>
+<p><a href="T228107T228113.htm#I_cmpline">Complete Line Operation Button</a>.</p>
+<p>Entering Quality Results Directly, <i>Oracle Quality User's Guide</i></p>
+<p>Setting Up Collection Plans for Line Operation Completion Transactions, <i>Oracle Quality User's Guide</i></p>
+<h2><a name="1034457"></a><a id="I_linldprp"></a><b>Linearity, Load, and Properties of the Line</b></h2>
+<p><a name="d0e23040" id="d0e23040"></a><a name="d0e23044" id="d0e23044"></a>Selecting the topmost branch of the tree (Line:Line Operation), displays three tabbed regions of information in the right pane - the Linearity, Load, and Properties tabs. The information on these tabs can help you manage production across the entire line.</p>
+<p><strong>Related Topics</strong></p>
+<p>Product Synchronization, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<p>Product Flow Manufacturing Line Balance, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<h2><a name="1034458"></a><a id="T228223"></a><b>Linearity Tab</b></h2>
+<p><a name="d0e23067" id="d0e23067"></a><a name="d0e23073" id="d0e23073"></a>One of the goals of Flow Manufacturing is to produce a constant quantity of products. Linearity determines how close your production matches the production schedule, and the Flow Workstation provides you with immediate access to that information.</p>
+<p>When you select the topmost branch of the tree, the Linearity tab is the first tab displayed. Its two graphs, Planned vs Actual and Mix, enable you to determine if production is meeting linearity.</p>
+<p>Both the Planned vs Actual and Mix graphs chart the linearity for the entire line, not just the line operation selected. The graphs automatically display the last week of production, but you can select your own range of dates to view. If you change the dates of the graph, choose Redraw Graph to refresh the display.</p>
+<h3><b>Planned And Actual Graph<a name="d0e23089" id="d0e23089"></a><a name="d0e23093" id="d0e23093"></a><a name="d0e23099" id="d0e23099"></a></b></h3>
+<p>The Planned vs Actual graph compares the cumulative actual quantity completed on the line to the quantity that was scheduled to be completed during the past week or a defined date range.</p>
+<ul>
+<li>
+<p>The cumulative quantity completed is the total combined number of scheduled and unscheduled units completed on the line for each date.</p>
+</li>
+<li>
+<p>The cumulative quantity scheduled is the total combined number of units scheduled to be produced on the line for each date, displayed on the Line Scheduling Workbench.</p>
+</li>
+</ul>
+<p>Both scheduled and completed quantities accumulate the units over the date range. For example, the data point on the graph for the first day shows the values for that day only. The data point for the second day, shows the combined data values for the first and the second day, and so on.</p>
+<p><img width="794" height="657" src="./img/wip_linearity.gif" alt="the picture is described in the document text"></p>
+<p>The information from the graph is also displayed in a table below the graph including Date, Scheduled Quantity, Completed Quantity, Difference (between the scheduled and actual quantities), and Variance Percent.</p>
+<h3><b>Mix Graph<a name="d0e23126" id="d0e23126"></a><a name="d0e23132" id="d0e23132"></a><a name="d0e23136" id="d0e23136"></a></b></h3>
+<p>The Mix graph displays the linearity percentage of the product mix on the line over time, based on the assembly being built. The information on this graph is beneficial for lines that produce multiple products. Its linearity calculation measures the difference (differential or deviation) between the number of units scheduled to be completed and the number of units actually completed for each product. It compares it to the total planned quantity for all products. The differential is calculated for each assembly built on the line, and then the differentials are summed.</p>
+<p><img width="798" height="655" src="./img/wip_mixgraph.gif" alt="the picture is described in the document text"></p>
+<p>The variance (the sum of the differences between what is scheduled and what is completed) is calculated using this formula:<a name="d0e23151" id="d0e23151"></a><a name="d0e23155" id="d0e23155"></a><a name="d0e23161" id="d0e23161"></a><a name="d0e23167" id="d0e23167"></a><a name="d0e23173" id="d0e23173"></a></p>
+<p><b>Linearity = (1 - (sum of differentials/total planned quantity) * 100</b></p>
+<p>The following charts shows an example of this calculation:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Day One Assemblies</b></th>
+<th scope="col"><b>Scheduled Quantity</b></th>
+<th scope="col"><b>Actual Quantity</b></th>
+<th scope="col"><b>Differential</b></th>
+</tr>
+<tr valign="top">
+<td>Assembly 1</td>
+<td>20</td>
+<td>18</td>
+<td>2</td>
+</tr>
+<tr valign="top">
+<td>Assembly 2</td>
+<td>20</td>
+<td>19</td>
+<td>1</td>
+</tr>
+<tr valign="top">
+<td>Assembly 3</td>
+<td>20</td>
+<td>23</td>
+<td>3</td>
+</tr>
+<tr valign="top">
+<td>Total</td>
+<td>60</td>
+<td>60</td>
+<td>6</td>
+</tr>
+</table>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Day Two Assemblies</b></th>
+<th scope="col"><b>Scheduled Quantity</b></th>
+<th scope="col"><b>Actual Quantity</b></th>
+<th scope="col"><b>Differential</b></th>
+</tr>
+<tr valign="top">
+<td>Assembly 1</td>
+<td>20</td>
+<td>22</td>
+<td>2</td>
+</tr>
+<tr valign="top">
+<td>Assembly 2</td>
+<td>20</td>
+<td>16</td>
+<td>4</td>
+</tr>
+<tr valign="top">
+<td>Assembly 3</td>
+<td>20</td>
+<td>22</td>
+<td>2</td>
+</tr>
+<tr valign="top">
+<td>Total</td>
+<td>60</td>
+<td>60</td>
+<td>8</td>
+</tr>
+</table>
+<p><b>Linearity for Day 1 = (1 - (6/60)) * 100 = 90%</b></p>
+<p><b>Linearity for Day 2 = (1 - (8/60)) * 100 = 87%</b></p>
+<h2><a name="1034461"></a><a id="T228224"></a><b>Load Tab</b></h2>
+<p><a name="d0e23340" id="d0e23340"></a><a name="d0e23346" id="d0e23346"></a><a name="I_loadtab" id="I_loadtab"></a>The Load tab provides you with two graphs that compare the load on the line to the line's capacity either by completion date or by line operation resource. Both graphs show the load and capacity for the entire line, not just for the line operation selected when you opened the workstation. The Line Load by Day graph calculates the load on the entire line for each day. The Cumulative Load by Line Operation Resource graph calculates the load for each line operation resource over a date range that you define. If you define your own date range, you must choose the Redraw Graph button to refresh the display.</p>
+<h3><b><a name="I_linegraf" id="I_linegraf"></a>Line Load by Day Graph<a name="d0e23360" id="d0e23360"></a><a name="d0e23366" id="d0e23366"></a><a name="d0e23372" id="d0e23372"></a></b></h3>
+<p>The Line Load by Day bar graph calculates the load (required hours) versus the capacity (available hours) of the entire line by completion date. For each completion date in the date range, it displays two bars, one representing the load, and the other representing the capacity of the entire line.</p>
+<p><img width="799" height="656" src="./img/wip_load.gif" alt="the picture is described in the document text"></p>
+<h3><b><a name="I_cumline" id="I_cumline"></a>Cumulative Load by Line Operation Resource Graph<a name="d0e23387" id="d0e23387"></a><a name="d0e23393" id="d0e23393"></a><a name="d0e23399" id="d0e23399"></a></b></h3>
+<p>The second graph on the Load tab, the Cumulative Load by Line Operation Resource graph, compares the load for the entire line to the capacity of the line at each line operation resource. For each line operation resource, the graph displays two bars: one that shows the cumulative load on the resource assigned to the line operation, and the other that shows the cumulative capacity of the resource assigned to the line operation for the date range defined.</p>
+<p>Even though you select a single line operation to view when you open the workstation, the graph looks at the load placed on the resource from the entire line in order to present a more accurate picture of the resource's availability. For example, on a welding line where the graph displays the load on the line's ArcWeld, SubWeld, and Welder. If the Welder is required for 10 hours at Operation 10 and 10 hours at Operation 20, the total load on the Welding resource, 20 hours, is displayed.</p>
+<h2><a name="1034464"></a><a id="T228225"></a><b>Properties Tab</b></h2>
+<p><a name="d0e23411" id="d0e23411"></a><a name="d0e23417" id="d0e23417"></a><a name="I_lineprop" id="I_lineprop"></a>The Properties tab displays the following information about the line operation that you selected when you opened the workstation: the line, line description, operation code, operation description prompt, and the minimum transfer quantity.</p>
+<p><img width="800" height="648" src="./img/wip_lineprop.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> An application program interface (API) enables customized attributes to display on the Properties tab. See: <a href="T228107T228131.htm#flwapi">Customized Display for Properties Tabbed Region</a>.</p>
+<h2><a name="1034465"></a><a id="I_opnschev"></a><b>Open Schedules and Events</b></h2>
+<p><a name="d0e23442" id="d0e23442"></a>The Flow Workstation displays all of the open schedules, unscheduled assemblies, and events for the line operation selected.</p>
+<p>There are three tabs of information for each open schedule, unscheduled assembly, and event listed: Component Requirements, Resource Requirements, and Properties. The Complete Line Operation and Complete Assembly buttons enable you to reduce your list of open schedules as you complete the schedules at your line operation.</p>
+<p><img width="798" height="649" src="./img/wip_opnschedtb.gif" alt="the picture is described in the document text"></p>
+<p>The Open Schedules branch is used to display all assemblies scheduled for work at that line operation. When you select an open schedule, the events for that operation are displayed - along with component and resource requirements.</p>
+<h2><a name="1034466"></a><a id="T228226"></a><b>Open Schedule Component Requirements Tab</b></h2>
+<p><a name="d0e23464" id="d0e23464"></a><a name="d0e23470" id="d0e23470"></a><a name="d0e23476" id="d0e23476"></a><a name="I_oscmpreq" id="I_oscmpreq"></a>The Component Requirements tab for open schedules lists all of the components required at the line operation to make the particular assembly. It provides you with details on the line and line operation, as well as information on each required component.</p>
+<p>The following information on the assembly's components is listed: Event Sequence, Component, Unit of Measure, Quantity Per Assembly, Supply Location Quantity, Destination Kanban Subinventory, Destination Kanban Locator, Supply Kanban Subinventory, Supply Kanban Locator, and Description.</p>
+<p><img width="798" height="649" src="./img/wip_opnschedtb.gif" alt="the picture is described in the document text"></p>
+<h2><a name="1034467"></a><a id="T228227"></a><b>Open Schedule Resource Requirements Tab</b></h2>
+<p><a name="d0e23497" id="d0e23497"></a><a name="d0e23503" id="d0e23503"></a><a name="d0e23509" id="d0e23509"></a><a name="I_osresreq" id="I_osresreq"></a>The Resource Requirements tab lists all of the resources that are required to manufacture the particular assembly that you selected from the tree. In addition to detailed information on each required resource, the tab also provides you with information on the line and line operation.</p>
+<p>The following information is included in this region: Event Sequence, Resource Sequence, Resource, Unit of Measure, Assigned Units, Usage Rate, Description.</p>
+<p><img width="800" height="654" src="./img/wip_osresreq.gif" alt="the picture is described in the document text"></p>
+<h2><a name="1034468"></a><a id="T228228"></a><b>Open Schedule Properties Tab</b></h2>
+<p><a name="d0e23530" id="d0e23530"></a><a name="d0e23536" id="d0e23536"></a><a name="d0e23542" id="d0e23542"></a><a name="I_osprops" id="I_osprops"></a>The Properties tab provides you with the following information on the Line and Line Operation and assembly: line, line operation, schedule group, build sequence, schedule number, scheduled completion date, assembly, assembly description, scheduled quantity, unit number, Bill of Material (BOM) revision, alternate BOM designator, routing revision, alternate routing designator, project, task, and sales order.</p>
+<p><img width="808" height="656" src="./img/wip_osproptb.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> An application program interface (API) enables customized attributes to display on the Properties tab. See: <a href="T228107T228131.htm#flwapi">Customized Display for Properties Tabbed Region</a>.</p>
+<h2><a name="1034469"></a><a id="T228229"></a><b>Open Schedule Events</b></h2>
+<p><a name="d0e23567" id="d0e23567"></a><a name="d0e23573" id="d0e23573"></a><a name="d0e23579" id="d0e23579"></a><a name="I_osevent" id="I_osevent"></a>Selecting a schedule from the list of open schedules displays the events (tasks) required to produce that assembly at that operation. For example, events for the Paint operation, might be: Sand, Paint, Finish. Each event is supported by three tabs of information: Component Requirements, Resource Requirements, and Properties.</p>
+<p>In addition, if an attachments are associated with the assembly or any of its components, you can download them by choosing the View Instructions.</p>
+<p><strong>Related Topics</strong></p>
+<p>Defining Flow Manufacturing Standard Events, <i>Oracle Flow Manufacturing User's Guide</i></p>
+<h2><a name="1034470"></a><a id="T228230"></a><b>Event Component Requirements Tab</b></h2>
+<p><a name="d0e23601" id="d0e23601"></a><a name="d0e23607" id="d0e23607"></a><a name="d0e23613" id="d0e23613"></a><a name="I_evcmpreq" id="I_evcmpreq"></a>The Component Requirements tab for scheduled assembly events lists all of the components required at this event to produce the assembly. The tab lists details of the line and line operation and information on each required component.</p>
+<p><img width="760" height="619" src="./img/wip_evntcomreq.gif" alt="the picture is described in the document text"></p>
+<p>You can view the following information in this region:</p>
+<ul>
+<li>
+<p>Unit of Measure (UOM)</p>
+</li>
+<li>
+<p>Quantity per Assembly</p>
+</li>
+<li>
+<p>Supply Location Quantity</p>
+</li>
+<li>
+<p>Destination Kanban Subinventory</p>
+</li>
+<li>
+<p>Destination Kanban Locator</p>
+</li>
+<li>
+<p>Supply Kanban Subinventory</p>
+</li>
+<li>
+<p>Supply Kanban Locator</p>
+</li>
+<li>
+<p>Description</p>
+</li>
+</ul>
+<h2><a name="1034471"></a><a id="T228231"></a><b>Event Resource Requirements Tab</b></h2>
+<p><a name="d0e23659" id="d0e23659"></a><a name="d0e23665" id="d0e23665"></a><a name="d0e23671" id="d0e23671"></a><a name="I_evresreq" id="I_evresreq"></a>The Resource Requirements tab for scheduled assembly Events lists all of the resources required at this event to produce the particular assembly.</p>
+<p>The tab's table provides you with the following information on the resources needed at that event including:</p>
+<ul>
+<li>
+<p>Resource Sequence</p>
+</li>
+<li>
+<p>Resource</p>
+</li>
+<li>
+<p>Unit of Measure (UOM)</p>
+</li>
+<li>
+<p>Assigned Units</p>
+</li>
+<li>
+<p>Usage Rate</p>
+</li>
+<li>
+<p>Description</p>
+</li>
+</ul>
+<p><img width="758" height="617" src="./img/wip_evntresreq.gif" alt="the picture is described in the document text"></p>
+<h2><a name="1034472"></a><a id="T228232"></a><b>Event Properties Tab</b></h2>
+<p><a name="d0e23711" id="d0e23711"></a><a name="d0e23717" id="d0e23717"></a><a name="d0e23723" id="d0e23723"></a><a name="I_evprops" id="I_evprops"></a>The Properties tab for scheduled assembly Events lists the following information on the line and line operation: line, line operation, schedule group, build sequence, schedule number, assembly, event code, event description, event sequence, effectivity date, disable date, project, task, and sales order.</p>
+<p><img width="804" height="658" src="./img/wip_evntprops.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> An application program interface (API) enables customized attributes to display on the Properties tab. See: <a href="T228107T228131.htm#flwapi">Customized Display for Properties Tabbed Region</a>.</p>
+<h2><a name="1034473"></a><a id="T228889"></a><b>Buttons on Open Schedule Tabs</b></h2>
+<p><a name="d0e23748" id="d0e23748"></a><a name="d0e23754" id="d0e23754"></a><a name="I_osbutton" id="I_osbutton"></a>The Complete Line Operation and Complete Schedule buttons enable you to perform transactions directly from the workstation. View Instructions enables you to download attachments associated with schedules and components.</p>
+<h3><b><a name="I_cmpline" id="I_cmpline"></a>Completing Line Operations<a name="d0e23768" id="d0e23768"></a><a name="d0e23774" id="d0e23774"></a><a name="d0e23778" id="d0e23778"></a><a name="d0e23784" id="d0e23784"></a></b></h3>
+<p>Complete Line Operation enables you to complete a line operation by removing it from the list of open schedules and placing it on the list of open schedules for any other operation.</p>
+<p><strong><span>Note:</span></strong> Completing a line operation does not complete the schedule, nor does it trigger inventory transactions or charge costs. If you want to complete a schedule, you must use the Work Order-less Completions window.</p>
+<p>When you choose Complete Line Operation, the Complete Line Operation window opens for selecting another operation for completion. If you are at the last line operation, you will be prompted to complete the schedule. If you choose to complete it, the Work Order-less Completions window automatically opens. See: <a href="T228107T228113.htm#I_tx2Dwocmpltg">Performing Work Order-less Completions</a>.</p>
+<p>The Flow Workstation is integrated with Oracle Quality. If collection plans exist for line operation completions, you can enter quality data. See: <a href="T228107T228113.htm#I_qafw">Integration with Oracle Quality</a>., and Setting Up Collection Plans for Line Operation Completion Transactions, <i>Oracle Quality User's Guide</i></p>
+<p><b>To complete a line operation:<a name="d0e23810" id="d0e23810"></a><a name="d0e23814" id="d0e23814"></a><a name="d0e23820" id="d0e23820"></a></b></p>
+<ol>
+<li>
+<p>On the Flow Workstation tree, select the open schedule.</p>
+</li>
+<li>
+<p>On any of the tabbed regions displayed in the right frame of the workstation, select the Complete Line Operation button. The Complete Line Operation window<a name="d0e23834" id="d0e23834"></a> opens.</p>
+<p>If a mandatory collection plan exists for this line operation, the Enter Quality Results window from Oracle Quality automatically displays. You can also enter optional collection plan data by choosing the Quality icon on the toolbar. See: Entering Quality Results Directly, <i>Oracle Quality User's Guide</i>.</p>
+<p><img width="799" height="662" src="./img/wip_cmpltlineop.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>In the Next Line Operation field, select the number of the line operation that you want to move the assembly to from the field's list of values (you can move it to a previous line operation).</p>
+</li>
+<li>
+<p>Select OK to complete the line operation and close the window. The schedule is removed from the list of Open Schedules on the workstation tree.</p>
+</li>
+</ol>
+<h3><b><a name="I_cmpsched" id="I_cmpsched"></a>Completing Schedules<a name="d0e23862" id="d0e23862"></a><a name="d0e23868" id="d0e23868"></a><a name="d0e23872" id="d0e23872"></a><a name="d0e23878" id="d0e23878"></a><a name="d0e23884" id="d0e23884"></a></b></h3>
+<p>The Complete Schedule button is displayed on the Open Schedule Component Requirements, Resource Requirements, and Properties tabs. Selecting this button opens the Work Order-less Completions window. When you complete a schedule using the Work Order-less Completions window, components and costs are automatically backflushed and charged.</p>
+<p>See: <a href="T228107T228113.htm#I_tx2Dwocmpltg">Performing Work Order-less Completions</a>.</p>
+<h3><b><a name="I_viewbtn" id="I_viewbtn"></a>View Instructions<a name="d0e23901" id="d0e23901"></a><a name="d0e23905" id="d0e23905"></a><a name="d0e23911" id="d0e23911"></a><a name="d0e23917" id="d0e23917"></a><a name="d0e23923" id="d0e23923"></a></b></h3>
+<p>You can View Instructions from the Events and Properties tabs, This enables you to view any attachments that were previously associated with an open schedule or event's components and resources. Attachments may include operating instructions, drawings, memos, web pages, or any other kind of information.</p>
+<p>When you choose View Instructions a web page displays a list of the available attachments. Select any of the attachments listed.</p>
+<p><img width="607" height="441" src="./img/wip_viewinstr.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Note:</span></strong> If a resource, assembly, or component is associated with an attachment, an icon of a paper clip is visible next to its name.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

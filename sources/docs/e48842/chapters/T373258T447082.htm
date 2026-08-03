@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Order Management Implementation Manual</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Order Management Implementation Manual">
+<meta name="dcterms.identifier" content="E48842-28">
+<meta name="dcterms.isVersionOf" content="ONTIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T373258T376985.htm" title="Previous" type="text/html">
+<link rel="Next" href="T373258T2011473.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Order Management Implementation Manual","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">34/36</span> <!-- End Header -->
+<h1>Item Attributes</h1>
+<h2><a name="4033148"></a><a id="T447083"></a><b>Inventory Item Attributes</b></h2>
+<p><a name="d0e78538" id="d0e78538"></a><a name="t_itemattr" id="t_itemattr"></a>Order Management looks either in the Item Validation Organization or the Shipping Warehouse (organization) to retrieve the value of an item attribute. The Item Validation Organization is defined by the OM System Parameter Item Validation Organization.</p>
+<p>In Order Management, some item attributes are derived and used internally, while other attributes are defaulted on the Sales Order Line by using the seeded defaulting rules. Customers can change the defaulting rules to suit their business needs. Attributes are categorized as Only Source and Defaulting Source to differentiate the usage.</p>
+<p><b>Item Validation Organization</b></p>
+<p>The following item attributes are taken from the organization specified in the Item Validation Organization parameter.</p>
+<p><b>Only Source</b></p>
+<ul>
+<li>
+<p>Assemble To Order</p>
+</li>
+<li>
+<p>BOM Item Type (Model, Class..etc)</p>
+</li>
+<li>
+<p>Build in WIP</p>
+</li>
+<li>
+<p>Customer Orders Enabled*</p>
+</li>
+<li>
+<p>Inventory Item</p>
+</li>
+<li>
+<p>Internal Orders Enabled*</p>
+</li>
+<li>
+<p>Pick Components</p>
+</li>
+<li>
+<p>Primary Unit of Measure</p>
+</li>
+<li>
+<p>Ship Model Complete</p>
+</li>
+<li>
+<p>Serviceable Product Flag (Enable Contract Coverage)</p>
+</li>
+<li>
+<p>Service Item Flag (Derived from Contract Item Type)</p>
+</li>
+</ul>
+<p><b>Defaulting Source</b></p>
+<ul>
+<li>
+<p>Accounting Rule</p>
+</li>
+<li>
+<p>Default Shipping Organization</p>
+</li>
+<li>
+<p>Invoicing Rule</p>
+</li>
+<li>
+<p>Over/Under Shipment Tolerances</p>
+</li>
+<li>
+<p>Over/Under Return Tolerances</p>
+</li>
+<li>
+<p>Payment Terms</p>
+</li>
+<li>
+<p>Tax Code</p>
+</li>
+</ul>
+<p>* - Also validated in the Shipping Warehouse.</p>
+<p><b>Shipping Warehouse</b></p>
+<p>The following item attributes are taken from the organization specified in the Warehouse field of a sales order line or the Receiving Warehouse of a return line.</p>
+<p><b>Only Source</b></p>
+<ul>
+<li>
+<p>ATP components</p>
+</li>
+<li>
+<p>ATP Rule</p>
+</li>
+<li>
+<p>Check ATP</p>
+</li>
+<li>
+<p>Customer Orders Enabled</p>
+</li>
+<li>
+<p>Internal Orders Enabled</p>
+</li>
+<li>
+<p>Invoice Enabled **</p>
+</li>
+<li>
+<p>Invoiceable Item **</p>
+</li>
+<li>
+<p>Lot Control</p>
+</li>
+<li>
+<p>Purchasable Flag</p>
+</li>
+<li>
+<p>Reservation Control</p>
+</li>
+<li>
+<p>Returnable</p>
+</li>
+<li>
+<p>Revision Control</p>
+</li>
+<li>
+<p>Shippable</p>
+</li>
+<li>
+<p>Serial Number Control</p>
+</li>
+<li>
+<p>Stock Locator Control</p>
+</li>
+<li>
+<p>Stockable</p>
+</li>
+<li>
+<p>Subinventory Restrictions</p>
+</li>
+<li>
+<p>Transactable (Inventory)</p>
+</li>
+<li>
+<p>Pricing Quantity Source</p>
+</li>
+<li>
+<p>Tracking Quantity Indicator</p>
+</li>
+<li>
+<p>Secondary UOM Code</p>
+</li>
+</ul>
+<p>** - If the Shipping Warehouse is not specified on the sales order line, then these attributes are fetched from Item Validation Organization.</p>
+<p><b>Defaulting Source</b></p>
+<ul>
+<li>
+<p>Charge Periodicity</p>
+</li>
+<li>
+<p>COGS Account</p>
+</li>
+<li>
+<p>Default SO Source Type</p>
+</li>
+</ul>
+<p><b>Bill of Material Item Attributes</b></p>
+<ul>
+<li>
+<p>Mutually Exclusive</p>
+</li>
+<li>
+<p>Optional</p>
+</li>
+<li>
+<p>Include on Shipping Documents</p>
+</li>
+<li>
+<p>Required for Revenue</p>
+</li>
+<li>
+<p>Required to Ship</p>
+</li>
+</ul>
+<p>All Bill of Material item attributes are taken from the organization specified in the System parameter Item Validation Organization.</p>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

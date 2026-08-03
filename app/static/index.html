@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oracle EBS R12.2 LLM Wiki</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Oracle EBS R12.2 · LLM Wiki</h1>
+    <div id="health" class="health">…</div>
+  </header>
+
+  <nav class="tabs">
+    <button data-tab="browse" class="active">浏览与检索</button>
+    <button data-tab="ask">提问</button>
+    <button data-tab="ingest">补充知识</button>
+  </nav>
+
+  <main>
+    <!-- ============ browse ============ -->
+    <section id="tab-browse" class="tab active">
+      <div class="row">
+        <input id="search-q" type="text" placeholder="输入关键词，如：销售订单 状态 Booked">
+        <label class="chk"><input id="search-raw" type="checkbox"> 同时搜官方章节正文</label>
+        <button id="search-btn">搜索</button>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h2 id="results-title">全部页面</h2>
+          <div id="results" class="results"></div>
+        </div>
+        <div class="col viewer">
+          <h2>页面内容</h2>
+          <div id="page-view"><p class="muted">选择左侧页面查看。</p></div>
+          <div id="page-meta" class="muted small"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ask ============ -->
+    <section id="tab-ask" class="tab">
+      <div class="row">
+        <textarea id="ask-q" rows="4" placeholder="向知识库提问，例如：订单行在什么情况下会进入 Awaiting Invoice Interface - On Hold？"></textarea>
+      </div>
+      <div class="row">
+        <label class="chk"><input id="ask-raw" type="checkbox" checked> 检索时包含官方章节正文</label>
+        <button id="ask-btn">提问</button>
+        <span id="ask-mode" class="badge"></span>
+      </div>
+      <div id="answer" class="answer"></div>
+      <div id="citations" class="citations"></div>
+      <div class="row">
+        <button id="copy-prompt" style="display:none">复制给 Codex 的 Prompt</button>
+      </div>
+    </section>
+
+    <!-- ============ ingest ============ -->
+    <section id="tab-ingest" class="tab">
+      <div class="row">
+        <input id="in-title" type="text" placeholder="标题（必填）">
+      </div>
+      <div class="row">
+        <input id="in-url" type="text" placeholder="来源 URL（选填）">
+      </div>
+      <div class="row">
+        <textarea id="in-content" rows="12" placeholder="知识内容（必填）。建议附上原文/章节/页码等证据信息。"></textarea>
+      </div>
+      <div class="row">
+        <button id="in-btn">保存到待摄入箱</button>
+        <span id="in-result" class="muted"></span>
+      </div>
+      <p class="muted small">保存后写入 <code>sources/inbox/</code> 并追加到 wiki/log.md；之后可让 Codex 正式摄入成 T1/T2 知识页。</p>
+      <h2>待摄入箱</h2>
+      <div id="inbox-list" class="results"></div>
+    </section>
+  </main>
+
+  <footer class="muted small">
+    本地知识库 · 数据来源：Oracle EBS R12.2 官方公开文档（docs.oracle.com）· 未经实例验证的内容均标注留白
+  </footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Conversion of Historical Data for Reporting Currencies and Secondary Ledgers</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Subledger Accounting Implementation Guide">
+<meta name="dcterms.identifier" content="E48771-04">
+<meta name="dcterms.isVersionOf" content="XLAIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T149412T283033.htm" title="Previous" type="text/html">
+<link rel="Next" href="T149412T327670.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Conversion of Historical Data for Reporting Currencies and Secondary Ledgers","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">8/19</span> <!-- End Header -->
+<h1>Conversion of Historical Data for Reporting Currencies and Secondary Ledgers</h1>
+<h2><a name="5145287"></a><a id="T521413"></a><b>Conversion of Historical Data for Reporting Currencies and Secondary Ledgers</b></h2>
+<p><a name="hdc_overview" id="hdc_overview"></a>When defining a new subledger reporting currency or secondary ledger for an active primary ledger, you can use the SLA Secondary/ALC Ledger Historic Upgrade program to initialize journals.</p>
+<p>You can determine the period from which to create ledger balances by selecting the first period for conversion. The journals are created from the selected period onwards. The first period of historic conversion should be the earliest period for which you have open transactions.</p>
+<p>When a subledger level secondary or reporting ledger is added to an existing primary ledger, the accounting in the secondary or reporting ledger fails in the following scenarios:</p>
+<ul>
+<li>
+<p>When a final accounted transaction is reversed: A Payables invoice is created and final accounted in the primary ledger. Then, a new subledger level secondary or reporting ledger is added to this primary ledger. The same invoice is cancelled. When the Create Accounting program is run, accounting for the invoice cancellation fails for the secondary or reporting ledger, as the accounting program does not find the corresponding Invoice accounting entry to generate the transaction reversal entry (Invoice cancellation accounting) for the secondary or reporting ledger.</p>
+</li>
+<li>
+<p>When a Payment accounting entry needs to be created using business flows: A Payables invoice is created and final accounted in the primary ledger. Then, a new subledger level secondary or reporting ledger is added to this primary ledger. A payment is generated against the same invoice. When the Create Accounting program is run, accounting for this payment fails for the secondary or reporting ledger, as the accounting program cannot find the corresponding upstream entry (Invoice accounting) to generate the downstream entry (Payment accounting) for the secondary or reporting ledger.</p>
+</li>
+</ul>
+<h2><a name="5157800"></a><a id="T521723"></a><b>Running the SLA Secondary/ALC Ledger Historic Upgrade Program</b></h2>
+<p><a name="run_hdc_pro" id="run_hdc_pro"></a>Use this procedure to run the SLA Secondary/ALC Ledger Historic Upgrade program.</p>
+<p><b>Prerequisites</b>:</p>
+<p>Create initial balances for new ledgers:</p>
+<p><strong><span>Note:</span></strong> The SLA Secondary/ALC Ledger Historic Upgrade program creates journals in Oracle Subledger Accounting. These journals are created with a posting status of Posted and are never actually posted to Oracle General Ledger. To maintain historic balances in Oracle General Ledger, you must initialize balances for the new reporting currency ledger or secondary ledger.</p>
+<p>To create initial balances for a:</p>
+<ul>
+<li>
+<p>Reporting Currency Ledger: Run the Reporting Currency: Create Opening Balance Journals in Reporting Currency program. For more information on running this program, see the Implementation Considerations, <i>Oracle General Ledger User's Guide</i> topic within the <i>Oracle General Ledger User's Guide</i>.</p>
+</li>
+<li>
+<p>Secondary Ledger: Use the Consolidation Workbench to copy initial balances. For more information on using the Consolidation Workbench, refer to the <i>Oracle Financials Implementation Guide</i>.</p>
+</li>
+</ul>
+<p><b>Restrictions</b>:</p>
+<ul>
+<li>
+<p>The program cannot be used for a secondary ledger whose subledger accounting method is different from that of the primary ledger.</p>
+</li>
+<li>
+<p>The program should be run immediately after creation of the new secondary/reporting currency ledger so that no new transactions are made between the creation of the new secondary/reporting ledger and running of the historic upgrade program.</p>
+</li>
+<li>
+<p>All fully accounted transactions of the primary ledger must be transferred to Oracle General Ledger before running the program.</p>
+</li>
+</ul>
+<p>Running the SLA Secondary/ALC Ledger Historic Upgrade program immediately after creation of the new secondary/reporting currency ledger could prevent these problem scenarios.</p>
+<p>If the SLA Secondary/ALC Ledger Historic Upgrade program was not run due to restrictions, then the Create Accounting program displays a warning when the secondary accounting fails. In such a case, you must create manual journal entries in GL for the secondary ledger.</p>
+<p><b>To run the SLA Secondary/ALC Ledger Historic Upgrade program</b>:</p>
+<ol>
+<li>
+<p>Navigate to the <b>Submit Request</b> form.</p>
+</li>
+<li>
+<p>Select <b>SLA Secondary/ALC Ledger Historic Upgrade</b> from the LOV in the Name field.</p>
+</li>
+<li>
+<p>Enter the parameters as follows:</p>
+<ol>
+<li>
+<p><b>Primary Ledger</b>: Select the primary ledger.</p>
+</li>
+<li>
+<p><b>Reporting/Secondary Ledger</b>: Select the reporting/secondary ledger.</p>
+</li>
+<li>
+<p><b>Upgrade Start Period</b>: Select the first period from which you wish to run the historic upgrade.</p>
+</li>
+<li>
+<p><b>Secondary Conversion Option</b>: Select the secondary conversion option to be used when running a historic upgrade for a secondary ledger. The options are Derive from Original Transaction Rate and Use Initialization Rate.</p>
+</li>
+<li>
+<p><b>Secondary Currency Conversion Type</b>: Select the currency conversion type or rate type to be used when running a historic upgrade for a secondary ledger.</p>
+</li>
+<li>
+<p><b>Secondary Currency Conversion Date</b>: Select the conversion date to be used when running a historic upgrade for a secondary ledger.</p>
+</li>
+<li>
+<p><b>Mode</b>:</p>
+<ul>
+<li>
+<p><b>Final</b>: Select this value after you run the program in the Validation mode.</p>
+<p>This mode creates the journal entries within Oracle Subledger Accounting.</p>
+</li>
+<li>
+<p><b>Validation</b>: Select this value to run the program in Validation mode.</p>
+<p><strong><span>Important:</span></strong> It is recommended to first run the program in Validation mode so that the program runs the validations that must be checked before performing the historic upgrade. If validations fail, you can view them within the log file and take action. After the program runs successfully in the Validation mode, you can run it in Final mode.</p>
+</li>
+<li>
+<p><b>Recovery</b>: Select this value to purge results after a concurrent request is terminated while in Final mode.</p>
+<p><strong><span>Important:</span></strong> If you terminate the program while it is running in Final mode, then you must first run the program in Recovery mode before running the program again in Final mode. Recovery mode purges any upgrade data that may have been created during the terminated concurrent request.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong><span>Note:</span></strong> In the case of a reporting currency ledger, the conversion option, rate type, and rate date are picked up from the ledger relationships defined in the Accounting Setup Manager.</p>
+</li>
+</ol>
+<h2><a name="5562536"></a><a id="T545487"></a><b>Running the Upgrade Historical Subledger Transaction Accounting Program on Demand</b></h2>
+<p><a name="slaondemand" id="slaondemand"></a><a name="SRS.XLAONDEUPG" id="SRS.XLAONDEUPG"></a>Oracle Subledger Accounting provides a concurrent program, Upgrade Historical Subledger Transaction Accounting, that allows the historical accounting data conversion to be done independently for each subledger.</p>
+<p>You must run the concurrent program Upgrade Historical Subledger Transaction Accounting instead of using the On Demand Upgrade Patch.</p>
+<p>To run the Upgrade Historical Subledger Transaction Accounting, enter the following parameters:</p>
+<ol>
+<li>
+<p>Select or enter the Application name. The list shows the application attached to the responsibility from where the concurrent program is submitted.</p>
+</li>
+<li>
+<p>Enter the name of the Ledger. The list shows all Primary ledgers.</p>
+</li>
+<li>
+<p>Enter the Start Period Name. The list shows all periods not yet upgraded and associated with the ledger selected in the above parameter.</p>
+</li>
+<li>
+<p>Enter the Number of Workers. The value should be greater than 1. Otherwise, the application inputs the default value of 1.</p>
+</li>
+<li>
+<p>Enter the Batch size. The default value is 1000.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

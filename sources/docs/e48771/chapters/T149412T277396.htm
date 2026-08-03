@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Reporting Sequence</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Subledger Accounting Implementation Guide">
+<meta name="dcterms.identifier" content="E48771-04">
+<meta name="dcterms.isVersionOf" content="XLAIG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T149412T285832.htm" title="Previous" type="text/html">
+<link rel="Next" href="T149412T377484.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Reporting Sequence","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">12/19</span> <!-- End Header -->
+<h1>Reporting Sequence</h1>
+<h2><a name="2930434"></a><a id="T277397"></a><b>Reporting Sequence Overview</b></h2>
+<p><a name="d0e11888" id="d0e11888"></a><a name="siseqov" id="siseqov"></a>Journal entries have the following sequences attached to Subledger Accounting:</p>
+<ul>
+<li>
+<p>accounting sequence</p>
+<p>The accounting sequence is assigned to Subledger Accounting journal entries at the time that the journal entry is completed. The sequence is assigned in the completion date order using the GL date as the date criterion for determining the sequence to be used.</p>
+</li>
+<li>
+<p>reporting sequence</p>
+<p>The reporting sequence is assigned to both Subledger Accounting journal entries and General Ledger journal entries when the General Ledger period is closed. This sequence is used by most of the legal reports required in some countries as the main sorting criterion to display the journal entries.</p>
+<p><strong><span>Note:</span></strong> In some related documents, this sequence is referred to as the chronological sequence.</p>
+</li>
+</ul>
+<p>These two sequences are not mutually exclusive and can coexist in the same journal entry.</p>
+<p>In some cases, the completed journal entries can be functionally correct but the sequence numbers assigned to them are wrong. For example, the user realizes that the sequencing setup is not correct and wants to resequence all the journal entries that are sequenced based on the wrong setup. Subledger Accounting provides an undo and redo accounting feature to correct the original accounting. A key component of this feature is the Re-sequencing of Journal Entries.</p>
+<p>Reporting sequence is optional.</p>
+<h2><a name="2930435"></a><a id="T371428"></a><b>Sequence Programs</b></h2>
+<p><a name="d0e11921" id="d0e11921"></a><a name="d0e11926" id="d0e11926"></a><a name="sisseqprg" id="sisseqprg"></a>The reporting sequence feature is based on the following programs:</p>
+<ul>
+<li>
+<p>Reporting Sequence program</p>
+<p>This program belongs to Subledger Accounting and selects the journal entries to be sequenced. This program is called in the following modes:</p>
+<ul>
+<li>
+<p>Reporting sequence functionality</p>
+</li>
+<li>
+<p>Undo sequences functionality</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Accounting Sequence Numbering program</p>
+</li>
+</ul>
+<p>The reporting sequence program selects the journal entries to be sequenced and performs the following:</p>
+<ul>
+<li>
+<p>Groups journal entries in a specific order</p>
+</li>
+<li>
+<p>Sequences the journal entries that are completed and transferred to General Ledger</p>
+</li>
+<li>
+<p>Assigns sequence numbers that are consecutive with no gaps to journal entries that share the same sequence</p>
+</li>
+<li>
+<p>Assigns reporting sequence at the ledger level providing the following combinations for multiple ledgers:</p>
+<ul>
+<li>
+<p>A different sequence is assigned to each ledger.</p>
+</li>
+<li>
+<p>Different reporting sequences are assigned to some ledgers, and there is no sequence assignment to the rest of the ledgers.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Sequences journal entries that belong to an adjustment period when the corresponding nonadjustment period, based on the sequence control date, is closed</p>
+<p><strong><span>Note:</span></strong> If a customer plans to use reporting sequence for a ledger, and the ledger calendar includes adjustment periods, then adjustment periods must:</p>
+<ul>
+<li>
+<p>Always coincide with the last day of another nonadjustment period</p>
+</li>
+<li>
+<p>Cover only one day</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Resequences journal entries</p>
+</li>
+</ul>
+<h3><a id="T453863"></a><b>Resequence of Accounting Sequence Number Program</b></h3>
+<p>This program is for use by Oracle Development and Support to maintain the reporting order sequence when journal entries are deleted or added.</p>
+<h2><a name="2935286"></a><a id="T277400"></a><b>Reporting Sequence Process Flow Diagram</b></h2>
+<p><a name="d0e11997" id="d0e11997"></a><a name="d0e12002" id="d0e12002"></a><a name="siseqrepd" id="siseqrepd"></a>The diagram below shows the reporting sequence process and is described in <a href="T149412T277396.htm#siseqstep">Reporting Sequence Process Steps</a>.</p>
+<p><b>Reporting Sequence Process Flow Diagram</b></p>
+<p><img width="288" height="586" src="./img/slaiseqrep.gif" alt="the picture is described in the document text"></p>
+<h2><a name="2930536"></a><a id="T277401"></a><b>Reporting Sequence Process Steps</b></h2>
+<a name="d0e12024" id="d0e12024"></a><a name="siseqstep" id="siseqstep"></a>
+<ol>
+<li>
+<p>Define the sequence setup as part of the implementation process.</p>
+</li>
+<li>
+<p>Create, complete, and post journal entries as part of the daily operations.</p>
+</li>
+<li>
+<p>Close a General Ledger period as part of the period end operations and the reporting sequence program is automatically run.</p>
+<p>After selecting the journal entries that belong to this period and to all the subsequent consecutive closed periods, the reporting sequence program calls the accounting sequence numbering program to perform the actual sequencing. The reporting sequence program selects the journal entries in chronological order based on the sequencing order.</p>
+<ul>
+<li>
+<p>When a GL period is closed, the journal entries are sequenced if all the prior GL periods are closed based on the sequence control date.</p>
+<p>When there is one previous GL period open, the journal entries that belong to a closed period are not eligible for sequencing.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Run the report that displays the journal entries.</p>
+<p>Run this report whenever you want. The journal entries that belong to a closed period appear in this report with their corresponding sequence number, while the journal entries that belong to an open period are displayed without the sequence number since they have not been sequenced yet.</p>
+</li>
+<li>
+<p>You can decide to open a closed period as part of the reconciliation process and the reporting sequence program is automatically run.</p>
+<p>The program erases the sequences that are assigned to the journal entries that belong to the reopened period. If there are other succeeding closed periods, the sequences assigned to the journal entries that belong to these periods are also erased. As the sequence assigned to the journal entries is a gapless sequence, the reporting sequence program calls the accounting sequence numbering program in erase mode with the lowest sequence assigned to the selected journal entries to avoid gaps when the journal entries are resequenced.</p>
+</li>
+<li>
+<p>Enter new journal entries into the period that has been reopened.</p>
+</li>
+<li>
+<p>Close the period and the reporting sequence program is automatically run.</p>
+<p>The reporting sequence program calls the accounting sequence numbering program to sequence all the journal entries that belong to this period in chronological order based on the sequencing order. The reporting sequence program selects the journal entries that belong to the succeeding closed periods.</p>
+<p>The following journal entries can be assigned a reporting sequence:</p>
+<ul>
+<li>
+<p>In Subledger Accounting, journal entries that are complete and transferred to General Ledger</p>
+<p><strong><span>Note:</span></strong> Draft entries are not assigned a reporting sequence.</p>
+</li>
+<li>
+<p>In General Ledger, posted journal entries</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Run the report that displays all the journal entries that belong to the closed periods with their new sequence.</p>
+</li>
+</ol>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

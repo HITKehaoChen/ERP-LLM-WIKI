@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Oracle Inventory User's Guide</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="robots" content="all">
+<meta name="dcterms.title" content="Oracle&reg; Inventory Management User's Guide">
+<meta name="dcterms.identifier" content="E48820-24">
+<meta name="dcterms.isVersionOf" content="INVUG">
+<meta name="partno" content="E26401-01">
+<link rel="Start" href="../../index.htm" title="Home" type="text/html">
+<link rel="Copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html">
+<script type="application/javascript" src="../../dcommon/js/headfoot.js"></script>
+<script type="application/javascript" src="../../nav/js/doccd.js"></script>
+<link rel="Contents" href="toc.htm" title="Contents" type="text/html">
+<link rel="Prev" href="T291651T291796.htm" title="Previous" type="text/html">
+<link rel="Next" href="T291651T291798.htm" title="Next" type="text/html">
+<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+<link href="../../dcommon/css/fusiondoc.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/header.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/footer.css" rel="stylesheet">
+<link type="text/css" href="../../dcommon/css/fonts.css" rel="stylesheet">
+<link href="../../dcommon/css/foundation.css" rel="stylesheet">
+<link href="../../dcommon/css/codemirror.css" rel="stylesheet">
+<link type="text/css" title="Default" href="../../nav/css/html5.css" rel="stylesheet">
+<link rel="stylesheet" href="../../dcommon/css/respond-480-tablet.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-768-laptop.css">
+<link rel="stylesheet" href="../../dcommon/css/respond-1140-deskop.css">
+<script src="../../dcommon/js/modernizr.js"></script>
+<script src="../../dcommon/js/codemirror.js"></script>
+<script src="../../dcommon/js/jquery.js"></script>
+<script src="../../dcommon/js/foundation.min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53addf516e0e58a5"></script>
+<script src="../../dcommon/js/jqfns.js"></script>
+<script src="../../dcommon/js/ohc-inline-videos.js"></script>
+<script id="ssot-metadata" type="application/json">{"primary":{"category":{"short_name":"applications","element_name":"Applications","display_in_url":true},"suite":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"product_group":{"short_name":"not-applicable","element_name":"Not Applicable","display_in_url":false},"product":{"short_name":"e-business-suite","element_name":"E-Business Suite","display_in_url":true},"release":{"short_name":"e-business-latest","element_name":"E-Business Latest","display_in_url":true}}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Oracle Inventory User's Guide","datePublished":"2026-07-21 CST","dateModified":"2026-07-21 CST"}</script>
+    <script>window.ohcglobal || document.write('<script src="/en/dcommon/js/global.js">\x3C/script>')</script></head>
+<body>
+<a href="#BEGIN" class="accessibility-top skipto" tabindex="0">Go to main content</a>
+<header><!--
+<div class="zz-skip-header"><a id="top" href="#BEGIN">DPS-81160</a>--></header>
+<div class="row" id="CONTENT">
+<div class="IND large-9 medium-8 columns"><a id="BEGIN" name="BEGIN"></a> <span id="PAGE" style="display:none;">9/31</span> <!-- End Header -->
+<h1>Unit of Measure</h1>
+<p>This chapter covers the following topics:</p>
+<ul>
+<li><a href="#T291803">Overview of Units of Measure</a></li>
+<li><a href="#T291829">Defining Unit of Measure Classes</a></li>
+<li><a href="#T291804">Examples of Unit of Measure Classes</a></li>
+<li><a href="#T291830">Defining Units of Measure</a></li>
+<li><a href="#T291831">Examples of Units of Measure</a></li>
+<li><a href="#T291832">Defining Unit of Measure Conversions</a></li>
+<li><a href="#T291833">Examples of Unit of Measure Conversions</a></li>
+<li><a href="#T435935">Lot-Specific Unit of Measure Conversions</a></li>
+<li><a href="#T620585">UOM Public API</a></li>
+</ul>
+<h2><a name="1753388"></a><a id="T291803"></a><b>Overview of Units of Measure</b></h2>
+<p><a name="d0e38268" id="d0e38268"></a><a name="I_c_uomov" id="I_c_uomov"></a>Oracle Inventory provides you with powerful methods for defining and manipulating units of measure (UOM). You can easily convert between the units of measure that you define to manufacture, order, or receive items in any unit of measure. With units of measure you can:</p>
+<ul>
+<li>
+<p><a href="T291651T291797.htm#I_t_duomcls">Define unit of measure classes</a></p>
+</li>
+<li>
+<p><a href="T291651T291797.htm#I_t_duom">Define units of measure</a></p>
+</li>
+<li>
+<p><a href="T291651T291797.htm#I_t_duomcnv">Define unit of measure conversions</a></p>
+</li>
+<li>
+<p><a href="T291651T291797.htm#Lot_conversion">Define lot-specific unit of measure conversions</a></p>
+</li>
+</ul>
+<h3><a id="T620605"></a><b>UOM Public API</b></h3>
+<p>Oracle Inventory provides a UOM public API that implementers or developers can use to create or update the following UOM data:</p>
+<ul>
+<li>
+<p>UOM class data</p>
+</li>
+<li>
+<p>UOM data</p>
+</li>
+<li>
+<p>UOM conversions (all types of conversions including standard, interclass, intraclass, and lot-specific conversions)</p>
+</li>
+<li>
+<p>Update UOM conversion data</p>
+</li>
+</ul>
+<p>For more information about this API, see <a href="T291651T291797.htm#uomapi">UOM Public API</a>.</p>
+<h2><a name="1753389"></a><a id="T291829"></a><b>Defining Unit of Measure Classes</b></h2>
+<p><a name="d0e38342" id="d0e38342"></a><a name="INVSDOCL.uom_classes" id="INVSDOCL.uom_classes"></a><a name="I_t_duomcls" id="I_t_duomcls"></a>Unit of measure classes represent groups of units of measure with similar characteristics. Creating unit of measure classes is the first step in unit of measure management. Each unit of measure you define must belong to a unit of measure class.</p>
+<p>Each class has a <a name="d0e38356" id="d0e38356"></a>base unit of measure. The base unit of measure is used to perform conversions between units of measure in the class. For this reason, the base unit of measure should be representative of the other units of measure in the class, and generally one of the smaller units. For example, you could use CU (cubic feet) as the base unit of a class called Volume.</p>
+<p>Unit of measure classes are not organization-specific. Default unit of measure classes are not provided.</p>
+<p><b>To define a unit of measure class</b></p>
+<ol>
+<li>
+<p>Navigate to the Unit of Measure Classes window.</p>
+<p><img width="707" height="383" src="./img/invug_uomcls.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Important:</span></strong> You should use the Oracle Assets or Oracle Order Management versions of this window only when you use those products <i>without</i> Oracle Inventory or Oracle Purchasing. If you use Inventory or Purchasing, you should use their Unit of Measure Classes windows.</p>
+<p>When using Oracle Assets, you need to set up units only if you use the units of production depreciation method.</p>
+</li>
+<li>
+<p>Enter a unique name for the unit of measure class.</p>
+</li>
+<li>
+<p>Define the base unit of measure for this class.</p>
+</li>
+<li>
+<p>Define a unique <a name="d0e38396" id="d0e38396"></a>abbreviation for the base unit of measure.</p>
+<p>For example, EA for each or HRS for hours.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To inactivate a unit of measure class</b></p>
+<p>Enter the date on which the unit of measure class becomes inactive.</p>
+<p>As of this date, you can no longer define new units of measure for this class.</p>
+<p><a name="d0e38417" id="d0e38417"></a></p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291797.htm#r_uomcls">Examples of Unit of Measure Classes</a></p>
+<p><a href="T291651T291797.htm#I_c_uomov">Overview of Units of Measure</a></p>
+<h2><a name="1753392"></a><a id="T291804"></a><b>Examples of Unit of Measure Classes</b></h2>
+<a name="r_uomcls" id="r_uomcls"></a>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Unit</b></th>
+<th scope="col"><b>Base Unit of Measure</b></th>
+<th scope="col"><b>Other Units Measure</b></th>
+</tr>
+<tr valign="top">
+<td>Quantity</td>
+<td>each</td>
+<td>dozen, box</td>
+</tr>
+<tr valign="top">
+<td>Weight</td>
+<td>gram</td>
+<td>pound, kilogram</td>
+</tr>
+<tr valign="top">
+<td>Time</td>
+<td>second</td>
+<td>minute, hour</td>
+</tr>
+<tr valign="top">
+<td>Volume</td>
+<td>cubic inches</td>
+<td>cubic feat, cubic centimeters</td>
+</tr>
+</table>
+<h2><a name="1753393"></a><a id="T291830"></a><b>Defining Units of Measure</b></h2>
+<p><a name="d0e38501" id="d0e38501"></a><a name="d0e38506" id="d0e38506"></a><a name="d0e38511" id="d0e38511"></a><a name="d0e38516" id="d0e38516"></a><a name="d0e38521" id="d0e38521"></a><a name="d0e38524" id="d0e38524"></a><a name="d0e38529" id="d0e38529"></a><a name="INVSDUOM.uom" id="INVSDUOM.uom"></a><a name="INVSDOCL.uom" id="INVSDOCL.uom"></a><a name="I_t_duom" id="I_t_duom"></a>Units of measure are used by a variety of functions and transactions to express the quantity of items. Defining units of measure is the second step in unit of measure management. The values defined in the Units of Measure window provide the list of values available in unit of measure fields in other windows.</p>
+<p>The <i>primary</i> unit of measure is the stocking unit of measure for an item in a particular organization, and is selected for the item during item setup.</p>
+<p><strong><span>Note:</span></strong> Units of measure are not organization-specific.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>You must define at least one unit of measure class. See: <a href="T291651T291797.htm#I_t_duomcls">Defining Unit of Measure Classes</a>.</li>
+</ul>
+<p><b>To define a unit of measure</b></p>
+<ol>
+<li>
+<p>Navigate to the Units of Measure window.</p>
+<p><img width="707" height="408" src="./img/invug_uom.gif" alt="the picture is described in the document text"></p>
+<p><strong><span>Important:</span></strong> You should use the Oracle Assets or Oracle Order Management versions of this window only when you use those products <i>without</i> Oracle Inventory or Oracle Purchasing. If you use Inventory or Purchasing, you should use their Units of Measure windows.</p>
+<p>When using Oracle Assets, you need to set up units only if you use the units of production depreciation method.</p>
+</li>
+<li>
+<p>Enter a unique name for the unit of measure.</p>
+</li>
+<li>
+<p>Enter a unique abbreviation for the unit of measure with a maximum length of three characters.</p>
+<p>For example, EA for each or HRS for hours.</p>
+</li>
+<li>
+<p>Enter a unit of measure class.</p>
+</li>
+<li>
+<p>Indicate if this is the base unit of measure for the unit of measure class.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To delete a unit of measure</b></p>
+<p>You can delete existing units of measure that are not base units of measure if no standard or item specific conversions are defined.</p>
+<p><b>To make a unit of measure inactive</b></p>
+<p>Enter the date on which the unit of measure becomes inactive. As of this date, you can no longer assign standard or item-specific conversions to the unit of measure.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291797.htm#I_r_uom">Examples of Units of Measure</a></p>
+<p><a href="T291651T291797.htm#I_c_uomov">Overview of Units of Measure</a></p>
+<h2><a name="1753399"></a><a id="T291831"></a><b>Examples of Units of Measure</b></h2>
+<p><a name="I_r_uom" id="I_r_uom"></a>The following table presents units of measure.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Unit of Measure Class</b></th>
+<th scope="col"><b>Unit of Measure</b></th>
+<th scope="col"><b>Unit of Measure Code</b></th>
+<th scope="col"><b>Base Unit of Measure?</b></th>
+</tr>
+<tr valign="top">
+<td>Quantity</td>
+<td>each</td>
+<td>EA</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Quantity</td>
+<td>dozen</td>
+<td>DZ</td>
+<td>No</td>
+</tr>
+<tr valign="top">
+<td>Weight</td>
+<td>gram</td>
+<td>GR</td>
+<td>Yes</td>
+</tr>
+<tr valign="top">
+<td>Weight</td>
+<td>kilogram</td>
+<td>KG</td>
+<td>No</td>
+</tr>
+</table>
+<h2><a name="1753400"></a><a id="T291832"></a><b>Defining Unit of Measure Conversions</b></h2>
+<p><a name="d0e38705" id="d0e38705"></a><a name="INVSDOUC.uom_conversions" id="INVSDOUC.uom_conversions"></a><a name="INVSDUOM.uom_conversions" id="INVSDUOM.uom_conversions"></a><a name="INVSDOCL.uom_conversions" id="INVSDOCL.uom_conversions"></a><a name="INVIDITM.uom_conversions" id="INVIDITM.uom_conversions"></a><a name="I_t_duomcnv" id="I_t_duomcnv"></a>Unit of measure conversions are numerical factors that enable you to perform transactions in units other than the primary unit of the item being transacted. You can define:</p>
+<ul>
+<li>
+<p><a name="d0e38723" id="d0e38723"></a>a conversion common to any item (Standard)</p>
+</li>
+<li>
+<p><a name="d0e38733" id="d0e38733"></a>a conversion for a specific item within a unit of measure class (Intra-class)</p>
+</li>
+<li>
+<p><a name="d0e38743" id="d0e38743"></a>a conversion for a specific item between unit of measure classes (Inter-class)</p>
+</li>
+</ul>
+<p>Unit of measure conversions are not organization-specific.</p>
+<p>You must define a conversion between a non-base unit of measure and the base unit of measure before you can assign the non-base unit of measure to an item.</p>
+<h3><b><a name="d0e38758" id="d0e38758"></a>Specifying Which Conversion to Use</b></h3>
+<p>When you define an item you decide which type of unit of measure conversion to use:</p>
+<ul>
+<li>
+<p><i>Item</i> <i>specific</i>: Only uses unit of measure conversions unique to this item. If none exist, you can only transact this item in its primary unit of measure.</p>
+</li>
+<li>
+<p><i>Standard</i>: Uses standard unit of measure conversions for this item if an item-specific conversion is not available.</p>
+</li>
+<li>
+<p><i>Both</i>: Uses both item-specific and standard unit of measure conversions. If both exist for the same unit of measure and item combination, the item-specific conversion is used.</p>
+</li>
+</ul>
+<h3><b><a name="d0e38790" id="d0e38790"></a><a name="d0e38795" id="d0e38795"></a>Unit of Measure Conversions During Transactions</b></h3>
+<p>Whenever you enter an item's quantity, the default is the primary unit of measure for the item. The list of values for the unit of measure field displays all units of measure for which you have defined standard and/or item-specific conversions from the primary unit of measure.</p>
+<p>Transactions are performed in the unit of measure you specify. The conversion happens automatically and item quantities are updated in the primary unit of measure of the item.</p>
+<p><strong><span>Important:</span></strong> Inventory transactions and on hand balance supports decimal precision to 5 digits after the decimal point. Oracle Work in Process supports decimal precision to 6 digits. Other Oracle applications support different decimal precision. As a result of the decimal precision mismatch, transactions another Oracle Application passes may be rounded when processed by Inventory. If the transaction quantity is rounded to zero, Inventory does not process the transaction. It is therefore suggested that the base unit of measure for an item is set up such that transaction quantities in the base unit of measure not require greater than 5 digits of decimal precision.</p>
+<p><img width="756" height="506" src="./img/invug_uomcnv.gif" alt="the picture is described in the document text"></p>
+<p><b>To define a Standard conversion for any item</b></p>
+<ol>
+<li>
+<p>Navigate to the Unit of Measure Conversions window.</p>
+</li>
+<li>
+<p>Select the Standard tabbed region.</p>
+</li>
+<li>
+<p>Enter a unit of measure.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e38834" id="d0e38834"></a>conversion factor by which the unit of measure is equivalent to the base unit of measure established for this class.</p>
+<p>For example, if one DZ (this unit of measure) is equivalent to 12 EA (base unit), the conversion factor is 12. Or, if EA is equal to one-twelfth of a DZ, the conversion factor is 0.08333.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To define a conversion for a specific item within a unit of measure class<a name="d0e38851" id="d0e38851"></a> (Intra-class)</b></p>
+<ol>
+<li>
+<p>Navigate to the Unit of Measure Conversions window.</p>
+</li>
+<li>
+<p>Select the Intra-class tabbed region.</p>
+</li>
+<li>
+<p>Enter an item.</p>
+</li>
+<li>
+<p>Enter a unit of measure.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e38879" id="d0e38879"></a>conversion factor by which the unit of measure is equivalent to the base unit of measure established for this class.</p>
+<p>For example, if one LB (this unit of measure) is equivalent to 16 OZ (base unit), the conversion factor is 16.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To define a conversion for a specific item between unit of measure classes<a name="d0e38896" id="d0e38896"></a> (Inter-class)</b></p>
+<ol>
+<li>
+<p>Navigate to the Unit of Measure Conversions window.</p>
+</li>
+<li>
+<p>Select the Inter-class tabbed region.</p>
+</li>
+<li>
+<p>Select an item.</p>
+</li>
+<li>
+<p>Select the destination base unit of measure of the class to which you are converting a unit of measure.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e38924" id="d0e38924"></a>conversion factor by which the source base unit is equivalent to the destination base unit.</p>
+<p>For example, if one ML (source base unit) is equivalent to one GR (destination base unit), the conversion factor is one.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To make a unit of measure conversion<a name="d0e38941" id="d0e38941"></a> <a name="d0e38949" id="d0e38949"></a>inactive</b></p>
+<p>Enter the date on which the conversion becomes inactive.</p>
+<p>As of this date, you can no longer use the unit of measure conversion.</p>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291797.htm#I_r_uomcnv">Examples of Unit of Measure Conversions</a></p>
+<p><a href="T291651T291797.htm#I_c_uomov">Overview of Units of Measure</a></p>
+<p><a href="T291651T291797.htm#Lot_conversion">Lot Specific Unit of Measure Conversions</a></p>
+<h2><a name="1753407"></a><a id="T291833"></a><b>Examples of Unit of Measure Conversions</b></h2>
+<p><a name="I_r_uomcnv" id="I_r_uomcnv"></a>The following table presents standard conversions.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Standard Conversions</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Unit of Measure Class</b></th>
+<th scope="col"><b>Unit of Measure</b></th>
+<th scope="col"><b>Unit of Measure Code</b></th>
+<th scope="col"><b>Base Unit of Measure?</b></th>
+<th scope="col"><b>Standard Conversion</b></th>
+</tr>
+<tr valign="top">
+<td>Quantity</td>
+<td>each</td>
+<td>EA</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Quantity</td>
+<td>dozen</td>
+<td>DZ</td>
+<td>No</td>
+<td>1 DZ = 12 EA</td>
+</tr>
+<tr valign="top">
+<td>Weight</td>
+<td>gram</td>
+<td>GR</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Weight</td>
+<td>pound</td>
+<td>LB</td>
+<td>No</td>
+<td>1LB = 454 GR</td>
+</tr>
+<tr valign="top">
+<td>Time</td>
+<td>second</td>
+<td>SE</td>
+<td>Yes</td>
+<td>-</td>
+</tr>
+<tr valign="top">
+<td>Time</td>
+<td>minute</td>
+<td>MI</td>
+<td>No</td>
+<td>1 MI = 60 SE</td>
+</tr>
+</table>
+<p>The following table presents item-specific intra-class conversions.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Item-specific Intra-class Conversions</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>Unit of Measure Class</b></th>
+<th scope="col"><b>Unit of Measure</b></th>
+<th scope="col"><b>Unit of Measure Code</b></th>
+<th scope="col"><b>Conversion</b></th>
+</tr>
+<tr valign="top">
+<td>soda pop</td>
+<td>Quantity</td>
+<td>case</td>
+<td>CS</td>
+<td>1 CS = 24 EA</td>
+</tr>
+<tr valign="top">
+<td>canned tomatoes</td>
+<td>Quantity</td>
+<td>case</td>
+<td>CS</td>
+<td>1 CS = 10 EA</td>
+</tr>
+</table>
+<p>The following table presents item-specific inter-class conversions.</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<caption>Item-specific Inter-class Conversions</caption>
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Item</b></th>
+<th scope="col"><b>Destination Base Unit</b></th>
+<th scope="col"><b>Class</b></th>
+<th scope="col"><b>Conversion</b></th>
+<th scope="col"><b>Source Base Unit</b></th>
+<th scope="col"><b>Class</b></th>
+<th scope="col"><b>Mathematical Relationship</b></th>
+</tr>
+<tr valign="top">
+<td>gasoline</td>
+<td>gram</td>
+<td>Weight</td>
+<td>1.35</td>
+<td>milliliter</td>
+<td>Volume</td>
+<td>1.35 ML = 1 GR</td>
+</tr>
+<tr valign="top">
+<td>water</td>
+<td>gram</td>
+<td>Weight</td>
+<td>1</td>
+<td>milliliter</td>
+<td>Volume</td>
+<td>1 ML = 1 GR</td>
+</tr>
+</table>
+<h2><a name="3917078"></a><a id="T435935"></a><b>Lot-Specific Unit of Measure Conversions</b></h2>
+<p><a name="d0e39252" id="d0e39252"></a><a name="d0e39257" id="d0e39257"></a><a name="Lot_conversion" id="Lot_conversion"></a><a name="INVSDLUC_LOTCONV" id="INVSDLUC_LOTCONV"></a><a name="INVSDLUC_HISTORY" id="INVSDLUC_HISTORY"></a><a name="INVSDLUC_QUERY_FIND_WINDOW" id="INVSDLUC_QUERY_FIND_WINDOW"></a>Lot specific conversions enable you to perform a specific inter-class conversion for a given lot that provides more granular control over the transactional quantities for a lot. For example, the standard inter-class conversion for a lot controlled item is 1 gallon equals 15 pounds; however, when you receive a particular lot of the item, 1 gallon equals 16 pounds. You can create a lot specific unit of measure for this instance.</p>
+<p>You can create lot-specific unit of measure conversions for on-hand lots or lots with a zero balance. If you create a lot-specific conversion for a lot with on-hand quantities, you can automatically update the quantities in the system to more accurately reflect the on-hand quantity.</p>
+<p>You can also view the history of changes made to the lot unit of measure conversion, and the corresponding quantity changes.</p>
+<p><strong><span>Note:</span></strong> Lot-specific conversions are available only for items that are set up for dual unit of measure control.</p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>For <i>no default</i> items (where Defaulting = No Default for the item setup) or any dual-UOM items:</li>
+<p>If deviation errors occur during lot-specific conversion transactions, Oracle recommends reviewing the deviation factor settings for the item (Master Item window &gt; Main tab). When the lot context is not present in high level reservations, or a lot is not specified for the main transaction, then the system validates secondary quantities during lot conversion transactions. An error may occur if the item deviation settings are insufficient to accommodate the lot-specific conversion quantities. If you increase the deviation factor settings, then no error occurs.</p>
+</ul>
+<p><b>To create a lot-specific unit of measure conversion</b></p>
+<ol>
+<li>
+<p>Navigate to the Lot Inter-Class Unit of Measure Conversions window.</p>
+<p><img width="1004" height="503" src="./img/invug_lot_specific.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Enter the item number in the Item field.</p>
+</li>
+<li>
+<p>Enter the lot number in the Lot Number field.</p>
+</li>
+<li>
+<p>Select the destination base unit of measure of the class to which you are converting the unit of measure.</p>
+</li>
+<li>
+<p>Enter the <a name="d0e39315" id="d0e39315"></a>conversion factor by which the source base unit is equivalent to the destination base unit.</p>
+<p>For example, if 16 pounds (source base unit) is equivalent to 1 Gallon (destination base unit), the conversion factor is 16.</p>
+</li>
+<li>
+<p>Optionally, enter an inactive date for the conversion. This is the date when the unit of measure conversion for the lot reverts back to the standard inter-class conversion.</p>
+</li>
+<li>
+<p>Optionally, enter a transaction reason for the conversion. See <a href="T291651T291655.htm#I_t_trnreason">Defining Transaction Reasons</a> for more information.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To update lot on-hand quantities</b></p>
+<ol>
+<li>
+<p>Select a lot-specific unit of measure conversion.</p>
+</li>
+<li>
+<p>Click Update Quantities on the Lot Inter-Class Unit of Measure Conversions window.</p>
+<p><img width="989" height="448" src="./img/invug_update_quantities.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>Select the Update Type. The available choices are:</p>
+<ul>
+<li>
+<p>Update On-Hand Balances: This enables you to enter a new primary or secondary on-hand balance. The system automatically recalculates the other on-hand balance as well as the transaction quantities based on the conversion factor.</p>
+</li>
+<li>
+<p>Recalculate Batch Primary Quantity: The system automatically recalculates the new primary on-hand quantity and process-batch quantity based on the conversion factor. The secondary quantity remains the same. The system automatically updates additional on-hand quantities that the batch transaction did not create. If the lot was yielded only by the batch, then the system does not update the transaction quantities.</p>
+</li>
+<li>
+<p>Recalculate Batch Secondary Quantity: The system automatically recalculates the new secondary on-hand quantity and process-batch quantity based on the conversion factor. The primary quantity remains the same. The system automatically updates additional on-hand quantities that the batch transaction did not create. If the lot was yielded only by the batch, then the system does not update the transaction quantities.</p>
+</li>
+<li>
+<p>Recalculate On-Hand Primary Quantity: The system automatically recalculates the primary quantity based on the conversion factor. The secondary quantity remains the same, and the system updates the transaction quantities.</p>
+</li>
+<li>
+<p>Recalculate On-Hand Secondary Quantity: The system automatically recalculates the secondary quantity based on the conversion factor. The primary quantity remains the same, and the system updates the transaction quantities.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Verify the Update Balance check box is selected. If you do not want to update the balance for the row, deselect the Update Balance check box.</p>
+</li>
+<li>
+<p>Review the location and transaction information. These fields are display only: Organization, Rev, LPN Subinventory, Locator Primary Transaction, and Secondary Transaction. You can update the new primary or secondary quantity if you select Update On-hand Balances as the update type.</p>
+</li>
+<li>
+<p>Save your work.</p>
+</li>
+</ol>
+<p><b>To view lot conversion history</b></p>
+<ol>
+<li>
+<p>Select a lot-specific unit of measure conversion.</p>
+</li>
+<li>
+<p>Click History in the Lot Inter-Class Unit of Measure Conversions window.</p>
+<p><img width="988" height="595" src="./img/invug_lot_history.gif" alt="the picture is described in the document text"></p>
+</li>
+<li>
+<p>View the lot transaction history information. This is a display window, and you cannot make any changes within it. It contains the following information:</p>
+<ul>
+<li>
+<p>Audit Reference: The internal system reference number.</p>
+</li>
+<li>
+<p>Reason: The transaction reason for the lot update.</p>
+</li>
+<li>
+<p>Update Type: The type of update performed on the lot.</p>
+</li>
+<li>
+<p>Old Conversion: The standard inter-class conversion rate for the item.</p>
+</li>
+<li>
+<p>New conversion: The lot-specific conversion rate for the lot.</p>
+</li>
+<li>
+<p>Update Date: The day that you updated the lot quantities.</p>
+</li>
+<li>
+<p>Balance Updated: If selected, the system-updated lot on hand balance.</p>
+</li>
+<li>
+<p>Org: Organization where the lot resides.</p>
+</li>
+<li>
+<p>Rev: Item revision for the lot.</p>
+</li>
+<li>
+<p>LPN: LPN where the lot resides if applicable.</p>
+</li>
+<li>
+<p>Subinventory: Subinventory where the lot resides.</p>
+</li>
+<li>
+<p>Locator: Locator where the lot resides if applicable.</p>
+</li>
+<li>
+<p>Previous Primary and Secondary Quantities: The on-hand primary and secondary quantities before the lot update transaction.</p>
+</li>
+<li>
+<p>New Primary and Secondary Quantities: The on-hand primary and secondary quantities after the lot update transaction.</p>
+</li>
+<li>
+<p>Transaction Primary and Secondary Quantities: The primary and secondary transaction quantities.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click View Material transactions to view the transaction information. For more information, see <a href="T291651T292013.htm#I_t_vwtrx78ns">Viewing Material Transactions</a>.</p>
+</li>
+<li>
+<p>Close the window when finished.</p>
+</li>
+</ol>
+<p><strong>Related Topics</strong></p>
+<p><a href="T291651T291797.htm#I_t_duomcnv">Defining Unit of Measure Conversions</a></p>
+<p><a href="T291651T291797.htm#I_r_uomcnv">Examples of Unit of Measure Conversions</a></p>
+<p><a href="T291651T291797.htm#I_c_uomov">Overview of Units of Measure</a></p>
+<p><a href="T291651T427993.htm#c_lotcntrl">Overview of Lot Control</a></p>
+<p><a href="T291651T427992.htm#I_r_invcattr">Inventory Attribute Group</a></p>
+<h2><a name="7010039"></a><a id="T620585"></a><b>UOM Public API</b></h2>
+<a name="uomapi" id="uomapi"></a>
+<h3><a id="T616452"></a><b>UOM Public API</b></h3>
+<p>Oracle Inventory provides a <i>UOM Public API</i> that implementers or developers can use to create and update the following UOM (unit of measure) data:</p>
+<ul>
+<li>
+<p>UOM class data</p>
+</li>
+<li>
+<p>UOM data</p>
+</li>
+<li>
+<p>UOM conversions (all types of conversions including standard, interclass, intraclass, and lot-specific conversions)</p>
+</li>
+<li>
+<p>Update the conversion data</p>
+</li>
+</ul>
+<p><strong><span>Important:</span></strong> Public APIs and related details are maintained in the Oracle Integration Repository which is available from the Oracle E-Business Suite instance. The Oracle Integration Repository is an integral part of Oracle E-Business Suite, and provides a catalog of Oracle E-Business suite's business service interfaces.</p>
+<p>The PL/SQL package in this API is named <code>INV_UOM_CREATE_PUB</code> and contains the following files: INVUCUPS.pls and INVUCUPB.pls.</p>
+<p>This API contains the following procedures to create and update UOM data by validating the existing data:</p>
+<table border="1" cellpadding="4" cellspacing="0" summary="table is summarized in text">
+<tr class="HEADER" valign="center" bgcolor="#E0E0E0">
+<th scope="col"><b>Procedure Name</b></th>
+<th scope="col"><b>Description</b></th>
+</tr>
+<tr valign="top">
+<td>CREATE_UOM_CLASS</td>
+<td>This procedure takes the UOM class, base unit of measure, and Base UOM code as input criteria to create the UOM class, Unit of Measure, and default UOM Conversion.</td>
+</tr>
+<tr valign="top">
+<td>CREATE_UNIT_OF_MEASURE</td>
+<td>This procedure takes the UOM class, unit of measure, and UOM code data as input criteria to create the unit of measure data.</td>
+</tr>
+<tr valign="top">
+<td>CREATE_UOM_CONVERSION</td>
+<td>This procedure takes the From UOM code, To UOM code, Inventory Item, and Conversion rate as input criteria to create the UOM conversions and class conversions.</td>
+</tr>
+<tr valign="top">
+<td>CREATE_LOT_UOM_CONVERSIONS</td>
+<td>This procedure takes the Lot number, From UOM code, To UOM code, Inventory Item, Organization and Conversion rate as input to create Lot UOM conversions. Apart from creating lot conversions, this API would also update on-hand values, inserting records into the UOM conversion audit history tables.</td>
+</tr>
+<tr valign="top">
+<td>UPDATE_UOM_CONVERSIONS</td>
+<td>This procedure takes the Lot number, From UOM code, To UOM code, Inventory Item, Organization, and Conversion rate as input parameters to update the UOM conversions. This procedure updates standard conversions and if the lot number is also passed, it would update lot-specific conversions apart from updating on-hand values, and inserting records into the UOM conversion audit history tables.</td>
+</tr>
+</table>
+<!-- Start Footer --></div>
+</div>
+<noscript>
+<p>Scripting on this page enhances content navigation, but does not change the content in any way.</p>
+</noscript> 
+<script>
+$(document).foundation();
+</script>
+</body>
+</html>

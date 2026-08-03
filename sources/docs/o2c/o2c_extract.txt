@@ -1,0 +1,348 @@
+
+===== PAGE 1/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+1. Order Entry
+This is the first stage where Order is entered into the system. It creates a record in Headers table and Lines table
+OE_ORDER_HEADERS_ALL:
+This table stores the Header Information of the Sales Order
+Important columns in this table:
+HEADER_ID: Unique system generated ID
+ORG_ID, ORDER_NUMBER, SHIP_FROM_ORG_ID, SHIP_TO_ORG_ID and FLOW_STATUS_CODE
+At the time of Order Entry, the FLOW_STATUS_CODE is ‘Entered’
+Sample code:
+SELECT HEADER_ID,
+ORG_ID,
+ORDER_TYPE_ID,
+FLOW_STATUS_CODE,
+TRANSACTIONAL_CURR_CODE,
+SHIPPING_METHOD_CODE,
+SHIP_FROM_ORG_ID,
+SHIP_TO_ORG_ID
+FROM OE_ORDER_HEADERS_ALL
+WHERE ORDER_NUMBER = 66405;
+OE_ORDER_LINES_ALL:
+This table stores the Line Information of the Sales Order
+Important columns of this table
+LINE_ID: Unique system generated ID
+HEADER_ID: It is the link between OE_ORDER_HEADERS_ALL and OE_ORDER_LINES_ALL
+ORDERED_ITEM, INVENTORY_ITEM_ID, PRICING_QUANTITY, ORDERED_QUANTITY, FLOW_STATUS_CODE
+and UNIT_SELLING_PRICE_PER_PQTY
+Sample code:
+SELECT LINE_ID
+FROM OE_ORDER_LINES_ALL
+WHERE HEADER_ID = 190452;
+SELECT ORDERED_ITEM,
+INVENTORY_ITEM_ID,
+PRICING_QUANTITY,
+ORDERED_QUANTITY,
+FLOW_STATUS_CODE,
+UNIT_SELLING_PRICE_PER_PQTY
+FROM OE_ORDER_LINES_ALL
+WHERE LINE_ID = 388401;
+2. Order Booking
+Order Booking is the final stage in the Sales Order entry. Now that the Order Entry process is complete and that the
+order is eligible for the next stage in the line flow for this order, as defined by its Transaction Type. By clickingBook
+Order button, the Order is booked.
+OE_ORDER_HEADERS_ALL
+OE_ORDER_LINES_ALL
+WSH_DELIVERY_DETAILS
+When the Order is Booked, the FLOW_STATUS_CODE in OE_ORDER_HEADERS_ALL would be ‘BOOKED’ and
+the FLOW_STATUS_CODE in OE_ORDER_LINES_ALL would be ‘AWAITING_SHIPPING’
+RELEASED_STATUS in WSH_DELIVERY_DETAILS would be ‘R’ (means- ready to release)
+===== PAGE 2/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+Important columns of WSH_DELIVERY_DETAILS table:
+DELIVERY_DETAIL_ID: Unique system generated id with reference to SOURCE_HEADER_ID (it is the HEADER_ID
+from OE_ORDER_HEADERS_ALL)
+SOURCE_HEADER_ID: It is the HEADER_ID generated from OE_ORDER_HEADERS_ALL
+SOURCE_LINE_ID: It is the LINE_ID generated from OE_ORDER_LINES_ALL
+RELEASED_STATUS, SOURCE_CODE, CUSTOMER_ID, INVENTORY_ITEM_ID, SHIP_FROM_LOCATION_ID,
+SHIP_TO_LOCATION_ID, MOVE_ORDER_LINE_ID, REQUESTED_QUANTITY, SHIPPED_QUANTITY,
+SUBINVENTORY, SHIP_METHOD_CODE etc.
+Sample Code:
+SELECT DELIVERY_DETAIL_ID,
+SOURCE_HEADER_ID,
+SOURCE_LINE_ID,
+SOURCE_CODE,
+CUSTOMER_ID,
+INVENTORY_ITEM_ID,
+ITEM_DESCRIPTION,
+SHIP_FROM_LOCATION_ID,
+SHIP_TO_LOCATION_ID,
+MOVE_ORDER_LINE_ID,
+REQUESTED_QUANTITY,
+SHIPPED_QUANTITY,
+SUBINVENTORY,
+RELEASED_STATUS,
+SHIP_METHOD_CODE,
+CARRIER_ID
+FROM WSH_DELIVERY_DETAILS
+WHERE SOURCE_HEADER_ID = 190452;
+3. Launch Pick Release:
+Pick release is the process by which the items on the sales order are taken out from inventory. This process allocates
+on-hand inventory to your order and inform the warehouse personnel to move the item from inventory to the
+shipping staging area. Once your item is in the shipping staging area, it is ready to be shipped.
+OE_ORDER_LINES_ALL: Here the FLOW_STATUS_CODE should be ‘PICKED’ or ‘AWAITING_SHIPPING’
+depending on Auto Pick Confirm (set to No or Yes)
+WSH_DELIVERY_DETAILS: Here RELEASED_STATUS should be ‘S’ (Submitted for Release) or ‘Y’ (Pick
+Confirmed). These values again depend on the parameters given at Auto Pick Confirm (set to No or Yes)
+WSH_DELIVERY_ASSIGNMENTS: DELIVERY_ID is populated here (from DELIVERY_DETAIL_ID with reference
+to WSH_DELIVERY_DETAILS table)
+Sample Code:
+SELECT DELIVERY_DETAIL_ID
+FROM WSH_DELIVERY_DETAILS
+WHERE SOURCE_HEADER_ID = 190452;
+SELECT DELIVERY_ASSIGNMENT_ID,
+DELIVERY_ID,
+PARENT_DELIVERY_ID,
+DELIVERY_DETAIL_ID,
+PARENT_DELIVERY_DETAIL_ID,
+CREATION_DATE,
+===== PAGE 3/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+CREATED_BY,
+LAST_UPDATE_DATE,
+LAST_UPDATED_BY,
+ACTIVE_FLAG,
+TYPE
+FROM WSH_DELIVERY_ASSIGNMENTS
+WHERE DELIVERY_DETAIL_ID = 3966467;
+4. Ship Confirm the Order:
+It is a process of sending the Items from shipping staging area to the Customer site. By ship confirming you will
+notify EBS that the shipment is complete and thereby updating the on-hand Inventory. Ships confirm process will
+kick off the following Concurrent Programs:
+Interface Trip stop, Packing slip Report, Bill of Lading, Commercial Invoice
+OE_ORDER_LINES_ALL: Here the FLOW_STATUS_CODE should be ‘SHIPPED’
+WSH_DELIVERY_DETAILS: Here RELEASED_STATUS should be ‘C’ (Shipped)
+5. Creating Invoices in Receivables:
+Here the Invoices are created based on the goods sold. We need to run the‘Workflow Background Process’ where it
+picks the shipping records and transfers to Receivables interface
+Workflow Background Process inserts new records inRA_INTERFACE_LINES_ALL
+Important columns of this table:
+INTERFACE_LINE_ID: It is the LINE_ID with reference to OE_ORDER_LINES_ALL
+INTERFACE_LINE_CONTEXT, INTERFACE_LINE_ATTRIBUTE1, INTERFACE_LINE_ATTRIBUTE3
+Sample Code:
+SELECT INTERFACE_LINE_CONTEXT,
+INTERFACE_LINE_ATTRIBUTE1,
+INTERFACE_LINE_ATTRIBUTE3
+FROM RA_INTERFACE_LINES_ALL
+WHERE INTERFACE_LINE_ID = 388401;
+INTERFACE_LINE_CONTEXT: Order Entry
+INTERFACE_LINE_ATTRIBUTE1: Order Number
+INTERFACE_LINE_ATTRIBUTE3: Delivery ID
+RA_CUSTOMER_TRX_ALL: Stores Invoice header information.
+INTERFACE_HEADER_ATTRIBUTE1 column will have the Order Number.
+INTERFACE_HEADER_ATTRIBUTE2 column will have Order Type
+TRX_NUMBER column is the Invoice Number
+Sample Code:
+SELECT INTERFACE_HEADER_ATTRIBUTE2,
+CUSTOMER_TRX_ID,
+TRX_NUMBER,
+CUST_TRX_TYPE_ID,
+COMPLETE_FLAG,
+SHIP_DATE_ACTUAL
+FROM RA_CUSTOMER_TRX_ALL
+WHERE INTERFACE_HEADER_ATTRIBUTE1 = ‘66405’;
+RA_CUSTOMER_TRX_LINES_ALL: Stores Invoice lines information.
+INTERFACE_LINE_ATTRIBUTE1 column will have the Order Number.
+===== PAGE 4/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+INTERFACE_LINE_ATTRIBUTE2 column will have Order Type
+INTERFACE_LINE_ATTRIBUTE3 column will have Delivery
+INTERFACE_LINE_ATTRIBUTE4 column will have Waybill
+INTERFACE_LINE_ATTRIBUTE5 column will have count
+INTERFACE_LINE_ATTRIBUTE6 column will have Line ID
+INTERFACE_LINE_ATTRIBUTE7 column will have Picking Line ID
+INTERFACE_LINE_ATTRIBUTE8 column will have Bill of Lading
+INTERFACE_LINE_ATTRIBUTE9 column will have Customer Item Part
+INTERFACE_LINE_ATTRIBUTE10 column will have warehouse
+INTERFACE_LINE_ATTRIBUTE11 column will have Price Adjustment
+INTERFACE_LINE_ATTRIBUTE12 column will have Shipment Number
+INTERFACE_LINE_ATTRIBUTE13 column will have Option Number
+INTERFACE_LINE_ATTRIBUTE14 column will have Service Number
+6. Create Receipt
+Underlying tables:
+AR_CASH_RECEIPTS_ALL
+CASH_RECEIPT_ID is the unique system generated ID
+FLOW_STATUS_CODE in OE_ORDER_LINES_ALL should be ‘CLOSED’
+===== PAGE 5/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+O2C Cycle
+Order to cash process steps can be listed as below
+ Enter the Sales Order
+ Book the Sales Order
+ Launch Pick Release
+ Ship Confirm
+ Create Invoice
+ Create the Receipts either manually or using Auto Lockbox ( In this article we will concentrate on Manual
+creation)
+ Transfer to General Ledger
+ Journal Import
+ Posting
+Let’s get into the details of each step mentioned above.
+Enter the Sales Order:
+Navigation: Order Management Super User Operations (USA)>Orders Returns >Sales Orders
+Enter the Customer details (Ship to and Bill to address), Order type.
+Click on Lines Tab. Enter the Item to be ordered and the quantity required.
+===== PAGE 6/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+Line is scheduled automatically when the Line Item is saved.
+Scheduling/unscheduling can be done manually by selecting Schedule/Un schedule from the Actions Menu.
+You can check if the item to be ordered is available in the Inventory by clicking on Availability Button.
+Save the work.
+Underlying Tables affected:
+In Oracle, Order information is maintained at the header and line level.
+The header information is stored in OE_ORDER_HEADERS_ALL and the line information in
+OE_ORDER_LINES_ALL when the order is entered. The column called FLOW_STATUS_CODE is available in both
+the headers and lines tables which tell us the status of the order at each stage.
+At this stage, the FLOW_STATUS_CODE in OE_ORDER_HEADERS_ALL is ‘Entered’
+Book the Sales Order:
+Book the Order by clicking on the Book Order button.
+Now that the Order is BOOKED, the status on the header is change accordingly.
+===== PAGE 7/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+Underlying tables affected:
+At this stage:
+The FLOW_STATUS_CODE in the table OE_ORDER_HEADERS_ALL would be ‘BOOKED’
+The FLOW_STATUS_CODE in OE_ORDER_LINES_ALL will be ‘AWAITING_SHIPPING’.
+Record(s) will be created in the table WSH_DELIVERY_DETAILS with RELEASED_STATUS=’R’ (Ready to Release)
+Also Record(s) will be inserted into WSH_DELIVERY_ASSIGNMENTS.
+At the same time DEMAND INTERFACE PROGRAM runs in the background and inserts into MTL_DEMAND
+Launch Pick Release:
+Navigation: Shipping > Release Sales Order > Release Sales Orders.
+Key in Based on Rule and Order Number
+In the Shipping Tab key in the below:
+Auto Create Delivery: Yes
+Auto Pick Confirm: Yes
+Auto Pack Delivery: Yes
+===== PAGE 8/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+In the Inventory Tab:
+Auto Allocate: Yes
+Enter the Warehouse
+Click on Execute Now Button.
+On successful completion, the below message would pop up as shown below.
+===== PAGE 9/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+Pick Release process in turn will kick off several other requests like Pick Slip Report,
+Shipping Exception Report and Auto Pack Report
+Underlying Tables affected:
+If Autocreate Delivery is set to ‘Yes’ then a new record is created in the table WSH_NEW_DELIVERIES.
+DELIVERY_ID is populated in the table WSH_DELIVERY_ASSIGNMENTS.
+The RELEASED_STATUS in WSH_DELIVERY_DETAILS would be now set to ‘Y’ (Pick Confirmed) if Auto Pick
+Confirm is set to Yes otherwise RELEASED_STATUS is ‘S’ (Release to Warehouse).
+Pick Confirm the Order:
+===== PAGE 10/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+IF Auto Pick Confirm in the above step is set to NO, then the following should be done.
+Navigation: Inventory Super User > Move Order> Transact Move Order
+In the HEADER tab, enter the BATCH NUMBER (from the above step) of the order. Click FIND. Click on
+VIEW/UPDATE Allocation, then Click TRANSACT button. Then Transact button will be deactivated then just close it
+and go to next step.
+Ship Confirm the Order:
+Navigation: Order Management Super User>Shipping >Transactions.
+Query with the Order Number.
+Click On Delivery Tab
+Click on Ship Confirm.
+===== PAGE 11/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+The Status in Shipping Transaction screen will now be closed.
+===== PAGE 12/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+This will kick off concurrent programs like.INTERFACE TRIP Stop, Commercial Invoice, Packing Slip Report, Bill of
+Lading
+Underlying tables affected:
+RELEASED_STATUS in WSH_DELIVERY_DETAILS would be ‘C’ (Ship Confirmed)
+FLOW_STATUS_CODE in OE_ORDER_HEADERS_ALL would be “BOOKED”
+FLOW_STATUS_CODE in OE_ORDER_LINES_ALL would be “SHIPPED”
+Create Invoice:
+Run workflow background Process.
+Navigation: Order Management >view >Requests
+Workflow Background Process inserts the records RA_INTERFACE_LINES_ALL with
+INTERFACE_LINE_CONTEXT = ‘ORDER ENTRY’
+INTERFACE_LINE_ATTRIBUTE1= Order_number
+INTERFACE_LINE_ATTRIBUTE3= Delivery_id
+and spawns Auto invoice Master Program and Auto invoice import program which creates Invoice for that particular
+Order.
+===== PAGE 13/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+The Invoice created can be seen using the Receivables responsibility
+Navigation: Receivables Super User> Transactions> Transactions
+Query with the Order Number as Reference.
+Underlying tables:
+RA_CUSTOMER_TRX_ALL will have the Invoice header information. The column
+INTERFACE_HEADER_ATTRIBUTE1 will have the Order Number.
+RA_CUSTOMER_TRX_LINES_ALL will have the Invoice lines information. The column
+INTERFACE_LINE_ATTRIBUTE1 will have the Order Number.
+Create receipt:
+Navigation: Receivables> Receipts> Receipts
+Enter the information.
+===== PAGE 14/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+Click on Apply Button to apply it to the Invoice.
+===== PAGE 15/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+Underlying tables:
+AR_CASH_RECEIPTS_ALL
+Transfer to General Ledger:
+To transfer the Receivables accounting information to general ledger, run General Ledger Transfer Program.
+Navigation: Receivables> View Requests
+Parameters:
+ Give in the Start date and Post through date to specify the date range of the transactions to be transferred.
+ Specify the GL Posted Date, defaults to SYSDATE.
+ Post in summary: This controls how Receivables creates journal entries for your transactions in the interface table.
+If you select ‘No’, then the General Ledger Interface program creates at least one journal entry in the interface
+table for each transaction in your posting submission. If you select ‘Yes’, then the program creates one journal
+entry for each general ledger account.
+ If the Parameter Run Journal Import is set to ‘Yes’, the journal import program is kicked off automatically which
+transfers journal entries from the interface table to General Ledger, otherwise follow the topic Journal Import to
+import the journals to General Ledger manually.
+===== PAGE 16/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+Underlying tables:
+This transfers data about your adjustments, chargeback, credit memos, commitments, debit memos, invoices, and
+receipts to the GL_INTERFACE table.
+Journal Import:
+To transfer the data from General Ledger Interface table to General Ledger, run the Journal Import program from
+Oracle General Ledger.
+Navigation: General Ledger > Journal> Import> Run
+Parameters:
+ Select the appropriate Source.
+ Enter one of the following Selection Criteria:
+No Group ID: To import all data for that source that has no group ID. Use this option if you specified a NULL
+group ID for this source.
+All Group IDs: To import all data for that source that has a group ID. Use this option to import multiple journal
+batches for the same source with varying group IDs.
+Specific Group ID: To import data for a specific source/group ID combination. Choose a specific group ID from
+the List of Values for the Specific Value field.
+If you do not specify a Group ID, General Ledger imports all data from the specified journal entry source, where
+the Group_ID is null.
+ Define the Journal Import Run Options (optional)
+Choose Post Errors to Suspense if you have suspense posting enabled for your set of books to post the difference
+resulting from any unbalanced journals to your suspense account.
+Choose Create Summary Journals to have journal import create the following:
+• one journal line for all transactions that share the same account, period, and currency and that has a debit
+balance
+• one journal line for all transactions that share the same account, period, and currency and that has a credit
+balance.
+ Enter a Date Range to have General Ledger import only journals with accounting dates in that range. If you do
+not specify a date range, General Ledger imports all journals data.
+ Choose whether to Import Descriptive Flexfields, and whether to import them with validation.
+===== PAGE 17/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+Click on Import button.
+Underlying tables:
+GL_JE_BATCHES, GL_JE_HEADERS, GL_JE_LINES
+Posting:
+We have to Post journal batches that we have imported previously to update the account balances in General Ledger.
+Navigation: General Ledger> Journals > Enter
+Query for the unposted journals for a specific period as shown below.
+From the list of unposted journals displayed, select one journal at a time and click on Post button to post the journal.
+===== PAGE 18/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+If you know the batch name to be posted you can directly post using the Post window
+Navigation: General Ledger> Journals> Post
+===== PAGE 19/19 =====
+Order to Cash (O2C) Cycle with Table details in Oracle Apps O2C
+Underlying tables:
+GL_BALANCES.

@@ -4,12 +4,14 @@ type: process
 status: draft
 verified: doc-only
 sources: [e48843, e48847, f10570]
-updated: 2026-08-03
+updated: 2026-08-05
 ---
 
 # 销售订单到收款（规划中）
 
 > 本页为规划骨架，正文未读，仅列出已确认的官方章节入口。
+
+表级流程（社区资料，含 OE/WSH/RA/AR/GL 表与状态码）见 [Order-to-Cash 表级流程（T2 社区资料）](../concepts/order-to-cash-with-tables.md)。
 
 ## 阶段
 

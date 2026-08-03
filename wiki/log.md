@@ -142,6 +142,15 @@
 - 问答增强：`/api/ask` 把 top 命中页面的正文摘录（按查询词定位 ±上下文）并入 Prompt，模型可基于 T1 知识回答并引用来源。
 - 新增中文检索回归测试 `search-cjk`。
 
+## [2026-08-05] ingest | 用户补充资料
+
+- O2C 培训 PDF（19 页，含 OE/WSH/RA/AR/GL 表字段与示例 SQL）：归档到 `sources/docs/o2c/`，知识页整理中。
+- Oracle R12.1 数据模型附录链接 → 确认本地已有 R12.2 等价章节，新增 [OM 数据模型概览（T1）](concepts/om-data-model-t1.md)。
+- 博客 Open Interfaces 综述：保存 HTML/文本快照到 `sources/docs/community/`，新增 [OM Open Interfaces 与 API（T2）](concepts/om-open-interfaces.md)。
+- O2C PDF 结构化：新增 [Order-to-Cash 表级流程（T2 社区资料）](concepts/order-to-cash-with-tables.md)，sales-order-to-cash 页挂接。
+- YouTube 字幕：新增 `scripts/fetch_youtube_transcript.py`，成功抓取 2mMtLycHK-4 英文字幕（191 段）到 `sources/docs/community/youtube/`，摘要并入 O2C 页。
+
+
 
 
 

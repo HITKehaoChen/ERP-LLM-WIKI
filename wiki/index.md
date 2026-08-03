@@ -53,6 +53,9 @@ updated: 2026-08-03
 - [OM 工作流与种子流程（T1）](concepts/om-workflow-t1.md)
 - [OM 关键 Profile 选项（T1）](concepts/om-profile-options-t1.md)
 - [成本管理事务会计分录（T1）](concepts/cost-management-transactions-t1.md)
+- [OM 数据模型概览（T1）](concepts/om-data-model-t1.md)
+- [OM Open Interfaces 与 API（T2 社区转印）](concepts/om-open-interfaces.md)
+- [Order-to-Cash 表级流程（T2 社区资料）](concepts/order-to-cash-with-tables.md)
 
 ## 来源页（sources）
 

@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html class='v2' dir='ltr' lang='en-GB'>
+<head>
+<link href='https://www.blogger.com/static/v1/widgets/2872013778-css_bundle_v2.css' rel='stylesheet' type='text/css'/>
+<meta content='width=1100' name='viewport'/>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<meta content='blogger' name='generator'/>
+<link href='https://oracleebs4u.blogspot.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://oracleebs4u.blogspot.com/2015/08/oracle-order-management-open-interfaces.html' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="Welcome to Oracle EBS - Atom" href="https://oracleebs4u.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="Welcome to Oracle EBS - RSS" href="https://oracleebs4u.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="Welcome to Oracle EBS - Atom" href="https://www.blogger.com/feeds/7914192170775790127/posts/default" />
+
+<link rel="alternate" type="application/atom+xml" title="Welcome to Oracle EBS - Atom" href="https://oracleebs4u.blogspot.com/feeds/1931487062622941205/comments/default" />
+<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
+<link href='https://docs.oracle.com/cd/E26401_01/doc.122/e49059/img/ontapi_1_1.gif' rel='image_src'/>
+<meta content='http://oracleebs4u.blogspot.com/2015/08/oracle-order-management-open-interfaces.html' property='og:url'/>
+<meta content='Oracle Order Management Open Interfaces, API&#39;s' property='og:title'/>
+<meta content='        Overview of Oracle Order Management APIs and Open Interfaces     Oracle Order Management products provide a number of open interface...' property='og:description'/>
+<meta content='https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_t6-7OVXUDzfWVcSe2SzcZZfLtrhNViPmIKiNHmQJwvmpcuvBGaWnbHE01WQeWvB_nlFjkxOE_fvBd8C91ZBlPYjWAinOT8tKWDLAVTRaGZTav0Npt_S6gXN5Pis-I-wjgNfo14BwUW538=w1200-h630-p-k-no-nu' property='og:image'/>
+<title>Welcome to Oracle EBS: Oracle Order Management Open Interfaces, API's</title>
+<style id='page-skin-1' type='text/css'><!--
+/*-----------------------------------------------
+Blogger Template Style
+Name:     Picture Window
+Designer: Blogger
+URL:      www.blogger.com
+----------------------------------------------- */
+/* Content
+----------------------------------------------- */
+body {
+font: normal normal 15px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #333333;
+background: #dddddd url(//themes.googleusercontent.com/image?id=1fupio4xM9eVxyr-k5QC5RiCJlYR35r9dXsp63RKsKt64v33poi2MvnjkX_1MULBY8BsT) repeat-x fixed bottom center;
+}
+html body .region-inner {
+min-width: 0;
+max-width: 100%;
+width: auto;
+}
+.content-outer {
+font-size: 90%;
+}
+a:link {
+text-decoration:none;
+color: #992211;
+}
+a:visited {
+text-decoration:none;
+color: #771100;
+}
+a:hover {
+text-decoration:underline;
+color: #cc4411;
+}
+.content-outer {
+background: transparent url(//www.blogblog.com/1kt/transparent/white80.png) repeat scroll top left;
+-moz-border-radius: 15px;
+-webkit-border-radius: 15px;
+-goog-ms-border-radius: 15px;
+border-radius: 15px;
+-moz-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+margin: 30px auto;
+}
+.content-inner {
+padding: 15px;
+}
+/* Header
+----------------------------------------------- */
+.header-outer {
+background: #992211 url(//www.blogblog.com/1kt/transparent/header_gradient_shade.png) repeat-x scroll top left;
+_background-image: none;
+color: #ffffff;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-goog-ms-border-radius: 10px;
+border-radius: 10px;
+}
+.Header img, .Header #header-inner {
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-goog-ms-border-radius: 10px;
+border-radius: 10px;
+}
+.header-inner .Header .titlewrapper,
+.header-inner .Header .descriptionwrapper {
+padding-left: 30px;
+padding-right: 30px;
+}
+.Header h1 {
+font: normal normal 36px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.Header h1 a {
+color: #ffffff;
+}
+.Header .description {
+font-size: 130%;
+}
+/* Tabs
+----------------------------------------------- */
+.tabs-inner {
+margin: .5em 0 0;
+padding: 0;
+}
+.tabs-inner .section {
+margin: 0;
+}
+.tabs-inner .widget ul {
+padding: 0;
+background: #f5f5f5 url(//www.blogblog.com/1kt/transparent/tabs_gradient_shade.png) repeat scroll bottom;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-goog-ms-border-radius: 10px;
+border-radius: 10px;
+}
+.tabs-inner .widget li {
+border: none;
+}
+.tabs-inner .widget li a {
+display: inline-block;
+padding: .5em 1em;
+margin-right: 0;
+color: #992211;
+font: normal normal 15px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+-moz-border-radius: 0 0 0 0;
+-webkit-border-top-left-radius: 0;
+-webkit-border-top-right-radius: 0;
+-goog-ms-border-radius: 0 0 0 0;
+border-radius: 0 0 0 0;
+background: transparent none no-repeat scroll top left;
+border-right: 1px solid #cccccc;
+}
+.tabs-inner .widget li:first-child a {
+padding-left: 1.25em;
+-moz-border-radius-topleft: 10px;
+-moz-border-radius-bottomleft: 10px;
+-webkit-border-top-left-radius: 10px;
+-webkit-border-bottom-left-radius: 10px;
+-goog-ms-border-top-left-radius: 10px;
+-goog-ms-border-bottom-left-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+}
+.tabs-inner .widget li.selected a,
+.tabs-inner .widget li a:hover {
+position: relative;
+z-index: 1;
+background: #ffffff url(//www.blogblog.com/1kt/transparent/tabs_gradient_shade.png) repeat scroll bottom;
+color: #000000;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+}
+/* Headings
+----------------------------------------------- */
+h2 {
+font: bold normal 13px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+text-transform: uppercase;
+color: #666666;
+margin: .5em 0;
+}
+/* Main
+----------------------------------------------- */
+.main-outer {
+background: transparent none repeat scroll top center;
+-moz-border-radius: 0 0 0 0;
+-webkit-border-top-left-radius: 0;
+-webkit-border-top-right-radius: 0;
+-webkit-border-bottom-left-radius: 0;
+-webkit-border-bottom-right-radius: 0;
+-goog-ms-border-radius: 0 0 0 0;
+border-radius: 0 0 0 0;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+}
+.main-inner {
+padding: 15px 5px 20px;
+}
+.main-inner .column-center-inner {
+padding: 0 0;
+}
+.main-inner .column-left-inner {
+padding-left: 0;
+}
+.main-inner .column-right-inner {
+padding-right: 0;
+}
+/* Posts
+----------------------------------------------- */
+h3.post-title {
+margin: 0;
+font: normal normal 18px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+}
+.comments h4 {
+margin: 1em 0 0;
+font: normal normal 18px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+}
+.date-header span {
+color: #333333;
+}
+.post-outer {
+background-color: #ffffff;
+border: solid 1px #dddddd;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+-goog-ms-border-radius: 10px;
+padding: 15px 20px;
+margin: 0 -20px 20px;
+}
+.post-body {
+line-height: 1.4;
+font-size: 110%;
+position: relative;
+}
+.post-header {
+margin: 0 0 1.5em;
+color: #999999;
+line-height: 1.6;
+}
+.post-footer {
+margin: .5em 0 0;
+color: #999999;
+line-height: 1.6;
+}
+#blog-pager {
+font-size: 140%
+}
+#comments .comment-author {
+padding-top: 1.5em;
+border-top: dashed 1px #ccc;
+border-top: dashed 1px rgba(128, 128, 128, .5);
+background-position: 0 1.5em;
+}
+#comments .comment-author:first-child {
+padding-top: 0;
+border-top: none;
+}
+.avatar-image-container {
+margin: .2em 0 0;
+}
+/* Comments
+----------------------------------------------- */
+.comments .comments-content .icon.blog-author {
+background-repeat: no-repeat;
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9sLFwMeCjjhcOMAAAD+SURBVDjLtZSvTgNBEIe/WRRnm3U8RC1neQdsm1zSBIU9VVF1FkUguQQsD9ITmD7ECZIJSE4OZo9stoVjC/zc7ky+zH9hXwVwDpTAWWLrgS3QAe8AZgaAJI5zYAmc8r0G4AHYHQKVwII8PZrZFsBFkeRCABYiMh9BRUhnSkPTNCtVXYXURi1FpBDgArj8QU1eVXUzfnjv7yP7kwu1mYrkWlU33vs1QNu2qU8pwN0UpKoqokjWwCztrMuBhEhmh8bD5UDqur75asbcX0BGUB9/HAMB+r32hznJgXy2v0sGLBcyAJ1EK3LFcbo1s91JeLwAbwGYu7TP/3ZGfnXYPgAVNngtqatUNgAAAABJRU5ErkJggg==);
+}
+.comments .comments-content .loadmore a {
+border-top: 1px solid #cc4411;
+border-bottom: 1px solid #cc4411;
+}
+.comments .continue {
+border-top: 2px solid #cc4411;
+}
+/* Widgets
+----------------------------------------------- */
+.widget ul, .widget #ArchiveList ul.flat {
+padding: 0;
+list-style: none;
+}
+.widget ul li, .widget #ArchiveList ul.flat li {
+border-top: dashed 1px #ccc;
+border-top: dashed 1px rgba(128, 128, 128, .5);
+}
+.widget ul li:first-child, .widget #ArchiveList ul.flat li:first-child {
+border-top: none;
+}
+.widget .post-body ul {
+list-style: disc;
+}
+.widget .post-body ul li {
+border: none;
+}
+/* Footer
+----------------------------------------------- */
+.footer-outer {
+color:#eeeeee;
+background: transparent url(https://resources.blogblog.com/blogblog/data/1kt/transparent/black50.png) repeat scroll top left;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-top-left-radius: 10px;
+-webkit-border-top-right-radius: 10px;
+-webkit-border-bottom-left-radius: 10px;
+-webkit-border-bottom-right-radius: 10px;
+-goog-ms-border-radius: 10px 10px 10px 10px;
+border-radius: 10px 10px 10px 10px;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+}
+.footer-inner {
+padding: 10px 5px 20px;
+}
+.footer-outer a {
+color: #ffffdd;
+}
+.footer-outer a:visited {
+color: #cccc99;
+}
+.footer-outer a:hover {
+color: #ffffff;
+}
+.footer-outer .widget h2 {
+color: #bbbbbb;
+}
+/* Mobile
+----------------------------------------------- */
+html body.mobile {
+height: auto;
+}
+html body.mobile {
+min-height: 480px;
+background-size: 100% auto;
+}
+.mobile .body-fauxcolumn-outer {
+background: transparent none repeat scroll top left;
+}
+html .mobile .mobile-date-outer, html .mobile .blog-pager {
+border-bottom: none;
+background: transparent none repeat scroll top center;
+margin-bottom: 10px;
+}
+.mobile .date-outer {
+background: transparent none repeat scroll top center;
+}
+.mobile .header-outer, .mobile .main-outer,
+.mobile .post-outer, .mobile .footer-outer {
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+}
+.mobile .content-outer,
+.mobile .main-outer,
+.mobile .post-outer {
+background: inherit;
+border: none;
+}
+.mobile .content-outer {
+font-size: 100%;
+}
+.mobile-link-button {
+background-color: #992211;
+}
+.mobile-link-button a:link, .mobile-link-button a:visited {
+color: #ffffff;
+}
+.mobile-index-contents {
+color: #333333;
+}
+.mobile .tabs-inner .PageList .widget-content {
+background: #ffffff url(//www.blogblog.com/1kt/transparent/tabs_gradient_shade.png) repeat scroll bottom;
+color: #000000;
+}
+.mobile .tabs-inner .PageList .widget-content .pagelist-arrow {
+border-left: 1px solid #cccccc;
+}
+
+--></style>
+<style id='template-skin-1' type='text/css'><!--
+body {
+min-width: 960px;
+}
+.content-outer, .content-fauxcolumn-outer, .region-inner {
+min-width: 960px;
+max-width: 960px;
+_width: 960px;
+}
+.main-inner .columns {
+padding-left: 0px;
+padding-right: 310px;
+}
+.main-inner .fauxcolumn-center-outer {
+left: 0px;
+right: 310px;
+/* IE6 does not respect left and right together */
+_width: expression(this.parentNode.offsetWidth -
+parseInt("0px") -
+parseInt("310px") + 'px');
+}
+.main-inner .fauxcolumn-left-outer {
+width: 0px;
+}
+.main-inner .fauxcolumn-right-outer {
+width: 310px;
+}
+.main-inner .column-left-outer {
+width: 0px;
+right: 100%;
+margin-left: -0px;
+}
+.main-inner .column-right-outer {
+width: 310px;
+margin-right: -310px;
+}
+#layout {
+min-width: 0;
+}
+#layout .content-outer {
+min-width: 0;
+width: 800px;
+}
+#layout .region-inner {
+min-width: 0;
+width: auto;
+}
+body#layout div.add_widget {
+padding: 8px;
+}
+body#layout div.add_widget a {
+margin-left: 32px;
+}
+--></style>
+<style>
+    body {background-image:url(\/\/themes.googleusercontent.com\/image?id=1fupio4xM9eVxyr-k5QC5RiCJlYR35r9dXsp63RKsKt64v33poi2MvnjkX_1MULBY8BsT);}
+    
+@media (max-width: 200px) { body {background-image:url(\/\/themes.googleusercontent.com\/image?id=1fupio4xM9eVxyr-k5QC5RiCJlYR35r9dXsp63RKsKt64v33poi2MvnjkX_1MULBY8BsT&options=w200);}}
+@media (max-width: 400px) and (min-width: 201px) { body {background-image:url(\/\/themes.googleusercontent.com\/image?id=1fupio4xM9eVxyr-k5QC5RiCJlYR35r9dXsp63RKsKt64v33poi2MvnjkX_1MULBY8BsT&options=w400);}}
+@media (max-width: 800px) and (min-width: 401px) { body {background-image:url(\/\/themes.googleusercontent.com\/image?id=1fupio4xM9eVxyr-k5QC5RiCJlYR35r9dXsp63RKsKt64v33poi2MvnjkX_1MULBY8BsT&options=w800);}}
+@media (max-width: 1200px) and (min-width: 801px) { body {background-image:url(\/\/themes.googleusercontent.com\/image?id=1fupio4xM9eVxyr-k5QC5RiCJlYR35r9dXsp63RKsKt64v33poi2MvnjkX_1MULBY8BsT&options=w1200);}}
+/* Last tag covers anything over one higher than the previous max-size cap. */
+@media (min-width: 1201px) { body {background-image:url(\/\/themes.googleusercontent.com\/image?id=1fupio4xM9eVxyr-k5QC5RiCJlYR35r9dXsp63RKsKt64v33poi2MvnjkX_1MULBY8BsT&options=w1600);}}
+  </style>
+<link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=7914192170775790127&amp;zx=63480242-d883-4377-a097-15729f7c9fa4' media='none' onload='if(media!=&#39;all&#39;)media=&#39;all&#39;' rel='stylesheet'/><noscript><link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=7914192170775790127&amp;zx=63480242-d883-4377-a097-15729f7c9fa4' rel='stylesheet'/></noscript>
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+
+</head>
+<body class='loading variant-shade'>
+<div class='navbar section' id='navbar' name='Navbar'><div class='widget Navbar' data-version='1' id='Navbar1'><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/platform.js"></script>
+<script type="text/javascript">
+      gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+        if (gapi.iframes && gapi.iframes.getContext) {
+          gapi.iframes.getContext().openChild({
+              url: 'https://www.blogger.com/navbar/7914192170775790127?po\x3d1931487062622941205\x26origin\x3dhttps://oracleebs4u.blogspot.com',
+              where: document.getElementById("navbar-iframe-container"),
+              id: "navbar-iframe"
+          });
+        }
+      });
+    </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div class='body-fauxcolumns'>
+<div class='fauxcolumn-outer body-fauxcolumn-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</div>
+<div class='content'>
+<div class='content-fauxcolumns'>
+<div class='fauxcolumn-outer content-fauxcolumn-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</div>
+<div class='content-outer'>
+<div class='content-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left content-fauxborder-left'>
+<div class='fauxborder-right content-fauxborder-right'></div>
+<div class='content-inner'>
+<header>
+<div class='header-outer'>
+<div class='header-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left header-fauxborder-left'>
+<div class='fauxborder-right header-fauxborder-right'></div>
+<div class='region-inner header-inner'>
+<div class='header section' id='header' name='Header'><div class='widget Header' data-version='1' id='Header1'>
+<div id='header-inner'>
+<div class='titlewrapper'>
+<h1 class='title'>
+<a href='https://oracleebs4u.blogspot.com/'>
+Welcome to Oracle EBS
+</a>
+</h1>
+</div>
+<div class='descriptionwrapper'>
+<p class='description'><span>Oracle Applications..</span></p>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class='header-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</header>
+<div class='tabs-outer'>
+<div class='tabs-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left tabs-fauxborder-left'>
+<div class='fauxborder-right tabs-fauxborder-right'></div>
+<div class='region-inner tabs-inner'>
+<div class='tabs no-items section' id='crosscol' name='Cross-column'></div>
+<div class='tabs no-items section' id='crosscol-overflow' name='Cross-Column 2'></div>
+</div>
+</div>
+<div class='tabs-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<div class='main-outer'>
+<div class='main-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left main-fauxborder-left'>
+<div class='fauxborder-right main-fauxborder-right'></div>
+<div class='region-inner main-inner'>
+<div class='columns fauxcolumns'>
+<div class='fauxcolumn-outer fauxcolumn-center-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<div class='fauxcolumn-outer fauxcolumn-left-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<div class='fauxcolumn-outer fauxcolumn-right-outer'>
+<div class='cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left'>
+<div class='fauxborder-right'></div>
+<div class='fauxcolumn-inner'>
+</div>
+</div>
+<div class='cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<!-- corrects IE6 width calculation -->
+<div class='columns-inner'>
+<div class='column-center-outer'>
+<div class='column-center-inner'>
+<div class='main section' id='main' name='Main'><div class='widget Blog' data-version='1' id='Blog1'>
+<div class='blog-posts hfeed'>
+
+          <div class="date-outer">
+        
+<h2 class='date-header'><span>Monday, 24 August 2015</span></h2>
+
+          <div class="date-posts">
+        
+<div class='post-outer'>
+<div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+<meta content='https://docs.oracle.com/cd/E26401_01/doc.122/e49059/img/ontapi_1_1.gif' itemprop='image_url'/>
+<meta content='7914192170775790127' itemprop='blogId'/>
+<meta content='1931487062622941205' itemprop='postId'/>
+<a name='1931487062622941205'></a>
+<h3 class='post-title entry-title' itemprop='name'>
+Oracle Order Management Open Interfaces, API's
+</h3>
+<div class='post-header'>
+<div class='post-header-line-1'></div>
+</div>
+<div class='post-body entry-content' id='post-body-1931487062622941205' itemprop='description articleBody'>
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<div style="text-align: justify;">
+</div>
+<table border="0" style="margin-left: 0px; margin-right: 0px; text-align: left; width: 97%px;" summary=""><tbody>
+<tr><td class="zz-nav-header-cell" width="97%"><br /></td><td class="zz-nav-header-cell" width="97%"><br /></td><td class="zz-nav-button-cell"><br /></td><td class="zz-nav-button-cell"><br /></td><td class="zz-nav-button-cell"><br /></td><td class="zz-nav-button-cell"><br /></td></tr>
+</tbody></table>
+<h2 style="text-align: justify;">
+ <b>Overview of Oracle Order Management APIs and Open Interfaces</b></h2>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e105"></a></div>
+<div style="text-align: justify;">
+Oracle Order Management products provide a number of open interfaces
+ that you can link to, and exchange data with, other Oracle applications
+ and non-Oracle applications like legacy systems.</div>
+<div style="text-align: justify;">
+This chapter will help you understand the general model that Oracle 
+Order Management products use for open interfaces. Other chapters in 
+this book provide information about how to use specific open interfaces.
+ Additional functional information about the interfaces is available in 
+the user or implementation guide for each product. Additional technical 
+information on these interfaces is available in the product-specific 
+e-Technical Reference Manuals.</div>
+<h2 style="text-align: justify;">
+ <a href="https://www.blogger.com/null" name="2836342"></a><b>Basic Business Needs</b></h2>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e117"></a></div>
+<div style="text-align: justify;">
+APIs and open interfaces of the Oracle Order Management Suite 
+provide you with the features you need to support the following basic 
+business needs:</div>
+<ul style="text-align: justify;">
+<li>
+ <a href="https://www.blogger.com/null" name="d0e126"></a>Connect to data collection devices. You can 
+collect material movement transactions such as receipts, issues, quality
+ data, movements, completions, and shipments. This improves data entry 
+speed and transaction accuracy.<br />
+
+  </li>
+<li>
+ <a href="https://www.blogger.com/null" name="d0e132"></a>Connect to other systems such as finite 
+scheduling packages, computer-aided design systems, and custom and 
+legacy manufacturing systems to create integrated enterprise wide 
+systems.<br />
+
+  </li>
+<li>
+ <a href="https://www.blogger.com/null" name="d0e138"></a>Connect to external systems such as the 
+customer's purchasing system and the supplier's order entry system to 
+better integrate the supply chain via electronic commerce.<br />
+
+  </li>
+<li>
+ <a href="https://www.blogger.com/null" name="d0e144"></a>Control processing of inbound data imported from outside Oracle applications.<br />
+
+  </li>
+<li>
+ <a href="https://www.blogger.com/null" name="d0e150"></a>Validate imported data to maintain data integrity within the application.<br />
+
+  </li>
+<li>
+ Review, update, and resubmit imported data that failed validation.<br />
+
+  </li>
+<li>
+ <a href="https://www.blogger.com/null" name="d0e159"></a>Export data from Oracle Order Management products to external systems.</li>
+</ul>
+<h2 style="text-align: justify;">
+ <a href="https://www.blogger.com/null" name="2836343"></a><b>Oracle Order Management Interfaces</b></h2>
+<h3 style="text-align: justify;">
+<b>Open Interface Architectures</b></h3>
+<div style="text-align: justify;">
+Oracle Order Management products use three different methods for importing and exporting data:</div>
+<ul style="text-align: justify;">
+<li>
+ Interface Tables<br />
+
+  </li>
+<li>
+ Interface Views (Business Views)<br />
+
+  </li>
+<li>
+ Function Calls or Programmatic Interfaces (Processes)</li>
+</ul>
+<h3 style="text-align: justify;">
+<b>Interface Tables</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e187"></a></div>
+<div style="text-align: justify;">
+Interface tables in Oracle Order Management applications provide a 
+temporary storage area for loading information from an external source. 
+ After the information is loaded, concurrent programs are executed to 
+validate the information and then apply the information to the base 
+product tables.</div>
+<div style="text-align: justify;">
+The benefit of an interface table is that it provides a repository 
+where records can be processed and if errors are found, you can edit the
+ records and resubmit them.</div>
+<div style="text-align: justify;">
+In the Oracle Order Management family of applications you should 
+never write directly to the product tables. An Oracle Applications 
+validation step is always required. You may achieve this either by 
+loading information into the interface tables and submitting a provided 
+concurrent program to validate and process the information or by using a
+ function call to a programmatic interface.</div>
+<h3 style="text-align: justify;">
+<b>Interface Views (Business Views)</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e200"></a></div>
+<div style="text-align: justify;">
+Views simplify the data relationships for easier processing, whether
+ for reporting or data export. Oracle Order Management products have 
+defined <i>business views</i> that identify areas of key business 
+interest. You can access this data using a tool of your choice. The 
+OE_ORDER_HEADERS_BV is an example of a key business view.</div>
+<h3 style="text-align: justify;">
+<b>Function Calls or Programmatic Interfaces (Processes)</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e212"></a></div>
+<div style="text-align: justify;">
+As an alternative to the two step process of writing to an interface
+ table and executing a program to process the table data, many Oracle 
+Order Management interfaces support direct function calls.  A calling 
+application can pass appropriate parameters and execute a public 
+function to invoke the application logic.</div>
+<div style="text-align: justify;">
+The benefit of a function call is that the integration is real time,
+ as opposed to interface tables where the integration is batch.</div>
+<h3 style="text-align: justify;">
+<b>Summary: Beyond Published Interfaces</b></h3>
+<div style="text-align: justify;">
+The Oracle Cooperative Applications Initiative references many third
+ party products that provide import and export capabilities and allow 
+varying degrees of integration with legacy systems, supplier systems, 
+and so on. Contact your Oracle consultant for more information about 
+system integration.</div>
+<h3 style="text-align: justify;">
+<b>Some Key Terms and Tables</b></h3>
+<div style="text-align: justify;">
+The lists below provide information on the database tables, views, procedures, and modules used in data integration.</div>
+<table border="1" cellpadding="4" cellspacing="0" style="margin-left: 0px; margin-right: 0px; text-align: left;" summary="table is summarized in text"><caption>Table Key</caption>
+ <tbody>
+<tr bgcolor="#E0E0E0" class="HEADER" valign="CENTER"><th scope="col"><b>Key</b>
+    </th><th scope="col"><b>Description</b>
+    
+ </th></tr>
+<tr valign="TOP"><td><b>Data Flow Direction</b>
+      </td><td><i>Inbound</i> means into Oracle Order Management;<i> Outbound</i> means out from Oracle Order Management
+ </td></tr>
+<tr valign="TOP"><td><b>Iface Man</b>
+      </td><td>The interface is documented in detail in the <i>Oracle Order Management Open Interfaces, API, &amp; Electronic Messaging Guide</i>
+ </td></tr>
+<tr valign="TOP"><td><b>e-TRM</b>
+      </td><td>The tables, views, or modules are described in the product's e-Technical Reference Manual</td></tr>
+</tbody></table>
+<table border="1" cellpadding="4" cellspacing="0" style="margin-left: 0px; margin-right: 0px; text-align: left;" summary="table is summarized in text"><caption>Oracle Order Management APIs/Open InterfacesOracle Order Management APIs/Open Interfaces</caption>
+ <tbody>
+<tr bgcolor="#E0E0E0" class="HEADER" valign="CENTER"><th scope="col"><b>Interface/API  Name</b>
+    </th><th scope="col"><b>Data Flow Direction</b>
+    </th><th scope="col"><b>Table, View, Process, or Procedure</b>
+    </th><th scope="col"><b>Iface Man</b>
+    </th><th scope="col"><b>TRM</b>
+    </th><th scope="col"><b>Table, View, Module Name, or Procedure Name</b>
+    
+ </th></tr>
+<tr valign="TOP"><td><b>ONT</b>
+      </td><td><b>ONT</b>
+      </td><td><b>ONT</b>
+      </td><td><b>ONT</b>
+      </td><td><b>ONT</b>
+      </td><td><b>ONT</b>
+ </td></tr>
+<tr valign="TOP"><td>Order Import
+      </td><td>Inbound
+      </td><td>Table
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>OE_HEADERS_IFACE_ALL <br /> OE_LINES_IFACE_ALL <br /> OE_RESERVTNS_IFACE_ALL <br /> OE_CREDITS_IFACE_ALL <br /> OE_PRICE_ADJS_IFACE_ALL <br /> OE_LOTSERIALS_IFACE_ALL <br /> OE_ACTIONS_IFACE_ALL 
+ </td></tr>
+<tr valign="TOP"><td>Process Order
+      </td><td>Inbound
+      </td><td>Process
+      </td><td>No
+      </td><td>Yes
+      </td><td>OE_ORDER_PUB.PROCESS_ORDER
+ </td></tr>
+<tr valign="TOP"><td><b>QP</b>
+      </td><td><b>QP</b>
+      </td><td><b>QP</b>
+      </td><td><b>QP</b>
+      </td><td><b>QP</b>
+      </td><td><b>QP</b>
+ </td></tr>
+<tr valign="TOP"><td>Agreement Public Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>OE_PRICING_CONT_PUB.PROCESS_AGREEMENT<br /> OE_PRICING_CONT_PUB.GET_AGREEMENT<br /> OE_PRICING_CONT_PUB.LOCK_AGREEMENT
+ </td></tr>
+<tr valign="TOP"><td>Attribute Mapping Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td> QP_ATTR_MAPPING_PUB.BUILD_CONTEXTS
+ </td></tr>
+<tr valign="TOP"><td>Business Object for Modifier Setup Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_MODIFIERS_PUB.PROCESS_MODIFIERS<br /> QP_MODIFIERS_PUB.GET_MODIFIERS<br /> QP_MODIFIERS_PUB.LOCK_MODIFIERS
+ </td></tr>
+<tr valign="TOP"><td>Business Object for Pricing Formulas Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_PRICE_FORMULA_PUB.LOCK_PRICE_FORMULA<br /> QP_PRICE_FORMULA_PUB.PROCESS_PRICE_FORMULA<br /> QP_PRICE_FORMULA_PUB.GET_PRICE_FORMULA
+ </td></tr>
+<tr valign="TOP"><td>Business Object for Pricing Limits Application Program Interface
+      </td><td>&nbsp;
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_LIMITS_PUB.PROCESS_LIMITS<br /> QP_LIMITS_PUB.GET_LIMITS<br /> QP_LIMITS_PUB.LOCK_LIMITS
+ </td></tr>
+<tr valign="TOP"><td>Create Publish Price Book Application Program Interface<br /> 
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_PRICE_BOOK_PUB.CREATE_PUBLISH_PRICE_BOOK
+ </td></tr>
+<tr valign="TOP"><td>Custom Runtime Sourcing Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_RUNTIME_SOURCE.GET_NUMERIC_ATTRIBUTE_VALUE
+ </td></tr>
+<tr valign="TOP"><td>Get Currency Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_CURRENCY_PUB.GET_CURRENCY
+ </td></tr>
+<tr valign="TOP"><td>Get_Attribute_Text Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_UTIL_PUB.GET_ATTRIBUTE_TEXT
+ </td></tr>
+<tr valign="TOP"><td>Get Custom Price  (Used in Formulas Setup) Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_CUSTOM.GET_CUSTOM_PRICE
+ </td></tr>
+<tr valign="TOP"><td>Get Price Book Application Program Interface 
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_PRICE_BOOK.GET_PRICE_BOOK
+ </td></tr>
+<tr valign="TOP"><td>Get Price For Line Application Program Interface 
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_PREQ_PUB.PRICE_REQUEST
+ </td></tr>
+<tr valign="TOP"><td>Get Price List Currency Application Program Interface 
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_UTIL_PUB.GET_CURRENCY
+ </td></tr>
+<tr valign="TOP"><td>Get Price List Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_UTIL_PUB.GET_PRICE_LIST 
+ </td></tr>
+<tr valign="TOP"><td>Multi-Currency Conversion Setup Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_CURRENCY_PUB. PROCESS_CURRENCY
+ </td></tr>
+<tr valign="TOP"><td>Price List Setup
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_PRICE_LIST_PUB.PROCESS_PRICE_LIST <br /> QP_PRICE_LIST_PUB.GET_PRICE_LIST<br /> QP_PRICE_LIST_PUB.LOCK_PRICE_LIST
+ </td></tr>
+<tr valign="TOP"><td>Price List Setup Group Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_PRICE_LIST_GRP.PROCESS_PRICE_LIST
+ </td></tr>
+<tr valign="TOP"><td>Price Request Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_PREQ_GRP.PRICE_REQUEST
+ </td></tr>
+<tr valign="TOP"><td>Pricing Data Bulk Loader API
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_BULK_LOADER_PUB.LOAD_PRICING_DATA
+ </td></tr>
+<tr valign="TOP"><td>Pricing Object Security CHECK_FUNCTION
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_SECURITY.CHECK_FUNCTION
+ </td></tr>
+<tr valign="TOP"><td>Qualifiers Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_QUALIFIER_RULES_PUB.PROCESS_QUALIFIER_RULES<br /> QP_QUALIFIER_RULES_PUB.LOCK_QUALIFIER_RULES<br /> QP_QUALIFIER_RULES_PUB.GET_QUALIFIER_RULES<br /> QP_QUALIFIER_RULES_PUB.COPY_QUALIFIER_RULES
+ </td></tr>
+<tr valign="TOP"><td>Reverse Limits Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_UTIL_PUB.REVERSE_LIMITS
+ </td></tr>
+<tr valign="TOP"><td>Round Price Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_UTIL_PUB.ROUND_PRICE
+ </td></tr>
+<tr valign="TOP"><td>Validate_Price_list_Curr_code Application Program Interface
+      </td><td>Inbound/Outbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>QP_UTIL_PUB.VALIDATE_PRICE_LIST_CURR_CODE
+ </td></tr>
+<tr valign="TOP"><td><b>RLM</b>
+      </td><td><b>RLM</b>
+      </td><td><b>RLM</b>
+      </td><td><b>RLM</b>
+      </td><td><b>RLM</b>
+      </td><td><b>RLM</b>
+ </td></tr>
+<tr valign="TOP"><td>RLM_INTERFACE_HEADERS
+      </td><td>Inbound
+      </td><td>Table
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>RLM_INTERFACE_HEADERS
+ </td></tr>
+<tr valign="TOP"><td>RLM_INTERFACE_LINES
+      </td><td>Inbound
+      </td><td>Table
+      </td><td>Yes
+      </td><td>Yes
+      </td><td>RLM_INTERFACE_LINES
+ </td></tr>
+<tr valign="TOP"><td><b>WSH</b>
+      </td><td><b>WSH</b>
+      </td><td><b>WSH</b>
+      </td><td><b>WSH</b>
+      </td><td><b>WSH</b>
+      </td><td><b>WSH</b>
+ </td></tr>
+<tr valign="TOP"><td>Trip Public API
+      </td><td>Inbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>No
+      </td><td>WSH_TRIPS_PUB (Procedure package)
+ </td></tr>
+<tr valign="TOP"><td>Stop Public API
+      </td><td>Inbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>No
+      </td><td>WSH_TRIP_STOPS_PUB (Procedure package)
+ </td></tr>
+<tr valign="TOP"><td>Deliveries Public API
+      </td><td>Inbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>No
+      </td><td>WSH_DELIVERIES_PUB (Procedure package)
+ </td></tr>
+<tr valign="TOP"><td>Exceptions Public API
+      </td><td>Inbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>No
+      </td><td>WSH_EXCEPTIONS_PUB (Procedure package)
+ </td></tr>
+<tr valign="TOP"><td>Delivery Details Public API
+      </td><td>Inbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>No
+      </td><td>WSH_DELIVERY_DETAILS_PUB (Procedure package) 
+ </td></tr>
+<tr valign="TOP"><td>Container Public API
+      </td><td>Inbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>No
+      </td><td>WSH_CONTAINER_PUB (Procedure package)
+ </td></tr>
+<tr valign="TOP"><td>Freight Costs Public API
+      </td><td>Inbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>No
+      </td><td>WSH_FREIGHT_COSTS_PUB (Procedure package)
+ </td></tr>
+<tr valign="TOP"><td>Pick Release Application Program Interface API
+      </td><td>Inbound
+      </td><td>Procedure
+      </td><td>Yes
+      </td><td>No
+      </td><td>WSH_PICKING_BATCHES_PUB (Procedure package)</td></tr>
+</tbody></table>
+<h2 style="text-align: justify;">
+ <a href="https://www.blogger.com/null" name="2836352"></a><b>Inbound Open Interface Model</b></h2>
+<div style="text-align: justify;">
+Oracle Order Management products use both inbound and outbound 
+interfaces. For inbound transactions and data import, interface tables 
+as well as supporting validation, processing, and maintenance programs 
+are available. For outbound transactions and data export to external 
+systems, database views are available and the destination application 
+provides the validation, processing, and maintenance programs.</div>
+<h3 style="text-align: justify;">
+<b>Discussion of Inbound Interfaces</b></h3>
+<div style="text-align: justify;">
+In this manual, we discuss only inbound interfaces in detail. You 
+can find information about the tables, views, and processes related to 
+outbound interfaces in the e-TRM for each product. Note that the e-TRMs 
+do <i>not</i> contain detailed, narrative descriptions about the outbound interfaces.</div>
+<h3 style="text-align: justify;">
+<b>Open Interface Diagram</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1165"></a></div>
+<div style="text-align: justify;">
+This diagram shows the general model for open application interfaces:</div>
+<div style="text-align: justify;">
+<img alt="the picture is described in the document text" height="1079" src="https://docs.oracle.com/cd/E26401_01/doc.122/e49059/img/ontapi_1_1.gif" width="1380" /></div>
+<h3 style="text-align: justify;">
+<b>Open API Diagram</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1179"></a></div>
+<div style="text-align: justify;">
+This diagram illustrates the model used by APIs such as the Service Request interfaces (Oracle Service):</div>
+<div style="text-align: justify;">
+<img alt="the picture is described in the document text" height="453" src="https://docs.oracle.com/cd/E26401_01/doc.122/e49059/img/ontapi_1_2.gif" width="544" /></div>
+<h2 style="text-align: justify;">
+ <a href="https://www.blogger.com/null" name="2836356"></a><b>Components of an Open Interface</b></h2>
+<div style="text-align: justify;">
+The components described below are common to most open interfaces. 
+Please note that the component may be implemented slightly differently 
+than described below.</div>
+<h3 style="text-align: justify;">
+<b>Source Application</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1200"></a></div>
+<div style="text-align: justify;">
+A source application may be an external system or another module in 
+the e-Business Suite. Data may be processed and stored in a source 
+application.</div>
+<h3 style="text-align: justify;">
+<b>Destination Application</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1209"></a></div>
+<div style="text-align: justify;">
+A destination application may be an external system or another 
+module in the e-Business Suite. You send data to a destination 
+application so that the application can perform further processing and 
+storage.</div>
+<h3 style="text-align: justify;">
+<b>Interface Table</b></h3>
+<div style="text-align: justify;">
+For inbound interfaces, the interface table is the intermediary 
+table where the data from the source application temporarily resides 
+until it is validated and processed into an Oracle Order Management 
+product. The various types of interface columns, are listed below:</div>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1221"></a><b>Identifier Columns</b></div>
+<div style="text-align: justify;">
+Identifier columns uniquely identify rows in the interface table and
+ provide foreign key reference to both the source and destination 
+applications. For example, typical identifier columns for a move 
+transaction would identify:</div>
+<ul style="text-align: justify;">
+<li>
+ The source application<br />
+
+  </li>
+<li>
+ The row's unique identifier in the source application<br />
+
+  </li>
+<li>
+ The destination application's unique identifier.</li>
+</ul>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1239"></a><b>Control Columns</b></div>
+<div style="text-align: justify;">
+Control columns track the status of each row in the interface table 
+as it is inserted, validated, processed with or without errors, and 
+ultimately deleted. Additional control columns identify who last updated
+ the row and the last update date.</div>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1247"></a><b>Data Columns</b></div>
+<div style="text-align: justify;">
+Data columns store the specific attributes that the source application is sending to the Oracle Order Management products.</div>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1255"></a><b>Required Columns</b></div>
+<div style="text-align: justify;">
+Required columns store the minimum information needed by the Oracle 
+Order Management products to successfully process the interface row. </div>
+<div style="text-align: justify;">
+Some columns are conditionally required based on the specifics of the interface.</div>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1265"></a><b>Derived Columns</b></div>
+<div style="text-align: justify;">
+Derived columns are created by the destination application from 
+information in the required columns. Derived columns are usually 
+required columns that need to contain a value so that processing may 
+continue.</div>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1273"></a><b>Optional Columns</b></div>
+<div style="text-align: justify;">
+The data in optional columns is not mandatory for transaction 
+processing to take place, however the optional columns may be useful for
+ storing additional information.</div>
+<h3 style="text-align: justify;">
+<b>Errors Table</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1284"></a></div>
+<div style="text-align: justify;">
+For inbound interfaces, the errors table stores all errors generated
+ by the validation and processing functions. You can either handle 
+multiple error rows or single rows to resolve the errors. </div>
+<h3 style="text-align: justify;">
+<b>Database View</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1293"></a></div>
+<div style="text-align: justify;">
+Database views are database objects that enable users of destination applications to look at source application data. </div>
+<div style="text-align: justify;">
+Oracle Order Management products provide predefined views of key data that is likely to be used by destination applications.</div>
+<div style="text-align: justify;">
+For example, Oracle Cost Management provides work in process 
+valuation and transaction distribution database views for use by other 
+cost reporting destination products.</div>
+<h3 style="text-align: justify;">
+<b>Load Function</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1306"></a></div>
+<div style="text-align: justify;">
+For inbound interfaces, the load function is the set of programs 
+that selects and accumulates data from the source application and 
+inserts it into Oracle Order Management interface tables. The 
+programming languages and tools used in the load function are highly 
+dependent on the hardware and system software of the source application.</div>
+<div style="text-align: justify;">
+For example, if you are passing data between an Oracle based source 
+application and an Oracle destination application, you would likely use a
+ tool such as Pro*C or PL/SQL since these tools work in both 
+environments. If you are bringing data from a non-Oracle based 
+application into a product interface table, you would likely use a 
+procedural language available on the source application to select the 
+data and convert it into an ASCII file. Then you could use SQL*Loader to
+ insert that file into the destination product's interface table.</div>
+<div style="text-align: justify;">
+For outbound interfaces, the load function is the SQL that creates the database view. </div>
+<h3 style="text-align: justify;">
+<b>Validate Function</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1319"></a></div>
+<div style="text-align: justify;">
+The validate function is the set of programs that Oracle 
+Applications destination products use to ensure the integrity of inbound
+ data. In the source application, you can typically validate data upon 
+entry using techniques such as forms triggers, not null columns, data 
+types, and so on. However, since Oracle Applications products may not be
+ the source of this data, validation programs ensure data integrity.</div>
+<div style="text-align: justify;">
+In addition, the validate function can derive additional columns 
+based on the required columns and foreign key relationships with data 
+elsewhere in the Oracle destination application.</div>
+<div style="text-align: justify;">
+The validation programs check the interface table for rows requiring
+ validation, and the programs validate and update each row indicating 
+whether validation is complete or if errors were found. If errors were 
+found, validation programs need to write errors to the error table of 
+the destination application.</div>
+<div style="text-align: justify;">
+When the source application is a product in the e-Business Suite, 
+the destination application should provide the validate function.</div>
+<h3 style="text-align: justify;">
+<b>Process Function</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1334"></a></div>
+<div style="text-align: justify;">
+The process function is a set of programs that processes the data 
+from the interface table into the Oracle destination product. The 
+specific processing performed varies by application. For open 
+transaction interfaces, the processing generally includes recording the 
+transaction history, updating the inventory and order balances, and 
+charging for costs.</div>
+<div style="text-align: justify;">
+Interfaces typically let you control both the frequency and the 
+number of validated rows that the processing programs attempt to 
+process. Upon successful completion of processing, the process function 
+should delete the processed row from the interface table.</div>
+<div style="text-align: justify;">
+Occasionally, the process function may need to insert rows into the errors table. </div>
+<div style="text-align: justify;">
+When the source application is a product in the e-Business Suite, 
+the destination application should provide the process function.</div>
+<h3 style="text-align: justify;">
+<b>Maintain Function</b></h3>
+<div style="text-align: justify;">
+<a href="https://www.blogger.com/null" name="d0e1349"></a></div>
+<div style="text-align: justify;">
+The maintain function is generally accomplished from a window within
+ an Oracle application. Most of these windows allow you to query, 
+update, and resubmit interface records that have failed validation. In 
+general you can use these windows to query unprocessed or unvalidated 
+rows to check their current status.</div>
+<div style="text-align: justify;">
+When the maintain function is not called explicitly, you can use 
+SQL*Plus to query and update the interface table rows that are in error.</div>
+<div style="text-align: justify;">
+When the source application is a product in the e-Business Suite, 
+the destination application should provide the maintain function.</div>
+<div class="zz-nav-footer-menu" style="text-align: justify;">
+<a href="https://docs.oracle.com/cd/E26401_01/doc.122/e49059/toc.htm">Contents</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="zz-nav-footer-menu" href="https://docs.oracle.com/cd/E26401_01/doc.122/e49059/T393393T393395.htm">Previous</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="zz-nav-footer-menu" href="https://docs.oracle.com/cd/E26401_01/doc.122/e49059/T393393T393396.htm#zztopzz">Top of Page</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="zz-nav-footer-menu" href="https://docs.oracle.com/cd/E26401_01/doc.122/e49059/T393340T393344.htm">Next</a></div>
+<div class="zz-legal-notice" style="text-align: justify;">
+<a href="https://docs.oracle.com/cd/E26401_01/doc.122/e49059/title.htm"><img alt="Oracle Logo" border="0" height="18" src="https://docs.oracle.com/cd/E26401_01/dcommon/gifs/oracle.gif" width="144" /></a><br /><a class="zz-legal-notice-link" href="https://docs.oracle.com/cd/E26401_01/doc.122/e49059/title.htm">Copyright &#169; 1996, 2013, Oracle and/or its affiliates. All rights reserved.  </a></div>
+</div>
+<div style='clear: both;'></div>
+</div>
+<div class='post-footer'>
+<div class='post-footer-line post-footer-line-1'>
+<span class='post-author vcard'>
+Posted by
+<span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+<meta content='https://www.blogger.com/profile/15476575365470496261' itemprop='url'/>
+<a class='g-profile' href='https://www.blogger.com/profile/15476575365470496261' rel='author' title='author profile'>
+<span itemprop='name'>GOVARAJU KAMADI</span>
+</a>
+</span>
+</span>
+<span class='post-timestamp'>
+at
+<meta content='http://oracleebs4u.blogspot.com/2015/08/oracle-order-management-open-interfaces.html' itemprop='url'/>
+<a class='timestamp-link' href='https://oracleebs4u.blogspot.com/2015/08/oracle-order-management-open-interfaces.html' rel='bookmark' title='permanent link'><abbr class='published' itemprop='datePublished' title='2015-08-24T10:12:00-07:00'>10:12</abbr></a>
+</span>
+<span class='post-comment-link'>
+</span>
+<span class='post-icons'>
+<span class='item-control blog-admin pid-735565871'>
+<a href='https://www.blogger.com/post-edit.g?blogID=7914192170775790127&postID=1931487062622941205&from=pencil' title='Edit Post'>
+<img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+</a>
+</span>
+</span>
+<div class='post-share-buttons goog-inline-block'>
+<a class='goog-inline-block share-button sb-email' href='https://www.blogger.com/share-post.g?blogID=7914192170775790127&postID=1931487062622941205&target=email' target='_blank' title='Email This'><span class='share-button-link-text'>Email This</span></a><a class='goog-inline-block share-button sb-blog' href='https://www.blogger.com/share-post.g?blogID=7914192170775790127&postID=1931487062622941205&target=blog' onclick='window.open(this.href, "_blank", "height=270,width=475"); return false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=7914192170775790127&postID=1931487062622941205&target=twitter' target='_blank' title='Share to X'><span class='share-button-link-text'>Share to X</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=7914192170775790127&postID=1931487062622941205&target=facebook' onclick='window.open(this.href, "_blank", "height=430,width=640"); return false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest' href='https://www.blogger.com/share-post.g?blogID=7914192170775790127&postID=1931487062622941205&target=pinterest' target='_blank' title='Share to Pinterest'><span class='share-button-link-text'>Share to Pinterest</span></a>
+</div>
+</div>
+<div class='post-footer-line post-footer-line-2'>
+<span class='post-labels'>
+</span>
+</div>
+<div class='post-footer-line post-footer-line-3'>
+<span class='post-location'>
+</span>
+</div>
+</div>
+</div>
+<div class='comments' id='comments'>
+<a name='comments'></a>
+<h4>No comments:</h4>
+<div id='Blog1_comments-block-wrapper'>
+<dl class='avatar-comment-indent' id='comments-block'>
+</dl>
+</div>
+<p class='comment-footer'>
+<div class='comment-form'>
+<a name='comment-form'></a>
+<h4 id='comment-post-message'>Post a Comment</h4>
+<p>
+</p>
+<a href='https://www.blogger.com/comment/frame/7914192170775790127?po=1931487062622941205&hl=en-GB&saa=85391&origin=https://oracleebs4u.blogspot.com' id='comment-editor-src'></a>
+<iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='410px' id='comment-editor' name='comment-editor' src='' width='100%'></iframe>
+<script src='https://www.blogger.com/static/v1/jsbin/2830521187-comment_from_post_iframe.js' type='text/javascript'></script>
+<script type='text/javascript'>
+      BLOG_CMT_createIframe('https://www.blogger.com/rpc_relay.html');
+    </script>
+</div>
+</p>
+</div>
+</div>
+
+        </div></div>
+      
+</div>
+<div class='blog-pager' id='blog-pager'>
+<span id='blog-pager-newer-link'>
+<a class='blog-pager-newer-link' href='https://oracleebs4u.blogspot.com/2015/08/oracle-plsql-and-d2k-interview.html' id='Blog1_blog-pager-newer-link' title='Newer Post'>Newer Post</a>
+</span>
+<span id='blog-pager-older-link'>
+<a class='blog-pager-older-link' href='https://oracleebs4u.blogspot.com/2015/08/oracle-interview-questions.html' id='Blog1_blog-pager-older-link' title='Older Post'>Older Post</a>
+</span>
+<a class='home-link' href='https://oracleebs4u.blogspot.com/'>Home</a>
+</div>
+<div class='clear'></div>
+<div class='post-feeds'>
+<div class='feed-links'>
+Subscribe to:
+<a class='feed-link' href='https://oracleebs4u.blogspot.com/feeds/1931487062622941205/comments/default' target='_blank' type='application/atom+xml'>Post Comments (Atom)</a>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class='column-left-outer'>
+<div class='column-left-inner'>
+<aside>
+</aside>
+</div>
+</div>
+<div class='column-right-outer'>
+<div class='column-right-inner'>
+<aside>
+<div class='sidebar section' id='sidebar-right-1'><div class='widget Profile' data-version='1' id='Profile1'>
+<h2>About Me</h2>
+<div class='widget-content'>
+<a href='https://www.blogger.com/profile/15476575365470496261'><img alt='My photo' class='profile-img' height='80' src='//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidELbKHkSIazZugSWkBZVWSlPrrcy2y2Si_B6NTJiUGn5PLprkmW8cqmHIcVPh_6TLea2KUTQhRjmIHhnJhneIYpxHTx4i2GM3h3_VGbT78WdeuLLIkRyBtK3ZSwZQXg/s220/Govraj.jpg' width='62'/></a>
+<dl class='profile-datablock'>
+<dt class='profile-data'>
+<a class='profile-name-link g-profile' href='https://www.blogger.com/profile/15476575365470496261' rel='author' style='background-image: url(//www.blogger.com/img/logo-16.png);'>
+GOVARAJU KAMADI
+</a>
+</dt>
+<dd class='profile-textblock'>&#8220;Education is the most powerful weapon with which you can use to change the world.&#8221; </dd>
+</dl>
+<a class='profile-link' href='https://www.blogger.com/profile/15476575365470496261' rel='author'>View my complete profile</a>
+<div class='clear'></div>
+</div>
+</div><div class='widget BlogArchive' data-version='1' id='BlogArchive1'>
+<h2>Blog Archive</h2>
+<div class='widget-content'>
+<div id='ArchiveList'>
+<div id='BlogArchive1_ArchiveList'>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>
+
+        &#9660;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://oracleebs4u.blogspot.com/2015/'>
+2015
+</a>
+<span class='post-count' dir='ltr'>(11)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+        &#9658;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://oracleebs4u.blogspot.com/2015/09/'>
+September
+</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>
+
+        &#9660;&#160;
+      
+</span>
+</a>
+<a class='post-count-link' href='https://oracleebs4u.blogspot.com/2015/08/'>
+August
+</a>
+<span class='post-count' dir='ltr'>(7)</span>
+<ul class='posts'>
+<li><a href='https://oracleebs4u.blogspot.com/2015/08/oracle-plsql-and-oracle-apps-interview.html'>ORACLE PL/SQL AND ORACLE APPS INTERVIEW QUESTIONS</a></li>
+<li><a href='https://oracleebs4u.blogspot.com/2015/08/key-flexfields-in-oracle-apps-r12.html'>KEY FLEXFIELDS IN ORACLE APPS R12</a></li>
+<li><a href='https://oracleebs4u.blogspot.com/2015/08/oracle-plsql-and-d2k-interview.html'>Oracle PLSQL and D2K Interview Questions &amp; Answers</a></li>
+<li><a href='https://oracleebs4u.blogspot.com/2015/08/oracle-order-management-open-interfaces.html'>Oracle Order Management Open Interfaces, API&#39;s</a></li>
+<li><a href='https://oracleebs4u.blogspot.com/2015/08/oracle-interview-questions.html'>Oracle Interview Questions</a></li>
+<li><a href='https://oracleebs4u.blogspot.com/2015/08/oracle-dual-table.html'>Oracle DUAL Table</a></li>
+<li><a href='https://oracleebs4u.blogspot.com/2015/08/normal-0-false-false-false-en-us-x-none.html'>INTERFACES TABLES &amp; VALIDATIONS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class='clear'></div>
+</div>
+</div></div>
+</aside>
+</div>
+</div>
+</div>
+<div style='clear: both'></div>
+<!-- columns -->
+</div>
+<!-- main -->
+</div>
+</div>
+<div class='main-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+<footer>
+<div class='footer-outer'>
+<div class='footer-cap-top cap-top'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+<div class='fauxborder-left footer-fauxborder-left'>
+<div class='fauxborder-right footer-fauxborder-right'></div>
+<div class='region-inner footer-inner'>
+<div class='foot no-items section' id='footer-1'></div>
+<table border='0' cellpadding='0' cellspacing='0' class='section-columns columns-2'>
+<tbody>
+<tr>
+<td class='first columns-cell'>
+<div class='foot no-items section' id='footer-2-1'></div>
+</td>
+<td class='columns-cell'>
+<div class='foot no-items section' id='footer-2-2'></div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- outside of the include in order to lock Attribution widget -->
+<div class='foot section' id='footer-3' name='Footer'><div class='widget Attribution' data-version='1' id='Attribution1'>
+<div class='widget-content' style='text-align: center;'>
+Picture Window theme. Powered by <a href='https://www.blogger.com' target='_blank'>Blogger</a>.
+</div>
+<div class='clear'></div>
+</div></div>
+</div>
+</div>
+<div class='footer-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</footer>
+<!-- content -->
+</div>
+</div>
+<div class='content-cap-bottom cap-bottom'>
+<div class='cap-left'></div>
+<div class='cap-right'></div>
+</div>
+</div>
+</div>
+<script type='text/javascript'>
+    window.setTimeout(function() {
+        document.body.className = document.body.className.replace('loading', '');
+      }, 10);
+  </script>
+
+<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/3432011497-widgets.js"></script>
+<script type='text/javascript'>
+window['__wavt'] = 'ACvIOeDSEVD2uLgbOZ8eFVPHrpep:1785797887341';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d7914192170775790127','//oracleebs4u.blogspot.com/2015/08/oracle-order-management-open-interfaces.html','7914192170775790127');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '7914192170775790127', 'title': 'Welcome to Oracle EBS', 'url': 'https://oracleebs4u.blogspot.com/2015/08/oracle-order-management-open-interfaces.html', 'canonicalUrl': 'http://oracleebs4u.blogspot.com/2015/08/oracle-order-management-open-interfaces.html', 'homepageUrl': 'https://oracleebs4u.blogspot.com/', 'searchUrl': 'https://oracleebs4u.blogspot.com/search', 'canonicalHomepageUrl': 'http://oracleebs4u.blogspot.com/', 'blogspotFaviconUrl': 'https://oracleebs4u.blogspot.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'en-GB', 'localeUnderscoreDelimited': 'en_gb', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'isDynamicViewsAvailable': true, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Welcome to Oracle EBS - Atom\x22 href\x3d\x22https://oracleebs4u.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22Welcome to Oracle EBS - RSS\x22 href\x3d\x22https://oracleebs4u.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Welcome to Oracle EBS - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/7914192170775790127/posts/default\x22 /\x3e\n\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Welcome to Oracle EBS - Atom\x22 href\x3d\x22https://oracleebs4u.blogspot.com/feeds/1931487062622941205/comments/default\x22 /\x3e\n', 'meTag': '', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'adsenseAutoAds': false, 'boqCommentIframeForm': true, 'loginRedirectParam': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/d046e0cddf00ec44', 'plusOneApiSrc': 'https://apis.google.com/js/platform.js', 'disableGComments': true, 'interstitialAccepted': false, 'sharing': {'platforms': [{'name': 'Get link', 'key': 'link', 'shareMessage': 'Get link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Share to Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'X', 'key': 'twitter', 'shareMessage': 'Share to X', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Share to Pinterest', 'target': 'pinterest'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 0, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27en_GB\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Read more', 'pageType': 'item', 'postId': '1931487062622941205', 'postImageUrl': 'https://docs.oracle.com/cd/E26401_01/doc.122/e49059/img/ontapi_1_1.gif', 'pageName': 'Oracle Order Management Open Interfaces, API\x27s', 'pageTitle': 'Welcome to Oracle EBS: Oracle Order Management Open Interfaces, API\x27s'}}, {'name': 'features', 'data': {}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Link copied to clipboard', 'ok': 'Ok', 'postLink': 'Post link'}}, {'name': 'template', 'data': {'name': 'Picture Window', 'localizedName': 'Picture Window', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': false, 'variant': 'shade', 'variantId': 'shade'}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'Oracle Order Management Open Interfaces, API\x27s', 'description': '        Overview of Oracle Order Management APIs and Open Interfaces     Oracle Order Management products provide a number of open interface...', 'featuredImage': 'https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_t6-7OVXUDzfWVcSe2SzcZZfLtrhNViPmIKiNHmQJwvmpcuvBGaWnbHE01WQeWvB_nlFjkxOE_fvBd8C91ZBlPYjWAinOT8tKWDLAVTRaGZTav0Npt_S6gXN5Pis-I-wjgNfo14BwUW538', 'url': 'https://oracleebs4u.blogspot.com/2015/08/oracle-order-management-open-interfaces.html', 'type': 'item', 'isSingleItem': true, 'isMultipleItems': false, 'isError': false, 'isPage': false, 'isPost': true, 'isHomepage': false, 'isArchive': false, 'isLabelSearch': false, 'postId': 1931487062622941205}}]);
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/3083525259-lbx__en_gb.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/828616780-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'sidebar-right-1', document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar-right-1', document.getElementById('BlogArchive1'), {'languageDirection': 'ltr', 'loadingMessage': 'Loading\x26hellip;'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'footer-3', document.getElementById('Attribution1'), {}, 'displayModeFull'));
+</script>
+</body>
+</html>

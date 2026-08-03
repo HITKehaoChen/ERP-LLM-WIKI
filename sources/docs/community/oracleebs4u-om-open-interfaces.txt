@@ -1,0 +1,466 @@
+Overview of Oracle Order Management APIs and Open Interfaces 
+Oracle Order Management products provide a number of open interfaces
+ that you can link to, and exchange data with, other Oracle applications
+ and non-Oracle applications like legacy systems. 
+This chapter will help you understand the general model that Oracle 
+Order Management products use for open interfaces. Other chapters in 
+this book provide information about how to use specific open interfaces.
+ Additional functional information about the interfaces is available in 
+the user or implementation guide for each product. Additional technical 
+information on these interfaces is available in the product-specific 
+e-Technical Reference Manuals. 
+ Basic Business Needs 
+APIs and open interfaces of the Oracle Order Management Suite 
+provide you with the features you need to support the following basic 
+business needs: 
+ Connect to data collection devices. You can 
+collect material movement transactions such as receipts, issues, quality
+ data, movements, completions, and shipments. This improves data entry 
+speed and transaction accuracy. 
+ Connect to other systems such as finite 
+scheduling packages, computer-aided design systems, and custom and 
+legacy manufacturing systems to create integrated enterprise wide 
+systems. 
+ Connect to external systems such as the 
+customer's purchasing system and the supplier's order entry system to 
+better integrate the supply chain via electronic commerce. 
+ Control processing of inbound data imported from outside Oracle applications. 
+ Validate imported data to maintain data integrity within the application. 
+ Review, update, and resubmit imported data that failed validation. 
+ Export data from Oracle Order Management products to external systems. 
+ Oracle Order Management Interfaces 
+ Open Interface Architectures 
+Oracle Order Management products use three different methods for importing and exporting data: 
+ Interface Tables 
+ Interface Views (Business Views) 
+ Function Calls or Programmatic Interfaces (Processes) 
+ Interface Tables 
+Interface tables in Oracle Order Management applications provide a 
+temporary storage area for loading information from an external source. 
+ After the information is loaded, concurrent programs are executed to 
+validate the information and then apply the information to the base 
+product tables. 
+The benefit of an interface table is that it provides a repository 
+where records can be processed and if errors are found, you can edit the
+ records and resubmit them. 
+In the Oracle Order Management family of applications you should 
+never write directly to the product tables. An Oracle Applications 
+validation step is always required. You may achieve this either by 
+loading information into the interface tables and submitting a provided 
+concurrent program to validate and process the information or by using a
+ function call to a programmatic interface. 
+ Interface Views (Business Views) 
+Views simplify the data relationships for easier processing, whether
+ for reporting or data export. Oracle Order Management products have 
+defined business views that identify areas of key business 
+interest. You can access this data using a tool of your choice. The 
+OE_ORDER_HEADERS_BV is an example of a key business view. 
+ Function Calls or Programmatic Interfaces (Processes) 
+As an alternative to the two step process of writing to an interface
+ table and executing a program to process the table data, many Oracle 
+Order Management interfaces support direct function calls. A calling 
+application can pass appropriate parameters and execute a public 
+function to invoke the application logic. 
+The benefit of a function call is that the integration is real time,
+ as opposed to interface tables where the integration is batch. 
+ Summary: Beyond Published Interfaces 
+The Oracle Cooperative Applications Initiative references many third
+ party products that provide import and export capabilities and allow 
+varying degrees of integration with legacy systems, supplier systems, 
+and so on. Contact your Oracle consultant for more information about 
+system integration. 
+ Some Key Terms and Tables 
+The lists below provide information on the database tables, views, procedures, and modules used in data integration. 
+ Table Key 
+ Key 
+ Description 
+ Data Flow Direction 
+ Inbound means into Oracle Order Management; Outbound means out from Oracle Order Management
+ Iface Man 
+ The interface is documented in detail in the Oracle Order Management Open Interfaces, API, & Electronic Messaging Guide 
+ e-TRM 
+ The tables, views, or modules are described in the product's e-Technical Reference Manual 
+ Oracle Order Management APIs/Open InterfacesOracle Order Management APIs/Open Interfaces 
+ Interface/API Name 
+ Data Flow Direction 
+ Table, View, Process, or Procedure 
+ Iface Man 
+ TRM 
+ Table, View, Module Name, or Procedure Name 
+ ONT 
+ ONT 
+ ONT 
+ ONT 
+ ONT 
+ ONT 
+ Order Import
+ Inbound
+ Table
+ Yes
+ Yes
+ OE_HEADERS_IFACE_ALL OE_LINES_IFACE_ALL OE_RESERVTNS_IFACE_ALL OE_CREDITS_IFACE_ALL OE_PRICE_ADJS_IFACE_ALL OE_LOTSERIALS_IFACE_ALL OE_ACTIONS_IFACE_ALL 
+ Process Order
+ Inbound
+ Process
+ No
+ Yes
+ OE_ORDER_PUB.PROCESS_ORDER
+ QP 
+ QP 
+ QP 
+ QP 
+ QP 
+ QP 
+ Agreement Public Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ OE_PRICING_CONT_PUB.PROCESS_AGREEMENT OE_PRICING_CONT_PUB.GET_AGREEMENT OE_PRICING_CONT_PUB.LOCK_AGREEMENT
+ Attribute Mapping Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_ATTR_MAPPING_PUB.BUILD_CONTEXTS
+ Business Object for Modifier Setup Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_MODIFIERS_PUB.PROCESS_MODIFIERS QP_MODIFIERS_PUB.GET_MODIFIERS QP_MODIFIERS_PUB.LOCK_MODIFIERS
+ Business Object for Pricing Formulas Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_PRICE_FORMULA_PUB.LOCK_PRICE_FORMULA QP_PRICE_FORMULA_PUB.PROCESS_PRICE_FORMULA QP_PRICE_FORMULA_PUB.GET_PRICE_FORMULA
+ Business Object for Pricing Limits Application Program Interface
+ Procedure
+ Yes
+ Yes
+ QP_LIMITS_PUB.PROCESS_LIMITS QP_LIMITS_PUB.GET_LIMITS QP_LIMITS_PUB.LOCK_LIMITS
+ Create Publish Price Book Application Program Interface 
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_PRICE_BOOK_PUB.CREATE_PUBLISH_PRICE_BOOK
+ Custom Runtime Sourcing Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_RUNTIME_SOURCE.GET_NUMERIC_ATTRIBUTE_VALUE
+ Get Currency Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_CURRENCY_PUB.GET_CURRENCY
+ Get_Attribute_Text Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_UTIL_PUB.GET_ATTRIBUTE_TEXT
+ Get Custom Price (Used in Formulas Setup) Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_CUSTOM.GET_CUSTOM_PRICE
+ Get Price Book Application Program Interface 
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_PRICE_BOOK.GET_PRICE_BOOK
+ Get Price For Line Application Program Interface 
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_PREQ_PUB.PRICE_REQUEST
+ Get Price List Currency Application Program Interface 
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_UTIL_PUB.GET_CURRENCY
+ Get Price List Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_UTIL_PUB.GET_PRICE_LIST 
+ Multi-Currency Conversion Setup Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_CURRENCY_PUB. PROCESS_CURRENCY
+ Price List Setup
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_PRICE_LIST_PUB.PROCESS_PRICE_LIST QP_PRICE_LIST_PUB.GET_PRICE_LIST QP_PRICE_LIST_PUB.LOCK_PRICE_LIST
+ Price List Setup Group Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_PRICE_LIST_GRP.PROCESS_PRICE_LIST
+ Price Request Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_PREQ_GRP.PRICE_REQUEST
+ Pricing Data Bulk Loader API
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_BULK_LOADER_PUB.LOAD_PRICING_DATA
+ Pricing Object Security CHECK_FUNCTION
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_SECURITY.CHECK_FUNCTION
+ Qualifiers Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_QUALIFIER_RULES_PUB.PROCESS_QUALIFIER_RULES QP_QUALIFIER_RULES_PUB.LOCK_QUALIFIER_RULES QP_QUALIFIER_RULES_PUB.GET_QUALIFIER_RULES QP_QUALIFIER_RULES_PUB.COPY_QUALIFIER_RULES
+ Reverse Limits Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_UTIL_PUB.REVERSE_LIMITS
+ Round Price Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_UTIL_PUB.ROUND_PRICE
+ Validate_Price_list_Curr_code Application Program Interface
+ Inbound/Outbound
+ Procedure
+ Yes
+ Yes
+ QP_UTIL_PUB.VALIDATE_PRICE_LIST_CURR_CODE
+ RLM 
+ RLM 
+ RLM 
+ RLM 
+ RLM 
+ RLM 
+ RLM_INTERFACE_HEADERS
+ Inbound
+ Table
+ Yes
+ Yes
+ RLM_INTERFACE_HEADERS
+ RLM_INTERFACE_LINES
+ Inbound
+ Table
+ Yes
+ Yes
+ RLM_INTERFACE_LINES
+ WSH 
+ WSH 
+ WSH 
+ WSH 
+ WSH 
+ WSH 
+ Trip Public API
+ Inbound
+ Procedure
+ Yes
+ No
+ WSH_TRIPS_PUB (Procedure package)
+ Stop Public API
+ Inbound
+ Procedure
+ Yes
+ No
+ WSH_TRIP_STOPS_PUB (Procedure package)
+ Deliveries Public API
+ Inbound
+ Procedure
+ Yes
+ No
+ WSH_DELIVERIES_PUB (Procedure package)
+ Exceptions Public API
+ Inbound
+ Procedure
+ Yes
+ No
+ WSH_EXCEPTIONS_PUB (Procedure package)
+ Delivery Details Public API
+ Inbound
+ Procedure
+ Yes
+ No
+ WSH_DELIVERY_DETAILS_PUB (Procedure package) 
+ Container Public API
+ Inbound
+ Procedure
+ Yes
+ No
+ WSH_CONTAINER_PUB (Procedure package)
+ Freight Costs Public API
+ Inbound
+ Procedure
+ Yes
+ No
+ WSH_FREIGHT_COSTS_PUB (Procedure package)
+ Pick Release Application Program Interface API
+ Inbound
+ Procedure
+ Yes
+ No
+ WSH_PICKING_BATCHES_PUB (Procedure package) 
+ Inbound Open Interface Model 
+Oracle Order Management products use both inbound and outbound 
+interfaces. For inbound transactions and data import, interface tables 
+as well as supporting validation, processing, and maintenance programs 
+are available. For outbound transactions and data export to external 
+systems, database views are available and the destination application 
+provides the validation, processing, and maintenance programs. 
+ Discussion of Inbound Interfaces 
+In this manual, we discuss only inbound interfaces in detail. You 
+can find information about the tables, views, and processes related to 
+outbound interfaces in the e-TRM for each product. Note that the e-TRMs 
+do not contain detailed, narrative descriptions about the outbound interfaces. 
+ Open Interface Diagram 
+This diagram shows the general model for open application interfaces: 
+ Open API Diagram 
+This diagram illustrates the model used by APIs such as the Service Request interfaces (Oracle Service): 
+ Components of an Open Interface 
+The components described below are common to most open interfaces. 
+Please note that the component may be implemented slightly differently 
+than described below. 
+ Source Application 
+A source application may be an external system or another module in 
+the e-Business Suite. Data may be processed and stored in a source 
+application. 
+ Destination Application 
+A destination application may be an external system or another 
+module in the e-Business Suite. You send data to a destination 
+application so that the application can perform further processing and 
+storage. 
+ Interface Table 
+For inbound interfaces, the interface table is the intermediary 
+table where the data from the source application temporarily resides 
+until it is validated and processed into an Oracle Order Management 
+product. The various types of interface columns, are listed below: 
+ Identifier Columns 
+Identifier columns uniquely identify rows in the interface table and
+ provide foreign key reference to both the source and destination 
+applications. For example, typical identifier columns for a move 
+transaction would identify: 
+ The source application 
+ The row's unique identifier in the source application 
+ The destination application's unique identifier. 
+ Control Columns 
+Control columns track the status of each row in the interface table 
+as it is inserted, validated, processed with or without errors, and 
+ultimately deleted. Additional control columns identify who last updated
+ the row and the last update date. 
+ Data Columns 
+Data columns store the specific attributes that the source application is sending to the Oracle Order Management products. 
+ Required Columns 
+Required columns store the minimum information needed by the Oracle 
+Order Management products to successfully process the interface row. 
+Some columns are conditionally required based on the specifics of the interface. 
+ Derived Columns 
+Derived columns are created by the destination application from 
+information in the required columns. Derived columns are usually 
+required columns that need to contain a value so that processing may 
+continue. 
+ Optional Columns 
+The data in optional columns is not mandatory for transaction 
+processing to take place, however the optional columns may be useful for
+ storing additional information. 
+ Errors Table 
+For inbound interfaces, the errors table stores all errors generated
+ by the validation and processing functions. You can either handle 
+multiple error rows or single rows to resolve the errors. 
+ Database View 
+Database views are database objects that enable users of destination applications to look at source application data. 
+Oracle Order Management products provide predefined views of key data that is likely to be used by destination applications. 
+For example, Oracle Cost Management provides work in process 
+valuation and transaction distribution database views for use by other 
+cost reporting destination products. 
+ Load Function 
+For inbound interfaces, the load function is the set of programs 
+that selects and accumulates data from the source application and 
+inserts it into Oracle Order Management interface tables. The 
+programming languages and tools used in the load function are highly 
+dependent on the hardware and system software of the source application. 
+For example, if you are passing data between an Oracle based source 
+application and an Oracle destination application, you would likely use a
+ tool such as Pro*C or PL/SQL since these tools work in both 
+environments. If you are bringing data from a non-Oracle based 
+application into a product interface table, you would likely use a 
+procedural language available on the source application to select the 
+data and convert it into an ASCII file. Then you could use SQL*Loader to
+ insert that file into the destination product's interface table. 
+For outbound interfaces, the load function is the SQL that creates the database view. 
+ Validate Function 
+The validate function is the set of programs that Oracle 
+Applications destination products use to ensure the integrity of inbound
+ data. In the source application, you can typically validate data upon 
+entry using techniques such as forms triggers, not null columns, data 
+types, and so on. However, since Oracle Applications products may not be
+ the source of this data, validation programs ensure data integrity. 
+In addition, the validate function can derive additional columns 
+based on the required columns and foreign key relationships with data 
+elsewhere in the Oracle destination application. 
+The validation programs check the interface table for rows requiring
+ validation, and the programs validate and update each row indicating 
+whether validation is complete or if errors were found. If errors were 
+found, validation programs need to write errors to the error table of 
+the destination application. 
+When the source application is a product in the e-Business Suite, 
+the destination application should provide the validate function. 
+ Process Function 
+The process function is a set of programs that processes the data 
+from the interface table into the Oracle destination product. The 
+specific processing performed varies by application. For open 
+transaction interfaces, the processing generally includes recording the 
+transaction history, updating the inventory and order balances, and 
+charging for costs. 
+Interfaces typically let you control both the frequency and the 
+number of validated rows that the processing programs attempt to 
+process. Upon successful completion of processing, the process function 
+should delete the processed row from the interface table. 
+Occasionally, the process function may need to insert rows into the errors table. 
+When the source application is a product in the e-Business Suite, 
+the destination application should provide the process function. 
+ Maintain Function 
+The maintain function is generally accomplished from a window within
+ an Oracle application. Most of these windows allow you to query, 
+update, and resubmit interface records that have failed validation. In 
+general you can use these windows to query unprocessed or unvalidated 
+rows to check their current status. 
+When the maintain function is not called explicitly, you can use 
+SQL*Plus to query and update the interface table rows that are in error. 
+When the source application is a product in the e-Business Suite, 
+the destination application should provide the maintain function. 
+ Contents    |    Previous    |    Top of Page    |    Next 
+ Copyright © 1996, 2013, Oracle and/or its affiliates. All rights reserved. 
+Posted by
+ GOVARAJU KAMADI 
+at
+ 10:12 
+ Email This BlogThis! Share to X Share to Facebook Share to Pinterest 
+ No comments: 
+ Post a Comment 
+ 

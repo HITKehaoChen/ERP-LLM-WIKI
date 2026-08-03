@@ -11,13 +11,13 @@ def _inline(text: str) -> str:
     # images (keep as link to the target)
     text = re.sub(
         r"!\[([^\]]*)\]\(([^)]+)\)",
-        lambda m: f'<a href="{_attr(m.group(2))}">图片: {m.group(1) or m.group(2)}</a>',
+        lambda m: f'<a href="{_attr(_safe_url(m.group(2)))}">图片: {m.group(1) or m.group(2)}</a>',
         text,
     )
     # links
     text = re.sub(
         r"\[([^\]]+)\]\(([^)]+)\)",
-        lambda m: f'<a href="{_attr(m.group(2))}" target="_blank" rel="noopener">{m.group(1)}</a>',
+        lambda m: f'<a href="{_attr(_safe_url(m.group(2)))}" target="_blank" rel="noopener">{m.group(1)}</a>',
         text,
     )
     text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
@@ -28,6 +28,17 @@ def _inline(text: str) -> str:
 
 def _attr(url: str) -> str:
     return html.escape(url, quote=True)
+
+
+def _safe_url(url: str) -> str:
+    """Only allow safe URL schemes; block javascript:/vbscript:/data: etc."""
+    stripped = url.strip()
+    low = stripped.lower()
+    if ":" in low.split("/", 1)[0] and not low.startswith(
+        ("http://", "https://", "mailto:", "#", "/", "./", "../")
+    ):
+        return "#"
+    return stripped
 
 
 def render(md: str) -> str:

@@ -117,6 +117,9 @@ def main() -> int:
         st, d = call("POST", "/api/ingest?dry_run=1", {"title": "E2E", "content": "x"})
         check("ingest-dry", d.get("dry_run") is True)
 
+        st, big = call("POST", "/api/ingest", {"title": "E2E-超大", "content": "x" * 200_001})
+        check("ingest-too-large", st == 400)
+
         st, real = call("POST", "/api/ingest", {"title": "E2E-SMOKE-请删除", "content": "冒烟"})
         path = ROOT / real.get("path", "")
         check("ingest-real", path.exists())

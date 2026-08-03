@@ -61,6 +61,12 @@ class TestMarkdown(unittest.TestCase):
         html = markdown_render.render("[x](https://example.com)")
         self.assertIn('href="https://example.com"', html)
 
+    def test_javascript_url_blocked(self):
+        html = markdown_render.render("[x](javascript:alert(1))")
+        self.assertNotIn("javascript:", html)
+        html2 = markdown_render.render("![img](data:text/html,<script>1</script>)")
+        self.assertNotIn("data:", html2)
+
 
 class TestKnowledge(unittest.TestCase):
     def test_page_path_traversal_rejected(self):
@@ -86,6 +92,10 @@ class TestKnowledge(unittest.TestCase):
         r = knowledge.ingest("UT-测试", "内容", "https://example.com", dry_run=True)
         self.assertTrue(r["dry_run"])
         self.assertTrue(r["path"].startswith("sources/inbox/"))
+
+    def test_ingest_too_large(self):
+        with self.assertRaises(ValueError):
+            knowledge.ingest("UT-大", "x" * 200_001, dry_run=True)
 
 
 if __name__ == "__main__":

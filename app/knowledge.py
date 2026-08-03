@@ -123,6 +123,8 @@ def page_markdown(path: str) -> str | None:
 def ingest(title: str, content: str, source_url: str = "", dry_run: bool = False) -> dict:
     if not title.strip() or not content.strip():
         raise ValueError("标题与内容不能为空")
+    if len(content) > 200_000:
+        raise ValueError("内容过长（上限 200KB）")
     INBOX.mkdir(parents=True, exist_ok=True)
     slug = re.sub(r"[^\w\u4e00-\u9fff]+", "-", title.strip()).strip("-").lower() or "untitled"
     fname = f"{date.today().isoformat()}-{slug[:60]}.md"

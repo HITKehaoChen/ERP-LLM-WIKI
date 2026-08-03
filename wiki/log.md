@@ -164,6 +164,14 @@
 
 - 新增 `scripts/unit_tests.py`、`scripts/e2e_test.py`、`scripts/run_checks.py`；一键运行 UT + 冒烟 + 真实启动 E2E + lint，全部通过。
 
+## [2026-08-05] review | 独立视角审查与修复
+
+- 子代理消息投递在本环境不可用（创建/跟进消息均未进入子代理上下文），改为独立视角结构化自审。
+- 修复：Markdown 链接 scheme 白名单（拦截 javascript:/data:）、Canvas 图谱标签颜色改用计算样式、全局搜索自动切页签、ingest 内容 200KB 上限。
+- 新增对应 UT/E2E 用例；`run_checks.py` 全部通过（UT 14 项）。
+
+
+
 
 
 

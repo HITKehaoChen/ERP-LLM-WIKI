@@ -74,6 +74,7 @@ async function doSearch() {
   const q = ($("search-q").value.trim() || $("global-q").value.trim());
   if (!q) return showPages();
   $("search-q").value = q;
+  document.querySelector('.tabs button[data-tab="browse"]').click();
   const raw = $("search-raw").checked ? 1 : 0;
   const { results } = await api(`/api/search?q=${encodeURIComponent(q)}&raw=${raw}&top=30`);
   $("results-title").textContent = `搜索结果（${results.length}）`;
@@ -100,6 +101,10 @@ $("global-search-btn").addEventListener("click", doSearch);
 $("search-q").addEventListener("keydown", (e) => { if (e.key === "Enter") doSearch(); });
 $("global-q").addEventListener("keydown", (e) => { if (e.key === "Enter") doSearch(); });
 showPages().catch(console.error);
+
+function inkColor() {
+  return getComputedStyle(document.documentElement).getPropertyValue("--ink").trim() || "#e6eaf2";
+}
 
 /* ---------- graph ---------- */
 let graphData = null;
@@ -199,7 +204,7 @@ function startGraph() {
       ctx.fillStyle = c + "cc";
       ctx.fill();
       if (n === hover || n.r >= 8) {
-        ctx.fillStyle = "var(--ink)";
+        ctx.fillStyle = inkColor();
         ctx.font = `${11 / view.scale}px Inter, sans-serif`;
         ctx.textAlign = "center";
         ctx.fillText(n.title.slice(0, 18), n.x, n.y - n.r / view.scale - 4);
